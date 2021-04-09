@@ -12,7 +12,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   ${({ isFullWidth }) => isFullWidth && "width: 100%;"}
   border: none;
   text-align: left;
-  padding: 20px 10px;
+  padding: 20px 15px;
   cursor: pointer;
 
   #arrow {
