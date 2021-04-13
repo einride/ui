@@ -1,0 +1,17 @@
+plugins:
+  - - "@semantic-release/commit-analyzer"
+    - preset: "conventionalcommits"
+  - "@semantic-release/release-notes-generator"
+  - "@semantic-release/github"
+  - "@semantic-release/npm"
+
+branches: ["master"]
+# github plugin is the only one running this step and we're not interested
+# in its updates to PR and issues
+success: false
+# github plugin is the only one running this step and we're not interested
+# the issues it creates due to failed releases
+fail: false
+# npm needs to know what directory path with an package.json should be
+# published.
+pkgRoot: "../../"
