@@ -3,7 +3,6 @@
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "baseUrl": "src/",
     "outDir": "./lib",
     "skipLibCheck": true,
     "esModuleInterop": true,
