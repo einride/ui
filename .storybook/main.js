@@ -7,5 +7,7 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/preset-create-react-app",
+    require.resolve("storybook-addon-grid/preset"),
+    require.resolve("storybook-addon-grid/chromatic"),
   ],
 };
