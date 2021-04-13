@@ -18,6 +18,6 @@
     "jsx": "react-jsx",
     "declaration": true
   },
-  "include": ["src"],
-  "exclude": ["src/**/*.stories.@(mdx,tsx)"]
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["src/stories/**/*"]
 }
