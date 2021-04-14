@@ -16,7 +16,7 @@ yarn add eslint @einride/eslint-plugin @emotion/react @emotion/styled
 
 ## Usage
 
-All currently available components are documented in our [Storybook](https://master--605b4f773c09e40021460c8f.chromatic.com/).
+All currently available components are documented in our [Storybook](https://master--606dcc0a2208ee00215fb2d9.chromatic.com/).
 
 ## License
 
