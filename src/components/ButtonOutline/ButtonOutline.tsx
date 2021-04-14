@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 const StyledButtonOutline = styled.button`
   background: var(--einride-white);
-  color: var(--button-color);
+  color: var(--einride-black);
   padding: 10px;
   border-radius: 100px;
   border: 2px solid var(--einride-black);
