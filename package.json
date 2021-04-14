@@ -8,7 +8,6 @@
   "files": [
     "lib"
   ],
-  "license": "MIT",
   "author": "Filip Tammergård",
   "publishConfig": {
     "access": "public"
@@ -49,5 +48,24 @@
     "prebuild": "rimraf lib",
     "build": "tsc -p tsconfig.json && yarn copy-files",
     "copy-files": "copyfiles -u 1 \"src/**/*.css\" \"src/**/*.svg\" \"src/**/*.json\" \"src/**/*.eot\" \"src/**/*.ttf\" \"src/**/*.woff\" \"src/**/*.woff2\" lib/"
+  },
+  "keywords": [
+    "design-system",
+    "component-library",
+    "ui",
+    "react",
+    "typescript",
+    "einride",
+    "styleguide"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/einride/ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/einride/ui.git"
+  },
+  "bugs": {
+    "email": "open-source@einride.tech",
+    "url": "https://github.com/einride/ui/issues"
   }
 }
