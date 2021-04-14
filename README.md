@@ -1,4 +1,4 @@
-# @einride/eslint-plugin
+# @einride/ui
 
 This package provides reusable React components that adhere to Einride's design system.
 
