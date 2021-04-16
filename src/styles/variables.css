@@ -3,5 +3,8 @@ html {
   --einride-white: #ffffff;
   --einride-green: #9ffb66;
 
+  --medium-grey: #d6d6d6;
+  --light-grey: #f7f7f7;
+
   --disabled: #cccccc;
 }
