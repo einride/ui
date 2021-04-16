@@ -5,7 +5,8 @@ all: \
 	install-deps \
 	commitlint \
 	prettier-markdown \
-	git-verify-nodiff
+	git-verify-nodiff \
+	build
 
 include tools/commitlint/rules.mk
 include tools/git-verify-nodiff/rules.mk
