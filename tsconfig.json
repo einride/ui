@@ -9,5 +9,9 @@
     "jsx": "react-jsx",
     "declaration": true
   },
-  "include": ["src/components/**/*.ts", "src/components/**/*.tsx"]
+  "include": [
+    "src/main.ts",
+    "src/components/**/*.ts",
+    "src/components/**/*.tsx"
+  ]
 }
