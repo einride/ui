@@ -2,7 +2,7 @@
   "compilerOptions": {
     "strict": true,
     "target": "es5",
-    "lib": ["es5"],
+    "lib": ["dom"],
     "module": "commonjs",
     "outDir": "lib",
     "isolatedModules": true,
