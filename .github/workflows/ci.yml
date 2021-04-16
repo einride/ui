@@ -20,8 +20,15 @@ jobs:
       - name: Make
         run: make
 
-  release:
+  build:
     needs: make
+    runs-on: ubuntu-latest
+    steps:
+      - name: build
+        run: make build
+
+  release:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
