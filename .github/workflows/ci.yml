@@ -20,6 +20,12 @@ jobs:
       - name: Make
         run: make
 
+      - name: Upload lib artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: lib
+          path: lib
+
   release:
     needs: make
     runs-on: ubuntu-latest
@@ -31,6 +37,11 @@ jobs:
         uses: actions/setup-node@v2.1.4
         with:
           node-version: 12
+
+      - name: Download lib arcitact
+        uses: actions/download-artifact@v2
+        with:
+          name: lib
 
       - name: Run semantic-release
         run: make semantic-release
