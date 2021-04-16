@@ -32,7 +32,7 @@ body {
   font-family: "SuisseIntl", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
-  color: #808080;
+  color: #222222;
   font-weight: normal;
   font-size: 18px;
   line-height: 26px;
@@ -64,7 +64,7 @@ h3 {
 }
 
 p {
-  color: #808080;
+  color: #222222;
   font-weight: normal;
   font-size: 18px;
   line-height: 26px;
@@ -72,7 +72,7 @@ p {
 }
 
 small {
-  color: #808080;
+  color: #222222;
   font-weight: normal;
   font-size: 14px;
   line-height: 22px;
