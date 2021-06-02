@@ -20,3 +20,7 @@ install-deps:
 .PHONY: build
 build:
 	yarn build
+
+.PHONY: develop
+develop:
+	yarn storybook
