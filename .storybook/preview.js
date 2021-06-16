@@ -43,12 +43,4 @@ export const parameters = {
       { name: "dark", value: "#121212" },
     ],
   },
-  grid: {
-    cellSize: 10,
-    gridOn: false,
-    columns: 8,
-    gap: "10px",
-    gutter: "15px",
-    maxWidth: "1440px",
-  },
 };
