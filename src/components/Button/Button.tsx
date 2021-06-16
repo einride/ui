@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 const StyledButton = styled.button`
   background: var(--einride-black);
   color: var(--einride-white);
-  padding: 10px;
+  padding: 10px 30px;
   border: none;
   cursor: pointer;
 
