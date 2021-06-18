@@ -34,8 +34,6 @@
     "typescript": "^4.3.2"
   },
   "peerDependencies": {
-    "@emotion/react": ">=11.0.0",
-    "@emotion/styled": ">=11.0.0",
     "react": ">=16.0.0"
   },
   "scripts": {
@@ -64,5 +62,8 @@
   "bugs": {
     "email": "open-source@einride.tech",
     "url": "https://github.com/einride/ui/issues"
+  },
+  "dependencies": {
+    "theme-ui": "^0.9.1"
   }
 }
