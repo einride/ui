@@ -12,6 +12,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "dependencies": {
+    "theme-ui": "^0.9.1"
+  },
   "devDependencies": {
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-essentials": "^6.2.9",
@@ -62,8 +65,5 @@
   "bugs": {
     "email": "open-source@einride.tech",
     "url": "https://github.com/einride/ui/issues"
-  },
-  "dependencies": {
-    "theme-ui": "^0.9.1"
   }
 }
