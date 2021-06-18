@@ -1,34 +1,29 @@
+import { ThemeProvider } from "theme-ui"
+import "../src/styles/main.css";
 import "../src/styles/typography.css";
 import "../src/styles/variables.css";
-import "../src/styles/main.css";
+import { theme } from "../src/theme";
 
 const customViewports = {
-  mobile: {
-    name: "Mobile",
+  small: {
+    name: "Small",
     styles: {
-      width: "360px",
-      height: "812px",
+      width: "375px",
+      height: "672px",
     },
   },
-  tabletPortrait: {
-    name: "Tablet portrait",
-    styles: {
-      width: "768px",
-      height: "1024px",
-    },
-  },
-  tabletLandscape: {
-    name: "Tablet landscape",
+  medium: {
+    name: "Medium",
     styles: {
       width: "1024px",
-      height: "768px",
+      height: "800px",
     },
   },
-  desktop: {
-    name: "Desktop",
+  large: {
+    name: "Large",
     styles: {
       width: "1440px",
-      height: "900px",
+      height: "800px",
     },
   },
 };
@@ -44,3 +39,11 @@ export const parameters = {
     ],
   },
 };
+
+export const decorators = [
+  (Story) => (
+    <ThemeProvider theme={theme}>
+        <Story />
+    </ThemeProvider>
+  )
+]
