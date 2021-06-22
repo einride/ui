@@ -2,12 +2,14 @@
   "compilerOptions": {
     "strict": true,
     "target": "es5",
-    "lib": ["dom"],
+    "lib": [
+      "dom"
+    ],
     "module": "commonjs",
     "outDir": "lib",
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "declaration": true
+    "declaration": true,
   },
   "include": [
     "src/main.ts",
