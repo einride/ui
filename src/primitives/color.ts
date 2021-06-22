@@ -29,14 +29,14 @@ export const color = {
     default: "#FFC043",
     light: "#FFE59D",
   },
+  black: "#121212",
+  white: "#ffffff",
   greyscale: {
-    white: "#ffffff",
     grey20: "#F5F5F5",
     grey40: "#EBEBEB",
     grey50: "#DADADA",
     grey60: "#ABABAB",
     grey80: "#7A7A7A",
     grey100: "#222222",
-    black: "#121212",
   },
 };
