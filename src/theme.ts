@@ -1,24 +1,53 @@
 import { color } from "./primitives/color";
 
 export const theme = {
+  breakpoints: ["600px", "1024px"],
   colors: {
     positive: color.green.default,
     accent: color.violet.defualt,
     negative: color.red.default,
     warning: color.yellow.default,
     text: {
-      primary: color.greyscale.black,
+      primary: color.black,
       secondary: color.greyscale.grey80,
       disabled: color.greyscale.grey80,
     },
     background: {
-      primary: color.greyscale.white,
+      primary: color.white,
       secondary: color.greyscale.grey20,
       tertiary: color.greyscale.grey40,
     },
     border: {
       primary: color.greyscale.grey50,
-      selected: color.greyscale.black,
+      selected: color.black,
+    },
+    buttons: {
+      background: {
+        primary: color.black,
+        secondary: color.greyscale.grey40,
+        tertiary: color.white,
+        disabled: color.greyscale.grey20,
+        hover: {
+          primary: color.greyscale.grey100,
+          secondary: color.greyscale.grey20,
+          tertiary: color.greyscale.grey20,
+        },
+        active: {
+          primary: color.black,
+          secondary: color.greyscale.grey40,
+          tertiary: color.white,
+        },
+      },
+      text: {
+        primary: color.white,
+        secondary: color.greyscale.grey100,
+        disabled: color.greyscale.grey60,
+      },
+    },
+    modes: {
+      dark: {
+        positive: "#000",
+      },
     },
   },
   fontSizes: [14, 18, 28, 40, 80],
