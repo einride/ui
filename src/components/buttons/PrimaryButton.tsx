@@ -6,15 +6,9 @@ export interface PrimaryButtonProps extends BaseButtonProps {
   children: ReactNode;
 }
 
-export const PrimaryButton = ({
-  className,
-  children,
-  ...props
-}: PrimaryButtonProps) => {
+export const PrimaryButton = ({ children, ...props }: PrimaryButtonProps) => {
   return (
     <BaseButton
-      className={className}
-      {...props}
       sx={{
         backgroundColor: "buttons.background.primary",
         color: "buttons.text.primary",
@@ -25,6 +19,7 @@ export const PrimaryButton = ({
           backgroundColor: "buttons.background.active.primary",
         },
       }}
+      {...props}
     >
       {children}
     </BaseButton>

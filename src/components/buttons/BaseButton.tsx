@@ -4,11 +4,9 @@ import { ButtonHTMLAttributes } from "react";
 export interface BaseButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
-export const BaseButton = ({ className, ...props }: BaseButtonProps) => {
+export const BaseButton = (props: BaseButtonProps) => {
   return (
     <button
-      className={className}
-      {...props}
       sx={{
         borderRadius: "48px",
         backgroundColor: "unset",
@@ -30,6 +28,7 @@ export const BaseButton = ({ className, ...props }: BaseButtonProps) => {
           borderColor: "border.selected",
         },
       }}
+      {...props}
     >
       {props.children}
     </button>
