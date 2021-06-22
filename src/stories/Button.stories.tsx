@@ -1,8 +1,8 @@
 import { Story } from "@storybook/react/types-6-0";
-import { Button, ButtonProps } from "../components/Button";
+import { Button, ButtonProps } from "../components/Buttons/Button";
 
 export default {
-  title: "Form/Button",
+  title: "Form/Buttona",
   component: Button,
   argTypes: {},
 };

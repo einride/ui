@@ -1,5 +1,4 @@
 /** @jsxImportSource theme-ui */
-
 import { ReactNode } from "react";
 
 export interface BodyProps {
