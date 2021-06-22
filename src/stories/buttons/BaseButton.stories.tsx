@@ -5,7 +5,7 @@ import {
 } from "../../components/buttons/BaseButton";
 
 export default {
-  title: "Form/Button",
+  title: "Buttons/BaseButton",
   component: BaseButton,
   argTypes: {
     disabled: {
