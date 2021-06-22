@@ -2,7 +2,7 @@ import { Story } from "@storybook/react/types-6-0";
 import {
   PrimaryButton,
   PrimaryButtonProps,
-} from "../../components/buttonsTemp/PrimaryButton";
+} from "../../components/buttons/PrimaryButton";
 
 export default {
   title: "Form/PrimaryButton",
