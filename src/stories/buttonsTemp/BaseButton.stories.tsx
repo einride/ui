@@ -2,7 +2,7 @@ import { Story } from "@storybook/react/types-6-0";
 import {
   BaseButton,
   BaseButtonProps,
-} from "../../components/buttons/BaseButton";
+} from "../../components/buttonsTemp/BaseButton";
 
 export default {
   title: "Form/Button",
