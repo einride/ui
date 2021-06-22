@@ -1,9 +1,8 @@
-/** @jsxImportSource theme-ui */
 import { Story } from "@storybook/react/types-6-0";
 import {
   PrimaryButton,
   PrimaryButtonProps,
-} from "../components/Buttons/PrimaryButton";
+} from "../../components/buttons/PrimaryButton";
 
 export default {
   title: "Form/PrimaryButton",
@@ -12,14 +11,11 @@ export default {
     disabled: {
       control: "boolean",
     },
-    style: {
-      control: "raw",
-    },
   },
 };
 
 const Template: Story<PrimaryButtonProps> = (args) => (
-  <PrimaryButton {...args} className="class" />
+  <PrimaryButton {...args} />
 );
 
 export const Default = Template.bind({});
