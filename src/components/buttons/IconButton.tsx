@@ -1,18 +1,21 @@
 /** @jsxImportSource theme-ui */
 import { ButtonHTMLAttributes, ReactNode } from "react";
+import { ReactComponent as ArrowRightwards } from "../../assets/icons/arrowRightwards.svg";
 import { BaseButton } from "./BaseButton";
 
-export interface PrimaryButtonProps
+export interface IconButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
+  icon?: ReactNode;
   size?: "small" | "large";
 }
 
-export const PrimaryButton = ({
+export const IconButton = ({
   children,
+  icon = <ArrowRightwards sx={{ fill: "positive" }} />,
   size = "large",
   ...props
-}: PrimaryButtonProps) => {
+}: IconButtonProps) => {
   return (
     <BaseButton
       size={size}
@@ -28,7 +31,16 @@ export const PrimaryButton = ({
       }}
       {...props}
     >
-      {children}
+      <div
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        {children}
+        {icon}
+      </div>
     </BaseButton>
   );
 };

@@ -3,7 +3,9 @@
     "strict": true,
     "target": "es5",
     "lib": [
-      "dom"
+      "dom",
+      "dom.iterable",
+      "esnext"
     ],
     "module": "commonjs",
     "outDir": "lib",
@@ -14,6 +16,7 @@
   "include": [
     "src/main.ts",
     "src/components/**/*.ts",
-    "src/components/**/*.tsx"
+    "src/components/**/*.tsx",
+    "src/types/custom.d.ts" // TODO, this could probably be moved to typeRoots
   ]
 }

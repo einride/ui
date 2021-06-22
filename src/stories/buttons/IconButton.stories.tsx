@@ -1,12 +1,12 @@
 import { Story } from "@storybook/react/types-6-0";
 import {
-  PrimaryButton,
-  PrimaryButtonProps,
-} from "../../components/buttons/PrimaryButton";
+  IconButton,
+  IconButtonProps,
+} from "../../components/buttons/IconButton";
 
 export default {
-  title: "Buttons/PrimaryButton",
-  component: PrimaryButton,
+  title: "Buttons/IconButton",
+  component: IconButton,
   argTypes: {
     disabled: {
       control: "boolean",
@@ -18,9 +18,7 @@ export default {
   },
 };
 
-const Template: Story<PrimaryButtonProps> = (args) => (
-  <PrimaryButton {...args} />
-);
+const Template: Story<IconButtonProps> = (args) => <IconButton {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
