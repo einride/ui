@@ -12,7 +12,7 @@ export default {
       control: "boolean",
     },
     size: {
-      options: ["Small", "Large"],
+      options: ["small", "large"],
       control: { type: "radio" },
     },
   },
