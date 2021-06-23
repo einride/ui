@@ -41,6 +41,7 @@ export const theme = {
       text: {
         primary: color.white,
         secondary: color.greyscale.grey100,
+        tertiary: color.greyscale.grey100,
         disabled: color.greyscale.grey60,
       },
     },
