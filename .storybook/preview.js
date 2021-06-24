@@ -1,8 +1,8 @@
-import { ThemeProvider } from "theme-ui"
+import { ThemeProvider } from "@emotion/react"
 import "../src/styles/main.css";
 import "../src/styles/typography.css";
 import "../src/styles/variables.css";
-import { theme } from "../src/theme";
+import { light } from "../src/theme";
 
 const customViewports = {
   small: {
@@ -42,7 +42,7 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={light}>
         <Story />
     </ThemeProvider>
   )

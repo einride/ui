@@ -1,7 +1,32 @@
-/** @jsxImportSource theme-ui */
+import styled from "@emotion/styled";
 import { ButtonHTMLAttributes, ReactNode } from "react";
 import { ReactComponent as ArrowRightwards } from "../../assets/icons/arrowRightwards.svg";
 import { BaseButton } from "./BaseButton";
+
+const StyledBaseButton = styled(BaseButton)`
+  background-color: ${({ theme }) => theme.colors.buttons.background.primary};
+  color: ${({ theme }) => theme.colors.buttons.text.primary};
+
+  &:hover:not(:disabled) {
+    background-color: ${({ theme }) =>
+      theme.colors.buttons.background.hover.primary};
+  }
+
+  &:active:not(:disabled) {
+    background-color: ${({ theme }) =>
+      theme.colors.buttons.background.active.primary};
+  }
+`;
+
+const StyledArrowRightwards = styled(ArrowRightwards)`
+  fill: ${({ theme }) => theme.colors.positive};
+`;
+
+const IconWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 
 export interface IconButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -12,35 +37,16 @@ export interface IconButtonProps
 
 export const IconButton = ({
   children,
-  icon = <ArrowRightwards sx={{ fill: "positive" }} />,
+  icon = <StyledArrowRightwards />,
   size = "large",
   ...props
 }: IconButtonProps) => {
   return (
-    <BaseButton
-      size={size}
-      sx={{
-        backgroundColor: "buttons.background.primary",
-        color: "buttons.text.primary",
-        ":hover:not(:disabled)": {
-          backgroundColor: "buttons.background.hover.primary",
-        },
-        ":active:not(:disabled)": {
-          backgroundColor: "buttons.background.active.primary",
-        },
-      }}
-      {...props}
-    >
-      <div
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
+    <StyledBaseButton size={size} {...props}>
+      <IconWrapper>
         {children}
         {icon}
-      </div>
-    </BaseButton>
+      </IconWrapper>
+    </StyledBaseButton>
   );
 };

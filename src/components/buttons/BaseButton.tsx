@@ -1,44 +1,47 @@
-/** @jsxImportSource theme-ui */
+import styled from "@emotion/styled";
 import { ButtonHTMLAttributes } from "react";
 
-const HEIGHT_PIXELS = 56;
+const SMALL_HEIGHT_PIXELS = 48;
+const LARGE_HEIGHT_PIXELS = 56;
 
-export interface BaseButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /** Defaults to large */
+interface StyledButtonProps {
   size: "small" | "large";
 }
 
-export const BaseButton = ({ size, ...props }: BaseButtonProps) => {
-  return (
-    <button
-      sx={{
-        borderRadius: `${HEIGHT_PIXELS}px`,
-        backgroundColor: "unset",
-        border: "none",
-        width: "240px",
-        height: size === "small" ? "48px" : `${HEIGHT_PIXELS}px`,
-        padding: "0px 16px",
-        cursor: "pointer",
-        ":disabled": {
-          backgroundColor: "buttons.background.disabled",
-          color: "buttons.text.disabled",
-          cursor: "not-allowed",
-        },
-        ":disabled svg": {
-          fill: "buttons.text.disabled",
-        },
-        ":focus": {
-          textDecoration: "underline",
-          outline: "none",
-          borderWidth: "1px",
-          borderStyle: "solid",
-          borderColor: "border.selected",
-        },
-      }}
-      {...props}
-    >
-      {props.children}
-    </button>
-  );
+const StyledButton = styled.button<StyledButtonProps>`
+  background-color: unset;
+  border: none;
+  width: 240px;
+  height: ${({ size }) =>
+    size === "small" ? SMALL_HEIGHT_PIXELS : LARGE_HEIGHT_PIXELS}px;
+  border-radius: ${LARGE_HEIGHT_PIXELS}px;
+  cursor: pointer;
+  padding: 0 16px;
+
+  &:disabled {
+    background-color: ${({ theme }) => theme.colors.background.disabled};
+    color: ${({ theme }) => theme.colors.text.disabled};
+    cursor: not-allowed;
+
+    svg {
+      fill: ${({ theme }) => theme.colors.text.disabled};
+    }
+  }
+
+  &:focus {
+    text-decoration: underline;
+    outline: none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: ${({ theme }) => theme.colors.border.selected};
+  }
+`;
+
+export interface BaseButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
+  size: "small" | "large";
+}
+
+export const BaseButton = (props: BaseButtonProps) => {
+  return <StyledButton {...props}>{props.children}</StyledButton>;
 };
