@@ -1,6 +1,21 @@
-/** @jsxImportSource theme-ui */
+import styled from "@emotion/styled";
 import { ButtonHTMLAttributes, ReactNode } from "react";
 import { BaseButton } from "./BaseButton";
+
+const StyledBaseButton = styled(BaseButton)`
+  background-color: ${({ theme }) => theme.colors.buttons.background.primary};
+  color: ${({ theme }) => theme.colors.buttons.text.primary};
+
+  &:hover:not(:disabled) {
+    background-color: ${({ theme }) =>
+      theme.colors.buttons.background.hover.primary};
+  }
+
+  &:active:not(:disabled) {
+    background-color: ${({ theme }) =>
+      theme.colors.buttons.background.active.primary};
+  }
+`;
 
 export interface PrimaryButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -14,21 +29,8 @@ export const PrimaryButton = ({
   ...props
 }: PrimaryButtonProps) => {
   return (
-    <BaseButton
-      size={size}
-      sx={{
-        backgroundColor: "buttons.background.primary",
-        color: "buttons.text.primary",
-        ":hover:not(:disabled)": {
-          backgroundColor: "buttons.background.hover.primary",
-        },
-        ":active:not(:disabled)": {
-          backgroundColor: "buttons.background.active.primary",
-        },
-      }}
-      {...props}
-    >
+    <StyledBaseButton size={size} {...props}>
       {children}
-    </BaseButton>
+    </StyledBaseButton>
   );
 };

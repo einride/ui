@@ -1,6 +1,21 @@
-/** @jsxImportSource theme-ui */
+import styled from "@emotion/styled";
 import { ButtonHTMLAttributes, ReactNode } from "react";
 import { BaseButton } from "./BaseButton";
+
+const StyledBaseButton = styled(BaseButton)`
+  background-color: ${({ theme }) => theme.colors.buttons.background.tertiary};
+  color: ${({ theme }) => theme.colors.buttons.text.tertiary};
+
+  &:hover:not(:disabled) {
+    background-color: ${({ theme }) =>
+      theme.colors.buttons.background.hover.tertiary};
+  }
+
+  &:active:not(:disabled) {
+    background-color: ${({ theme }) =>
+      theme.colors.buttons.background.active.tertiary};
+  }
+`;
 
 export interface TertiaryButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -14,21 +29,8 @@ export const TertiaryButton = ({
   ...props
 }: TertiaryButtonProps) => {
   return (
-    <BaseButton
-      size={size}
-      sx={{
-        backgroundColor: "buttons.background.tertiary",
-        color: "buttons.text.tertiary",
-        ":hover:not(:disabled)": {
-          backgroundColor: "buttons.background.hover.tertiary",
-        },
-        ":active:not(:disabled)": {
-          backgroundColor: "buttons.background.active.tertiary",
-        },
-      }}
-      {...props}
-    >
+    <StyledBaseButton size={size} {...props}>
       {children}
-    </BaseButton>
+    </StyledBaseButton>
   );
 };
