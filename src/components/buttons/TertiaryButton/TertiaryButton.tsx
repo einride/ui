@@ -1,33 +1,33 @@
 import styled from "@emotion/styled";
 import { ButtonHTMLAttributes, ReactNode } from "react";
-import { BaseButton } from "./BaseButton";
+import { BaseButton } from "../BaseButton";
 
 const StyledBaseButton = styled(BaseButton)`
-  background-color: ${({ theme }) => theme.colors.buttons.background.primary};
-  color: ${({ theme }) => theme.colors.buttons.text.primary};
+  background-color: ${({ theme }) => theme.colors.buttons.background.tertiary};
+  color: ${({ theme }) => theme.colors.buttons.text.tertiary};
 
   &:hover:not(:disabled) {
     background-color: ${({ theme }) =>
-      theme.colors.buttons.background.hover.primary};
+      theme.colors.buttons.background.hover.tertiary};
   }
 
   &:active:not(:disabled) {
     background-color: ${({ theme }) =>
-      theme.colors.buttons.background.active.primary};
+      theme.colors.buttons.background.active.tertiary};
   }
 `;
 
-export interface PrimaryButtonProps
+export interface TertiaryButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   size?: "small" | "large";
 }
 
-export const PrimaryButton = ({
+export const TertiaryButton = ({
   children,
   size = "large",
   ...props
-}: PrimaryButtonProps) => {
+}: TertiaryButtonProps) => {
   return (
     <StyledBaseButton size={size} {...props}>
       {children}

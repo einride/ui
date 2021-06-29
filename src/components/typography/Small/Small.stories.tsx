@@ -1,19 +1,19 @@
 import { Story } from "@storybook/react/types-6-0";
-import { Body, BodyProps } from "../components/Body";
+import { Small, SmallProps } from "./Small";
 
 export default {
-  title: "Typography/Body",
-  component: Body,
+  title: "Typography/Small",
+  component: Small,
   parameters: {
     design: {
       type: "figma",
       url:
-        "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=18%3A146",
+        "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=18%3A147",
     },
   },
 };
 
-const Template: Story<BodyProps> = (args) => <Body {...args} />;
+const Template: Story<SmallProps> = (args) => <Small {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

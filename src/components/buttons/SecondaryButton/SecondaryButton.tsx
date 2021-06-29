@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { ButtonHTMLAttributes, ReactNode } from "react";
-import { BaseButton } from "./BaseButton";
+import { BaseButton } from "../BaseButton";
 
 const StyledBaseButton = styled(BaseButton)`
   background-color: ${({ theme }) => theme.colors.buttons.background.secondary};

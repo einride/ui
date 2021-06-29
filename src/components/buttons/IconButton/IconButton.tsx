@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { ButtonHTMLAttributes, ReactNode } from "react";
-import { ReactComponent as ArrowRightwards } from "../../assets/icons/arrowRightwards.svg";
-import { BaseButton } from "./BaseButton";
+import { ReactComponent as ArrowRightwards } from "../../../assets/icons/arrowRightwards.svg";
+import { BaseButton } from "../BaseButton";
 
 const StyledBaseButton = styled(BaseButton)`
   background-color: ${({ theme }) => theme.colors.buttons.background.primary};
