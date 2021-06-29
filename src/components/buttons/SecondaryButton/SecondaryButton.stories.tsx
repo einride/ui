@@ -1,12 +1,9 @@
 import { Story } from "@storybook/react/types-6-0";
-import {
-  PrimaryButton,
-  PrimaryButtonProps,
-} from "../../components/buttons/PrimaryButton";
+import { SecondaryButton, SecondaryButtonProps } from "./SecondaryButton";
 
 export default {
-  title: "Buttons/PrimaryButton",
-  component: PrimaryButton,
+  title: "Buttons/SecondaryButton",
+  component: SecondaryButton,
   argTypes: {
     disabled: {
       control: "boolean",
@@ -20,13 +17,13 @@ export default {
     design: {
       type: "figma",
       url:
-        "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=7%3A23",
+        "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=7%3A25",
     },
   },
 };
 
-const Template: Story<PrimaryButtonProps> = (args) => (
-  <PrimaryButton {...args} />
+const Template: Story<SecondaryButtonProps> = (args) => (
+  <SecondaryButton {...args} />
 );
 
 export const Default = Template.bind({});

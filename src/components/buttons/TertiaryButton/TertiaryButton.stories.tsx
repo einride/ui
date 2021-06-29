@@ -1,8 +1,5 @@
 import { Story } from "@storybook/react/types-6-0";
-import {
-  TertiaryButton,
-  TertiaryButtonProps,
-} from "../../components/buttons/TertiaryButton";
+import { TertiaryButton, TertiaryButtonProps } from "./TertiaryButton";
 
 export default {
   title: "Buttons/TertiaryButton",
