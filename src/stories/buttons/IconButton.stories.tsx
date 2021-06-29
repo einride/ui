@@ -6,6 +6,7 @@ import {
 
 export default {
   title: "Buttons/IconButton",
+  subtitle: "aslkdjalskdjlaksj",
   component: IconButton,
   argTypes: {
     disabled: {
@@ -14,6 +15,13 @@ export default {
     size: {
       options: ["small", "large"],
       control: { type: "radio" },
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: "Some component _markdown_",
+      },
     },
   },
 };
