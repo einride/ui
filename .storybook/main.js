@@ -10,10 +10,8 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/preset-create-react-app",
+    "@storybook/addon-docs",
   ],
-  typescript: {
-    reactDocgen: "none"
-  },
   webpackFinal: async (config) => {
     return {
       ...config,
