@@ -16,6 +16,13 @@ export default {
       control: { type: "radio" },
     },
   },
+  parameters: {
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=7%3A27",
+    },
+  },
 };
 
 const Template: Story<TertiaryButtonProps> = (args) => (
@@ -24,5 +31,5 @@ const Template: Story<TertiaryButtonProps> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  children: "Click me!",
+  children: "Button",
 };
