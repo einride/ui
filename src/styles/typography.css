@@ -33,48 +33,46 @@ body {
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
   color: #222222;
-  font-weight: normal;
   font-size: 18px;
-  line-height: 26px;
-  letter-spacing: -0.1px;
+  font-weight: normal;
 }
 
 h1 {
-  color: #222222;
+  font-size: 40px;
   font-weight: bold;
-  font-size: 80px;
-  line-height: 90px;
-  letter-spacing: -1px;
+  line-height: 48px;
+  padding-top: 1px;
+  padding-bottom: 7px;
 }
 
 h2 {
-  color: #222222;
-  font-weight: bold;
-  font-size: 40px;
-  line-height: 50px;
-  letter-spacing: 0px;
+  font-size: 28px;
+  font-weight: normal;
+  line-height: 32px;
+  padding-top: 6px;
+  padding-bottom: 2px;
 }
 
 h3 {
-  color: #222222;
-  font-weight: bold;
   font-size: 24px;
+  font-weight: normal;
   line-height: 32px;
-  letter-spacing: 0px;
+  padding-top: 7px;
+  padding-bottom: 1px;
 }
 
 p {
-  color: #222222;
-  font-weight: normal;
   font-size: 18px;
-  line-height: 26px;
-  letter-spacing: -0.1px;
+  font-weight: normal;
+  line-height: 24px;
+  padding-top: 5px;
+  padding-bottom: 3px;
 }
 
 small {
-  color: #222222;
-  font-weight: normal;
   font-size: 14px;
-  line-height: 22px;
-  letter-spacing: 0px;
+  font-weight: normal;
+  line-height: 16px;
+  padding-top: 3px;
+  padding-bottom: 5px;
 }
