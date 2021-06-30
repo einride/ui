@@ -7,9 +7,9 @@ export const light = {
     negative: color.red.default,
     warning: color.yellow.default,
     text: {
-      primary: color.black,
+      primary: color.greyscale.grey100,
       secondary: color.greyscale.grey80,
-      disabled: color.greyscale.grey80,
+      disabled: color.greyscale.grey60,
     },
     background: {
       primary: color.white,
