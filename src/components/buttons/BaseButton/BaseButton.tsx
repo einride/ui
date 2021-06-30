@@ -11,12 +11,12 @@ interface StyledButtonProps {
 const StyledButton = styled.button<StyledButtonProps>`
   background-color: unset;
   border: none;
-  width: 240px;
+  min-width: 240px;
   height: ${({ size }) =>
     size === "small" ? SMALL_HEIGHT_PIXELS : LARGE_HEIGHT_PIXELS}px;
   border-radius: ${LARGE_HEIGHT_PIXELS}px;
   cursor: pointer;
-  padding: 0 16px;
+  padding: 0 20px;
 
   &:disabled {
     background-color: ${({ theme }) => theme.colors.background.disabled};

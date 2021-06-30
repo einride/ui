@@ -1,52 +1,43 @@
 import styled from "@emotion/styled";
 import { ButtonHTMLAttributes, ReactNode } from "react";
 import { ReactComponent as ArrowRightwards } from "../../../assets/icons/arrowRightwards.svg";
-import { BaseButton } from "../BaseButton";
+import { SecondaryButton } from "../SecondaryButton";
 
-const StyledBaseButton = styled(BaseButton)`
-  background-color: ${({ theme }) => theme.colors.buttons.background.primary};
-  color: ${({ theme }) => theme.colors.buttons.text.primary};
-
-  &:hover:not(:disabled) {
-    background-color: ${({ theme }) =>
-      theme.colors.buttons.background.hover.primary};
+const getWidth = (size?: "small" | "large") => {
+  switch (size) {
+    case "small":
+      return 48;
+    default:
+      return 56;
   }
+};
 
-  &:active:not(:disabled) {
-    background-color: ${({ theme }) =>
-      theme.colors.buttons.background.active.primary};
-  }
+const StyledBaseButton = styled(SecondaryButton)<IconButtonProps>`
+  min-width: ${({ size }) => getWidth(size)}px;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const StyledArrowRightwards = styled(ArrowRightwards)`
-  fill: ${({ theme }) => theme.colors.positive};
-`;
-
-const IconWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  fill: ${({ theme }) => theme.colors.text.primary};
 `;
 
 export interface IconButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
   icon?: ReactNode;
   size?: "small" | "large";
 }
 
 export const IconButton = ({
-  children,
   icon = <StyledArrowRightwards />,
   size = "large",
   ...props
 }: IconButtonProps) => {
   return (
     <StyledBaseButton size={size} {...props}>
-      <IconWrapper>
-        {children}
-        {icon}
-      </IconWrapper>
+      {icon}
     </StyledBaseButton>
   );
 };
