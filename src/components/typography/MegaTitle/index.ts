@@ -1,1 +1,1 @@
-export { MetaTitle } from "./MegaTitle";
+export { MegaTitle } from "./MegaTitle";
