@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
+    "@einride/eslint-plugin": "^2.0.1",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
     "@storybook/addon-actions": "^6.3.1",
@@ -32,6 +33,8 @@
     "chromatic": "^5.9.0",
     "copyfiles": "^2.4.1",
     "customize-cra": "^1.0.0",
+    "eslint": "^7.29.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -46,6 +49,7 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "chromatic": "npx chromatic --project-token f99937c406c4",
+    "lint": "eslint ./src/**/*.{ts,tsx}",
     "build": "tsc -p tsconfig.json && yarn copy-files",
     "copy-files": "copyfiles -u 1 \"src/**/*.css\" \"src/**/*.svg\" \"src/**/*.json\" \"src/**/*.eot\" \"src/**/*.ttf\" \"src/**/*.woff\" \"src/**/*.woff2\" lib/"
   },
