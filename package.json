@@ -12,11 +12,13 @@
   "publishConfig": {
     "access": "public"
   },
+  "dependencies": {
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@einride/eslint-plugin": "^2.0.1",
-    "@emotion/react": "^11.4.0",
-    "@emotion/styled": "^11.3.0",
     "@storybook/addon-actions": "^6.3.1",
     "@storybook/addon-essentials": "^6.3.1",
     "@storybook/addon-links": "^6.3.1",
