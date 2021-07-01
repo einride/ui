@@ -13,6 +13,6 @@ export interface MegaTitleProps {
   children: ReactNode;
 }
 
-export const MetaTitle = ({ children }: MegaTitleProps) => {
+export const MegaTitle = ({ children }: MegaTitleProps) => {
   return <StyledText>{children}</StyledText>;
 };

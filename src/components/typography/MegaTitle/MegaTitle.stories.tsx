@@ -1,9 +1,9 @@
 import { Story } from "@storybook/react/types-6-0";
-import { MegaTitleProps, MetaTitle } from "./MegaTitle";
+import { MegaTitle, MegaTitleProps } from "./MegaTitle";
 
 export default {
   title: "Typography/MegaTitle",
-  component: MetaTitle,
+  component: MegaTitle,
   parameters: {
     design: {
       type: "figma",
@@ -13,7 +13,7 @@ export default {
   },
 };
 
-const Template: Story<MegaTitleProps> = (args) => <MetaTitle {...args} />;
+const Template: Story<MegaTitleProps> = (args) => <MegaTitle {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
