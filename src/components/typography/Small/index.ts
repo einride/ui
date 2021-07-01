@@ -1,1 +1,0 @@
-export { Small } from "./Small";
