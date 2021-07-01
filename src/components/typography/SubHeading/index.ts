@@ -1,0 +1,1 @@
+export { SubHeading } from "./SubHeading";
