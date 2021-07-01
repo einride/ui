@@ -4,14 +4,14 @@ This package provides reusable React components that adhere to Einride's design 
 
 ## Installation
 
-Install this component system together with its peer dependencies;
+Install this component system with NPM or Yarn:
 
 ```bash
 # npm
-npm install @einride/eslint-ui @emotion/react @emotion/styled
+npm install @einride/ui
 
 # yarn
-yarn add eslint @einride/eslint-plugin @emotion/react @emotion/styled
+yarn add @einride/ui
 ```
 
 ## Usage
