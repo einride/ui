@@ -24,3 +24,7 @@ build:
 .PHONY: develop
 develop:
 	yarn storybook
+
+.PHONY: lint
+lint:
+	yarn lint
