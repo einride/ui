@@ -13,6 +13,9 @@ export default {
       options: ["small", "large"],
       control: { type: "radio" },
     },
+    icon: {
+      control: false,
+    },
   },
   parameters: {
     design: {
