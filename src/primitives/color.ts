@@ -11,7 +11,7 @@ export const color = {
   },
   violet: {
     dark: "#6664E2",
-    defualt: "#6664E2",
+    default: "#6664E2",
     light: "#B1B0F5",
   },
   red: {

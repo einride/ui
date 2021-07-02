@@ -3,7 +3,7 @@ import { color } from "./primitives/color";
 export const light = {
   colors: {
     positive: color.green.default,
-    accent: color.violet.defualt,
+    accent: color.violet.default,
     negative: color.red.default,
     warning: color.yellow.default,
     text: {
