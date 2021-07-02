@@ -2,7 +2,7 @@ import { Story } from "@storybook/react/types-6-0";
 import { SecondaryButton, SecondaryButtonProps } from "./SecondaryButton";
 
 export default {
-  title: "Buttons/SecondaryButton",
+  title: "Controls/Buttons/SecondaryButton",
   component: SecondaryButton,
   argTypes: {
     disabled: {

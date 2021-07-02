@@ -2,7 +2,7 @@ import { Story } from "@storybook/react/types-6-0";
 import { PrimaryButton, PrimaryButtonProps } from "./PrimaryButton";
 
 export default {
-  title: "Buttons/PrimaryButton",
+  title: "Controls/Buttons/PrimaryButton",
   component: PrimaryButton,
   argTypes: {
     disabled: {

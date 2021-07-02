@@ -1,10 +1,10 @@
 import "./styles/main.css";
 
-export { IconButton } from "./components/buttons/IconButton";
-export { PrimaryButton } from "./components/buttons/PrimaryButton";
-export { SecondaryButton } from "./components/buttons/SecondaryButton";
-export { TertiaryButton } from "./components/buttons/TertiaryButton";
-export { WithIconButton } from "./components/buttons/WithIconButton";
+export { IconButton } from "./components/controls/buttons/IconButton";
+export { PrimaryButton } from "./components/controls/buttons/PrimaryButton";
+export { SecondaryButton } from "./components/controls/buttons/SecondaryButton";
+export { TertiaryButton } from "./components/controls/buttons/TertiaryButton";
+export { WithIconButton } from "./components/controls/buttons/WithIconButton";
 export { Heading } from "./components/typography/Heading";
 export { MegaTitle } from "./components/typography/MegaTitle";
 export { SmallText } from "./components/typography/SmallText";
