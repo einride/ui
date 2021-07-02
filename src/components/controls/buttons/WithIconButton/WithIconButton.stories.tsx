@@ -2,7 +2,7 @@ import { Story } from "@storybook/react/types-6-0";
 import { WithIconButton, WithIconButtonProps } from "./WithIconButton";
 
 export default {
-  title: "Buttons/WithIconButton",
+  title: "Controls/Buttons/WithIconButton",
   component: WithIconButton,
   argTypes: {
     disabled: {

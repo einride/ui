@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { ButtonHTMLAttributes, ReactNode } from "react";
-import { ReactComponent as ArrowRightwards } from "../../../assets/icons/arrowRightwards.svg";
+import { ReactComponent as ArrowRightwards } from "../../../../assets/icons/arrowRightwards.svg";
 import { SecondaryButton } from "../SecondaryButton";
 
 const getWidth = (size?: "small" | "large") => {

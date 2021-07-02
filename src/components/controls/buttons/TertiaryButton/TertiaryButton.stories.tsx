@@ -2,7 +2,7 @@ import { Story } from "@storybook/react/types-6-0";
 import { TertiaryButton, TertiaryButtonProps } from "./TertiaryButton";
 
 export default {
-  title: "Buttons/TertiaryButton",
+  title: "Controls/Buttons/TertiaryButton",
   component: TertiaryButton,
   argTypes: {
     disabled: {
