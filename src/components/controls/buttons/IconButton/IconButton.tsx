@@ -21,7 +21,7 @@ const StyledBaseButton = styled(SecondaryButton)<IconButtonProps>`
 `;
 
 const StyledArrowRightwards = styled(ArrowRightwards)`
-  fill: ${({ theme }) => theme.colors.text.primary};
+  fill: ${({ theme }) => theme.colors.content.primary};
 `;
 
 export interface IconButtonProps

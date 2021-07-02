@@ -20,11 +20,11 @@ const StyledButton = styled.button<StyledButtonProps>`
 
   &:disabled {
     background-color: ${({ theme }) => theme.colors.background.disabled};
-    color: ${({ theme }) => theme.colors.text.disabled};
+    color: ${({ theme }) => theme.colors.content.disabled};
     cursor: not-allowed;
 
     svg {
-      fill: ${({ theme }) => theme.colors.text.disabled};
+      fill: ${({ theme }) => theme.colors.content.disabled};
     }
   }
 
