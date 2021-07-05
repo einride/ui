@@ -18,6 +18,11 @@ yarn add @einride/ui
 
 All currently available components are documented in our [Storybook](https://master--606dcc0a2208ee00215fb2d9.chromatic.com/).
 
+Here's a couple of examples of the visual look and feel:
+
+![A sneak peak on design system typography](sneakpeak-typography.jpg)
+![A sneak peak on design system typography](sneakpeak-controls.jpg)
+
 ## License
 
 @einride/ui is licensed under the [MIT License](LICENSE).
