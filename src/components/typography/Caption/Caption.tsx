@@ -9,11 +9,11 @@ const StyledText = styled.small`
   padding-bottom: 5px;
 `;
 
-export interface SmallTextProps {
+export interface CaptionProps {
   children: ReactNode;
 }
 
-export const SmallText = ({ children }: SmallTextProps) => {
+export const Caption = ({ children }: CaptionProps) => {
   return (
     <p>
       <StyledText>{children}</StyledText>

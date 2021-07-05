@@ -1,9 +1,9 @@
 import { Story } from "@storybook/react/types-6-0";
-import { Heading, HeadingProps } from "./Heading";
+import { Title2, Title2Props } from "./Title2";
 
 export default {
-  title: "Typography/Heading",
-  component: Heading,
+  title: "Typography/Title2",
+  component: Title2,
   parameters: {
     design: {
       type: "figma",
@@ -13,7 +13,7 @@ export default {
   },
 };
 
-const Template: Story<HeadingProps> = (args) => <Heading {...args} />;
+const Template: Story<Title2Props> = (args) => <Title2 {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

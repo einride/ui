@@ -9,10 +9,10 @@ const StyledText = styled.h3`
   padding-bottom: 1px;
 `;
 
-export interface SubHeadingProps {
+export interface Title3Props {
   children: ReactNode;
 }
 
-export const SubHeading = ({ children }: SubHeadingProps) => {
+export const Title3 = ({ children }: Title3Props) => {
   return <StyledText>{children}</StyledText>;
 };
