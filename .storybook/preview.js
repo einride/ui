@@ -1,6 +1,7 @@
 import { ThemeProvider } from "@emotion/react"
-import "../src/styles/main.css";
+import "../src/assets/fonts/fonts.css"
 import "../src/styles/typography.css";
+import "../src/styles/main.css";
 import { light } from "../src/theme";
 
 const customViewports = {

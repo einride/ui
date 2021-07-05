@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "SuisseIntl";
+  font-weight: normal;
+  font-style: normal;
+  src: url("SuisseIntl-Book-WebXL.woff");
+}
+
+@font-face {
+  font-family: "SuisseIntl";
+  font-weight: bold;
+  font-style: normal;
+  src: url("SuisseIntl-Medium-WebXL.woff");
+}
