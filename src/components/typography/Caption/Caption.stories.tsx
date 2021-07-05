@@ -1,19 +1,19 @@
 import { Story } from "@storybook/react/types-6-0";
-import { SubHeading, SubHeadingProps } from "./SubHeading";
+import { Caption, CaptionProps } from "./Caption";
 
 export default {
-  title: "Typography/SubHeading",
-  component: SubHeading,
+  title: "Typography/Caption",
+  component: Caption,
   parameters: {
     design: {
       type: "figma",
       url:
-        "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=255%3A51",
+        "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=18%3A147",
     },
   },
 };
 
-const Template: Story<SubHeadingProps> = (args) => <SubHeading {...args} />;
+const Template: Story<CaptionProps> = (args) => <Caption {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

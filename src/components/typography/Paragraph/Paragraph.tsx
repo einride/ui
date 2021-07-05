@@ -9,10 +9,10 @@ const StyledText = styled.p`
   padding-bottom: 3px;
 `;
 
-export interface TextProps {
+export interface ParagraphProps {
   children: ReactNode;
 }
 
-export const Text = ({ children }: TextProps) => {
+export const Paragraph = ({ children }: ParagraphProps) => {
   return <StyledText>{children}</StyledText>;
 };

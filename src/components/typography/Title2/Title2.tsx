@@ -9,10 +9,10 @@ const StyledText = styled.h2`
   padding-bottom: 2px;
 `;
 
-export interface HeadingProps {
+export interface Title2Props {
   children: ReactNode;
 }
 
-export const Heading = ({ children }: HeadingProps) => {
+export const Title2 = ({ children }: Title2Props) => {
   return <StyledText>{children}</StyledText>;
 };

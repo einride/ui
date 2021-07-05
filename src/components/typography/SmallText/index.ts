@@ -1,1 +1,0 @@
-export { SmallText } from "./SmallText";

@@ -1,19 +1,19 @@
 import { Story } from "@storybook/react/types-6-0";
-import { SmallText, SmallTextProps } from "./SmallText";
+import { Paragraph, ParagraphProps } from "./Paragraph";
 
 export default {
-  title: "Typography/SmallText",
-  component: SmallText,
+  title: "Typography/Paragraph",
+  component: Paragraph,
   parameters: {
     design: {
       type: "figma",
       url:
-        "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=18%3A147",
+        "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=18%3A146",
     },
   },
 };
 
-const Template: Story<SmallTextProps> = (args) => <SmallText {...args} />;
+const Template: Story<ParagraphProps> = (args) => <Paragraph {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
