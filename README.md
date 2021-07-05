@@ -22,8 +22,8 @@ All currently available components are documented in our [Storybook](https://mas
 
 Here's a couple of examples of the visual look and feel:
 
-![A sneak peak on design system typography](sneakpeak-typography.jpg)
-![A sneak peak on design system typography](sneakpeak-controls.jpg)
+![A sneak peak on design system typography](.sneakpeak-typography.jpg)
+![A sneak peak on design system typography](.sneakpeak-controls.jpg)
 
 ## License
 
