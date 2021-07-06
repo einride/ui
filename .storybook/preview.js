@@ -1,8 +1,7 @@
-import { ThemeProvider } from "@emotion/react"
+import { EinrideProvider } from "../src/components/EinrideProvider"
 import "../src/assets/fonts/fonts.css"
 import "../src/styles/typography.css";
 import "../src/styles/main.css";
-import { light } from "../src/theme";
 
 const customViewports = {
   small: {
@@ -42,8 +41,8 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <ThemeProvider theme={light}>
+    <EinrideProvider>
         <Story />
-    </ThemeProvider>
+    </EinrideProvider>
   )
 ]
