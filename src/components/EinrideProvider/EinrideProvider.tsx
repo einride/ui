@@ -17,7 +17,8 @@ export const EinrideProvider = ({
   const defaultTheme = themes[colorMode];
   const theme = {
     ...defaultTheme,
-    custom: customTheme,
+    custom: customTheme?.[colorMode],
   };
+
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
