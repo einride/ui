@@ -16,8 +16,6 @@
   },
   "include": [
     "src/main.ts",
-    "src/components/**/*.ts",
-    "src/components/**/*.tsx",
     "src/types/custom.d.ts", // TODO, this could probably be moved to typeRoots
     "src/types/emotion.d.ts",
   ]
