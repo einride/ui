@@ -7,6 +7,7 @@ const StyledText = styled.small`
   line-height: 16px;
   padding-top: 3px;
   padding-bottom: 5px;
+  color: ${({ theme }) => theme.colors.content.primary};
 `;
 
 export interface CaptionProps {

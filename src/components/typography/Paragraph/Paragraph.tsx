@@ -7,6 +7,7 @@ const StyledText = styled.p`
   line-height: 24px;
   padding-top: 5px;
   padding-bottom: 3px;
+  color: ${({ theme }) => theme.colors.content.primary};
 `;
 
 export interface ParagraphProps {

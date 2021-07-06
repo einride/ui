@@ -7,6 +7,7 @@ const StyledText = styled.h1`
   line-height: 48px;
   padding-top: 1px;
   padding-bottom: 7px;
+  color: ${({ theme }) => theme.colors.content.primary};
 `;
 
 export interface Title1Props {

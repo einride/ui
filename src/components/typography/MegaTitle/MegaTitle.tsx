@@ -7,6 +7,7 @@ const StyledText = styled.h1`
   line-height: 80px;
   padding-top: 2px;
   padding-bottom: 14px;
+  color: ${({ theme }) => theme.colors.content.primary};
 `;
 
 export interface MegaTitleProps {
