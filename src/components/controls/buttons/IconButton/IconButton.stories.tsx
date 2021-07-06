@@ -9,13 +9,6 @@ export default {
     disabled: {
       control: "boolean",
     },
-    size: {
-      options: ["small", "large"],
-      control: { type: "radio" },
-    },
-    icon: {
-      control: false,
-    },
   },
   parameters: {
     design: {
