@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { ButtonHTMLAttributes, ReactNode } from "react";
-import { ReactComponent as ArrowRightwards } from "../../../../assets/icons/arrowRightwards.svg";
 import { BaseButton } from "../BaseButton";
 
 const StyledBaseButton = styled(BaseButton)`
@@ -18,10 +17,6 @@ const StyledBaseButton = styled(BaseButton)`
   }
 `;
 
-const StyledArrowRightwards = styled(ArrowRightwards)`
-  fill: ${({ theme }) => theme.colors.positive};
-`;
-
 const ContentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -30,18 +25,20 @@ const ContentWrapper = styled.div`
 
 const IconWrapper = styled.div`
   margin-left: 10px;
+  color: ${({ theme }) => theme.colors.positive};
+  text-decoration: none !important;
 `;
 
 export interface WithIconButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  icon?: ReactNode;
+  icon?: string;
   size?: "small" | "large";
 }
 
 export const WithIconButton = ({
   children,
-  icon = <StyledArrowRightwards />,
+  icon = "→",
   size = "large",
   ...props
 }: WithIconButtonProps) => {
