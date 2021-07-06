@@ -109,3 +109,4 @@ export const dark: Theme = {
 };
 
 export type Theme = typeof light;
+export const themes = { light, dark };
