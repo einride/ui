@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
-import { ButtonHTMLAttributes, ReactNode } from "react";
-import { ReactComponent as ArrowRightwards } from "../../../../assets/icons/arrowRightwards.svg";
+import { ButtonHTMLAttributes } from "react";
 import { SecondaryButton } from "../SecondaryButton";
 
 const getWidth = (size?: "small" | "large") => {
@@ -18,20 +17,20 @@ const StyledBaseButton = styled(SecondaryButton)<IconButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
 
-const StyledArrowRightwards = styled(ArrowRightwards)`
-  fill: ${({ theme }) => theme.colors.content.primary};
+  &:focus {
+    text-decoration: none;
+  }
 `;
 
 export interface IconButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
-  icon?: ReactNode;
+  icon?: string;
   size?: "small" | "large";
 }
 
 export const IconButton = ({
-  icon = <StyledArrowRightwards />,
+  icon = "→",
   size = "large",
   ...props
 }: IconButtonProps) => {
