@@ -7,6 +7,7 @@ const StyledText = styled.h2`
   line-height: 32px;
   padding-top: 6px;
   padding-bottom: 2px;
+  color: ${({ theme }) => theme.colors.content.primary};
 `;
 
 export interface Title2Props {
