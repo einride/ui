@@ -3,7 +3,6 @@ import { IconButton, IconButtonProps } from "./IconButton";
 
 export default {
   title: "Controls/Buttons/IconButton",
-  subtitle: "aslkdjalskdjlaksj",
   component: IconButton,
   argTypes: {
     disabled: {
