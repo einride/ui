@@ -1,4 +1,4 @@
-import { EinrideProvider } from "../src/components/EinrideProvider"
+import { EinrideProvider } from "../src/lib/EinrideProvider"
 import "../src/assets/fonts/fonts.css"
 import "../src/styles/typography.css";
 import "../src/styles/main.css";
