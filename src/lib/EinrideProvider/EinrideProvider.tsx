@@ -1,0 +1,42 @@
+import { ThemeProvider } from "@emotion/react";
+import { createContext, ReactNode, useContext } from "react";
+import { themes } from "../../theme";
+
+type ColorMode = "light" | "dark";
+
+export const Context = createContext<ColorMode>("light");
+
+interface EinrideProviderProps {
+  children: ReactNode;
+  colorMode?: ColorMode;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  customTheme?: any;
+}
+
+export const EinrideProvider = ({
+  children,
+  colorMode = "light",
+  customTheme = {},
+}: EinrideProviderProps) => {
+  const defaultTheme = themes[colorMode];
+  const theme = {
+    ...defaultTheme,
+    custom: customTheme[colorMode],
+  };
+
+  return (
+    <Context.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </Context.Provider>
+  );
+};
+
+export const useColorMode = () => {
+  const colorMode = useContext(Context);
+
+  if (!colorMode) {
+    throw new Error("useColorMode must be used within a EinrideProvider");
+  }
+
+  return colorMode;
+};
