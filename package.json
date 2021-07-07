@@ -53,7 +53,7 @@
     "chromatic": "npx chromatic --project-token f99937c406c4",
     "lint": "eslint ./src/**/*.{ts,tsx}",
     "build": "tsc -p tsconfig.json && yarn copy-files",
-    "copy-files": "copyfiles -u 1 \"src/**/*.css\" \"src/**/*.svg\" lib/"
+    "copy-files": "copyfiles -u 1 \"src/**/*.css\" \"src/**/*.svg\" \"src/**/*.png\" lib/"
   },
   "keywords": [
     "design-system",
