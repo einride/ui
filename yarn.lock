@@ -1374,7 +1374,7 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
-"@einride/eslint-plugin@^2.0.1":
+"@einride/eslint-plugin@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@einride/eslint-plugin/-/eslint-plugin-2.1.0.tgz#8b16c2c77909c529ae1104ed426705a479a8052f"
   integrity sha512-26CRVhPAOCKi4WYK+n2aNsgckxNGrKunm5vHkGXz4yiek517iLh1q/YfL+nxd4hQ77eptIyGwCNfHzSQH645kA==
