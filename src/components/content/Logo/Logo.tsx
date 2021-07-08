@@ -24,7 +24,7 @@ export const Logo = ({ size = "small", variant }: LogoProps) => {
     return <img src={logoInverseLarge} alt="Einride Logo" />;
   };
 
-  if (variant === "inverse" || colorMode === "dark") {
+  if (variant === "inverse" || (!variant && colorMode === "dark")) {
     return logoInverse();
   }
 
