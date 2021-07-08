@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
-    "@einride/eslint-plugin": "^2.0.1",
+    "@einride/eslint-plugin": "^2.1.0",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
     "@storybook/addon-actions": "^6.3.2",
