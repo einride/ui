@@ -5,8 +5,9 @@ const StyledText = styled.h2`
   font-size: 28px;
   font-weight: normal;
   line-height: 32px;
-  padding-top: 6px;
-  padding-bottom: 2px;
+  margin-top: 6px;
+  margin-bottom: 2px;
+  padding: 0;
   color: ${({ theme }) => theme.colors.content.primary};
 `;
 

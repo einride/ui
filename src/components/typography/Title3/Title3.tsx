@@ -5,8 +5,9 @@ const StyledText = styled.h3`
   font-size: 24px;
   font-weight: normal;
   line-height: 32px;
-  padding-top: 7px;
-  padding-bottom: 1px;
+  margin-top: 7px;
+  margin-bottom: 1px;
+  padding: 0;
   color: ${({ theme }) => theme.colors.content.primary};
 `;
 
