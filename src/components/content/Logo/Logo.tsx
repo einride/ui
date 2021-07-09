@@ -1,7 +1,7 @@
-import logoDefaultLarge from "../../../assets/logo/logo-default-large.png";
-import logoDefaultSmall from "../../../assets/logo/logo-default-small.png";
-import logoInverseLarge from "../../../assets/logo/logo-inverse-large.png";
-import logoInverseSmall from "../../../assets/logo/logo-inverse-small.png";
+import logoDefaultLarge from "../../../assets/logo/logo-default-large.svg";
+import logoDefaultSmall from "../../../assets/logo/logo-default-small.svg";
+import logoInverseLarge from "../../../assets/logo/logo-inverse-large.svg";
+import logoInverseSmall from "../../../assets/logo/logo-inverse-small.svg";
 import { useColorMode } from "../../../lib/EinrideProvider/EinrideProvider";
 
 export interface LogoProps {
