@@ -1,0 +1,52 @@
+import styled from "@emotion/styled";
+import { ReactNode } from "react";
+import { Theme } from "../../../theme";
+
+const getBackgroundColor = (theme: Theme, variant?: Variant) => {
+  switch (variant) {
+    case "default":
+      return theme.colors.background.secondary;
+    case "accent":
+      return theme.colors.background.accent;
+    case "positive":
+      return theme.colors.background.positive;
+    case "negative":
+      return theme.colors.background.negative;
+    default:
+      return theme.colors.background.secondary;
+  }
+};
+
+const getColor = (theme: Theme, variant?: Variant) => {
+  switch (variant) {
+    case "default":
+      return theme.colors.content.primary;
+    case "accent":
+      return theme.colors.content.accent;
+    case "positive":
+      return theme.colors.content.positive;
+    case "negative":
+      return theme.colors.content.negative;
+    default:
+      return theme.colors.content.secondary;
+  }
+};
+
+const StyledSpan = styled.span<LabelProps>`
+  background-color: ${({ theme, variant }) =>
+    getBackgroundColor(theme, variant)};
+  color: ${({ theme, variant }) => getColor(theme, variant)};
+  padding: ${({ theme }) => `${theme.spacer / 2}px ${theme.spacer}px`};
+  border-radius: 2px;
+`;
+
+type Variant = "default" | "accent" | "positive" | "negative";
+
+export interface LabelProps {
+  children: ReactNode;
+  variant?: Variant;
+}
+
+export const Label = ({ children, variant = "default" }: LabelProps) => {
+  return <StyledSpan variant={variant}>{children}</StyledSpan>;
+};
