@@ -1,5 +1,9 @@
 import { color } from "./primitives/color";
 
+const common = {
+  spacer: 8,
+};
+
 export const light = {
   colors: {
     positive: color.green.default,
@@ -52,6 +56,7 @@ export const light = {
       },
     },
   },
+  ...common,
 };
 
 export const dark: Theme = {
@@ -106,6 +111,7 @@ export const dark: Theme = {
       },
     },
   },
+  ...common,
 };
 
 export type Theme = typeof light;
