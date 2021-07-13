@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { InputHTMLAttributes, useEffect, useState } from "react";
+import { ChangeEvent, InputHTMLAttributes, useEffect, useState } from "react";
 import { BaseInput } from "../BaseInput";
 
 const StyledInput = styled(BaseInput)`
@@ -15,6 +15,7 @@ const StyledInput = styled(BaseInput)`
 
 export interface SearchInputProps
   extends InputHTMLAttributes<HTMLInputElement> {
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
   value: string;
 }
