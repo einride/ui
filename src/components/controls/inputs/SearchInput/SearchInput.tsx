@@ -20,7 +20,7 @@ export interface SearchInputProps
   value: string;
 }
 
-export const SearchInput = ({ value = "", ...props }: SearchInputProps) => {
+export const SearchInput = ({ value, ...props }: SearchInputProps) => {
   const [icon, setIcon] = useState("");
 
   useEffect(() => {
