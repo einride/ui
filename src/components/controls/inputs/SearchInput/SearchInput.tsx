@@ -20,11 +20,7 @@ export interface SearchInputProps
   value: string;
 }
 
-export const SearchInput = ({
-  placeholder,
-  value = "",
-  ...props
-}: SearchInputProps) => {
+export const SearchInput = ({ value = "", ...props }: SearchInputProps) => {
   const [icon, setIcon] = useState("");
 
   useEffect(() => {
@@ -35,14 +31,5 @@ export const SearchInput = ({
     setIcon("❌");
   }, [value]);
 
-  return (
-    <StyledInput
-      icon={icon}
-      type="search"
-      placeholder={placeholder}
-      onChange={() => props.onChange}
-      value={value}
-      {...props}
-    />
-  );
+  return <StyledInput icon={icon} type="search" value={value} {...props} />;
 };
