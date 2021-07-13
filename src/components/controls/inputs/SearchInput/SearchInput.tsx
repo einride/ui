@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { ChangeEvent, InputHTMLAttributes, useEffect, useState } from "react";
+import { ChangeEvent, InputHTMLAttributes } from "react";
 import { BaseInput } from "../BaseInput";
 
 const StyledInput = styled(BaseInput)`
@@ -21,15 +21,7 @@ export interface SearchInputProps
 }
 
 export const SearchInput = ({ value, ...props }: SearchInputProps) => {
-  const [icon, setIcon] = useState("");
-
-  useEffect(() => {
-    if (value.length === 0) {
-      setIcon("");
-      return;
-    }
-    setIcon("❌");
-  }, [value]);
+  const icon = value.length ? "❌" : "";
 
   return <StyledInput icon={icon} type="search" value={value} {...props} />;
 };
