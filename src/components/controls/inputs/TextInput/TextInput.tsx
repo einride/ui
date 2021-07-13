@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { InputHTMLAttributes, ReactNode } from "react";
+import { ChangeEvent, InputHTMLAttributes, ReactNode } from "react";
 import { Theme } from "../../../../theme";
 import { BaseInput } from "../BaseInput";
 
@@ -60,6 +60,7 @@ type Status = "success" | "fail";
 
 export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: ReactNode;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
   status?: Status;
   statusMessage?: ReactNode;
