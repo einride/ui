@@ -6,8 +6,9 @@ const StyledTable = styled.table`
   width: 100%;
 `;
 
-const StyledTR = styled.tr`
+const StyledTR = styled.tr<{ isClickable: boolean }>`
   box-shadow: 0px -1px 0px ${({ theme }) => theme.colors.border.primary};
+  ${({ isClickable }) => isClickable && "cursor: pointer"};
 `;
 
 export interface TableProps<Row, Column> {
@@ -15,11 +16,13 @@ export interface TableProps<Row, Column> {
     displayText: string;
     key: Column;
   }[];
+  onRowClick?: (row: Row) => void;
   rows: Row[];
 }
 
 export const Table = <Row, Column extends keyof Row>({
   headers,
+  onRowClick,
   rows,
 }: TableProps<Row, Column>) => {
   return (
@@ -35,7 +38,11 @@ export const Table = <Row, Column extends keyof Row>({
       </thead>
       <tbody>
         {rows.map((row) => (
-          <StyledTR key={JSON.stringify(row)}>
+          <StyledTR
+            key={JSON.stringify(row)}
+            onClick={() => onRowClick?.(row)}
+            isClickable={!!onRowClick}
+          >
             {headers.map((header) => (
               <TableRow key={header.key.toString()}>{row[header.key]}</TableRow>
             ))}
