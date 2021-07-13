@@ -8,6 +8,7 @@ export { TertiaryButton } from "./components/controls/buttons/TertiaryButton";
 export { WithIconButton } from "./components/controls/buttons/WithIconButton";
 export { Label } from "./components/information/Label";
 export { VerticalSpacing } from "./components/layout/VerticalSpacing";
+export { Table } from "./components/table/Table";
 export { Caption } from "./components/typography/Caption";
 export { MegaTitle } from "./components/typography/MegaTitle";
 export { Paragraph } from "./components/typography/Paragraph";
