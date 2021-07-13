@@ -42,31 +42,16 @@ const ContentWrapper = styled.label`
 `;
 
 export interface BaseInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  className?: string;
   icon?: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
-  type?: string;
   value: string;
 }
 
-export const BaseInput = ({
-  className,
-  icon,
-  onChange,
-  placeholder,
-  type,
-  ...props
-}: BaseInputProps) => {
+export const BaseInput = ({ icon, ...props }: BaseInputProps) => {
   return (
     <ContentWrapper data-icon={icon}>
-      <StyledInput
-        className={className}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder}
-        type={type}
-        {...props}
-      />
+      <StyledInput {...props} />
     </ContentWrapper>
   );
 };
