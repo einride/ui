@@ -69,7 +69,6 @@ export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export const TextInput = ({
   label,
-  placeholder,
   status,
   statusMessage,
   ...props
@@ -80,7 +79,6 @@ export const TextInput = ({
       <StyledBaseInput
         status={status}
         icon={getStatusIcon(status)}
-        placeholder={placeholder}
         {...props}
       />
       {status && <StyledMessage>{statusMessage}</StyledMessage>}
