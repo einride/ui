@@ -21,20 +21,22 @@ export default {
 const Template: Story<TextInputProps> = (args) => <TextInput {...args} />;
 
 export const Default = Template.bind({});
-Default.args = { placeholder: "Placeholder...", label: "Label" };
+Default.args = {
+  label: "Label",
+  placeholder: "Placeholder...",
+  value: "",
+};
 
 export const Positive = Template.bind({});
 Positive.args = {
-  placeholder: "Placeholder...",
-  label: "Label",
+  ...Default.args,
   status: "success",
   statusMessage: "Confirmation message.",
 };
 
 export const Negative = Template.bind({});
 Negative.args = {
-  placeholder: "Placeholder...",
-  label: "Label",
+  ...Default.args,
   status: "fail",
   statusMessage: "Error message.",
 };
