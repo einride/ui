@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 
 const StyledText = styled.p`
   font-size: 18px;
@@ -11,10 +11,10 @@ const StyledText = styled.p`
   color: ${({ theme }) => theme.colors.content.primary};
 `;
 
-export interface ParagraphProps {
+export interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
   children: ReactNode;
 }
 
-export const Paragraph = ({ children }: ParagraphProps) => {
-  return <StyledText>{children}</StyledText>;
+export const Paragraph = ({ children, ...props }: ParagraphProps) => {
+  return <StyledText {...props}>{children}</StyledText>;
 };
