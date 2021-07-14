@@ -62,6 +62,7 @@ export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: ReactNode;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
+  required?: boolean;
   status?: Status;
   statusMessage?: ReactNode;
   value: string;
@@ -69,16 +70,18 @@ export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export const TextInput = ({
   label,
+  required,
   status,
   statusMessage,
   ...props
 }: TextInputProps) => {
   return (
     <StyledLabel status={status}>
-      {label}
+      {label} {required && " (required)"}
       <StyledBaseInput
-        status={status}
         icon={getStatusIcon(status)}
+        required={required}
+        status={status}
         {...props}
       />
       {status && <StyledMessage>{statusMessage}</StyledMessage>}
