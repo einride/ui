@@ -4,10 +4,12 @@ import { TableRow } from "../TableRow";
 
 const StyledTable = styled.table`
   width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
 `;
 
 const StyledTR = styled.tr<{ isClickable: boolean }>`
-  box-shadow: 0px -1px 0px ${({ theme }) => theme.colors.border.primary};
+  border-top: 1px solid ${({ theme }) => theme.colors.border.primary};
   ${({ isClickable }) => isClickable && "cursor: pointer"};
 `;
 
