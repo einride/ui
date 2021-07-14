@@ -1,16 +1,27 @@
 import styled from "@emotion/styled";
 import { ChangeEvent, InputHTMLAttributes } from "react";
+import xMark from "../../../../assets/icons/xMark.svg";
 import { BaseInput } from "../BaseInput";
 
+const StyledForm = styled.form`
+  position: relative;
+  width: max-content;
+`;
+
 const StyledInput = styled(BaseInput)`
-  &::-webkit-search-cancel-button {
-    -webkit-appearance: none;
-    cursor: pointer;
-    height: 13px;
-    width: 13px;
-    z-index: 1;
-    margin: 0;
-  }
+  padding-right: 29px; // right-padding (16px) + width of xMark (13px)
+`;
+
+const ClearButton = styled.button`
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  height: 24px;
+  border: none;
+  background-color: unset;
+  background-image: url(${xMark});
+  background-repeat: no-repeat;
+  background-position: center;
 `;
 
 export interface SearchInputProps
@@ -21,7 +32,10 @@ export interface SearchInputProps
 }
 
 export const SearchInput = ({ value, ...props }: SearchInputProps) => {
-  const icon = value.length ? "❌" : "";
-
-  return <StyledInput icon={icon} type="search" value={value} {...props} />;
+  return (
+    <StyledForm>
+      <StyledInput value={value} {...props} />
+      {value && <ClearButton type="reset" />}
+    </StyledForm>
+  );
 };
