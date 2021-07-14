@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 
 const StyledText = styled.h2`
   font-size: 28px;
@@ -11,10 +11,15 @@ const StyledText = styled.h2`
   color: ${({ theme }) => theme.colors.content.primary};
 `;
 
-export interface Title2Props {
+export interface Title2Props extends HTMLAttributes<HTMLHeadingElement> {
+  as: "h2" | "h3";
   children: ReactNode;
 }
 
-export const Title2 = ({ children }: Title2Props) => {
-  return <StyledText>{children}</StyledText>;
+export const Title2 = ({ as = "h2", children, ...props }: Title2Props) => {
+  return (
+    <StyledText as={as} {...props}>
+      {children}
+    </StyledText>
+  );
 };

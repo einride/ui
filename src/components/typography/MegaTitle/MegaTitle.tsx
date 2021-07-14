@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 
 const StyledText = styled.h1`
   font-size: 80px;
@@ -11,10 +11,19 @@ const StyledText = styled.h1`
   color: ${({ theme }) => theme.colors.content.primary};
 `;
 
-export interface MegaTitleProps {
+export interface MegaTitleProps extends HTMLAttributes<HTMLHeadingElement> {
+  as: "h1" | "h2";
   children: ReactNode;
 }
 
-export const MegaTitle = ({ children }: MegaTitleProps) => {
-  return <StyledText>{children}</StyledText>;
+export const MegaTitle = ({
+  as = "h1",
+  children,
+  ...props
+}: MegaTitleProps) => {
+  return (
+    <StyledText as={as} {...props}>
+      {children}
+    </StyledText>
+  );
 };
