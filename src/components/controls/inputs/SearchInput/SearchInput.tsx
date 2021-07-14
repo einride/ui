@@ -5,7 +5,7 @@ import { BaseInput } from "../BaseInput";
 
 const Wrapper = styled.div`
   position: relative;
-  width: max-content;
+  width: 100%;
 `;
 
 const StyledInput = styled(BaseInput)`
