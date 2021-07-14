@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 
 const StyledText = styled.small`
   font-size: 14px;
@@ -11,14 +11,14 @@ const StyledText = styled.small`
   color: ${({ theme }) => theme.colors.content.primary};
 `;
 
-export interface CaptionProps {
+export interface CaptionProps extends HTMLAttributes<HTMLParagraphElement> {
   children: ReactNode;
 }
 
-export const Caption = ({ children }: CaptionProps) => {
+export const Caption = ({ children, ...props }: CaptionProps) => {
   return (
     <p>
-      <StyledText>{children}</StyledText>
+      <StyledText {...props}>{children}</StyledText>
     </p>
   );
 };
