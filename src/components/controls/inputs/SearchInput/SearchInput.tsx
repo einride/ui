@@ -1,15 +1,15 @@
 import styled from "@emotion/styled";
-import { ChangeEvent, InputHTMLAttributes } from "react";
+import { InputHTMLAttributes } from "react";
 import xMark from "../../../../assets/icons/xMark.svg";
 import { BaseInput } from "../BaseInput";
 
-const StyledForm = styled.form`
+const Wrapper = styled.div`
   position: relative;
   width: max-content;
 `;
 
 const StyledInput = styled(BaseInput)`
-  padding-right: 29px; // right-padding (16px) + width of xMark (13px)
+  padding-right: 29px; /* right-padding (16px) + width of xMark (13px) */
 `;
 
 const ClearButton = styled.button`
@@ -26,16 +26,24 @@ const ClearButton = styled.button`
 
 export interface SearchInputProps
   extends InputHTMLAttributes<HTMLInputElement> {
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onInputChange: (input: string) => void;
   placeholder: string;
   value: string;
 }
 
-export const SearchInput = ({ value, ...props }: SearchInputProps) => {
+export const SearchInput = ({
+  value,
+  onInputChange,
+  ...props
+}: SearchInputProps) => {
   return (
-    <StyledForm>
-      <StyledInput value={value} {...props} />
-      {value && <ClearButton type="reset" />}
-    </StyledForm>
+    <Wrapper>
+      <StyledInput
+        value={value}
+        onChange={(e) => onInputChange(e.target.value)}
+        {...props}
+      />
+      {value && <ClearButton onClick={() => onInputChange("")} />}
+    </Wrapper>
   );
 };
