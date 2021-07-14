@@ -9,6 +9,7 @@ export { TertiaryButton } from "./components/controls/buttons/TertiaryButton";
 export { WithIconButton } from "./components/controls/buttons/WithIconButton";
 export { SearchInput } from "./components/controls/inputs/SearchInput";
 export { TextInput } from "./components/controls/inputs/TextInput";
+export { DropdownSelect } from "./components/controls/selects/DropdownSelect";
 export { Label } from "./components/information/Label";
 export { VerticalSpacing } from "./components/layout/VerticalSpacing";
 export { Table } from "./components/table/Table";
