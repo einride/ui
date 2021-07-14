@@ -4,6 +4,7 @@ import { ChangeEvent, InputHTMLAttributes } from "react";
 const StyledInput = styled.input`
   background-color: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
+  width: 100%;
   display: block;
   padding: 12px 16px;
   border: unset;
@@ -31,7 +32,6 @@ const StyledInput = styled.input`
 const ContentWrapper = styled.label`
   position: relative;
   display: block;
-  width: min-content;
 
   &::after {
     content: attr(data-icon);
