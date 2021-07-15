@@ -26,7 +26,7 @@ export const Table = <Row, Column extends keyof Row>({
   headers,
   onRowClick,
   rows,
-}: TableProps<Row, Column>) => {
+}: TableProps<Row & { id: string }, Column>) => {
   return (
     <StyledTable>
       <thead>
@@ -41,7 +41,7 @@ export const Table = <Row, Column extends keyof Row>({
       <tbody>
         {rows.map((row) => (
           <StyledTR
-            key={JSON.stringify(row)}
+            key={row.id}
             onClick={() => onRowClick?.(row)}
             isClickable={!!onRowClick}
           >
