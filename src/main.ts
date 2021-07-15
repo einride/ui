@@ -11,6 +11,7 @@ export { SearchInput } from "./components/controls/inputs/SearchInput";
 export { TextInput } from "./components/controls/inputs/TextInput";
 export { DropdownSelect } from "./components/controls/selects/DropdownSelect";
 export { Label } from "./components/information/Label";
+export { VerticalLayout } from "./components/layout/VerticalLayout";
 export { VerticalSpacing } from "./components/layout/VerticalSpacing";
 export { Table } from "./components/table/Table";
 export { Caption } from "./components/typography/Caption";
