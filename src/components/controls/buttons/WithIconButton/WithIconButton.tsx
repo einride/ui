@@ -2,7 +2,8 @@ import styled from "@emotion/styled";
 import { ButtonHTMLAttributes, ReactNode } from "react";
 import { BaseButton } from "../BaseButton";
 
-const StyledBaseButton = styled(BaseButton)`
+const StyledBaseButton = styled(BaseButton)<WithIconButtonProps>`
+  ${({ fullWidth }) => fullWidth && "width: 100%"};
   background-color: ${({ theme }) => theme.colors.buttons.background.primary};
   color: ${({ theme }) => theme.colors.buttons.text.primary};
 
@@ -32,18 +33,20 @@ const IconWrapper = styled.div`
 export interface WithIconButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
+  fullWidth?: boolean;
   icon?: string;
   size?: "small" | "large";
 }
 
 export const WithIconButton = ({
   children,
+  fullWidth = false,
   icon = "→",
   size = "large",
   ...props
 }: WithIconButtonProps) => {
   return (
-    <StyledBaseButton size={size} {...props}>
+    <StyledBaseButton fullWidth={fullWidth} size={size} {...props}>
       <ContentWrapper>
         {children}
         <IconWrapper>{icon}</IconWrapper>
