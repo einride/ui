@@ -32,7 +32,7 @@ export const Table = <Row, Column extends keyof Row>({
       <thead>
         <tr>
           {headers.map((header) => (
-            <TableHeader key={header.displayText}>
+            <TableHeader key={header.key.toString()}>
               {header.displayText}
             </TableHeader>
           ))}
