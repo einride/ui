@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { ReactNode } from "react";
 
 const getHeight = (size?: Size) => {
   switch (size) {
@@ -23,6 +24,7 @@ const StyledDiv = styled.div<VerticalLayoutProps>`
 type Size = "small" | "medium" | "large" | "extraLarge";
 
 export interface VerticalLayoutProps {
+  children: ReactNode;
   size?: Size;
 }
 
