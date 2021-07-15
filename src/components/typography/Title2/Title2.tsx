@@ -12,7 +12,7 @@ const StyledText = styled.h2`
 `;
 
 export interface Title2Props extends HTMLAttributes<HTMLHeadingElement> {
-  as: "h2" | "h3";
+  as?: "h2" | "h3";
   children: ReactNode;
 }
 
