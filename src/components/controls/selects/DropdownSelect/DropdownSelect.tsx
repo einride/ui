@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { ReactNode } from "react";
+import { ChangeEvent, ReactNode, SelectHTMLAttributes } from "react";
 import chevronDown from "../../../../assets/icons/chevronDown.svg";
 
 export const DropdownWrapper = styled.div`
@@ -49,13 +49,17 @@ const StyledSelect = styled.select`
   }
 `;
 
-export interface DropdownSelectProps {
+export interface DropdownSelectProps
+  extends SelectHTMLAttributes<HTMLSelectElement> {
+  defaultValue?: string;
   label: ReactNode;
+  onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
   options: string[];
-  placeholder: string;
+  placeholder?: string;
 }
 
 export const DropdownSelect = ({
+  defaultValue,
   label,
   options,
   placeholder,
@@ -64,10 +68,12 @@ export const DropdownSelect = ({
   return (
     <DropdownWrapper>
       <StyledLabel>{label}</StyledLabel>
-      <StyledSelect defaultValue="placeholder" {...props}>
-        <option value="placeholder" hidden>
-          {placeholder}
-        </option>
+      <StyledSelect defaultValue={defaultValue || "placeholder"} {...props}>
+        {!defaultValue && (
+          <option value="placeholder" hidden>
+            {placeholder || "Choose an option"}
+          </option>
+        )}
         {options.map((option) => (
           <option key={option} value={option}>
             {option}
