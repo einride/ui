@@ -8,6 +8,7 @@ export { SecondaryButton } from "./components/controls/buttons/SecondaryButton";
 export { TertiaryButton } from "./components/controls/buttons/TertiaryButton";
 export { WithIconButton } from "./components/controls/buttons/WithIconButton";
 export { DefaultCheckbox } from "./components/controls/checkboxes/DefaultCheckbox";
+export { LabelCheckbox } from "./components/controls/checkboxes/LabelCheckbox";
 export { SearchInput } from "./components/controls/inputs/SearchInput";
 export { TextInput } from "./components/controls/inputs/TextInput";
 export { DropdownSelect } from "./components/controls/selects/DropdownSelect";
