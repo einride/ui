@@ -2,7 +2,7 @@ import { Story } from "@storybook/react/types-6-0";
 import { DropdownSelect, DropdownSelectProps } from "./DropdownSelect";
 
 export default {
-  title: "Controls/Selects/DropdownInput",
+  title: "Controls/Selects/DropdownSelect",
   component: DropdownSelect,
   argTypes: {
     disabled: {
@@ -26,5 +26,18 @@ export const Default = Template.bind({});
 Default.args = {
   label: "Label",
   options: ["Option 1", "Option 2", "Option 3"],
+};
+
+export const Placeholder = Template.bind({});
+Placeholder.args = {
+  label: "Label",
+  options: ["Option 1", "Option 2", "Option 3"],
   placeholder: "Placeholder...",
+};
+
+export const DefaultValue = Template.bind({});
+DefaultValue.args = {
+  label: "Label",
+  options: ["Option 1", "Option 2", "Option 3"],
+  defaultValue: "Option 2",
 };
