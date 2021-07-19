@@ -1,1 +1,0 @@
-export { LabelRadio } from "./LabelRadio";
