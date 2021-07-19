@@ -12,6 +12,7 @@ export { LabelCheckbox } from "./components/controls/checkboxes/LabelCheckbox";
 export { SearchInput } from "./components/controls/inputs/SearchInput";
 export { TextInput } from "./components/controls/inputs/TextInput";
 export { DefaultRadio } from "./components/controls/radios/DefaultRadio";
+export { LabelRadio } from "./components/controls/radios/LabelRadio";
 export { DropdownSelect } from "./components/controls/selects/DropdownSelect";
 export { Label } from "./components/information/Label";
 export { VerticalLayout } from "./components/layout/VerticalLayout";
