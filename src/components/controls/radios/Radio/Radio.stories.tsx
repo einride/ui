@@ -1,9 +1,9 @@
 import { Story } from "@storybook/react/types-6-0";
-import { DefaultRadio, DefaultRadioProps } from "./DefaultRadio";
+import { Radio, RadioProps } from "./Radio";
 
 export default {
-  title: "Controls/Radios/DefaultRadio",
-  component: DefaultRadio,
+  title: "Controls/Radios/Radio",
+  component: Radio,
   argTypes: {
     disabled: {
       control: "boolean",
@@ -18,7 +18,10 @@ export default {
   },
 };
 
-const Template: Story<DefaultRadioProps> = (args) => <DefaultRadio {...args} />;
+const Template: Story<RadioProps> = (args) => <Radio {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {};
+
+export const Label = Template.bind({});
+Label.args = { label: "Label" };
