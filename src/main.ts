@@ -15,6 +15,7 @@ export { TextInput } from "./components/controls/inputs/TextInput";
 export { Radio } from "./components/controls/radios/Radio";
 export { DefaultDropdownSelect } from "./components/controls/selects/DefaultDropdownSelect";
 export { LabelDropdownSelect } from "./components/controls/selects/LabelDropdownSelect";
+export { Textarea } from "./components/controls/textareas/Textarea";
 export { Label } from "./components/information/Label";
 export { VerticalLayout } from "./components/layout/VerticalLayout";
 export { VerticalSpacing } from "./components/layout/VerticalSpacing";
