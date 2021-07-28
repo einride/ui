@@ -1,9 +1,12 @@
 import { Story } from "@storybook/react/types-6-0";
-import { DropdownSelect, DropdownSelectProps } from "./DropdownSelect";
+import {
+  LabelDropdownSelect,
+  LabelDropdownSelectProps,
+} from "./LabelDropdownSelect";
 
 export default {
-  title: "Controls/Selects/DropdownSelect",
-  component: DropdownSelect,
+  title: "Controls/Selects/LabelDropdownSelect",
+  component: LabelDropdownSelect,
   argTypes: {
     disabled: {
       control: "boolean",
@@ -18,8 +21,8 @@ export default {
   },
 };
 
-const Template: Story<DropdownSelectProps> = (args) => (
-  <DropdownSelect {...args} />
+const Template: Story<LabelDropdownSelectProps> = (args) => (
+  <LabelDropdownSelect {...args} />
 );
 
 export const Default = Template.bind({});
