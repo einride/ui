@@ -36,14 +36,8 @@ const getStatusIcon = (status?: Status) => {
   }
 };
 
-const StyledLabel = styled.label<{ status?: Status }>`
-  color: ${({ theme }) => theme.colors.content.secondary};
-  margin: 5px 0 3px;
+const Wrapper = styled.div<{ status?: Status }>`
   color: ${({ theme, status }) => getColor(theme, status)};
-
-  &:focus-within {
-    color: ${({ theme }) => theme.colors.content.primary};
-  }
 `;
 
 const StyledBaseInput = styled(BaseInput)<{ status?: Status }>`
@@ -59,32 +53,26 @@ const StyledMessage = styled.div`
 type Status = "success" | "fail";
 
 export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label: ReactNode;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
-  required?: boolean;
   status?: Status;
   statusMessage?: ReactNode;
   value: string;
 }
 
 export const TextInput = ({
-  label,
-  required,
   status,
   statusMessage,
   ...props
 }: TextInputProps) => {
   return (
-    <StyledLabel status={status}>
-      {label} {required && " (required)"}
+    <Wrapper status={status}>
       <StyledBaseInput
         icon={getStatusIcon(status)}
-        required={required}
         status={status}
         {...props}
       />
       {status && <StyledMessage>{statusMessage}</StyledMessage>}
-    </StyledLabel>
+    </Wrapper>
   );
 };
