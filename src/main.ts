@@ -9,6 +9,7 @@ export { TertiaryButton } from "./components/controls/buttons/TertiaryButton";
 export { WithIconButton } from "./components/controls/buttons/WithIconButton";
 export { DefaultCheckbox } from "./components/controls/checkboxes/DefaultCheckbox";
 export { LabelCheckbox } from "./components/controls/checkboxes/LabelCheckbox";
+export { LabelTextInput } from "./components/controls/inputs/LabelTextInput";
 export { SearchInput } from "./components/controls/inputs/SearchInput";
 export { TextInput } from "./components/controls/inputs/TextInput";
 export { Radio } from "./components/controls/radios/Radio";
