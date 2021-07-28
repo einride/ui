@@ -13,7 +13,7 @@ export default {
     design: {
       type: "figma",
       url:
-        "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=12%3A88",
+        "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=1237%3A158",
     },
   },
 };
@@ -22,7 +22,6 @@ const Template: Story<TextInputProps> = (args) => <TextInput {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  label: "Label",
   placeholder: "Placeholder...",
   value: "",
 };
