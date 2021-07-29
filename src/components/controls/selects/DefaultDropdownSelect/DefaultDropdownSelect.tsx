@@ -38,7 +38,10 @@ export interface DefaultDropdownSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
   defaultValue?: string;
   onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
-  options: string[];
+  options: {
+    key: string;
+    value: string;
+  }[];
   placeholder?: string;
 }
 
@@ -56,7 +59,7 @@ export const DefaultDropdownSelect = ({
         </option>
       )}
       {options.map((option) => (
-        <option key={option} value={option}>
+        <option key={option.key} value={option.value}>
           {option}
         </option>
       ))}
