@@ -27,17 +27,29 @@ const Template: Story<DefaultDropdownSelectProps> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  options: ["Option 1", "Option 2", "Option 3"],
+  options: [
+    { key: "Option1", value: "Option 1" },
+    { key: "Option2", value: "Option 2" },
+    { key: "Option3", value: "Option 3" },
+  ],
 };
 
 export const Placeholder = Template.bind({});
 Placeholder.args = {
-  options: ["Option 1", "Option 2", "Option 3"],
+  options: [
+    { key: "Option1", value: "Option 1" },
+    { key: "Option2", value: "Option 2" },
+    { key: "Option3", value: "Option 3" },
+  ],
   placeholder: "Placeholder...",
 };
 
 export const DefaultValue = Template.bind({});
 DefaultValue.args = {
-  options: ["Option 1", "Option 2", "Option 3"],
+  options: [
+    { key: "Option1", value: "Option 1" },
+    { key: "Option2", value: "Option 2" },
+    { key: "Option3", value: "Option 3" },
+  ],
   defaultValue: "Option 2",
 };

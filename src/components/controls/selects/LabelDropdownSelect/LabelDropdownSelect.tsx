@@ -19,12 +19,17 @@ const StyledDefaultDropdown = styled(DefaultDropdownSelect)`
   margin-top: 3px;
 `;
 
+interface Option {
+  key?: string;
+  value: string;
+}
+
 export interface LabelDropdownSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
   defaultValue?: string;
   label: ReactNode;
   onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
-  options: string[];
+  options: Option[];
   placeholder?: string;
 }
 

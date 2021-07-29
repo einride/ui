@@ -34,14 +34,16 @@ const StyledSelect = styled.select`
   }
 `;
 
+interface Option {
+  key?: string;
+  value: string;
+}
+
 export interface DefaultDropdownSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
   defaultValue?: string;
   onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
-  options: {
-    key: string;
-    value: string;
-  }[];
+  options: Option[];
   placeholder?: string;
 }
 
@@ -59,8 +61,8 @@ export const DefaultDropdownSelect = ({
         </option>
       )}
       {options.map((option) => (
-        <option key={option.key} value={option.value}>
-          {option}
+        <option key={option.key ?? option.value} value={option.value}>
+          {option.value}
         </option>
       ))}
     </StyledSelect>
