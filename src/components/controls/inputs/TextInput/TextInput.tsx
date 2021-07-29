@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { ChangeEvent, InputHTMLAttributes, ReactNode } from "react";
+import { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode } from "react";
 import { Theme } from "../../../../theme";
 import { BaseInput } from "../BaseInput";
 
@@ -53,6 +53,7 @@ const StyledMessage = styled.div`
 type Status = "success" | "fail";
 
 export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
   status?: Status;
