@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { ChangeEvent, InputHTMLAttributes, ReactNode } from "react";
+import { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode } from "react";
 import { Theme } from "../../../../theme";
 import { TextInput } from "../TextInput";
 
@@ -27,8 +27,9 @@ type Status = "success" | "fail";
 
 export interface LabelTextInputProps
   extends InputHTMLAttributes<HTMLInputElement> {
-  label: ReactNode;
+  onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  label: ReactNode;
   placeholder: string;
   required?: boolean;
   status?: Status;
