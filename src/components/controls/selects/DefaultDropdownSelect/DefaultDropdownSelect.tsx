@@ -40,7 +40,7 @@ const StyledSelect = styled.select<StyledSelectProps>`
 `;
 
 interface Option {
-  key?: string;
+  text?: string;
   value: string;
 }
 
@@ -72,8 +72,8 @@ export const DefaultDropdownSelect = ({
         </option>
       )}
       {options.map((option) => (
-        <option key={option.key ?? option.value} value={option.value}>
-          {option.value}
+        <option key={option.value} value={option.value}>
+          {option.text ?? option.value}
         </option>
       ))}
     </StyledSelect>
