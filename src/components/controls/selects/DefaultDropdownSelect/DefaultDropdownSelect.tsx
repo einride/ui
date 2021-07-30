@@ -2,8 +2,13 @@ import styled from "@emotion/styled";
 import { ChangeEvent, SelectHTMLAttributes } from "react";
 import chevronDown from "../../../../assets/icons/chevronDown.svg";
 
-const StyledSelect = styled.select`
+interface StyledSelectProps {
+  fullWidth?: boolean;
+}
+
+const StyledSelect = styled.select<StyledSelectProps>`
   min-width: 240px;
+  ${({ fullWidth }) => fullWidth && "width: 100%"};
   background-color: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
   font-size: 18px;
@@ -42,6 +47,7 @@ interface Option {
 export interface DefaultDropdownSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
   defaultValue?: string;
+  fullWidth?: boolean;
   onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
   options: Option[];
   placeholder?: string;
@@ -49,12 +55,17 @@ export interface DefaultDropdownSelectProps
 
 export const DefaultDropdownSelect = ({
   defaultValue,
+  fullWidth = false,
   options,
   placeholder,
   ...props
 }: DefaultDropdownSelectProps) => {
   return (
-    <StyledSelect defaultValue={defaultValue || "placeholder"} {...props}>
+    <StyledSelect
+      defaultValue={defaultValue || "placeholder"}
+      fullWidth={fullWidth}
+      {...props}
+    >
       {!defaultValue && (
         <option value="placeholder" hidden>
           {placeholder || "Choose an option"}
