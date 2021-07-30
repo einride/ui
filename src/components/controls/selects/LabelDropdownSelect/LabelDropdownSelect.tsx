@@ -20,7 +20,7 @@ const StyledDefaultDropdown = styled(DefaultDropdownSelect)`
 `;
 
 interface Option {
-  key?: string;
+  text?: string;
   value: string;
 }
 

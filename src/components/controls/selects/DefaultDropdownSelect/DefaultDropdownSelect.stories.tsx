@@ -37,9 +37,9 @@ Default.args = {
 export const Placeholder = Template.bind({});
 Placeholder.args = {
   options: [
-    { key: "Option1", value: "Option 1" },
-    { key: "Option2", value: "Option 2" },
-    { key: "Option3", value: "Option 3" },
+    { text: "Option 1", value: "Option1" },
+    { text: "Option 2", value: "Option2" },
+    { text: "Option 3", value: "Option3" },
   ],
   placeholder: "Placeholder...",
 };
@@ -47,9 +47,9 @@ Placeholder.args = {
 export const DefaultValue = Template.bind({});
 DefaultValue.args = {
   options: [
-    { key: "Option1", value: "Option 1" },
-    { key: "Option2", value: "Option 2" },
-    { key: "Option3", value: "Option 3" },
+    { text: "Option 1", value: "Option1" },
+    { text: "Option 2", value: "Option2" },
+    { text: "Option 3", value: "Option3" },
   ],
-  defaultValue: "Option 2",
+  defaultValue: "Option2",
 };
