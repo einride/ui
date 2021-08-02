@@ -10,7 +10,7 @@ export const color = {
     light: "#A7CDF6",
   },
   violet: {
-    dark: "#6664E2",
+    dark: "#2B1FCA",
     default: "#6664E2",
     light: "#B1B0F5",
   },
@@ -35,8 +35,7 @@ export const color = {
     grey20: "#F5F5F5",
     grey40: "#EBEBEB",
     grey50: "#DADADA",
-    grey60: "#ABABAB",
     grey80: "#7A7A7A",
-    grey100: "#222222",
+    grey100: "#1E1E1F",
   },
 };
