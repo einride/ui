@@ -37,7 +37,7 @@ const StyledInput = styled.input`
   }
 
   &:disabled {
-    background-color: ${({ theme }) => theme.colors.background.disabled};
+    background-color: ${({ theme }) => theme.colors.background.secondary};
   }
 `;
 
