@@ -14,15 +14,14 @@ export const light = {
       primary: color.white,
       secondary: color.greyscale.grey20,
       tertiary: color.greyscale.grey40,
-      disabled: color.greyscale.grey20,
       accent: `${color.violet.default}1A`, // 1A is HEX for 10 % opacity
       positive: `${color.green.default}1A`, // 1A is HEX for 10 % opacity
       negative: `${color.red.default}1A`, // 1A is HEX for 10 % opacity
     },
     content: {
       primary: color.greyscale.grey100,
-      secondary: color.greyscale.grey80,
-      disabled: color.greyscale.grey60,
+      secondary: `${color.greyscale.grey100}99`, // 99 is HEX for 60 % opacity
+      disabled: `${color.greyscale.grey100}66`, // 66 is HEX for 40 % opacity
       accent: color.violet.dark,
       positive: color.green.dark,
       negative: color.red.dark,
@@ -34,17 +33,17 @@ export const light = {
     buttons: {
       background: {
         primary: color.black,
-        secondary: color.greyscale.grey40,
+        secondary: color.greyscale.grey20,
         tertiary: color.white,
         disabled: color.greyscale.grey20,
         hover: {
           primary: color.greyscale.grey100,
-          secondary: color.greyscale.grey20,
-          tertiary: color.greyscale.grey20,
+          secondary: color.greyscale.grey40,
+          tertiary: color.greyscale.grey40,
         },
         active: {
           primary: color.black,
-          secondary: color.greyscale.grey40,
+          secondary: color.greyscale.grey20,
           tertiary: color.white,
         },
       },
@@ -52,7 +51,7 @@ export const light = {
         primary: color.white,
         secondary: color.greyscale.grey100,
         tertiary: color.greyscale.grey100,
-        disabled: color.greyscale.grey60,
+        disabled: `${color.greyscale.grey100}66`, // 66 is HEX for 40 % opacity
       },
     },
   },
@@ -69,15 +68,14 @@ export const dark: Theme = {
       primary: color.black,
       secondary: color.greyscale.grey100,
       tertiary: color.greyscale.grey80,
-      disabled: "", // TBA
-      accent: "", // TBA
-      positive: "", // TBA
-      negative: "", // TBA
+      accent: `${color.violet.default}1A`, // 1A is HEX for 10 % opacity
+      positive: `${color.green.default}1A`, // 1A is HEX for 10 % opacity
+      negative: `${color.red.default}1A`, // 1A is HEX for 10 % opacity
     },
     content: {
       primary: color.white,
-      secondary: color.greyscale.grey60,
-      disabled: color.greyscale.grey80,
+      secondary: `${color.greyscale.grey20}B3`, // B3 is HEX for 70 % opacity
+      disabled: `${color.greyscale.grey20}66`, // 66 is HEX for 40 % opacity
       accent: color.violet.light,
       positive: color.green.light,
       negative: color.red.light,
@@ -89,17 +87,17 @@ export const dark: Theme = {
     buttons: {
       background: {
         primary: color.black,
-        secondary: color.greyscale.grey40,
+        secondary: color.greyscale.grey20,
         tertiary: color.white,
         disabled: color.greyscale.grey20,
         hover: {
           primary: color.greyscale.grey100,
-          secondary: color.greyscale.grey20,
-          tertiary: color.greyscale.grey20,
+          secondary: color.greyscale.grey40,
+          tertiary: color.greyscale.grey40,
         },
         active: {
           primary: color.black,
-          secondary: color.greyscale.grey40,
+          secondary: color.greyscale.grey20,
           tertiary: color.white,
         },
       },
@@ -107,7 +105,7 @@ export const dark: Theme = {
         primary: color.white,
         secondary: color.greyscale.grey100,
         tertiary: color.greyscale.grey100,
-        disabled: color.greyscale.grey60,
+        disabled: `${color.greyscale.grey100}66`, // 66 is HEX for 40 % opacity
       },
     },
   },

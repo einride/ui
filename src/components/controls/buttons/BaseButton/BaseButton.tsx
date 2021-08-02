@@ -19,7 +19,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   padding: 0 20px;
 
   &:disabled {
-    background-color: ${({ theme }) => theme.colors.background.disabled};
+    background-color: ${({ theme }) => theme.colors.background.secondary};
     color: ${({ theme }) => theme.colors.content.disabled};
     cursor: not-allowed;
 
