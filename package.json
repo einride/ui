@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
-    "@einride/eslint-plugin": "^2.1.0",
+    "@einride/eslint-plugin": "^2.2.1",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
     "@storybook/addon-actions": "^6.3.7",
@@ -33,7 +33,7 @@
     "chromatic": "^5.9.0",
     "copyfiles": "^2.4.1",
     "customize-cra": "^1.0.0",
-    "eslint": "^7.29.0",
+    "eslint": "^7.32.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
