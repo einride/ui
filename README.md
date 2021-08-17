@@ -16,7 +16,23 @@ npm install @einride/ui
 yarn add @einride/ui
 ```
 
-## Usage
+## Setup
+
+For @einride/ui to work, `EinrideProvider` needs to wrap all other components. Add it in the root component in your app like this:
+
+```tsx
+import { EinrideProvider } from "@einride/ui";
+
+const App = () => {
+  return (
+    <EinrideProvider>{/* All other components go here! */}</EinrideProvider>
+  );
+};
+
+export default App;
+```
+
+## Documentation
 
 All currently available components are documented in our [Storybook](https://master--606dcc0a2208ee00215fb2d9.chromatic.com/).
 
