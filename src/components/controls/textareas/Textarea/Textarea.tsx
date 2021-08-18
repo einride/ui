@@ -10,6 +10,7 @@ const StyledTextarea = styled.textarea`
   padding: 12px 16px;
   border: unset;
   border-radius: 2px;
+  flex-grow: 1;
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.content.secondary};
@@ -32,11 +33,13 @@ const StyledTextarea = styled.textarea`
 
 const StyledLabel = styled.label`
   color: ${({ theme }) => theme.colors.content.secondary};
-  margin-top: 5px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 export interface TextareaProps {
+  classname?: string;
   label?: string;
   onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
   placeholder?: string;
