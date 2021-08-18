@@ -43,6 +43,7 @@ export interface TextareaProps {
   label?: string;
   onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
   placeholder?: string;
+  value: string;
 }
 
 export const Textarea = ({ label, ...props }: TextareaProps) => {
