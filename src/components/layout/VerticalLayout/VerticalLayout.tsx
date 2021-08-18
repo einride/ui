@@ -25,6 +25,7 @@ type Size = "small" | "medium" | "large" | "extraLarge";
 
 export interface VerticalLayoutProps {
   children: ReactNode;
+  classname?: string;
   size?: Size;
 }
 
