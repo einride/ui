@@ -3,7 +3,7 @@ import { ChangeEvent } from "react";
 
 const StyledTextarea = styled.textarea`
   display: block;
-  min-width: 240px;
+  min-width: 100%;
   resize: none;
   background-color: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
