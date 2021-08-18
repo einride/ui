@@ -42,6 +42,7 @@ const StyledLabel = styled.label`
 export interface TextareaProps {
   label?: string;
   onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
+  placeholder?: string;
 }
 
 export const Textarea = ({ label, ...props }: TextareaProps) => {
