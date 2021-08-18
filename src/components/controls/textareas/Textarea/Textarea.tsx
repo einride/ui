@@ -46,15 +46,15 @@ export interface TextareaProps {
   value: string;
 }
 
-export const Textarea = ({ label, ...props }: TextareaProps) => {
+export const Textarea = ({ classname, label, ...props }: TextareaProps) => {
   if (label) {
     return (
-      <StyledLabel>
+      <StyledLabel className={classname}>
         {label}
         <StyledTextarea {...props} />
       </StyledLabel>
     );
   }
 
-  return <StyledTextarea {...props} />;
+  return <StyledTextarea className={classname} {...props} />;
 };
