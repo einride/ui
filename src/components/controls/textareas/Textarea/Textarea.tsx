@@ -30,13 +30,10 @@ const StyledTextarea = styled.textarea`
   }
 `;
 
-const TextAreaWithMargin = styled(StyledTextarea)`
-  margin-top: 3px;
-`;
-
 const StyledLabel = styled.label`
   color: ${({ theme }) => theme.colors.content.secondary};
   margin-top: 5px;
+  width: 100%;
 `;
 
 export interface TextareaProps {
@@ -51,7 +48,7 @@ export const Textarea = ({ label, ...props }: TextareaProps) => {
     return (
       <StyledLabel>
         {label}
-        <TextAreaWithMargin {...props} />
+        <StyledTextarea {...props} />
       </StyledLabel>
     );
   }
