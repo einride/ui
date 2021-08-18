@@ -3,7 +3,7 @@ import { ChangeEvent } from "react";
 
 const StyledTextarea = styled.textarea`
   display: block;
-  min-width: 240px;
+  min-width: 100%;
   resize: none;
   background-color: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
@@ -42,6 +42,8 @@ const StyledLabel = styled.label`
 export interface TextareaProps {
   label?: string;
   onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
+  placeholder?: string;
+  value: string;
 }
 
 export const Textarea = ({ label, ...props }: TextareaProps) => {
