@@ -36,6 +36,7 @@ const StyledLabel = styled.label`
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-top: 5px;
 `;
 
 export interface TextareaProps {
