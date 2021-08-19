@@ -16,6 +16,15 @@ const StyledBaseButton = styled(BaseButton)<WithIconButtonProps>`
     background-color: ${({ theme }) =>
       theme.colors.buttons.background.active.primary};
   }
+
+  &:focus {
+    text-decoration: none;
+    border: none;
+
+    .text {
+      text-decoration: underline;
+    }
+  }
 `;
 
 const ContentWrapper = styled.div`
@@ -48,7 +57,7 @@ export const WithIconButton = ({
   return (
     <StyledBaseButton fullWidth={fullWidth} size={size} {...props}>
       <ContentWrapper>
-        {children}
+        <span className="text">{children}</span>
         <IconWrapper>{icon}</IconWrapper>
       </ContentWrapper>
     </StyledBaseButton>
