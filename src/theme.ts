@@ -2,6 +2,10 @@ import { color } from "./primitives/color";
 
 const common = {
   spacer: 8,
+  breakpoint: {
+    medium: "@media (min-width: 600px)",
+    large: "@media (min-width: 1024px)",
+  },
 };
 
 export const light = {
