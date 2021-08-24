@@ -6,14 +6,14 @@ This package provides reusable React components that adhere to Einride's design 
 
 ## Installation
 
-Install this component system with NPM or Yarn:
+Install @einride/ui together with its peer dependencies with NPM or Yarn:
 
 ```bash
 # npm
-npm install @einride/ui
+npm install @einride/ui @emotion/react @emotion/styled
 
 # yarn
-yarn add @einride/ui
+yarn add @einride/ui @emotion/react @emotion/styled
 ```
 
 ## Setup
