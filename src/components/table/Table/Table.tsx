@@ -1,12 +1,7 @@
 import styled from "@emotion/styled";
+import { CustomTable } from "../CustomTable";
 import { TableHeader } from "../TableHeader";
 import { TableRow } from "../TableRow";
-
-const StyledTable = styled.table`
-  width: 100%;
-  border-spacing: 0;
-  border-collapse: collapse;
-`;
 
 const StyledTR = styled.tr<{ isClickable: boolean }>`
   border-top: 1px solid ${({ theme }) => theme.colors.border.primary};
@@ -28,29 +23,23 @@ export const Table = <Row, Column extends keyof Row>({
   rows,
 }: TableProps<Row & { id: string }, Column>) => {
   return (
-    <StyledTable>
-      <thead>
-        <tr>
+    <CustomTable
+      headers={headers.map((header) => (
+        <TableHeader key={header.key.toString()}>
+          {header.displayText}
+        </TableHeader>
+      ))}
+      rows={rows.map((row) => (
+        <StyledTR
+          key={row.id}
+          onClick={() => onRowClick?.(row)}
+          isClickable={!!onRowClick}
+        >
           {headers.map((header) => (
-            <TableHeader key={header.key.toString()}>
-              {header.displayText}
-            </TableHeader>
+            <TableRow key={header.key.toString()}>{row[header.key]}</TableRow>
           ))}
-        </tr>
-      </thead>
-      <tbody>
-        {rows.map((row) => (
-          <StyledTR
-            key={row.id}
-            onClick={() => onRowClick?.(row)}
-            isClickable={!!onRowClick}
-          >
-            {headers.map((header) => (
-              <TableRow key={header.key.toString()}>{row[header.key]}</TableRow>
-            ))}
-          </StyledTR>
-        ))}
-      </tbody>
-    </StyledTable>
+        </StyledTR>
+      ))}
+    />
   );
 };
