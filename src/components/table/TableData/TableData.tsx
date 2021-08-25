@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
-import { ReactNode } from "react";
-import { Paragraph } from "../../typography/Paragraph";
+import { ReactNode, TableHTMLAttributes } from "react";
 
 const StyledTD = styled.td`
   display: table-cell;
@@ -10,14 +9,10 @@ const StyledTD = styled.td`
   padding-right: ${({ theme }) => `${theme.spacer * 2}px`};
 `;
 
-export interface TableRowProps {
+interface TableDataProps extends TableHTMLAttributes<HTMLTableDataCellElement> {
   children: ReactNode;
 }
 
-export const TableRow = ({ children }: TableRowProps) => {
-  return (
-    <StyledTD>
-      <Paragraph>{children}</Paragraph>
-    </StyledTD>
-  );
+export const TableData = ({ children, ...props }: TableDataProps) => {
+  return <StyledTD {...props}>{children}</StyledTD>;
 };

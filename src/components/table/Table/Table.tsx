@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
+import { Paragraph } from "../../typography/Paragraph";
 import { CustomTable } from "../CustomTable";
+import { TableData } from "../TableData";
 import { TableHeader } from "../TableHeader";
-import { TableRow } from "../TableRow";
 
 const StyledTR = styled.tr<{ isClickable: boolean }>`
   border-top: 1px solid ${({ theme }) => theme.colors.border.primary};
@@ -36,7 +37,9 @@ export const Table = <Row, Column extends keyof Row>({
           isClickable={!!onRowClick}
         >
           {headers.map((header) => (
-            <TableRow key={header.key.toString()}>{row[header.key]}</TableRow>
+            <TableData key={header.key.toString()}>
+              <Paragraph>{row[header.key]}</Paragraph>
+            </TableData>
           ))}
         </StyledTR>
       ))}
