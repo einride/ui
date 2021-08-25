@@ -1,13 +1,8 @@
-import styled from "@emotion/styled";
 import { Paragraph } from "../../typography/Paragraph";
 import { CustomTable } from "../CustomTable";
 import { TableData } from "../TableData";
 import { TableHeader } from "../TableHeader";
-
-const StyledTR = styled.tr<{ isClickable: boolean }>`
-  border-top: 1px solid ${({ theme }) => theme.colors.border.primary};
-  ${({ isClickable }) => isClickable && "cursor: pointer"};
-`;
+import { TableRow } from "../TableRow";
 
 export interface TableProps<Row, Column> {
   headers: {
@@ -31,17 +26,13 @@ export const Table = <Row, Column extends keyof Row>({
         </TableHeader>
       ))}
       rows={rows.map((row) => (
-        <StyledTR
-          key={row.id}
-          onClick={() => onRowClick?.(row)}
-          isClickable={!!onRowClick}
-        >
+        <TableRow key={row.id} onClick={() => onRowClick?.(row)}>
           {headers.map((header) => (
             <TableData key={header.key.toString()}>
               <Paragraph>{row[header.key]}</Paragraph>
             </TableData>
           ))}
-        </StyledTR>
+        </TableRow>
       ))}
     />
   );
