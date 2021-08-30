@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import * as React from "react";
 import { HTMLAttributes, ReactNode } from "react";
 
 const StyledText = styled.p<ParagraphProps>`

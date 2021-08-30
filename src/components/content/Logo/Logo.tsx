@@ -1,3 +1,4 @@
+import * as React from "react";
 import logoDefaultLarge from "../../../assets/logo/logo-default-large.svg";
 import logoDefaultSmall from "../../../assets/logo/logo-default-small.svg";
 import logoInverseLarge from "../../../assets/logo/logo-inverse-large.svg";
