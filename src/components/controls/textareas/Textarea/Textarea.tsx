@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import * as React from "react";
 import { ChangeEvent, CSSProperties } from "react";
 
 const StyledTextarea = styled.textarea`

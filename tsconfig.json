@@ -11,7 +11,7 @@
     "outDir": "lib",
     "isolatedModules": true,
     "esModuleInterop": true,
-    "jsx": "react-jsx",
+    "jsx": "react",
     "declaration": true,
   },
   "include": [

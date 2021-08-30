@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import * as React from "react";
 import { TableHeader } from "../TableHeader";
 import { TableRow } from "../TableRow";
 

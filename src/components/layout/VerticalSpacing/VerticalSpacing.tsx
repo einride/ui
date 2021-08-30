@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import * as React from "react";
 
 const getHeight = (size?: Size) => {
   switch (size) {

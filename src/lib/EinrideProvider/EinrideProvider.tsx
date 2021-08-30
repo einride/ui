@@ -1,4 +1,5 @@
 import { ThemeProvider } from "@emotion/react";
+import * as React from "react";
 import { createContext, ReactNode, useContext } from "react";
 import { themes } from "../../theme";
 
