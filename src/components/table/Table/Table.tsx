@@ -22,7 +22,7 @@ export const Table = <Row, Column extends keyof Row>({
     <CustomTable
       headers={headers.map((header) => (
         <TableHeader key={header.key.toString()}>
-          {header.displayText}
+          <Paragraph>{header.displayText}</Paragraph>
         </TableHeader>
       ))}
       rows={rows.map((row) => (

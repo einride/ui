@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { ReactNode } from "react";
-import { Paragraph } from "../../typography/Paragraph";
 
 const StyledTH = styled.th`
   display: table-cell;
@@ -13,9 +12,5 @@ export interface TableHeaderProps {
 }
 
 export const TableHeader = ({ children }: TableHeaderProps) => {
-  return (
-    <StyledTH>
-      <Paragraph>{children}</Paragraph>
-    </StyledTH>
-  );
+  return <StyledTH>{children}</StyledTH>;
 };
