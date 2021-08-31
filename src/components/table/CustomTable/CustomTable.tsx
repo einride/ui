@@ -1,5 +1,6 @@
 import { CSSProperties, ReactNode } from "react";
 import { TableHead } from "../TableHead";
+import { TableHeadRow } from "../TableHeadRow";
 import { TableRoot } from "../TableRoot";
 
 interface CustomTableProps {
@@ -17,7 +18,7 @@ export const CustomTable = ({ headers, rows, style }: CustomTableProps) => {
   return (
     <TableRoot style={style?.root}>
       <TableHead style={style?.thead}>
-        <tr style={style?.theadRow}>{headers}</tr>
+        <TableHeadRow style={style?.theadRow}>{headers}</TableHeadRow>
       </TableHead>
       <tbody style={style?.tbody}>{rows}</tbody>
     </TableRoot>
