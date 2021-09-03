@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 import { Theme } from "../../../theme";
 
 const getBackgroundColor = (theme: Theme, variant?: Variant) => {
@@ -43,11 +43,19 @@ const StyledSpan = styled.span<LabelProps>`
 
 type Variant = "default" | "accent" | "positive" | "negative";
 
-export interface LabelProps {
+export interface LabelProps extends HTMLAttributes<HTMLSpanElement> {
   children: ReactNode;
   variant?: Variant;
 }
 
-export const Label = ({ children, variant = "default" }: LabelProps) => {
-  return <StyledSpan variant={variant}>{children}</StyledSpan>;
+export const Label = ({
+  children,
+  variant = "default",
+  ...props
+}: LabelProps) => {
+  return (
+    <StyledSpan variant={variant} {...props}>
+      {children}
+    </StyledSpan>
+  );
 };
