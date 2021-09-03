@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { HTMLAttributes, ReactNode } from "react";
+import { forwardRef, HTMLAttributes, ReactNode } from "react";
 
 const StyledText = styled.p<ParagraphProps>`
   font-size: 18px;
@@ -21,14 +21,12 @@ export interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
   color?: "primary" | "secondary";
 }
 
-export const Paragraph = ({
-  children,
-  color = "primary",
-  ...props
-}: ParagraphProps) => {
-  return (
-    <StyledText color={color} {...props}>
-      {children}
-    </StyledText>
-  );
-};
+export const Paragraph = forwardRef<HTMLParagraphElement, ParagraphProps>(
+  ({ children, color = "primary", ...props }, ref) => {
+    return (
+      <StyledText color={color} {...props} ref={ref}>
+        {children}
+      </StyledText>
+    );
+  }
+);
