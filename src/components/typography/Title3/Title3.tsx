@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { HTMLAttributes, ReactNode } from "react";
+import { forwardRef, HTMLAttributes, ReactNode } from "react";
 
 const StyledText = styled.h3`
   font-size: 24px;
@@ -17,10 +17,12 @@ export interface Title3Props extends HTMLAttributes<HTMLHeadingElement> {
   children: ReactNode;
 }
 
-export const Title3 = ({ as = "h3", children, ...props }: Title3Props) => {
-  return (
-    <StyledText as={as} {...props}>
-      {children}
-    </StyledText>
-  );
-};
+export const Title3 = forwardRef<HTMLHeadingElement, Title3Props>(
+  ({ as = "h3", children, ...props }, ref) => {
+    return (
+      <StyledText as={as} {...props} ref={ref}>
+        {children}
+      </StyledText>
+    );
+  }
+);
