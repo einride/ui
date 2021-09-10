@@ -1,5 +1,6 @@
 import "./styles/main.css"
 
+export { Icon } from "./components/content/Icon"
 export { Logo } from "./components/content/Logo"
 export { IconButton } from "./components/controls/buttons/IconButton"
 export { PrimaryButton } from "./components/controls/buttons/PrimaryButton"
