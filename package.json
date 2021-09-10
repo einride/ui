@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
-    "@einride/eslint-plugin": "^2.3.0",
+    "@einride/eslint-plugin": "^3.0.0",
     "@einride/prettier-config": "^1.0.0",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
