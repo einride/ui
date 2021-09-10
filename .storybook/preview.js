@@ -1,6 +1,6 @@
-import "../src/assets/fonts/fonts.css";
-import { EinrideProvider } from "../src/lib/EinrideProvider";
-import "../src/styles/main.css";
+import "../src/assets/fonts/fonts.css"
+import { EinrideProvider } from "../src/lib/EinrideProvider"
+import "../src/styles/main.css"
 
 const customViewports = {
   small: {
@@ -24,7 +24,7 @@ const customViewports = {
       height: "800px",
     },
   },
-};
+}
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -36,7 +36,7 @@ export const parameters = {
       { name: "dark", value: "#121212" },
     ],
   },
-};
+}
 
 export const decorators = [
   (Story) => (
@@ -44,4 +44,4 @@ export const decorators = [
       <Story />
     </EinrideProvider>
   ),
-];
+]

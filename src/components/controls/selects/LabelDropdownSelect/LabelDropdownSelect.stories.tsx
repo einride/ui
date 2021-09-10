@@ -1,8 +1,8 @@
-import { Story } from "@storybook/react/types-6-0";
+import { Story } from "@storybook/react/types-6-0"
 import {
   LabelDropdownSelect,
   LabelDropdownSelectProps,
-} from "./LabelDropdownSelect";
+} from "./LabelDropdownSelect"
 
 export default {
   title: "Controls/Selects/LabelDropdownSelect",
@@ -15,17 +15,16 @@ export default {
   parameters: {
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=91%3A41",
+      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=91%3A41",
     },
   },
-};
+}
 
 const Template: Story<LabelDropdownSelectProps> = (args) => (
   <LabelDropdownSelect {...args} />
-);
+)
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   label: "Label",
   options: [
@@ -33,9 +32,9 @@ Default.args = {
     { text: "Option 2", value: "Option2" },
     { text: "Option 3", value: "Option3" },
   ],
-};
+}
 
-export const Placeholder = Template.bind({});
+export const Placeholder = Template.bind({})
 Placeholder.args = {
   label: "Label",
   options: [
@@ -44,9 +43,9 @@ Placeholder.args = {
     { text: "Option 3", value: "Option3" },
   ],
   placeholder: "Placeholder...",
-};
+}
 
-export const DefaultValue = Template.bind({});
+export const DefaultValue = Template.bind({})
 DefaultValue.args = {
   label: "Label",
   options: [
@@ -55,4 +54,4 @@ DefaultValue.args = {
     { text: "Option 3", value: "Option3" },
   ],
   defaultValue: "Option2",
-};
+}

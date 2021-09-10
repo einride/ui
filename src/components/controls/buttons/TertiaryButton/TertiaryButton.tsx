@@ -1,7 +1,7 @@
-import styled from "@emotion/styled";
-import * as React from "react";
-import { ButtonHTMLAttributes, ReactNode } from "react";
-import { BaseButton } from "../BaseButton";
+import styled from "@emotion/styled"
+import * as React from "react"
+import { ButtonHTMLAttributes, ReactNode } from "react"
+import { BaseButton } from "../BaseButton"
 
 const StyledBaseButton = styled(BaseButton)<TertiaryButtonProps>`
   ${({ fullWidth }) => fullWidth && "width: 100%"};
@@ -17,13 +17,13 @@ const StyledBaseButton = styled(BaseButton)<TertiaryButtonProps>`
     background-color: ${({ theme }) =>
       theme.colors.buttons.background.active.tertiary};
   }
-`;
+`
 
 export interface TertiaryButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
-  fullWidth?: boolean;
-  size?: "small" | "large";
+  children: ReactNode
+  fullWidth?: boolean
+  size?: "small" | "large"
 }
 
 export const TertiaryButton = ({
@@ -36,5 +36,5 @@ export const TertiaryButton = ({
     <StyledBaseButton fullWidth={fullWidth} size={size} {...props}>
       {children}
     </StyledBaseButton>
-  );
-};
+  )
+}

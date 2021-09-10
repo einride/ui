@@ -1,5 +1,5 @@
-import { Story } from "@storybook/react/types-6-0";
-import { SearchInput, SearchInputProps } from "./SearchInput";
+import { Story } from "@storybook/react/types-6-0"
+import { SearchInput, SearchInputProps } from "./SearchInput"
 
 export default {
   title: "Controls/Inputs/SearchInput",
@@ -12,16 +12,15 @@ export default {
   parameters: {
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=13%3A26",
+      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=13%3A26",
     },
   },
-};
+}
 
-const Template: Story<SearchInputProps> = (args) => <SearchInput {...args} />;
+const Template: Story<SearchInputProps> = (args) => <SearchInput {...args} />
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   placeholder: "Search...",
   value: "",
-};
+}

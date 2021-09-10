@@ -1,5 +1,5 @@
-import { Story } from "@storybook/react/types-6-0";
-import { IconButton, IconButtonProps } from "./IconButton";
+import { Story } from "@storybook/react/types-6-0"
+import { IconButton, IconButtonProps } from "./IconButton"
 
 export default {
   title: "Controls/Buttons/IconButton",
@@ -12,13 +12,12 @@ export default {
   parameters: {
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=122%3A125",
+      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=122%3A125",
     },
   },
-};
+}
 
-const Template: Story<IconButtonProps> = (args) => <IconButton {...args} />;
+const Template: Story<IconButtonProps> = (args) => <IconButton {...args} />
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default = Template.bind({})
+Default.args = {}

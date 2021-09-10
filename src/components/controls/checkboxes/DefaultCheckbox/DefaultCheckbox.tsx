@@ -1,8 +1,8 @@
-import styled from "@emotion/styled";
-import * as React from "react";
-import { ChangeEvent, InputHTMLAttributes } from "react";
-import checkmark from "../../../../assets/icons/checkmark.svg";
-import dash from "../../../../assets/icons/dash.svg";
+import styled from "@emotion/styled"
+import * as React from "react"
+import { ChangeEvent, InputHTMLAttributes } from "react"
+import checkmark from "../../../../assets/icons/checkmark.svg"
+import dash from "../../../../assets/icons/dash.svg"
 
 const StyledInput = styled.input`
   appearance: none;
@@ -40,13 +40,13 @@ const StyledInput = styled.input`
   &:disabled {
     background-color: ${({ theme }) => theme.colors.background.secondary};
   }
-`;
+`
 
 export interface DefaultCheckboxProps
   extends InputHTMLAttributes<HTMLInputElement> {
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
 export const DefaultCheckbox = ({ ...props }: DefaultCheckboxProps) => {
-  return <StyledInput type="checkbox" {...props} />;
-};
+  return <StyledInput type="checkbox" {...props} />
+}

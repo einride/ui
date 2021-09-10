@@ -1,5 +1,5 @@
-import { Story } from "@storybook/react/types-6-0";
-import { VerticalLayout, VerticalLayoutProps } from "./VerticalLayout";
+import { Story } from "@storybook/react/types-6-0"
+import { VerticalLayout, VerticalLayoutProps } from "./VerticalLayout"
 
 export default {
   title: "Layout/VerticalLayout",
@@ -8,11 +8,10 @@ export default {
     design: {
       // TODO: add correct link to Figma
       type: "figma",
-      url:
-        "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=4%3A16",
+      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=4%3A16",
     },
   },
-};
+}
 
 const Template: Story<VerticalLayoutProps> = (args) => (
   <VerticalLayout {...args}>
@@ -20,27 +19,27 @@ const Template: Story<VerticalLayoutProps> = (args) => (
     <div>Row 2</div>
     <div>Row 3</div>
   </VerticalLayout>
-);
+)
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default = Template.bind({})
+Default.args = {}
 
-export const Small = Template.bind({});
+export const Small = Template.bind({})
 Small.args = {
   size: "small",
-};
+}
 
-export const Medium = Template.bind({});
+export const Medium = Template.bind({})
 Medium.args = {
   size: "medium",
-};
+}
 
-export const Large = Template.bind({});
+export const Large = Template.bind({})
 Large.args = {
   size: "large",
-};
+}
 
-export const ExtraLarge = Template.bind({});
+export const ExtraLarge = Template.bind({})
 ExtraLarge.args = {
   size: "extraLarge",
-};
+}

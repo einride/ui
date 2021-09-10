@@ -1,5 +1,5 @@
-import { Story } from "@storybook/react/types-6-0";
-import { TextInput, TextInputProps } from "./TextInput";
+import { Story } from "@storybook/react/types-6-0"
+import { TextInput, TextInputProps } from "./TextInput"
 
 export default {
   title: "Controls/Inputs/TextInput",
@@ -12,30 +12,29 @@ export default {
   parameters: {
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=1237%3A158",
+      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=1237%3A158",
     },
   },
-};
+}
 
-const Template: Story<TextInputProps> = (args) => <TextInput {...args} />;
+const Template: Story<TextInputProps> = (args) => <TextInput {...args} />
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   placeholder: "Placeholder...",
   value: "",
-};
+}
 
-export const Positive = Template.bind({});
+export const Positive = Template.bind({})
 Positive.args = {
   ...Default.args,
   status: "success",
   statusMessage: "Confirmation message.",
-};
+}
 
-export const Negative = Template.bind({});
+export const Negative = Template.bind({})
 Negative.args = {
   ...Default.args,
   status: "fail",
   statusMessage: "Error message.",
-};
+}

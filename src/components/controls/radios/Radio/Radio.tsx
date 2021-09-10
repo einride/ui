@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
-import * as React from "react";
-import { ChangeEvent, InputHTMLAttributes } from "react";
+import styled from "@emotion/styled"
+import * as React from "react"
+import { ChangeEvent, InputHTMLAttributes } from "react"
 
 const StyledInput = styled.input`
   appearance: none;
@@ -27,7 +27,7 @@ const StyledInput = styled.input`
   &:disabled {
     background: ${({ theme }) => theme.colors.background.secondary};
   }
-`;
+`
 
 const StyledLabel = styled.label`
   display: flex;
@@ -37,15 +37,15 @@ const StyledLabel = styled.label`
   &:focus-within {
     text-decoration: underline;
   }
-`;
+`
 
 const StyledRadio = styled(StyledInput)`
   margin: 0 16px 0 0;
-`;
+`
 
 export interface RadioProps extends InputHTMLAttributes<HTMLInputElement> {
-  label?: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  label?: string
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
 export const Radio = ({ label, ...props }: RadioProps) => {
@@ -55,8 +55,8 @@ export const Radio = ({ label, ...props }: RadioProps) => {
         <StyledRadio type="radio" {...props} />
         {label}
       </StyledLabel>
-    );
+    )
   }
 
-  return <StyledInput type="radio" {...props} />;
-};
+  return <StyledInput type="radio" {...props} />
+}

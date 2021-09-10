@@ -1,12 +1,12 @@
-import styled from "@emotion/styled";
-import * as React from "react";
-import { ButtonHTMLAttributes, ReactNode } from "react";
+import styled from "@emotion/styled"
+import * as React from "react"
+import { ButtonHTMLAttributes, ReactNode } from "react"
 
-const SMALL_HEIGHT_PIXELS = 48;
-const LARGE_HEIGHT_PIXELS = 56;
+const SMALL_HEIGHT_PIXELS = 48
+const LARGE_HEIGHT_PIXELS = 56
 
 interface StyledButtonProps {
-  size: "small" | "large";
+  size: "small" | "large"
 }
 
 const StyledButton = styled.button<StyledButtonProps>`
@@ -36,14 +36,14 @@ const StyledButton = styled.button<StyledButtonProps>`
     border-style: solid;
     border-color: ${({ theme }) => theme.colors.border.selected};
   }
-`;
+`
 
 export interface BaseButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
-  size: "small" | "large";
+  children: ReactNode
+  size: "small" | "large"
 }
 
 export const BaseButton = (props: BaseButtonProps) => {
-  return <StyledButton {...props} />;
-};
+  return <StyledButton {...props} />
+}

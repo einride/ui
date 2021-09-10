@@ -1,1 +1,1 @@
-export { LabelTextInput } from "./LabelTextInput";
+export { LabelTextInput } from "./LabelTextInput"

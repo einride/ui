@@ -1,16 +1,16 @@
-import styled from "@emotion/styled";
-import * as React from "react";
-import { ReactNode } from "react";
-import { Paragraph } from "../../typography/Paragraph";
+import styled from "@emotion/styled"
+import * as React from "react"
+import { ReactNode } from "react"
+import { Paragraph } from "../../typography/Paragraph"
 
 const StyledTH = styled.th`
   display: table-cell;
   padding: ${({ theme }) => `${theme.spacer * 3}px ${theme.spacer * 2}px`};
   text-align: left;
-`;
+`
 
 export interface TableHeaderProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export const TableHeader = ({ children }: TableHeaderProps) => {
@@ -18,5 +18,5 @@ export const TableHeader = ({ children }: TableHeaderProps) => {
     <StyledTH>
       <Paragraph>{children}</Paragraph>
     </StyledTH>
-  );
-};
+  )
+}
