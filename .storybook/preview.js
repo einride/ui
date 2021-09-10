@@ -1,6 +1,5 @@
-import { EinrideProvider } from "../src/lib/EinrideProvider"
-import "../src/assets/fonts/einride-icons.css"
-import "../src/assets/fonts/fonts.css"
+import "../src/assets/fonts/fonts.css";
+import { EinrideProvider } from "../src/lib/EinrideProvider";
 import "../src/styles/main.css";
 
 const customViewports = {
@@ -42,7 +41,7 @@ export const parameters = {
 export const decorators = [
   (Story) => (
     <EinrideProvider>
-        <Story />
+      <Story />
     </EinrideProvider>
-  )
-]
+  ),
+];

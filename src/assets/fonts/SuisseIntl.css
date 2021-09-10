@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "SuisseIntl";
+  font-weight: normal;
+  font-style: normal;
+  src: url(SuisseIntl/SuisseIntl-Book-WebM.woff2) format("woff2"),
+    url(SuisseIntl/SuisseIntl-Book-WebM.woff) format("woff");
+}
+
+@font-face {
+  font-family: "SuisseIntl";
+  font-weight: bold;
+  font-style: normal;
+  src: url(SuisseIntl/SuisseIntl-Medium-WebM.woff2) format("woff2"),
+    url(SuisseIntl/SuisseIntl-Medium-WebM.woff) format("woff");
+}
