@@ -1,4 +1,3 @@
-import "./assets/fonts/einride-icons.css";
 import "./styles/main.css";
 
 export { Logo } from "./components/content/Logo";
