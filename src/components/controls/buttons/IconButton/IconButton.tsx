@@ -1,16 +1,16 @@
-import styled from "@emotion/styled";
-import * as React from "react";
-import { ButtonHTMLAttributes } from "react";
-import { SecondaryButton } from "../SecondaryButton";
+import styled from "@emotion/styled"
+import * as React from "react"
+import { ButtonHTMLAttributes } from "react"
+import { SecondaryButton } from "../SecondaryButton"
 
 const getWidth = (size?: "small" | "large") => {
   switch (size) {
     case "small":
-      return 48;
+      return 48
     default:
-      return 56;
+      return 56
   }
-};
+}
 
 const StyledBaseButton = styled(SecondaryButton)<IconButtonProps>`
   min-width: ${({ size }) => getWidth(size)}px;
@@ -22,12 +22,12 @@ const StyledBaseButton = styled(SecondaryButton)<IconButtonProps>`
   &:focus {
     text-decoration: none;
   }
-`;
+`
 
 export interface IconButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
-  icon?: string;
-  size?: "small" | "large";
+  icon?: string
+  size?: "small" | "large"
 }
 
 export const IconButton = ({
@@ -39,5 +39,5 @@ export const IconButton = ({
     <StyledBaseButton size={size} {...props}>
       {icon}
     </StyledBaseButton>
-  );
-};
+  )
+}

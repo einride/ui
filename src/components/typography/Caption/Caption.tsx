@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
-import * as React from "react";
-import { forwardRef, HTMLAttributes, ReactNode } from "react";
+import styled from "@emotion/styled"
+import * as React from "react"
+import { forwardRef, HTMLAttributes, ReactNode } from "react"
 
 const StyledText = styled.small`
   font-size: 14px;
@@ -10,10 +10,10 @@ const StyledText = styled.small`
   margin-bottom: 5px;
   padding: 0;
   color: ${({ theme }) => theme.colors.content.primary};
-`;
+`
 
 export interface CaptionProps extends HTMLAttributes<HTMLParagraphElement> {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export const Caption = forwardRef<HTMLElement, CaptionProps>(
@@ -24,6 +24,6 @@ export const Caption = forwardRef<HTMLElement, CaptionProps>(
           {children}
         </StyledText>
       </p>
-    );
-  }
-);
+    )
+  },
+)

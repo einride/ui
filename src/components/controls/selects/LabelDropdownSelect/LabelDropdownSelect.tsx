@@ -1,7 +1,7 @@
-import styled from "@emotion/styled";
-import * as React from "react";
-import { ChangeEvent, ReactNode, SelectHTMLAttributes } from "react";
-import { DefaultDropdownSelect } from "../DefaultDropdownSelect";
+import styled from "@emotion/styled"
+import * as React from "react"
+import { ChangeEvent, ReactNode, SelectHTMLAttributes } from "react"
+import { DefaultDropdownSelect } from "../DefaultDropdownSelect"
 
 const StyledLabel = styled.label`
   color: ${({ theme }) => theme.colors.content.secondary};
@@ -14,25 +14,25 @@ const StyledLabel = styled.label`
   &:hover {
     color: ${({ theme }) => theme.colors.content.primary};
   }
-`;
+`
 
 const StyledDefaultDropdown = styled(DefaultDropdownSelect)`
   margin-top: 3px;
-`;
+`
 
 interface Option {
-  text?: string;
-  value: string;
+  text?: string
+  value: string
 }
 
 export interface LabelDropdownSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
-  defaultValue?: string;
-  fullWidth?: boolean;
-  label: ReactNode;
-  onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
-  options: Option[];
-  placeholder?: string;
+  defaultValue?: string
+  fullWidth?: boolean
+  label: ReactNode
+  onChange: (e: ChangeEvent<HTMLSelectElement>) => void
+  options: Option[]
+  placeholder?: string
 }
 
 export const LabelDropdownSelect = ({
@@ -44,5 +44,5 @@ export const LabelDropdownSelect = ({
       {label}
       <StyledDefaultDropdown {...props} />
     </StyledLabel>
-  );
-};
+  )
+}

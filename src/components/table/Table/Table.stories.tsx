@@ -1,5 +1,5 @@
-import { Story } from "@storybook/react/types-6-0";
-import { Table, TableProps } from "./Table";
+import { Story } from "@storybook/react/types-6-0"
+import { Table, TableProps } from "./Table"
 
 export default {
   title: "Table/Table",
@@ -7,16 +7,15 @@ export default {
   parameters: {
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=87%3A64",
+      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=87%3A64",
     },
   },
-};
+}
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template: Story<TableProps<any, any>> = (args) => <Table {...args} />;
+const Template: Story<TableProps<any, any>> = (args) => <Table {...args} />
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   headers: [
     {
@@ -56,4 +55,4 @@ Default.args = {
       internetTLD: ".br",
     },
   ],
-};
+}

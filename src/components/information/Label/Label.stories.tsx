@@ -1,5 +1,5 @@
-import { Story } from "@storybook/react/types-6-0";
-import { Label, LabelProps } from "./Label";
+import { Story } from "@storybook/react/types-6-0"
+import { Label, LabelProps } from "./Label"
 
 export default {
   title: "Information/Label",
@@ -7,22 +7,21 @@ export default {
   parameters: {
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=75%3A31",
+      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=75%3A31",
     },
   },
-};
+}
 
-const Template: Story<LabelProps> = (args) => <Label {...args} />;
+const Template: Story<LabelProps> = (args) => <Label {...args} />
 
-export const Default = Template.bind({});
-Default.args = { children: "Label" };
+export const Default = Template.bind({})
+Default.args = { children: "Label" }
 
-export const Accent = Template.bind({});
-Accent.args = { children: "Label", variant: "accent" };
+export const Accent = Template.bind({})
+Accent.args = { children: "Label", variant: "accent" }
 
-export const Positive = Template.bind({});
-Positive.args = { children: "Label", variant: "positive" };
+export const Positive = Template.bind({})
+Positive.args = { children: "Label", variant: "positive" }
 
-export const Negative = Template.bind({});
-Negative.args = { children: "Label", variant: "negative" };
+export const Negative = Template.bind({})
+Negative.args = { children: "Label", variant: "negative" }

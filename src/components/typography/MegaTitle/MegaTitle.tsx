@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
-import * as React from "react";
-import { forwardRef, HTMLAttributes, ReactNode } from "react";
+import styled from "@emotion/styled"
+import * as React from "react"
+import { forwardRef, HTMLAttributes, ReactNode } from "react"
 
 const StyledText = styled.h1`
   font-size: 80px;
@@ -10,11 +10,11 @@ const StyledText = styled.h1`
   margin-bottom: 14px;
   padding: 0;
   color: ${({ theme }) => theme.colors.content.primary};
-`;
+`
 
 export interface MegaTitleProps extends HTMLAttributes<HTMLHeadingElement> {
-  as?: "h1" | "h2";
-  children: ReactNode;
+  as?: "h1" | "h2"
+  children: ReactNode
 }
 
 export const MegaTitle = forwardRef<HTMLHeadingElement, MegaTitleProps>(
@@ -23,6 +23,6 @@ export const MegaTitle = forwardRef<HTMLHeadingElement, MegaTitleProps>(
       <StyledText as={as} {...props} ref={ref}>
         {children}
       </StyledText>
-    );
-  }
-);
+    )
+  },
+)

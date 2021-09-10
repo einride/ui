@@ -1,5 +1,5 @@
-import { Story } from "@storybook/react/types-6-0";
-import { Caption, CaptionProps } from "./Caption";
+import { Story } from "@storybook/react/types-6-0"
+import { Caption, CaptionProps } from "./Caption"
 
 export default {
   title: "Typography/Caption",
@@ -7,16 +7,15 @@ export default {
   parameters: {
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=18%3A147",
+      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=18%3A147",
     },
   },
-};
+}
 
-const Template: Story<CaptionProps> = (args) => <Caption {...args} />;
+const Template: Story<CaptionProps> = (args) => <Caption {...args} />
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   children:
     "A whole new way to ship. Designed for the majority of freight applications, starting today.",
-};
+}

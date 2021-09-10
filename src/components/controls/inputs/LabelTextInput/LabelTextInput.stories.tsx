@@ -1,5 +1,5 @@
-import { Story } from "@storybook/react/types-6-0";
-import { LabelTextInput, LabelTextInputProps } from "./LabelTextInput";
+import { Story } from "@storybook/react/types-6-0"
+import { LabelTextInput, LabelTextInputProps } from "./LabelTextInput"
 
 export default {
   title: "Controls/Inputs/LabelTextInput",
@@ -12,33 +12,32 @@ export default {
   parameters: {
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=12%3A88",
+      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=12%3A88",
     },
   },
-};
+}
 
 const Template: Story<LabelTextInputProps> = (args) => (
   <LabelTextInput {...args} />
-);
+)
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   label: "Label",
   placeholder: "Placeholder...",
   value: "",
-};
+}
 
-export const Positive = Template.bind({});
+export const Positive = Template.bind({})
 Positive.args = {
   ...Default.args,
   status: "success",
   statusMessage: "Confirmation message.",
-};
+}
 
-export const Negative = Template.bind({});
+export const Negative = Template.bind({})
 Negative.args = {
   ...Default.args,
   status: "fail",
   statusMessage: "Error message.",
-};
+}

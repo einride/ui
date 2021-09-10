@@ -38,4 +38,4 @@ export const color = {
     grey80: "#7A7A7A",
     grey100: "#1E1E1F",
   },
-};
+}

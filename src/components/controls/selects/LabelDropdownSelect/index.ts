@@ -1,1 +1,1 @@
-export { LabelDropdownSelect } from "./LabelDropdownSelect";
+export { LabelDropdownSelect } from "./LabelDropdownSelect"

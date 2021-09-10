@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
-import * as React from "react";
-import { ChangeEvent, FocusEvent, InputHTMLAttributes } from "react";
+import styled from "@emotion/styled"
+import * as React from "react"
+import { ChangeEvent, FocusEvent, InputHTMLAttributes } from "react"
 
 const StyledInput = styled.input`
   background-color: ${({ theme }) => theme.colors.background.secondary};
@@ -28,7 +28,7 @@ const StyledInput = styled.input`
   &:disabled::placeholder {
     color: ${({ theme }) => theme.colors.content.disabled};
   }
-`;
+`
 
 const ContentWrapper = styled.label`
   position: relative;
@@ -40,14 +40,14 @@ const ContentWrapper = styled.label`
     top: 12px;
     right: 16px;
   }
-`;
+`
 
 export interface BaseInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  icon?: string;
-  placeholder: string;
-  value: string;
+  onBlur?: (e: FocusEvent<HTMLInputElement>) => void
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  icon?: string
+  placeholder: string
+  value: string
 }
 
 export const BaseInput = ({ icon, ...props }: BaseInputProps) => {
@@ -55,5 +55,5 @@ export const BaseInput = ({ icon, ...props }: BaseInputProps) => {
     <ContentWrapper data-icon={icon}>
       <StyledInput {...props} />
     </ContentWrapper>
-  );
-};
+  )
+}

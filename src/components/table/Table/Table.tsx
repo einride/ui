@@ -1,26 +1,26 @@
-import styled from "@emotion/styled";
-import * as React from "react";
-import { TableHeader } from "../TableHeader";
-import { TableRow } from "../TableRow";
+import styled from "@emotion/styled"
+import * as React from "react"
+import { TableHeader } from "../TableHeader"
+import { TableRow } from "../TableRow"
 
 const StyledTable = styled.table`
   width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
-`;
+`
 
 const StyledTR = styled.tr<{ isClickable: boolean }>`
   border-top: 1px solid ${({ theme }) => theme.colors.border.primary};
   ${({ isClickable }) => isClickable && "cursor: pointer"};
-`;
+`
 
 export interface TableProps<Row, Column> {
   headers: {
-    displayText: string;
-    key: Column;
-  }[];
-  onRowClick?: (row: Row) => void;
-  rows: Row[];
+    displayText: string
+    key: Column
+  }[]
+  onRowClick?: (row: Row) => void
+  rows: Row[]
 }
 
 export const Table = <Row, Column extends keyof Row>({
@@ -53,5 +53,5 @@ export const Table = <Row, Column extends keyof Row>({
         ))}
       </tbody>
     </StyledTable>
-  );
-};
+  )
+}

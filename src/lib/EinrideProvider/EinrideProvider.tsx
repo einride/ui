@@ -1,17 +1,17 @@
-import { ThemeProvider } from "@emotion/react";
-import * as React from "react";
-import { createContext, ReactNode, useContext } from "react";
-import { themes } from "../../theme";
+import { ThemeProvider } from "@emotion/react"
+import * as React from "react"
+import { createContext, ReactNode, useContext } from "react"
+import { themes } from "../../theme"
 
-type ColorMode = "light" | "dark";
+type ColorMode = "light" | "dark"
 
-export const Context = createContext<ColorMode>("light");
+export const Context = createContext<ColorMode>("light")
 
 interface EinrideProviderProps {
-  children: ReactNode;
-  colorMode?: ColorMode;
+  children: ReactNode
+  colorMode?: ColorMode
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  customTheme?: any;
+  customTheme?: any
 }
 
 export const EinrideProvider = ({
@@ -19,25 +19,25 @@ export const EinrideProvider = ({
   colorMode = "light",
   customTheme = {},
 }: EinrideProviderProps) => {
-  const defaultTheme = themes[colorMode];
+  const defaultTheme = themes[colorMode]
   const theme = {
     ...defaultTheme,
     custom: customTheme[colorMode],
-  };
+  }
 
   return (
     <Context.Provider value={colorMode}>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </Context.Provider>
-  );
-};
+  )
+}
 
 export const useColorMode = () => {
-  const colorMode = useContext(Context);
+  const colorMode = useContext(Context)
 
   if (!colorMode) {
-    throw new Error("useColorMode must be used within a EinrideProvider");
+    throw new Error("useColorMode must be used within a EinrideProvider")
   }
 
-  return colorMode;
-};
+  return colorMode
+}

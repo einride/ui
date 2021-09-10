@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
-import * as React from "react";
-import { ChangeEvent, CSSProperties } from "react";
+import styled from "@emotion/styled"
+import * as React from "react"
+import { ChangeEvent, CSSProperties } from "react"
 
 const StyledTextarea = styled.textarea`
   display: block;
@@ -30,7 +30,7 @@ const StyledTextarea = styled.textarea`
       inset;
     outline: none;
   }
-`;
+`
 
 const StyledLabel = styled.label`
   color: ${({ theme }) => theme.colors.content.secondary};
@@ -38,15 +38,15 @@ const StyledLabel = styled.label`
   display: flex;
   flex-direction: column;
   margin-top: 5px;
-`;
+`
 
 export interface TextareaProps {
-  classname?: string;
-  label?: string;
-  labelStyles?: CSSProperties;
-  onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
-  placeholder?: string;
-  value: string;
+  classname?: string
+  label?: string
+  labelStyles?: CSSProperties
+  onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
+  placeholder?: string
+  value: string
 }
 
 export const Textarea = ({
@@ -60,8 +60,8 @@ export const Textarea = ({
         {label}
         <StyledTextarea {...props} />
       </StyledLabel>
-    );
+    )
   }
 
-  return <StyledTextarea {...props} />;
-};
+  return <StyledTextarea {...props} />
+}

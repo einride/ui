@@ -1,1 +1,1 @@
-export { EinrideProvider } from "./EinrideProvider";
+export { EinrideProvider } from "./EinrideProvider"

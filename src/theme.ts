@@ -1,4 +1,4 @@
-import { color } from "./primitives/color";
+import { color } from "./primitives/color"
 
 const common = {
   spacer: 8,
@@ -6,7 +6,7 @@ const common = {
     medium: "@media (min-width: 600px)",
     large: "@media (min-width: 1024px)",
   },
-};
+}
 
 export const light = {
   colors: {
@@ -60,7 +60,7 @@ export const light = {
     },
   },
   ...common,
-};
+}
 
 export const dark: Theme = {
   colors: {
@@ -114,7 +114,7 @@ export const dark: Theme = {
     },
   },
   ...common,
-};
+}
 
-export type Theme = typeof light;
-export const themes = { light, dark };
+export type Theme = typeof light
+export const themes = { light, dark }

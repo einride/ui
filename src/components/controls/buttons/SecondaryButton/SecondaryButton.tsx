@@ -1,7 +1,7 @@
-import styled from "@emotion/styled";
-import * as React from "react";
-import { ButtonHTMLAttributes, ReactNode } from "react";
-import { BaseButton } from "../BaseButton";
+import styled from "@emotion/styled"
+import * as React from "react"
+import { ButtonHTMLAttributes, ReactNode } from "react"
+import { BaseButton } from "../BaseButton"
 
 const StyledBaseButton = styled(BaseButton)<SecondaryButtonProps>`
   ${({ fullWidth }) => fullWidth && "width: 100%"};
@@ -17,13 +17,13 @@ const StyledBaseButton = styled(BaseButton)<SecondaryButtonProps>`
     background-color: ${({ theme }) =>
       theme.colors.buttons.background.active.secondary};
   }
-`;
+`
 
 export interface SecondaryButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
-  fullWidth?: boolean;
-  size?: "small" | "large";
+  children: ReactNode
+  fullWidth?: boolean
+  size?: "small" | "large"
 }
 
 export const SecondaryButton = ({
@@ -36,5 +36,5 @@ export const SecondaryButton = ({
     <StyledBaseButton fullWidth={fullWidth} size={size} {...props}>
       {children}
     </StyledBaseButton>
-  );
-};
+  )
+}

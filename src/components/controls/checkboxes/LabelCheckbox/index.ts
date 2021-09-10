@@ -1,1 +1,1 @@
-export { LabelCheckbox } from "./LabelCheckbox";
+export { LabelCheckbox } from "./LabelCheckbox"

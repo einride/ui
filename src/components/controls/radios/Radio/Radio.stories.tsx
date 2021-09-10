@@ -1,5 +1,5 @@
-import { Story } from "@storybook/react/types-6-0";
-import { Radio, RadioProps } from "./Radio";
+import { Story } from "@storybook/react/types-6-0"
+import { Radio, RadioProps } from "./Radio"
 
 export default {
   title: "Controls/Radios/Radio",
@@ -12,16 +12,15 @@ export default {
   parameters: {
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=91%3A81",
+      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=91%3A81",
     },
   },
-};
+}
 
-const Template: Story<RadioProps> = (args) => <Radio {...args} />;
+const Template: Story<RadioProps> = (args) => <Radio {...args} />
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default = Template.bind({})
+Default.args = {}
 
-export const Label = Template.bind({});
-Label.args = { label: "Label" };
+export const Label = Template.bind({})
+Label.args = { label: "Label" }

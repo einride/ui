@@ -1,5 +1,5 @@
-import { Story } from "@storybook/react/types-6-0";
-import { VerticalSpacing, VerticalSpacingProps } from "./VerticalSpacing";
+import { Story } from "@storybook/react/types-6-0"
+import { VerticalSpacing, VerticalSpacingProps } from "./VerticalSpacing"
 
 export default {
   title: "Layout/VerticalSpacing",
@@ -7,8 +7,7 @@ export default {
   parameters: {
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=147%3A7",
+      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=147%3A7",
     },
     docs: {
       description: {
@@ -17,31 +16,31 @@ export default {
       },
     },
   },
-};
+}
 
 const Template: Story<VerticalSpacingProps> = (args) => (
   <VerticalSpacing {...args} />
-);
+)
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default = Template.bind({})
+Default.args = {}
 
-export const Small = Template.bind({});
+export const Small = Template.bind({})
 Small.args = {
   size: "small",
-};
+}
 
-export const Medium = Template.bind({});
+export const Medium = Template.bind({})
 Medium.args = {
   size: "medium",
-};
+}
 
-export const Large = Template.bind({});
+export const Large = Template.bind({})
 Large.args = {
   size: "large",
-};
+}
 
-export const ExtraLarge = Template.bind({});
+export const ExtraLarge = Template.bind({})
 ExtraLarge.args = {
   size: "extraLarge",
-};
+}

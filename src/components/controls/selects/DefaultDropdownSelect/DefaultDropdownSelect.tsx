@@ -1,10 +1,10 @@
-import styled from "@emotion/styled";
-import * as React from "react";
-import { ChangeEvent, SelectHTMLAttributes } from "react";
-import chevronDown from "../../../../assets/icons/chevronDown.svg";
+import styled from "@emotion/styled"
+import * as React from "react"
+import { ChangeEvent, SelectHTMLAttributes } from "react"
+import chevronDown from "../../../../assets/icons/chevronDown.svg"
 
 interface StyledSelectProps {
-  fullWidth?: boolean;
+  fullWidth?: boolean
 }
 
 const StyledSelect = styled.select<StyledSelectProps>`
@@ -38,20 +38,20 @@ const StyledSelect = styled.select<StyledSelectProps>`
   &:disabled {
     color: ${({ theme }) => theme.colors.content.disabled};
   }
-`;
+`
 
 interface Option {
-  text?: string;
-  value: string;
+  text?: string
+  value: string
 }
 
 export interface DefaultDropdownSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
-  defaultValue?: string;
-  fullWidth?: boolean;
-  onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
-  options: Option[];
-  placeholder?: string;
+  defaultValue?: string
+  fullWidth?: boolean
+  onChange: (e: ChangeEvent<HTMLSelectElement>) => void
+  options: Option[]
+  placeholder?: string
 }
 
 export const DefaultDropdownSelect = ({
@@ -78,5 +78,5 @@ export const DefaultDropdownSelect = ({
         </option>
       ))}
     </StyledSelect>
-  );
-};
+  )
+}

@@ -1,31 +1,31 @@
-import styled from "@emotion/styled";
-import * as React from "react";
+import styled from "@emotion/styled"
+import * as React from "react"
 
 const getHeight = (size?: Size) => {
   switch (size) {
     case "small":
-      return 16;
+      return 16
     case "medium":
-      return 24;
+      return 24
     case "large":
-      return 72;
+      return 72
     case "extraLarge":
-      return 120;
+      return 120
     default:
-      return 16;
+      return 16
   }
-};
+}
 
 const StyledDiv = styled.div<VerticalSpacingProps>`
   height: ${({ size }) => getHeight(size)}px;
-`;
+`
 
-type Size = "small" | "medium" | "large" | "extraLarge";
+type Size = "small" | "medium" | "large" | "extraLarge"
 
 export interface VerticalSpacingProps {
-  size?: Size;
+  size?: Size
 }
 
 export const VerticalSpacing = ({ size = "small" }: VerticalSpacingProps) => {
-  return <StyledDiv size={size} />;
-};
+  return <StyledDiv size={size} />
+}
