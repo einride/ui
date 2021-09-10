@@ -21,15 +21,15 @@ yarn add @einride/ui @emotion/react @emotion/styled
 For @einride/ui to work, `EinrideProvider` needs to wrap all other components. Add it in the root component in your app like this:
 
 ```tsx
-import { EinrideProvider } from "@einride/ui";
+import { EinrideProvider } from "@einride/ui"
 
 const App = () => {
   return (
     <EinrideProvider>{/* All other components go here! */}</EinrideProvider>
-  );
-};
+  )
+}
 
-export default App;
+export default App
 ```
 
 ## Documentation
