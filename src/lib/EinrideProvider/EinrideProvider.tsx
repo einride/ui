@@ -2,6 +2,7 @@ import { ThemeProvider } from "@emotion/react"
 import * as React from "react"
 import { createContext, ReactNode, useContext } from "react"
 import { themes } from "../../theme"
+import { CSSReset } from "../CSSReset"
 
 type ColorMode = "light" | "dark"
 
@@ -12,12 +13,14 @@ interface EinrideProviderProps {
   colorMode?: ColorMode
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   customTheme?: any
+  resetCSS?: boolean
 }
 
 export const EinrideProvider = ({
   children,
   colorMode = "light",
   customTheme = {},
+  resetCSS = true,
 }: EinrideProviderProps) => {
   const defaultTheme = themes[colorMode]
   const theme = {
@@ -27,7 +30,10 @@ export const EinrideProvider = ({
 
   return (
     <Context.Provider value={colorMode}>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      <ThemeProvider theme={theme}>
+        {resetCSS && <CSSReset />}
+        {children}
+      </ThemeProvider>
     </Context.Provider>
   )
 }
