@@ -26,7 +26,52 @@ Warning.args = {
   name: "warning",
 }
 
-export const ChecronDowm = Template.bind({})
-ChecronDowm.args = {
+export const ChevronDowm = Template.bind({})
+ChevronDowm.args = {
   name: "chevronDown",
+}
+
+export const ChevronUp = Template.bind({})
+ChevronUp.args = {
+  name: "chevronUp",
+}
+
+export const ChevronRight = Template.bind({})
+ChevronRight.args = {
+  name: "chevronRight",
+}
+
+export const ChevronLeft = Template.bind({})
+ChevronLeft.args = {
+  name: "chevronLeft",
+}
+
+export const XMark = Template.bind({})
+XMark.args = {
+  name: "xMark",
+}
+
+export const ArrowUp = Template.bind({})
+ArrowUp.args = {
+  name: "arrowUp",
+}
+
+export const ArrowDown = Template.bind({})
+ArrowDown.args = {
+  name: "arrowDown",
+}
+
+export const ArrowRightwards = Template.bind({})
+ArrowRightwards.args = {
+  name: "arrowRightwards",
+}
+
+export const ArrowLeftwards = Template.bind({})
+ArrowLeftwards.args = {
+  name: "arrowLeftwards",
+}
+
+export const Bolt = Template.bind({})
+Bolt.args = {
+  name: "bolt",
 }
