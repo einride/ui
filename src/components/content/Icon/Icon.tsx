@@ -33,7 +33,7 @@ export const Icon = ({ name }: IconProps) => {
     case "xMark":
       return <>❌</>
     case "arrowUp":
-      return <>→</>
+      return <>↑</>
     case "arrowDown":
       return <>↓</>
     case "arrowRightwards":
