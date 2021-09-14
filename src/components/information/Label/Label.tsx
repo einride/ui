@@ -34,6 +34,8 @@ const getColor = (theme: Theme, variant?: Variant) => {
 }
 
 const StyledSpan = styled.span<LabelProps>`
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.md};
   background-color: ${({ theme, variant }) =>
     getBackgroundColor(theme, variant)};
   color: ${({ theme, variant }) => getColor(theme, variant)};

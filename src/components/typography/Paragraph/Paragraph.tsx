@@ -3,7 +3,8 @@ import * as React from "react"
 import { forwardRef, HTMLAttributes, ReactNode } from "react"
 
 const StyledText = styled.p<ParagraphProps>`
-  font-size: 18px;
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.md};
   font-weight: normal;
   line-height: 24px;
   margin-top: 5px;

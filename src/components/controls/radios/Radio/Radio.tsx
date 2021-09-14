@@ -30,6 +30,8 @@ const StyledInput = styled.input`
 `
 
 const StyledLabel = styled.label`
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.md};
   display: flex;
   margin: 12px 16px;
   color: ${({ theme }) => theme.colors.content.primary};

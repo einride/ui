@@ -6,6 +6,20 @@ const common = {
     medium: "@media (min-width: 600px)",
     large: "@media (min-width: 1024px)",
   },
+  fonts: {
+    heading:
+      '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    body: '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    mono: 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+  },
+  fontSizes: {
+    sm: "14px",
+    md: "18px",
+    lg: "24px",
+    xl: "28px",
+    "2xl": "40px",
+    "3xl": "80px",
+  },
 }
 
 export const light = {
