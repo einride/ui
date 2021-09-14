@@ -1,8 +1,10 @@
 import { ThemeProvider } from "@emotion/react"
+import { merge } from "lodash"
 import * as React from "react"
 import { createContext, ReactNode, useContext } from "react"
 import { themes } from "../../theme"
 import { CSSReset } from "../CSSReset"
+import { GlobalStyles } from "../GlobalStyles"
 
 type ColorMode = "light" | "dark"
 
@@ -14,6 +16,8 @@ interface EinrideProviderProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   customTheme?: any
   resetCSS?: boolean
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  theme?: any
 }
 
 export const EinrideProvider = ({
@@ -21,17 +25,19 @@ export const EinrideProvider = ({
   colorMode = "light",
   customTheme = {},
   resetCSS = true,
+  theme = {},
 }: EinrideProviderProps) => {
   const defaultTheme = themes[colorMode]
-  const theme = {
-    ...defaultTheme,
+  const mergedTheme = {
+    ...merge(defaultTheme, theme),
     custom: customTheme[colorMode],
   }
 
   return (
     <Context.Provider value={colorMode}>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={mergedTheme}>
         {resetCSS && <CSSReset />}
+        <GlobalStyles />
         {children}
       </ThemeProvider>
     </Context.Provider>

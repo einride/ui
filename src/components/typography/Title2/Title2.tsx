@@ -3,7 +3,8 @@ import * as React from "react"
 import { forwardRef, HTMLAttributes, ReactNode } from "react"
 
 const StyledText = styled.h2`
-  font-size: 28px;
+  font-family: ${({ theme }) => theme.fonts.heading};
+  font-size: ${({ theme }) => theme.fontSizes.xl};
   font-weight: normal;
   line-height: 32px;
   margin-top: 6px;

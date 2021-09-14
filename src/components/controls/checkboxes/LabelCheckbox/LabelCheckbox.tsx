@@ -4,6 +4,8 @@ import { ChangeEvent, InputHTMLAttributes } from "react"
 import { DefaultCheckbox } from "../DefaultCheckbox"
 
 const StyledLabel = styled.label`
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.md};
   margin: 12px 16px;
   display: flex;
   color: ${({ theme }) => theme.colors.content.primary};

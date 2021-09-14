@@ -16,6 +16,8 @@ const getColor = (theme: Theme, status?: Status) => {
 }
 
 const StyledLabel = styled.label<{ status?: Status }>`
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.md};
   margin: 5px 0 3px;
   color: ${({ theme, status }) => getColor(theme, status)};
 

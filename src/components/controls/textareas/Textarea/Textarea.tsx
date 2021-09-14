@@ -3,6 +3,8 @@ import * as React from "react"
 import { ChangeEvent, CSSProperties } from "react"
 
 const StyledTextarea = styled.textarea`
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.md};
   display: block;
   min-width: 100%;
   resize: none;

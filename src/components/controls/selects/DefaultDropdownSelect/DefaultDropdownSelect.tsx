@@ -8,11 +8,12 @@ interface StyledSelectProps {
 }
 
 const StyledSelect = styled.select<StyledSelectProps>`
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.md};
   min-width: 240px;
   ${({ fullWidth }) => fullWidth && "width: 100%"};
   background-color: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
-  font-size: 18px;
   line-height: 24px;
   display: block;
   padding: 12px 16px;

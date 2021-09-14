@@ -1,6 +1,5 @@
-import "../src/assets/fonts/fonts.css"
 import { EinrideProvider } from "../src/lib/EinrideProvider"
-import "../src/styles/main.css"
+import "./lib/fonts.css"
 
 const customViewports = {
   small: {
@@ -38,9 +37,16 @@ export const parameters = {
   },
 }
 
+const theme = {
+  fonts: {
+    body: "SuisseIntl, EinrideIcons, sans-serif",
+    heading: "SuisseIntl, EinrideIcons, sans-serif",
+  },
+}
+
 export const decorators = [
   (Story) => (
-    <EinrideProvider>
+    <EinrideProvider theme={theme}>
       <Story />
     </EinrideProvider>
   ),
