@@ -36,11 +36,6 @@ export default App
 
 All currently available components are documented in our [Storybook](https://main--606dcc0a2208ee00215fb2d9.chromatic.com/).
 
-Here's a couple of examples of the visual look and feel:
-
-![A sneak peak on design system typography](https://i.ibb.co/FX6bSJ2/sneakpeak-typography.jpg)
-![A sneak peak on design system controls](https://i.ibb.co/wLR7bhb/sneakpeak-controls.jpg)
-
 ## License
 
-@einride/ui is licensed under the [MIT License](LICENSE).
+MIT
