@@ -7,6 +7,6 @@ $(semantic_release): $(semantic_release_cwd)/package.json
 	@touch $@
 
 .PHONY: semantic-release
-semantic-release: $(semantic_release_cwd)/.releaserc.yaml $(semantic_release)
+semantic-release: $(semantic_release_cwd)/.releaserc.js $(semantic_release)
 	$(info [$@] creating release...)
 	@cd $(semantic_release_cwd) && $(semantic_release)
