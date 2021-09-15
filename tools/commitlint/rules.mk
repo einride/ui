@@ -12,5 +12,5 @@ commitlint: $(commitlint_cwd)/.commitlintrc.js $(commitlint)
 	@git fetch --tags
 	@NODE_PATH=$(commitlint_cwd)/node_modules $(commitlint) \
 		--config $< \
-		--from origin/master \
+		--from origin/main \
 		--to HEAD
