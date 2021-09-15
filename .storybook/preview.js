@@ -1,5 +1,4 @@
 import { EinrideProvider } from "../src/lib/EinrideProvider"
-import "./lib/fonts.css"
 
 const customViewports = {
   small: {
