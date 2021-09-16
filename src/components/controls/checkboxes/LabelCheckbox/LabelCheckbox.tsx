@@ -23,7 +23,7 @@ const StyledDefaultCheckbox = styled(DefaultCheckbox)`
 export interface LabelCheckboxProps
   extends InputHTMLAttributes<HTMLInputElement> {
   label: string
-  labelStyles: CSSProperties
+  labelStyles?: CSSProperties
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
