@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import * as React from "react"
-import { ChangeEvent, InputHTMLAttributes } from "react"
+import { ChangeEvent, CSSProperties, InputHTMLAttributes } from "react"
 
 const StyledInput = styled.input`
   appearance: none;
@@ -33,6 +33,7 @@ const StyledLabel = styled.label`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
   display: flex;
+  align-items: center;
   margin: 12px 16px;
   color: ${({ theme }) => theme.colors.content.primary};
 
@@ -47,13 +48,14 @@ const StyledRadio = styled(StyledInput)`
 
 export interface RadioProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string
+  labelStyles?: CSSProperties
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-export const Radio = ({ label, ...props }: RadioProps) => {
+export const Radio = ({ label, labelStyles, ...props }: RadioProps) => {
   if (label) {
     return (
-      <StyledLabel>
+      <StyledLabel style={labelStyles}>
         <StyledRadio type="radio" {...props} />
         {label}
       </StyledLabel>
