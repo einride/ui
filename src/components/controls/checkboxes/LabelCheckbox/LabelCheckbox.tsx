@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import * as React from "react"
-import { ChangeEvent, InputHTMLAttributes } from "react"
+import { ChangeEvent, CSSProperties, InputHTMLAttributes } from "react"
 import { DefaultCheckbox } from "../DefaultCheckbox"
 
 const StyledLabel = styled.label`
@@ -8,6 +8,7 @@ const StyledLabel = styled.label`
   font-size: ${({ theme }) => theme.fontSizes.md};
   margin: 12px 16px;
   display: flex;
+  align-items: center;
   color: ${({ theme }) => theme.colors.content.primary};
 
   &:focus-within {
@@ -22,12 +23,17 @@ const StyledDefaultCheckbox = styled(DefaultCheckbox)`
 export interface LabelCheckboxProps
   extends InputHTMLAttributes<HTMLInputElement> {
   label: string
+  labelStyles: CSSProperties
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-export const LabelCheckbox = ({ label, ...props }: LabelCheckboxProps) => {
+export const LabelCheckbox = ({
+  label,
+  labelStyles,
+  ...props
+}: LabelCheckboxProps) => {
   return (
-    <StyledLabel>
+    <StyledLabel style={labelStyles}>
       <StyledDefaultCheckbox {...props} />
       {label}
     </StyledLabel>
