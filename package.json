@@ -61,6 +61,7 @@
     "build-storybook": "build-storybook -s public",
     "chromatic": "npx chromatic --project-token f99937c406c4",
     "lint": "eslint ./src/**/*.{ts,tsx}",
+    "prettier-write": "prettier --write .",
     "build": "tsc -p tsconfig.json && yarn copy-files",
     "copy-files": "copyfiles -u 1 \"src/**/*.css\" \"src/**/*.svg\" \"src/**/*.png\" \"src/assets/fonts/EinrideIcons-Book.woff\"  lib/"
   },
