@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import * as React from "react"
 import { ButtonHTMLAttributes, ReactNode } from "react"
 
-const Wrapper = styled.button<{ selected: boolean }>`
+const Wrapper = styled.button<{ selected?: boolean }>`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
   color: ${({ selected, theme }) =>
