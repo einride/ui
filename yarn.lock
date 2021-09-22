@@ -1501,10 +1501,10 @@
     eslint-plugin-react "7.25.1"
     eslint-plugin-react-hooks "4.2.0"
 
-"@einride/prettier-config@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@einride/prettier-config/-/prettier-config-1.0.0.tgz#186dd6717a65b7811102bbf6df5d6e61e4d07494"
-  integrity sha512-vrenkERbT2Ve4IYiLxNkbsyF2nzzNEyUmLauu++jrqEOepXisD3NKGLQrP36q/2BI0bb12xERZMVzWWbs4B3rA==
+"@einride/prettier-config@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@einride/prettier-config/-/prettier-config-1.2.0.tgz#79f9c1d0f64b3fc9dfb46c963c7de7efa9584780"
+  integrity sha512-Y/+gSWfX2Q92Lqr0LKH+tnGUbewRX9Iqj/9K4z6CRdNrK6mtM7egXu6QZUnjsSuJcaUNdnGq9kG1tNuuF3toYg==
 
 "@emotion/babel-plugin@^11.3.0":
   version "11.3.0"
@@ -12463,10 +12463,10 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.4.0.tgz#85bdfe0f70c3e777cf13a4ffff39713ca6f64cba"
-  integrity sha512-DsEPLY1dE5HF3BxCRBmD4uYZ+5DCbvatnolqTqcxEgKVZnL2kUfyu7b8pPQ5+hTBkdhU9SLUmK0/pHb07RE4WQ==
+prettier@2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.4.1.tgz#671e11c89c14a4cfc876ce564106c4a6726c9f5c"
+  integrity sha512-9fbDAXSBcc6Bs1mZrDYb3XKzDLm4EXXL9sC1LqKP5rZkT6KRr/rf9amVUcODVXgguK/isJz0d0hP72WeaKWsvA==
 
 prettier@~2.2.1:
   version "2.2.1"
