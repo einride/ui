@@ -31,13 +31,13 @@ jobs:
         uses: actions/setup-node@v2.1.4
         with:
           node-version: 12
-      
+
       - name: Install dependencies
         run: make install-deps
 
       - name: Build
         run: make build
-      
+
       - name: Run semantic-release
         run: make semantic-release
         env:

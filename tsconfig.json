@@ -2,21 +2,17 @@
   "compilerOptions": {
     "strict": true,
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "module": "commonjs",
     "outDir": "lib",
     "isolatedModules": true,
     "esModuleInterop": true,
     "jsx": "react",
-    "declaration": true,
+    "declaration": true
   },
   "include": [
     "src/main.ts",
     "src/types/custom.d.ts", // TODO, this could probably be moved to typeRoots
-    "src/types/emotion.d.ts",
+    "src/types/emotion.d.ts"
   ]
 }

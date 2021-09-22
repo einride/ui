@@ -1,8 +1,11 @@
 # @einride/ui
 
-[![license](https://img.shields.io/npm/l/@einride/ui.svg)](https://github.com/einride/ui/blob/main/LICENSE) [![npm version](https://img.shields.io/npm/v/@einride/ui.svg)](https://www.npmjs.com/package/@einride/ui) [![total npm downloads](https://img.shields.io/npm/dt/@einride/ui.svg)](https://www.npmjs.com/package/@einride/ui)
+[![license](https://img.shields.io/npm/l/@einride/ui.svg)](https://github.com/einride/ui/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/@einride/ui.svg)](https://www.npmjs.com/package/@einride/ui)
+[![total npm downloads](https://img.shields.io/npm/dt/@einride/ui.svg)](https://www.npmjs.com/package/@einride/ui)
 
-This package provides reusable React components that adhere to Einride's design system.
+This package provides reusable React components that adhere to Einride's design
+system.
 
 ## Installation
 
@@ -18,7 +21,8 @@ yarn add @einride/ui @emotion/react @emotion/styled
 
 ## Setup
 
-For @einride/ui to work, `EinrideProvider` needs to wrap all other components. Add it in the root component in your app like this:
+For @einride/ui to work, `EinrideProvider` needs to wrap all other components.
+Add it in the root component in your app like this:
 
 ```tsx
 import { EinrideProvider } from "@einride/ui"
@@ -34,7 +38,8 @@ export default App
 
 ## Documentation
 
-All currently available components are documented in our [Storybook](https://main--606dcc0a2208ee00215fb2d9.chromatic.com/).
+All currently available components are documented in our
+[Storybook](https://main--606dcc0a2208ee00215fb2d9.chromatic.com/).
 
 ## License
 
