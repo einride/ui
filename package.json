@@ -12,6 +12,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "dependencies": {
+    "lodash": "4.17.21"
+  },
   "devDependencies": {
     "@babel/core": "7.14.6",
     "@einride/eslint-plugin": "3.0.0",
@@ -80,8 +83,5 @@
   "bugs": {
     "email": "open-source@einride.tech",
     "url": "https://github.com/einride/ui/issues"
-  },
-  "dependencies": {
-    "lodash": "4.17.21"
   }
 }
