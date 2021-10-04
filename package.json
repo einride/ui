@@ -35,7 +35,7 @@
     "@types/node": "16.10.2",
     "@types/react": "17.0.27",
     "@types/react-dom": "17.0.9",
-    "chromatic": "5.10.1",
+    "chromatic": "5.10.2",
     "copyfiles": "2.4.1",
     "customize-cra": "1.0.0",
     "eslint": "7.32.0",
