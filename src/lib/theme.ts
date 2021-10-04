@@ -20,6 +20,9 @@ const common = {
     "2xl": "40px",
     "3xl": "80px",
   },
+  primitives: {
+    color,
+  },
 }
 
 export const light = {
