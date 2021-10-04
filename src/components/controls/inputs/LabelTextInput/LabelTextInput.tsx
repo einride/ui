@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import * as React from "react"
 import { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode } from "react"
-import { Theme } from "../../../../theme"
+import { Theme } from "../../../../lib/theme"
 import { TextInput } from "../TextInput"
 
 const getColor = (theme: Theme, status?: Status) => {

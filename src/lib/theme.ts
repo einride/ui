@@ -1,4 +1,4 @@
-import { color } from "./primitives/color"
+import { color } from "../primitives/color"
 
 const common = {
   spacer: 8,

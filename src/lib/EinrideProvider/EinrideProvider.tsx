@@ -2,9 +2,9 @@ import { ThemeProvider } from "@emotion/react"
 import { merge } from "lodash"
 import * as React from "react"
 import { createContext, ReactNode, useContext } from "react"
-import { themes } from "../../theme"
 import { CSSReset } from "../CSSReset"
 import { GlobalStyles } from "../GlobalStyles"
+import { themes } from "../theme"
 
 type ColorMode = "light" | "dark"
 
