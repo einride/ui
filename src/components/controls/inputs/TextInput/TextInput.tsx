@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import * as React from "react"
 import { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode } from "react"
-import { Theme } from "../../../../theme"
+import { Theme } from "../../../../lib/theme"
 import { BaseInput } from "../BaseInput"
 
 const getBackgroundColor = (theme: Theme, status?: Status) => {
