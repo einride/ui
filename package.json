@@ -16,7 +16,7 @@
     "lodash": "4.17.21"
   },
   "devDependencies": {
-    "@babel/core": "7.15.5",
+    "@babel/core": "7.15.8",
     "@einride/eslint-plugin": "3.0.0",
     "@einride/prettier-config": "1.2.0",
     "@emotion/react": "11.4.1",
