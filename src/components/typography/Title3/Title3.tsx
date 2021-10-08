@@ -5,7 +5,7 @@ import { forwardRef, HTMLAttributes, ReactNode } from "react"
 const StyledText = styled.h3`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-size: ${({ theme }) => theme.fontSizes.lg};
-  font-weight: normal;
+  font-weight: bold;
   line-height: 32px;
   margin-top: 7px;
   margin-bottom: 1px;
