@@ -18,6 +18,7 @@ const StyledText = styled.p<ParagraphProps>`
 `
 
 export interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
+  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "small" | "span"
   children: ReactNode
   color?: "primary" | "secondary"
 }

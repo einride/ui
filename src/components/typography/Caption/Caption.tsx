@@ -14,6 +14,7 @@ const StyledText = styled.small`
 `
 
 export interface CaptionProps extends HTMLAttributes<HTMLParagraphElement> {
+  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "small" | "span"
   children: ReactNode
 }
 
