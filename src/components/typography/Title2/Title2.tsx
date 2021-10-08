@@ -14,14 +14,13 @@ const StyledText = styled.h2`
 `
 
 export interface Title2Props extends HTMLAttributes<HTMLHeadingElement> {
-  as?: "h2" | "h3"
   children: ReactNode
 }
 
 export const Title2 = forwardRef<HTMLHeadingElement, Title2Props>(
-  ({ as = "h2", children, ...props }, ref) => {
+  ({ children, ...props }, ref) => {
     return (
-      <StyledText as={as} {...props} ref={ref}>
+      <StyledText {...props} ref={ref}>
         {children}
       </StyledText>
     )
