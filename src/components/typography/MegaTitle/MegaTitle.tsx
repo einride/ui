@@ -14,14 +14,13 @@ const StyledText = styled.h1`
 `
 
 export interface MegaTitleProps extends HTMLAttributes<HTMLHeadingElement> {
-  as?: "h1" | "h2"
   children: ReactNode
 }
 
 export const MegaTitle = forwardRef<HTMLHeadingElement, MegaTitleProps>(
-  ({ as = "h1", children, ...props }, ref) => {
+  ({ children, ...props }, ref) => {
     return (
-      <StyledText as={as} {...props} ref={ref}>
+      <StyledText {...props} ref={ref}>
         {children}
       </StyledText>
     )
