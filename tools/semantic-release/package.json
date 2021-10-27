@@ -1,9 +1,0 @@
-{
-  "devDependencies": {
-    "@semantic-release/github": "8.0.0",
-    "@semantic-release/npm": "8.0.0",
-    "@semantic-release/release-notes-generator": "10.0.2",
-    "conventional-changelog-conventionalcommits": "4.6.1",
-    "semantic-release": "18.0.0"
-  }
-}

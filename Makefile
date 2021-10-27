@@ -1,15 +1,8 @@
 SHELL := /bin/bash
 
 .PHONY: all
-all: \
-	install-deps \
-	commitlint \
-	git-verify-nodiff \
-	build
-
-include tools/commitlint/rules.mk
-include tools/git-verify-nodiff/rules.mk
-include tools/semantic-release/rules.mk
+all:
+	yarn review
 
 .PHONY: install-deps
 install-deps:

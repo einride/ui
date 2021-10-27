@@ -6,22 +6,24 @@ on:
       - main
 
 jobs:
-  make:
+  review:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
           node-version: 16
 
-      - name: Make
-        run: make
+      - name: Review
+        run: yarn review
 
   release:
-    needs: make
+    needs: review
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -33,13 +35,13 @@ jobs:
           node-version: 16
 
       - name: Install dependencies
-        run: make install-deps
+        run: yarn install --frozen-lockfile
 
       - name: Build
-        run: make build
+        run: yarn build
 
       - name: Run semantic-release
-        run: make semantic-release
+        run: yarn semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

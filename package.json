@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.15.8",
+    "@commitlint/config-conventional": "13.2.0",
     "@einride/eslint-plugin": "3.0.0",
     "@einride/prettier-config": "1.2.0",
     "@emotion/react": "11.4.1",
@@ -36,6 +37,7 @@
     "@types/react": "17.0.27",
     "@types/react-dom": "17.0.9",
     "chromatic": "5.10.2",
+    "commitlint": "13.2.1",
     "copyfiles": "2.4.1",
     "customize-cra": "1.0.0",
     "eslint": "7.32.0",
@@ -43,6 +45,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-scripts": "4.0.3",
+    "semantic-release": "18.0.0",
     "storybook-addon-designs": "6.2.0",
     "typescript": "4.4.3"
   },
@@ -61,7 +64,10 @@
     "build-storybook": "build-storybook -s public",
     "chromatic": "npx chromatic --project-token f99937c406c4",
     "lint": "eslint ./src/**/*.{ts,tsx}",
-    "prettier-write": "prettier --write .",
+    "git-verify-nodiff": "./scripts/git-verify-nodiff.bash",
+    "commitlint": "commitlint --from origin/main --to HEAD",
+    "review": "yarn install --frozen-lockfile && yarn commitlint && yarn prettier && yarn eslint && yarn git-verify-nodiff && yarn build",
+    "prettier": "prettier --write .",
     "build": "tsc -p tsconfig.json && yarn copy-files",
     "copy-files": "copyfiles -u 1 \"src/**/*.css\" \"src/**/*.svg\" \"src/**/*.png\" \"src/assets/fonts/EinrideIcons-Book.woff\"  lib/"
   },
