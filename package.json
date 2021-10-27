@@ -2,15 +2,18 @@
   "name": "@einride/ui",
   "version": "0.0.0-development",
   "description": "Einride's UI framework with reusable components",
-  "main": "./lib/main.js",
-  "module": "./lib/main.js",
-  "typings": "./lib/main.d.ts",
-  "files": [
-    "lib"
-  ],
-  "author": "Filip Tammergård",
-  "publishConfig": {
-    "access": "public"
+  "scripts": {
+    "build": "tsc -p tsconfig.json && yarn copy-files",
+    "build-storybook": "build-storybook -s public",
+    "chromatic": "npx chromatic --project-token f99937c406c4",
+    "commitlint": "commitlint --from origin/main --to HEAD",
+    "copy-files": "copyfiles -u 1 \"src/**/*.css\" \"src/**/*.svg\" \"src/**/*.png\" \"src/assets/fonts/EinrideIcons-Book.woff\"  lib/",
+    "git-verify-nodiff": "./scripts/git-verify-nodiff.bash",
+    "lint": "eslint ./src/**/*.{ts,tsx}",
+    "prettier": "prettier --write .",
+    "review": "yarn install --frozen-lockfile && yarn commitlint && yarn prettier && yarn eslint && yarn git-verify-nodiff && yarn build",
+    "storybook": "start-storybook -p 6006 -s public",
+    "test": "react-scripts test"
   },
   "dependencies": {
     "lodash": "4.17.21"
@@ -58,18 +61,15 @@
     "**/react": "17.0.2",
     "**/react-dom": "17.0.2"
   },
-  "scripts": {
-    "test": "react-scripts test",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
-    "chromatic": "npx chromatic --project-token f99937c406c4",
-    "lint": "eslint ./src/**/*.{ts,tsx}",
-    "git-verify-nodiff": "./scripts/git-verify-nodiff.bash",
-    "commitlint": "commitlint --from origin/main --to HEAD",
-    "review": "yarn install --frozen-lockfile && yarn commitlint && yarn prettier && yarn eslint && yarn git-verify-nodiff && yarn build",
-    "prettier": "prettier --write .",
-    "build": "tsc -p tsconfig.json && yarn copy-files",
-    "copy-files": "copyfiles -u 1 \"src/**/*.css\" \"src/**/*.svg\" \"src/**/*.png\" \"src/assets/fonts/EinrideIcons-Book.woff\"  lib/"
+  "main": "./lib/main.js",
+  "module": "./lib/main.js",
+  "typings": "./lib/main.d.ts",
+  "files": [
+    "lib"
+  ],
+  "author": "Filip Tammergård",
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "design-system",
