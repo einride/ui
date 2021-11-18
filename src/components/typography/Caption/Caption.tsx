@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import * as React from "react"
 import { forwardRef, HTMLAttributes, ReactNode } from "react"
 
-const StyledText = styled.small`
+const StyledText = styled.p`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.sm};
   font-weight: normal;
@@ -18,14 +18,12 @@ export interface CaptionProps extends HTMLAttributes<HTMLParagraphElement> {
   children: ReactNode
 }
 
-export const Caption = forwardRef<HTMLElement, CaptionProps>(
+export const Caption = forwardRef<HTMLParagraphElement, CaptionProps>(
   ({ children, ...props }, ref) => {
     return (
-      <p>
-        <StyledText {...props} ref={ref}>
-          {children}
-        </StyledText>
-      </p>
+      <StyledText {...props} ref={ref}>
+        {children}
+      </StyledText>
     )
   },
 )
