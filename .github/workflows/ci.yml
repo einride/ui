@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+      - beta
+      - alfa
+      - next
+      - next-major
 
 jobs:
   review:
