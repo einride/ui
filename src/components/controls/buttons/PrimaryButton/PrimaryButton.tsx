@@ -29,7 +29,7 @@ export interface PrimaryButtonProps
 export const PrimaryButton = ({
   children,
   fullWidth = false,
-  size = "large",
+  size = "small",
   ...props
 }: PrimaryButtonProps) => {
   return (

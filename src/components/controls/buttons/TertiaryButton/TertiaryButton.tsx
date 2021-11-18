@@ -29,7 +29,7 @@ export interface TertiaryButtonProps
 export const TertiaryButton = ({
   children,
   fullWidth = false,
-  size = "large",
+  size = "small",
   ...props
 }: TertiaryButtonProps) => {
   return (

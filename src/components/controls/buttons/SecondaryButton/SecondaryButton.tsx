@@ -29,7 +29,7 @@ export interface SecondaryButtonProps
 export const SecondaryButton = ({
   children,
   fullWidth = false,
-  size = "large",
+  size = "small",
   ...props
 }: SecondaryButtonProps) => {
   return (
