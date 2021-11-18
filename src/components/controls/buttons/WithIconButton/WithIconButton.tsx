@@ -52,7 +52,7 @@ export const WithIconButton = ({
   children,
   fullWidth = false,
   icon = "→",
-  size = "large",
+  size = "small",
   ...props
 }: WithIconButtonProps) => {
   return (

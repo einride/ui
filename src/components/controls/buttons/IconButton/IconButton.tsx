@@ -32,7 +32,7 @@ export interface IconButtonProps
 
 export const IconButton = ({
   icon = "→",
-  size = "large",
+  size = "small",
   ...props
 }: IconButtonProps) => {
   return (
