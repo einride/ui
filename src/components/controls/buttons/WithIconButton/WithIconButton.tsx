@@ -3,8 +3,46 @@ import * as React from "react"
 import { ButtonHTMLAttributes, ReactNode } from "react"
 import { BaseButton } from "../BaseButton"
 
-const StyledBaseButton = styled(BaseButton)<WithIconButtonProps>`
-  ${({ fullWidth }) => fullWidth && "width: 100%"};
+export interface WithIconButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode
+  hasMinWidth?: boolean
+  isFullWidth?: boolean
+  icon?: string
+  size?: "small" | "large"
+}
+
+export const WithIconButton = ({
+  children,
+  hasMinWidth = true,
+  isFullWidth = false,
+  icon = "→",
+  size = "small",
+  ...props
+}: WithIconButtonProps) => {
+  return (
+    <StyledBaseButton
+      hasMinWidth={hasMinWidth}
+      isFullWidth={isFullWidth}
+      size={size}
+      {...props}
+    >
+      <ContentWrapper>
+        <span className="text">{children}</span>
+        <IconWrapper>{icon}</IconWrapper>
+      </ContentWrapper>
+    </StyledBaseButton>
+  )
+}
+
+interface StyledBaseButtonProps {
+  hasMinWidth: boolean
+  isFullWidth: boolean
+}
+
+const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
+  ${({ hasMinWidth }) => hasMinWidth && "min-width: 240px;"}
+  ${({ isFullWidth }) => isFullWidth && "width: 100%;"}
   background-color: ${({ theme }) => theme.colors.buttons.background.primary};
   color: ${({ theme }) => theme.colors.buttons.text.primary};
 
@@ -39,28 +77,3 @@ const IconWrapper = styled.div`
   color: ${({ theme }) => theme.colors.positive};
   text-decoration: none !important;
 `
-
-export interface WithIconButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode
-  fullWidth?: boolean
-  icon?: string
-  size?: "small" | "large"
-}
-
-export const WithIconButton = ({
-  children,
-  fullWidth = false,
-  icon = "→",
-  size = "small",
-  ...props
-}: WithIconButtonProps) => {
-  return (
-    <StyledBaseButton fullWidth={fullWidth} size={size} {...props}>
-      <ContentWrapper>
-        <span className="text">{children}</span>
-        <IconWrapper>{icon}</IconWrapper>
-      </ContentWrapper>
-    </StyledBaseButton>
-  )
-}
