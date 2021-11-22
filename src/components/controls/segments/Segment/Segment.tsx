@@ -4,7 +4,7 @@ import { ButtonHTMLAttributes, ReactNode } from "react"
 
 const Wrapper = styled.button<{ selected?: boolean }>`
   font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-size: ${({ theme }) => theme.fontSizes.lg};
   color: ${({ selected, theme }) =>
     selected ? theme.colors.content.primary : theme.colors.content.secondary};
   padding-top: ${({ theme }) => theme.spacer + 1}px;

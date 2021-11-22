@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import * as React from "react"
 import { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode } from "react"
-import { Theme } from "../../../../lib/theme"
+import { Theme } from "../../../../lib/theme/theme"
 import { TextInput } from "../TextInput"
 
 const getColor = (theme: Theme, status?: Status) => {
@@ -17,7 +17,7 @@ const getColor = (theme: Theme, status?: Status) => {
 
 const StyledLabel = styled.label<{ status?: Status }>`
   font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-size: ${({ theme }) => theme.fontSizes.lg};
   margin: 5px 0 3px;
   color: ${({ theme, status }) => getColor(theme, status)};
 

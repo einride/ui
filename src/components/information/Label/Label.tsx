@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import * as React from "react"
 import { HTMLAttributes, ReactNode } from "react"
-import { Theme } from "../../../lib/theme"
+import { Theme } from "../../../lib/theme/theme"
 
 const getBackgroundColor = (theme: Theme, variant?: Variant) => {
   switch (variant) {
@@ -35,7 +35,7 @@ const getColor = (theme: Theme, variant?: Variant) => {
 
 const StyledSpan = styled.span<LabelProps>`
   font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-size: ${({ theme }) => theme.fontSizes.lg};
   background-color: ${({ theme, variant }) =>
     getBackgroundColor(theme, variant)};
   color: ${({ theme, variant }) => getColor(theme, variant)};

@@ -9,7 +9,7 @@ interface StyledSelectProps {
 
 const StyledSelect = styled.select<StyledSelectProps>`
   font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-size: ${({ theme }) => theme.fontSizes.lg};
   min-width: 240px;
   ${({ fullWidth }) => fullWidth && "width: 100%"};
   background-color: ${({ theme }) => theme.colors.background.secondary};

@@ -1,26 +1,12 @@
 import styled from "@emotion/styled"
 import * as React from "react"
-import { forwardRef, HTMLAttributes, ReactNode } from "react"
-
-const StyledText = styled.p<ParagraphProps>`
-  font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.md};
-  font-weight: normal;
-  line-height: 24px;
-  margin-top: 5px;
-  margin-bottom: 3px;
-  padding: 0;
-  color: ${({ theme }) => theme.colors.content.primary};
-  color: ${({ color, theme }) =>
-    color === "secondary"
-      ? theme.colors.content.secondary
-      : theme.colors.content.primary};
-`
+import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
+import { ContentColor } from "../../../lib/theme/types"
 
 export interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
-  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "small" | "span"
+  as?: ElementType
   children: ReactNode
-  color?: "primary" | "secondary"
+  color?: ContentColor
 }
 
 export const Paragraph = forwardRef<HTMLParagraphElement, ParagraphProps>(
@@ -32,3 +18,17 @@ export const Paragraph = forwardRef<HTMLParagraphElement, ParagraphProps>(
     )
   },
 )
+
+interface StyledTextProps {
+  color: ContentColor
+}
+
+const StyledText = styled.p<StyledTextProps>`
+  color: ${({ color, theme }) => theme.colors.content[color]};
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.lg};
+  font-weight: ${({ theme }) => theme.fontWeights.book};
+  line-height: calc(4 / 3);
+  margin-top: 5px;
+  margin-bottom: 3px;
+`
