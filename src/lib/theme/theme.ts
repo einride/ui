@@ -1,4 +1,4 @@
-import { color } from "../primitives/color"
+import { color } from "../../primitives/color"
 
 const common = {
   spacer: 8,
@@ -13,12 +13,22 @@ const common = {
     mono: 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
   },
   fontSizes: {
-    sm: "14px",
-    md: "18px",
-    lg: "24px",
-    xl: "28px",
-    "2xl": "40px",
-    "3xl": "80px",
+    xs: "0.75rem",
+    sm: "0.875rem",
+    md: "1rem",
+    lg: "1.125rem",
+    xl: "1.25rem",
+    "2xl": "1.5rem",
+    "3xl": "1.75rem",
+    "4xl": "2rem",
+    "5xl": "2.5rem",
+    "6xl": "3rem",
+    "7xl": "4rem",
+    "8xl": "5rem",
+  },
+  fontWeights: {
+    book: 450,
+    medium: 500,
   },
   primitives: {
     color,

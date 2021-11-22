@@ -31,7 +31,7 @@ const StyledInput = styled.input`
 
 const StyledLabel = styled.label`
   font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-size: ${({ theme }) => theme.fontSizes.lg};
   display: flex;
   align-items: center;
   margin: 12px 16px;

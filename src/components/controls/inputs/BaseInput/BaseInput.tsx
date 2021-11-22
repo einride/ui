@@ -4,7 +4,7 @@ import { ChangeEvent, FocusEvent, InputHTMLAttributes } from "react"
 
 const StyledInput = styled.input`
   font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-size: ${({ theme }) => theme.fontSizes.lg};
   background-color: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
   width: 100%;

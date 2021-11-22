@@ -1,29 +1,34 @@
 import styled from "@emotion/styled"
 import * as React from "react"
-import { forwardRef, HTMLAttributes, ReactNode } from "react"
-
-const StyledText = styled.h1`
-  font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: ${({ theme }) => theme.fontSizes["2xl"]};
-  font-weight: bold;
-  line-height: 48px;
-  margin-top: 1px;
-  margin-bottom: 7px;
-  padding: 0;
-  color: ${({ theme }) => theme.colors.content.primary};
-`
+import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
+import { ContentColor } from "../../../lib/theme/types"
 
 export interface Title1Props extends HTMLAttributes<HTMLHeadingElement> {
-  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "small" | "span"
+  as?: ElementType
   children: ReactNode
+  color?: ContentColor
 }
 
 export const Title1 = forwardRef<HTMLHeadingElement, Title1Props>(
-  ({ children, ...props }, ref) => {
+  ({ children, color = "primary", ...props }, ref) => {
     return (
-      <StyledText {...props} ref={ref}>
+      <StyledText color={color} {...props} ref={ref}>
         {children}
       </StyledText>
     )
   },
 )
+
+interface StyledTextProps {
+  color: ContentColor
+}
+
+const StyledText = styled.h1<StyledTextProps>`
+  color: ${({ color, theme }) => theme.colors.content[color]};
+  font-family: ${({ theme }) => theme.fonts.heading};
+  font-size: ${({ theme }) => theme.fontSizes["5xl"]};
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
+  line-height: calc(6 / 5);
+  margin-top: 1px;
+  margin-bottom: 7px;
+`
