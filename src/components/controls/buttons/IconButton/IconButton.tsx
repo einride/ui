@@ -3,6 +3,23 @@ import * as React from "react"
 import { ButtonHTMLAttributes } from "react"
 import { SecondaryButton } from "../SecondaryButton"
 
+export interface IconButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
+  icon?: string
+  size?: "small" | "large"
+}
+
+export const IconButton = ({
+  icon = "→",
+  size = "small",
+  ...props
+}: IconButtonProps) => {
+  return (
+    <StyledBaseButton size={size} {...props}>
+      {icon}
+    </StyledBaseButton>
+  )
+}
 const getWidth = (size?: "small" | "large") => {
   switch (size) {
     case "small":
@@ -23,21 +40,3 @@ const StyledBaseButton = styled(SecondaryButton)<IconButtonProps>`
     text-decoration: none;
   }
 `
-
-export interface IconButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
-  icon?: string
-  size?: "small" | "large"
-}
-
-export const IconButton = ({
-  icon = "→",
-  size = "small",
-  ...props
-}: IconButtonProps) => {
-  return (
-    <StyledBaseButton size={size} {...props}>
-      {icon}
-    </StyledBaseButton>
-  )
-}
