@@ -1,10 +1,15 @@
 import { color } from "../../primitives/color"
 
+const MEDIUM_BREAKPOINT_PIXELS = 600
+const LARGE_BREAKPOINT_PIXELS = 1024
+
 const common = {
   spacer: 8,
   breakpoint: {
-    medium: "@media (min-width: 600px)",
-    large: "@media (min-width: 1024px)",
+    belowMedium: `@media (max-width: ${MEDIUM_BREAKPOINT_PIXELS - 1}px)`,
+    medium: `@media (min-width: ${MEDIUM_BREAKPOINT_PIXELS}px)`,
+    belowLarge: `@media (max-width: ${LARGE_BREAKPOINT_PIXELS - 1}px)`,
+    large: `@media (min-width: ${LARGE_BREAKPOINT_PIXELS}px)`,
   },
   fonts: {
     heading:
