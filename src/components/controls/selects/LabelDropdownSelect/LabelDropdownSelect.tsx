@@ -5,7 +5,7 @@ import { DefaultDropdownSelect } from "../DefaultDropdownSelect"
 
 const StyledLabel = styled.label`
   font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-size: ${({ theme }) => theme.fontSizes.lg};
   color: ${({ theme }) => theme.colors.content.secondary};
   margin-top: 5px;
 

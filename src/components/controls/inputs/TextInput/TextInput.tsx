@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import * as React from "react"
 import { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode } from "react"
-import { Theme } from "../../../../lib/theme"
+import { Theme } from "../../../../lib/theme/theme"
 import { BaseInput } from "../BaseInput"
 
 const getBackgroundColor = (theme: Theme, status?: Status) => {
@@ -48,7 +48,7 @@ const StyledBaseInput = styled(BaseInput)<{ status?: Status }>`
 const StyledMessage = styled.div`
   color: ${({ theme }) => theme.colors.content.secondary};
   margin: 3px 0 5px;
-  font-size: 14px;
+  font-size: ${({ theme }) => theme.fontSizes.sm};
 `
 
 type Status = "success" | "fail"

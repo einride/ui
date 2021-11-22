@@ -4,7 +4,7 @@ import * as React from "react"
 import { createContext, ReactNode, useContext } from "react"
 import { CSSReset } from "../CSSReset"
 import { GlobalStyles } from "../GlobalStyles"
-import { themes } from "../theme"
+import { themes } from "../theme/theme"
 
 type ColorMode = "light" | "dark"
 

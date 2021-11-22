@@ -5,7 +5,7 @@ import { DefaultCheckbox } from "../DefaultCheckbox"
 
 const StyledLabel = styled.label`
   font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-size: ${({ theme }) => theme.fontSizes.lg};
   margin: 12px 16px;
   display: flex;
   align-items: center;
