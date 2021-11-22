@@ -2,6 +2,16 @@ import styled from "@emotion/styled"
 import * as React from "react"
 import { ButtonHTMLAttributes, ReactNode } from "react"
 
+export interface BaseButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode
+  size: "small" | "large"
+}
+
+export const BaseButton = (props: BaseButtonProps) => {
+  return <StyledButton {...props} />
+}
+
 const SMALL_HEIGHT_PIXELS = 48
 const LARGE_HEIGHT_PIXELS = 56
 
@@ -11,10 +21,9 @@ interface StyledButtonProps {
 
 const StyledButton = styled.button<StyledButtonProps>`
   font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-size: ${({ theme }) => theme.fontSizes.lg};
   background-color: unset;
   border: none;
-  min-width: 240px;
   height: ${({ size }) =>
     size === "small" ? SMALL_HEIGHT_PIXELS : LARGE_HEIGHT_PIXELS}px;
   border-radius: ${LARGE_HEIGHT_PIXELS}px;
@@ -39,13 +48,3 @@ const StyledButton = styled.button<StyledButtonProps>`
     border-color: ${({ theme }) => theme.colors.border.selected};
   }
 `
-
-export interface BaseButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode
-  size: "small" | "large"
-}
-
-export const BaseButton = (props: BaseButtonProps) => {
-  return <StyledButton {...props} />
-}
