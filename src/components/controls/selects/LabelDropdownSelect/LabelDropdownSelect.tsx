@@ -29,7 +29,7 @@ interface Option {
 
 export interface LabelDropdownSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
-  fullWidth?: boolean
+  isFullWidth?: boolean
   label: ReactNode
   onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
   options: Option[]
