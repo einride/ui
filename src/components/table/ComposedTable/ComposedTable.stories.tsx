@@ -1,9 +1,9 @@
 import { Story } from "@storybook/react/types-6-0"
-import { Table, TableProps } from "./Table"
+import { ComposedTable, ComposedTableProps } from "./ComposedTable"
 
 export default {
-  title: "Table/Table",
-  component: Table,
+  title: "Table/ComposedTable",
+  component: ComposedTable,
   parameters: {
     design: {
       type: "figma",
@@ -13,7 +13,9 @@ export default {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template: Story<TableProps<any, any>> = (args) => <Table {...args} />
+const Template: Story<ComposedTableProps<any, any>> = (args) => (
+  <ComposedTable {...args} />
+)
 
 export const Default = Template.bind({})
 Default.args = {
@@ -37,18 +39,21 @@ Default.args = {
   ],
   rows: [
     {
+      id: "sweden",
       country: "Sweden",
       capital: "Stockholm",
       dateFormat: "YYYY-MM-DD",
       internetTLD: ".se",
     },
     {
+      id: "germany",
       country: "Germany",
       capital: "Berlin",
       dateFormat: "DD.MM.YYYY",
       internetTLD: ".de",
     },
     {
+      id: "brazil",
       country: "Brazil",
       capital: "Brasília",
       dateFormat: "DD/MM/YYYY",
