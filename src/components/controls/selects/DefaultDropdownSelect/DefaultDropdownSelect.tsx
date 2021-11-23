@@ -4,14 +4,14 @@ import { ChangeEvent, SelectHTMLAttributes } from "react"
 import chevronDown from "../../../../assets/icons/chevronDown.svg"
 
 interface StyledSelectProps {
-  fullWidth?: boolean
+  isFullWidth?: boolean
 }
 
 const StyledSelect = styled.select<StyledSelectProps>`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.lg};
   min-width: 240px;
-  ${({ fullWidth }) => fullWidth && "width: 100%"};
+  ${({ isFullWidth }) => isFullWidth && "width: 100%"};
   background-color: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
   line-height: 24px;
@@ -48,20 +48,20 @@ interface Option {
 
 export interface DefaultDropdownSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
-  fullWidth?: boolean
+  isFullWidth?: boolean
   onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
   options: Option[]
   placeholder?: string
 }
 
 export const DefaultDropdownSelect = ({
-  fullWidth = false,
+  isFullWidth = false,
   options,
   placeholder,
   ...props
 }: DefaultDropdownSelectProps) => {
   return (
-    <StyledSelect fullWidth={fullWidth} {...props}>
+    <StyledSelect isFullWidth={isFullWidth} {...props}>
       {placeholder && <option value="">{placeholder}</option>}
       {options.map((option) => (
         <option key={option.value} value={option.value}>
