@@ -36,7 +36,7 @@ interface StyledBaseButtonProps {
 }
 
 const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
-  ${({ hasMinWidth }) => hasMinWidth && "min-width: 240px;"}
+  ${({ hasMinWidth }) => hasMinWidth && "min-width: 120px;"}
   ${({ isFullWidth }) => isFullWidth && "width: 100%;"}
   background-color: ${({ theme }) => theme.colors.buttons.background.primary};
   color: ${({ theme }) => theme.colors.buttons.text.primary};
