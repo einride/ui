@@ -23,4 +23,8 @@ module.exports = {
       },
     ],
   ],
+  // disable updates to github PRs and issues due to successful releases
+  success: false,
+  // disable creation of github issues due to failed releases
+  fail: false,
 }
