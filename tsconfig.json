@@ -10,9 +10,5 @@
     "jsx": "react",
     "declaration": true
   },
-  "include": [
-    "src/main.ts",
-    "src/types/custom.d.ts", // TODO, this could probably be moved to typeRoots
-    "src/types/emotion.d.ts"
-  ]
+  "include": ["src/main.ts", "src/types/svg.d.ts", "src/types/emotion.d.ts"]
 }

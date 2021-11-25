@@ -7,7 +7,7 @@
     "build-storybook": "build-storybook -s public",
     "chromatic": "npx chromatic --project-token f99937c406c4",
     "commitlint": "commitlint --from origin/main --to HEAD",
-    "copy-files": "copyfiles -u 1 \"src/**/*.css\" \"src/**/*.svg\" \"src/**/*.png\" \"src/assets/fonts/EinrideIcons-Book.woff\"  lib/",
+    "copy-files": "copyfiles -u 1 \"src/**/*.svg\" lib/",
     "git-verify-nodiff": "./scripts/git-verify-nodiff.bash",
     "lint": "eslint ./src/**/*.{ts,tsx}",
     "prettier": "prettier --write .",
