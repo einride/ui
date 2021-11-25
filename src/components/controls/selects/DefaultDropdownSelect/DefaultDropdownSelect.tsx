@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import * as React from "react"
-import { ChangeEvent, SelectHTMLAttributes } from "react"
+import { ChangeEvent, ReactNode, SelectHTMLAttributes } from "react"
 import chevronDown from "../../../../assets/icons/chevronDown.svg"
 
 interface StyledSelectProps {
@@ -41,33 +41,24 @@ const StyledSelect = styled.select<StyledSelectProps>`
   }
 `
 
-interface Option {
-  text?: string
-  value: string
-}
-
 export interface DefaultDropdownSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
+  children?: ReactNode
   isFullWidth?: boolean
   onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
-  options: Option[]
   placeholder?: string
 }
 
 export const DefaultDropdownSelect = ({
+  children,
   isFullWidth = false,
-  options,
   placeholder,
   ...props
 }: DefaultDropdownSelectProps) => {
   return (
     <StyledSelect isFullWidth={isFullWidth} {...props}>
       {placeholder && <option value="">{placeholder}</option>}
-      {options.map((option) => (
-        <option key={option.value} value={option.value}>
-          {option.text ?? option.value}
-        </option>
-      ))}
+      {children}
     </StyledSelect>
   )
 }
