@@ -18,21 +18,11 @@ const StyledLabel = styled.label`
   }
 `
 
-const StyledDefaultDropdown = styled(DefaultDropdownSelect)`
-  margin-top: 3px;
-`
-
-interface Option {
-  text?: string
-  value: string
-}
-
 export interface LabelDropdownSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
   isFullWidth?: boolean
   label: ReactNode
   onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
-  options: Option[]
 }
 
 export const LabelDropdownSelect = ({
@@ -46,3 +36,7 @@ export const LabelDropdownSelect = ({
     </StyledLabel>
   )
 }
+
+const StyledDefaultDropdown = styled(DefaultDropdownSelect)`
+  margin-top: 3px;
+`

@@ -22,36 +22,24 @@ export default {
 }
 
 const Template: Story<DefaultDropdownSelectProps> = (args) => (
-  <DefaultDropdownSelect {...args} />
+  <DefaultDropdownSelect {...args}>
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+    <option value="option3">Option 3</option>
+  </DefaultDropdownSelect>
 )
 
 export const Default = Template.bind({})
-Default.args = {
-  options: [
-    { key: "Option1", value: "Option 1" },
-    { key: "Option2", value: "Option 2" },
-    { key: "Option3", value: "Option 3" },
-  ],
-}
+Default.args = {}
 
 export const Placeholder = Template.bind({})
 Placeholder.args = {
-  options: [
-    { text: "Option 1", value: "Option1" },
-    { text: "Option 2", value: "Option2" },
-    { text: "Option 3", value: "Option3" },
-  ],
   placeholder: "Placeholder...",
 }
 
 export const DefaultValue = Template.bind({})
 DefaultValue.args = {
-  options: [
-    { text: "Option 1", value: "Option1" },
-    { text: "Option 2", value: "Option2" },
-    { text: "Option 3", value: "Option3" },
-  ],
-  defaultValue: "Option2",
+  defaultValue: "option2",
 }
 
 const ControlledTemplate: Story<DefaultDropdownSelectProps> = (args) => {
@@ -62,16 +50,15 @@ const ControlledTemplate: Story<DefaultDropdownSelectProps> = (args) => {
   }
 
   return (
-    <DefaultDropdownSelect value={value} onChange={handleChange} {...args} />
+    <DefaultDropdownSelect value={value} onChange={handleChange} {...args}>
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <option value="option3">Option 3</option>
+    </DefaultDropdownSelect>
   )
 }
 
 export const Controlled = ControlledTemplate.bind({})
 Controlled.args = {
-  options: [
-    { text: "Option 1", value: "Option1" },
-    { text: "Option 2", value: "Option2" },
-    { text: "Option 3", value: "Option3" },
-  ],
-  value: "Option2",
+  value: "option2",
 }
