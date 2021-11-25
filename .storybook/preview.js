@@ -1,4 +1,4 @@
-import { EinrideProvider } from "../src/lib/EinrideProvider"
+import { EinrideProvider } from "../src/lib/EinrideProvider/EinrideProvider"
 
 const customViewports = {
   small: {

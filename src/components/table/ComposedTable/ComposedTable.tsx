@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import * as React from "react"
-import { Paragraph } from "../../typography/Paragraph"
+import { Paragraph } from "../../typography/Paragraph/Paragraph"
 
 export interface ComposedTableProps<Row, Column> {
   headers: {

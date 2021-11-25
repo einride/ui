@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import * as React from "react"
 import { ButtonHTMLAttributes, ReactNode } from "react"
-import { BaseButton } from "../BaseButton"
+import { BaseButton } from "../BaseButton/BaseButton"
 
 export interface SecondaryButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
