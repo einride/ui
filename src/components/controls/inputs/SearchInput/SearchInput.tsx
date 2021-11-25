@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import * as React from "react"
 import { InputHTMLAttributes } from "react"
 import xMark from "../../../../assets/icons/xMark.svg"
-import { BaseInput } from "../BaseInput"
+import { BaseInput } from "../BaseInput/BaseInput"
 
 const Wrapper = styled.div`
   position: relative;

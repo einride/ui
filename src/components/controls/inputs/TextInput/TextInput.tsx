@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import * as React from "react"
 import { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode } from "react"
 import { Theme } from "../../../../lib/theme/theme"
-import { BaseInput } from "../BaseInput"
+import { BaseInput } from "../BaseInput/BaseInput"
 
 export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void
