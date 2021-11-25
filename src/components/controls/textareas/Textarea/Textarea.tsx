@@ -2,9 +2,35 @@ import styled from "@emotion/styled"
 import * as React from "react"
 import { ChangeEvent, CSSProperties } from "react"
 
+export interface TextareaProps {
+  classname?: string
+  label?: string
+  labelStyles?: CSSProperties
+  onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
+  placeholder?: string
+  value: string
+}
+
+export const Textarea = ({
+  label,
+  labelStyles = {},
+  ...props
+}: TextareaProps) => {
+  if (label) {
+    return (
+      <StyledLabel style={labelStyles}>
+        {label}
+        <StyledTextarea {...props} />
+      </StyledLabel>
+    )
+  }
+
+  return <StyledTextarea {...props} />
+}
+
 const StyledTextarea = styled.textarea`
   font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.lg};
+  font-size: ${({ theme }) => theme.fontSizes.md};
   display: block;
   min-width: 100%;
   resize: none;
@@ -41,29 +67,3 @@ const StyledLabel = styled.label`
   flex-direction: column;
   margin-top: 5px;
 `
-
-export interface TextareaProps {
-  classname?: string
-  label?: string
-  labelStyles?: CSSProperties
-  onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
-  placeholder?: string
-  value: string
-}
-
-export const Textarea = ({
-  label,
-  labelStyles = {},
-  ...props
-}: TextareaProps) => {
-  if (label) {
-    return (
-      <StyledLabel style={labelStyles}>
-        {label}
-        <StyledTextarea {...props} />
-      </StyledLabel>
-    )
-  }
-
-  return <StyledTextarea {...props} />
-}
