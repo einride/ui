@@ -26,7 +26,7 @@ interface StyledTextProps {
 const StyledText = styled.p<StyledTextProps>`
   color: ${({ color, theme }) => theme.colors.content[color]};
   font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.lg};
+  font-size: ${({ theme }) => theme.fontSizes.md};
   font-weight: ${({ theme }) => theme.fontWeights.book};
   line-height: calc(4 / 3);
   margin-top: 5px;

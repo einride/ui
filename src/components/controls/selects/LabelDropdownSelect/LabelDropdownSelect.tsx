@@ -3,21 +3,6 @@ import * as React from "react"
 import { ChangeEvent, ReactNode, SelectHTMLAttributes } from "react"
 import { DefaultDropdownSelect } from "../DefaultDropdownSelect"
 
-const StyledLabel = styled.label`
-  font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.lg};
-  color: ${({ theme }) => theme.colors.content.secondary};
-  margin-top: 5px;
-
-  &:focus-within {
-    color: ${({ theme }) => theme.colors.content.primary};
-  }
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.content.primary};
-  }
-`
-
 export interface LabelDropdownSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
   isFullWidth?: boolean
@@ -36,6 +21,21 @@ export const LabelDropdownSelect = ({
     </StyledLabel>
   )
 }
+
+const StyledLabel = styled.label`
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  color: ${({ theme }) => theme.colors.content.secondary};
+  margin-top: 5px;
+
+  &:focus-within {
+    color: ${({ theme }) => theme.colors.content.primary};
+  }
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.content.primary};
+  }
+`
 
 const StyledDefaultDropdown = styled(DefaultDropdownSelect)`
   margin-top: 3px;
