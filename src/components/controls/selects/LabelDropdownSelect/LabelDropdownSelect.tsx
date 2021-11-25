@@ -31,8 +31,8 @@ export interface LabelDropdownSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
   fullWidth?: boolean
   label: ReactNode
+  onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
   options: Option[]
-  onChange: (e: ChangeEvent<HTMLSelectElement>) => void
 }
 
 export const LabelDropdownSelect = ({
