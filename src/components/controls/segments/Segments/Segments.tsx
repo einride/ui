@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import * as React from "react"
 import { Fragment, ReactNode, useState } from "react"
-import { Segment } from "../Segment"
+import { Segment } from "../Segment/Segment"
 
 const SegmentsWrapper = styled.div`
   display: grid;

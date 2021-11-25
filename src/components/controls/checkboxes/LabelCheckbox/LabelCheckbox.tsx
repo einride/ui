@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import * as React from "react"
 import { ChangeEvent, CSSProperties, InputHTMLAttributes } from "react"
-import { DefaultCheckbox } from "../DefaultCheckbox"
+import { DefaultCheckbox } from "../DefaultCheckbox/DefaultCheckbox"
 
 export interface LabelCheckboxProps
   extends InputHTMLAttributes<HTMLInputElement> {
