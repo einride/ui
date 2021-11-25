@@ -49,7 +49,7 @@ interface Option {
 export interface DefaultDropdownSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
   fullWidth?: boolean
-  onChange: (e: ChangeEvent<HTMLSelectElement>) => void
+  onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
   options: Option[]
   placeholder?: string
 }
