@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import * as React from "react"
-import { SelectHTMLAttributes } from "react"
+import { ChangeEvent, SelectHTMLAttributes } from "react"
 import chevronDown from "../../../../assets/icons/chevronDown.svg"
 
 interface StyledSelectProps {
@@ -49,6 +49,7 @@ interface Option {
 export interface DefaultDropdownSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
   fullWidth?: boolean
+  onChange: (e: ChangeEvent<HTMLSelectElement>) => void
   options: Option[]
   placeholder?: string
 }

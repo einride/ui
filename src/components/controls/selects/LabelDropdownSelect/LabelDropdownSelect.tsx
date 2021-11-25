@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import * as React from "react"
-import { ReactNode, SelectHTMLAttributes } from "react"
+import { ChangeEvent, ReactNode, SelectHTMLAttributes } from "react"
 import { DefaultDropdownSelect } from "../DefaultDropdownSelect"
 
 const StyledLabel = styled.label`
@@ -32,6 +32,7 @@ export interface LabelDropdownSelectProps
   fullWidth?: boolean
   label: ReactNode
   options: Option[]
+  onChange: (e: ChangeEvent<HTMLSelectElement>) => void
 }
 
 export const LabelDropdownSelect = ({
