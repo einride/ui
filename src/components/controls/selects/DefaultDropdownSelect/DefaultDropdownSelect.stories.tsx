@@ -1,4 +1,5 @@
 import { Story } from "@storybook/react/types-6-0"
+import { ChangeEvent, useState } from "react"
 import {
   DefaultDropdownSelect,
   DefaultDropdownSelectProps,
@@ -51,4 +52,26 @@ DefaultValue.args = {
     { text: "Option 3", value: "Option3" },
   ],
   defaultValue: "Option2",
+}
+
+const ControlledTemplate: Story<DefaultDropdownSelectProps> = (args) => {
+  const [value, setValue] = useState("")
+
+  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setValue(e.target.value)
+  }
+
+  return (
+    <DefaultDropdownSelect value={value} onChange={handleChange} {...args} />
+  )
+}
+
+export const Controlled = ControlledTemplate.bind({})
+Controlled.args = {
+  options: [
+    { text: "Option 1", value: "Option1" },
+    { text: "Option 2", value: "Option2" },
+    { text: "Option 3", value: "Option3" },
+  ],
+  value: "Option2",
 }
