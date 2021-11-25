@@ -3,6 +3,22 @@ import * as React from "react"
 import { HTMLAttributes, ReactNode } from "react"
 import { Theme } from "../../../lib/theme/theme"
 
+export interface LabelProps extends HTMLAttributes<HTMLSpanElement> {
+  children: ReactNode
+  variant?: Variant
+}
+
+export const Label = ({
+  children,
+  variant = "default",
+  ...props
+}: LabelProps) => {
+  return (
+    <StyledSpan variant={variant} {...props}>
+      {children}
+    </StyledSpan>
+  )
+}
 const getBackgroundColor = (theme: Theme, variant?: Variant) => {
   switch (variant) {
     case "default":
@@ -35,7 +51,7 @@ const getColor = (theme: Theme, variant?: Variant) => {
 
 const StyledSpan = styled.span<LabelProps>`
   font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.lg};
+  font-size: ${({ theme }) => theme.fontSizes.md};
   background-color: ${({ theme, variant }) =>
     getBackgroundColor(theme, variant)};
   color: ${({ theme, variant }) => getColor(theme, variant)};
@@ -44,20 +60,3 @@ const StyledSpan = styled.span<LabelProps>`
 `
 
 type Variant = "default" | "accent" | "positive" | "negative"
-
-export interface LabelProps extends HTMLAttributes<HTMLSpanElement> {
-  children: ReactNode
-  variant?: Variant
-}
-
-export const Label = ({
-  children,
-  variant = "default",
-  ...props
-}: LabelProps) => {
-  return (
-    <StyledSpan variant={variant} {...props}>
-      {children}
-    </StyledSpan>
-  )
-}

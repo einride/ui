@@ -4,30 +4,6 @@ import { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode } from "react"
 import { Theme } from "../../../../lib/theme/theme"
 import { TextInput } from "../TextInput"
 
-const getColor = (theme: Theme, status?: Status) => {
-  switch (status) {
-    case "success":
-      return theme.colors.content.positive
-    case "fail":
-      return theme.colors.content.negative
-    default:
-      return theme.colors.content.secondary
-  }
-}
-
-const StyledLabel = styled.label<{ status?: Status }>`
-  font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.lg};
-  margin: 5px 0 3px;
-  color: ${({ theme, status }) => getColor(theme, status)};
-
-  &:focus-within {
-    color: ${({ theme }) => theme.colors.content.primary};
-  }
-`
-
-type Status = "success" | "fail"
-
 export interface LabelTextInputProps
   extends InputHTMLAttributes<HTMLInputElement> {
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void
@@ -53,3 +29,27 @@ export const LabelTextInput = ({
     </StyledLabel>
   )
 }
+
+const getColor = (theme: Theme, status?: Status) => {
+  switch (status) {
+    case "success":
+      return theme.colors.content.positive
+    case "fail":
+      return theme.colors.content.negative
+    default:
+      return theme.colors.content.secondary
+  }
+}
+
+const StyledLabel = styled.label<{ status?: Status }>`
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  margin: 5px 0 3px;
+  color: ${({ theme, status }) => getColor(theme, status)};
+
+  &:focus-within {
+    color: ${({ theme }) => theme.colors.content.primary};
+  }
+`
+
+type Status = "success" | "fail"

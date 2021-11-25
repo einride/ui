@@ -19,7 +19,7 @@ export const Td = forwardRef<HTMLTableCellElement, TdProps>(
 const StyledTd = styled.td`
   display: table-cell;
   font-weight: ${({ theme }) => theme.fontWeights.book};
-  font-size: ${({ theme }) => theme.fontSizes.lg};
+  font-size: ${({ theme }) => theme.fontSizes.md};
   line-height: calc(4 / 3);
   padding-top: ${({ theme }) => 4 * theme.spacer - 3}px;
   padding-right: ${({ theme }) => 2 * theme.spacer}px;

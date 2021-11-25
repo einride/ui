@@ -3,13 +3,35 @@ import * as React from "react"
 import { ChangeEvent, ReactNode, SelectHTMLAttributes } from "react"
 import chevronDown from "../../../../assets/icons/chevronDown.svg"
 
+export interface DefaultDropdownSelectProps
+  extends SelectHTMLAttributes<HTMLSelectElement> {
+  children?: ReactNode
+  isFullWidth?: boolean
+  onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
+  placeholder?: string
+}
+
+export const DefaultDropdownSelect = ({
+  children,
+  isFullWidth = false,
+  placeholder,
+  ...props
+}: DefaultDropdownSelectProps) => {
+  return (
+    <StyledSelect isFullWidth={isFullWidth} {...props}>
+      {placeholder && <option value="">{placeholder}</option>}
+      {children}
+    </StyledSelect>
+  )
+}
+
 interface StyledSelectProps {
   isFullWidth?: boolean
 }
 
 const StyledSelect = styled.select<StyledSelectProps>`
   font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.lg};
+  font-size: ${({ theme }) => theme.fontSizes.md};
   min-width: 240px;
   ${({ isFullWidth }) => isFullWidth && "width: 100%"};
   background-color: ${({ theme }) => theme.colors.background.secondary};
@@ -40,25 +62,3 @@ const StyledSelect = styled.select<StyledSelectProps>`
     color: ${({ theme }) => theme.colors.content.disabled};
   }
 `
-
-export interface DefaultDropdownSelectProps
-  extends SelectHTMLAttributes<HTMLSelectElement> {
-  children?: ReactNode
-  isFullWidth?: boolean
-  onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
-  placeholder?: string
-}
-
-export const DefaultDropdownSelect = ({
-  children,
-  isFullWidth = false,
-  placeholder,
-  ...props
-}: DefaultDropdownSelectProps) => {
-  return (
-    <StyledSelect isFullWidth={isFullWidth} {...props}>
-      {placeholder && <option value="">{placeholder}</option>}
-      {children}
-    </StyledSelect>
-  )
-}

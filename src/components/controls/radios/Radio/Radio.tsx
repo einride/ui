@@ -2,6 +2,25 @@ import styled from "@emotion/styled"
 import * as React from "react"
 import { ChangeEvent, CSSProperties, InputHTMLAttributes } from "react"
 
+export interface RadioProps extends InputHTMLAttributes<HTMLInputElement> {
+  label?: string
+  labelStyles?: CSSProperties
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+}
+
+export const Radio = ({ label, labelStyles, ...props }: RadioProps) => {
+  if (label) {
+    return (
+      <StyledLabel style={labelStyles}>
+        <StyledRadio type="radio" {...props} />
+        {label}
+      </StyledLabel>
+    )
+  }
+
+  return <StyledInput type="radio" {...props} />
+}
+
 const StyledInput = styled.input`
   appearance: none;
   width: 24px;
@@ -31,7 +50,7 @@ const StyledInput = styled.input`
 
 const StyledLabel = styled.label`
   font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.lg};
+  font-size: ${({ theme }) => theme.fontSizes.md};
   display: flex;
   align-items: center;
   margin: 12px 16px;
@@ -45,22 +64,3 @@ const StyledLabel = styled.label`
 const StyledRadio = styled(StyledInput)`
   margin: 0 16px 0 0;
 `
-
-export interface RadioProps extends InputHTMLAttributes<HTMLInputElement> {
-  label?: string
-  labelStyles?: CSSProperties
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void
-}
-
-export const Radio = ({ label, labelStyles, ...props }: RadioProps) => {
-  if (label) {
-    return (
-      <StyledLabel style={labelStyles}>
-        <StyledRadio type="radio" {...props} />
-        {label}
-      </StyledLabel>
-    )
-  }
-
-  return <StyledInput type="radio" {...props} />
-}

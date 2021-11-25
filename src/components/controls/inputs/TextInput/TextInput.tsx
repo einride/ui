@@ -4,6 +4,32 @@ import { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode } from "react"
 import { Theme } from "../../../../lib/theme/theme"
 import { BaseInput } from "../BaseInput"
 
+export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  onBlur?: (e: FocusEvent<HTMLInputElement>) => void
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  placeholder: string
+  status?: Status
+  statusMessage?: ReactNode
+  value: string
+}
+
+export const TextInput = ({
+  status,
+  statusMessage,
+  ...props
+}: TextInputProps) => {
+  return (
+    <Wrapper status={status}>
+      <StyledBaseInput
+        icon={getStatusIcon(status)}
+        status={status}
+        {...props}
+      />
+      {status && <StyledMessage>{statusMessage}</StyledMessage>}
+    </Wrapper>
+  )
+}
+
 const getBackgroundColor = (theme: Theme, status?: Status) => {
   switch (status) {
     case "success":
@@ -52,29 +78,3 @@ const StyledMessage = styled.div`
 `
 
 type Status = "success" | "fail"
-
-export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  onBlur?: (e: FocusEvent<HTMLInputElement>) => void
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void
-  placeholder: string
-  status?: Status
-  statusMessage?: ReactNode
-  value: string
-}
-
-export const TextInput = ({
-  status,
-  statusMessage,
-  ...props
-}: TextInputProps) => {
-  return (
-    <Wrapper status={status}>
-      <StyledBaseInput
-        icon={getStatusIcon(status)}
-        status={status}
-        {...props}
-      />
-      {status && <StyledMessage>{statusMessage}</StyledMessage>}
-    </Wrapper>
-  )
-}
