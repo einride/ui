@@ -1,11 +1,13 @@
 import styled from "@emotion/styled"
 import * as React from "react"
 import { ButtonHTMLAttributes, ReactNode } from "react"
+import { useWidthFromColumns } from "../../../../hooks/useWidthFromColumns"
 import { BaseButton } from "../BaseButton/BaseButton"
 
 export interface WithIconButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode
+  columns?: number | number[]
   hasMinWidth?: boolean
   isFullWidth?: boolean
   icon?: string
@@ -20,11 +22,13 @@ export const WithIconButton = ({
   size = "small",
   ...props
 }: WithIconButtonProps) => {
+  const width = useWidthFromColumns(props.columns, WithIconButton.name)
   return (
     <StyledBaseButton
       hasMinWidth={hasMinWidth}
       isFullWidth={isFullWidth}
       size={size}
+      width={width}
       {...props}
     >
       <ContentWrapper>
@@ -38,21 +42,22 @@ export const WithIconButton = ({
 interface StyledBaseButtonProps {
   hasMinWidth: boolean
   isFullWidth: boolean
+  width: string | null
 }
 
 export const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
   ${({ hasMinWidth }) => hasMinWidth && "min-width: 120px;"}
   ${({ isFullWidth }) => isFullWidth && "width: 100%;"}
-  background-color: ${({ theme }) => theme.colors.buttons.background.primary};
+  ${({ width }) => width};
+  background: ${({ theme }) => theme.colors.buttons.background.primary};
   color: ${({ theme }) => theme.colors.buttons.text.primary};
 
   &:hover:not(:disabled) {
-    background-color: ${({ theme }) =>
-      theme.colors.buttons.background.hover.primary};
+    background: ${({ theme }) => theme.colors.buttons.background.hover.primary};
   }
 
   &:active:not(:disabled) {
-    background-color: ${({ theme }) =>
+    background: ${({ theme }) =>
       theme.colors.buttons.background.active.primary};
   }
 
