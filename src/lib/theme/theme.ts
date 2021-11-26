@@ -37,6 +37,10 @@ const common = {
     extrabold: 800,
     black: 900,
   },
+  grid: {
+    gap: "var(--einride-ui-grid-gap)",
+    columns: "var(--einride-ui-grid-columns)",
+  },
   primitives: {
     color,
   },
