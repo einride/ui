@@ -1,3 +1,4 @@
+import styled from "@emotion/styled"
 import { EinrideProvider } from "../src/lib/EinrideProvider/EinrideProvider"
 
 const customViewports = {
@@ -34,6 +35,7 @@ export const parameters = {
       { name: "dark", value: "#121212" },
     ],
   },
+  layout: "fullscreen",
 }
 
 const theme = {
@@ -46,7 +48,13 @@ const theme = {
 export const decorators = [
   (Story) => (
     <EinrideProvider theme={theme}>
-      <Story />
+      <Wrapper>
+        <Story />
+      </Wrapper>
     </EinrideProvider>
   ),
 ]
+
+const Wrapper = styled.div`
+  padding: ${({ theme }) => theme.grid.gap};
+`
