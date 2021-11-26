@@ -1,7 +1,7 @@
-import { Theme } from "@emotion/react"
 import styled from "@emotion/styled"
 import * as React from "react"
 import { ButtonHTMLAttributes, ReactNode } from "react"
+import { useWidthFromColumns } from "../../../../hooks/useWidthFromColumns"
 import { BaseButton } from "../BaseButton/BaseButton"
 
 export interface PrimaryButtonProps
@@ -20,11 +20,13 @@ export const PrimaryButton = ({
   size = "small",
   ...props
 }: PrimaryButtonProps) => {
+  const width = useWidthFromColumns(props.columns, PrimaryButton.name)
   return (
     <StyledBaseButton
       hasMinWidth={hasMinWidth}
       isFullWidth={isFullWidth}
       size={size}
+      width={width}
       {...props}
     >
       {children}
@@ -33,44 +35,24 @@ export const PrimaryButton = ({
 }
 
 interface StyledBaseButtonProps {
-  columns?: number | number[]
   isFullWidth: boolean
   hasMinWidth: boolean
+  width: string | null
 }
 
 const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
   ${({ hasMinWidth }) => hasMinWidth && "min-width: 120px;"}
-  ${({ isFullWidth }) => isFullWidth && "width: 100%"};
-  ${({ columns, theme }) => columns && getWidth(columns, theme)};
+  ${({ isFullWidth }) => isFullWidth && "width: 100%;"}
+  ${({ width }) => width};
   background: ${({ theme }) => theme.colors.buttons.background.primary};
   color: ${({ theme }) => theme.colors.buttons.text.primary};
 
   &:hover:not(:disabled) {
-    background-color: ${({ theme }) =>
-      theme.colors.buttons.background.hover.primary};
+    background: ${({ theme }) => theme.colors.buttons.background.hover.primary};
   }
 
   &:active:not(:disabled) {
-    background-color: ${({ theme }) =>
+    background: ${({ theme }) =>
       theme.colors.buttons.background.active.primary};
   }
 `
-
-const getWidth = (columns: number | number[], theme: Theme) => {
-  const customProp = "--einride-ui-primary-button-columns"
-  return `
-  ${typeof columns === "number" ? `${customProp}: ${columns};` : ""}
-  ${Array.isArray(columns) && columns[0] && `${customProp}: ${columns[0]};`}
-  ${theme.breakpoint.medium} {
-      ${Array.isArray(columns) && columns[1] && `${customProp}: ${columns[1]};`}
-  }
-  ${theme.breakpoint.large} {
-    ${Array.isArray(columns) && columns[2] && `${customProp}: ${columns[2]};`}
-  }
-
-  width: calc(((100vw - calc(${theme.grid.columns} + 1) * ${
-    theme.grid.gap
-  }) / ${theme.grid.columns} + ${theme.grid.gap}) * var(${customProp}) - ${
-    theme.grid.gap
-  })`
-}
