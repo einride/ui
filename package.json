@@ -11,7 +11,7 @@
     "git-verify-nodiff": "./scripts/git-verify-nodiff.bash",
     "lint": "eslint ./src/**/*.{ts,tsx}",
     "prettier": "prettier --write .",
-    "review": "yarn install --frozen-lockfile && yarn commitlint && yarn prettier && yarn eslint && yarn git-verify-nodiff && yarn build",
+    "review": "yarn install --frozen-lockfile && yarn commitlint && yarn prettier && yarn lint && yarn git-verify-nodiff && yarn build",
     "storybook": "start-storybook -p 6006 -s public",
     "test": "react-scripts test"
   },
