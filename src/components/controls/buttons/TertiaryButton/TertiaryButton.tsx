@@ -17,7 +17,7 @@ export const TertiaryButton = ({
   children,
   hasMinWidth = true,
   isFullWidth = false,
-  size = "small",
+  size = "large",
   ...props
 }: TertiaryButtonProps) => {
   const width = useWidthFromColumns(props.columns, TertiaryButton.name)

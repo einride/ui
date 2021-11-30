@@ -17,7 +17,7 @@ export const PrimaryButton = ({
   children,
   hasMinWidth = true,
   isFullWidth = false,
-  size = "small",
+  size = "large",
   ...props
 }: PrimaryButtonProps) => {
   const width = useWidthFromColumns(props.columns, PrimaryButton.name)

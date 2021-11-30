@@ -19,7 +19,7 @@ export const WithIconButton = ({
   hasMinWidth = true,
   isFullWidth = false,
   icon = "→",
-  size = "small",
+  size = "large",
   ...props
 }: WithIconButtonProps) => {
   const width = useWidthFromColumns(props.columns, WithIconButton.name)
