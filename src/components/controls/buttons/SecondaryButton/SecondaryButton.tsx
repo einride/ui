@@ -17,7 +17,7 @@ export const SecondaryButton = ({
   children,
   hasMinWidth = true,
   isFullWidth = false,
-  size = "small",
+  size = "large",
   ...props
 }: SecondaryButtonProps) => {
   const width = useWidthFromColumns(props.columns, SecondaryButton.name)

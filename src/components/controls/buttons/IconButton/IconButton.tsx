@@ -11,7 +11,7 @@ export interface IconButtonProps
 
 export const IconButton = ({
   icon = "→",
-  size = "small",
+  size = "large",
   ...props
 }: IconButtonProps) => {
   return (
