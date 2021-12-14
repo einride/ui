@@ -5,9 +5,9 @@ export const color = {
     light: "#99FB66",
   },
   blue: {
-    dark: "#1751CC",
-    default: "#5296E5",
-    light: "#A7CDF6",
+    dark: "#003DAD",
+    default: "#3C91F1",
+    light: "#9ECEFF",
   },
   violet: {
     dark: "#2B1FCA",
@@ -20,9 +20,9 @@ export const color = {
     light: "#FD6262",
   },
   orange: {
-    dark: "#F35413",
-    default: "#FF7449",
-    light: "#FFA184",
+    dark: "#E65000",
+    default: "#EC6D2D",
+    light: "#F79874",
   },
   yellow: {
     dark: "#B78600",
