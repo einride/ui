@@ -19,39 +19,39 @@
     "lodash.merge": "4.6.2"
   },
   "devDependencies": {
-    "@babel/core": "7.16.0",
+    "@babel/core": "7.16.5",
     "@commitlint/config-conventional": "15.0.0",
     "@einride/eslint-plugin": "3.0.0",
     "@einride/prettier-config": "1.2.0",
-    "@emotion/react": "11.7.0",
+    "@emotion/react": "11.7.1",
     "@emotion/styled": "11.6.0",
     "@storybook/addon-a11y": "6.4.9",
-    "@storybook/addon-actions": "6.4.0",
-    "@storybook/addon-essentials": "6.4.0",
-    "@storybook/addon-links": "6.4.0",
-    "@storybook/node-logger": "6.4.0",
+    "@storybook/addon-actions": "6.4.9",
+    "@storybook/addon-essentials": "6.4.9",
+    "@storybook/addon-links": "6.4.9",
+    "@storybook/node-logger": "6.4.9",
     "@storybook/preset-create-react-app": "3.2.0",
-    "@storybook/react": "6.4.0",
-    "@testing-library/jest-dom": "5.15.1",
+    "@storybook/react": "6.4.9",
+    "@testing-library/jest-dom": "5.16.1",
     "@testing-library/react": "12.1.2",
     "@testing-library/user-event": "13.5.0",
     "@types/jest": "27.0.3",
     "@types/lodash.merge": "4.6.6",
-    "@types/node": "16.11.10",
+    "@types/node": "16.11.13",
     "@types/react": "17.0.27",
     "@types/react-dom": "17.0.11",
-    "chromatic": "6.0.6",
+    "chromatic": "6.2.0",
     "commitlint": "15.0.0",
     "copyfiles": "2.4.1",
     "customize-cra": "1.0.0",
     "eslint": "7.32.0",
-    "prettier": "2.5.0",
+    "prettier": "2.5.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-scripts": "4.0.3",
     "semantic-release": "18.0.1",
     "storybook-addon-designs": "6.2.0",
-    "typescript": "4.5.2"
+    "typescript": "4.5.4"
   },
   "peerDependencies": {
     "@emotion/react": "^11.4.1",
@@ -68,6 +68,9 @@
   "files": [
     "lib"
   ],
+  "engines": {
+    "node": "16"
+  },
   "author": "Filip Tammergård",
   "publishConfig": {
     "access": "public"
