@@ -1,5 +1,17 @@
 import styled from "@emotion/styled"
 import * as React from "react"
+import { HTMLAttributes } from "react"
+
+export interface VerticalSpacingProps extends HTMLAttributes<HTMLDivElement> {
+  size?: Size
+}
+
+export const VerticalSpacing = ({
+  size = "small",
+  ...props
+}: VerticalSpacingProps) => {
+  return <StyledDiv size={size} {...props} />
+}
 
 const getHeight = (size?: Size) => {
   switch (size) {
@@ -21,11 +33,3 @@ const StyledDiv = styled.div<VerticalSpacingProps>`
 `
 
 type Size = "small" | "medium" | "large" | "extraLarge"
-
-export interface VerticalSpacingProps {
-  size?: Size
-}
-
-export const VerticalSpacing = ({ size = "small" }: VerticalSpacingProps) => {
-  return <StyledDiv size={size} />
-}
