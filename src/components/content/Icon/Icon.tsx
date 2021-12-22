@@ -1,6 +1,7 @@
 import * as React from "react"
+import { HTMLAttributes } from "react"
 
-export interface IconProps {
+export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
   name:
     | "checkmark"
     | "warning"
@@ -16,32 +17,32 @@ export interface IconProps {
     | "bolt"
 }
 
-export const Icon = ({ name }: IconProps) => {
+export const Icon = ({ name, ...props }: IconProps) => {
   switch (name) {
     case "checkmark":
-      return <>✓</>
+      return <span {...props}>✓</span>
     case "warning":
-      return <>⚠︎</>
+      return <span {...props}>⚠︎</span>
     case "chevronDown":
-      return <>⌄</>
+      return <span {...props}>⌄</span>
     case "chevronUp":
-      return <>⌃</>
+      return <span {...props}>⌃</span>
     case "chevronRight":
-      return <>˃</>
+      return <span {...props}>˃</span>
     case "chevronLeft":
-      return <>˂</>
+      return <span {...props}>˂</span>
     case "xMark":
-      return <>❌</>
+      return <span {...props}>❌</span>
     case "arrowUp":
-      return <>↑</>
+      return <span {...props}>↑</span>
     case "arrowDown":
-      return <>↓</>
+      return <span {...props}>↓</span>
     case "arrowRightwards":
-      return <>→</>
+      return <span {...props}>→</span>
     case "arrowLeftwards":
-      return <>←</>
+      return <span {...props}>←</span>
     case "bolt":
-      return <>☈</>
+      return <span {...props}>☈</span>
     default:
       return null
   }
