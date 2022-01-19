@@ -61,13 +61,13 @@ export const Icon = ({ name, ...props }: IconProps) => {
           &#8595;
         </span>
       )
-    case "arrowRightwards":
+    case "arrowRight":
       return (
         <span aria-hidden="true" {...props}>
           &#8594;
         </span>
       )
-    case "arrowLeftwards":
+    case "arrowLeft":
       return (
         <span aria-hidden="true" {...props}>
           &#8592;
@@ -112,8 +112,8 @@ type Name =
   | "xMark"
   | "arrowUp"
   | "arrowDown"
-  | "arrowRightwards"
-  | "arrowLeftwards"
+  | "arrowRight"
+  | "arrowLeft"
   | "arrowUpCircle"
   | "arrowDownCircle"
   | "bolt"
