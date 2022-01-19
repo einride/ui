@@ -8,21 +8,23 @@ export interface VerticalLayoutProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const VerticalLayout = ({
-  size = "small",
+  size = "sm",
   ...props
 }: VerticalLayoutProps) => {
   return <StyledDiv size={size} {...props} />
 }
-const getHeight = (size?: Size) => {
+const getGap = (size?: Size) => {
   switch (size) {
-    case "small":
+    case "xs":
+      return 8
+    case "sm":
       return 16
-    case "medium":
+    case "md":
       return 24
-    case "large":
-      return 72
-    case "extraLarge":
-      return 120
+    case "lg":
+      return 48
+    case "xl":
+      return 64
     default:
       return 16
   }
@@ -30,7 +32,7 @@ const getHeight = (size?: Size) => {
 
 const StyledDiv = styled.div<VerticalLayoutProps>`
   display: grid;
-  grid-row-gap: ${({ size }) => getHeight(size)}px;
+  grid-row-gap: ${({ size }) => getGap(size)}px;
 `
 
-type Size = "small" | "medium" | "large" | "extraLarge"
+type Size = "xs" | "sm" | "md" | "lg" | "xl"
