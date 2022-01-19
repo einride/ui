@@ -7,7 +7,7 @@ export default {
   parameters: {
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=147%3A7",
+      url: "https://www.figma.com/file/zX0qOVghVidk8vWZdd2nwO/Primitives?node-id=1%3A203",
     },
     docs: {
       description: {
@@ -25,22 +25,27 @@ const Template: Story<VerticalSpacingProps> = (args) => (
 export const Default = Template.bind({})
 Default.args = {}
 
+export const ExtraSmall = Template.bind({})
+ExtraSmall.args = {
+  size: "xs",
+}
+
 export const Small = Template.bind({})
 Small.args = {
-  size: "small",
+  size: "sm",
 }
 
 export const Medium = Template.bind({})
 Medium.args = {
-  size: "medium",
+  size: "md",
 }
 
 export const Large = Template.bind({})
 Large.args = {
-  size: "large",
+  size: "lg",
 }
 
 export const ExtraLarge = Template.bind({})
 ExtraLarge.args = {
-  size: "extraLarge",
+  size: "xl",
 }

@@ -7,7 +7,7 @@ export interface VerticalSpacingProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const VerticalSpacing = ({
-  size = "small",
+  size = "sm",
   ...props
 }: VerticalSpacingProps) => {
   return <StyledDiv size={size} {...props} />
@@ -15,14 +15,16 @@ export const VerticalSpacing = ({
 
 const getHeight = (size?: Size) => {
   switch (size) {
-    case "small":
+    case "xs":
+      return 8
+    case "sm":
       return 16
-    case "medium":
+    case "md":
       return 24
-    case "large":
-      return 72
-    case "extraLarge":
-      return 120
+    case "lg":
+      return 48
+    case "xl":
+      return 64
     default:
       return 16
   }
@@ -32,4 +34,4 @@ const StyledDiv = styled.div<VerticalSpacingProps>`
   height: ${({ size }) => getHeight(size)}px;
 `
 
-type Size = "small" | "medium" | "large" | "extraLarge"
+type Size = "xs" | "sm" | "md" | "lg" | "xl"
