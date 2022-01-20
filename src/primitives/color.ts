@@ -29,7 +29,7 @@ export const color = {
     default: "#FFC043",
     dark: "#B78600",
   },
-  greys: {
+  greyscale: {
     white: "#ffffff",
     grey20: "#F5F5F5",
     grey40: "#EBEBEB",
