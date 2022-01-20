@@ -53,47 +53,47 @@ export const light = {
     negative: color.red.default,
     warning: color.yellow.default,
     background: {
-      primary: color.greys.white,
-      secondary: color.greys.grey20,
-      tertiary: color.greys.grey40,
+      primary: color.greyscale.white,
+      secondary: color.greyscale.grey20,
+      tertiary: color.greyscale.grey40,
       accent: `${color.violet.default}1A`, // 1A is HEX for 10 % opacity
       positive: `${color.green.default}1A`, // 1A is HEX for 10 % opacity
       negative: `${color.red.default}1A`, // 1A is HEX for 10 % opacity
     },
     content: {
-      primary: color.greys.grey100,
-      secondary: `${color.greys.grey100}99`, // 99 is HEX for 60 % opacity
-      disabled: `${color.greys.grey100}66`, // 66 is HEX for 40 % opacity
+      primary: color.greyscale.grey100,
+      secondary: `${color.greyscale.grey100}99`, // 99 is HEX for 60 % opacity
+      disabled: `${color.greyscale.grey100}66`, // 66 is HEX for 40 % opacity
       accent: color.violet.dark,
       positive: color.green.dark,
       negative: color.red.dark,
     },
     border: {
-      primary: color.greys.grey50,
-      selected: color.greys.black,
+      primary: color.greyscale.grey50,
+      selected: color.greyscale.black,
     },
     buttons: {
       background: {
-        primary: color.greys.black,
-        secondary: color.greys.grey20,
-        tertiary: color.greys.white,
-        disabled: color.greys.grey20,
+        primary: color.greyscale.black,
+        secondary: color.greyscale.grey20,
+        tertiary: color.greyscale.white,
+        disabled: color.greyscale.grey20,
         hover: {
-          primary: color.greys.grey100,
-          secondary: color.greys.grey40,
-          tertiary: color.greys.grey40,
+          primary: color.greyscale.grey100,
+          secondary: color.greyscale.grey40,
+          tertiary: color.greyscale.grey40,
         },
         active: {
-          primary: color.greys.black,
-          secondary: color.greys.grey20,
-          tertiary: color.greys.white,
+          primary: color.greyscale.black,
+          secondary: color.greyscale.grey20,
+          tertiary: color.greyscale.white,
         },
       },
       text: {
-        primary: color.greys.white,
-        secondary: color.greys.grey100,
-        tertiary: color.greys.grey100,
-        disabled: `${color.greys.grey100}66`, // 66 is HEX for 40 % opacity
+        primary: color.greyscale.white,
+        secondary: color.greyscale.grey100,
+        tertiary: color.greyscale.grey100,
+        disabled: `${color.greyscale.grey100}66`, // 66 is HEX for 40 % opacity
       },
     },
   },
@@ -107,47 +107,47 @@ export const dark: Theme = {
     negative: color.red.light,
     warning: color.yellow.light,
     background: {
-      primary: color.greys.black,
-      secondary: color.greys.grey100,
-      tertiary: color.greys.grey80,
+      primary: color.greyscale.black,
+      secondary: color.greyscale.grey100,
+      tertiary: color.greyscale.grey80,
       accent: `${color.violet.default}1A`, // 1A is HEX for 10 % opacity
       positive: `${color.green.default}1A`, // 1A is HEX for 10 % opacity
       negative: `${color.red.default}1A`, // 1A is HEX for 10 % opacity
     },
     content: {
-      primary: color.greys.white,
-      secondary: `${color.greys.grey20}B3`, // B3 is HEX for 70 % opacity
-      disabled: `${color.greys.grey20}66`, // 66 is HEX for 40 % opacity
+      primary: color.greyscale.white,
+      secondary: `${color.greyscale.grey20}B3`, // B3 is HEX for 70 % opacity
+      disabled: `${color.greyscale.grey20}66`, // 66 is HEX for 40 % opacity
       accent: color.violet.light,
       positive: color.green.light,
       negative: color.red.light,
     },
     border: {
-      primary: color.greys.grey80,
-      selected: color.greys.white,
+      primary: color.greyscale.grey80,
+      selected: color.greyscale.white,
     },
     buttons: {
       background: {
-        primary: color.greys.black,
-        secondary: color.greys.grey20,
-        tertiary: color.greys.white,
-        disabled: color.greys.grey20,
+        primary: color.greyscale.black,
+        secondary: color.greyscale.grey20,
+        tertiary: color.greyscale.white,
+        disabled: color.greyscale.grey20,
         hover: {
-          primary: color.greys.grey100,
-          secondary: color.greys.grey40,
-          tertiary: color.greys.grey40,
+          primary: color.greyscale.grey100,
+          secondary: color.greyscale.grey40,
+          tertiary: color.greyscale.grey40,
         },
         active: {
-          primary: color.greys.black,
-          secondary: color.greys.grey20,
-          tertiary: color.greys.white,
+          primary: color.greyscale.black,
+          secondary: color.greyscale.grey20,
+          tertiary: color.greyscale.white,
         },
       },
       text: {
-        primary: color.greys.white,
-        secondary: color.greys.grey100,
-        tertiary: color.greys.grey100,
-        disabled: `${color.greys.grey100}66`, // 66 is HEX for 40 % opacity
+        primary: color.greyscale.white,
+        secondary: color.greyscale.grey100,
+        tertiary: color.greyscale.grey100,
+        disabled: `${color.greyscale.grey100}66`, // 66 is HEX for 40 % opacity
       },
     },
   },
