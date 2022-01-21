@@ -23,6 +23,7 @@ export const SearchInput = ({
         onChange={(e) => onInputChange(e.target.value)}
         {...props}
       />
+      <SearchIcon name="search" />
       {value && (
         <ClearButton onClick={() => onInputChange("")}>
           <Icon name="xMark" />
@@ -39,7 +40,17 @@ const Wrapper = styled.div`
 
 const StyledInput = styled(BaseInput)`
   padding-right: ${({ theme }) => 5 * theme.spacer}px;
+  padding-left: ${({ theme }) => 5 * theme.spacer}px;
   border-radius: ${({ theme }) => 3 * theme.spacer}px;
+`
+
+const SearchIcon = styled(Icon)`
+  position: absolute;
+  top: ${({ theme }) => 1.5 * theme.spacer}px;
+  height: ${({ theme }) => 3 * theme.spacer}px;
+  left: ${({ theme }) => 2 * theme.spacer}px;
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-weight: ${({ theme }) => theme.fontWeights.book};
 `
 
 const ClearButton = styled.button`
