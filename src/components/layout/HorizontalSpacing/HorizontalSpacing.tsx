@@ -30,6 +30,7 @@ const getWidth = (size?: Size) => {
 
 const StyledDiv = styled.div<HorizontalSpacingProps>`
   display: inline-block;
+  background: var(--einride-ui-horizontal-spacing-background);
   width: ${({ size }) => getWidth(size)}px;
 `
 
