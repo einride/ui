@@ -10,11 +10,7 @@ export const HorizontalSpacing = ({
   size = "sm",
   ...props
 }: HorizontalSpacingProps) => {
-  return (
-    <>
-      a<StyledDiv size={size} {...props} />a
-    </>
-  )
+  return <StyledDiv size={size} {...props} />
 }
 
 const getWidth = (size?: Size) => {
