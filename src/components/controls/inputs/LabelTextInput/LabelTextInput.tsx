@@ -48,7 +48,7 @@ const StyledLabel = styled.label<{ status?: Status }>`
   color: ${({ theme, status }) => getColor(theme, status)};
 
   &:focus-within {
-    color: ${({ theme }) => theme.colors.content.primary};
+    color: ${({ theme, status }) => getColor(theme, status)};
   }
 `
 

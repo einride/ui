@@ -68,7 +68,10 @@ const Wrapper = styled.div<{ status?: Status }>`
 `
 
 const StyledBaseInput = styled(BaseInput)<{ status?: Status }>`
-  background-color: ${({ theme, status }) => getBackgroundColor(theme, status)};
+  background: ${({ theme, status }) => getBackgroundColor(theme, status)};
+  &:hover:not(:disabled) {
+    background: ${({ theme, status }) => getBackgroundColor(theme, status)};
+  }
 `
 
 const StyledMessage = styled.div`
