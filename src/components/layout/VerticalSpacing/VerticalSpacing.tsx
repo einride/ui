@@ -29,6 +29,7 @@ const getHeight = (size?: Size) => {
 }
 
 const StyledDiv = styled.div<VerticalSpacingProps>`
+  background: var(--einride-ui-vertical-spacing-background);
   height: ${({ size }) => getHeight(size)}px;
 `
 

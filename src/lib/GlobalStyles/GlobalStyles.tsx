@@ -11,6 +11,8 @@ export const GlobalStyles = () => {
         }
 
         body {
+          --einride-ui-vertical-spacing-background: none;
+          --einride-ui-horizontal-spacing-background: none;
           --einride-ui-grid-columns: 4;
           --einride-ui-grid-gap: ${2 * theme.spacer}px;
 
