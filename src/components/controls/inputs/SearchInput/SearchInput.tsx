@@ -1,29 +1,8 @@
 import styled from "@emotion/styled"
 import * as React from "react"
 import { InputHTMLAttributes } from "react"
-import xMark from "../../../../assets/icons/xMark.svg"
+import { Icon } from "../../../content/Icon/Icon"
 import { BaseInput } from "../BaseInput/BaseInput"
-
-const Wrapper = styled.div`
-  position: relative;
-  width: 100%;
-`
-
-const StyledInput = styled(BaseInput)`
-  padding-right: 29px; /* right-padding (16px) + width of xMark (13px) */
-`
-
-const ClearButton = styled.button`
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  height: 24px;
-  border: none;
-  background-color: unset;
-  background-image: url(${xMark});
-  background-repeat: no-repeat;
-  background-position: center;
-`
 
 export interface SearchInputProps
   extends InputHTMLAttributes<HTMLInputElement> {
@@ -44,7 +23,31 @@ export const SearchInput = ({
         onChange={(e) => onInputChange(e.target.value)}
         {...props}
       />
-      {value && <ClearButton onClick={() => onInputChange("")} />}
+      {value && (
+        <ClearButton onClick={() => onInputChange("")}>
+          <Icon name="xMark" />
+        </ClearButton>
+      )}
     </Wrapper>
   )
 }
+
+const Wrapper = styled.div`
+  position: relative;
+  width: 100%;
+`
+
+const StyledInput = styled(BaseInput)`
+  padding-right: ${({ theme }) => 5 * theme.spacer}px;
+  border-radius: ${({ theme }) => 3 * theme.spacer}px;
+`
+
+const ClearButton = styled.button`
+  position: absolute;
+  top: ${({ theme }) => 1.5 * theme.spacer}px;
+  height: ${({ theme }) => 3 * theme.spacer}px;
+  right: ${({ theme }) => theme.spacer}px;
+  padding: 0 ${({ theme }) => theme.spacer}px;
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-weight: ${({ theme }) => theme.fontWeights.book};
+`
