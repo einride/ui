@@ -15,6 +15,7 @@ export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
     | "arrowRightwards"
     | "arrowLeftwards"
     | "bolt"
+    | "search"
 }
 
 export const Icon = ({ name, ...props }: IconProps) => {
@@ -42,7 +43,9 @@ export const Icon = ({ name, ...props }: IconProps) => {
     case "arrowLeftwards":
       return <span {...props}>←</span>
     case "bolt":
-      return <span {...props}>☈</span>
+      return <span {...props}>🗲</span>
+    case "search":
+      return <span {...props}>􀊫</span>
     default:
       return null
   }

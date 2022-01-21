@@ -75,3 +75,8 @@ export const Bolt = Template.bind({})
 Bolt.args = {
   name: "bolt",
 }
+
+export const Search = Template.bind({})
+Search.args = {
+  name: "search",
+}
