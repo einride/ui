@@ -25,7 +25,7 @@ export const Icon = ({ name, ...props }: IconProps) => {
     case "checkmark":
       return <span {...props}>&#10003;</span>
     case "warning":
-      return <span {...props}>&#9888;</span>
+      return <span {...props}>&#1049087;</span>
     case "chevronDown":
       return <span {...props}>&#8964;</span>
     case "chevronUp":
