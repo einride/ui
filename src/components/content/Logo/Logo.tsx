@@ -16,22 +16,14 @@ export const Logo = forwardRef<HTMLImageElement, LogoProps>(
     const colorMode = useColorMode()
     const logoDefault = () => {
       if (size === "small")
-        return (
-          <img src={logoDefaultSmall} alt="Einride Logo" ref={ref} {...props} />
-        )
-      return (
-        <img src={logoDefaultLarge} alt="Einride Logo" ref={ref} {...props} />
-      )
+        return <img src={logoDefaultSmall} alt="Einride" ref={ref} {...props} />
+      return <img src={logoDefaultLarge} alt="Einride" ref={ref} {...props} />
     }
 
     const logoInverse = () => {
       if (size === "small")
-        return (
-          <img src={logoInverseSmall} alt="Einride Logo" ref={ref} {...props} />
-        )
-      return (
-        <img src={logoInverseLarge} alt="Einride Logo" ref={ref} {...props} />
-      )
+        return <img src={logoInverseSmall} alt="Einride" ref={ref} {...props} />
+      return <img src={logoInverseLarge} alt="Einride" ref={ref} {...props} />
     }
 
     if (variant === "inverse" || (!variant && colorMode === "dark")) {
