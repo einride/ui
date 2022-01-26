@@ -19,7 +19,7 @@
     "lodash.merge": "4.6.2"
   },
   "devDependencies": {
-    "@babel/core": "7.16.10",
+    "@babel/core": "7.16.12",
     "@commitlint/config-conventional": "16.0.0",
     "@einride/eslint-plugin": "4.5.0",
     "@einride/prettier-config": "1.2.0",
@@ -44,7 +44,7 @@
     "commitlint": "16.1.0",
     "copyfiles": "2.4.1",
     "customize-cra": "1.0.0",
-    "eslint": "7.32.0",
+    "eslint": "8.7.0",
     "eslint-plugin-storybook": "0.5.6",
     "prettier": "2.5.1",
     "react": "17.0.2",
@@ -61,7 +61,8 @@
   },
   "resolutions": {
     "**/react": "17.0.2",
-    "**/react-dom": "17.0.2"
+    "**/react-dom": "17.0.2",
+    "eslint": "8.7.0"
   },
   "main": "./lib/main.js",
   "module": "./lib/main.js",
