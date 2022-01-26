@@ -71,12 +71,22 @@ ArrowLeftwards.args = {
   name: "arrowLeftwards",
 }
 
+export const ArrowUpCircle = Template.bind({})
+ArrowUpCircle.args = {
+  name: "arrowUpCircle",
+}
+
+export const ArrowDownCircle = Template.bind({})
+ArrowDownCircle.args = {
+  name: "arrowDownCircle",
+}
+
 export const Bolt = Template.bind({})
 Bolt.args = {
   name: "bolt",
 }
 
-export const Search = Template.bind({})
-Search.args = {
-  name: "search",
+export const Loupe = Template.bind({})
+Loupe.args = {
+  name: "loupe",
 }
