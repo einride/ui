@@ -23,7 +23,7 @@ export const SearchInput = ({
         onChange={(e) => onInputChange(e.target.value)}
         {...props}
       />
-      <SearchIcon name="search" />
+      <LoupeIcon name="loupe" />
       {value && (
         <ClearButton onClick={() => onInputChange("")}>
           <Icon name="xMark" />
@@ -44,7 +44,7 @@ const StyledInput = styled(BaseInput)`
   border-radius: ${({ theme }) => 3 * theme.spacer}px;
 `
 
-const SearchIcon = styled(Icon)`
+const LoupeIcon = styled(Icon)`
   position: absolute;
   top: ${({ theme }) => 1.5 * theme.spacer}px;
   height: ${({ theme }) => 3 * theme.spacer}px;
