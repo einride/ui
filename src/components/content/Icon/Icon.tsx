@@ -2,7 +2,7 @@ import * as React from "react"
 import { HTMLAttributes } from "react"
 
 export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
-  name: Name
+  name: IconName
 }
 
 export const Icon = ({ name, ...props }: IconProps) => {
@@ -102,7 +102,7 @@ export const Icon = ({ name, ...props }: IconProps) => {
   }
 }
 
-type Name =
+export type IconName =
   | "checkmark"
   | "warning"
   | "chevronDown"

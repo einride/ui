@@ -1,22 +1,23 @@
 import styled from "@emotion/styled"
 import * as React from "react"
 import { ButtonHTMLAttributes } from "react"
+import { Icon, IconName } from "../../../content/Icon/Icon"
 import { SecondaryButton } from "../SecondaryButton/SecondaryButton"
 
 export interface IconButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
-  icon?: string
+  icon?: IconName
   size?: "small" | "large"
 }
 
 export const IconButton = ({
-  icon = "→",
+  icon = "arrowRight",
   size = "large",
   ...props
 }: IconButtonProps) => {
   return (
     <StyledBaseButton size={size} {...props}>
-      {icon}
+      <Icon name={icon} />
     </StyledBaseButton>
   )
 }
