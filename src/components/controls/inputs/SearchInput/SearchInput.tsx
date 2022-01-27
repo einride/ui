@@ -6,6 +6,7 @@ import { BaseInput } from "../BaseInput/BaseInput"
 
 export interface SearchInputProps
   extends InputHTMLAttributes<HTMLInputElement> {
+  "aria-label": string
   onInputChange: (input: string) => void
   placeholder: string
   value: string
