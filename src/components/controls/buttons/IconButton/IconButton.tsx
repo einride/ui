@@ -6,6 +6,7 @@ import { SecondaryButton } from "../SecondaryButton/SecondaryButton"
 
 export interface IconButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
+  "aria-label": string
   icon?: IconName
   size?: "small" | "large"
 }
