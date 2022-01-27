@@ -20,7 +20,6 @@ export default {
 const Template: Story<RadioProps> = (args) => <Radio {...args} />
 
 export const Default = Template.bind({})
-Default.args = {}
-
-export const Label = Template.bind({})
-Label.args = { label: "Label" }
+Default.args = {
+  children: "Label",
+}
