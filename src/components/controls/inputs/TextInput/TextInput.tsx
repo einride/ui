@@ -58,7 +58,7 @@ const getStatusIcon = (status?: Status) => {
     case "success":
       return "✓"
     case "fail":
-      return "⚠︎"
+      return "􀇿︎"
     default:
       return ""
   }
