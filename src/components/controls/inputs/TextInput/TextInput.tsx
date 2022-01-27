@@ -5,6 +5,7 @@ import { Theme } from "../../../../lib/theme/theme"
 import { BaseInput } from "../BaseInput/BaseInput"
 
 export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  "aria-label": string
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
   placeholder: string
