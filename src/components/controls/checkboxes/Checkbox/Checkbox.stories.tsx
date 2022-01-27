@@ -1,9 +1,9 @@
 import { Story } from "@storybook/react/types-6-0"
-import { LabelCheckbox, LabelCheckboxProps } from "./LabelCheckbox"
+import { Checkbox, CheckboxProps } from "./Checkbox"
 
 export default {
-  title: "Controls/Checkboxes/LabelCheckbox",
-  component: LabelCheckbox,
+  title: "Controls/Checkboxes/Checkbox",
+  component: Checkbox,
   argTypes: {
     disabled: {
       control: "boolean",
@@ -17,9 +17,9 @@ export default {
   },
 }
 
-const Template: Story<LabelCheckboxProps> = (args) => (
-  <LabelCheckbox {...args} />
-)
+const Template: Story<CheckboxProps> = (args) => <Checkbox {...args} />
 
 export const Default = Template.bind({})
-Default.args = { label: "Label" }
+Default.args = {
+  children: "Label",
+}
