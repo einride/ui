@@ -19,12 +19,10 @@ export const Label = ({
     </StyledSpan>
   )
 }
-const getBackgroundColor = (theme: Theme, variant?: Variant) => {
+const getBackground = (theme: Theme, variant?: Variant) => {
   switch (variant) {
     case "default":
       return theme.colors.background.secondary
-    case "accent":
-      return theme.colors.background.accent
     case "positive":
       return theme.colors.background.positive
     case "negative":
@@ -38,25 +36,22 @@ const getColor = (theme: Theme, variant?: Variant) => {
   switch (variant) {
     case "default":
       return theme.colors.content.primary
-    case "accent":
-      return theme.colors.content.accent
     case "positive":
       return theme.colors.content.positive
     case "negative":
       return theme.colors.content.negative
     default:
-      return theme.colors.content.secondary
+      return theme.colors.content.primary
   }
 }
 
 const StyledSpan = styled.span<LabelProps>`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
-  background-color: ${({ theme, variant }) =>
-    getBackgroundColor(theme, variant)};
+  background: ${({ theme, variant }) => getBackground(theme, variant)};
   color: ${({ theme, variant }) => getColor(theme, variant)};
   padding: ${({ theme }) => `${theme.spacer / 2}px ${theme.spacer}px`};
   border-radius: 2px;
 `
 
-type Variant = "default" | "accent" | "positive" | "negative"
+type Variant = "default" | "positive" | "negative"
