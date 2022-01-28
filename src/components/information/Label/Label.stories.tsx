@@ -15,13 +15,18 @@ export default {
 const Template: Story<LabelProps> = (args) => <Label {...args} />
 
 export const Default = Template.bind({})
-Default.args = { children: "Label" }
-
-export const Accent = Template.bind({})
-Accent.args = { children: "Label", variant: "accent" }
+Default.args = {
+  children: "Label",
+}
 
 export const Positive = Template.bind({})
-Positive.args = { children: "Label", variant: "positive" }
+Positive.args = {
+  children: "Label",
+  variant: "positive",
+}
 
 export const Negative = Template.bind({})
-Negative.args = { children: "Label", variant: "negative" }
+Negative.args = {
+  children: "Label",
+  variant: "negative",
+}
