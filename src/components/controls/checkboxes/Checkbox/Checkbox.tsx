@@ -22,7 +22,7 @@ export const Checkbox = ({
 }: CheckboxProps) => {
   return (
     <StyledLabel style={labelStyles}>
-      <StyledInput {...props} />
+      <StyledInput type="checkbox" {...props} />
       {children}
     </StyledLabel>
   )
