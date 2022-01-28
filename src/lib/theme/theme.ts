@@ -49,14 +49,12 @@ const common = {
 export const light = {
   colors: {
     positive: color.green.default,
-    accent: color.violet.default,
     negative: color.red.default,
     warning: color.yellow.default,
     background: {
       primary: color.greyscale.white,
       secondary: color.greyscale.grey20,
       tertiary: color.greyscale.grey40,
-      accent: `${color.violet.default}1A`, // 1A is HEX for 10 % opacity
       positive: `${color.green.default}1A`, // 1A is HEX for 10 % opacity
       negative: `${color.red.default}1A`, // 1A is HEX for 10 % opacity
     },
@@ -64,7 +62,6 @@ export const light = {
       primary: color.greyscale.grey100,
       secondary: `${color.greyscale.grey100}99`, // 99 is HEX for 60 % opacity
       disabled: `${color.greyscale.grey100}66`, // 66 is HEX for 40 % opacity
-      accent: color.violet.dark,
       positive: color.green.dark,
       negative: color.red.dark,
     },
@@ -103,14 +100,12 @@ export const light = {
 export const dark: Theme = {
   colors: {
     positive: color.green.light,
-    accent: color.violet.light,
     negative: color.red.light,
     warning: color.yellow.light,
     background: {
       primary: color.greyscale.black,
       secondary: color.greyscale.grey100,
       tertiary: color.greyscale.grey80,
-      accent: `${color.violet.default}1A`, // 1A is HEX for 10 % opacity
       positive: `${color.green.default}1A`, // 1A is HEX for 10 % opacity
       negative: `${color.red.default}1A`, // 1A is HEX for 10 % opacity
     },
@@ -118,7 +113,6 @@ export const dark: Theme = {
       primary: color.greyscale.white,
       secondary: `${color.greyscale.grey20}B3`, // B3 is HEX for 70 % opacity
       disabled: `${color.greyscale.grey20}66`, // 66 is HEX for 40 % opacity
-      accent: color.violet.light,
       positive: color.green.light,
       negative: color.red.light,
     },
