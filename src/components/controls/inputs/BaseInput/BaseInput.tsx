@@ -1,19 +1,20 @@
 import styled from "@emotion/styled"
 import * as React from "react"
-import { ChangeEvent, FocusEvent, InputHTMLAttributes } from "react"
+import { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode } from "react"
 
 export interface BaseInputProps extends InputHTMLAttributes<HTMLInputElement> {
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
-  icon?: string
+  icon?: ReactNode
   placeholder: string
   value: string
 }
 
 export const BaseInput = ({ icon, ...props }: BaseInputProps) => {
   return (
-    <ContentWrapper data-icon={icon}>
+    <ContentWrapper>
       <StyledInput {...props} />
+      <IconWrapper>{icon}</IconWrapper>
     </ContentWrapper>
   )
 }
@@ -51,11 +52,10 @@ const StyledInput = styled.input`
 const ContentWrapper = styled.label`
   position: relative;
   display: block;
+`
 
-  &::after {
-    content: attr(data-icon);
-    position: absolute;
-    top: 12px;
-    right: 16px;
-  }
+const IconWrapper = styled.span`
+  position: absolute;
+  top: ${({ theme }) => 1.5 * theme.spacer}px;
+  right: ${({ theme }) => 2 * theme.spacer}px;
 `

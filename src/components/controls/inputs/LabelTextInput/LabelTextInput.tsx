@@ -2,6 +2,7 @@ import styled from "@emotion/styled"
 import * as React from "react"
 import { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode } from "react"
 import { Theme } from "../../../../lib/theme/theme"
+import { Icon } from "../../../content/Icon/Icon"
 import { BaseInput } from "../BaseInput/BaseInput"
 
 export interface LabelTextInputProps
@@ -93,10 +94,10 @@ const getColor = (theme: Theme, status?: Status) => {
 const getStatusIcon = (status?: Status) => {
   switch (status) {
     case "success":
-      return "✓"
+      return <Icon name="checkmark" />
     case "fail":
-      return "􀇿︎"
+      return <Icon name="warning" />
     default:
-      return ""
+      return null
   }
 }
