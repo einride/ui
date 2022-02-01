@@ -30,15 +30,19 @@ const Template: Story<DefaultDropdownSelectProps> = (args) => (
 )
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  "aria-label": "A dropdown select",
+}
 
 export const Placeholder = Template.bind({})
 Placeholder.args = {
+  "aria-label": "A dropdown select with a placeholder",
   placeholder: "Placeholder...",
 }
 
 export const DefaultValue = Template.bind({})
 DefaultValue.args = {
+  "aria-label": "A dropdown select with a default value",
   defaultValue: "option2",
 }
 
