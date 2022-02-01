@@ -1,9 +1,13 @@
 import styled from "@emotion/styled"
 import * as React from "react"
-import { forwardRef, HTMLAttributes, ReactNode } from "react"
+import { forwardRef, ReactNode, ThHTMLAttributes } from "react"
 
-interface ThProps extends HTMLAttributes<HTMLTableCellElement> {
+interface ThProps extends ThHTMLAttributes<HTMLTableCellElement> {
   children: ReactNode
+  /**
+   * Defines the cells that the header element relates to.
+   */
+  scope: "col" | "row"
 }
 
 export const Th = forwardRef<HTMLTableCellElement, ThProps>(
