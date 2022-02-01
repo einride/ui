@@ -21,7 +21,7 @@ export const ComposedTable = <Row, Column extends keyof Row>({
       <thead>
         <tr>
           {headers.map((header) => (
-            <StyledTh key={header.key.toString()}>
+            <StyledTh key={header.key.toString()} scope="col">
               <Paragraph>{header.displayText}</Paragraph>
             </StyledTh>
           ))}
