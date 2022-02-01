@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import * as React from "react"
 import { ChangeEvent, ReactNode, SelectHTMLAttributes } from "react"
-import { DefaultDropdownSelect } from "../DefaultDropdownSelect/DefaultDropdownSelect"
+import chevronDown from "../../../../assets/icons/chevronDown.svg"
 
 export interface LabelDropdownSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
@@ -17,7 +17,7 @@ export const LabelDropdownSelect = ({
   return (
     <StyledLabel>
       {label}
-      <StyledDefaultDropdown {...props} />
+      <StyledSelect {...props} />
     </StyledLabel>
   )
 }
@@ -37,6 +37,41 @@ const StyledLabel = styled.label`
   }
 `
 
-const StyledDefaultDropdown = styled(DefaultDropdownSelect)`
+interface StyledSelectProps {
+  isFullWidth?: boolean
+}
+
+const StyledSelect = styled.select<StyledSelectProps>`
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  min-width: 240px;
+  ${({ isFullWidth }) => isFullWidth && "width: 100%"};
+  background-color: ${({ theme }) => theme.colors.background.secondary};
+  color: ${({ theme }) => theme.colors.content.primary};
+  line-height: 24px;
+  display: block;
+  padding: 12px 16px;
+  border: unset;
+  border-radius: 2px;
+  cursor: pointer;
+  appearance: none;
+  background-image: url(${chevronDown});
+  background-repeat: no-repeat;
+  background-position: calc(100% - 16px);
+  padding-right: 29px;
   margin-top: 3px;
+
+  &:focus {
+    box-shadow: 0px 0px 0px 1px ${({ theme }) => theme.colors.border.selected}
+      inset;
+    outline: none;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: ${({ theme }) => theme.colors.background.tertiary};
+  }
+
+  &:disabled {
+    color: ${({ theme }) => theme.colors.content.disabled};
+  }
 `
