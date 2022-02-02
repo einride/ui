@@ -5,6 +5,7 @@ import chevronDown from "../../../../assets/icons/chevronDown.svg"
 
 export interface LabelDropdownSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
+  children: ReactNode
   isFullWidth?: boolean
   label: ReactNode
   onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
@@ -12,6 +13,7 @@ export interface LabelDropdownSelectProps
 }
 
 export const LabelDropdownSelect = ({
+  children,
   isFullWidth = false,
   label,
   placeholder,
@@ -19,9 +21,10 @@ export const LabelDropdownSelect = ({
 }: LabelDropdownSelectProps) => {
   return (
     <StyledLabel>
+      {label}
       <StyledSelect isFullWidth={isFullWidth} {...props}>
         {placeholder && <option value="">{placeholder}</option>}
-        {label}
+        {children}
       </StyledSelect>
     </StyledLabel>
   )

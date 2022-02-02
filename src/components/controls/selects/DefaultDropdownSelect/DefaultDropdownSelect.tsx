@@ -6,7 +6,7 @@ import chevronDown from "../../../../assets/icons/chevronDown.svg"
 export interface DefaultDropdownSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
   "aria-label": string
-  children?: ReactNode
+  children: ReactNode
   isFullWidth?: boolean
   onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
   placeholder?: string
