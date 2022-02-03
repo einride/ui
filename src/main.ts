@@ -1,3 +1,4 @@
+export { Avatar } from "./components/content/Avatar/Avatar"
 export { Icon } from "./components/content/Icon/Icon"
 export { Logo } from "./components/content/Logo/Logo"
 export { IconButton } from "./components/controls/buttons/IconButton/IconButton"
