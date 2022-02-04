@@ -3,7 +3,7 @@
   "version": "0.0.0-development",
   "description": "Einride's UI framework with reusable components",
   "scripts": {
-    "build": "tsc -p tsconfig.json && yarn copy-files",
+    "build": "tsc -p tsconfig.build.json && yarn copy-files",
     "build-storybook": "build-storybook -s public",
     "chromatic": "npx chromatic --project-token f99937c406c4",
     "commitlint": "commitlint --from origin/main --to HEAD",
@@ -21,7 +21,7 @@
   "devDependencies": {
     "@babel/core": "7.16.10",
     "@commitlint/config-conventional": "16.0.0",
-    "@einride/eslint-plugin": "4.5.0",
+    "@einride/eslint-plugin": "4.6.0",
     "@einride/prettier-config": "1.2.0",
     "@emotion/react": "11.7.1",
     "@emotion/styled": "11.6.0",

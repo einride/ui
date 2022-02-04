@@ -61,14 +61,14 @@ ArrowDown.args = {
   name: "arrowDown",
 }
 
-export const ArrowRightwards = Template.bind({})
-ArrowRightwards.args = {
-  name: "arrowRightwards",
+export const ArrowRight = Template.bind({})
+ArrowRight.args = {
+  name: "arrowRight",
 }
 
-export const ArrowLeftwards = Template.bind({})
-ArrowLeftwards.args = {
-  name: "arrowLeftwards",
+export const ArrowLeft = Template.bind({})
+ArrowLeft.args = {
+  name: "arrowLeft",
 }
 
 export const ArrowUpCircle = Template.bind({})
