@@ -9,6 +9,5 @@
     "esModuleInterop": true,
     "jsx": "react",
     "declaration": true
-  },
-  "include": ["src/main.ts", "src/types/svg.d.ts", "src/types/emotion.d.ts"]
+  }
 }

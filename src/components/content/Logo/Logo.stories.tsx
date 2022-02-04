@@ -1,4 +1,5 @@
 import { Story } from "@storybook/react/types-6-0"
+import * as React from "react"
 import { Logo, LogoProps } from "./Logo"
 
 export default {
