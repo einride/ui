@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import * as React from "react"
 import { ChangeEvent, ReactNode, SelectHTMLAttributes } from "react"
-import chevronDown from "../../../../assets/icons/chevronDown.svg"
+import { Icon } from "../../../content/Icon/Icon"
 
 export interface LabelDropdownSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
@@ -20,15 +20,25 @@ export const LabelDropdownSelect = ({
   ...props
 }: LabelDropdownSelectProps) => {
   return (
-    <StyledLabel>
-      {label}
-      <StyledSelect isFullWidth={isFullWidth} {...props}>
-        {placeholder && <option value="">{placeholder}</option>}
-        {children}
-      </StyledSelect>
-    </StyledLabel>
+    <Wrapper isFullWidth={isFullWidth}>
+      <StyledLabel>
+        {label}
+        <StyledSelect isFullWidth={isFullWidth} {...props}>
+          {placeholder && <option value="">{placeholder}</option>}
+          {children}
+        </StyledSelect>
+      </StyledLabel>
+      <StyledIcon name="chevronDown" />
+    </Wrapper>
   )
 }
+
+const Wrapper = styled.div<{ isFullWidth?: boolean }>`
+  position: relative;
+  display: inline-block;
+  min-width: 240px;
+  ${({ isFullWidth }) => isFullWidth && "width: 100%"};
+`
 
 const StyledLabel = styled.label`
   font-family: ${({ theme }) => theme.fonts.body};
@@ -54,7 +64,7 @@ const StyledSelect = styled.select<StyledSelectProps>`
   font-size: ${({ theme }) => theme.fontSizes.md};
   min-width: 240px;
   ${({ isFullWidth }) => isFullWidth && "width: 100%"};
-  background-color: ${({ theme }) => theme.colors.background.secondary};
+  background: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
   line-height: 24px;
   display: block;
@@ -63,11 +73,9 @@ const StyledSelect = styled.select<StyledSelectProps>`
   border-radius: 2px;
   cursor: pointer;
   appearance: none;
-  background-image: url(${chevronDown});
-  background-repeat: no-repeat;
-  background-position: calc(100% - 16px);
   padding-right: 29px;
   margin-top: 3px;
+  position: relavtive;
 
   &:focus {
     box-shadow: 0px 0px 0px 1px ${({ theme }) => theme.colors.border.selected}
@@ -76,10 +84,17 @@ const StyledSelect = styled.select<StyledSelectProps>`
   }
 
   &:hover:not(:disabled) {
-    background-color: ${({ theme }) => theme.colors.background.tertiary};
+    background: ${({ theme }) => theme.colors.background.tertiary};
   }
 
   &:disabled {
     color: ${({ theme }) => theme.colors.content.disabled};
   }
+`
+
+const StyledIcon = styled(Icon)`
+  position: absolute;
+  right: ${({ theme }) => 1.5 * theme.spacer}px;
+  bottom: ${({ theme }) => 1.5 * theme.spacer}px;
+  pointer-events: none;
 `
