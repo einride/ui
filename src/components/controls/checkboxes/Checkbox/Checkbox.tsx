@@ -3,11 +3,11 @@ import * as React from "react"
 import {
   ChangeEvent,
   CSSProperties,
+  forwardRef,
   InputHTMLAttributes,
   ReactNode,
 } from "react"
-import checkmark from "../../../../assets/icons/checkmark.svg"
-import dash from "../../../../assets/icons/dash.svg"
+import { Icon } from "../../../content/Icon/Icon"
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   children: ReactNode
@@ -15,18 +15,23 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-export const Checkbox = ({
-  children,
-  labelStyles,
-  ...props
-}: CheckboxProps) => {
-  return (
-    <StyledLabel style={labelStyles}>
-      <StyledInput type="checkbox" {...props} />
-      {children}
-    </StyledLabel>
-  )
-}
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
+  ({ children, labelStyles, ...props }, ref) => {
+    return (
+      <Wrapper>
+        <StyledLabel style={labelStyles}>
+          <StyledInput type="checkbox" {...props} ref={ref} />
+          {children}
+        </StyledLabel>
+        <StyledIcon name="checkmark" />
+      </Wrapper>
+    )
+  },
+)
+
+const Wrapper = styled.div`
+  position: relative;
+`
 
 const StyledLabel = styled.label`
   font-family: ${({ theme }) => theme.fonts.body};
@@ -61,20 +66,17 @@ const StyledInput = styled.input`
   &:checked {
     border: 2px solid ${({ theme }) => theme.colors.border.selected};
     background-color: ${({ theme }) => theme.colors.content.primary};
-    background-image: url(${checkmark});
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-  &:indeterminate {
-    border: 2px solid ${({ theme }) => theme.colors.border.selected};
-    background-color: ${({ theme }) => theme.colors.content.primary};
-    background-image: url(${dash});
-    background-repeat: no-repeat;
-    background-position: center;
   }
 
   &:disabled {
     background-color: ${({ theme }) => theme.colors.background.secondary};
   }
+`
+
+const StyledIcon = styled(Icon)`
+  position: absolute;
+  top: 2px;
+  left: 22px;
+  color: ${({ theme }) => theme.colors.background.primary};
+  pointer-events: none;
 `
