@@ -1,29 +1,27 @@
 import * as React from "react"
-import { forwardRef, HTMLAttributes } from "react"
-import logoDefaultLarge from "../../../assets/logo/logo-default-large.svg"
-import logoDefaultSmall from "../../../assets/logo/logo-default-small.svg"
-import logoInverseLarge from "../../../assets/logo/logo-inverse-large.svg"
-import logoInverseSmall from "../../../assets/logo/logo-inverse-small.svg"
+import { forwardRef, SVGAttributes } from "react"
 import { useColorMode } from "../../../lib/EinrideProvider/EinrideProvider"
+import { LogoDefaultLarge } from "./variants/LogoDefaultLarge"
+import { LogoDefaultSmall } from "./variants/LogoDefaultSmall"
+import { LogoInverseLarge } from "./variants/LogoInverseLarge"
+import { LogoInverseSmall } from "./variants/LogoInverseSmall"
 
-export interface LogoProps extends HTMLAttributes<HTMLImageElement> {
+export interface LogoProps extends SVGAttributes<SVGSVGElement> {
   size?: "small" | "large"
   variant?: "default" | "inverse"
 }
 
-export const Logo = forwardRef<HTMLImageElement, LogoProps>(
+export const Logo = forwardRef<SVGSVGElement, LogoProps>(
   ({ size = "small", variant, ...props }, ref) => {
     const colorMode = useColorMode()
     const logoDefault = () => {
-      if (size === "small")
-        return <img src={logoDefaultSmall} alt="Einride" ref={ref} {...props} />
-      return <img src={logoDefaultLarge} alt="Einride" ref={ref} {...props} />
+      if (size === "small") return <LogoDefaultSmall ref={ref} {...props} />
+      return <LogoDefaultLarge ref={ref} {...props} />
     }
 
     const logoInverse = () => {
-      if (size === "small")
-        return <img src={logoInverseSmall} alt="Einride" ref={ref} {...props} />
-      return <img src={logoInverseLarge} alt="Einride" ref={ref} {...props} />
+      if (size === "small") return <LogoInverseSmall ref={ref} {...props} />
+      return <LogoInverseLarge ref={ref} {...props} />
     }
 
     if (variant === "inverse" || (!variant && colorMode === "dark")) {
