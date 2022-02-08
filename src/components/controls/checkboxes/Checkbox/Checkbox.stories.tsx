@@ -24,3 +24,9 @@ export const Default = Template.bind({})
 Default.args = {
   children: "Label",
 }
+
+export const Controlled = Template.bind({})
+Controlled.args = {
+  checked: true,
+  children: "Label",
+}
