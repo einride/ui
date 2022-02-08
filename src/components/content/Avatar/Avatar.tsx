@@ -1,16 +1,19 @@
 import { Theme } from "@emotion/react"
 import styled from "@emotion/styled"
 import * as React from "react"
+import { ImgHTMLAttributes } from "react"
 
-export interface AvatarProps {
+export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   alt: string
   size?: Size
   src: string
 }
 
-export const Avatar = ({ size = "md", ...props }: AvatarProps) => {
-  return <Image size={size} {...props} />
-}
+export const Avatar = React.forwardRef<HTMLImageElement, AvatarProps>(
+  ({ size = "md", ...props }: AvatarProps) => {
+    return <Image size={size} {...props} />
+  },
+)
 
 const Image = styled.img<{ size?: Size }>`
   width: ${({ size, theme }) => getDiameter(theme, size)}px;
