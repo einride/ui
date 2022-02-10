@@ -39,7 +39,7 @@ export const LabelTextInput = ({
   )
 }
 
-const StyledLabel = styled.label<{ status?: Status }>`
+const StyledLabel = styled.label<{ status: Status | undefined }>`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
   margin: 5px 0 3px;
@@ -50,11 +50,11 @@ const StyledLabel = styled.label<{ status?: Status }>`
   }
 `
 
-const Wrapper = styled.div<{ status?: Status }>`
+const Wrapper = styled.div<{ status: Status | undefined }>`
   color: ${({ theme, status }) => getColor(theme, status)};
 `
 
-const StyledBaseInput = styled(BaseInput)<{ status?: Status }>`
+const StyledBaseInput = styled(BaseInput)<{ status: Status | undefined }>`
   background: ${({ theme, status }) => getBackgroundColor(theme, status)};
   &:hover:not(:disabled) {
     background: ${({ theme, status }) => getBackgroundColor(theme, status)};

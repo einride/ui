@@ -1,13 +1,10 @@
 {
+  "extends": "@einride/tsconfig/tsconfig.json",
   "compilerOptions": {
-    "strict": true,
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
     "module": "commonjs",
+    "declaration": true,
+    "noEmit": false,
     "outDir": "lib",
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "jsx": "react",
-    "declaration": true
+    "jsx": "react"
   }
 }

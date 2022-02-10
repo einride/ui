@@ -23,6 +23,7 @@
     "@commitlint/config-conventional": "16.0.0",
     "@einride/eslint-plugin": "4.6.0",
     "@einride/prettier-config": "1.2.0",
+    "@einride/tsconfig": "1.0.0",
     "@emotion/react": "11.7.1",
     "@emotion/styled": "11.6.0",
     "@storybook/addon-a11y": "6.4.18",
