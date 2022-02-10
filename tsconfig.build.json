@@ -1,5 +1,11 @@
 {
   "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "noEmit": false,
+    "outDir": "lib"
+  },
   "files": ["src/main.ts"],
   "include": ["src/**/*.d.ts"]
 }
