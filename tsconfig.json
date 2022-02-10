@@ -1,10 +1,6 @@
 {
   "extends": "@einride/tsconfig/tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "declaration": true,
-    "noEmit": false,
-    "outDir": "lib",
     "jsx": "react"
   }
 }
