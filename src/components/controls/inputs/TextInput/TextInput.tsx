@@ -65,11 +65,11 @@ const getStatusIcon = (status?: Status) => {
   }
 }
 
-const Wrapper = styled.div<{ status?: Status }>`
+const Wrapper = styled.div<{ status: Status | undefined }>`
   color: ${({ theme, status }) => getColor(theme, status)};
 `
 
-const StyledBaseInput = styled(BaseInput)<{ status?: Status }>`
+const StyledBaseInput = styled(BaseInput)<{ status: Status | undefined }>`
   background: ${({ theme, status }) => getBackgroundColor(theme, status)};
   &:hover:not(:disabled) {
     background: ${({ theme, status }) => getBackgroundColor(theme, status)};

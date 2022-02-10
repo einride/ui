@@ -15,7 +15,7 @@ export const Segment = ({ children, selected, ...props }: SegmentProps) => {
     </Wrapper>
   )
 }
-const Wrapper = styled.button<{ selected?: boolean }>`
+const Wrapper = styled.button<{ selected: boolean | undefined }>`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
   color: ${({ selected, theme }) =>

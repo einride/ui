@@ -1458,6 +1458,11 @@
   resolved "https://registry.yarnpkg.com/@einride/prettier-config/-/prettier-config-1.2.0.tgz#79f9c1d0f64b3fc9dfb46c963c7de7efa9584780"
   integrity sha512-Y/+gSWfX2Q92Lqr0LKH+tnGUbewRX9Iqj/9K4z6CRdNrK6mtM7egXu6QZUnjsSuJcaUNdnGq9kG1tNuuF3toYg==
 
+"@einride/tsconfig@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@einride/tsconfig/-/tsconfig-1.0.0.tgz#4c59a8e8025f4610d22caf3236709c276862a710"
+  integrity sha512-eeSoXg8hAd8y5gnoDIpVWb7VZq2KqG5OSnbPh07hIJazxyrgw/iCzeoSxuG7BuR84TizdtbVj9PPfkHEuCp10w==
+
 "@emotion/babel-plugin@^11.3.0":
   version "11.7.2"
   resolved "https://registry.yarnpkg.com/@emotion/babel-plugin/-/babel-plugin-11.7.2.tgz#fec75f38a6ab5b304b0601c74e2a5e77c95e5fa0"

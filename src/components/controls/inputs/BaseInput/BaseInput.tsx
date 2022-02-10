@@ -3,8 +3,8 @@ import * as React from "react"
 import { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode } from "react"
 
 export interface BaseInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  onBlur?: (e: FocusEvent<HTMLInputElement>) => void
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  onBlur?: ((e: FocusEvent<HTMLInputElement>) => void) | undefined
+  onChange: ((e: ChangeEvent<HTMLInputElement>) => void) | undefined
   icon?: ReactNode
   placeholder: string
   value: string
