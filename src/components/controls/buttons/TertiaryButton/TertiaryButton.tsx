@@ -7,40 +7,29 @@ export interface TertiaryButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode
   columns?: number | number[]
-  hasMinWidth?: boolean
   isFullWidth?: boolean
-  size?: "small" | "large"
 }
 
 export const TertiaryButton = ({
   children,
-  hasMinWidth = true,
   isFullWidth = false,
-  size = "large",
   ...props
 }: TertiaryButtonProps) => {
   const width = useWidthFromColumns(props.columns, TertiaryButton.name)
   return (
-    <StyledBaseButton
-      hasMinWidth={hasMinWidth}
-      isFullWidth={isFullWidth}
-      size={size}
-      width={width}
-      {...props}
-    >
+    <StyledBaseButton isFullWidth={isFullWidth} width={width} {...props}>
       {children}
     </StyledBaseButton>
   )
 }
 
 interface StyledBaseButtonProps {
-  hasMinWidth: boolean
   isFullWidth: boolean
   width: string | null
 }
 
 const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
-  ${({ hasMinWidth }) => hasMinWidth && "min-width: 120px;"}
+  min-width: 120px;
   ${({ isFullWidth }) => isFullWidth && "width: 100%;"}
   ${({ width }) => width};
   background: ${({ theme }) => theme.colors.buttons.background.tertiary};

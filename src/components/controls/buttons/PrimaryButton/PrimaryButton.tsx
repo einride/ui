@@ -7,27 +7,17 @@ export interface PrimaryButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode
   columns?: number | number[]
-  hasMinWidth?: boolean
   isFullWidth?: boolean
-  size?: "small" | "large"
 }
 
 export const PrimaryButton = ({
   children,
-  hasMinWidth = true,
   isFullWidth = false,
-  size = "large",
   ...props
 }: PrimaryButtonProps) => {
   const width = useWidthFromColumns(props.columns, PrimaryButton.name)
   return (
-    <StyledBaseButton
-      hasMinWidth={hasMinWidth}
-      isFullWidth={isFullWidth}
-      size={size}
-      width={width}
-      {...props}
-    >
+    <StyledBaseButton isFullWidth={isFullWidth} width={width} {...props}>
       {children}
     </StyledBaseButton>
   )
@@ -35,12 +25,11 @@ export const PrimaryButton = ({
 
 interface StyledBaseButtonProps {
   isFullWidth: boolean
-  hasMinWidth: boolean
   width: string | null
 }
 
 const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
-  ${({ hasMinWidth }) => hasMinWidth && "min-width: 120px;"}
+  min-width: 120px;
   ${({ isFullWidth }) => isFullWidth && "width: 100%;"}
   ${({ width }) => width};
   background: ${({ theme }) => theme.colors.buttons.background.primary};
