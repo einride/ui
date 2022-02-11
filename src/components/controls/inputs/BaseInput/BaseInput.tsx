@@ -1,5 +1,4 @@
 import styled from "@emotion/styled"
-import * as React from "react"
 import { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode } from "react"
 
 export interface BaseInputProps extends InputHTMLAttributes<HTMLInputElement> {

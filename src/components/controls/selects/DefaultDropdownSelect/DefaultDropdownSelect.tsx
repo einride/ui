@@ -1,5 +1,4 @@
 import styled from "@emotion/styled"
-import * as React from "react"
 import { ChangeEvent, ReactNode, SelectHTMLAttributes } from "react"
 import { Icon } from "../../../content/Icon/Icon"
 

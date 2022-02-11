@@ -1,5 +1,4 @@
 import styled from "@emotion/styled"
-import * as React from "react"
 import { ButtonHTMLAttributes } from "react"
 import { Icon, IconName } from "../../../content/Icon/Icon"
 import { SecondaryButton } from "../SecondaryButton/SecondaryButton"

@@ -1,7 +1,6 @@
 import { Theme } from "@emotion/react"
 import styled from "@emotion/styled"
-import * as React from "react"
-import { ImgHTMLAttributes } from "react"
+import { forwardRef, ImgHTMLAttributes } from "react"
 
 export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   alt: string
@@ -9,7 +8,7 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   src: string
 }
 
-export const Avatar = React.forwardRef<HTMLImageElement, AvatarProps>(
+export const Avatar = forwardRef<HTMLImageElement, AvatarProps>(
   ({ size = "md", ...props }: AvatarProps) => {
     return <Image size={size} {...props} />
   },

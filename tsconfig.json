@@ -1,6 +1,3 @@
 {
-  "extends": "@einride/tsconfig/tsconfig.json",
-  "compilerOptions": {
-    "jsx": "react"
-  }
+  "extends": "@einride/tsconfig/tsconfig.json"
 }

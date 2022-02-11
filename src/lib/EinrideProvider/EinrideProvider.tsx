@@ -1,6 +1,5 @@
 import { ThemeProvider } from "@emotion/react"
 import merge from "lodash.merge"
-import * as React from "react"
 import { createContext, ReactNode, useContext } from "react"
 import { CSSReset } from "../CSSReset/CSSReset"
 import { GlobalStyles } from "../GlobalStyles/GlobalStyles"

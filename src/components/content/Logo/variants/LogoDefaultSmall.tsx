@@ -1,4 +1,3 @@
-import * as React from "react"
 import { forwardRef, SVGAttributes } from "react"
 
 type LogoDefaultSmallProps = SVGAttributes<SVGSVGElement>
