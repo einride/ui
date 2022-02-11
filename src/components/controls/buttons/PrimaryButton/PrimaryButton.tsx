@@ -1,5 +1,4 @@
 import styled from "@emotion/styled"
-import * as React from "react"
 import { ButtonHTMLAttributes, ReactNode } from "react"
 import { useWidthFromColumns } from "../../../../hooks/useWidthFromColumns"
 import { BaseButton } from "../BaseButton/BaseButton"

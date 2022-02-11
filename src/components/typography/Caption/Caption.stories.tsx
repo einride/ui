@@ -1,5 +1,4 @@
 import { Story } from "@storybook/react/types-6-0"
-import * as React from "react"
 import { Caption, CaptionProps } from "./Caption"
 
 export default {

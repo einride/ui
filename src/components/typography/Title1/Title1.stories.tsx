@@ -1,5 +1,4 @@
 import { Story } from "@storybook/react/types-6-0"
-import * as React from "react"
 import { Title1, Title1Props } from "./Title1"
 
 export default {

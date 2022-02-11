@@ -1,4 +1,3 @@
-import * as React from "react"
 import { forwardRef, SVGAttributes } from "react"
 import { useColorMode } from "../../../lib/EinrideProvider/EinrideProvider"
 import { LogoDefaultLarge } from "./variants/LogoDefaultLarge"

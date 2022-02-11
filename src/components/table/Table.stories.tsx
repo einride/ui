@@ -1,5 +1,4 @@
 import { Meta, Story } from "@storybook/react/types-6-0"
-import * as React from "react"
 import { Table, TableProps } from "./Table/Table"
 import { Tbody } from "./Tbody/Tbody"
 import { Td } from "./Td/Td"

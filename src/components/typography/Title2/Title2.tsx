@@ -1,5 +1,4 @@
 import styled from "@emotion/styled"
-import * as React from "react"
 import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 import { ContentColor } from "../../../lib/theme/types"
 

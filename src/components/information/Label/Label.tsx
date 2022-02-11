@@ -1,5 +1,4 @@
 import styled from "@emotion/styled"
-import * as React from "react"
 import { HTMLAttributes, ReactNode } from "react"
 import { Theme } from "../../../lib/theme/theme"
 

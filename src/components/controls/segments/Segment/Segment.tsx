@@ -1,5 +1,4 @@
 import styled from "@emotion/styled"
-import * as React from "react"
 import { ButtonHTMLAttributes, ReactNode } from "react"
 
 export interface SegmentProps extends ButtonHTMLAttributes<HTMLButtonElement> {

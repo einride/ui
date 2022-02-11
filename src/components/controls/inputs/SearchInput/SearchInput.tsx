@@ -1,5 +1,4 @@
 import styled from "@emotion/styled"
-import * as React from "react"
 import { InputHTMLAttributes } from "react"
 import { Icon } from "../../../content/Icon/Icon"
 import { BaseInput } from "../BaseInput/BaseInput"
