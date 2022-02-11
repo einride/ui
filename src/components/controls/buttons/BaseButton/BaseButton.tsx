@@ -4,33 +4,24 @@ import { ButtonHTMLAttributes, ReactNode } from "react"
 export interface BaseButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode
-  size: "small" | "large"
 }
 
 export const BaseButton = (props: BaseButtonProps) => {
   return <StyledButton {...props} />
 }
 
-const SMALL_HEIGHT_PIXELS = 48
-const LARGE_HEIGHT_PIXELS = 56
-
-interface StyledButtonProps {
-  size: "small" | "large"
-}
-
-const StyledButton = styled.button<StyledButtonProps>`
+const StyledButton = styled.button`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
-  background-color: unset;
+  background: unset;
   border: none;
-  height: ${({ size }) =>
-    size === "small" ? SMALL_HEIGHT_PIXELS : LARGE_HEIGHT_PIXELS}px;
-  border-radius: ${LARGE_HEIGHT_PIXELS}px;
+  height: ${({ theme }) => 6 * theme.spacer}px;
+  border-radius: ${({ theme }) => 6 * theme.spacer}px;
   cursor: pointer;
   padding: 0 20px;
 
   &:disabled {
-    background-color: ${({ theme }) => theme.colors.background.secondary};
+    background: ${({ theme }) => theme.colors.background.secondary};
     color: ${({ theme }) => theme.colors.content.disabled};
     cursor: not-allowed;
 

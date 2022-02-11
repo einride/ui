@@ -7,32 +7,24 @@ export interface IconButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   "aria-label": string
   icon?: IconName
-  size?: "small" | "large"
 }
 
 export const IconButton = ({
   icon = "arrowRight",
-  size = "large",
   ...props
 }: IconButtonProps) => {
   return (
-    <StyledBaseButton size={size} {...props}>
+    <StyledBaseButton {...props}>
       <Icon name={icon} />
     </StyledBaseButton>
   )
 }
-const getWidth = (size?: "small" | "large") => {
-  switch (size) {
-    case "small":
-      return 48
-    default:
-      return 56
-  }
-}
 
 const StyledBaseButton = styled(SecondaryButton)<IconButtonProps>`
-  min-width: ${({ size }) => getWidth(size)}px;
-  padding: 12px;
+  width: ${({ theme }) => 6 * theme.spacer}px;
+  height: ${({ theme }) => 6 * theme.spacer}px;
+  min-width: ${({ theme }) => 6 * theme.spacer}px;
+  border-radius: ${({ theme }) => 6 * theme.spacer}px;
   display: flex;
   justify-content: center;
   align-items: center;
