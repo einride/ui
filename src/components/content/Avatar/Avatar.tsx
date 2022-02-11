@@ -9,8 +9,8 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
 }
 
 export const Avatar = forwardRef<HTMLImageElement, AvatarProps>(
-  ({ size = "md", ...props }: AvatarProps) => {
-    return <Image size={size} {...props} />
+  ({ size = "md", ...props }, ref) => {
+    return <Image size={size} {...props} ref={ref} />
   },
 )
 
