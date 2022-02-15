@@ -27,13 +27,11 @@ Add it in the root component in your app like this:
 ```tsx
 import { EinrideProvider } from "@einride/ui"
 
-const App = () => {
+export const App = () => {
   return (
     <EinrideProvider>{/* All other components go here! */}</EinrideProvider>
   )
 }
-
-export default App
 ```
 
 ## Documentation
