@@ -5,6 +5,7 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-links",
     "storybook-addon-designs",
+    "storybook-dark-mode",
   ],
   framework: "@storybook/react",
   core: {
