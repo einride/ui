@@ -1,5 +1,6 @@
 import styled from "@emotion/styled"
 import { EinrideProvider } from "../src/lib/EinrideProvider/EinrideProvider"
+import { useDarkMode } from "storybook-dark-mode"
 
 const customViewports = {
   small: {
@@ -35,7 +36,6 @@ export const parameters = {
   },
   viewport: { viewports: customViewports },
   backgrounds: {
-    default: "light",
     values: [
       { name: "light", value: "#ffffff" },
       { name: "dark", value: "#121212" },
@@ -52,13 +52,16 @@ const theme = {
 }
 
 export const decorators = [
-  (Story) => (
-    <EinrideProvider theme={theme}>
-      <Wrapper>
-        <Story />
-      </Wrapper>
-    </EinrideProvider>
-  ),
+  (Story) => {
+    const mode = useDarkMode() ? "dark" : "light"
+    return (
+      <EinrideProvider theme={theme} colorMode={mode}>
+        <Wrapper>
+          <Story />
+        </Wrapper>
+      </EinrideProvider>
+    )
+  },
 ]
 
 const Wrapper = styled.div`
