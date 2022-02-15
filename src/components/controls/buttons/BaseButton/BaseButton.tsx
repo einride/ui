@@ -13,28 +13,24 @@ export const BaseButton = (props: BaseButtonProps) => {
 const StyledButton = styled.button`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
-  background: unset;
-  border: none;
   height: ${({ theme }) => 6 * theme.spacer}px;
-  border-radius: ${({ theme }) => 6 * theme.spacer}px;
+  border-radius: ${({ theme }) => 3 * theme.spacer}px;
   cursor: pointer;
-  padding: 0 20px;
+  padding: 0 ${({ theme }) => 3 * theme.spacer}px;
 
-  &:disabled {
-    background: ${({ theme }) => theme.colors.background.secondary};
-    color: ${({ theme }) => theme.colors.content.disabled};
-    cursor: not-allowed;
-
-    svg {
-      fill: ${({ theme }) => theme.colors.content.disabled};
-    }
+  &:hover:not(:disabled) {
+    text-decoration: underline;
   }
 
   &:focus {
     text-decoration: underline;
     outline: none;
-    border-width: 1px;
-    border-style: solid;
-    border-color: ${({ theme }) => theme.colors.border.selected};
+    box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
+  }
+
+  &:disabled {
+    background: ${({ theme }) => theme.colors.buttons.background.disabled};
+    color: ${({ theme }) => theme.colors.buttons.text.disabled};
+    cursor: not-allowed;
   }
 `

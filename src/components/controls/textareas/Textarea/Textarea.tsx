@@ -49,7 +49,7 @@ const StyledTextarea = styled.textarea`
   }
 
   &:disabled::placeholder {
-    color: ${({ theme }) => theme.colors.content.disabled};
+    color: ${({ theme }) => theme.colors.content.tertiary};
   }
 
   &:focus {

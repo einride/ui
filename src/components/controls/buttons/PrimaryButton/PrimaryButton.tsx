@@ -43,4 +43,9 @@ const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
     background: ${({ theme }) =>
       theme.colors.buttons.background.active.primary};
   }
+
+  &:focus {
+    background: ${({ theme }) =>
+      theme.colors.buttons.background.focused.primary};
+  }
 `

@@ -62,7 +62,7 @@ const StyledSelect = styled.select<{ isFullWidth?: boolean }>`
   }
 
   &:disabled {
-    color: ${({ theme }) => theme.colors.content.disabled};
+    color: ${({ theme }) => theme.colors.content.tertiary};
   }
 `
 
