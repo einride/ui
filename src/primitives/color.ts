@@ -30,7 +30,7 @@ export const color = {
     dark: "#B78600",
   },
   greyscale: {
-    white: "#ffffff",
+    white: "#FFFFFF",
     grey20: "#F5F5F5",
     grey40: "#EBEBEB",
     grey50: "#DADADA",

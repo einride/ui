@@ -22,8 +22,10 @@ export const WithIconButton = ({
   return (
     <StyledBaseButton isFullWidth={isFullWidth} width={width} {...props}>
       <ContentWrapper>
-        <span className="text">{children}</span>
-        <IconWrapper>{icon}</IconWrapper>
+        <span className="einride-ui-with-icon-button-text">{children}</span>
+        <IconWrapper className="einride-ui-with-icon-button-icon">
+          {icon}
+        </IconWrapper>
       </ContentWrapper>
     </StyledBaseButton>
   )
@@ -42,7 +44,12 @@ export const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
   color: ${({ theme }) => theme.colors.buttons.text.primary};
 
   &:hover:not(:disabled) {
+    text-decoration: none;
     background: ${({ theme }) => theme.colors.buttons.background.hover.primary};
+
+    .einride-ui-with-icon-button-text {
+      text-decoration: underline;
+    }
   }
 
   &:active:not(:disabled) {
@@ -52,11 +59,16 @@ export const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
 
   &:focus {
     text-decoration: none;
-    border: none;
+    background: ${({ theme }) =>
+      theme.colors.buttons.background.focused.primary};
 
-    .text {
+    .einride-ui-with-icon-button-text {
       text-decoration: underline;
     }
+  }
+
+  &:disabled .einride-ui-with-icon-button-icon {
+    color: ${({ theme }) => theme.colors.buttons.text.disabled};
   }
 `
 
@@ -68,6 +80,5 @@ const ContentWrapper = styled.div`
 
 const IconWrapper = styled.div`
   margin-left: 10px;
-  color: ${({ theme }) => theme.colors.positive};
-  text-decoration: none !important;
+  color: ${({ theme }) => theme.colors.buttons.icon.primary};
 `

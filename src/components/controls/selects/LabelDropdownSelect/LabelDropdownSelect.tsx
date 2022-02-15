@@ -87,7 +87,7 @@ const StyledSelect = styled.select<StyledSelectProps>`
   }
 
   &:disabled {
-    color: ${({ theme }) => theme.colors.content.disabled};
+    color: ${({ theme }) => theme.colors.content.tertiary};
   }
 `
 
