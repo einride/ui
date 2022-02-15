@@ -4,8 +4,8 @@ SHELL := /bin/bash
 all:
 	yarn review
 
-.PHONY: install-deps
-install-deps:
+.PHONY: install
+install:
 	yarn install
 
 .PHONY: build
@@ -14,7 +14,7 @@ build:
 
 .PHONY: develop
 develop:
-	yarn storybook
+	yarn develop
 
 .PHONY: lint
 lint:
