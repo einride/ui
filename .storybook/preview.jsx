@@ -1,6 +1,8 @@
 import styled from "@emotion/styled"
 import { EinrideProvider } from "../src/lib/EinrideProvider/EinrideProvider"
 import { useDarkMode } from "storybook-dark-mode"
+import { themes } from "@storybook/theming"
+import { color } from "../src/primitives/color"
 
 const customViewports = {
   small: {
@@ -37,11 +39,21 @@ export const parameters = {
   viewport: { viewports: customViewports },
   backgrounds: {
     values: [
-      { name: "light", value: "#ffffff" },
-      { name: "dark", value: "#121212" },
+      { name: "light", value: color.greyscale.white },
+      { name: "dark", value: color.greyscale.black },
     ],
   },
   layout: "fullscreen",
+  darkMode: {
+    dark: {
+      ...themes.dark,
+      appBg: color.greyscale.grey100,
+      appContentBg: color.greyscale.black,
+      appBorderColor: color.greyscale.grey80,
+      barBg: color.greyscale.grey100,
+      inputBg: color.greyscale.grey100,
+    },
+  },
 }
 
 const theme = {
@@ -53,9 +65,9 @@ const theme = {
 
 export const decorators = [
   (Story) => {
-    const mode = useDarkMode() ? "dark" : "light"
+    const colorMode = useDarkMode() ? "dark" : "light"
     return (
-      <EinrideProvider theme={theme} colorMode={mode}>
+      <EinrideProvider theme={theme} colorMode={colorMode}>
         <Wrapper>
           <Story />
         </Wrapper>

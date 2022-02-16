@@ -1,4 +1,5 @@
 import { Story } from "@storybook/react/types-6-0"
+import { Paragraph } from "../../typography/Paragraph/Paragraph"
 import { Icon, IconProps } from "./Icon"
 
 export default {
@@ -13,7 +14,11 @@ export default {
   },
 }
 
-const Template: Story<IconProps> = (args) => <Icon {...args} />
+const Template: Story<IconProps> = (args) => (
+  <Paragraph>
+    <Icon {...args} />
+  </Paragraph>
+)
 
 export const Checkmark = Template.bind({})
 Checkmark.args = {
