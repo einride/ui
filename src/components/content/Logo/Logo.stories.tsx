@@ -18,26 +18,12 @@ const Template: Story<LogoProps> = (args) => <Logo {...args} />
 export const Default = Template.bind({})
 Default.args = {}
 
-export const DefaultSmall = Template.bind({})
-DefaultSmall.args = {
+export const Small = Template.bind({})
+Small.args = {
   size: "small",
-  variant: "default",
 }
 
-export const DefaultLarge = Template.bind({})
-DefaultLarge.args = {
+export const Large = Template.bind({})
+Large.args = {
   size: "large",
-  variant: "default",
-}
-
-export const InverseSmall = Template.bind({})
-InverseSmall.args = {
-  size: "small",
-  variant: "inverse",
-}
-
-export const InverseLarge = Template.bind({})
-InverseLarge.args = {
-  size: "large",
-  variant: "inverse",
 }
