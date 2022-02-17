@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ButtonHTMLAttributes, forwardRef, ReactNode } from "react"
+import { ButtonHTMLAttributes, forwardRef, MouseEvent, ReactNode } from "react"
 
 export interface BaseButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -7,10 +7,15 @@ export interface BaseButtonProps
 }
 
 export const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(
-  ({ disabled, ...props }, ref) => {
+  ({ disabled, onClick, ...props }, ref) => {
+    const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+      if (disabled) return
+      onClick?.(e)
+    }
     return (
       <StyledButton
         {...(disabled && { "aria-disabled": "true" })}
+        onClick={handleClick}
         {...props}
         ref={ref}
       />
