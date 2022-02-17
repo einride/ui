@@ -43,7 +43,7 @@ export const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
   background: ${({ theme }) => theme.colors.buttons.background.primary};
   color: ${({ theme }) => theme.colors.buttons.text.primary};
 
-  &:hover:not(:disabled) {
+  &:hover:not([aria-disabled="true"]) {
     text-decoration: none;
     background: ${({ theme }) => theme.colors.buttons.background.hover.primary};
 
@@ -52,12 +52,12 @@ export const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
     }
   }
 
-  &:active:not(:disabled) {
+  &:active:not([aria-disabled="true"]) {
     background: ${({ theme }) =>
       theme.colors.buttons.background.active.primary};
   }
 
-  &:focus {
+  &:focus:not([aria-disabled="true"]) {
     text-decoration: none;
     background: ${({ theme }) =>
       theme.colors.buttons.background.focused.primary};
@@ -67,7 +67,7 @@ export const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
     }
   }
 
-  &:disabled .einride-ui-with-icon-button-icon {
+  &[aria-disabled="true"] .einride-ui-with-icon-button-icon {
     color: ${({ theme }) => theme.colors.buttons.text.disabled};
   }
 `
