@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ButtonHTMLAttributes, ReactNode } from "react"
+import { ButtonHTMLAttributes, forwardRef, ReactNode } from "react"
 import { useWidthFromColumns } from "../../../../hooks/useWidthFromColumns"
 import { BaseButton } from "../BaseButton/BaseButton"
 
@@ -10,18 +10,21 @@ export interface PrimaryButtonProps
   isFullWidth?: boolean
 }
 
-export const PrimaryButton = ({
-  children,
-  isFullWidth = false,
-  ...props
-}: PrimaryButtonProps) => {
-  const width = useWidthFromColumns(props.columns, PrimaryButton.name)
-  return (
-    <StyledBaseButton isFullWidth={isFullWidth} width={width} {...props}>
-      {children}
-    </StyledBaseButton>
-  )
-}
+export const PrimaryButton = forwardRef<HTMLButtonElement, PrimaryButtonProps>(
+  ({ children, isFullWidth = false, ...props }, ref) => {
+    const width = useWidthFromColumns(props.columns, PrimaryButton.name)
+    return (
+      <StyledBaseButton
+        isFullWidth={isFullWidth}
+        width={width}
+        {...props}
+        ref={ref}
+      >
+        {children}
+      </StyledBaseButton>
+    )
+  },
+)
 
 interface StyledBaseButtonProps {
   isFullWidth: boolean

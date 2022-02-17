@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ButtonHTMLAttributes } from "react"
+import { ButtonHTMLAttributes, forwardRef } from "react"
 import { Icon, IconName } from "../../../content/Icon/Icon"
 import { SecondaryButton } from "../SecondaryButton/SecondaryButton"
 
@@ -9,16 +9,15 @@ export interface IconButtonProps
   icon?: IconName
 }
 
-export const IconButton = ({
-  icon = "arrowRight",
-  ...props
-}: IconButtonProps) => {
-  return (
-    <StyledBaseButton {...props}>
-      <Icon name={icon} />
-    </StyledBaseButton>
-  )
-}
+export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+  ({ icon = "arrowRight", ...props }, ref) => {
+    return (
+      <StyledBaseButton {...props} ref={ref}>
+        <Icon name={icon} />
+      </StyledBaseButton>
+    )
+  },
+)
 
 const StyledBaseButton = styled(SecondaryButton)<IconButtonProps>`
   width: ${({ theme }) => 6 * theme.spacer}px;

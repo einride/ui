@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ButtonHTMLAttributes, ReactNode } from "react"
+import { ButtonHTMLAttributes, forwardRef, ReactNode } from "react"
 import { useWidthFromColumns } from "../../../../hooks/useWidthFromColumns"
 import { Icon } from "../../../content/Icon/Icon"
 import { BaseButton } from "../BaseButton/BaseButton"
@@ -12,24 +12,37 @@ export interface WithIconButtonProps
   icon?: ReactNode
 }
 
-export const WithIconButton = ({
-  children,
-  isFullWidth = false,
-  icon = <Icon name="arrowRight" />,
-  ...props
-}: WithIconButtonProps) => {
-  const width = useWidthFromColumns(props.columns, WithIconButton.name)
-  return (
-    <StyledBaseButton isFullWidth={isFullWidth} width={width} {...props}>
-      <ContentWrapper>
-        <span className="einride-ui-with-icon-button-text">{children}</span>
-        <IconWrapper className="einride-ui-with-icon-button-icon">
-          {icon}
-        </IconWrapper>
-      </ContentWrapper>
-    </StyledBaseButton>
-  )
-}
+export const WithIconButton = forwardRef<
+  HTMLButtonElement,
+  WithIconButtonProps
+>(
+  (
+    {
+      children,
+      isFullWidth = false,
+      icon = <Icon name="arrowRight" />,
+      ...props
+    },
+    ref,
+  ) => {
+    const width = useWidthFromColumns(props.columns, WithIconButton.name)
+    return (
+      <StyledBaseButton
+        isFullWidth={isFullWidth}
+        width={width}
+        {...props}
+        ref={ref}
+      >
+        <ContentWrapper>
+          <span className="einride-ui-with-icon-button-text">{children}</span>
+          <IconWrapper className="einride-ui-with-icon-button-icon">
+            {icon}
+          </IconWrapper>
+        </ContentWrapper>
+      </StyledBaseButton>
+    )
+  },
+)
 
 interface StyledBaseButtonProps {
   isFullWidth: boolean
