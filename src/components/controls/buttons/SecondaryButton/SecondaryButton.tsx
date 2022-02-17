@@ -35,17 +35,17 @@ const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
   background: ${({ theme }) => theme.colors.buttons.background.secondary};
   color: ${({ theme }) => theme.colors.buttons.text.secondary};
 
-  &:hover:not(:disabled) {
+  &:hover:not([aria-disabled="true"]) {
     background: ${({ theme }) =>
       theme.colors.buttons.background.hover.secondary};
   }
 
-  &:active:not(:disabled) {
+  &:active:not([aria-disabled="true"]) {
     background: ${({ theme }) =>
       theme.colors.buttons.background.active.secondary};
   }
 
-  &:focus {
+  &:focus:not([aria-disabled="true"]) {
     background: ${({ theme }) =>
       theme.colors.buttons.background.focused.secondary};
   }

@@ -29,8 +29,8 @@ const StyledBaseButton = styled(SecondaryButton)<IconButtonProps>`
   justify-content: center;
   align-items: center;
 
-  &:hover:not(:disabled),
-  &:focus {
+  &:hover:not([aria-disabled="true"]),
+  &:focus:not([aria-disabled="true"]) {
     text-decoration: none;
   }
 `
