@@ -24,7 +24,7 @@ export const Segments = ({ segments }: SegmentsProps) => {
     (segment) => segment.id === selectedSegmentId,
   )[0].content
   return (
-    <>
+    <div>
       <SegmentsWrapper>
         {segments.map((segment) => (
           <Fragment key={segment.id}>
@@ -39,6 +39,6 @@ export const Segments = ({ segments }: SegmentsProps) => {
         ))}
       </SegmentsWrapper>
       {selectedSegmentContent}
-    </>
+    </div>
   )
 }
