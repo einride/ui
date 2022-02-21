@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { Fragment, ReactNode, useState } from "react"
+import { ReactNode, useState } from "react"
 import { Segment } from "../Segment/Segment"
 
 const SegmentsWrapper = styled.div`
@@ -24,21 +24,20 @@ export const Segments = ({ segments }: SegmentsProps) => {
     (segment) => segment.id === selectedSegmentId,
   )[0].content
   return (
-    <div>
+    <>
       <SegmentsWrapper>
         {segments.map((segment) => (
-          <Fragment key={segment.id}>
-            <Segment
-              type="button"
-              selected={selectedSegmentId === segment.id}
-              onClick={() => setSelectedSegmentId(segment.id)}
-            >
-              {segment.text}
-            </Segment>
-          </Fragment>
+          <Segment
+            type="button"
+            selected={selectedSegmentId === segment.id}
+            onClick={() => setSelectedSegmentId(segment.id)}
+            key={segment.id}
+          >
+            {segment.text}
+          </Segment>
         ))}
       </SegmentsWrapper>
       {selectedSegmentContent}
-    </div>
+    </>
   )
 }
