@@ -8,10 +8,6 @@ export default {
     disabled: {
       control: "boolean",
     },
-    size: {
-      options: ["small", "large"],
-      control: { type: "radio" },
-    },
   },
   parameters: {
     design: {
