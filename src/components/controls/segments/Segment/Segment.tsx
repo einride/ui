@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ButtonHTMLAttributes, ReactNode } from "react"
+import { ButtonHTMLAttributes, forwardRef, ReactNode } from "react"
 
 export interface SegmentProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode
@@ -7,22 +7,43 @@ export interface SegmentProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   selected?: boolean
 }
 
-export const Segment = ({ children, selected, ...props }: SegmentProps) => {
-  return (
-    <Wrapper selected={selected} {...props}>
-      {children}
-    </Wrapper>
-  )
-}
-const Wrapper = styled.button<{ selected: boolean | undefined }>`
+export const Segment = forwardRef<HTMLButtonElement, SegmentProps>(
+  ({ children, selected, ...props }, ref) => {
+    return (
+      <Wrapper
+        aria-selected={selected ? "true" : undefined}
+        role="tab"
+        {...props}
+        ref={ref}
+      >
+        {children}
+      </Wrapper>
+    )
+  },
+)
+
+const Wrapper = styled.button`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
-  color: ${({ selected, theme }) =>
-    selected ? theme.colors.content.primary : theme.colors.content.secondary};
+  color: ${({ theme }) => theme.colors.content.secondary};
   padding-top: ${({ theme }) => theme.spacer + 1}px;
   padding-bottom: ${({ theme }) => 2 * theme.spacer - 1}px;
-  border-bottom: 1px solid
-    ${({ selected, theme }) =>
-      selected ? theme.colors.border.selected : theme.colors.border.primary};
+  box-shadow: inset 0 -1px 0 ${({ theme }) => theme.colors.border.primary};
   margin-bottom: ${({ theme }) => 3 * theme.spacer}px;
+
+  &[aria-selected],
+  &:hover {
+    color: ${({ theme }) => theme.colors.content.primary};
+    box-shadow: inset 0 -1px 0 ${({ theme }) => theme.colors.border.selected};
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
+  }
+
+  &:disabled {
+    color: ${({ theme }) => theme.colors.content.tertiary};
+    box-shadow: inset 0 -1px 0 ${({ theme }) => theme.colors.border.primary};
+  }
 `

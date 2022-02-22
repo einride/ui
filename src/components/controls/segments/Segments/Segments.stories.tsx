@@ -4,11 +4,7 @@ import { Segments, SegmentsProps } from "./Segments"
 export default {
   title: "Controls/Segments/Segments",
   component: Segments,
-  argTypes: {
-    disabled: {
-      control: "boolean",
-    },
-  },
+  argTypes: {},
   parameters: {
     design: {
       type: "figma",
@@ -31,6 +27,11 @@ Default.args = {
       id: "segment-2",
       text: "Second Segment",
       content: <div>Second segment content.</div>,
+    },
+    {
+      id: "segment-3",
+      text: "Third segment",
+      content: <div>Third segment content.</div>,
     },
   ],
 }
