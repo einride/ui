@@ -1,6 +1,75 @@
 import styled from "@emotion/styled"
-import { ReactNode, useState } from "react"
+import {
+  forwardRef,
+  HTMLAttributes,
+  KeyboardEvent,
+  ReactNode,
+  useRef,
+  useState,
+} from "react"
 import { Segment } from "../Segment/Segment"
+
+export interface SegmentsProps extends HTMLAttributes<HTMLDivElement> {
+  segments: {
+    content: ReactNode
+    id: string
+    isDisabled?: boolean
+    text: string
+  }[]
+}
+
+export const Segments = forwardRef<HTMLDivElement, SegmentsProps>(
+  ({ segments, ...props }, ref) => {
+    const [selectedSegmentIndex, setSelectedSegmentIndex] = useState(0)
+    const segmentRefs: HTMLButtonElement[] = []
+    const contentRef = useRef<HTMLElement>(null)
+
+    const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
+      if (e.code === "ArrowLeft" && selectedSegmentIndex > 0) {
+        const newIndex = selectedSegmentIndex - 1
+        setSelectedSegmentIndex(newIndex)
+        segmentRefs[newIndex].focus()
+      } else if (
+        e.code === "ArrowRight" &&
+        selectedSegmentIndex < segments.length - 1
+      ) {
+        const newIndex = selectedSegmentIndex + 1
+        setSelectedSegmentIndex(newIndex)
+        segmentRefs[newIndex].focus()
+      } else if (e.code === "ArrowDown") {
+        contentRef.current?.focus()
+      }
+    }
+
+    const selectedSegmentContent = segments[selectedSegmentIndex].content
+
+    return (
+      <>
+        <SegmentsWrapper role="tablist" {...props} ref={ref}>
+          {segments.map((segment, index) => (
+            <Segment
+              type="button"
+              onClick={() => setSelectedSegmentIndex(index)}
+              onKeyDown={handleKeyDown}
+              key={segment.id}
+              tabIndex={index === selectedSegmentIndex ? undefined : -1}
+              aria-selected={
+                index === selectedSegmentIndex ? "true" : undefined
+              }
+              disabled={segment.isDisabled}
+              ref={(element) => element && segmentRefs.push(element)}
+            >
+              {segment.text}
+            </Segment>
+          ))}
+        </SegmentsWrapper>
+        <Content ref={contentRef} tabIndex={-1}>
+          {selectedSegmentContent}
+        </Content>
+      </>
+    )
+  },
+)
 
 const SegmentsWrapper = styled.div`
   display: grid;
@@ -8,36 +77,9 @@ const SegmentsWrapper = styled.div`
   text-align: center;
 `
 
-export interface SegmentsProps {
-  segments: {
-    id: string
-    content: ReactNode
-    text: string
-  }[]
-}
-
-export const Segments = ({ segments }: SegmentsProps) => {
-  const firstSegmentId = segments[0].id
-  const [selectedSegmentId, setSelectedSegmentId] =
-    useState<string>(firstSegmentId)
-  const selectedSegmentContent = segments.filter(
-    (segment) => segment.id === selectedSegmentId,
-  )[0].content
-  return (
-    <>
-      <SegmentsWrapper>
-        {segments.map((segment) => (
-          <Segment
-            type="button"
-            selected={selectedSegmentId === segment.id}
-            onClick={() => setSelectedSegmentId(segment.id)}
-            key={segment.id}
-          >
-            {segment.text}
-          </Segment>
-        ))}
-      </SegmentsWrapper>
-      {selectedSegmentContent}
-    </>
-  )
-}
+const Content = styled.section`
+  &:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
+  }
+`
