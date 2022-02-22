@@ -1,4 +1,5 @@
 import { Story } from "@storybook/react/types-6-0"
+import { Paragraph } from "../../../typography/Paragraph/Paragraph"
 import { Segments, SegmentsProps } from "./Segments"
 
 export default {
@@ -21,17 +22,17 @@ Default.args = {
     {
       id: "segment-1",
       text: "First Segment",
-      content: <div>First segment content.</div>,
+      content: <Paragraph>First segment content.</Paragraph>,
     },
     {
       id: "segment-2",
       text: "Second Segment",
-      content: <div>Second segment content.</div>,
+      content: <Paragraph>Second segment content.</Paragraph>,
     },
     {
       id: "segment-3",
       text: "Third segment",
-      content: <div>Third segment content.</div>,
+      content: <Paragraph>Third segment content.</Paragraph>,
     },
   ],
 }
