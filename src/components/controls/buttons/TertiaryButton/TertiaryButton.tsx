@@ -1,10 +1,11 @@
 import styled from "@emotion/styled"
-import { ButtonHTMLAttributes, forwardRef, ReactNode } from "react"
+import { ButtonHTMLAttributes, ElementType, forwardRef, ReactNode } from "react"
 import { useWidthFromColumns } from "../../../../hooks/useWidthFromColumns"
 import { BaseButton } from "../BaseButton/BaseButton"
 
 export interface TertiaryButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
+  as?: ElementType
   children: ReactNode
   columns?: number | number[]
   isFullWidth?: boolean

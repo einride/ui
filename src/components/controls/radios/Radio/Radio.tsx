@@ -2,11 +2,13 @@ import styled from "@emotion/styled"
 import {
   ChangeEvent,
   CSSProperties,
+  ElementType,
   InputHTMLAttributes,
   ReactNode,
 } from "react"
 
 export interface RadioProps extends InputHTMLAttributes<HTMLInputElement> {
+  as?: ElementType
   children: ReactNode
   labelStyles?: CSSProperties
   onChange: (e: ChangeEvent<HTMLInputElement>) => void

@@ -1,8 +1,15 @@
 import styled from "@emotion/styled"
-import { ButtonHTMLAttributes, forwardRef, MouseEvent, ReactNode } from "react"
+import {
+  ButtonHTMLAttributes,
+  ElementType,
+  forwardRef,
+  MouseEvent,
+  ReactNode,
+} from "react"
 
 export interface BaseButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
+  as?: ElementType
   children: ReactNode
 }
 

@@ -1,8 +1,9 @@
 import styled from "@emotion/styled"
-import { HTMLAttributes, ReactNode } from "react"
+import { ElementType, HTMLAttributes, ReactNode } from "react"
 import { Theme } from "../../../lib/theme/theme"
 
 export interface LabelProps extends HTMLAttributes<HTMLSpanElement> {
+  as?: ElementType
   children: ReactNode
   variant?: Variant
 }

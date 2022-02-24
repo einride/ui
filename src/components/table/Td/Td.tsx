@@ -1,7 +1,8 @@
 import styled from "@emotion/styled"
-import { forwardRef, HTMLAttributes, ReactNode } from "react"
+import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 
 interface TdProps extends HTMLAttributes<HTMLTableCellElement> {
+  as?: ElementType
   children: ReactNode
 }
 

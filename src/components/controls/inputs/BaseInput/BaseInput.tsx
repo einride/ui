@@ -1,7 +1,14 @@
 import styled from "@emotion/styled"
-import { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode } from "react"
+import {
+  ChangeEvent,
+  ElementType,
+  FocusEvent,
+  InputHTMLAttributes,
+  ReactNode,
+} from "react"
 
 export interface BaseInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  as?: ElementType
   onBlur?: ((e: FocusEvent<HTMLInputElement>) => void) | undefined
   onChange: ((e: ChangeEvent<HTMLInputElement>) => void) | undefined
   icon?: ReactNode

@@ -1,7 +1,8 @@
 import styled from "@emotion/styled"
-import { forwardRef, ReactNode, ThHTMLAttributes } from "react"
+import { ElementType, forwardRef, ReactNode, ThHTMLAttributes } from "react"
 
 interface ThProps extends ThHTMLAttributes<HTMLTableCellElement> {
+  as?: ElementType
   children: ReactNode
   /**
    * Defines the cells that the header element relates to.

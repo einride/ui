@@ -1,9 +1,15 @@
 import styled from "@emotion/styled"
-import { ChangeEvent, ReactNode, SelectHTMLAttributes } from "react"
+import {
+  ChangeEvent,
+  ElementType,
+  ReactNode,
+  SelectHTMLAttributes,
+} from "react"
 import { Icon } from "../../../content/Icon/Icon"
 
 export interface LabelDropdownSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
+  as?: ElementType
   children: ReactNode
   isFullWidth?: boolean
   label: ReactNode
