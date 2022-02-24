@@ -1,7 +1,10 @@
 import styled from "@emotion/styled"
+import { ElementType, HTMLAttributes } from "react"
 import { Paragraph } from "../../typography/Paragraph/Paragraph"
 
-export interface ComposedTableProps<Row, Column> {
+export interface ComposedTableProps<Row, Column>
+  extends HTMLAttributes<HTMLTableElement> {
+  as?: ElementType
   headers: {
     displayText: string
     key: Column
@@ -14,9 +17,10 @@ export const ComposedTable = <Row, Column extends keyof Row>({
   headers,
   onRowClick,
   rows,
+  ...props
 }: ComposedTableProps<Row & { id: string }, Column>) => {
   return (
-    <StyledTable>
+    <StyledTable {...props}>
       <thead>
         <tr>
           {headers.map((header) => (

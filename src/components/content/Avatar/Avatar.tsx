@@ -1,9 +1,10 @@
 import { Theme } from "@emotion/react"
 import styled from "@emotion/styled"
-import { forwardRef, ImgHTMLAttributes } from "react"
+import { ElementType, forwardRef, ImgHTMLAttributes } from "react"
 
 export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   alt: string
+  as?: ElementType
   size?: Size
   src: string
 }

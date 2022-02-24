@@ -1,7 +1,8 @@
 import styled from "@emotion/styled"
-import { HTMLAttributes, ReactNode } from "react"
+import { ElementType, HTMLAttributes, ReactNode } from "react"
 
 export interface VerticalLayoutProps extends HTMLAttributes<HTMLDivElement> {
+  as?: ElementType
   children: ReactNode
   size?: Size
 }

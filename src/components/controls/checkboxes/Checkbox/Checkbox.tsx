@@ -2,6 +2,7 @@ import styled from "@emotion/styled"
 import {
   ChangeEvent,
   CSSProperties,
+  ElementType,
   forwardRef,
   InputHTMLAttributes,
   ReactNode,
@@ -9,6 +10,7 @@ import {
 import { Icon } from "../../../content/Icon/Icon"
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
+  as?: ElementType
   children: ReactNode
   labelStyles?: CSSProperties
   onChange: (e: ChangeEvent<HTMLInputElement>) => void

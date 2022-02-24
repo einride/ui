@@ -1,7 +1,8 @@
 import styled from "@emotion/styled"
-import { HTMLAttributes } from "react"
+import { ElementType, HTMLAttributes } from "react"
 
 export interface VerticalSpacingProps extends HTMLAttributes<HTMLDivElement> {
+  as?: ElementType
   size?: Size
 }
 

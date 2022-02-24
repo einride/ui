@@ -1,11 +1,12 @@
 import styled from "@emotion/styled"
-import { ButtonHTMLAttributes, forwardRef } from "react"
+import { ButtonHTMLAttributes, ElementType, forwardRef } from "react"
 import { Icon, IconName } from "../../../content/Icon/Icon"
 import { SecondaryButton } from "../SecondaryButton/SecondaryButton"
 
 export interface IconButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   "aria-label": string
+  as?: ElementType
   icon?: IconName
 }
 

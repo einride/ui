@@ -1,7 +1,8 @@
 import styled from "@emotion/styled"
-import { forwardRef, HTMLAttributes, ReactNode } from "react"
+import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 
 export interface TheadProps extends HTMLAttributes<HTMLTableSectionElement> {
+  as?: ElementType
   children: ReactNode
 }
 

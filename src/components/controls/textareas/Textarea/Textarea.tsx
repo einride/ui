@@ -1,7 +1,8 @@
 import styled from "@emotion/styled"
-import { ChangeEvent, CSSProperties } from "react"
+import { ChangeEvent, CSSProperties, ElementType } from "react"
 
 export interface TextareaProps {
+  as?: ElementType
   classname?: string
   label?: string
   labelStyles?: CSSProperties

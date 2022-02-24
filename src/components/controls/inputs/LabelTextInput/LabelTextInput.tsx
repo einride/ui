@@ -1,11 +1,18 @@
 import styled from "@emotion/styled"
-import { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode } from "react"
+import {
+  ChangeEvent,
+  ElementType,
+  FocusEvent,
+  InputHTMLAttributes,
+  ReactNode,
+} from "react"
 import { Theme } from "../../../../lib/theme/theme"
 import { Icon } from "../../../content/Icon/Icon"
 import { BaseInput } from "../BaseInput/BaseInput"
 
 export interface LabelTextInputProps
   extends InputHTMLAttributes<HTMLInputElement> {
+  as?: ElementType
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
   label: ReactNode

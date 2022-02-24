@@ -1,11 +1,12 @@
 import styled from "@emotion/styled"
-import { InputHTMLAttributes } from "react"
+import { ElementType, InputHTMLAttributes } from "react"
 import { Icon } from "../../../content/Icon/Icon"
 import { BaseInput } from "../BaseInput/BaseInput"
 
 export interface SearchInputProps
   extends InputHTMLAttributes<HTMLInputElement> {
   "aria-label": string
+  as?: ElementType
   onInputChange: (input: string) => void
   placeholder: string
   value: string

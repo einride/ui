@@ -1,10 +1,16 @@
 import styled from "@emotion/styled"
-import { ChangeEvent, ReactNode, SelectHTMLAttributes } from "react"
+import {
+  ChangeEvent,
+  ElementType,
+  ReactNode,
+  SelectHTMLAttributes,
+} from "react"
 import { Icon } from "../../../content/Icon/Icon"
 
 export interface DefaultDropdownSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
   "aria-label": string
+  as?: ElementType
   children: ReactNode
   isFullWidth?: boolean
   onChange?: (e: ChangeEvent<HTMLSelectElement>) => void

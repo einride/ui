@@ -1,7 +1,8 @@
 import styled from "@emotion/styled"
-import { ButtonHTMLAttributes, forwardRef, ReactNode } from "react"
+import { ButtonHTMLAttributes, ElementType, forwardRef, ReactNode } from "react"
 
 export interface SegmentProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  as?: ElementType
   children: ReactNode
   onClick: () => void
   selected?: boolean

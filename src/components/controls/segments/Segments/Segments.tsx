@@ -1,5 +1,6 @@
 import styled from "@emotion/styled"
 import {
+  ElementType,
   forwardRef,
   HTMLAttributes,
   KeyboardEvent,
@@ -10,6 +11,7 @@ import {
 import { Segment } from "../Segment/Segment"
 
 export interface SegmentsProps extends HTMLAttributes<HTMLDivElement> {
+  as?: ElementType
   segments: {
     content: ReactNode
     id: string

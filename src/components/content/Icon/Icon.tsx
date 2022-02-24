@@ -1,6 +1,7 @@
-import { forwardRef, HTMLAttributes } from "react"
+import { ElementType, forwardRef, HTMLAttributes } from "react"
 
 export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
+  as?: ElementType
   name: IconName
 }
 
