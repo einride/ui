@@ -7,47 +7,32 @@ import {
   ReactNode,
 } from "react"
 import { Theme } from "../../../../lib/theme/theme"
+import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
+import { Caption } from "../../../typography/Caption/Caption"
 import { BaseInput } from "../BaseInput/BaseInput"
 
 export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   "aria-label": string
   as?: ElementType
+  message?: ReactNode
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
   placeholder: string
   status?: Status
-  statusMessage?: ReactNode
   value: string
 }
 
-export const TextInput = ({
-  status,
-  statusMessage,
-  ...props
-}: TextInputProps) => {
+export const TextInput = ({ message, status, ...props }: TextInputProps) => {
   return (
     <Wrapper status={status}>
-      <StyledBaseInput
-        icon={getStatusIcon(status)}
-        status={status}
-        {...props}
-      />
-      {status && <StyledMessage>{statusMessage}</StyledMessage>}
+      <BaseInput icon={getStatusIcon(status)} {...props} />
+      {status && <Caption color={getMessageColor(status)}>{message}</Caption>}
     </Wrapper>
   )
 }
 
-const getBackgroundColor = (theme: Theme, status?: Status) => {
-  switch (status) {
-    case "success":
-      return theme.colors.background.positive
-    case "fail":
-      return theme.colors.background.negative
-    default:
-      return theme.colors.background.secondary
-  }
-}
+type Status = "success" | "fail" | "neutral"
 
 const getColor = (theme: Theme, status?: Status) => {
   switch (status) {
@@ -75,17 +60,13 @@ const Wrapper = styled.div<{ status: Status | undefined }>`
   color: ${({ theme, status }) => getColor(theme, status)};
 `
 
-const StyledBaseInput = styled(BaseInput)<{ status: Status | undefined }>`
-  background: ${({ theme, status }) => getBackgroundColor(theme, status)};
-  &:hover:not(:disabled) {
-    background: ${({ theme, status }) => getBackgroundColor(theme, status)};
+const getMessageColor = (status: Status | undefined): ContentColor => {
+  switch (status) {
+    case "success":
+      return "positive"
+    case "fail":
+      return "negative"
+    default:
+      return "secondary"
   }
-`
-
-const StyledMessage = styled.div`
-  color: ${({ theme }) => theme.colors.content.secondary};
-  margin: 3px 0 5px;
-  font-size: ${({ theme }) => theme.fontSizes.sm};
-`
-
-type Status = "success" | "fail"
+}

@@ -37,7 +37,7 @@ export const Textarea = ({
   )
 }
 
-type Status = "success" | "fail"
+type Status = "success" | "fail" | "neutral"
 
 const StyledLabel = styled.label`
   font-family: ${({ theme }) => theme.fonts.body};
