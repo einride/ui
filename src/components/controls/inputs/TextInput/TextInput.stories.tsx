@@ -28,13 +28,13 @@ Default.args = {
 export const Positive = Template.bind({})
 Positive.args = {
   ...Default.args,
+  message: "Confirmation message.",
   status: "success",
-  statusMessage: "Confirmation message.",
 }
 
 export const Negative = Template.bind({})
 Negative.args = {
   ...Default.args,
+  message: "Error message.",
   status: "fail",
-  statusMessage: "Error message.",
 }

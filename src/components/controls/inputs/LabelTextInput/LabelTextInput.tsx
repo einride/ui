@@ -7,7 +7,9 @@ import {
   ReactNode,
 } from "react"
 import { Theme } from "../../../../lib/theme/theme"
+import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
+import { Caption } from "../../../typography/Caption/Caption"
 import { BaseInput } from "../BaseInput/BaseInput"
 
 export interface LabelTextInputProps
@@ -16,75 +18,45 @@ export interface LabelTextInputProps
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
   label: ReactNode
+  message?: ReactNode
   placeholder: string
   required?: boolean
   status?: Status
-  statusMessage?: ReactNode
   value: string
 }
 
 export const LabelTextInput = ({
   label,
+  message,
   required,
   status,
-  statusMessage,
   ...props
 }: LabelTextInputProps) => {
   return (
-    <StyledLabel status={status}>
+    <StyledLabel>
       {label} {required && " (required)"}
       <Wrapper status={status}>
-        <StyledBaseInput
-          icon={getStatusIcon(status)}
-          status={status}
-          {...props}
-        />
-        {status && <StyledMessage>{statusMessage}</StyledMessage>}
+        <BaseInput icon={getStatusIcon(status)} {...props} />
+        {message && (
+          <Caption color={getMessageColor(status)}>{message}</Caption>
+        )}
       </Wrapper>
     </StyledLabel>
   )
 }
 
-const StyledLabel = styled.label<{ status: Status | undefined }>`
+type Status = "success" | "fail" | "neutral"
+
+const StyledLabel = styled.label`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
   margin: 5px 0 3px;
-  color: ${({ theme, status }) => getColor(theme, status)};
-
-  &:focus-within {
-    color: ${({ theme, status }) => getColor(theme, status)};
-  }
+  color: ${({ theme }) => theme.colors.content.secondary};
 `
 
 const Wrapper = styled.div<{ status: Status | undefined }>`
   color: ${({ theme, status }) => getColor(theme, status)};
 `
-
-const StyledBaseInput = styled(BaseInput)<{ status: Status | undefined }>`
-  background: ${({ theme, status }) => getBackgroundColor(theme, status)};
-  &:hover:not(:disabled) {
-    background: ${({ theme, status }) => getBackgroundColor(theme, status)};
-  }
-`
-
-const StyledMessage = styled.div`
-  color: ${({ theme }) => theme.colors.content.secondary};
-  margin: 3px 0 5px;
-  font-size: ${({ theme }) => theme.fontSizes.sm};
-`
-
-type Status = "success" | "fail"
-
-const getBackgroundColor = (theme: Theme, status?: Status) => {
-  switch (status) {
-    case "success":
-      return theme.colors.background.positive
-    case "fail":
-      return theme.colors.background.negative
-    default:
-      return theme.colors.background.secondary
-  }
-}
 
 const getColor = (theme: Theme, status?: Status) => {
   switch (status) {
@@ -105,5 +77,16 @@ const getStatusIcon = (status?: Status) => {
       return <Icon name="warning" />
     default:
       return null
+  }
+}
+
+const getMessageColor = (status: Status | undefined): ContentColor => {
+  switch (status) {
+    case "success":
+      return "positive"
+    case "fail":
+      return "negative"
+    default:
+      return "secondary"
   }
 }
