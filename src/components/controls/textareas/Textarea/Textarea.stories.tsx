@@ -20,13 +20,14 @@ export default {
 const Template: Story<TextareaProps> = (args) => <Textarea {...args} />
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  label: "Label",
+  placeholder: "Placeholder...",
+}
 
-export const DefaultPlaceholder = Template.bind({})
-DefaultPlaceholder.args = { placeholder: "Placeholder..." }
-
-export const Label = Template.bind({})
-Label.args = { label: "Label" }
-
-export const LabelPlaceholder = Template.bind({})
-LabelPlaceholder.args = { label: "Label", placeholder: "Placeholder..." }
+export const Message = Template.bind({})
+Message.args = {
+  label: "Label",
+  placeholder: "Placeholder...",
+  message: "Message",
+}
