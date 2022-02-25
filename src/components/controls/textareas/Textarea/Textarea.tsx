@@ -1,32 +1,53 @@
 import styled from "@emotion/styled"
-import { ChangeEvent, CSSProperties, ElementType } from "react"
+import {
+  ChangeEvent,
+  CSSProperties,
+  ElementType,
+  ReactNode,
+  TextareaHTMLAttributes,
+} from "react"
+import { ContentColor } from "../../../../lib/theme/types"
+import { Caption } from "../../../typography/Caption/Caption"
 
-export interface TextareaProps {
+export interface TextareaProps
+  extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   as?: ElementType
-  classname?: string
-  label?: string
+  label: ReactNode
   labelStyles?: CSSProperties
+  message?: ReactNode
   onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
   placeholder?: string
+  status?: Status
   value: string
 }
 
 export const Textarea = ({
   label,
   labelStyles = {},
+  message,
+  status,
   ...props
 }: TextareaProps) => {
-  if (label) {
-    return (
-      <StyledLabel style={labelStyles}>
-        {label}
-        <StyledTextarea {...props} />
-      </StyledLabel>
-    )
-  }
-
-  return <StyledTextarea {...props} />
+  return (
+    <StyledLabel style={labelStyles}>
+      {label}
+      <StyledTextarea {...props} />
+      {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
+    </StyledLabel>
+  )
 }
+
+type Status = "success" | "fail"
+
+const StyledLabel = styled.label`
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  color: ${({ theme }) => theme.colors.content.secondary};
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+`
 
 const StyledTextarea = styled.textarea`
   font-family: ${({ theme }) => theme.fonts.body};
@@ -54,16 +75,18 @@ const StyledTextarea = styled.textarea`
   }
 
   &:focus {
-    box-shadow: 0px 0px 0px 1px ${({ theme }) => theme.colors.border.selected}
-      inset;
+    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.border.selected} inset;
     outline: none;
   }
 `
 
-const StyledLabel = styled.label`
-  color: ${({ theme }) => theme.colors.content.secondary};
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-top: 5px;
-`
+const getMessageColor = (status: Status | undefined): ContentColor => {
+  switch (status) {
+    case "success":
+      return "positive"
+    case "fail":
+      return "negative"
+    default:
+      return "secondary"
+  }
+}
