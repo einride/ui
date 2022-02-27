@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ElementType, HTMLAttributes, ReactNode } from "react"
+import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 
 export interface VerticalLayoutProps extends HTMLAttributes<HTMLDivElement> {
   as?: ElementType
@@ -7,12 +7,12 @@ export interface VerticalLayoutProps extends HTMLAttributes<HTMLDivElement> {
   size?: Size
 }
 
-export const VerticalLayout = ({
-  size = "sm",
-  ...props
-}: VerticalLayoutProps) => {
-  return <StyledDiv size={size} {...props} />
-}
+export const VerticalLayout = forwardRef<HTMLDivElement, VerticalLayoutProps>(
+  ({ size = "sm", ...props }, ref) => {
+    return <StyledDiv size={size} {...props} ref={ref} />
+  },
+)
+
 const getGap = (size?: Size) => {
   switch (size) {
     case "xs":

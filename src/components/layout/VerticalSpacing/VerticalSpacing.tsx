@@ -1,17 +1,16 @@
 import styled from "@emotion/styled"
-import { ElementType, HTMLAttributes } from "react"
+import { ElementType, forwardRef, HTMLAttributes } from "react"
 
 export interface VerticalSpacingProps extends HTMLAttributes<HTMLDivElement> {
   as?: ElementType
   size?: Size
 }
 
-export const VerticalSpacing = ({
-  size = "sm",
-  ...props
-}: VerticalSpacingProps) => {
-  return <StyledDiv size={size} {...props} />
-}
+export const VerticalSpacing = forwardRef<HTMLDivElement, VerticalSpacingProps>(
+  ({ size = "sm", ...props }, ref) => {
+    return <StyledDiv size={size} {...props} ref={ref} />
+  },
+)
 
 const getHeight = (size?: Size) => {
   switch (size) {
