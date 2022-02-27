@@ -3,6 +3,7 @@ import {
   ChangeEvent,
   CSSProperties,
   ElementType,
+  forwardRef,
   InputHTMLAttributes,
   ReactNode,
 } from "react"
@@ -14,14 +15,16 @@ export interface RadioProps extends InputHTMLAttributes<HTMLInputElement> {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-export const Radio = ({ children, labelStyles = {}, ...props }: RadioProps) => {
-  return (
-    <StyledLabel style={labelStyles}>
-      <StyledRadio type="radio" {...props} />
-      {children}
-    </StyledLabel>
-  )
-}
+export const Radio = forwardRef<HTMLInputElement, RadioProps>(
+  ({ children, labelStyles = {}, ...props }, ref) => {
+    return (
+      <StyledLabel style={labelStyles}>
+        <StyledRadio type="radio" {...props} ref={ref} />
+        {children}
+      </StyledLabel>
+    )
+  },
+)
 
 const StyledInput = styled.input`
   appearance: none;
