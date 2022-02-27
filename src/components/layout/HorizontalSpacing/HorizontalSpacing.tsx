@@ -1,17 +1,17 @@
 import styled from "@emotion/styled"
-import { ElementType, HTMLAttributes } from "react"
+import { ElementType, forwardRef, HTMLAttributes } from "react"
 
 export interface HorizontalSpacingProps extends HTMLAttributes<HTMLDivElement> {
   as?: ElementType
   size?: Size
 }
 
-export const HorizontalSpacing = ({
-  size = "sm",
-  ...props
-}: HorizontalSpacingProps) => {
-  return <StyledDiv size={size} {...props} />
-}
+export const HorizontalSpacing = forwardRef<
+  HTMLDivElement,
+  HorizontalSpacingProps
+>(({ size = "sm", ...props }, ref) => {
+  return <StyledDiv size={size} {...props} ref={ref} />
+})
 
 const getWidth = (size?: Size) => {
   switch (size) {
