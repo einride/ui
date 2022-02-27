@@ -2,6 +2,7 @@ import styled from "@emotion/styled"
 import {
   ChangeEvent,
   ElementType,
+  forwardRef,
   ReactNode,
   SelectHTMLAttributes,
 } from "react"
@@ -17,22 +18,20 @@ export interface DefaultDropdownSelectProps
   placeholder?: string
 }
 
-export const DefaultDropdownSelect = ({
-  children,
-  isFullWidth = false,
-  placeholder,
-  ...props
-}: DefaultDropdownSelectProps) => {
+export const DefaultDropdownSelect = forwardRef<
+  HTMLSelectElement,
+  DefaultDropdownSelectProps
+>(({ children, isFullWidth = false, placeholder, ...props }, ref) => {
   return (
     <Wrapper isFullWidth={isFullWidth}>
-      <StyledSelect isFullWidth={isFullWidth} {...props}>
+      <StyledSelect isFullWidth={isFullWidth} {...props} ref={ref}>
         {placeholder && <option value="">{placeholder}</option>}
         {children}
       </StyledSelect>
       <StyledIcon name="chevronDown" />
     </Wrapper>
   )
-}
+})
 
 const Wrapper = styled.div<{ isFullWidth?: boolean }>`
   position: relative;
