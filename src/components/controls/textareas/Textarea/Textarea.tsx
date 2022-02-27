@@ -4,6 +4,7 @@ import {
   ChangeEvent,
   CSSProperties,
   ElementType,
+  forwardRef,
   ReactNode,
   TextareaHTMLAttributes,
 } from "react"
@@ -24,27 +25,27 @@ export interface TextareaProps
   wrapperStyles?: CSSProperties
 }
 
-export const Textarea = ({
-  label,
-  labelStyles = {},
-  message,
-  status,
-  wrapperStyles = {},
-  ...props
-}: TextareaProps) => {
-  const theme = useTheme()
+export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
+  (
+    { label, labelStyles = {}, message, status, wrapperStyles = {}, ...props },
+    ref,
+  ) => {
+    const theme = useTheme()
 
-  return (
-    <StyledLabel style={labelStyles}>
-      {label}
-      <Wrapper style={wrapperStyles}>
-        <StyledTextarea {...props} />
-        <IconWrapper>{getStatusIcon(theme, status)}</IconWrapper>
-      </Wrapper>
-      {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
-    </StyledLabel>
-  )
-}
+    return (
+      <StyledLabel style={labelStyles}>
+        {label}
+        <Wrapper style={wrapperStyles}>
+          <StyledTextarea {...props} ref={ref} />
+          <IconWrapper>{getStatusIcon(theme, status)}</IconWrapper>
+        </Wrapper>
+        {message && (
+          <Caption color={getMessageColor(status)}>{message}</Caption>
+        )}
+      </StyledLabel>
+    )
+  },
+)
 
 type Status = "success" | "fail" | "neutral"
 
