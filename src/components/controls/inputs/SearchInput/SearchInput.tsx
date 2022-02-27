@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ElementType, InputHTMLAttributes } from "react"
+import { ElementType, forwardRef, InputHTMLAttributes } from "react"
 import { Icon } from "../../../content/Icon/Icon"
 import { BaseInput } from "../BaseInput/BaseInput"
 
@@ -12,27 +12,26 @@ export interface SearchInputProps
   value: string
 }
 
-export const SearchInput = ({
-  value,
-  onInputChange,
-  ...props
-}: SearchInputProps) => {
-  return (
-    <Wrapper>
-      <StyledInput
-        value={value}
-        onChange={(e) => onInputChange(e.target.value)}
-        {...props}
-      />
-      <LoupeIcon name="loupe" />
-      {value && (
-        <ClearButton onClick={() => onInputChange("")}>
-          <Icon name="xMark" />
-        </ClearButton>
-      )}
-    </Wrapper>
-  )
-}
+export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
+  ({ value, onInputChange, ...props }, ref) => {
+    return (
+      <Wrapper>
+        <StyledInput
+          value={value}
+          onChange={(e) => onInputChange(e.target.value)}
+          {...props}
+          ref={ref}
+        />
+        <LoupeIcon name="loupe" />
+        {value && (
+          <ClearButton onClick={() => onInputChange("")}>
+            <Icon name="xMark" />
+          </ClearButton>
+        )}
+      </Wrapper>
+    )
+  },
+)
 
 const Wrapper = styled.div`
   position: relative;

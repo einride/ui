@@ -3,6 +3,7 @@ import {
   ChangeEvent,
   ElementType,
   FocusEvent,
+  forwardRef,
   InputHTMLAttributes,
   ReactNode,
 } from "react"
@@ -23,16 +24,20 @@ export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   value: string
 }
 
-export const TextInput = ({ message, status, ...props }: TextInputProps) => {
-  const theme = useTheme()
+export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
+  ({ message, status, ...props }, ref) => {
+    const theme = useTheme()
 
-  return (
-    <>
-      <BaseInput icon={getStatusIcon(theme, status)} {...props} />
-      {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
-    </>
-  )
-}
+    return (
+      <>
+        <BaseInput icon={getStatusIcon(theme, status)} {...props} ref={ref} />
+        {message && (
+          <Caption color={getMessageColor(status)}>{message}</Caption>
+        )}
+      </>
+    )
+  },
+)
 
 type Status = "success" | "fail" | "neutral"
 

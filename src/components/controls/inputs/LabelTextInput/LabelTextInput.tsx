@@ -4,6 +4,7 @@ import {
   ChangeEvent,
   ElementType,
   FocusEvent,
+  forwardRef,
   InputHTMLAttributes,
   ReactNode,
 } from "react"
@@ -26,23 +27,21 @@ export interface LabelTextInputProps
   value: string
 }
 
-export const LabelTextInput = ({
-  label,
-  message,
-  required,
-  status,
-  ...props
-}: LabelTextInputProps) => {
-  const theme = useTheme()
+export const LabelTextInput = forwardRef<HTMLInputElement, LabelTextInputProps>(
+  ({ label, message, required, status, ...props }, ref) => {
+    const theme = useTheme()
 
-  return (
-    <StyledLabel>
-      {label} {required && " (required)"}
-      <BaseInput icon={getStatusIcon(theme, status)} {...props} />
-      {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
-    </StyledLabel>
-  )
-}
+    return (
+      <StyledLabel>
+        {label} {required && " (required)"}
+        <BaseInput icon={getStatusIcon(theme, status)} {...props} ref={ref} />
+        {message && (
+          <Caption color={getMessageColor(status)}>{message}</Caption>
+        )}
+      </StyledLabel>
+    )
+  },
+)
 
 type Status = "success" | "fail" | "neutral"
 

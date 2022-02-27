@@ -3,6 +3,7 @@ import {
   ChangeEvent,
   ElementType,
   FocusEvent,
+  forwardRef,
   InputHTMLAttributes,
   ReactNode,
 } from "react"
@@ -16,14 +17,16 @@ export interface BaseInputProps extends InputHTMLAttributes<HTMLInputElement> {
   value: string
 }
 
-export const BaseInput = ({ icon, ...props }: BaseInputProps) => {
-  return (
-    <ContentWrapper>
-      <StyledInput {...props} />
-      <IconWrapper>{icon}</IconWrapper>
-    </ContentWrapper>
-  )
-}
+export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
+  ({ icon, ...props }, ref) => {
+    return (
+      <ContentWrapper>
+        <StyledInput {...props} ref={ref} />
+        <IconWrapper>{icon}</IconWrapper>
+      </ContentWrapper>
+    )
+  },
+)
 
 const ContentWrapper = styled.div`
   position: relative;
