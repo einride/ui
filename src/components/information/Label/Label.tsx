@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ElementType, HTMLAttributes, ReactNode } from "react"
+import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 import { Theme } from "../../../lib/theme/theme"
 
 export interface LabelProps extends HTMLAttributes<HTMLSpanElement> {
@@ -8,17 +8,16 @@ export interface LabelProps extends HTMLAttributes<HTMLSpanElement> {
   variant?: Variant
 }
 
-export const Label = ({
-  children,
-  variant = "default",
-  ...props
-}: LabelProps) => {
-  return (
-    <StyledSpan variant={variant} {...props}>
-      {children}
-    </StyledSpan>
-  )
-}
+export const Label = forwardRef<HTMLSpanElement, LabelProps>(
+  ({ children, variant = "default", ...props }, ref) => {
+    return (
+      <StyledSpan variant={variant} {...props} ref={ref}>
+        {children}
+      </StyledSpan>
+    )
+  },
+)
+
 const getBackground = (theme: Theme, variant?: Variant) => {
   switch (variant) {
     case "default":
