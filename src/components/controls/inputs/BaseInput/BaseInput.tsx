@@ -12,7 +12,7 @@ export interface BaseInputProps extends InputHTMLAttributes<HTMLInputElement> {
   onBlur?: ((e: FocusEvent<HTMLInputElement>) => void) | undefined
   onChange: ((e: ChangeEvent<HTMLInputElement>) => void) | undefined
   icon?: ReactNode
-  placeholder: string
+  placeholder?: string
   value: string
 }
 

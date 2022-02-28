@@ -19,7 +19,7 @@ export interface LabelTextInputProps
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
   label: ReactNode
   message?: ReactNode
-  placeholder: string
+  placeholder?: string
   required?: boolean
   status?: Status
   value: string
