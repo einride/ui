@@ -1,3 +1,4 @@
+import { useTheme } from "@emotion/react"
 import styled from "@emotion/styled"
 import {
   ChangeEvent,
@@ -32,15 +33,13 @@ export const LabelTextInput = ({
   status,
   ...props
 }: LabelTextInputProps) => {
+  const theme = useTheme()
+
   return (
     <StyledLabel>
       {label} {required && " (required)"}
-      <Wrapper status={status}>
-        <BaseInput icon={getStatusIcon(status)} {...props} />
-        {message && (
-          <Caption color={getMessageColor(status)}>{message}</Caption>
-        )}
-      </Wrapper>
+      <BaseInput icon={getStatusIcon(theme, status)} {...props} />
+      {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
     </StyledLabel>
   )
 }
@@ -54,27 +53,19 @@ const StyledLabel = styled.label`
   color: ${({ theme }) => theme.colors.content.secondary};
 `
 
-const Wrapper = styled.div<{ status: Status | undefined }>`
-  color: ${({ theme, status }) => getColor(theme, status)};
-`
-
-const getColor = (theme: Theme, status?: Status) => {
+const getStatusIcon = (theme: Theme, status?: Status) => {
   switch (status) {
     case "success":
-      return theme.colors.content.positive
+      return (
+        <Icon
+          name="checkmark"
+          style={{ color: theme.colors.content.positive }}
+        />
+      )
     case "fail":
-      return theme.colors.content.negative
-    default:
-      return theme.colors.content.secondary
-  }
-}
-
-const getStatusIcon = (status?: Status) => {
-  switch (status) {
-    case "success":
-      return <Icon name="checkmark" />
-    case "fail":
-      return <Icon name="warning" />
+      return (
+        <Icon name="warning" style={{ color: theme.colors.content.negative }} />
+      )
     default:
       return null
   }
