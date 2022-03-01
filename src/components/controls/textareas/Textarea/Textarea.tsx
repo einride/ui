@@ -1,4 +1,4 @@
-import { Theme } from "@emotion/react"
+import { Theme, useTheme } from "@emotion/react"
 import styled from "@emotion/styled"
 import {
   ChangeEvent,
@@ -21,6 +21,7 @@ export interface TextareaProps
   placeholder?: string
   status?: Status
   value: string
+  wrapperStyles?: CSSProperties
 }
 
 export const Textarea = ({
@@ -28,14 +29,17 @@ export const Textarea = ({
   labelStyles = {},
   message,
   status,
+  wrapperStyles = {},
   ...props
 }: TextareaProps) => {
+  const theme = useTheme()
+
   return (
     <StyledLabel style={labelStyles}>
       {label}
-      <Wrapper status={status}>
+      <Wrapper style={wrapperStyles}>
         <StyledTextarea {...props} />
-        <IconWrapper>{getStatusIcon(status)}</IconWrapper>
+        <IconWrapper>{getStatusIcon(theme, status)}</IconWrapper>
       </Wrapper>
       {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
     </StyledLabel>
@@ -54,21 +58,9 @@ const StyledLabel = styled.label`
   margin-top: 5px;
 `
 
-const Wrapper = styled.div<{ status: Status | undefined }>`
+const Wrapper = styled.div`
   position: relative;
-  color: ${({ theme, status }) => getColor(theme, status)};
 `
-
-const getColor = (theme: Theme, status?: Status) => {
-  switch (status) {
-    case "success":
-      return theme.colors.content.positive
-    case "fail":
-      return theme.colors.content.negative
-    default:
-      return theme.colors.content.secondary
-  }
-}
 
 const StyledTextarea = styled.textarea`
   font-family: ${({ theme }) => theme.fonts.body};
@@ -106,13 +98,19 @@ const IconWrapper = styled.span`
   top: ${({ theme }) => 1.5 * theme.spacer}px;
   right: ${({ theme }) => 2 * theme.spacer}px;
 `
-
-const getStatusIcon = (status?: Status) => {
+const getStatusIcon = (theme: Theme, status?: Status) => {
   switch (status) {
     case "success":
-      return <Icon name="checkmark" />
+      return (
+        <Icon
+          name="checkmark"
+          style={{ color: theme.colors.content.positive }}
+        />
+      )
     case "fail":
-      return <Icon name="warning" />
+      return (
+        <Icon name="warning" style={{ color: theme.colors.content.negative }} />
+      )
     default:
       return null
   }
