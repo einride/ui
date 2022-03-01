@@ -1,4 +1,4 @@
-import styled from "@emotion/styled"
+import { useTheme } from "@emotion/react"
 import {
   ChangeEvent,
   ElementType,
@@ -24,41 +24,35 @@ export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const TextInput = ({ message, status, ...props }: TextInputProps) => {
+  const theme = useTheme()
+
   return (
-    <Wrapper status={status}>
-      <BaseInput icon={getStatusIcon(status)} {...props} />
-      {status && <Caption color={getMessageColor(status)}>{message}</Caption>}
-    </Wrapper>
+    <>
+      <BaseInput icon={getStatusIcon(theme, status)} {...props} />
+      {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
+    </>
   )
 }
 
 type Status = "success" | "fail" | "neutral"
 
-const getColor = (theme: Theme, status?: Status) => {
+const getStatusIcon = (theme: Theme, status?: Status) => {
   switch (status) {
     case "success":
-      return theme.colors.content.positive
+      return (
+        <Icon
+          name="checkmark"
+          style={{ color: theme.colors.content.positive }}
+        />
+      )
     case "fail":
-      return theme.colors.content.negative
-    default:
-      return theme.colors.content.secondary
-  }
-}
-
-const getStatusIcon = (status?: Status) => {
-  switch (status) {
-    case "success":
-      return <Icon name="checkmark" />
-    case "fail":
-      return <Icon name="warning" />
+      return (
+        <Icon name="warning" style={{ color: theme.colors.content.negative }} />
+      )
     default:
       return null
   }
 }
-
-const Wrapper = styled.div<{ status: Status | undefined }>`
-  color: ${({ theme, status }) => getColor(theme, status)};
-`
 
 const getMessageColor = (status: Status | undefined): ContentColor => {
   switch (status) {

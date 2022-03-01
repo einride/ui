@@ -1,3 +1,4 @@
+import { Theme } from "@emotion/react"
 import styled from "@emotion/styled"
 import {
   ChangeEvent,
@@ -7,6 +8,7 @@ import {
   TextareaHTMLAttributes,
 } from "react"
 import { ContentColor } from "../../../../lib/theme/types"
+import { Icon } from "../../../content/Icon/Icon"
 import { Caption } from "../../../typography/Caption/Caption"
 
 export interface TextareaProps
@@ -31,7 +33,10 @@ export const Textarea = ({
   return (
     <StyledLabel style={labelStyles}>
       {label}
-      <StyledTextarea {...props} />
+      <Wrapper status={status}>
+        <StyledTextarea {...props} />
+        <IconWrapper>{getStatusIcon(status)}</IconWrapper>
+      </Wrapper>
       {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
     </StyledLabel>
   )
@@ -48,6 +53,22 @@ const StyledLabel = styled.label`
   flex-direction: column;
   margin-top: 5px;
 `
+
+const Wrapper = styled.div<{ status: Status | undefined }>`
+  position: relative;
+  color: ${({ theme, status }) => getColor(theme, status)};
+`
+
+const getColor = (theme: Theme, status?: Status) => {
+  switch (status) {
+    case "success":
+      return theme.colors.content.positive
+    case "fail":
+      return theme.colors.content.negative
+    default:
+      return theme.colors.content.secondary
+  }
+}
 
 const StyledTextarea = styled.textarea`
   font-family: ${({ theme }) => theme.fonts.body};
@@ -79,6 +100,23 @@ const StyledTextarea = styled.textarea`
     outline: none;
   }
 `
+
+const IconWrapper = styled.span`
+  position: absolute;
+  top: ${({ theme }) => 1.5 * theme.spacer}px;
+  right: ${({ theme }) => 2 * theme.spacer}px;
+`
+
+const getStatusIcon = (status?: Status) => {
+  switch (status) {
+    case "success":
+      return <Icon name="checkmark" />
+    case "fail":
+      return <Icon name="warning" />
+    default:
+      return null
+  }
+}
 
 const getMessageColor = (status: Status | undefined): ContentColor => {
   switch (status) {

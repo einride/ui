@@ -25,6 +25,11 @@ export const BaseInput = ({ icon, ...props }: BaseInputProps) => {
   )
 }
 
+const ContentWrapper = styled.div`
+  position: relative;
+  display: block;
+`
+
 const StyledInput = styled.input`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
@@ -53,11 +58,6 @@ const StyledInput = styled.input`
   &:disabled::placeholder {
     color: ${({ theme }) => theme.colors.content.tertiary};
   }
-`
-
-const ContentWrapper = styled.label`
-  position: relative;
-  display: block;
 `
 
 const IconWrapper = styled.span`
