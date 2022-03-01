@@ -14,7 +14,7 @@ export interface RadioProps extends InputHTMLAttributes<HTMLInputElement> {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-export const Radio = ({ children, labelStyles, ...props }: RadioProps) => {
+export const Radio = ({ children, labelStyles = {}, ...props }: RadioProps) => {
   return (
     <StyledLabel style={labelStyles}>
       <StyledRadio type="radio" {...props} />

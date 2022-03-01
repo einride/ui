@@ -17,7 +17,7 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ children, labelStyles, ...props }, ref) => {
+  ({ children, labelStyles = {}, ...props }, ref) => {
     return (
       <Wrapper>
         <StyledLabel style={labelStyles}>
