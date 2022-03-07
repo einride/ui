@@ -24,6 +24,11 @@ const Template: Story<VerticalLayoutProps> = (args) => (
 export const Default = Template.bind({})
 Default.args = {}
 
+export const None = Template.bind({})
+None.args = {
+  size: "none",
+}
+
 export const ExtraSmall = Template.bind({})
 ExtraSmall.args = {
   size: "xs",
