@@ -16,6 +16,8 @@ export const VerticalLayout = forwardRef<HTMLDivElement, VerticalLayoutProps>(
 
 const getGap = (size?: Size) => {
   switch (size) {
+    case "none":
+      return 0
     case "xs":
       return 8
     case "sm":
@@ -36,4 +38,4 @@ const StyledDiv = styled.div<VerticalLayoutProps>`
   grid-row-gap: ${({ size }) => getGap(size)}px;
 `
 
-type Size = "xs" | "sm" | "md" | "lg" | "xl"
+type Size = "none" | "xs" | "sm" | "md" | "lg" | "xl"
