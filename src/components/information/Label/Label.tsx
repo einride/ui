@@ -5,6 +5,7 @@ import { Theme } from "../../../lib/theme/theme"
 export interface LabelProps extends HTMLAttributes<HTMLSpanElement> {
   as?: ElementType
   children: ReactNode
+  /** Default value: "default" */
   variant?: Variant
 }
 

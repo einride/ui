@@ -4,6 +4,7 @@ import { forwardRef, HTMLAttributes } from "react"
 import { Icon } from "../../content/Icon/Icon"
 
 export interface ChargerPinProps extends HTMLAttributes<HTMLDivElement> {
+  /** Default: "md" */
   size: Size
 }
 

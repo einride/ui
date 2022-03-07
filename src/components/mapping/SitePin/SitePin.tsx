@@ -2,6 +2,7 @@ import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
 
 export interface SitePinProps extends HTMLAttributes<HTMLDivElement> {
+  /** Default: "md" */
   size: Size
 }
 

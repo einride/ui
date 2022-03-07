@@ -20,6 +20,7 @@ export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
   placeholder: string
+  /** Default: "neutral" */
   status?: Status
   value: string
 }
