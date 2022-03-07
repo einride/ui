@@ -7,6 +7,7 @@ import { Avatar } from "../Avatar/Avatar"
 export interface UserAccessPointProps
   extends HTMLAttributes<HTMLButtonElement> {
   avatarImageSrc: string
+  /** Default: "md" */
   size?: Size
   variant?: Variant
 }

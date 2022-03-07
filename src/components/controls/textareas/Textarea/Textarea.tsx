@@ -20,6 +20,7 @@ export interface TextareaProps
   message?: ReactNode
   onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
   placeholder?: string
+  /** Default: "neutral" */
   status?: Status
   value: string
   wrapperStyles?: CSSProperties

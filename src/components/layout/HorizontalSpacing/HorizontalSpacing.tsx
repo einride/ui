@@ -3,6 +3,7 @@ import { ElementType, forwardRef, HTMLAttributes } from "react"
 
 export interface HorizontalSpacingProps extends HTMLAttributes<HTMLDivElement> {
   as?: ElementType
+  /** Default value: "sm" */
   size?: Size
 }
 

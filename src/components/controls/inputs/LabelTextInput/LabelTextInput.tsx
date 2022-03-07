@@ -23,6 +23,7 @@ export interface LabelTextInputProps
   message?: ReactNode
   placeholder?: string
   required?: boolean
+  /** Default: "neutral" */
   status?: Status
   value: string
 }

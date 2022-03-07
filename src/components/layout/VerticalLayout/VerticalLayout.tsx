@@ -4,6 +4,7 @@ import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 export interface VerticalLayoutProps extends HTMLAttributes<HTMLDivElement> {
   as?: ElementType
   children: ReactNode
+  /**  Default: "sm" */
   size?: Size
 }
 

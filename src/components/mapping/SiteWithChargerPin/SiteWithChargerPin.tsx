@@ -5,6 +5,7 @@ import { SitePin } from "../SitePin/SitePin"
 
 export interface SiteWithChargerPinProps
   extends HTMLAttributes<HTMLDivElement> {
+  /** Default: "md" */
   size: Size
 }
 
