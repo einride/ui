@@ -25,7 +25,7 @@ export { VerticalLayout } from "./components/layout/VerticalLayout/VerticalLayou
 export { VerticalSpacing } from "./components/layout/VerticalSpacing/VerticalSpacing"
 export { ChargerPin } from "./components/mapping/ChargerPin/ChargerPin"
 export { MapLabel } from "./components/mapping/MapLabel/MapLabel"
-export { MapPod } from "./components/mapping/MapPod/MapPod"
+export { MapVehicle } from "./components/mapping/MapVehicle/MapVehicle"
 export { SitePin } from "./components/mapping/SitePin/SitePin"
 export { SiteWithChargerPin } from "./components/mapping/SiteWithChargerPin/SiteWithChargerPin"
 export { ComposedTable } from "./components/table/ComposedTable/ComposedTable"

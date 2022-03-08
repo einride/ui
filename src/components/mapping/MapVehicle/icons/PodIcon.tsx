@@ -1,6 +1,6 @@
 import { forwardRef, SVGAttributes } from "react"
 
-export type PodIconProps = SVGAttributes<SVGSVGElement>
+type PodIconProps = SVGAttributes<SVGSVGElement>
 
 export const PodIcon = forwardRef<SVGSVGElement, PodIconProps>(
   ({ ...props }, ref) => {
