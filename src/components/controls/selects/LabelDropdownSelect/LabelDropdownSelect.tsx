@@ -100,4 +100,5 @@ const StyledIcon = styled(Icon)`
   right: ${({ theme }) => 1.5 * theme.spacer}px;
   bottom: ${({ theme }) => 1.5 * theme.spacer}px;
   pointer-events: none;
+  color: ${({ theme }) => theme.colors.content.primary};
 `
