@@ -55,7 +55,9 @@ const StyledIconButton = styled(IconButton)<{ size: Size; variant: Variant }>`
   padding: 0;
 `
 
-const StyledAvatar = styled(Avatar)``
+const StyledAvatar = styled(Avatar)`
+  -webkit-user-drag: none;
+`
 
 const getButtonGap = (size: Size) => {
   switch (size) {
