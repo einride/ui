@@ -5,7 +5,6 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json && yarn copy-files",
     "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token f99937c406c4",
     "commitlint": "commitlint --from origin/main --to HEAD",
     "copy-files": "copyfiles -u 1 \"src/**/*.svg\" lib/",
     "develop": "yarn storybook",
