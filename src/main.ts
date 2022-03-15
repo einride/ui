@@ -1,5 +1,6 @@
 export { PrimaryCard } from "./components/cards/PrimaryCard/PrimaryCard"
 export { SecondaryCard } from "./components/cards/SecondaryCard/SecondaryCard"
+export { ProgressBar } from "./components/cards/ProgressBar/ProgressBar"
 export { Avatar } from "./components/content/Avatar/Avatar"
 export { Icon } from "./components/content/Icon/Icon"
 export { Logo } from "./components/content/Logo/Logo"
