@@ -53,10 +53,13 @@ export const light = {
     warning: color.yellow.default,
     background: {
       primary: color.greyscale.white,
+      primaryElevated: color.greyscale.white,
       secondary: color.greyscale.grey20,
+      secondaryElevated: color.greyscale.grey20,
       tertiary: color.greyscale.grey40,
       positive: `${color.green.default}1A`, // 1A is HEX for 10 % opacity
       negative: `${color.red.default}1A`, // 1A is HEX for 10 % opacity
+      focus: `${color.greyscale.black}66`, // 66 is HEX for 40 % opacity
     },
     content: {
       primary: color.greyscale.grey100,
@@ -112,10 +115,13 @@ export const dark: Theme = {
     warning: color.yellow.light,
     background: {
       primary: color.greyscale.black,
+      primaryElevated: color.greyscale.grey100,
       secondary: color.greyscale.grey100,
+      secondaryElevated: color.greyscale.black,
       tertiary: color.greyscale.grey80,
       positive: `${color.green.default}1A`, // 1A is HEX for 10 % opacity
       negative: `${color.red.default}1A`, // 1A is HEX for 10 % opacity
+      focus: `${color.greyscale.black}66`, // 66 is HEX for 40 % opacity
     },
     content: {
       primary: color.greyscale.white,
