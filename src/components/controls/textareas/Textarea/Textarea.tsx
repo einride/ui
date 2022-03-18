@@ -55,8 +55,6 @@ const StyledLabel = styled.label`
   font-size: ${({ theme }) => theme.fontSizes.md};
   color: ${({ theme }) => theme.colors.content.secondary};
   width: 100%;
-  display: flex;
-  flex-direction: column;
   margin-top: 5px;
 `
 
