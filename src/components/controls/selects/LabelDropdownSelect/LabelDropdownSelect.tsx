@@ -6,7 +6,9 @@ import {
   ReactNode,
   SelectHTMLAttributes,
 } from "react"
+import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
+import { Caption } from "../../../typography/Caption/Caption"
 
 export interface LabelDropdownSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
@@ -14,27 +16,61 @@ export interface LabelDropdownSelectProps
   children: ReactNode
   isFullWidth?: boolean
   label: ReactNode
+  message?: ReactNode
   onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
   placeholder?: string
+  status?: Status
 }
 
 export const LabelDropdownSelect = forwardRef<
   HTMLSelectElement,
   LabelDropdownSelectProps
->(({ children, isFullWidth = false, label, placeholder, ...props }, ref) => {
-  return (
-    <Wrapper isFullWidth={isFullWidth}>
-      <StyledLabel>
-        {label}
-        <StyledSelect isFullWidth={isFullWidth} {...props} ref={ref}>
-          {placeholder && <option value="">{placeholder}</option>}
-          {children}
-        </StyledSelect>
-      </StyledLabel>
-      <StyledIcon name="chevronDown" />
-    </Wrapper>
-  )
-})
+>(
+  (
+    {
+      children,
+      isFullWidth = false,
+      label,
+      placeholder,
+      status,
+      message,
+      ...props
+    },
+    ref,
+  ) => {
+    return (
+      <>
+        <Wrapper isFullWidth={isFullWidth}>
+          <StyledLabel>
+            {label}
+            <StyledSelect isFullWidth={isFullWidth} {...props} ref={ref}>
+              {placeholder && <option value="">{placeholder}</option>}
+              {children}
+            </StyledSelect>
+          </StyledLabel>
+
+          <StyledIcon name="chevronDown" />
+        </Wrapper>
+        {message && (
+          <Caption color={getMessageColor(status)}>{message}</Caption>
+        )}
+      </>
+    )
+  },
+)
+
+type Status = "success" | "fail" | "neutral"
+
+const getMessageColor = (status: Status | undefined): ContentColor => {
+  switch (status) {
+    case "success":
+      return "positive"
+    case "fail":
+      return "negative"
+    default:
+      return "secondary"
+  }
+}
 
 const Wrapper = styled.div<{ isFullWidth?: boolean }>`
   position: relative;
