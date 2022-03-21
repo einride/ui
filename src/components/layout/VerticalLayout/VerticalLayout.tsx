@@ -37,7 +37,7 @@ const StyledDiv = styled.div<VerticalLayoutProps>`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  & :not(:last-child) {
+  & > :not(:last-child) {
     margin-bottom: ${({ size }) => getGap(size)}px;
   }
 `
