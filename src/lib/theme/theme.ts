@@ -142,7 +142,7 @@ export const dark: Theme = {
         hover: {
           primary: color.greyscale.white,
           secondary: color.greyscale.grey100,
-          tertiary: color.greyscale.grey100,
+          tertiary: color.greyscale.grey80,
         },
         active: {
           primary: color.greyscale.grey20,
