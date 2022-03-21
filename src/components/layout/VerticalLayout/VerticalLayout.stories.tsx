@@ -1,4 +1,6 @@
 import { Story } from "@storybook/react/types-6-0"
+import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
+import { Paragraph } from "../../typography/Paragraph/Paragraph"
 import { VerticalLayout, VerticalLayoutProps } from "./VerticalLayout"
 
 export default {
@@ -15,9 +17,9 @@ export default {
 
 const Template: Story<VerticalLayoutProps> = (args) => (
   <VerticalLayout {...args}>
-    <div>Row 1</div>
-    <div>Row 2</div>
-    <div>Row 3</div>
+    <Paragraph>Row 1</Paragraph>
+    <Paragraph>Row 2</Paragraph>
+    <PrimaryButton>Row 3</PrimaryButton>
   </VerticalLayout>
 )
 

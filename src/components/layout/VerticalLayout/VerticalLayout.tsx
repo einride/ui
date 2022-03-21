@@ -34,8 +34,12 @@ const getGap = (size?: Size) => {
 }
 
 const StyledDiv = styled.div<VerticalLayoutProps>`
-  display: grid;
-  grid-row-gap: ${({ size }) => getGap(size)}px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  & :not(:last-child) {
+    margin-bottom: ${({ size }) => getGap(size)}px;
+  }
 `
 
 type Size = "none" | "xs" | "sm" | "md" | "lg" | "xl"
