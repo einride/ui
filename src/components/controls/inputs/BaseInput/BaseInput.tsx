@@ -36,7 +36,7 @@ const ContentWrapper = styled.div`
 const StyledInput = styled.input`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
-  background-color: ${({ theme }) => theme.colors.background.secondary};
+  background: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
   width: 100%;
   display: block;
@@ -51,7 +51,7 @@ const StyledInput = styled.input`
   }
 
   &:hover:not(:disabled) {
-    background-color: ${({ theme }) => theme.colors.background.tertiary};
+    background: ${({ theme }) => theme.colors.background.tertiary};
   }
 
   &::placeholder {
