@@ -22,10 +22,10 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
           {...props}
           ref={ref}
         />
-        <LoupeIcon name="loupe" />
+        <LoupeIcon name="loupe" color="primary" />
         {value && (
           <ClearButton onClick={() => onInputChange("")}>
-            <Icon name="xMark" />
+            <Icon name="xMark" color="primary" />
           </ClearButton>
         )}
       </Wrapper>

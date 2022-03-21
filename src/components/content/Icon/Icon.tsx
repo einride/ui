@@ -1,7 +1,10 @@
+import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes } from "react"
+import { ContentColor } from "../../../lib/theme/types"
 
 export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
   as?: ElementType
+  color?: ContentColor
   name: IconName
 }
 
@@ -10,93 +13,93 @@ export const Icon = forwardRef<HTMLSpanElement, IconProps>(
     switch (name) {
       case "checkmark":
         return (
-          <span aria-hidden="true" {...props} ref={ref}>
+          <StyledSpan aria-hidden="true" {...props} ref={ref}>
             &#10003;
-          </span>
+          </StyledSpan>
         )
       case "warning":
         return (
-          <span aria-hidden="true" {...props} ref={ref}>
+          <StyledSpan aria-hidden="true" {...props} ref={ref}>
             &#1049087;
-          </span>
+          </StyledSpan>
         )
       case "chevronDown":
         return (
-          <span aria-hidden="true" {...props} ref={ref}>
+          <StyledSpan aria-hidden="true" {...props} ref={ref}>
             &#8964;
-          </span>
+          </StyledSpan>
         )
       case "chevronUp":
         return (
-          <span aria-hidden="true" {...props} ref={ref}>
+          <StyledSpan aria-hidden="true" {...props} ref={ref}>
             &#8963;
-          </span>
+          </StyledSpan>
         )
       case "chevronRight":
         return (
-          <span aria-hidden="true" {...props} ref={ref}>
+          <StyledSpan aria-hidden="true" {...props} ref={ref}>
             &#707;
-          </span>
+          </StyledSpan>
         )
       case "chevronLeft":
         return (
-          <span aria-hidden="true" {...props} ref={ref}>
+          <StyledSpan aria-hidden="true" {...props} ref={ref}>
             &#706;
-          </span>
+          </StyledSpan>
         )
       case "xMark":
         return (
-          <span aria-hidden="true" {...props} ref={ref}>
+          <StyledSpan aria-hidden="true" {...props} ref={ref}>
             &#10060;
-          </span>
+          </StyledSpan>
         )
       case "arrowUp":
         return (
-          <span aria-hidden="true" {...props} ref={ref}>
+          <StyledSpan aria-hidden="true" {...props} ref={ref}>
             &#8593;
-          </span>
+          </StyledSpan>
         )
       case "arrowDown":
         return (
-          <span aria-hidden="true" {...props} ref={ref}>
+          <StyledSpan aria-hidden="true" {...props} ref={ref}>
             &#8595;
-          </span>
+          </StyledSpan>
         )
       case "arrowRight":
         return (
-          <span aria-hidden="true" {...props} ref={ref}>
+          <StyledSpan aria-hidden="true" {...props} ref={ref}>
             &#8594;
-          </span>
+          </StyledSpan>
         )
       case "arrowLeft":
         return (
-          <span aria-hidden="true" {...props} ref={ref}>
+          <StyledSpan aria-hidden="true" {...props} ref={ref}>
             &#8592;
-          </span>
+          </StyledSpan>
         )
       case "arrowUpCircle":
         return (
-          <span aria-hidden="true" {...props} ref={ref}>
+          <StyledSpan aria-hidden="true" {...props} ref={ref}>
             &#1048694;
-          </span>
+          </StyledSpan>
         )
       case "arrowDownCircle":
         return (
-          <span aria-hidden="true" {...props} ref={ref}>
+          <StyledSpan aria-hidden="true" {...props} ref={ref}>
             &#1048696;
-          </span>
+          </StyledSpan>
         )
       case "bolt":
         return (
-          <span aria-hidden="true" {...props} ref={ref}>
+          <StyledSpan aria-hidden="true" {...props} ref={ref}>
             &#128498;
-          </span>
+          </StyledSpan>
         )
       case "loupe":
         return (
-          <span aria-hidden="true" {...props} ref={ref}>
+          <StyledSpan aria-hidden="true" {...props} ref={ref}>
             &#1049259;
-          </span>
+          </StyledSpan>
         )
       default:
         return null
@@ -120,3 +123,7 @@ export type IconName =
   | "arrowDownCircle"
   | "bolt"
   | "loupe"
+
+const StyledSpan = styled.span<{ color?: ContentColor }>`
+  ${({ color, theme }) => color && `color: ${theme.colors.content[color]}`};
+`
