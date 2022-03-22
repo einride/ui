@@ -1,6 +1,6 @@
 {
   "name": "@einride/ui",
-  "version": "4.33.1",
+  "version": "4.34.0",
   "description": "Einride's UI framework with reusable components",
   "scripts": {
     "build": "tsc -p tsconfig.build.json && yarn copy-files",
