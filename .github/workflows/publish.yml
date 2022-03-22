@@ -61,6 +61,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Fetch semantic release commit from publish-npm job
+        run: git pull
+
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -68,17 +71,14 @@ jobs:
           registry-url: https://npm.pkg.github.com
           scope: "@einride"
 
-      - name: Fetch semantic release commit from publish-npm job
-        run: git pull
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
 
       - name: Build
         run: yarn build
 
       - name: Setup registry
         run: echo @einride:registry=https://npm.pkg.github.com >> .npmrc
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
 
       - name: Publish to GPR
         run: npm publish
