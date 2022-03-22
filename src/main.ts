@@ -21,6 +21,7 @@ export { DefaultDropdownSelect } from "./components/controls/selects/DefaultDrop
 export { LabelDropdownSelect } from "./components/controls/selects/LabelDropdownSelect/LabelDropdownSelect"
 export { Textarea } from "./components/controls/textareas/Textarea/Textarea"
 export { Label } from "./components/information/Label/Label"
+export { HorizontalLayout } from "./components/layout/HorizontalLayout/HorizontalLayout"
 export { HorizontalSpacing } from "./components/layout/HorizontalSpacing/HorizontalSpacing"
 export { VerticalLayout } from "./components/layout/VerticalLayout/VerticalLayout"
 export { VerticalSpacing } from "./components/layout/VerticalSpacing/VerticalSpacing"
