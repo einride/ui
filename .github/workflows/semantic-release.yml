@@ -1,4 +1,4 @@
-name: Publish to NPM and GPR
+name: Semantic Release
 
 on:
   push:
@@ -26,7 +26,7 @@ jobs:
       - name: Review
         run: yarn review
 
-  publish-npm:
+  semantic-release:
     needs: review
     runs-on: ubuntu-latest
     steps:
@@ -49,37 +49,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-  publish-gpr:
-    needs: publish-npm
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      packages: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Fetch semantic release commit from publish-npm job
-        run: git pull
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          registry-url: https://npm.pkg.github.com
-          scope: "@einride"
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: Build
-        run: yarn build
-
-      - name: Setup registry
-        run: echo @einride:registry=https://npm.pkg.github.com >> .npmrc
-
-      - name: Publish to GPR
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
