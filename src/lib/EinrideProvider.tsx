@@ -1,9 +1,10 @@
 import { ThemeProvider } from "@emotion/react"
 import merge from "lodash.merge"
-import { createContext, ReactNode, useContext } from "react"
-import { CSSReset } from "../CSSReset/CSSReset"
-import { GlobalStyles } from "../GlobalStyles/GlobalStyles"
-import { themes } from "../theme/theme"
+import { ReactNode } from "react"
+import { ColorMode, ColorModeProvider } from "./ColorModeProvider"
+import { CSSReset } from "./CSSReset"
+import { GlobalStyles } from "./GlobalStyles"
+import { themes } from "./theme/theme"
 
 interface EinrideProviderProps {
   children: ReactNode
@@ -29,26 +30,12 @@ export const EinrideProvider = ({
   }
 
   return (
-    <Context.Provider value={colorMode}>
+    <ColorModeProvider colorMode={colorMode}>
       <ThemeProvider theme={mergedTheme}>
         {resetCSS && <CSSReset />}
         <GlobalStyles />
         {children}
       </ThemeProvider>
-    </Context.Provider>
+    </ColorModeProvider>
   )
-}
-
-type ColorMode = "light" | "dark"
-
-export const Context = createContext<ColorMode>("light")
-
-export const useColorMode = () => {
-  const colorMode = useContext(Context)
-
-  if (!colorMode) {
-    throw new Error("useColorMode must be used within a EinrideProvider")
-  }
-
-  return colorMode
 }
