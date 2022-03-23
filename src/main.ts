@@ -44,7 +44,7 @@ export { Title1 } from "./components/typography/Title1/Title1"
 export { Title2 } from "./components/typography/Title2/Title2"
 export { Title3 } from "./components/typography/Title3/Title3"
 export { VisuallyHidden } from "./components/visually-hidden/VisuallyHidden"
-export { EinrideProvider } from "./lib/EinrideProvider/EinrideProvider"
+export { EinrideProvider } from "./lib/EinrideProvider"
 export type { Theme } from "./lib/theme/theme"
 export type {
   BackgroundColor,
@@ -52,3 +52,5 @@ export type {
   ContentColor,
 } from "./lib/theme/types"
 export { color } from "./primitives/color"
+export { useTheme } from "./hooks/useTheme"
+export { useColorMode } from "./lib/ColorModeProvider"
