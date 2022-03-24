@@ -1,4 +1,3 @@
-import { Theme, useTheme } from "@emotion/react"
 import styled from "@emotion/styled"
 import {
   ChangeEvent,
@@ -8,6 +7,8 @@ import {
   ReactNode,
   TextareaHTMLAttributes,
 } from "react"
+import { useTheme } from "../../../../hooks/useTheme"
+import { Theme } from "../../../../lib/theme/theme"
 import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Caption } from "../../../typography/Caption/Caption"

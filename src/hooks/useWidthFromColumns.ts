@@ -1,4 +1,4 @@
-import { useTheme } from "@emotion/react"
+import { useTheme } from "./useTheme"
 
 export const useWidthFromColumns = (
   columns: number | number[] | undefined,
