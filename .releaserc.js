@@ -22,7 +22,6 @@ module.exports = {
         preset: "conventionalcommits",
       },
     ],
-    "@semantic-release/git",
   ],
   // disable updates to github PRs and issues due to successful releases
   success: false,

@@ -1,6 +1,6 @@
 {
   "name": "@einride/ui",
-  "version": "4.34.0",
+  "version": "0.0.0-development",
   "description": "Einride's UI framework with reusable components",
   "scripts": {
     "build": "tsc -p tsconfig.build.json && yarn copy-files",
@@ -25,7 +25,6 @@
     "@einride/tsconfig": "1.0.0",
     "@emotion/react": "11.8.2",
     "@emotion/styled": "11.8.1",
-    "@semantic-release/git": "10.0.1",
     "@storybook/addon-a11y": "6.4.19",
     "@storybook/addon-actions": "6.4.19",
     "@storybook/addon-essentials": "6.4.19",
