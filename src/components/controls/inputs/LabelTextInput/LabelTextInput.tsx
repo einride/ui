@@ -1,6 +1,7 @@
 import styled from "@emotion/styled"
 import {
   ChangeEvent,
+  CSSProperties,
   ElementType,
   FocusEvent,
   forwardRef,
@@ -20,6 +21,7 @@ export interface LabelTextInputProps
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
   label: ReactNode
+  labelStyles?: CSSProperties
   message?: ReactNode
   placeholder?: string
   required?: boolean
@@ -29,11 +31,11 @@ export interface LabelTextInputProps
 }
 
 export const LabelTextInput = forwardRef<HTMLInputElement, LabelTextInputProps>(
-  ({ label, message, required, status, ...props }, ref) => {
+  ({ label, labelStyles = {}, message, required, status, ...props }, ref) => {
     const theme = useTheme()
 
     return (
-      <StyledLabel>
+      <StyledLabel style={labelStyles}>
         {label} {required && " (required)"}
         <BaseInput icon={getStatusIcon(theme, status)} {...props} ref={ref} />
         {message && (
