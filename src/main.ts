@@ -1,5 +1,6 @@
 export { PrimaryCard } from "./components/cards/PrimaryCard/PrimaryCard"
 export { StepProgress } from "./components/charts/StepProgress/StepProgress"
+export { LinearProgress } from "./components/charts/LinearProgress/LinearProgress"
 export { SecondaryCard } from "./components/cards/SecondaryCard/SecondaryCard"
 export { Avatar } from "./components/content/Avatar/Avatar"
 export { Icon } from "./components/content/Icon/Icon"
