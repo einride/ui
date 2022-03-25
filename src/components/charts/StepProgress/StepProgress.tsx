@@ -11,9 +11,10 @@ export const StepProgress = forwardRef<HTMLDivElement, StepProgressProps>(
     return (
       <Wrapper
         role="progressbar"
-        aria-valuenow={completedSteps}
-        aria-valuemin={0}
         aria-valuemax={totalSteps}
+        aria-valuemin={0}
+        aria-valuenow={completedSteps}
+        aria-valuetext={`${completedSteps} of ${totalSteps} steps completed`}
         {...props}
         ref={ref}
       >
