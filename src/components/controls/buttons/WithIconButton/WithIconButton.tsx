@@ -51,11 +51,12 @@ interface StyledBaseButtonProps {
 }
 
 export const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
-  min-width: 120px;
   ${({ isFullWidth }) => isFullWidth && "width: 100%;"}
   ${({ width }) => width};
   background: ${({ theme }) => theme.colors.buttons.background.primary};
   color: ${({ theme }) => theme.colors.buttons.text.primary};
+  padding-left: ${({ theme }) => 2.5 * theme.spacer}px;
+  padding-right: ${({ theme }) => 2 * theme.spacer}px;
 
   &:hover:not([aria-disabled="true"]) {
     text-decoration: none;
@@ -96,6 +97,7 @@ const ContentWrapper = styled.div`
 `
 
 const IconWrapper = styled.div`
-  margin-left: 10px;
+  margin-left: ${({ theme }) => 2 * theme.spacer}px;
   color: ${({ theme }) => theme.colors.buttons.icon.primary};
+  width: ${({ theme }) => 3 * theme.spacer}px;
 `

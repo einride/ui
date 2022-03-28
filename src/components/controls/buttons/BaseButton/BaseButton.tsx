@@ -36,7 +36,7 @@ const StyledButton = styled.button`
   height: ${({ theme }) => 6 * theme.spacer}px;
   border-radius: ${({ theme }) => 3 * theme.spacer}px;
   cursor: pointer;
-  padding: 0 ${({ theme }) => 3 * theme.spacer}px;
+  padding: 0 ${({ theme }) => 2 * theme.spacer}px;
 
   &:hover:not([aria-disabled="true"]) {
     text-decoration: underline;
