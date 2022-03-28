@@ -1,4 +1,5 @@
 import { Story } from "@storybook/react/types-6-0"
+import { StepProgress } from "../../charts/StepProgress/StepProgress"
 import {
   SecondaryProgressCard,
   SecondaryProgressCardProps,
@@ -21,7 +22,7 @@ const Template: Story<SecondaryProgressCardProps> = (args) => (
 
 export const Default = Template.bind({})
 Default.args = {
-  completedSteps: 2,
   primaryText: "Primary",
+  progress: <StepProgress completedSteps={2} />,
   secondaryText: "Secondary",
 }

@@ -2,7 +2,13 @@ import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
 
 export interface LinearProgressProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Default: 100
+   */
   max?: number
+  /**
+   * Default: 0
+   */
   min?: number
   value: number
 }
