@@ -48,7 +48,7 @@ const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
       theme.colors.buttons.background.active.primary};
   }
 
-  &:focus:not([aria-disabled="true"]) {
+  &:focus-visible:not([aria-disabled="true"]) {
     background: ${({ theme }) =>
       theme.colors.buttons.background.focused.primary};
   }
