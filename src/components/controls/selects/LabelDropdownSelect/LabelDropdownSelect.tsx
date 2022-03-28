@@ -75,7 +75,6 @@ const getMessageColor = (status: Status | undefined): ContentColor => {
 const Wrapper = styled.div<{ isFullWidth?: boolean }>`
   position: relative;
   display: inline-block;
-  min-width: 240px;
   ${({ isFullWidth }) => isFullWidth && "width: 100%"};
 `
 
@@ -101,18 +100,17 @@ interface StyledSelectProps {
 const StyledSelect = styled.select<StyledSelectProps>`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
-  min-width: 240px;
   ${({ isFullWidth }) => isFullWidth && "width: 100%"};
   background: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
   line-height: 24px;
   display: block;
   padding: 12px 16px;
+  padding-right: ${({ theme }) => 6 * theme.spacer}px;
   border: unset;
   border-radius: 2px;
   cursor: pointer;
   appearance: none;
-  padding-right: 29px;
   margin-top: 3px;
   position: relavtive;
 
@@ -134,7 +132,9 @@ const StyledSelect = styled.select<StyledSelectProps>`
 const StyledIcon = styled(Icon)`
   position: absolute;
   right: ${({ theme }) => 1.5 * theme.spacer}px;
-  bottom: ${({ theme }) => 1.5 * theme.spacer}px;
+  bottom: ${({ theme }) => theme.spacer}px;
   pointer-events: none;
   color: ${({ theme }) => theme.colors.content.primary};
+  width: ${({ theme }) => 3 * theme.spacer}px;
+  text-align: center;
 `
