@@ -30,7 +30,7 @@ const StyledBaseButton = styled(SecondaryButton)<IconButtonProps>`
   align-items: center;
 
   &:hover:not([aria-disabled="true"]),
-  &:focus:not([aria-disabled="true"]) {
+  &:focus-visible {
     text-decoration: none;
   }
 `

@@ -71,13 +71,16 @@ export const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
       theme.colors.buttons.background.active.primary};
   }
 
-  &:focus:not([aria-disabled="true"]) {
+  &:focus-visible {
     text-decoration: none;
-    background: ${({ theme }) =>
-      theme.colors.buttons.background.focused.primary};
 
     .einride-ui-with-icon-button-text {
       text-decoration: underline;
+    }
+
+    &:not([aria-disabled="true"]) {
+      background: ${({ theme }) =>
+        theme.colors.buttons.background.focused.primary};
     }
   }
 

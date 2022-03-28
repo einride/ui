@@ -42,15 +42,10 @@ const StyledButton = styled.button`
     text-decoration: underline;
   }
 
-  &:focus:not([aria-disabled="true"]) {
-    outline: none;
-    box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
-    text-decoration: underline;
-  }
-
   &:focus-visible {
     outline: none;
     box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
+    text-decoration: underline;
   }
 
   &[aria-disabled="true"] {
