@@ -10,6 +10,5 @@ const Template: Story<StepProgressProps> = (args) => <StepProgress {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  totalSteps: 4,
   completedSteps: 2,
 }

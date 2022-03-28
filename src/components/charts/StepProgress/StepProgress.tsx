@@ -2,23 +2,26 @@ import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
 
 export interface StepProgressProps extends HTMLAttributes<HTMLDivElement> {
-  totalSteps: number
   completedSteps: number
+  /**
+   * Default: 4
+   */
+  steps?: number | undefined
 }
 
 export const StepProgress = forwardRef<HTMLDivElement, StepProgressProps>(
-  ({ totalSteps, completedSteps, ...props }, ref) => {
+  ({ completedSteps, steps = 4, ...props }, ref) => {
     return (
       <Wrapper
         role="progressbar"
-        aria-valuemax={totalSteps}
+        aria-valuemax={steps}
         aria-valuemin={0}
         aria-valuenow={completedSteps}
-        aria-valuetext={`${completedSteps} of ${totalSteps} steps completed`}
+        aria-valuetext={`${completedSteps} of ${steps} steps completed`}
         {...props}
         ref={ref}
       >
-        {Array.from(Array(totalSteps)).map((_, index) => (
+        {Array.from(Array(steps)).map((_, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <Step key={index} completed={index < completedSteps} />
         ))}

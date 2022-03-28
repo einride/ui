@@ -3,6 +3,7 @@ import { forwardRef, HTMLAttributes, ReactNode } from "react"
 
 export interface PrimaryCardProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode
+  isElevated?: boolean
 }
 
 export const PrimaryCard = forwardRef<HTMLDivElement, PrimaryCardProps>(
@@ -15,8 +16,11 @@ export const PrimaryCard = forwardRef<HTMLDivElement, PrimaryCardProps>(
   },
 )
 
-const Wrapper = styled.div`
-  background: ${({ theme }) => theme.colors.background.primary};
+const Wrapper = styled.div<{ isElevated?: boolean }>`
+  background: ${({ isElevated, theme }) =>
+    isElevated
+      ? theme.colors.background.secondaryElevated
+      : theme.colors.background.primaryElevated};
   border-radius: ${({ theme }) => 2 * theme.spacer}px;
   padding: ${({ theme }) => 2 * theme.spacer}px;
   padding-top: ${({ theme }) => theme.spacer}px;
