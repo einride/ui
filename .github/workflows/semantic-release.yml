@@ -10,7 +10,7 @@ on:
       - next-major
 
 jobs:
-  review:
+  semantic-release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,24 +25,6 @@ jobs:
 
       - name: Review
         run: yarn review
-
-  semantic-release:
-    needs: review
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: Build
-        run: yarn build
 
       - name: Run semantic-release
         run: yarn semantic-release
