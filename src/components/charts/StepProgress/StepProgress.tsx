@@ -37,7 +37,9 @@ const Wrapper = styled.div`
 
 const Step = styled.div<{ completed: boolean }>`
   background: ${({ theme, completed }) =>
-    completed ? theme.colors.positive : theme.colors.background.tertiary};
+    completed
+      ? theme.colors.content.positive
+      : theme.colors.background.tertiary};
   height: ${({ theme }) => theme.spacer}px;
   border-radius: ${({ theme }) => theme.spacer}px;
   flex-grow: 1;
