@@ -13,10 +13,10 @@ Install @einride/ui together with its peer dependencies with NPM or Yarn:
 
 ```bash
 # npm
-npm install @einride/ui @emotion/react @emotion/styled
+npm install @einride/ui @emotion/react @emotion/styled framer-motion
 
 # yarn
-yarn add @einride/ui @emotion/react @emotion/styled
+yarn add @einride/ui @emotion/react @emotion/styled framer-motion
 ```
 
 ## Setup
