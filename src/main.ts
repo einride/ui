@@ -55,3 +55,5 @@ export type {
 export { color } from "./primitives/color"
 export { useTheme } from "./hooks/useTheme"
 export { useColorMode } from "./lib/ColorModeProvider"
+export { useMediaQuery } from "./hooks/useMediaQuery"
+export { useDisclosure } from "./hooks/useDisclosure"
