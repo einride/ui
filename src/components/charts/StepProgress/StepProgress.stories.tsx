@@ -6,11 +6,10 @@ export default {
   component: StepProgress,
 }
 
-const Template: Story<StepProgressProps> = (args) => (
-  <StepProgress aria-label="Progress" {...args} />
-)
+const Template: Story<StepProgressProps> = (args) => <StepProgress {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
+  "aria-label": "Progress",
   completedSteps: 2,
 }

@@ -7,10 +7,11 @@ export default {
 }
 
 const Template: Story<LinearProgressProps> = (args) => (
-  <LinearProgress aria-label="Progress" {...args} />
+  <LinearProgress {...args} />
 )
 
 export const Default = Template.bind({})
 Default.args = {
+  "aria-label": "Progress",
   value: 50,
 }
