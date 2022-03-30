@@ -15,6 +15,17 @@ export const HorizontalLayout = forwardRef<
   return <StyledDiv gap={gap} {...props} ref={ref} />
 })
 
+type Gap = "none" | "sm" | "lg"
+
+const StyledDiv = styled.div<{ gap: Gap }>`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  & > :not(:last-child) {
+    margin-right: ${({ gap }) => getGap(gap)}px;
+  }
+`
+
 const getGap = (gap?: Gap) => {
   switch (gap) {
     case "none":
@@ -27,14 +38,3 @@ const getGap = (gap?: Gap) => {
       return 16
   }
 }
-
-const StyledDiv = styled.div<{ gap: Gap }>`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  & > :not(:last-child) {
-    margin-right: ${({ gap }) => getGap(gap)}px;
-  }
-`
-
-type Gap = "none" | "sm" | "lg"

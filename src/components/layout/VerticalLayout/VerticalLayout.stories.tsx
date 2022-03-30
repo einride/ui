@@ -28,30 +28,30 @@ Default.args = {}
 
 export const None = Template.bind({})
 None.args = {
-  size: "none",
+  gap: "none",
 }
 
 export const ExtraSmall = Template.bind({})
 ExtraSmall.args = {
-  size: "xs",
+  gap: "xs",
 }
 
 export const Small = Template.bind({})
 Small.args = {
-  size: "sm",
+  gap: "sm",
 }
 
 export const Medium = Template.bind({})
 Medium.args = {
-  size: "md",
+  gap: "md",
 }
 
 export const Large = Template.bind({})
 Large.args = {
-  size: "lg",
+  gap: "lg",
 }
 
 export const ExtraLarge = Template.bind({})
 ExtraLarge.args = {
-  size: "xl",
+  gap: "xl",
 }
