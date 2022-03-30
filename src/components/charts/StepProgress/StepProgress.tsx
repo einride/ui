@@ -1,7 +1,9 @@
 import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
+import { ContentColor } from "../../../lib/theme/types"
 
 interface StepProgressBaseProps extends HTMLAttributes<HTMLDivElement> {
+  color?: ContentColor
   completedSteps: number
   /**
    * Default: 4
@@ -21,7 +23,7 @@ export type StepProgressProps = (
  */
 
 export const StepProgress = forwardRef<HTMLDivElement, StepProgressProps>(
-  ({ completedSteps, steps = 4, ...props }, ref) => {
+  ({ color = "positive", completedSteps, steps = 4, ...props }, ref) => {
     return (
       <Wrapper
         role="progressbar"
@@ -34,7 +36,7 @@ export const StepProgress = forwardRef<HTMLDivElement, StepProgressProps>(
       >
         {Array.from(Array(steps)).map((_, index) => (
           // eslint-disable-next-line react/no-array-index-key
-          <Step key={index} completed={index < completedSteps} />
+          <Step key={index} color={color} completed={index < completedSteps} />
         ))}
       </Wrapper>
     )
@@ -46,11 +48,9 @@ const Wrapper = styled.div`
   gap: ${({ theme }) => 0.5 * theme.spacer}px;
 `
 
-const Step = styled.div<{ completed: boolean }>`
-  background: ${({ theme, completed }) =>
-    completed
-      ? theme.colors.content.positive
-      : theme.colors.background.tertiary};
+const Step = styled.div<{ color: ContentColor; completed: boolean }>`
+  background: ${({ color, completed, theme }) =>
+    completed ? theme.colors.content[color] : theme.colors.background.tertiary};
   height: ${({ theme }) => theme.spacer}px;
   border-radius: ${({ theme }) => theme.spacer}px;
   flex-grow: 1;

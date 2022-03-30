@@ -1,7 +1,9 @@
 import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
+import { ContentColor } from "../../../lib/theme/types"
 
 interface LinearProgressBaseProps extends HTMLAttributes<HTMLDivElement> {
+  color?: ContentColor
   /**
    * Default: 100
    */
@@ -24,7 +26,7 @@ export type LinearProgressProps = (
  * Either aria-label, aria-labelledby or title must be provided for accessibility.
  */
 export const LinearProgress = forwardRef<HTMLDivElement, LinearProgressProps>(
-  ({ max = 100, min = 0, value, ...props }, ref) => {
+  ({ color = "positive", max = 100, min = 0, value, ...props }, ref) => {
     return (
       <Wrapper
         role="progressbar"
@@ -34,7 +36,7 @@ export const LinearProgress = forwardRef<HTMLDivElement, LinearProgressProps>(
         {...props}
         ref={ref}
       >
-        <Value max={max} min={min} value={value} />
+        <Value color={color} max={max} min={min} value={value} />
       </Wrapper>
     )
   },
@@ -47,8 +49,13 @@ const Wrapper = styled.div`
   position: relative;
 `
 
-const Value = styled.div<{ max: number; min: number; value: number }>`
-  background: ${({ theme }) => theme.colors.content.positive};
+const Value = styled.div<{
+  color: ContentColor
+  max: number
+  min: number
+  value: number
+}>`
+  background: ${({ color, theme }) => theme.colors.content[color]};
   height: ${({ theme }) => theme.spacer}px;
   border-radius: ${({ theme }) => theme.spacer}px;
   width: ${({ max, min, value }) => getWidth(max, min, value)}%;
