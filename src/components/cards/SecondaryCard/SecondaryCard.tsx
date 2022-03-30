@@ -1,26 +1,26 @@
 import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes, ReactNode } from "react"
+import { BackgroundColor } from "../../../lib/theme/types"
 
 export interface SecondaryCardProps extends HTMLAttributes<HTMLDivElement> {
+  background?: Background
   children: ReactNode
-  isElevated?: boolean
 }
 
 export const SecondaryCard = forwardRef<HTMLDivElement, SecondaryCardProps>(
-  ({ children, ...props }, ref) => {
+  ({ background = "secondary", children, ...props }, ref) => {
     return (
-      <Wrapper {...props} ref={ref}>
+      <Wrapper background={background} {...props} ref={ref}>
         {children}
       </Wrapper>
     )
   },
 )
 
-const Wrapper = styled.div<{ isElevated?: boolean }>`
-  background: ${({ isElevated, theme }) =>
-    isElevated
-      ? theme.colors.background.primary
-      : theme.colors.background.secondary};
+type Background = Exclude<BackgroundColor, "focus">
+
+const Wrapper = styled.div<{ background: Background; isElevated?: boolean }>`
+  background: ${({ background, theme }) => theme.colors.background[background]};
   border-radius: ${({ theme }) => theme.spacer}px;
   padding: ${({ theme }) => theme.spacer}px;
   padding-top: 0;
