@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
 
-export interface LinearProgressProps extends HTMLAttributes<HTMLDivElement> {
+interface LinearProgressBaseProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Default: 100
    */
@@ -13,6 +13,16 @@ export interface LinearProgressProps extends HTMLAttributes<HTMLDivElement> {
   value: number
 }
 
+export type LinearProgressProps = (
+  | { "aria-label": string }
+  | { "aria-labelledby": string }
+  | { title: string }
+) &
+  LinearProgressBaseProps
+
+/**
+ * Either aria-label, aria-labelledby or title must be provided for accessibility.
+ */
 export const LinearProgress = forwardRef<HTMLDivElement, LinearProgressProps>(
   ({ max = 100, min = 0, value, ...props }, ref) => {
     return (

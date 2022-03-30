@@ -1,13 +1,24 @@
 import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
 
-export interface StepProgressProps extends HTMLAttributes<HTMLDivElement> {
+interface StepProgressBaseProps extends HTMLAttributes<HTMLDivElement> {
   completedSteps: number
   /**
    * Default: 4
    */
   steps?: number | undefined
 }
+
+export type StepProgressProps = (
+  | { "aria-label": string }
+  | { "aria-labelledby": string }
+  | { title: string }
+) &
+  StepProgressBaseProps
+
+/**
+ * Either aria-label, aria-labelledby or title must be provided for accessibility.
+ */
 
 export const StepProgress = forwardRef<HTMLDivElement, StepProgressProps>(
   ({ completedSteps, steps = 4, ...props }, ref) => {
