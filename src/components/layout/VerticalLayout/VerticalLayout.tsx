@@ -5,17 +5,28 @@ export interface VerticalLayoutProps extends HTMLAttributes<HTMLDivElement> {
   as?: ElementType
   children: ReactNode
   /**  Default: "sm" */
-  size?: Size
+  gap?: Gap
 }
 
 export const VerticalLayout = forwardRef<HTMLDivElement, VerticalLayoutProps>(
-  ({ size = "sm", ...props }, ref) => {
-    return <StyledDiv size={size} {...props} ref={ref} />
+  ({ gap = "sm", ...props }, ref) => {
+    return <StyledDiv gap={gap} {...props} ref={ref} />
   },
 )
 
-const getGap = (size?: Size) => {
-  switch (size) {
+type Gap = "none" | "xs" | "sm" | "md" | "lg" | "xl"
+
+const StyledDiv = styled.div<VerticalLayoutProps>`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  & > :not(:last-child) {
+    margin-bottom: ${({ gap }) => getGap(gap)}px;
+  }
+`
+
+const getGap = (gap?: Gap) => {
+  switch (gap) {
     case "none":
       return 0
     case "xs":
@@ -32,14 +43,3 @@ const getGap = (size?: Size) => {
       return 16
   }
 }
-
-const StyledDiv = styled.div<VerticalLayoutProps>`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  & > :not(:last-child) {
-    margin-bottom: ${({ size }) => getGap(size)}px;
-  }
-`
-
-type Size = "none" | "xs" | "sm" | "md" | "lg" | "xl"
