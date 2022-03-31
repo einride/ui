@@ -46,6 +46,8 @@ export const StepProgress = forwardRef<HTMLDivElement, StepProgressProps>(
 const Wrapper = styled.div`
   display: flex;
   gap: ${({ theme }) => 0.5 * theme.spacer}px;
+  /* Width needed to make sure component takes up full width in flex containers */
+  width: 100%;
 `
 
 const Step = styled.div<{ color: ContentColor; completed: boolean }>`
