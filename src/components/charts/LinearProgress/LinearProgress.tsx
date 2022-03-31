@@ -47,6 +47,8 @@ const Wrapper = styled.div`
   height: ${({ theme }) => theme.spacer}px;
   border-radius: ${({ theme }) => theme.spacer}px;
   position: relative;
+  /* Width needed to make sure component takes up full width in flex containers */
+  width: 100%;
 `
 
 const Value = styled.div<{
