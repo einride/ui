@@ -77,7 +77,7 @@ const StyledSelect = styled.select<{ isFullWidth?: boolean }>`
   padding: 12px 16px;
   padding-right: ${({ theme }) => 6 * theme.spacer}px;
   border: unset;
-  border-radius: 2px;
+  border-radius: ${({ theme }) => 3 * theme.spacer}px;
   cursor: pointer;
   appearance: none;
 

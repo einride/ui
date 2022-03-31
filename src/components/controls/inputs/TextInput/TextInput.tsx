@@ -1,3 +1,4 @@
+import styled from "@emotion/styled"
 import {
   ChangeEvent,
   ElementType,
@@ -31,7 +32,11 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
     return (
       <>
-        <BaseInput icon={getStatusIcon(theme, status)} {...props} ref={ref} />
+        <StyledBaseInput
+          icon={getStatusIcon(theme, status)}
+          {...props}
+          ref={ref}
+        />
         {message && (
           <Caption color={getMessageColor(status)}>{message}</Caption>
         )}
@@ -41,6 +46,10 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 )
 
 type Status = "success" | "fail" | "neutral"
+
+const StyledBaseInput = styled(BaseInput)`
+  border-radius: ${({ theme }) => 3 * theme.spacer}px;
+`
 
 const getStatusIcon = (theme: Theme, status?: Status) => {
   switch (status) {
