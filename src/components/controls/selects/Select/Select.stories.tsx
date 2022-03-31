@@ -1,13 +1,10 @@
 import { Story } from "@storybook/react/types-6-0"
 import { ChangeEvent, useState } from "react"
-import {
-  LabelDropdownSelect,
-  LabelDropdownSelectProps,
-} from "./LabelDropdownSelect"
+import { Select, SelectProps } from "./Select"
 
 export default {
-  title: "Controls/Selects/LabelDropdownSelect",
-  component: LabelDropdownSelect,
+  title: "Controls/Selects/Select",
+  component: Select,
   argTypes: {
     disabled: {
       control: "boolean",
@@ -16,37 +13,37 @@ export default {
   parameters: {
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=91%3A41",
+      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=1237%3A108",
     },
   },
 }
 
-const Template: Story<LabelDropdownSelectProps> = (args) => (
-  <LabelDropdownSelect {...args}>
+const Template: Story<SelectProps> = (args) => (
+  <Select {...args}>
     <option value="option1">Option 1</option>
     <option value="option2">Option 2</option>
     <option value="option3">Option 3</option>
-  </LabelDropdownSelect>
+  </Select>
 )
 
 export const Default = Template.bind({})
 Default.args = {
-  label: "Label",
+  "aria-label": "A dropdown select",
 }
 
 export const Placeholder = Template.bind({})
 Placeholder.args = {
-  label: "Label",
+  "aria-label": "A dropdown select with a placeholder",
   placeholder: "Placeholder...",
 }
 
 export const DefaultValue = Template.bind({})
 DefaultValue.args = {
-  label: "Label",
+  "aria-label": "A dropdown select with a default value",
   defaultValue: "option2",
 }
 
-const ControlledTemplate: Story<LabelDropdownSelectProps> = (args) => {
+const ControlledTemplate: Story<SelectProps> = (args) => {
   const [value, setValue] = useState("")
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -54,16 +51,15 @@ const ControlledTemplate: Story<LabelDropdownSelectProps> = (args) => {
   }
 
   return (
-    <LabelDropdownSelect value={value} onChange={handleChange} {...args}>
+    <Select value={value} onChange={handleChange} {...args}>
       <option value="option1">Option 1</option>
       <option value="option2">Option 2</option>
       <option value="option3">Option 3</option>
-    </LabelDropdownSelect>
+    </Select>
   )
 }
 
 export const Controlled = ControlledTemplate.bind({})
 Controlled.args = {
-  label: "Label",
   value: "option2",
 }

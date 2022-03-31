@@ -10,33 +10,42 @@ import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Caption } from "../../../typography/Caption/Caption"
 
-export interface DefaultDropdownSelectProps
+export interface LabelSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
-  "aria-label": string
   as?: ElementType
   children: ReactNode
   isFullWidth?: boolean
+  label: ReactNode
   message?: ReactNode
   onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
   placeholder?: string
   status?: Status
 }
 
-export const DefaultDropdownSelect = forwardRef<
-  HTMLSelectElement,
-  DefaultDropdownSelectProps
->(
+export const LabelSelect = forwardRef<HTMLSelectElement, LabelSelectProps>(
   (
-    { children, isFullWidth = false, placeholder, status, message, ...props },
+    {
+      children,
+      isFullWidth = false,
+      label,
+      placeholder,
+      status,
+      message,
+      ...props
+    },
     ref,
   ) => {
     return (
       <>
         <Wrapper isFullWidth={isFullWidth}>
-          <StyledSelect isFullWidth={isFullWidth} {...props} ref={ref}>
-            {placeholder && <option value="">{placeholder}</option>}
-            {children}
-          </StyledSelect>
+          <StyledLabel>
+            {label}
+            <StyledSelect isFullWidth={isFullWidth} {...props} ref={ref}>
+              {placeholder && <option value="">{placeholder}</option>}
+              {children}
+            </StyledSelect>
+          </StyledLabel>
+
           <StyledIcon name="chevronDown" />
         </Wrapper>
         {message && (
@@ -66,7 +75,26 @@ const Wrapper = styled.div<{ isFullWidth?: boolean }>`
   ${({ isFullWidth }) => isFullWidth && "width: 100%"};
 `
 
-const StyledSelect = styled.select<{ isFullWidth?: boolean }>`
+const StyledLabel = styled.label`
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  color: ${({ theme }) => theme.colors.content.secondary};
+  margin-top: 5px;
+
+  &:focus-within {
+    color: ${({ theme }) => theme.colors.content.primary};
+  }
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.content.primary};
+  }
+`
+
+interface StyledSelectProps {
+  isFullWidth?: boolean
+}
+
+const StyledSelect = styled.select<StyledSelectProps>`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
   ${({ isFullWidth }) => isFullWidth && "width: 100%"};
@@ -77,9 +105,11 @@ const StyledSelect = styled.select<{ isFullWidth?: boolean }>`
   padding: 12px 16px;
   padding-right: ${({ theme }) => 6 * theme.spacer}px;
   border: unset;
-  border-radius: ${({ theme }) => 3 * theme.spacer}px;
+  border-radius: 2px;
   cursor: pointer;
   appearance: none;
+  margin-top: 3px;
+  position: relavtive;
 
   &:focus {
     box-shadow: 0px 0px 0px 1px ${({ theme }) => theme.colors.border.selected}
@@ -98,8 +128,8 @@ const StyledSelect = styled.select<{ isFullWidth?: boolean }>`
 
 const StyledIcon = styled(Icon)`
   position: absolute;
-  top: ${({ theme }) => 1.5 * theme.spacer}px;
-  right: ${({ theme }) => theme.spacer}px;
+  right: ${({ theme }) => 1.5 * theme.spacer}px;
+  bottom: ${({ theme }) => theme.spacer}px;
   pointer-events: none;
   color: ${({ theme }) => theme.colors.content.primary};
   width: ${({ theme }) => 3 * theme.spacer}px;
