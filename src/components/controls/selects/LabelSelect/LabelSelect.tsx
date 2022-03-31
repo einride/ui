@@ -10,7 +10,7 @@ import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Caption } from "../../../typography/Caption/Caption"
 
-export interface LabelDropdownSelectProps
+export interface LabelSelectProps
   extends SelectHTMLAttributes<HTMLSelectElement> {
   as?: ElementType
   children: ReactNode
@@ -22,10 +22,7 @@ export interface LabelDropdownSelectProps
   status?: Status
 }
 
-export const LabelDropdownSelect = forwardRef<
-  HTMLSelectElement,
-  LabelDropdownSelectProps
->(
+export const LabelSelect = forwardRef<HTMLSelectElement, LabelSelectProps>(
   (
     {
       children,

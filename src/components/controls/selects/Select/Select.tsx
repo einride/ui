@@ -10,8 +10,7 @@ import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Caption } from "../../../typography/Caption/Caption"
 
-export interface DefaultDropdownSelectProps
-  extends SelectHTMLAttributes<HTMLSelectElement> {
+export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   "aria-label": string
   as?: ElementType
   children: ReactNode
@@ -22,10 +21,7 @@ export interface DefaultDropdownSelectProps
   status?: Status
 }
 
-export const DefaultDropdownSelect = forwardRef<
-  HTMLSelectElement,
-  DefaultDropdownSelectProps
->(
+export const Select = forwardRef<HTMLSelectElement, SelectProps>(
   (
     { children, isFullWidth = false, placeholder, status, message, ...props },
     ref,
