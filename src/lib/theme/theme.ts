@@ -5,6 +5,10 @@ const LARGE_BREAKPOINT_PIXELS = 1025
 
 const common = {
   spacer: 8,
+  /**
+   * @deprecated since version 5.0.0
+   */
+  // eslint-disable-next-line deprecation/deprecation
   breakpoint: {
     belowMedium: `@media (max-width: ${MEDIUM_BREAKPOINT_PIXELS - 1}px)`,
     medium: `@media (min-width: ${MEDIUM_BREAKPOINT_PIXELS}px)`,
