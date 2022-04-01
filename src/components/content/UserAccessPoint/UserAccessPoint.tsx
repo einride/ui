@@ -6,7 +6,7 @@ import { Avatar } from "../Avatar/Avatar"
 export interface UserAccessPointProps
   extends HTMLAttributes<HTMLButtonElement> {
   avatarImageSrc: string
-  status: Status
+  status?: Status
 }
 
 export const UserAccessPoint = forwardRef<
