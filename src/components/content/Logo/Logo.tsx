@@ -3,12 +3,15 @@ import { LogoLarge } from "./variants/LogoLarge"
 import { LogoSmall } from "./variants/LogoSmall"
 
 export interface LogoProps extends SVGAttributes<SVGSVGElement> {
-  size?: "small" | "large"
+  size?: Size
 }
 
 export const Logo = forwardRef<SVGSVGElement, LogoProps>(
-  ({ size = "small", ...props }, ref) => {
-    if (size === "small") return <LogoSmall ref={ref} {...props} />
-    return <LogoLarge ref={ref} {...props} />
+  ({ size = "sm", ...props }, ref) => {
+    if (size === "sm") return <LogoSmall ref={ref} {...props} />
+    if (size === "lg") return <LogoLarge ref={ref} {...props} />
+    return <LogoSmall ref={ref} {...props} />
   },
 )
+
+type Size = "sm" | "lg"
