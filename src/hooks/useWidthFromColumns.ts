@@ -12,10 +12,10 @@ export const useWidthFromColumns = (
   return `
   ${typeof columns === "number" ? `${customProp}: ${columns};` : ""}
   ${Array.isArray(columns) && columns[0] && `${customProp}: ${columns[0]};`}
-  ${theme.breakpoint.medium} {
+  @media ${theme.mediaQueries.md} {
       ${Array.isArray(columns) && columns[1] && `${customProp}: ${columns[1]};`}
   }
-  ${theme.breakpoint.large} {
+  @media ${theme.mediaQueries.lg} {
     ${Array.isArray(columns) && columns[2] && `${customProp}: ${columns[2]};`}
   }
 

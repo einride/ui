@@ -16,12 +16,12 @@ export const GlobalStyles = () => {
           --einride-ui-grid-columns: 4;
           --einride-ui-grid-gap: ${2 * theme.spacer}px;
 
-          ${theme.breakpoint.medium} {
+          @media ${theme.mediaQueries.md} {
             --einride-ui-grid-columns: 8;
             --einride-ui-grid-gap: ${3 * theme.spacer}px;
           }
 
-          ${theme.breakpoint.large} {
+          @media ${theme.mediaQueries.lg} {
             --einride-ui-grid-columns: 12;
             --einride-ui-grid-gap: ${3 * theme.spacer}px;
           }
