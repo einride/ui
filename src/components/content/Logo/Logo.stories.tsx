@@ -20,10 +20,10 @@ Default.args = {}
 
 export const Small = Template.bind({})
 Small.args = {
-  size: "small",
+  size: "sm",
 }
 
 export const Large = Template.bind({})
 Large.args = {
-  size: "large",
+  size: "lg",
 }
