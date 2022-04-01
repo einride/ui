@@ -5,12 +5,12 @@ import { Theme } from "../../../lib/theme/theme"
 export interface LabelProps extends HTMLAttributes<HTMLSpanElement> {
   as?: ElementType
   children: ReactNode
-  /** Default value: "default" */
+  /** Default: "primary" */
   variant?: Variant
 }
 
 export const Label = forwardRef<HTMLSpanElement, LabelProps>(
-  ({ children, variant = "default", ...props }, ref) => {
+  ({ children, variant = "primary", ...props }, ref) => {
     return (
       <StyledSpan variant={variant} {...props} ref={ref}>
         {children}
@@ -21,7 +21,7 @@ export const Label = forwardRef<HTMLSpanElement, LabelProps>(
 
 const getBackground = (theme: Theme, variant?: Variant) => {
   switch (variant) {
-    case "default":
+    case "primary":
       return theme.colors.background.secondary
     case "positive":
       return theme.colors.background.positive
@@ -34,7 +34,7 @@ const getBackground = (theme: Theme, variant?: Variant) => {
 
 const getColor = (theme: Theme, variant?: Variant) => {
   switch (variant) {
-    case "default":
+    case "primary":
       return theme.colors.content.primary
     case "positive":
       return theme.colors.content.positive
@@ -45,7 +45,7 @@ const getColor = (theme: Theme, variant?: Variant) => {
   }
 }
 
-const StyledSpan = styled.span<LabelProps>`
+const StyledSpan = styled.span<{ variant: Variant }>`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
   background: ${({ theme, variant }) => getBackground(theme, variant)};
@@ -54,4 +54,4 @@ const StyledSpan = styled.span<LabelProps>`
   border-radius: 2px;
 `
 
-type Variant = "default" | "positive" | "negative"
+type Variant = "primary" | "positive" | "negative"
