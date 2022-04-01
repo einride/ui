@@ -1,95 +1,67 @@
-import { Theme } from "@emotion/react"
 import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
-import { IconButton } from "../../controls/buttons/IconButton/IconButton"
+import { useTheme } from "../../../hooks/useTheme"
 import { Avatar } from "../Avatar/Avatar"
 
 export interface UserAccessPointProps
   extends HTMLAttributes<HTMLButtonElement> {
   avatarImageSrc: string
-  /** Default: "md" */
-  size?: Size
-  variant?: Variant
+  status: Status
 }
 
 export const UserAccessPoint = forwardRef<
   HTMLButtonElement,
   UserAccessPointProps
->(({ avatarImageSrc, size = "md", variant = "plain", ...props }, ref) => {
+>(({ avatarImageSrc, status = "default", ...props }, ref) => {
   return (
-    <Button size={size} variant={variant} {...props} ref={ref}>
-      <StyledIconButton
-        aria-label="Search"
-        as="div"
-        icon="loupe"
-        size={size}
-        variant={variant}
-      />
-      <StyledAvatar
-        alt="User profile picture"
-        src={avatarImageSrc}
-        size={getAvatarSize(size, variant)}
-      />
+    <Button status={status} {...props} ref={ref}>
+      <Dots aria-label="Search" />
+      <StyledAvatar alt="User profile picture" src={avatarImageSrc} />
+      {status === "notification" && <Notification />}
     </Button>
   )
 })
 
-type Size = "md" | "sm"
-type Variant = "plain" | "raised"
+type Status = "default" | "notification" | "no-user"
 
-const Button = styled.button<{ size: Size; variant: Variant }>`
-  ${({ theme, variant }) =>
-    variant === "raised" && `background: ${theme.colors.background.primary}`};
-  border-radius: 24px;
-  ${({ variant }) => variant === "raised" && "padding: 4px"};
+const Button = styled.button<{ status: Status }>`
+  position: relative;
+  background: ${({ theme }) => theme.colors.background.secondary};
+  border-radius: ${({ theme }) => 3 * theme.spacer}px;
   align-items: center;
-  gap: ${({ size }) => getButtonGap(size)};
   display: flex;
+  gap: 1px;
+  padding-right: ${({ theme }) => 0.5 * theme.spacer}px;
 `
 
-const StyledIconButton = styled(IconButton)<{ size: Size; variant: Variant }>`
-  height: ${({ size, theme, variant }) => getButtonSize(size, theme, variant)};
-  width: ${({ size, theme, variant }) => getButtonSize(size, theme, variant)};
-  min-width: ${({ size, theme, variant }) =>
-    getButtonSize(size, theme, variant)};
-  padding: 0;
-`
+const Dots = () => {
+  const theme = useTheme()
+  const fill = theme.colors.content.primary
+  return (
+    <svg
+      width="43"
+      height="48"
+      viewBox="0 0 43 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect x="22" y="14" width="4" height="4" rx="2" fill={fill} />
+      <rect x="22" y="22" width="4" height="4" rx="2" fill={fill} />
+      <rect x="22" y="30" width="4" height="4" rx="2" fill={fill} />
+    </svg>
+  )
+}
 
 const StyledAvatar = styled(Avatar)`
   -webkit-user-drag: none;
 `
 
-const getButtonGap = (size: Size) => {
-  switch (size) {
-    case "md":
-      return "8px"
-    case "sm":
-      return "4px"
-    default:
-      return "8px"
-  }
-}
-
-const getAvatarSize = (size: Size, variant: Variant) => {
-  if (variant === "raised") return "md"
-  switch (size) {
-    case "md":
-      return "lg"
-    case "sm":
-      return "md"
-    default:
-      return "lg"
-  }
-}
-
-const getButtonSize = (size: Size, theme: Theme, variant: Variant) => {
-  if (variant === "raised") return `${5 * theme.spacer}px`
-  switch (size) {
-    case "md":
-      return `${6 * theme.spacer}px`
-    case "sm":
-      return `${5 * theme.spacer}px`
-    default:
-      return `${6 * theme.spacer}px`
-  }
-}
+const Notification = styled.div`
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  background: ${({ theme }) => theme.colors.content.negative};
+  width: ${({ theme }) => 2 * theme.spacer}px;
+  height: ${({ theme }) => 2 * theme.spacer}px;
+  border-radius: 10px;
+`
