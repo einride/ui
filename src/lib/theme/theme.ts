@@ -16,10 +16,10 @@ const common = {
     lg: LARGE_BREAKPOINT_PIXELS,
   },
   mediaQueries: {
-    belowMedium: `(max-width: ${MEDIUM_BREAKPOINT_PIXELS - 1}px)`,
+    belowMd: `(max-width: ${MEDIUM_BREAKPOINT_PIXELS - 1}px)`,
     md: `(min-width: ${MEDIUM_BREAKPOINT_PIXELS}px)`,
-    belowLarge: `(max-width: ${LARGE_BREAKPOINT_PIXELS - 1}px)`,
-    large: `(min-width: ${LARGE_BREAKPOINT_PIXELS}px)`,
+    belowLg: `(max-width: ${LARGE_BREAKPOINT_PIXELS - 1}px)`,
+    lg: `(min-width: ${LARGE_BREAKPOINT_PIXELS}px)`,
   },
   fonts: {
     heading:

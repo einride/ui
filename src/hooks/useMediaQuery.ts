@@ -1,20 +1,19 @@
 import { useState, useEffect, useRef } from "react"
 
 export const useMediaQuery = (query: string) => {
-  const strippedQuery = query.replace("@media ", "")
-  const [matches, setMatches] = useState(getInitialValue(strippedQuery))
+  const [matches, setMatches] = useState(getInitialValue(query))
   const queryRef = useRef<MediaQueryList>()
 
   // eslint-disable-next-line consistent-return
   useEffect(() => {
     if ("matchMedia" in window) {
-      queryRef.current = window.matchMedia(strippedQuery)
+      queryRef.current = window.matchMedia(query)
       setMatches(queryRef.current.matches)
       return attachMediaListener(queryRef.current, (event) =>
         setMatches(event.matches),
       )
     }
-  }, [strippedQuery])
+  }, [query])
 
   return matches
 }
