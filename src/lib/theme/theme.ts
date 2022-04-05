@@ -7,6 +7,7 @@ const common = {
   spacer: 8,
   /**
    * @deprecated since version 5.0.0
+   * use `mediaQueries` or `breakpoints` instead
    */
   // eslint-disable-next-line deprecation/deprecation
   breakpoint: {
