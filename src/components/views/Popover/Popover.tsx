@@ -104,6 +104,7 @@ const Overlay = styled(motion.div)`
   bottom: 0;
   left: 0;
   background: ${({ theme }) => theme.colors.background.focus};
+  z-index: 1;
 `
 
 const Wrapper = styled(motion.div)`
@@ -114,6 +115,7 @@ const Wrapper = styled(motion.div)`
   left: ${({ theme }) => 2 * theme.spacer}px;
   background: ${({ theme }) => theme.colors.background.primaryElevated};
   border-radius: ${({ theme }) => 2 * theme.spacer}px;
+  z-index: 2;
 
   @media ${({ theme }) => theme.mediaQueries.md} {
     top: 10vh;
