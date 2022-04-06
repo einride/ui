@@ -15,6 +15,7 @@
     "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
+    "@mantine/hooks": "4.1.2",
     "lodash.merge": "4.6.2"
   },
   "devDependencies": {
