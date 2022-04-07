@@ -18,7 +18,7 @@ export const GlobalStyles = () => {
 
           @media ${theme.mediaQueries.md} {
             --einride-ui-grid-columns: 8;
-            --einride-ui-grid-gap: ${3 * theme.spacer}px;
+            --einride-ui-grid-gap: ${2 * theme.spacer}px;
           }
 
           @media ${theme.mediaQueries.lg} {
