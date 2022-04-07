@@ -1,7 +1,7 @@
 import { color } from "../../primitives/color"
 
 const MEDIUM_BREAKPOINT_PIXELS = 600
-const LARGE_BREAKPOINT_PIXELS = 1025
+const LARGE_BREAKPOINT_PIXELS = 1280
 
 const common = {
   spacer: 8,
