@@ -1,4 +1,5 @@
 import { Story } from "@storybook/react/types-6-0"
+import siteSmallIcon from "../../../mapIcons/siteSmall.svg"
 
 export default {
   title: "Mapping/SvgIcons/SiteSmall",
@@ -12,8 +13,6 @@ export default {
   },
 }
 
-const Template: Story = () => (
-  <img src="/src/mapIcons/siteSmall.svg" alt="Small Site icon" />
-)
+const Template: Story = () => <img src={siteSmallIcon} alt="Small Site icon" />
 
 export const Default = Template.bind({})

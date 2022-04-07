@@ -1,4 +1,5 @@
 import { Story } from "@storybook/react/types-6-0"
+import podIcon from "../../../mapIcons/pod.svg"
 
 export default {
   title: "Mapping/SvgIcons/Pod",
@@ -12,6 +13,6 @@ export default {
   },
 }
 
-const Template: Story = () => <img src="/src/mapIcons/pod.svg" alt="Pod icon" />
+const Template: Story = () => <img src={podIcon} alt="Pod icon" />
 
 export const Default = Template.bind({})
