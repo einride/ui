@@ -14,14 +14,8 @@ export interface PopoverProps {
   children: ReactNode
   closeHandler: () => void
   isOpen: boolean
-  primaryAction?: {
-    handler?: () => void
-    text: ReactNode
-  }
-  secondaryAction?: {
-    handler?: () => void
-    text: ReactNode
-  }
+  primaryAction?: PopoverAction
+  secondaryAction?: PopoverAction
 }
 
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
@@ -96,6 +90,11 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     )
   },
 )
+
+export interface PopoverAction {
+  handler?: () => void
+  text: ReactNode
+}
 
 const Overlay = styled(motion.div)`
   position: fixed;
