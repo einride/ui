@@ -1,7 +1,7 @@
 import { Global } from "@emotion/react"
 import { useTheme } from "../hooks/useTheme"
 
-export const GlobalStyles = () => {
+export const GlobalStyles = (): JSX.Element => {
   const theme = useTheme()
   return (
     <Global

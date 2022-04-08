@@ -22,7 +22,7 @@ const Wrapper = styled.div<{ size: Size }>`
   border-radius: 24px;
 `
 
-const getSize = (size: Size) => {
+const getSize = (size: Size): string => {
   switch (size) {
     case "md":
       return "20px"

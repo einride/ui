@@ -41,7 +41,7 @@ const Wrapper = styled.div<{ size: Size }>`
   position: relative;
 `
 
-const getWidth = (size: Size) => {
+const getWidth = (size: Size): string => {
   switch (size) {
     case "md":
       return "32px"
@@ -52,7 +52,7 @@ const getWidth = (size: Size) => {
   }
 }
 
-const getHeight = (size: Size) => {
+const getHeight = (size: Size): string => {
   switch (size) {
     case "md":
       return "20px"

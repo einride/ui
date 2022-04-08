@@ -46,7 +46,7 @@ DefaultValue.args = {
 const ControlledTemplate: Story<SelectProps> = (args) => {
   const [value, setValue] = useState("")
 
-  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLSelectElement>): void => {
     setValue(e.target.value)
   }
 

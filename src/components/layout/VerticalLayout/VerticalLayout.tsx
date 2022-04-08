@@ -25,7 +25,7 @@ const StyledDiv = styled.div<VerticalLayoutProps>`
   }
 `
 
-const getGap = (gap?: Gap) => {
+const getGap = (gap?: Gap): number => {
   switch (gap) {
     case "none":
       return 0

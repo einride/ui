@@ -15,7 +15,7 @@ export interface BaseButtonProps
 
 export const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(
   ({ disabled, onClick, ...props }, ref) => {
-    const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+    const handleClick = (e: MouseEvent<HTMLButtonElement>): void => {
       if (disabled) return
       onClick?.(e)
     }

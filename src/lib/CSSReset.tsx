@@ -1,6 +1,6 @@
 import { Global } from "@emotion/react"
 
-export const CSSReset = () => (
+export const CSSReset = (): JSX.Element => (
   <Global
     styles={`
       html {

@@ -22,7 +22,7 @@ export const EinrideProvider = ({
   customTheme = {},
   resetCSS = true,
   theme = {},
-}: EinrideProviderProps) => {
+}: EinrideProviderProps): JSX.Element => {
   const defaultTheme = themes[colorMode]
   const mergedTheme = {
     ...merge(defaultTheme, theme),

@@ -18,7 +18,7 @@ export const StepGaugeStep = ({
   color,
   svgSize,
   totalSteps,
-}: StepGaugeStepProps) => {
+}: StepGaugeStepProps): JSX.Element => {
   const convertPolarCoordinatesToCartesian = (degree: number): number[] => {
     const center = svgSize / 2
     const radians = (degree * Math.PI) / 180.0

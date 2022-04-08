@@ -99,7 +99,7 @@ const IconWrapper = styled.span`
   top: ${({ theme }) => 1.5 * theme.spacer}px;
   right: ${({ theme }) => 2 * theme.spacer}px;
 `
-const getStatusIcon = (theme: Theme, status?: Status) => {
+const getStatusIcon = (theme: Theme, status?: Status): JSX.Element | null => {
   switch (status) {
     case "success":
       return (

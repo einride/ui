@@ -13,7 +13,7 @@ export const VerticalSpacing = forwardRef<HTMLDivElement, VerticalSpacingProps>(
   },
 )
 
-const getHeight = (size?: Size) => {
+const getHeight = (size?: Size): number => {
   switch (size) {
     case "xs":
       return 8
