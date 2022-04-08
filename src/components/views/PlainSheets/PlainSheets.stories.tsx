@@ -19,7 +19,7 @@ const Template: Story<PlainSheetsProps> = (args) => {
   const { isOpen, handlers } = useDisclosure(true)
 
   return (
-    <div style={{ display: "flex" }}>
+    <>
       <PrimaryButton isFullWidth onClick={handlers.open}>
         Open
       </PrimaryButton>
@@ -32,9 +32,11 @@ const Template: Story<PlainSheetsProps> = (args) => {
       >
         <Paragraph>Sheets content</Paragraph>
       </PlainSheets>
-    </div>
+    </>
   )
 }
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  size: "md",
+}

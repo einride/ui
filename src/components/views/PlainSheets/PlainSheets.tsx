@@ -16,10 +16,24 @@ export interface PlainSheetsProps {
   isOpen: boolean
   primaryAction?: PlainSheetsAction
   secondaryAction?: PlainSheetsAction
+  /**
+   * Default: md
+   */
+  size?: Size
 }
 
 export const PlainSheets = forwardRef<HTMLDivElement, PlainSheetsProps>(
-  ({ children, closeHandler, isOpen, primaryAction, secondaryAction }, ref) => {
+  (
+    {
+      children,
+      closeHandler,
+      isOpen,
+      primaryAction,
+      secondaryAction,
+      size = "md",
+    },
+    ref,
+  ) => {
     const focusTrapRef = useFocusTrap(isOpen)
     useFocusReturn({ opened: isOpen, transitionDuration: 0 })
     const mergedRef = useMergedRef(ref, focusTrapRef)
@@ -39,6 +53,7 @@ export const PlainSheets = forwardRef<HTMLDivElement, PlainSheetsProps>(
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               initial={{ opacity: 0 }}
+              size={size}
               ref={mergedRef}
             >
               <MediumLargeNav>
@@ -84,6 +99,8 @@ export interface PlainSheetsAction {
   text: ReactNode
 }
 
+type Size = "sm" | "md"
+
 const Overlay = styled(motion.div)`
   @media ${({ theme }) => theme.mediaQueries.belowMd} {
     position: fixed;
@@ -96,7 +113,7 @@ const Overlay = styled(motion.div)`
   }
 `
 
-const Wrapper = styled(motion.div)`
+const Wrapper = styled(motion.div)<{ size: Size }>`
   position: fixed;
   top: ${({ theme }) => 8 * theme.spacer}px;
   right: 0;
@@ -109,18 +126,22 @@ const Wrapper = styled(motion.div)`
 
   @media ${({ theme }) => theme.mediaQueries.md} {
     border-top-left-radius: unset;
-    position: static;
-    flex-shrink: 0;
-    margin-top: ${({ theme }) => -2 * theme.spacer}px;
-    margin-left: ${({ theme }) => 3 * theme.spacer}px;
+    border-top-right-radius: unset;
+    top: 0;
+    left: unset;
     box-shadow: inset 1px 0px 0px ${({ theme }) => theme.colors.border.primary};
     height: 100vh;
-    width: ${({ theme }) => `calc(50% - ${theme.spacer}px)`};
+    min-width: ${({ size, theme }) =>
+      size === "sm"
+        ? `calc((300% / 8) - ${0.75 * theme.spacer}px)` // to fit grid
+        : `calc(50% - ${theme.spacer}px)`}; // to fit grid
   }
 
   @media ${({ theme }) => theme.mediaQueries.lg} {
-    width: ${({ theme }) => `calc(50% - ${1.5 * theme.spacer}px)`};
-    margin-top: ${({ theme }) => -3 * theme.spacer}px;
+    min-width: ${({ size, theme }) =>
+      size === "sm"
+        ? `calc((100% / 3) - ${theme.spacer}px)` // to fit grid
+        : `calc(50% - ${1.5 * theme.spacer}px)`}; // to fit grid
   }
 `
 
@@ -129,7 +150,8 @@ const MediumLargeNav = styled.nav`
 
   @media ${({ theme }) => theme.mediaQueries.md} {
     display: block;
-    padding-top: ${({ theme }) => theme.grid.gap};
+    padding: ${({ theme }) => theme.grid.gap};
+    padding-bottom: 0;
   }
 `
 
