@@ -72,6 +72,11 @@ export const ElevatedSheets = forwardRef<HTMLDivElement, ElevatedSheetsProps>(
               </MediumLargeNav>
               <Content>{children}</Content>
               <SmallNav>
+                {primaryAction && (
+                  <PrimaryButton isFullWidth onClick={primaryAction.handler}>
+                    {primaryAction.text}
+                  </PrimaryButton>
+                )}
                 {secondaryAction && (
                   <SecondaryButton
                     isFullWidth
@@ -79,11 +84,6 @@ export const ElevatedSheets = forwardRef<HTMLDivElement, ElevatedSheetsProps>(
                   >
                     {secondaryAction.text}
                   </SecondaryButton>
-                )}
-                {primaryAction && (
-                  <PrimaryButton isFullWidth onClick={primaryAction.handler}>
-                    {primaryAction.text}
-                  </PrimaryButton>
                 )}
               </SmallNav>
             </Wrapper>
