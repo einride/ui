@@ -21,7 +21,6 @@ export type StepProgressProps = (
 /**
  * Either aria-label, aria-labelledby or title must be provided for accessibility.
  */
-
 export const StepProgress = forwardRef<HTMLDivElement, StepProgressProps>(
   ({ color = "positive", completedSteps, steps = 4, ...props }, ref) => {
     return (

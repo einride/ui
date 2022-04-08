@@ -11,4 +11,5 @@ const Template: Story<StepProgressProps> = (args) => <StepProgress {...args} />
 export const Default = Template.bind({})
 Default.args = {
   completedSteps: 2,
+  title: "Electrification potential",
 }
