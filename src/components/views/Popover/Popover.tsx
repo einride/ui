@@ -25,7 +25,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     const mergedRef = useMergedRef(ref, focusTrapRef)
     useScrollLock(isOpen)
 
-    const closeOnEscapePress = (event: KeyboardEvent) => {
+    const closeOnEscapePress = (event: KeyboardEvent): void => {
       if (event.code === "Escape") {
         closeHandler()
       }

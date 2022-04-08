@@ -14,7 +14,7 @@ export const HorizontalSpacing = forwardRef<
   return <StyledDiv size={size} {...props} ref={ref} />
 })
 
-const getWidth = (size?: Size) => {
+const getWidth = (size?: Size): number => {
   switch (size) {
     case "sm":
       return 16

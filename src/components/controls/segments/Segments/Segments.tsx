@@ -26,7 +26,7 @@ export const Segments = forwardRef<HTMLDivElement, SegmentsProps>(
     const segmentRefs: HTMLButtonElement[] = []
     const contentRef = useRef<HTMLElement>(null)
 
-    const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
+    const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>): void => {
       if (e.code === "ArrowLeft" && selectedSegmentIndex > 0) {
         const newIndex = selectedSegmentIndex - 1
         setSelectedSegmentIndex(newIndex)

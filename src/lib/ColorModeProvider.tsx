@@ -8,13 +8,13 @@ interface ColorModeProviderProps {
 export const ColorModeProvider = ({
   children,
   colorMode,
-}: ColorModeProviderProps) => {
+}: ColorModeProviderProps): JSX.Element => {
   return <Context.Provider value={colorMode}>{children}</Context.Provider>
 }
 
 const Context = createContext<ColorMode>("light")
 
-export const useColorMode = () => {
+export const useColorMode = (): ColorMode => {
   const colorMode = useContext(Context)
 
   if (!colorMode) {

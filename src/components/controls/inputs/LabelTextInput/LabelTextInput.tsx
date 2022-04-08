@@ -55,7 +55,7 @@ const StyledLabel = styled.label`
   color: ${({ theme }) => theme.colors.content.secondary};
 `
 
-const getStatusIcon = (theme: Theme, status?: Status) => {
+const getStatusIcon = (theme: Theme, status?: Status): JSX.Element | null => {
   switch (status) {
     case "success":
       return (

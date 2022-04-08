@@ -51,7 +51,7 @@ const StyledBaseInput = styled(BaseInput)`
   border-radius: ${({ theme }) => 3 * theme.spacer}px;
 `
 
-const getStatusIcon = (theme: Theme, status?: Status) => {
+const getStatusIcon = (theme: Theme, status?: Status): JSX.Element | null => {
   switch (status) {
     case "success":
       return (

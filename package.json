@@ -21,7 +21,7 @@
   "devDependencies": {
     "@babel/core": "7.17.8",
     "@commitlint/config-conventional": "16.2.1",
-    "@einride/eslint-plugin": "4.9.0",
+    "@einride/eslint-plugin": "5.0.0",
     "@einride/prettier-config": "1.2.0",
     "@einride/tsconfig": "1.0.0",
     "@emotion/react": "11.8.2",

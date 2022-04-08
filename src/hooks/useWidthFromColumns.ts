@@ -3,7 +3,7 @@ import { useTheme } from "./useTheme"
 export const useWidthFromColumns = (
   columns: number | number[] | undefined,
   componentName: string | undefined,
-) => {
+): string | null => {
   const theme = useTheme()
   const customProp = `--einride-ui-${componentName}`
 

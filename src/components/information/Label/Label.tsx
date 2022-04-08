@@ -19,7 +19,7 @@ export const Label = forwardRef<HTMLSpanElement, LabelProps>(
   },
 )
 
-const getBackground = (theme: Theme, variant?: Variant) => {
+const getBackground = (theme: Theme, variant?: Variant): string => {
   switch (variant) {
     case "primary":
       return theme.colors.background.secondary
@@ -32,7 +32,7 @@ const getBackground = (theme: Theme, variant?: Variant) => {
   }
 }
 
-const getColor = (theme: Theme, variant?: Variant) => {
+const getColor = (theme: Theme, variant?: Variant): string => {
   switch (variant) {
     case "primary":
       return theme.colors.content.primary

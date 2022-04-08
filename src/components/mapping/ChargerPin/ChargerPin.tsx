@@ -30,7 +30,7 @@ const StyledIcon = styled(Icon)<{ size: Size }>`
   font-size: ${({ size, theme }) => getFontSize(size, theme)};
 `
 
-const getSize = (size: Size) => {
+const getSize = (size: Size): string => {
   switch (size) {
     case "md":
       return "20px"
@@ -41,7 +41,7 @@ const getSize = (size: Size) => {
   }
 }
 
-const getFontSize = (size: Size, theme: Theme) => {
+const getFontSize = (size: Size, theme: Theme): string | number => {
   switch (size) {
     case "md":
       return theme.fontSizes.md

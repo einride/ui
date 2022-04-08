@@ -34,7 +34,7 @@ const Button = styled.button<{ status: Status }>`
   padding-right: ${({ theme }) => 0.5 * theme.spacer}px;
 `
 
-const Dots = () => {
+const Dots = (): JSX.Element => {
   const theme = useTheme()
   const fill = theme.colors.content.primary
   return (

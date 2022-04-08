@@ -26,7 +26,7 @@ const StyledDiv = styled.div<{ gap: Gap }>`
   }
 `
 
-const getGap = (gap?: Gap) => {
+const getGap = (gap?: Gap): number => {
   switch (gap) {
     case "none":
       return 0
