@@ -1,14 +1,5 @@
 import { useState } from "react"
 
-interface UseDisclosureReturn {
-  isOpen: boolean
-  handlers: {
-    open: () => void
-    close: () => void
-    toggle: () => void
-  }
-}
-
 export function useDisclosure(
   initialState: boolean,
   callbacks?: { onOpen?: () => void; onClose?: () => void },
@@ -35,4 +26,15 @@ export function useDisclosure(
   }
 
   return { isOpen, handlers: { open, close, toggle } }
+}
+
+interface UseDisclosureReturn {
+  isOpen: boolean
+  handlers: UseDisclosureHandlers
+}
+
+export interface UseDisclosureHandlers {
+  open: () => void
+  close: () => void
+  toggle: () => void
 }
