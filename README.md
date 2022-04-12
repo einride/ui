@@ -34,6 +34,26 @@ export const App = () => {
 }
 ```
 
+## Contribute
+
+If you want to contribute to `@einride/ui` create a PR following
+[semantic release](https://semantic-release.gitbook.io/semantic-release/).
+
+To develop you need to install it's dependencies and then start storybook to
+make sure your updates work as expected. Please always provide both a
+`Component.tsx` and a `Component.storybook.tsx`.
+
+```bash
+make install
+make develop
+```
+
+Before committing a PR please make sure all checks pass
+
+```bash
+make all
+```
+
 ## Documentation
 
 All currently available components are documented in our
