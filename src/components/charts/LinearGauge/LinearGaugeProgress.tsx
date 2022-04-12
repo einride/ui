@@ -46,6 +46,7 @@ const BackgroundCircle = styled.circle<{
   stroke-width: ${({ strokeWidth }) => strokeWidth};
   stroke-dasharray: 100, 100;
   stroke-dashoffset: ${TOP_GAP};
+  stroke-linecap: round;
   transform: rotate(${CIRCLE_START_POINT_OFFSET}deg);
   transform-origin: center;
 `
