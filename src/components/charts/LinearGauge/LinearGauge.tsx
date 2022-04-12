@@ -27,16 +27,16 @@ export type LinearGaugeProps = (
 ) &
   LinearGaugeBaseProps
 
+const STROKE_WIDTH = 1.8
+const RESPONSIVE_RADIUS = 100 / (Math.PI * 2)
+const VIEW_BOX_VALUE = RESPONSIVE_RADIUS * 2 + STROKE_WIDTH
+
 /**
  * Either aria-label, aria-labelledby or title must be provided for accessibility.
  */
 export const LinearGauge = forwardRef<HTMLDivElement, LinearGaugeProps>(
   ({ color = "positive", min = 0, max = 100, value, ...props }, ref) => {
     const percentage = ((value - min) / (max - min)) * 100
-    const strokeWidth = 1.8
-
-    const responsiveRadius = 100 / (Math.PI * 2)
-    const viewBoxValue = responsiveRadius * 2 + strokeWidth
 
     return (
       <Wrapper
@@ -47,20 +47,16 @@ export const LinearGauge = forwardRef<HTMLDivElement, LinearGaugeProps>(
         aria-valuemin={min}
         aria-valuenow={value}
       >
-        <StyledSvg viewBox={`0 0 ${viewBoxValue} ${viewBoxValue}`}>
+        <StyledSvg viewBox={`0 0 ${VIEW_BOX_VALUE} ${VIEW_BOX_VALUE}`}>
           <LinearGaugeProgress
             color={color}
             percentage={percentage}
-            strokeWidth={strokeWidth}
-            responsiveRadius={responsiveRadius}
+            strokeWidth={STROKE_WIDTH}
+            responsiveRadius={RESPONSIVE_RADIUS}
           />
         </StyledSvg>
 
-        <StyledPointerIcon
-          percentage={percentage}
-          strokeWidth={strokeWidth}
-          viewBoxValue={viewBoxValue}
-        />
+        <StyledPointerIcon percentage={percentage} />
       </Wrapper>
     )
   },
@@ -81,7 +77,6 @@ const StyledSvg = styled.svg`
 
 const StyledPointerIcon = styled(PointerIcon)<{
   percentage: number
-  viewBoxValue: number
 }>`
   /* Percentage based on pointer height divided by linear default height */
   height: ${(27 / 56) * 100}%;

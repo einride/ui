@@ -9,6 +9,9 @@ export interface LinearGaugeProgressProps extends SVGAttributes<SVGSVGElement> {
   strokeWidth: number
 }
 
+const TOP_GAP = -4
+const CIRCLE_START_POINT_OFFSET = (360 * TOP_GAP) / 200 - 90
+
 export const LinearGaugeProgress = ({
   color,
   percentage,
@@ -41,6 +44,10 @@ const BackgroundCircle = styled.circle<{
   fill: none;
   stroke: ${({ theme }) => theme.colors.background.tertiary};
   stroke-width: ${({ strokeWidth }) => strokeWidth};
+  stroke-dasharray: 100, 100;
+  stroke-dashoffset: ${TOP_GAP};
+  transform: rotate(${CIRCLE_START_POINT_OFFSET}deg);
+  transform-origin: center;
 `
 
 const ProgressCircle = styled.circle<{
@@ -49,12 +56,14 @@ const ProgressCircle = styled.circle<{
   strokeWidth: number
 }>`
   fill: none;
-  stroke-dasharray: ${({ percentage }) => `${percentage},${100}`};
+  stroke-dasharray: ${({ percentage }) =>
+    `${percentage + TOP_GAP / 2 > 0 ? percentage + TOP_GAP / 2 : 0},${100}`};
+  stroke-dashoffset: ${TOP_GAP};
   stroke-linecap: round;
   stroke: ${({ theme, color, percentage }) =>
     percentage > 0 ? theme.colors.content[color] : "none"};
   stroke-width: ${({ strokeWidth }) => strokeWidth};
   transition: stroke-dasharray 0.5s ease-in-out;
-  transform: rotate(-90deg);
+  transform: rotate(${CIRCLE_START_POINT_OFFSET}deg);
   transform-origin: center;
 `
