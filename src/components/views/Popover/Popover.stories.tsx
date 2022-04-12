@@ -37,3 +37,8 @@ const Template: Story<PopoverProps> = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {}
+
+export const WithTitle = Template.bind({})
+WithTitle.args = {
+  title: "Page name",
+}
