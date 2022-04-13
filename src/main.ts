@@ -1,6 +1,7 @@
 export { PrimaryCard } from "./components/cards/PrimaryCard/PrimaryCard"
 export { StepProgress } from "./components/charts/StepProgress/StepProgress"
 export { LinearProgress } from "./components/charts/LinearProgress/LinearProgress"
+export { LinearGauge } from "./components/charts/LinearGauge/LinearGauge"
 export { StepGauge } from "./components/charts/StepGauge/StepGauge"
 export { SecondaryCard } from "./components/cards/SecondaryCard/SecondaryCard"
 export { Avatar } from "./components/content/Avatar/Avatar"
