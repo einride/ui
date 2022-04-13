@@ -5,12 +5,12 @@ import {
   useMergedRef,
   useScrollLock,
 } from "@mantine/hooks"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, HTMLMotionProps, motion } from "framer-motion"
 import { forwardRef, ReactNode } from "react"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { SecondaryButton } from "../../controls/buttons/SecondaryButton/SecondaryButton"
 
-export interface PlainSheetsProps {
+export interface PlainSheetsProps extends HTMLMotionProps<"div"> {
   children: ReactNode
   closeHandler: () => void
   isOpen: boolean
@@ -31,6 +31,7 @@ export const PlainSheets = forwardRef<HTMLDivElement, PlainSheetsProps>(
       primaryAction,
       secondaryAction,
       size = "md",
+      ...props
     },
     ref,
   ) => {
@@ -54,6 +55,7 @@ export const PlainSheets = forwardRef<HTMLDivElement, PlainSheetsProps>(
               exit={{ opacity: 0 }}
               initial={{ opacity: 0 }}
               size={size}
+              {...props}
               ref={mergedRef}
             >
               <MediumLargeNav>

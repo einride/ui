@@ -5,12 +5,12 @@ import {
   useMergedRef,
   useScrollLock,
 } from "@mantine/hooks"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, HTMLMotionProps, motion } from "framer-motion"
 import { forwardRef, ReactNode, useEffect } from "react"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { SecondaryButton } from "../../controls/buttons/SecondaryButton/SecondaryButton"
 
-export interface PopoverProps {
+export interface PopoverProps extends HTMLMotionProps<"div"> {
   children: ReactNode
   closeHandler: () => void
   isOpen: boolean
@@ -19,7 +19,17 @@ export interface PopoverProps {
 }
 
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
-  ({ children, closeHandler, isOpen, primaryAction, secondaryAction }, ref) => {
+  (
+    {
+      children,
+      closeHandler,
+      isOpen,
+      primaryAction,
+      secondaryAction,
+      ...props
+    },
+    ref,
+  ) => {
     const focusTrapRef = useFocusTrap(isOpen)
     useFocusReturn({ opened: isOpen, transitionDuration: 0 })
     const mergedRef = useMergedRef(ref, focusTrapRef)
@@ -51,6 +61,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               initial={{ opacity: 0 }}
+              {...props}
               ref={mergedRef}
             >
               <MediumLargeNav>
