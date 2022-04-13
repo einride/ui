@@ -36,7 +36,8 @@ export const App = () => {
 
 ## Contribute
 
-See [Contributing Guide](https://github.com/einride/ui/blob/master/CONTRIBUTING.md).
+See
+[Contributing Guide](https://github.com/einride/ui/blob/master/CONTRIBUTING.md).
 
 ## Documentation
 
