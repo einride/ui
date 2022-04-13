@@ -24,6 +24,5 @@ const Wrapper = styled.div<{
 }>`
   background: ${({ background, theme }) => theme.colors.background[background]};
   border-radius: ${({ theme }) => 2 * theme.spacer}px;
-  padding: ${({ theme }) => 2 * theme.spacer}px;
-  padding-top: ${({ theme }) => theme.spacer}px;
+  padding: ${({ theme }) => theme.spacer}px ${({ theme }) => 2 * theme.spacer}px;
 `
