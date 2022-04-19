@@ -65,9 +65,11 @@ export const LinearGauge = forwardRef<HTMLDivElement, LinearGaugeProps>(
 const Wrapper = styled.div`
   position: relative;
   width: 56px;
+  height: 56px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
 `
 
 const StyledSvg = styled.svg`
