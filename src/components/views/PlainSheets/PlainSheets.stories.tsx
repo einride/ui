@@ -1,5 +1,5 @@
+import { useDisclosure } from "@einride/hooks"
 import { Story } from "@storybook/react/types-6-0"
-import { useDisclosure } from "../../../hooks/useDisclosure"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { Paragraph } from "../../typography/Paragraph/Paragraph"
 import { PlainSheets, PlainSheetsProps } from "./PlainSheets"

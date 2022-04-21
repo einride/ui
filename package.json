@@ -23,6 +23,7 @@
     "@commitlint/cli": "16.2.3",
     "@commitlint/config-conventional": "16.2.1",
     "@einride/eslint-plugin": "5.0.0",
+    "@einride/hooks": "1.1.0",
     "@einride/prettier-config": "1.2.0",
     "@einride/tsconfig": "1.0.0",
     "@emotion/react": "11.9.0",
@@ -59,10 +60,16 @@
     "vite": "2.9.1"
   },
   "peerDependencies": {
+    "@einride/hooks": "^1.1.0",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "framer-motion": "^6.2.8",
     "react": ">=17.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@einride/hooks": {
+      "optional": true
+    }
   },
   "main": "./lib/main.js",
   "module": "./lib/main.js",
