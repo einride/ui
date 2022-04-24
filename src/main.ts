@@ -58,7 +58,6 @@ export type {
 export { color } from "./primitives/color"
 export { useTheme } from "./hooks/useTheme"
 export { useColorMode } from "./lib/ColorModeProvider"
-export { useMediaQuery } from "./hooks/useMediaQuery"
 export { Popover } from "./components/views/Popover/Popover"
 export type { PopoverAction } from "./components/views/Popover/Popover"
 export { PlainSheets } from "./components/views/PlainSheets/PlainSheets"
