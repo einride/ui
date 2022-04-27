@@ -1,10 +1,5 @@
 import styled from "@emotion/styled"
-import {
-  useFocusReturn,
-  useFocusTrap,
-  useMergedRef,
-  useScrollLock,
-} from "@mantine/hooks"
+import { useFocusReturn, useFocusTrap, useMergedRef } from "@mantine/hooks"
 import { AnimatePresence, HTMLMotionProps, motion } from "framer-motion"
 import { forwardRef, ReactNode } from "react"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
@@ -38,7 +33,6 @@ export const PlainSheets = forwardRef<HTMLDivElement, PlainSheetsProps>(
     const focusTrapRef = useFocusTrap(isOpen)
     useFocusReturn({ opened: isOpen, transitionDuration: 0 })
     const mergedRef = useMergedRef(ref, focusTrapRef)
-    useScrollLock(isOpen)
 
     return (
       <AnimatePresence>
