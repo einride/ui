@@ -18,6 +18,7 @@ import { BaseInput } from "../BaseInput/BaseInput"
 export interface LabelTextInputProps
   extends InputHTMLAttributes<HTMLInputElement> {
   as?: ElementType
+  isFullWidth?: boolean
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
   label: ReactNode
@@ -31,11 +32,22 @@ export interface LabelTextInputProps
 }
 
 export const LabelTextInput = forwardRef<HTMLInputElement, LabelTextInputProps>(
-  ({ label, labelStyles = {}, message, required, status, ...props }, ref) => {
+  (
+    {
+      isFullWidth = false,
+      label,
+      labelStyles = {},
+      message,
+      required,
+      status,
+      ...props
+    },
+    ref,
+  ) => {
     const theme = useTheme()
 
     return (
-      <StyledLabel style={labelStyles}>
+      <StyledLabel style={labelStyles} isFullWidth={isFullWidth}>
         {label} {required && " (required)"}
         <BaseInput icon={getStatusIcon(theme, status)} {...props} ref={ref} />
         {message && (
@@ -48,11 +60,12 @@ export const LabelTextInput = forwardRef<HTMLInputElement, LabelTextInputProps>(
 
 type Status = "success" | "fail" | "neutral"
 
-const StyledLabel = styled.label`
+const StyledLabel = styled.label<{ isFullWidth?: boolean }>`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
   margin: 5px 0 3px;
   color: ${({ theme }) => theme.colors.content.secondary};
+  ${({ isFullWidth }) => isFullWidth && "width: 100%"};
 `
 
 const getStatusIcon = (theme: Theme, status?: Status): JSX.Element | null => {
