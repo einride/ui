@@ -14,8 +14,8 @@ export interface ElevatedSheetsProps extends HTMLMotionProps<"div"> {
   children: ReactNode
   closeHandler: () => void
   isOpen: boolean
-  primaryAction?: ElevatedSheetsAction
-  secondaryAction?: ElevatedSheetsAction
+  primaryAction?: ElevatedSheetsAction | undefined
+  secondaryAction?: ElevatedSheetsAction | undefined
   /**
    * Default: md
    */

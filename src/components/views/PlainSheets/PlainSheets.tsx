@@ -9,8 +9,8 @@ export interface PlainSheetsProps extends HTMLMotionProps<"div"> {
   children: ReactNode
   closeHandler: () => void
   isOpen: boolean
-  primaryAction?: PlainSheetsAction
-  secondaryAction?: PlainSheetsAction
+  primaryAction?: PlainSheetsAction | undefined
+  secondaryAction?: PlainSheetsAction | undefined
   /**
    * Default: md
    */
