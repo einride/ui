@@ -36,8 +36,8 @@ export const LabelSelect = forwardRef<HTMLSelectElement, LabelSelectProps>(
     ref,
   ) => {
     return (
-      <>
-        <Wrapper isFullWidth={isFullWidth}>
+      <Wrapper isFullWidth={isFullWidth}>
+        <InnerWrapper>
           <StyledLabel>
             {label}
             <StyledSelect isFullWidth={isFullWidth} {...props} ref={ref}>
@@ -47,11 +47,11 @@ export const LabelSelect = forwardRef<HTMLSelectElement, LabelSelectProps>(
           </StyledLabel>
 
           <StyledIcon name="chevronDown" />
-        </Wrapper>
+        </InnerWrapper>
         {message && (
           <Caption color={getMessageColor(status)}>{message}</Caption>
         )}
-      </>
+      </Wrapper>
     )
   },
 )
@@ -70,9 +70,12 @@ const getMessageColor = (status: Status | undefined): ContentColor => {
 }
 
 const Wrapper = styled.div<{ isFullWidth?: boolean }>`
-  position: relative;
   display: inline-block;
   ${({ isFullWidth }) => isFullWidth && "width: 100%"};
+`
+
+const InnerWrapper = styled.div`
+  position: relative;
 `
 
 const StyledLabel = styled.label`
