@@ -5,7 +5,12 @@ import {
   useMergedRef,
   useScrollLock,
 } from "@mantine/hooks"
-import { AnimatePresence, HTMLMotionProps, motion } from "framer-motion"
+import {
+  AnimatePresence,
+  HTMLMotionProps,
+  motion,
+  MotionStyle,
+} from "framer-motion"
 import { forwardRef, ReactNode } from "react"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { SecondaryButton } from "../../controls/buttons/SecondaryButton/SecondaryButton"
@@ -14,6 +19,7 @@ export interface ElevatedSheetsProps extends HTMLMotionProps<"div"> {
   children: ReactNode
   closeHandler: () => void
   isOpen: boolean
+  overlayStyles?: MotionStyle
   primaryAction?: ElevatedSheetsAction | undefined
   secondaryAction?: ElevatedSheetsAction | undefined
   /**
@@ -28,6 +34,7 @@ export const ElevatedSheets = forwardRef<HTMLDivElement, ElevatedSheetsProps>(
       children,
       closeHandler,
       isOpen,
+      overlayStyles = {},
       primaryAction,
       secondaryAction,
       size = "md",
@@ -49,6 +56,7 @@ export const ElevatedSheets = forwardRef<HTMLDivElement, ElevatedSheetsProps>(
               exit={{ opacity: 0 }}
               initial={{ opacity: 0 }}
               onClick={closeHandler}
+              style={overlayStyles}
             />
             <Wrapper
               animate={{ opacity: 1 }}

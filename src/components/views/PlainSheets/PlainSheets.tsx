@@ -1,6 +1,11 @@
 import styled from "@emotion/styled"
 import { useFocusReturn, useFocusTrap, useMergedRef } from "@mantine/hooks"
-import { AnimatePresence, HTMLMotionProps, motion } from "framer-motion"
+import {
+  AnimatePresence,
+  HTMLMotionProps,
+  motion,
+  MotionStyle,
+} from "framer-motion"
 import { forwardRef, ReactNode } from "react"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { SecondaryButton } from "../../controls/buttons/SecondaryButton/SecondaryButton"
@@ -9,6 +14,7 @@ export interface PlainSheetsProps extends HTMLMotionProps<"div"> {
   children: ReactNode
   closeHandler: () => void
   isOpen: boolean
+  overlayStyles?: MotionStyle
   primaryAction?: PlainSheetsAction | undefined
   secondaryAction?: PlainSheetsAction | undefined
   /**
@@ -23,6 +29,7 @@ export const PlainSheets = forwardRef<HTMLDivElement, PlainSheetsProps>(
       children,
       closeHandler,
       isOpen,
+      overlayStyles = {},
       primaryAction,
       secondaryAction,
       size = "md",
@@ -43,6 +50,7 @@ export const PlainSheets = forwardRef<HTMLDivElement, PlainSheetsProps>(
               exit={{ opacity: 0 }}
               initial={{ opacity: 0 }}
               onClick={closeHandler}
+              style={overlayStyles}
             />
             <Wrapper
               animate={{ opacity: 1 }}
