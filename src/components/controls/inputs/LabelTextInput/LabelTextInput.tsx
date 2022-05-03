@@ -18,7 +18,6 @@ import { BaseInput } from "../BaseInput/BaseInput"
 export interface LabelTextInputProps
   extends InputHTMLAttributes<HTMLInputElement> {
   as?: ElementType
-  isFullWidth?: boolean
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
   label: ReactNode
@@ -29,17 +28,18 @@ export interface LabelTextInputProps
   /** Default: "neutral" */
   status?: Status
   value: string
+  wrapperStyles?: CSSProperties
 }
 
 export const LabelTextInput = forwardRef<HTMLInputElement, LabelTextInputProps>(
   (
     {
-      isFullWidth = false,
       label,
       labelStyles = {},
       message,
       required,
       status,
+      wrapperStyles,
       ...props
     },
     ref,
@@ -47,25 +47,40 @@ export const LabelTextInput = forwardRef<HTMLInputElement, LabelTextInputProps>(
     const theme = useTheme()
 
     return (
-      <StyledLabel style={labelStyles} isFullWidth={isFullWidth}>
-        {label} {required && " (required)"}
-        <BaseInput icon={getStatusIcon(theme, status)} {...props} ref={ref} />
+      <Wrapper style={wrapperStyles}>
+        <StyledLabel htmlFor="einride-ui-label-text-input" style={labelStyles}>
+          {label} {required && " (required)"}
+        </StyledLabel>
+        <BaseInput
+          id="einride-ui-label-text-input"
+          icon={getStatusIcon(theme, status)}
+          {...props}
+          ref={ref}
+        />
         {message && (
           <Caption color={getMessageColor(status)}>{message}</Caption>
         )}
-      </StyledLabel>
+      </Wrapper>
     )
   },
 )
 
 type Status = "success" | "fail" | "neutral"
 
-const StyledLabel = styled.label<{ isFullWidth?: boolean }>`
+const Wrapper = styled.div`
+  display: inline-block;
+  width: 100%;
+`
+
+const StyledLabel = styled.label`
+  display: inline-block;
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
-  margin: 5px 0 3px;
+  font-weight: ${({ theme }) => theme.fontWeights.book};
+  line-height: calc(4 / 3);
+  margin-top: 5px;
+  margin-bottom: 3px;
   color: ${({ theme }) => theme.colors.content.secondary};
-  ${({ isFullWidth }) => isFullWidth && "width: 100%"};
 `
 
 const getStatusIcon = (theme: Theme, status?: Status): JSX.Element | null => {
