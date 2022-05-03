@@ -36,6 +36,8 @@ const ContentWrapper = styled.div`
 const StyledInput = styled.input`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
+  font-weight: ${({ theme }) => theme.fontWeights.book};
+  line-height: calc(4 / 3);
   background: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
   width: 100%;
