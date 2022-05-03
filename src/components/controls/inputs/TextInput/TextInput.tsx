@@ -19,11 +19,11 @@ export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   as?: ElementType
   message?: ReactNode
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   placeholder: string
   /** Default: "neutral" */
   status?: Status
-  value: string
+  value?: string
 }
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(

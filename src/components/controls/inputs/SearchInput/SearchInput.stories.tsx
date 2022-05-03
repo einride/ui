@@ -22,5 +22,10 @@ const Template: Story<SearchInputProps> = (args) => <SearchInput {...args} />
 export const Default = Template.bind({})
 Default.args = {
   placeholder: "Search...",
+}
+
+export const Controlled = Template.bind({})
+Controlled.args = {
+  ...Default.args,
   value: "",
 }

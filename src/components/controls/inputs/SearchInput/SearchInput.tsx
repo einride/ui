@@ -7,9 +7,9 @@ export interface SearchInputProps
   extends InputHTMLAttributes<HTMLInputElement> {
   "aria-label": string
   as?: ElementType
-  onInputChange: (input: string) => void
+  onInputChange?: (input: string) => void
   placeholder: string
-  value: string
+  value?: string
 }
 
 export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
@@ -18,13 +18,13 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
       <Wrapper>
         <StyledInput
           value={value}
-          onChange={(e) => onInputChange(e.target.value)}
+          onChange={(e) => onInputChange?.(e.target.value)}
           {...props}
           ref={ref}
         />
         <LoupeIcon name="loupe" color="primary" />
         {value && (
-          <ClearButton onClick={() => onInputChange("")}>
+          <ClearButton onClick={() => onInputChange?.("")}>
             <Icon name="xMark" color="primary" />
           </ClearButton>
         )}

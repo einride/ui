@@ -19,7 +19,7 @@ export interface LabelTextInputProps
   extends InputHTMLAttributes<HTMLInputElement> {
   as?: ElementType
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   label: ReactNode
   labelStyles?: CSSProperties
   message?: ReactNode
@@ -27,7 +27,7 @@ export interface LabelTextInputProps
   required?: boolean
   /** Default: "neutral" */
   status?: Status
-  value: string
+  value?: string
   wrapperStyles?: CSSProperties
 }
 

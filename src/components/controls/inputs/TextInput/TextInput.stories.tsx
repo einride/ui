@@ -22,7 +22,6 @@ const Template: Story<TextInputProps> = (args) => <TextInput {...args} />
 export const Default = Template.bind({})
 Default.args = {
   placeholder: "Placeholder...",
-  value: "",
 }
 
 export const Positive = Template.bind({})
@@ -37,4 +36,10 @@ Negative.args = {
   ...Default.args,
   message: "Error message.",
   status: "fail",
+}
+
+export const Controlled = Template.bind({})
+Controlled.args = {
+  ...Default.args,
+  value: "",
 }
