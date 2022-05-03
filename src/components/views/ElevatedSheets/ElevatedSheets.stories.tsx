@@ -25,6 +25,12 @@ const Template: Story<ElevatedSheetsProps> = (args) => {
         {...args}
         closeHandler={handlers.close}
         isOpen={isOpen}
+        navigationAction={{
+          "aria-label": "Close",
+          icon: "xMark",
+          handler: handlers.close,
+        }}
+        navigationTitle="Page name"
         primaryAction={{ text: "Primary" }}
         secondaryAction={{ text: "Close", handler: handlers.close }}
       >

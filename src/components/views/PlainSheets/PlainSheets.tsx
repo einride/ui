@@ -7,13 +7,18 @@ import {
   MotionStyle,
 } from "framer-motion"
 import { forwardRef, ReactNode } from "react"
+import { IconName } from "../../content/Icon/Icon"
+import { IconButton } from "../../controls/buttons/IconButton/IconButton"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { SecondaryButton } from "../../controls/buttons/SecondaryButton/SecondaryButton"
+import { Paragraph } from "../../typography/Paragraph/Paragraph"
 
 export interface PlainSheetsProps extends HTMLMotionProps<"div"> {
   children: ReactNode
   closeHandler: () => void
   isOpen: boolean
+  navigationAction?: PlainSheetsNavigationAction | undefined
+  navigationTitle?: string | undefined
   overlayStyles?: MotionStyle
   primaryAction?: PlainSheetsAction | undefined
   secondaryAction?: PlainSheetsAction | undefined
@@ -29,6 +34,8 @@ export const PlainSheets = forwardRef<HTMLDivElement, PlainSheetsProps>(
       children,
       closeHandler,
       isOpen,
+      navigationAction,
+      navigationTitle,
       overlayStyles = {},
       primaryAction,
       secondaryAction,
@@ -61,6 +68,16 @@ export const PlainSheets = forwardRef<HTMLDivElement, PlainSheetsProps>(
               ref={mergedRef}
             >
               <MediumLargeNav>
+                <Navigation>
+                  {navigationAction && (
+                    <IconButton
+                      aria-label={navigationAction["aria-label"]}
+                      onClick={navigationAction.handler}
+                      icon={navigationAction.icon}
+                    />
+                  )}
+                  {navigationTitle && <Paragraph>{navigationTitle}</Paragraph>}
+                </Navigation>
                 <Actions>
                   {secondaryAction && (
                     <SecondaryButton onClick={secondaryAction.handler}>
@@ -98,6 +115,11 @@ export const PlainSheets = forwardRef<HTMLDivElement, PlainSheetsProps>(
   },
 )
 
+export interface PlainSheetsNavigationAction {
+  "aria-label": string
+  handler?: () => void
+  icon: IconName
+}
 export interface PlainSheetsAction {
   handler?: () => void
   text: ReactNode
@@ -153,10 +175,17 @@ const MediumLargeNav = styled.nav`
   display: none;
 
   @media ${({ theme }) => theme.mediaQueries.md} {
-    display: block;
+    display: flex;
+    justify-content: space-between;
     padding: ${({ theme }) => theme.grid.gap};
     padding-bottom: 0;
   }
+`
+
+const Navigation = styled.div`
+  display: flex;
+  gap: ${({ theme }) => 2 * theme.spacer}px;
+  align-items: center;
 `
 
 const Actions = styled.div`

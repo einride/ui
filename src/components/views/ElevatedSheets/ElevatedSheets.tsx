@@ -12,13 +12,18 @@ import {
   MotionStyle,
 } from "framer-motion"
 import { forwardRef, ReactNode } from "react"
+import { IconName } from "../../content/Icon/Icon"
+import { IconButton } from "../../controls/buttons/IconButton/IconButton"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { SecondaryButton } from "../../controls/buttons/SecondaryButton/SecondaryButton"
+import { Paragraph } from "../../typography/Paragraph/Paragraph"
 
 export interface ElevatedSheetsProps extends HTMLMotionProps<"div"> {
   children: ReactNode
   closeHandler: () => void
   isOpen: boolean
+  navigationAction?: ElevatedSheetsNavigationAction | undefined
+  navigationTitle?: string | undefined
   overlayStyles?: MotionStyle
   primaryAction?: ElevatedSheetsAction | undefined
   secondaryAction?: ElevatedSheetsAction | undefined
@@ -34,6 +39,8 @@ export const ElevatedSheets = forwardRef<HTMLDivElement, ElevatedSheetsProps>(
       children,
       closeHandler,
       isOpen,
+      navigationAction,
+      navigationTitle,
       overlayStyles = {},
       primaryAction,
       secondaryAction,
@@ -67,6 +74,16 @@ export const ElevatedSheets = forwardRef<HTMLDivElement, ElevatedSheetsProps>(
               ref={mergedRef}
             >
               <MediumLargeNav>
+                <Navigation>
+                  {navigationAction && (
+                    <IconButton
+                      aria-label={navigationAction["aria-label"]}
+                      icon={navigationAction.icon}
+                      onClick={navigationAction.handler}
+                    />
+                  )}
+                  {navigationTitle && <Paragraph>{navigationTitle}</Paragraph>}
+                </Navigation>
                 <Actions>
                   {secondaryAction && (
                     <SecondaryButton onClick={secondaryAction.handler}>
@@ -103,6 +120,11 @@ export const ElevatedSheets = forwardRef<HTMLDivElement, ElevatedSheetsProps>(
     )
   },
 )
+export interface ElevatedSheetsNavigationAction {
+  "aria-label": string
+  handler?: () => void
+  icon: IconName
+}
 
 export interface ElevatedSheetsAction {
   handler?: () => void
@@ -161,10 +183,17 @@ const MediumLargeNav = styled.nav`
   display: none;
 
   @media ${({ theme }) => theme.mediaQueries.md} {
-    display: block;
+    display: flex;
+    justify-content: space-between;
     padding: ${({ theme }) => 2 * theme.spacer}px;
     padding-bottom: 0;
   }
+`
+
+const Navigation = styled.div`
+  display: flex;
+  gap: ${({ theme }) => 2 * theme.spacer}px;
+  align-items: center;
 `
 
 const Actions = styled.div`
