@@ -132,7 +132,7 @@ const StyledSelect = styled.select<StyledSelectProps>`
 const StyledIcon = styled(Icon)`
   position: absolute;
   right: ${({ theme }) => 1.5 * theme.spacer}px;
-  bottom: ${({ theme }) => theme.spacer}px;
+  bottom: ${({ theme }) => 1.5 * theme.spacer}px;
   pointer-events: none;
   color: ${({ theme }) => theme.colors.content.primary};
   width: ${({ theme }) => 3 * theme.spacer}px;
