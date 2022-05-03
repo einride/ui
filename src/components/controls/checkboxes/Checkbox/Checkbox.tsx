@@ -12,35 +12,59 @@ import { Icon } from "../../../content/Icon/Icon"
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   as?: ElementType
   children: ReactNode
+  innerWrapperStyles?: CSSProperties
   labelStyles?: CSSProperties
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  wrapperStyles?: CSSProperties
 }
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ children, labelStyles = {}, ...props }, ref) => {
+  (
+    {
+      children,
+      innerWrapperStyles = {},
+      labelStyles = {},
+      wrapperStyles = {},
+      ...props
+    },
+    ref,
+  ) => {
     return (
-      <Wrapper>
-        <StyledLabel style={labelStyles}>
-          <StyledInput type="checkbox" {...props} ref={ref} />
+      <Wrapper style={wrapperStyles}>
+        <InnerWrapper style={innerWrapperStyles}>
+          <StyledInput
+            id="einride-ui-checkbox"
+            type="checkbox"
+            {...props}
+            ref={ref}
+          />
+          <StyledIcon name="checkmark" />
+        </InnerWrapper>
+        <StyledLabel htmlFor="einride-ui-checkbox" style={labelStyles}>
           {children}
         </StyledLabel>
-        <StyledIcon name="checkmark" />
       </Wrapper>
     )
   },
 )
 
 const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  padding: ${({ theme }) => 1.5 * theme.spacer}px
+    ${({ theme }) => 2 * theme.spacer}px;
+`
+
+const InnerWrapper = styled.div`
   position: relative;
+  display: flex;
 `
 
 const StyledLabel = styled.label`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
-  margin: 12px 16px;
-  display: flex;
-  align-items: center;
-  color: ${({ theme }) => theme.colors.content.primary};
+  font-weight: ${({ theme }) => theme.fontWeights.book};
+  line-height: calc(4 / 3);
 
   &:focus-within {
     text-decoration: underline;
@@ -49,9 +73,9 @@ const StyledLabel = styled.label`
 
 const StyledInput = styled.input`
   appearance: none;
-  width: 24px;
-  height: 24px;
-  border-radius: 2px;
+  width: ${({ theme }) => 3 * theme.spacer}px;
+  height: ${({ theme }) => 3 * theme.spacer}px;
+  border-radius: ${({ theme }) => theme.spacer}px;
   border: 2px solid ${({ theme }) => theme.colors.border.primary};
   background: ${({ theme }) => theme.colors.background.primary};
   margin-right: ${({ theme }) => 2 * theme.spacer}px;
@@ -76,8 +100,7 @@ const StyledInput = styled.input`
 
 const StyledIcon = styled(Icon)`
   position: absolute;
-  top: 2px;
-  left: 22px;
+  left: 6px;
   color: ${({ theme }) => theme.colors.background.primary};
   pointer-events: none;
 `
