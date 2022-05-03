@@ -38,14 +38,16 @@ export const LabelSelect = forwardRef<HTMLSelectElement, LabelSelectProps>(
     return (
       <Wrapper isFullWidth={isFullWidth}>
         <InnerWrapper>
-          <StyledLabel>
-            {label}
-            <StyledSelect isFullWidth={isFullWidth} {...props} ref={ref}>
-              {placeholder && <option value="">{placeholder}</option>}
-              {children}
-            </StyledSelect>
-          </StyledLabel>
-
+          <StyledLabel htmlFor="einride-ui-label-select">{label}</StyledLabel>
+          <StyledSelect
+            id="einride-ui-label-select"
+            isFullWidth={isFullWidth}
+            {...props}
+            ref={ref}
+          >
+            {placeholder && <option value="">{placeholder}</option>}
+            {children}
+          </StyledSelect>
           <StyledIcon name="chevronDown" />
         </InnerWrapper>
         {message && (
@@ -79,10 +81,14 @@ const InnerWrapper = styled.div`
 `
 
 const StyledLabel = styled.label`
+  display: inline-block;
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
-  color: ${({ theme }) => theme.colors.content.secondary};
+  font-weight: ${({ theme }) => theme.fontWeights.book};
+  line-height: calc(4 / 3);
   margin-top: 5px;
+  margin-bottom: 3px;
+  color: ${({ theme }) => theme.colors.content.secondary};
 
   &:focus-within {
     color: ${({ theme }) => theme.colors.content.primary};
@@ -111,8 +117,6 @@ const StyledSelect = styled.select<StyledSelectProps>`
   border-radius: 2px;
   cursor: pointer;
   appearance: none;
-  margin-top: 3px;
-  position: relavtive;
 
   &:focus {
     box-shadow: 0px 0px 0px 1px ${({ theme }) => theme.colors.border.selected}
