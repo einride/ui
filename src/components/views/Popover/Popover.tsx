@@ -53,12 +53,13 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     return (
       <AnimatePresence>
         {isOpen && (
-          <Overlay
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            initial={{ opacity: 0 }}
-            onClick={closeHandler}
-          >
+          <>
+            <Overlay
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              initial={{ opacity: 0 }}
+              onClick={closeHandler}
+            />
             <Wrapper
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -98,7 +99,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                 )}
               </SmallNav>
             </Wrapper>
-          </Overlay>
+          </>
         )}
       </AnimatePresence>
     )
@@ -123,13 +124,13 @@ const Overlay = styled(motion.div)`
 `
 
 const Wrapper = styled(motion.div)`
-  margin-top: ${({ theme }) => 10 * theme.spacer}px;
-  margin-right: ${({ theme }) => 2 * theme.spacer}px;
-  margin-bottom: ${({ theme }) => 2 * theme.spacer}px;
-  margin-left: ${({ theme }) => 2 * theme.spacer}px;
+  position: fixed;
+  top: ${({ theme }) => 10 * theme.spacer}px;
+  right: ${({ theme }) => 2 * theme.spacer}px;
+  bottom: ${({ theme }) => 2 * theme.spacer}px;
+  left: ${({ theme }) => 2 * theme.spacer}px;
   background: ${({ theme }) => theme.colors.background.primaryElevated};
   border-radius: ${({ theme }) => 2 * theme.spacer}px;
-  width: calc(100vw - ${({ theme }) => 2 * theme.spacer}px);
   z-index: 2;
 
   @media ${({ theme }) => theme.mediaQueries.md} {
@@ -137,8 +138,7 @@ const Wrapper = styled(motion.div)`
       50vw,
       ${({ theme }) => theme.breakpoints.md - 2 * theme.spacer}px
     );
-    margin-top: 10vh;
-    margin-bottom: 10vh;
+    margin: 10vh auto;
   }
 `
 
