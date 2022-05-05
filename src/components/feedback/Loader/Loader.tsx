@@ -20,7 +20,7 @@ export const Loader = (): JSX.Element => {
 
 const Wrapper = styled.div`
   position: relative;
-  background: ${({ theme }) => theme.primitives.color.greyscale.black};
+  background: ${({ theme }) => theme.colors.content.primary};
   height: ${({ theme }) => 3 * theme.spacer}px;
   width: ${({ theme }) => 3 * theme.spacer}px;
   border-radius: ${({ theme }) => 3 * theme.spacer}px;
