@@ -22,6 +22,7 @@ const Wrapper = styled.div`
   position: fixed;
   top: 0;
   bottom: 0;
+  left: ${({ theme }) => 4 * theme.spacer}px;
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacer}px;
