@@ -26,6 +26,7 @@ export { LabelSelect } from "./components/controls/selects/LabelSelect/LabelSele
 export { Select } from "./components/controls/selects/Select/Select"
 export { Textarea } from "./components/controls/textareas/Textarea/Textarea"
 export { Loader } from "./components/feedback/Loader/Loader"
+export { PageLoader } from "./components/feedback/PageLoader/PageLoader"
 export { Label } from "./components/information/Label/Label"
 export { HorizontalLayout } from "./components/layout/HorizontalLayout/HorizontalLayout"
 export { HorizontalSpacing } from "./components/layout/HorizontalSpacing/HorizontalSpacing"
