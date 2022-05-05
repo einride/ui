@@ -94,3 +94,8 @@ export const Loupe = Template.bind({})
 Loupe.args = {
   name: "loupe",
 }
+
+export const Plus = Template.bind({})
+Plus.args = {
+  name: "plus",
+}

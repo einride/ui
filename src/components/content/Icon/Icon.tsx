@@ -101,6 +101,12 @@ export const Icon = forwardRef<HTMLSpanElement, IconProps>(
             &#1049259;
           </StyledSpan>
         )
+      case "plus":
+        return (
+          <StyledSpan aria-hidden="true" {...props} ref={ref}>
+            &#43;
+          </StyledSpan>
+        )
       default:
         return null
     }
@@ -123,6 +129,7 @@ export type IconName =
   | "arrowDownCircle"
   | "bolt"
   | "loupe"
+  | "plus"
 
 const StyledSpan = styled.span<{ color?: ContentColor }>`
   ${({ color, theme }) => color && `color: ${theme.colors.content[color]}`};
