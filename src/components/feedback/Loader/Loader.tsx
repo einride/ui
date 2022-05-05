@@ -1,9 +1,12 @@
 import styled from "@emotion/styled"
 import { motion } from "framer-motion"
+import { HTMLAttributes } from "react"
 
-export const Loader = (): JSX.Element => {
+export type LoaderProps = HTMLAttributes<HTMLDivElement>
+
+export const Loader = (props: LoaderProps): JSX.Element => {
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       <Line
         animate={{
           rotate: 180,
