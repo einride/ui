@@ -5,7 +5,12 @@ import {
   useMergedRef,
   useScrollLock,
 } from "@mantine/hooks"
-import { AnimatePresence, HTMLMotionProps, motion } from "framer-motion"
+import {
+  AnimatePresence,
+  HTMLMotionProps,
+  motion,
+  MotionStyle,
+} from "framer-motion"
 import { forwardRef, ReactNode, useEffect } from "react"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { SecondaryButton } from "../../controls/buttons/SecondaryButton/SecondaryButton"
@@ -15,6 +20,7 @@ export interface PopoverProps extends Omit<HTMLMotionProps<"div">, "title"> {
   children: ReactNode
   closeHandler: () => void
   isOpen: boolean
+  overlayStyles?: MotionStyle
   primaryAction?: PopoverAction
   secondaryAction?: PopoverAction
   title?: ReactNode
@@ -26,6 +32,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       children,
       closeHandler,
       isOpen,
+      overlayStyles = {},
       primaryAction,
       secondaryAction,
       title,
@@ -59,6 +66,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
               exit={{ opacity: 0 }}
               initial={{ opacity: 0 }}
               onClick={closeHandler}
+              style={overlayStyles}
             />
             <Wrapper
               animate={{ opacity: 1 }}
