@@ -12,4 +12,14 @@ module.exports = {
     builder: "storybook-builder-vite",
   },
   staticDirs: ["../public"],
+  typescript: {
+    reactDocgenTypescriptOptions: {
+      propFilter: (prop) => {
+        const filteredProp =
+          prop.parent?.fileName.includes("node_modules") ||
+          prop.parent === undefined
+        return !filteredProp
+      },
+    },
+  },
 }
