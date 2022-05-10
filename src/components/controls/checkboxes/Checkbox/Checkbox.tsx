@@ -1,4 +1,5 @@
 import styled from "@emotion/styled"
+import { useId } from "@mantine/hooks"
 import {
   ChangeEvent,
   CSSProperties,
@@ -29,18 +30,15 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     },
     ref,
   ) => {
+    const uuid = useId()
+
     return (
       <Wrapper style={wrapperStyles}>
         <InnerWrapper style={innerWrapperStyles}>
-          <StyledInput
-            id="einride-ui-checkbox"
-            type="checkbox"
-            {...props}
-            ref={ref}
-          />
+          <StyledInput id={uuid} type="checkbox" {...props} ref={ref} />
           <StyledIcon name="checkmark" />
         </InnerWrapper>
-        <StyledLabel htmlFor="einride-ui-checkbox" style={labelStyles}>
+        <StyledLabel htmlFor={uuid} style={labelStyles}>
           {children}
         </StyledLabel>
       </Wrapper>

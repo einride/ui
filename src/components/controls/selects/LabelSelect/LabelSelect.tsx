@@ -1,4 +1,5 @@
 import styled from "@emotion/styled"
+import { useId } from "@mantine/hooks"
 import {
   ChangeEvent,
   ElementType,
@@ -35,12 +36,14 @@ export const LabelSelect = forwardRef<HTMLSelectElement, LabelSelectProps>(
     },
     ref,
   ) => {
+    const uuid = useId()
+
     return (
       <Wrapper isFullWidth={isFullWidth}>
         <InnerWrapper>
-          <StyledLabel htmlFor="einride-ui-label-select">{label}</StyledLabel>
+          <StyledLabel htmlFor={uuid}>{label}</StyledLabel>
           <StyledSelect
-            id="einride-ui-label-select"
+            id={uuid}
             isFullWidth={isFullWidth}
             {...props}
             ref={ref}

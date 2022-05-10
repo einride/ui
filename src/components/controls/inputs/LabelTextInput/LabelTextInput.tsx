@@ -7,6 +7,7 @@ import {
   forwardRef,
   InputHTMLAttributes,
   ReactNode,
+  useId,
 } from "react"
 import { useTheme } from "../../../../hooks/useTheme"
 import { Theme } from "../../../../lib/theme/theme"
@@ -45,14 +46,15 @@ export const LabelTextInput = forwardRef<HTMLInputElement, LabelTextInputProps>(
     ref,
   ) => {
     const theme = useTheme()
+    const uuid = useId()
 
     return (
       <Wrapper style={wrapperStyles}>
-        <StyledLabel htmlFor="einride-ui-label-text-input" style={labelStyles}>
+        <StyledLabel htmlFor={uuid} style={labelStyles}>
           {label} {required && " (required)"}
         </StyledLabel>
         <BaseInput
-          id="einride-ui-label-text-input"
+          id={uuid}
           icon={getStatusIcon(theme, status)}
           {...props}
           ref={ref}
