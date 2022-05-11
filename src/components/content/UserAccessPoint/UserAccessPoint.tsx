@@ -1,6 +1,5 @@
 import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
-import { useTheme } from "../../../hooks/useTheme"
 import { Avatar } from "../Avatar/Avatar"
 
 export interface UserAccessPointProps
@@ -15,9 +14,14 @@ export const UserAccessPoint = forwardRef<
 >(({ avatarImageSrc, status = "default", ...props }, ref) => {
   return (
     <Button status={status} {...props} ref={ref}>
-      <Dots aria-label="Search" />
       <StyledAvatar alt="User profile picture" src={avatarImageSrc} />
-      {status === "notification" && <Notification />}
+      <Right>
+        {status === "notification" ? (
+          <Notification />
+        ) : (
+          <Dots aria-label="Search" />
+        )}
+      </Right>
     </Button>
   )
 })
@@ -31,37 +35,42 @@ const Button = styled.button<{ status: Status }>`
   align-items: center;
   display: flex;
   gap: 1px;
-  padding-right: ${({ theme }) => 0.5 * theme.spacer}px;
+  padding-left: ${({ theme }) => 0.5 * theme.spacer}px;
 `
-
-const Dots = (): JSX.Element => {
-  const theme = useTheme()
-  const fill = theme.colors.content.primary
-  return (
-    <svg
-      width="43"
-      height="48"
-      viewBox="0 0 43 48"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <rect x="22" y="14" width="4" height="4" rx="2" fill={fill} />
-      <rect x="22" y="22" width="4" height="4" rx="2" fill={fill} />
-      <rect x="22" y="30" width="4" height="4" rx="2" fill={fill} />
-    </svg>
-  )
-}
 
 const StyledAvatar = styled(Avatar)`
   -webkit-user-drag: none;
 `
 
+const Right = styled.div`
+  width: 43px;
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => 0.5 * theme.spacer}px;
+  justify-content: center;
+  align-items: center;
+`
+
 const Notification = styled.div`
-  position: absolute;
-  top: -1px;
-  right: -1px;
   background: ${({ theme }) => theme.colors.content.negative};
   width: ${({ theme }) => 2 * theme.spacer}px;
   height: ${({ theme }) => 2 * theme.spacer}px;
   border-radius: 10px;
+`
+
+const Dots = (): JSX.Element => {
+  return (
+    <>
+      <Dot />
+      <Dot />
+      <Dot />
+    </>
+  )
+}
+
+const Dot = styled.div`
+  width: ${({ theme }) => 0.5 * theme.spacer}px;
+  height: ${({ theme }) => 0.5 * theme.spacer}px;
+  border-radius: ${({ theme }) => 0.5 * theme.spacer}px;
+  background: ${({ theme }) => theme.colors.content.primary};
 `
