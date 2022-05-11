@@ -34,8 +34,7 @@ const Button = styled.button<{ status: Status }>`
   border-radius: ${({ theme }) => 3 * theme.spacer}px;
   align-items: center;
   display: flex;
-  gap: 1px;
-  padding-left: ${({ theme }) => 0.5 * theme.spacer}px;
+  padding: ${({ theme }) => 0.5 * theme.spacer}px;
 `
 
 const StyledAvatar = styled(Avatar)`
@@ -43,7 +42,7 @@ const StyledAvatar = styled(Avatar)`
 `
 
 const Right = styled.div`
-  width: 43px;
+  width: ${({ theme }) => 5 * theme.spacer}px;
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => 0.5 * theme.spacer}px;
