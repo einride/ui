@@ -4,18 +4,13 @@
 [![npm version](https://img.shields.io/npm/v/@einride/ui.svg)](https://www.npmjs.com/package/@einride/ui)
 [![total npm downloads](https://img.shields.io/npm/dt/@einride/ui.svg)](https://www.npmjs.com/package/@einride/ui)
 
-This package provides reusable React components that adhere to Einride's design
-system.
+Einride's UI framework with reusable components
 
 ## Installation
 
-Install @einride/ui together with its peer dependencies with NPM or Yarn:
+Install @einride/ui together with its peer dependencies:
 
 ```bash
-# npm
-npm install @einride/ui @emotion/react @emotion/styled framer-motion
-
-# yarn
 yarn add @einride/ui @emotion/react @emotion/styled framer-motion
 ```
 
