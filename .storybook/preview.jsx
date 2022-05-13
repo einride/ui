@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { EinrideProvider } from "../src/lib/EinrideProvider"
+import { EinrideProvider } from "../src/contexts/EinrideProvider"
 import { useDarkMode } from "storybook-dark-mode"
 import { themes } from "@storybook/theming"
 import { color } from "../src/primitives/color"
