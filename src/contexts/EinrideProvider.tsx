@@ -1,10 +1,10 @@
 import { ThemeProvider } from "@emotion/react"
 import merge from "lodash.merge"
 import { ReactNode } from "react"
+import { CSSReset } from "../lib/CSSReset"
+import { GlobalStyles } from "../lib/GlobalStyles"
+import { themes } from "../lib/theme/theme"
 import { ColorMode, ColorModeProvider } from "./ColorModeProvider"
-import { CSSReset } from "./CSSReset"
-import { GlobalStyles } from "./GlobalStyles"
-import { themes } from "./theme/theme"
 
 interface EinrideProviderProps {
   children: ReactNode

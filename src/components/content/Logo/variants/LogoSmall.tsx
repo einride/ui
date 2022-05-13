@@ -1,5 +1,5 @@
 import { forwardRef, SVGAttributes } from "react"
-import { useColorMode } from "../../../../lib/ColorModeProvider"
+import { useColorMode } from "../../../../contexts/ColorModeProvider"
 import { color } from "../../../../primitives/color"
 
 type LogoSmallProps = SVGAttributes<SVGSVGElement>
