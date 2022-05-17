@@ -84,7 +84,10 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                     </SecondaryButton>
                   )}
                   {primaryAction && (
-                    <PrimaryButton onClick={primaryAction.handler}>
+                    <PrimaryButton
+                      data-autofocus
+                      onClick={primaryAction.handler}
+                    >
                       {primaryAction.text}
                     </PrimaryButton>
                   )}
@@ -93,7 +96,11 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
               <Content>{children}</Content>
               <SmallNav>
                 {primaryAction && (
-                  <PrimaryButton isFullWidth onClick={primaryAction.handler}>
+                  <PrimaryButton
+                    data-autofocus
+                    isFullWidth
+                    onClick={primaryAction.handler}
+                  >
                     {primaryAction.text}
                   </PrimaryButton>
                 )}
