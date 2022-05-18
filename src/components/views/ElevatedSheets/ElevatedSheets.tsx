@@ -153,6 +153,7 @@ const Wrapper = styled(motion.div)<{ size: Size }>`
   border-top-left-radius: ${({ theme }) => 2 * theme.spacer}px;
   border-top-right-radius: ${({ theme }) => 2 * theme.spacer}px;
   z-index: 2;
+  overflow-y: auto;
 
   @media ${({ theme }) => theme.mediaQueries.md} {
     top: ${({ theme }) => 2 * theme.spacer}px;
