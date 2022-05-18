@@ -7,6 +7,7 @@ import {
   MotionStyle,
 } from "framer-motion"
 import { forwardRef, ReactNode } from "react"
+import { Theme } from "../../../lib/theme/theme"
 import { IconName } from "../../content/Icon/Icon"
 import { IconButton } from "../../controls/buttons/IconButton/IconButton"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
@@ -67,7 +68,7 @@ export const PlainSheets = forwardRef<HTMLDivElement, PlainSheetsProps>(
               {...props}
               ref={mergedRef}
             >
-              <MediumLargeNav>
+              <TopNav>
                 <Navigation>
                   {navigationAction && (
                     <IconButton
@@ -90,8 +91,13 @@ export const PlainSheets = forwardRef<HTMLDivElement, PlainSheetsProps>(
                     </PrimaryButton>
                   )}
                 </Actions>
-              </MediumLargeNav>
-              <Content>{children}</Content>
+              </TopNav>
+              <Content
+                hasPrimaryAction={!!primaryAction}
+                hasSecondaryAction={!!secondaryAction}
+              >
+                {children}
+              </Content>
               <SmallNav>
                 {primaryAction && (
                   <PrimaryButton isFullWidth onClick={primaryAction.handler}>
@@ -172,15 +178,14 @@ const Wrapper = styled(motion.div)<{ size: Size }>`
   }
 `
 
-const MediumLargeNav = styled.nav`
-  display: none;
-
-  @media ${({ theme }) => theme.mediaQueries.md} {
-    display: flex;
-    justify-content: space-between;
-    padding: ${({ theme }) => theme.grid.gap};
-    padding-bottom: 0;
-  }
+const TopNav = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  padding: ${({ theme }) => 2 * theme.spacer}px;
+  position: sticky;
+  top: 0;
+  background: ${({ theme }) => theme.colors.background.primary};
+  border-left: 1px solid ${({ theme }) => theme.colors.border.primary};
 `
 
 const Navigation = styled.div`
@@ -193,14 +198,43 @@ const Actions = styled.div`
   display: flex;
   justify-content: flex-end;
   gap: ${({ theme }) => 2 * theme.spacer}px;
+
+  @media ${({ theme }) => theme.mediaQueries.belowMd} {
+    display: none;
+  }
 `
 
-const Content = styled.div`
-  padding: ${({ theme }) => 2 * theme.spacer}px;
+const Content = styled.div<{
+  hasPrimaryAction: boolean
+  hasSecondaryAction: boolean
+}>`
+  padding-inline: ${({ theme }) => 2 * theme.spacer}px;
+  padding-bottom: ${({ theme }) => 2 * theme.spacer}px;
+
+  @media ${({ theme }) => theme.mediaQueries.belowMd} {
+    padding-bottom: ${({ hasPrimaryAction, hasSecondaryAction, theme }) =>
+      getPaddingBottom(hasPrimaryAction, hasSecondaryAction, theme)}px;
+  }
 `
+
+const getPaddingBottom = (
+  hasPrimaryAction: boolean,
+  hasSecondaryAction: boolean,
+  theme: Theme,
+): number => {
+  if (hasPrimaryAction && hasSecondaryAction) {
+    return 18 * theme.spacer
+  }
+
+  if (hasPrimaryAction || hasSecondaryAction) {
+    return 10 * theme.spacer
+  }
+
+  return 2 * theme.spacer
+}
 
 const SmallNav = styled.nav`
-  position: absolute;
+  position: fixed;
   right: ${({ theme }) => 2 * theme.spacer}px;
   left: ${({ theme }) => 2 * theme.spacer}px;
   bottom: ${({ theme }) => 3 * theme.spacer}px;
