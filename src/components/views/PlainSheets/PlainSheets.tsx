@@ -186,6 +186,7 @@ const TopNav = styled.nav`
   top: 0;
   background: ${({ theme }) => theme.colors.background.primary};
   border-left: 1px solid ${({ theme }) => theme.colors.border.primary};
+  z-index: 1; // to cover content with relative positioned elements
 `
 
 const Navigation = styled.div`

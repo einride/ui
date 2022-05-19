@@ -193,6 +193,7 @@ const TopNav = styled.nav`
   position: sticky;
   top: 0;
   background: ${({ theme }) => theme.colors.background.primary};
+  z-index: 1; // to cover content with relative positioned elements
 `
 
 const Navigation = styled.div`
