@@ -62,7 +62,7 @@ export type {
 export { Popover } from "./components/views/Popover/Popover"
 export type { PopoverAction } from "./components/views/Popover/Popover"
 export { VisuallyHidden } from "./components/visually-hidden/VisuallyHidden"
-export { useColorMode } from "./contexts/ColorModeProvider"
+export { useColorScheme } from "./contexts/ColorSchemeProvider"
 export { EinrideProvider } from "./contexts/EinrideProvider"
 export { useTheme } from "./hooks/useTheme"
 export type { Theme } from "./lib/theme/theme"

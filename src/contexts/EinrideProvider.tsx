@@ -1,14 +1,15 @@
+import { usePrefersColorScheme } from "@einride/hooks"
 import { ThemeProvider } from "@emotion/react"
 import merge from "lodash.merge"
 import { ReactNode } from "react"
 import { CSSReset } from "../lib/CSSReset"
 import { GlobalStyles } from "../lib/GlobalStyles"
 import { themes } from "../lib/theme/theme"
-import { ColorMode, ColorModeProvider } from "./ColorModeProvider"
+import { ColorScheme, ColorSchemeProvider } from "./ColorSchemeProvider"
 
 interface EinrideProviderProps {
   children: ReactNode
-  colorMode?: ColorMode
+  colorMode?: ColorScheme | "system"
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   customTheme?: any
   resetCSS?: boolean
@@ -23,19 +24,34 @@ export const EinrideProvider = ({
   resetCSS = true,
   theme = {},
 }: EinrideProviderProps): JSX.Element => {
-  const defaultTheme = themes[colorMode]
+  const prefersColorScheme = usePrefersColorScheme()
+  const colorScheme = getColorScheme(prefersColorScheme, colorMode)
+
+  const defaultTheme = themes[colorScheme]
   const mergedTheme = {
     ...merge(defaultTheme, theme),
-    custom: customTheme[colorMode],
+    custom: customTheme[colorScheme],
   }
 
   return (
-    <ColorModeProvider colorMode={colorMode}>
+    <ColorSchemeProvider colorScheme={colorScheme}>
       <ThemeProvider theme={mergedTheme}>
         {resetCSS && <CSSReset />}
         <GlobalStyles />
         {children}
       </ThemeProvider>
-    </ColorModeProvider>
+    </ColorSchemeProvider>
   )
 }
+
+const getColorScheme = (
+  prefersColorScheme: ColorScheme,
+  colorMode: ColorMode,
+): ColorScheme => {
+  if (colorMode === "system") {
+    return prefersColorScheme
+  }
+  return colorMode
+}
+
+type ColorMode = ColorScheme | "system"
