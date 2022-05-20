@@ -1,16 +1,16 @@
 import { forwardRef, SVGAttributes } from "react"
-import { useColorMode } from "../../../../contexts/ColorModeProvider"
+import { useColorScheme } from "../../../../contexts/ColorSchemeProvider"
 import { color } from "../../../../primitives/color"
 
 type LogoSmallProps = SVGAttributes<SVGSVGElement>
 
 export const LogoSmall = forwardRef<SVGSVGElement, LogoSmallProps>(
   (props, ref) => {
-    const colorMode = useColorMode()
+    const { colorScheme } = useColorScheme()
     const main =
-      colorMode === "dark" ? color.greyscale.white : color.greyscale.black
+      colorScheme === "dark" ? color.greyscale.white : color.greyscale.black
     const inverse =
-      colorMode === "dark" ? color.greyscale.black : color.greyscale.white
+      colorScheme === "dark" ? color.greyscale.black : color.greyscale.white
 
     return (
       <svg

@@ -1325,10 +1325,10 @@
     eslint-plugin-react "7.29.4"
     eslint-plugin-react-hooks "4.4.0"
 
-"@einride/hooks@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@einride/hooks/-/hooks-1.1.0.tgz#6af0357be18f483aac54c99e9aa6a56d8225fbdb"
-  integrity sha512-7UtqKJuciP7t49CRHyoB9OZr4FGiU07O8mhZBGLdG1c5ERA2ROUZWExmtUjgn2uBFOM5X5cbKhHBU7n9LirEoA==
+"@einride/hooks@1.4.1":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@einride/hooks/-/hooks-1.4.1.tgz#828fed3cc6536c9f663e6cbc70d686eaf43b0871"
+  integrity sha512-rAVOiXY6yvOeBYs7OCI9KS97dvnrHThlmUFCX2ifKNJc7PRlKMilkNjkpB3Q6AMeEQSadXbeu/XCt3UCIki8iw==
 
 "@einride/prettier-config@1.2.0":
   version "1.2.0"
