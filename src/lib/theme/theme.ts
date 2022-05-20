@@ -59,6 +59,20 @@ const common = {
   primitives: {
     color,
   },
+  transitions: {
+    easeIn: {
+      duration: "400ms",
+      timingFunction: "cubic-bezier(0.21, 0.69, 0.20, 1.00)",
+    },
+    easeOut: {
+      duration: "360ms",
+      timingFunction: "cubic-bezier(0.84, 0.00, 0.33, 1.00)",
+    },
+    morph: {
+      duration: "360ms",
+      timingFunction: "cubic-bezier(0.84, 0.00, 0.94, 0.65)",
+    },
+  },
 }
 
 export const light = {
