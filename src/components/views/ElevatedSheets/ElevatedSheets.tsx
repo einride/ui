@@ -85,7 +85,7 @@ export const ElevatedSheets = forwardRef<HTMLDivElement, ElevatedSheetsProps>(
                   )}
                   {navigationTitle && <Paragraph>{navigationTitle}</Paragraph>}
                 </Navigation>
-                <Actions>
+                <MdLgActions>
                   {secondaryAction && (
                     <SecondaryButton onClick={secondaryAction.handler}>
                       {secondaryAction.text}
@@ -96,7 +96,7 @@ export const ElevatedSheets = forwardRef<HTMLDivElement, ElevatedSheetsProps>(
                       {primaryAction.text}
                     </PrimaryButton>
                   )}
-                </Actions>
+                </MdLgActions>
               </TopNav>
               <Content
                 hasPrimaryAction={!!primaryAction}
@@ -104,7 +104,7 @@ export const ElevatedSheets = forwardRef<HTMLDivElement, ElevatedSheetsProps>(
               >
                 {children}
               </Content>
-              <SmallNav>
+              <SmActions>
                 {primaryAction && (
                   <PrimaryButton isFullWidth onClick={primaryAction.handler}>
                     {primaryAction.text}
@@ -118,7 +118,7 @@ export const ElevatedSheets = forwardRef<HTMLDivElement, ElevatedSheetsProps>(
                     {secondaryAction.text}
                   </SecondaryButton>
                 )}
-              </SmallNav>
+              </SmActions>
             </Wrapper>
           </>
         )}
@@ -202,7 +202,7 @@ const Navigation = styled.div`
   align-items: center;
 `
 
-const Actions = styled.div`
+const MdLgActions = styled.div`
   display: flex;
   justify-content: flex-end;
   gap: ${({ theme }) => 2 * theme.spacer}px;
@@ -241,7 +241,7 @@ const getPaddingBottom = (
   return 2 * theme.spacer
 }
 
-const SmallNav = styled.nav`
+const SmActions = styled.nav`
   position: fixed;
   right: ${({ theme }) => 2 * theme.spacer}px;
   left: ${({ theme }) => 2 * theme.spacer}px;
