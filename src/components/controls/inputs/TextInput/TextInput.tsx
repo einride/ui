@@ -32,14 +32,8 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
     return (
       <>
-        <StyledBaseInput
-          icon={getStatusIcon(theme, status)}
-          {...props}
-          ref={ref}
-        />
-        {message && (
-          <Caption color={getMessageColor(status)}>{message}</Caption>
-        )}
+        <StyledBaseInput icon={getStatusIcon(theme, status)} {...props} ref={ref} />
+        {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
       </>
     )
   },
@@ -54,16 +48,9 @@ const StyledBaseInput = styled(BaseInput)`
 const getStatusIcon = (theme: Theme, status?: Status): JSX.Element | null => {
   switch (status) {
     case "success":
-      return (
-        <Icon
-          name="checkmark"
-          style={{ color: theme.colors.content.positive }}
-        />
-      )
+      return <Icon name="checkmark" style={{ color: theme.colors.content.positive }} />
     case "fail":
-      return (
-        <Icon name="warning" style={{ color: theme.colors.content.negative }} />
-      )
+      return <Icon name="warning" style={{ color: theme.colors.content.negative }} />
     default:
       return null
   }

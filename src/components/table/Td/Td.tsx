@@ -6,15 +6,13 @@ interface TdProps extends HTMLAttributes<HTMLTableCellElement> {
   children: ReactNode
 }
 
-export const Td = forwardRef<HTMLTableCellElement, TdProps>(
-  ({ children, ...props }, ref) => {
-    return (
-      <StyledTd {...props} ref={ref}>
-        {children}
-      </StyledTd>
-    )
-  },
-)
+export const Td = forwardRef<HTMLTableCellElement, TdProps>(({ children, ...props }, ref) => {
+  return (
+    <StyledTd {...props} ref={ref}>
+      {children}
+    </StyledTd>
+  )
+})
 
 const StyledTd = styled.td`
   display: table-cell;

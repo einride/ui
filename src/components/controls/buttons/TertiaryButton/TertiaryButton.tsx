@@ -3,30 +3,23 @@ import { ButtonHTMLAttributes, ElementType, forwardRef, ReactNode } from "react"
 import { useWidthFromColumns } from "../../../../hooks/useWidthFromColumns"
 import { BaseButton } from "../BaseButton/BaseButton"
 
-export interface TertiaryButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface TertiaryButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   as?: ElementType
   children: ReactNode
   columns?: number | number[]
   isFullWidth?: boolean
 }
 
-export const TertiaryButton = forwardRef<
-  HTMLButtonElement,
-  TertiaryButtonProps
->(({ children, isFullWidth = false, ...props }, ref) => {
-  const width = useWidthFromColumns(props.columns, TertiaryButton.name)
-  return (
-    <StyledBaseButton
-      isFullWidth={isFullWidth}
-      width={width}
-      {...props}
-      ref={ref}
-    >
-      {children}
-    </StyledBaseButton>
-  )
-})
+export const TertiaryButton = forwardRef<HTMLButtonElement, TertiaryButtonProps>(
+  ({ children, isFullWidth = false, ...props }, ref) => {
+    const width = useWidthFromColumns(props.columns, TertiaryButton.name)
+    return (
+      <StyledBaseButton isFullWidth={isFullWidth} width={width} {...props} ref={ref}>
+        {children}
+      </StyledBaseButton>
+    )
+  },
+)
 
 interface StyledBaseButtonProps {
   isFullWidth: boolean
@@ -41,17 +34,19 @@ const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
   color: ${({ theme }) => theme.colors.buttons.text.tertiary};
 
   &:hover:not([aria-disabled="true"]) {
-    background: ${({ theme }) =>
-      theme.colors.buttons.background.hover.tertiary};
+    background: ${({ theme }) => theme.colors.buttons.background.hover.tertiary};
   }
 
   &:active:not([aria-disabled="true"]) {
-    background: ${({ theme }) =>
-      theme.colors.buttons.background.active.tertiary};
+    background: ${({ theme }) => theme.colors.buttons.background.active.tertiary};
   }
 
   &:focus-visible:not([aria-disabled="true"]) {
-    background: ${({ theme }) =>
-      theme.colors.buttons.background.focused.tertiary};
+    background: ${({ theme }) => theme.colors.buttons.background.focused.tertiary};
+  }
+
+  &[aria-disabled="true"] {
+    background: ${({ theme }) => theme.colors.buttons.background.disabled.tertiary};
+    color: ${({ theme }) => theme.colors.buttons.text.disabled};
   }
 `

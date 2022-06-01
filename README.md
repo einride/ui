@@ -16,23 +16,20 @@ yarn add @einride/ui @emotion/react @emotion/styled framer-motion
 
 ## Setup
 
-For @einride/ui to work, `EinrideProvider` needs to wrap all other components.
-Add it in the root component in your app like this:
+For @einride/ui to work, `EinrideProvider` needs to wrap all other components. Add it in the root
+component in your app like this:
 
 ```tsx
 import { EinrideProvider } from "@einride/ui"
 
 export const App = () => {
-  return (
-    <EinrideProvider>{/* All other components go here! */}</EinrideProvider>
-  )
+  return <EinrideProvider>{/* All other components go here! */}</EinrideProvider>
 }
 ```
 
 ## Contribute
 
-See
-[Contributing Guide](https://github.com/einride/ui/blob/main/CONTRIBUTING.md).
+See [Contributing Guide](https://github.com/einride/ui/blob/main/CONTRIBUTING.md).
 
 ## Documentation
 

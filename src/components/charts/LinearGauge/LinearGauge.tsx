@@ -83,8 +83,7 @@ const StyledPointerIcon = styled(PointerIcon)<{
   /* Percentage based on pointer height divided by linear default height */
   height: ${(27 / 56) * 100}%;
   width: auto;
-  transform: rotateZ(${({ percentage }) => getPointerRotation(percentage)}deg)
-    translateY(-22%);
+  transform: rotateZ(${({ percentage }) => getPointerRotation(percentage)}deg) translateY(-22%);
   transition: transform 0.5s ease-in-out;
   fill: ${({ theme }) => theme.colors.content.primary};
   position: absolute;

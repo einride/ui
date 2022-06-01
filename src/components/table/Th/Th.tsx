@@ -10,15 +10,13 @@ interface ThProps extends ThHTMLAttributes<HTMLTableCellElement> {
   scope: "col" | "row"
 }
 
-export const Th = forwardRef<HTMLTableCellElement, ThProps>(
-  ({ children, ...props }, ref) => {
-    return (
-      <StyledTh {...props} ref={ref}>
-        {children}
-      </StyledTh>
-    )
-  },
-)
+export const Th = forwardRef<HTMLTableCellElement, ThProps>(({ children, ...props }, ref) => {
+  return (
+    <StyledTh {...props} ref={ref}>
+      {children}
+    </StyledTh>
+  )
+})
 
 const StyledTh = styled.th`
   display: table-cell;

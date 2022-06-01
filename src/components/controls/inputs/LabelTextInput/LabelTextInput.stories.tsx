@@ -17,9 +17,7 @@ export default {
   },
 }
 
-const Template: Story<LabelTextInputProps> = (args) => (
-  <LabelTextInput {...args} />
-)
+const Template: Story<LabelTextInputProps> = (args) => <LabelTextInput {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

@@ -3,8 +3,7 @@ import { ButtonHTMLAttributes, ElementType, forwardRef, ReactNode } from "react"
 import { useWidthFromColumns } from "../../../../hooks/useWidthFromColumns"
 import { BaseButton } from "../BaseButton/BaseButton"
 
-export interface PrimaryButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface PrimaryButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   as?: ElementType
   children: ReactNode
   columns?: number | number[]
@@ -15,12 +14,7 @@ export const PrimaryButton = forwardRef<HTMLButtonElement, PrimaryButtonProps>(
   ({ children, isFullWidth = false, ...props }, ref) => {
     const width = useWidthFromColumns(props.columns, PrimaryButton.name)
     return (
-      <StyledBaseButton
-        isFullWidth={isFullWidth}
-        width={width}
-        {...props}
-        ref={ref}
-      >
+      <StyledBaseButton isFullWidth={isFullWidth} width={width} {...props} ref={ref}>
         {children}
       </StyledBaseButton>
     )
@@ -44,12 +38,15 @@ const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
   }
 
   &:active:not([aria-disabled="true"]) {
-    background: ${({ theme }) =>
-      theme.colors.buttons.background.active.primary};
+    background: ${({ theme }) => theme.colors.buttons.background.active.primary};
   }
 
   &:focus-visible:not([aria-disabled="true"]) {
-    background: ${({ theme }) =>
-      theme.colors.buttons.background.focused.primary};
+    background: ${({ theme }) => theme.colors.buttons.background.focused.primary};
+  }
+
+  &[aria-disabled="true"] {
+    background: ${({ theme }) => theme.colors.buttons.background.disabled.primary};
+    color: ${({ theme }) => theme.colors.buttons.text.disabled};
   }
 `

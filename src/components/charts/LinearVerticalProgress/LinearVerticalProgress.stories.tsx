@@ -1,17 +1,12 @@
 import { Story } from "@storybook/react/types-6-0"
-import {
-  LinearVerticalProgress,
-  LinearVerticalProgressProps,
-} from "./LinearVerticalProgress"
+import { LinearVerticalProgress, LinearVerticalProgressProps } from "./LinearVerticalProgress"
 
 export default {
   title: "Charts/LinearVerticalProgress",
   component: LinearVerticalProgress,
 }
 
-const Template: Story<LinearVerticalProgressProps> = (args) => (
-  <LinearVerticalProgress {...args} />
-)
+const Template: Story<LinearVerticalProgressProps> = (args) => <LinearVerticalProgress {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

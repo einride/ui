@@ -7,12 +7,11 @@ export interface HorizontalSpacingProps extends HTMLAttributes<HTMLDivElement> {
   size?: Size
 }
 
-export const HorizontalSpacing = forwardRef<
-  HTMLDivElement,
-  HorizontalSpacingProps
->(({ size = "sm", ...props }, ref) => {
-  return <StyledDiv size={size} {...props} ref={ref} />
-})
+export const HorizontalSpacing = forwardRef<HTMLDivElement, HorizontalSpacingProps>(
+  ({ size = "sm", ...props }, ref) => {
+    return <StyledDiv size={size} {...props} ref={ref} />
+  },
+)
 
 const getWidth = (size?: Size): number => {
   switch (size) {

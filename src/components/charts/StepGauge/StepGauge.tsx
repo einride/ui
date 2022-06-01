@@ -28,10 +28,7 @@ export type StepGaugeProps = (
  * Either aria-label, aria-labelledby or title must be provided for accessibility.
  */
 export const StepGauge = forwardRef<HTMLDivElement, StepGaugeProps>(
-  (
-    { color = "positive", completed, steps, strokeWidth = 3, ...props },
-    ref,
-  ) => {
+  ({ color = "positive", completed, steps, strokeWidth = 3, ...props }, ref) => {
     const svgSize = 100 + strokeWidth * 2
 
     return (
@@ -44,10 +41,7 @@ export const StepGauge = forwardRef<HTMLDivElement, StepGaugeProps>(
         aria-valuenow={completed}
         aria-valuetext={`${completed} of ${steps} steps completed`}
       >
-        <StyledSvg
-          viewBox={`0 0 ${svgSize} ${svgSize}`}
-          strokeWidth={strokeWidth}
-        >
+        <StyledSvg viewBox={`0 0 ${svgSize} ${svgSize}`} strokeWidth={strokeWidth}>
           {[...Array(steps).keys()].map((step) => (
             <StepGaugeStep
               key={step}
@@ -86,9 +80,7 @@ const StyledPointerIcon = styled(PointerIcon)<{
   /* Percentage based on pointer viewBox height divided by StepGauge viewBox height  */
   height: ${(27 / 56) * 100}%;
   width: auto;
-  transform: rotateZ(
-      ${({ completed, steps }) => getPointerRotation(completed, steps)}deg
-    )
+  transform: rotateZ(${({ completed, steps }) => getPointerRotation(completed, steps)}deg)
     translateY(-22%);
   transition: transform 0.5s ease-in-out;
   fill: ${({ theme }) => theme.colors.content.primary};

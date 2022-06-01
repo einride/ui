@@ -16,8 +16,7 @@ module.exports = {
     reactDocgenTypescriptOptions: {
       propFilter: (prop) => {
         const filteredProp =
-          prop.parent?.fileName.includes("node_modules") ||
-          prop.parent === undefined
+          prop.parent?.fileName.includes("node_modules") || prop.parent === undefined
         return !filteredProp
       },
     },

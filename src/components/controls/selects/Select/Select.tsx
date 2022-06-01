@@ -1,11 +1,5 @@
 import styled from "@emotion/styled"
-import {
-  ChangeEvent,
-  ElementType,
-  forwardRef,
-  ReactNode,
-  SelectHTMLAttributes,
-} from "react"
+import { ChangeEvent, ElementType, forwardRef, ReactNode, SelectHTMLAttributes } from "react"
 import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Caption } from "../../../typography/Caption/Caption"
@@ -22,10 +16,7 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 }
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
-  (
-    { children, isFullWidth = false, placeholder, status, message, ...props },
-    ref,
-  ) => {
+  ({ children, isFullWidth = false, placeholder, status, message, ...props }, ref) => {
     return (
       <>
         <Wrapper isFullWidth={isFullWidth}>
@@ -35,9 +26,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           </StyledSelect>
           <StyledIcon name="chevronDown" />
         </Wrapper>
-        {message && (
-          <Caption color={getMessageColor(status)}>{message}</Caption>
-        )}
+        {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
       </>
     )
   },
@@ -78,8 +67,7 @@ const StyledSelect = styled.select<{ isFullWidth?: boolean }>`
   appearance: none;
 
   &:focus {
-    box-shadow: 0px 0px 0px 1px ${({ theme }) => theme.colors.border.selected}
-      inset;
+    box-shadow: 0px 0px 0px 1px ${({ theme }) => theme.colors.border.selected} inset;
     outline: none;
   }
 

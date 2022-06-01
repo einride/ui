@@ -1,16 +1,6 @@
 import styled from "@emotion/styled"
-import {
-  useFocusReturn,
-  useFocusTrap,
-  useMergedRef,
-  useScrollLock,
-} from "@mantine/hooks"
-import {
-  AnimatePresence,
-  HTMLMotionProps,
-  motion,
-  MotionStyle,
-} from "framer-motion"
+import { useFocusReturn, useFocusTrap, useMergedRef, useScrollLock } from "@mantine/hooks"
+import { AnimatePresence, HTMLMotionProps, motion, MotionStyle } from "framer-motion"
 import { forwardRef, ReactNode, useEffect } from "react"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { SecondaryButton } from "../../controls/buttons/SecondaryButton/SecondaryButton"
@@ -84,10 +74,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                     </SecondaryButton>
                   )}
                   {primaryAction && (
-                    <PrimaryButton
-                      data-autofocus
-                      onClick={primaryAction.handler}
-                    >
+                    <PrimaryButton data-autofocus onClick={primaryAction.handler}>
                       {primaryAction.text}
                     </PrimaryButton>
                   )}
@@ -96,19 +83,12 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
               <Content>{children}</Content>
               <SmallNav>
                 {primaryAction && (
-                  <PrimaryButton
-                    data-autofocus
-                    isFullWidth
-                    onClick={primaryAction.handler}
-                  >
+                  <PrimaryButton data-autofocus isFullWidth onClick={primaryAction.handler}>
                     {primaryAction.text}
                   </PrimaryButton>
                 )}
                 {secondaryAction && (
-                  <SecondaryButton
-                    isFullWidth
-                    onClick={secondaryAction.handler}
-                  >
+                  <SecondaryButton isFullWidth onClick={secondaryAction.handler}>
                     {secondaryAction.text}
                   </SecondaryButton>
                 )}
@@ -149,10 +129,7 @@ const Wrapper = styled(motion.div)`
   z-index: 2;
 
   @media ${({ theme }) => theme.mediaQueries.md} {
-    width: max(
-      50vw,
-      ${({ theme }) => theme.breakpoints.md - 2 * theme.spacer}px
-    );
+    width: max(50vw, ${({ theme }) => theme.breakpoints.md - 2 * theme.spacer}px);
     margin: 10vh auto;
   }
 `

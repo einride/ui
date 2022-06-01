@@ -3,8 +3,7 @@ import { ElementType, forwardRef, InputHTMLAttributes } from "react"
 import { Icon } from "../../../content/Icon/Icon"
 import { BaseInput } from "../BaseInput/BaseInput"
 
-export interface SearchInputProps
-  extends InputHTMLAttributes<HTMLInputElement> {
+export interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
   "aria-label": string
   as?: ElementType
   onInputChange?: (input: string) => void

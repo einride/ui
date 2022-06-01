@@ -1,18 +1,11 @@
 import styled from "@emotion/styled"
 import { useId } from "@mantine/hooks"
-import {
-  ChangeEvent,
-  ElementType,
-  forwardRef,
-  ReactNode,
-  SelectHTMLAttributes,
-} from "react"
+import { ChangeEvent, ElementType, forwardRef, ReactNode, SelectHTMLAttributes } from "react"
 import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Caption } from "../../../typography/Caption/Caption"
 
-export interface LabelSelectProps
-  extends SelectHTMLAttributes<HTMLSelectElement> {
+export interface LabelSelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   as?: ElementType
   children: ReactNode
   isFullWidth?: boolean
@@ -24,38 +17,20 @@ export interface LabelSelectProps
 }
 
 export const LabelSelect = forwardRef<HTMLSelectElement, LabelSelectProps>(
-  (
-    {
-      children,
-      isFullWidth = false,
-      label,
-      placeholder,
-      status,
-      message,
-      ...props
-    },
-    ref,
-  ) => {
+  ({ children, isFullWidth = false, label, placeholder, status, message, ...props }, ref) => {
     const uuid = useId()
 
     return (
       <Wrapper isFullWidth={isFullWidth}>
         <InnerWrapper>
           <StyledLabel htmlFor={uuid}>{label}</StyledLabel>
-          <StyledSelect
-            id={uuid}
-            isFullWidth={isFullWidth}
-            {...props}
-            ref={ref}
-          >
+          <StyledSelect id={uuid} isFullWidth={isFullWidth} {...props} ref={ref}>
             {placeholder && <option value="">{placeholder}</option>}
             {children}
           </StyledSelect>
           <StyledIcon name="chevronDown" />
         </InnerWrapper>
-        {message && (
-          <Caption color={getMessageColor(status)}>{message}</Caption>
-        )}
+        {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
       </Wrapper>
     )
   },
@@ -122,8 +97,7 @@ const StyledSelect = styled.select<StyledSelectProps>`
   appearance: none;
 
   &:focus {
-    box-shadow: 0px 0px 0px 1px ${({ theme }) => theme.colors.border.selected}
-      inset;
+    box-shadow: 0px 0px 0px 1px ${({ theme }) => theme.colors.border.selected} inset;
     outline: none;
   }
 

@@ -14,9 +14,7 @@ export default {
   },
 }
 
-const Template: Story<SecondaryCardProps> = (args) => (
-  <SecondaryCard {...args} />
-)
+const Template: Story<SecondaryCardProps> = (args) => <SecondaryCard {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
@@ -28,10 +26,7 @@ Default.args = {
   ),
 }
 
-const InsidePrimaryCardTemplate: Story<SecondaryCardProps> = ({
-  children,
-  ...args
-}) => (
+const InsidePrimaryCardTemplate: Story<SecondaryCardProps> = ({ children, ...args }) => (
   <PrimaryCard {...args}>
     <Paragraph>Primary</Paragraph>
     <Paragraph color="secondary">Secondary</Paragraph>

@@ -121,7 +121,11 @@ export const light = {
           secondary: color.greyscale.grey40,
           tertiary: color.greyscale.grey40,
         },
-        disabled: color.greyscale.grey20,
+        disabled: {
+          primary: color.greyscale.grey20,
+          secondary: color.greyscale.grey20,
+          tertiary: color.greyscale.white,
+        },
       },
       text: {
         primary: color.greyscale.white,
@@ -183,7 +187,11 @@ export const dark: Theme = {
           secondary: color.greyscale.grey100,
           tertiary: color.greyscale.grey100,
         },
-        disabled: color.greyscale.black,
+        disabled: {
+          primary: color.greyscale.black,
+          secondary: color.greyscale.black,
+          tertiary: color.greyscale.black,
+        },
       },
       text: {
         primary: color.greyscale.black,

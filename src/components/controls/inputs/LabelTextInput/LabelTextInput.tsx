@@ -16,8 +16,7 @@ import { Icon } from "../../../content/Icon/Icon"
 import { Caption } from "../../../typography/Caption/Caption"
 import { BaseInput } from "../BaseInput/BaseInput"
 
-export interface LabelTextInputProps
-  extends InputHTMLAttributes<HTMLInputElement> {
+export interface LabelTextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   as?: ElementType
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
@@ -33,18 +32,7 @@ export interface LabelTextInputProps
 }
 
 export const LabelTextInput = forwardRef<HTMLInputElement, LabelTextInputProps>(
-  (
-    {
-      label,
-      labelStyles = {},
-      message,
-      required,
-      status,
-      wrapperStyles,
-      ...props
-    },
-    ref,
-  ) => {
+  ({ label, labelStyles = {}, message, required, status, wrapperStyles, ...props }, ref) => {
     const theme = useTheme()
     const uuid = useId()
 
@@ -53,15 +41,8 @@ export const LabelTextInput = forwardRef<HTMLInputElement, LabelTextInputProps>(
         <StyledLabel htmlFor={uuid} style={labelStyles}>
           {label} {required && " (required)"}
         </StyledLabel>
-        <BaseInput
-          id={uuid}
-          icon={getStatusIcon(theme, status)}
-          {...props}
-          ref={ref}
-        />
-        {message && (
-          <Caption color={getMessageColor(status)}>{message}</Caption>
-        )}
+        <BaseInput id={uuid} icon={getStatusIcon(theme, status)} {...props} ref={ref} />
+        {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
       </Wrapper>
     )
   },
@@ -88,16 +69,9 @@ const StyledLabel = styled.label`
 const getStatusIcon = (theme: Theme, status?: Status): JSX.Element | null => {
   switch (status) {
     case "success":
-      return (
-        <Icon
-          name="checkmark"
-          style={{ color: theme.colors.content.positive }}
-        />
-      )
+      return <Icon name="checkmark" style={{ color: theme.colors.content.positive }} />
     case "fail":
-      return (
-        <Icon name="warning" style={{ color: theme.colors.content.negative }} />
-      )
+      return <Icon name="warning" style={{ color: theme.colors.content.negative }} />
     default:
       return null
   }

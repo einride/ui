@@ -1,11 +1,6 @@
 import styled from "@emotion/styled"
 import { useFocusReturn, useFocusTrap, useMergedRef } from "@mantine/hooks"
-import {
-  AnimatePresence,
-  HTMLMotionProps,
-  motion,
-  MotionStyle,
-} from "framer-motion"
+import { AnimatePresence, HTMLMotionProps, motion, MotionStyle } from "framer-motion"
 import { forwardRef, ReactNode } from "react"
 import { Theme } from "../../../lib/theme/theme"
 import { IconName } from "../../content/Icon/Icon"
@@ -92,10 +87,7 @@ export const PlainSheets = forwardRef<HTMLDivElement, PlainSheetsProps>(
                   )}
                 </Actions>
               </TopNav>
-              <Content
-                hasPrimaryAction={!!primaryAction}
-                hasSecondaryAction={!!secondaryAction}
-              >
+              <Content hasPrimaryAction={!!primaryAction} hasSecondaryAction={!!secondaryAction}>
                 {children}
               </Content>
               <SmallNav>
@@ -105,10 +97,7 @@ export const PlainSheets = forwardRef<HTMLDivElement, PlainSheetsProps>(
                   </PrimaryButton>
                 )}
                 {secondaryAction && (
-                  <SecondaryButton
-                    isFullWidth
-                    onClick={secondaryAction.handler}
-                  >
+                  <SecondaryButton isFullWidth onClick={secondaryAction.handler}>
                     {secondaryAction.text}
                   </SecondaryButton>
                 )}

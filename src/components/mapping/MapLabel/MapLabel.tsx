@@ -2,8 +2,7 @@ import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes, ReactNode } from "react"
 import { Paragraph } from "../../typography/Paragraph/Paragraph"
 
-export interface MapLabelProps
-  extends Omit<HTMLAttributes<HTMLParagraphElement>, "color"> {
+export interface MapLabelProps extends Omit<HTMLAttributes<HTMLParagraphElement>, "color"> {
   children: ReactNode
 }
 

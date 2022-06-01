@@ -17,9 +17,7 @@ export default {
   },
 }
 
-const Template: Story<SecondaryButtonProps> = (args) => (
-  <SecondaryButton {...args} />
-)
+const Template: Story<SecondaryButtonProps> = (args) => <SecondaryButton {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

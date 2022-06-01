@@ -19,9 +19,7 @@ export const useWidthFromColumns = (
     ${Array.isArray(columns) && columns[2] && `${customProp}: ${columns[2]};`}
   }
 
-  min-width: calc(((100vw - calc(${theme.grid.columns} + 1) * ${
-    theme.grid.gap
-  }) / ${theme.grid.columns} + ${theme.grid.gap}) * var(${customProp}) - ${
-    theme.grid.gap
-  })`
+  min-width: calc(((100vw - calc(${theme.grid.columns} + 1) * ${theme.grid.gap}) / ${
+    theme.grid.columns
+  } + ${theme.grid.gap}) * var(${customProp}) - ${theme.grid.gap})`
 }

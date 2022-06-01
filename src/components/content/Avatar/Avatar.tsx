@@ -7,11 +7,9 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   src: string
 }
 
-export const Avatar = forwardRef<HTMLImageElement, AvatarProps>(
-  (props, ref) => {
-    return <Image {...props} ref={ref} />
-  },
-)
+export const Avatar = forwardRef<HTMLImageElement, AvatarProps>((props, ref) => {
+  return <Image {...props} ref={ref} />
+})
 
 const Image = styled.img`
   width: ${({ theme }) => 5 * theme.spacer}px;

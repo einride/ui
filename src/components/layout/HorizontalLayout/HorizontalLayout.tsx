@@ -8,12 +8,11 @@ export interface HorizontalLayoutProps extends HTMLAttributes<HTMLDivElement> {
   gap?: Gap
 }
 
-export const HorizontalLayout = forwardRef<
-  HTMLDivElement,
-  HorizontalLayoutProps
->(({ gap = "sm", ...props }, ref) => {
-  return <StyledDiv gap={gap} {...props} ref={ref} />
-})
+export const HorizontalLayout = forwardRef<HTMLDivElement, HorizontalLayoutProps>(
+  ({ gap = "sm", ...props }, ref) => {
+    return <StyledDiv gap={gap} {...props} ref={ref} />
+  },
+)
 
 type Gap = "none" | "sm" | "lg"
 

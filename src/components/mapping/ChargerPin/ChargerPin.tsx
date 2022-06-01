@@ -3,8 +3,7 @@ import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
 import { Icon } from "../../content/Icon/Icon"
 
-export interface ChargerPinProps
-  extends Omit<HTMLAttributes<HTMLDivElement>, "color"> {
+export interface ChargerPinProps extends Omit<HTMLAttributes<HTMLDivElement>, "color"> {
   /** Default: "md" */
   size: Size
 }

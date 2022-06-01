@@ -31,11 +31,7 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
           ref={ref}
         />
         <ThumbWrapper>
-          <Thumb
-            disabled={!!props.disabled}
-            hasFocus={hasFocus}
-            percentage={value}
-          />
+          <Thumb disabled={!!props.disabled} hasFocus={hasFocus} percentage={value} />
         </ThumbWrapper>
       </Wrapper>
     )
@@ -136,8 +132,7 @@ const Thumb = styled.div<{
   left: ${({ percentage }) => `${percentage}%`};
   pointer-events: none;
   transition-duration: ${({ theme }) => theme.transitions.morph.duration};
-  transition-timing-function: ${({ theme }) =>
-    theme.transitions.morph.timingFunction};
+  transition-timing-function: ${({ theme }) => theme.transitions.morph.timingFunction};
   transition-property: width, height, margin;
 
   ${({ disabled, hasFocus, theme }) =>

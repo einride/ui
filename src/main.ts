@@ -67,9 +67,5 @@ export { useColorScheme } from "./contexts/ColorSchemeProvider"
 export { EinrideProvider } from "./contexts/EinrideProvider"
 export { useTheme } from "./hooks/useTheme"
 export type { Theme } from "./lib/theme/theme"
-export type {
-  BackgroundColor,
-  BorderColor,
-  ContentColor,
-} from "./lib/theme/types"
+export type { BackgroundColor, BorderColor, ContentColor } from "./lib/theme/types"
 export { color } from "./primitives/color"

@@ -22,9 +22,7 @@ export default {
   },
 }
 
-const Template: Story<WithIconButtonProps> = (args) => (
-  <WithIconButton {...args} />
-)
+const Template: Story<WithIconButtonProps> = (args) => <WithIconButton {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

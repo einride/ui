@@ -1,14 +1,7 @@
 import styled from "@emotion/styled"
-import {
-  ButtonHTMLAttributes,
-  ElementType,
-  forwardRef,
-  MouseEvent,
-  ReactNode,
-} from "react"
+import { ButtonHTMLAttributes, ElementType, forwardRef, MouseEvent, ReactNode } from "react"
 
-export interface BaseButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface BaseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   as?: ElementType
   children: ReactNode
 }
@@ -42,6 +35,10 @@ const StyledButton = styled.button`
     text-decoration: underline;
   }
 
+  &:active:not([aria-disabled="true"]) {
+    text-decoration: none;
+  }
+
   &:focus-visible {
     outline: none;
     box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
@@ -49,8 +46,6 @@ const StyledButton = styled.button`
   }
 
   &[aria-disabled="true"] {
-    background: ${({ theme }) => theme.colors.buttons.background.disabled};
-    color: ${({ theme }) => theme.colors.buttons.text.disabled};
     cursor: not-allowed;
   }
 `

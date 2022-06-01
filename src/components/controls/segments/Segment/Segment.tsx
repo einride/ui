@@ -11,12 +11,7 @@ export interface SegmentProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Segment = forwardRef<HTMLButtonElement, SegmentProps>(
   ({ children, selected, ...props }, ref) => {
     return (
-      <Wrapper
-        aria-selected={selected ? "true" : undefined}
-        role="tab"
-        {...props}
-        ref={ref}
-      >
+      <Wrapper aria-selected={selected ? "true" : undefined} role="tab" {...props} ref={ref}>
         {children}
       </Wrapper>
     )

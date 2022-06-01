@@ -13,8 +13,7 @@ import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Caption } from "../../../typography/Caption/Caption"
 
-export interface TextareaProps
-  extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   as?: ElementType
   label: ReactNode
   labelStyles?: CSSProperties
@@ -28,10 +27,7 @@ export interface TextareaProps
 }
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  (
-    { label, labelStyles = {}, message, status, wrapperStyles = {}, ...props },
-    ref,
-  ) => {
+  ({ label, labelStyles = {}, message, status, wrapperStyles = {}, ...props }, ref) => {
     const theme = useTheme()
 
     return (
@@ -41,9 +37,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           <StyledTextarea {...props} ref={ref} />
           <IconWrapper>{getStatusIcon(theme, status)}</IconWrapper>
         </Wrapper>
-        {message && (
-          <Caption color={getMessageColor(status)}>{message}</Caption>
-        )}
+        {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
       </StyledLabel>
     )
   },
@@ -102,16 +96,9 @@ const IconWrapper = styled.span`
 const getStatusIcon = (theme: Theme, status?: Status): JSX.Element | null => {
   switch (status) {
     case "success":
-      return (
-        <Icon
-          name="checkmark"
-          style={{ color: theme.colors.content.positive }}
-        />
-      )
+      return <Icon name="checkmark" style={{ color: theme.colors.content.positive }} />
     case "fail":
-      return (
-        <Icon name="warning" style={{ color: theme.colors.content.negative }} />
-      )
+      return <Icon name="warning" style={{ color: theme.colors.content.negative }} />
     default:
       return null
   }

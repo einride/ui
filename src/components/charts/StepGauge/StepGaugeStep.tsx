@@ -22,10 +22,7 @@ export const StepGaugeStep = ({
   const convertPolarCoordinatesToCartesian = (degree: number): number[] => {
     const center = svgSize / 2
     const radians = (degree * Math.PI) / 180.0
-    return [
-      center + RADIUS * Math.cos(radians),
-      center + RADIUS * Math.sin(radians),
-    ]
+    return [center + RADIUS * Math.cos(radians), center + RADIUS * Math.sin(radians)]
   }
 
   const calculatePathPoint = (degree: number): string => {
@@ -47,14 +44,11 @@ export const StepGaugeStep = ({
 
   const calculateStepData = (): { startOfStep: number; endOfStep: number } => {
     const gapBetweenSteps = 0.04 * totalSteps
-    const adjustStepStartPointToGapSize =
-      90 * (gapBetweenSteps / (totalSteps / 2))
+    const adjustStepStartPointToGapSize = 90 * (gapBetweenSteps / (totalSteps / 2))
     const lengthOfStep = 360 / totalSteps
-    const startOfStep =
-      lengthOfStep * index - (90 - adjustStepStartPointToGapSize)
+    const startOfStep = lengthOfStep * index - (90 - adjustStepStartPointToGapSize)
     const endOfStep =
-      lengthOfStep * (index + 1 - gapBetweenSteps) -
-      (90 - adjustStepStartPointToGapSize)
+      lengthOfStep * (index + 1 - gapBetweenSteps) - (90 - adjustStepStartPointToGapSize)
     return { startOfStep, endOfStep }
   }
 
@@ -84,9 +78,7 @@ const StyledPath = styled.path<{
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: ${({ theme, index, completed, color }) =>
-    index + 1 <= completed
-      ? theme.colors.content[color]
-      : theme.colors.background.tertiary};
+    index + 1 <= completed ? theme.colors.content[color] : theme.colors.background.tertiary};
   transition: fill 0.3s ease-in-out, stroke 0.3s ease-in-out;
   transition-delay: 0.3s;
 `

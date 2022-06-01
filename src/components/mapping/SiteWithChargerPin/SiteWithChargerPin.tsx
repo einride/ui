@@ -3,23 +3,21 @@ import { forwardRef, HTMLAttributes } from "react"
 import { ChargerPin } from "../ChargerPin/ChargerPin"
 import { SitePin } from "../SitePin/SitePin"
 
-export interface SiteWithChargerPinProps
-  extends HTMLAttributes<HTMLDivElement> {
+export interface SiteWithChargerPinProps extends HTMLAttributes<HTMLDivElement> {
   /** Default: "md" */
   size: Size
 }
 
-export const SiteWithChargerPin = forwardRef<
-  HTMLDivElement,
-  SiteWithChargerPinProps
->(({ size = "md", ...props }, ref) => {
-  return (
-    <Wrapper size={size} {...props} ref={ref}>
-      <StyledSitePin size={size} />
-      <StyledChargerPin size={size} />
-    </Wrapper>
-  )
-})
+export const SiteWithChargerPin = forwardRef<HTMLDivElement, SiteWithChargerPinProps>(
+  ({ size = "md", ...props }, ref) => {
+    return (
+      <Wrapper size={size} {...props} ref={ref}>
+        <StyledSitePin size={size} />
+        <StyledChargerPin size={size} />
+      </Wrapper>
+    )
+  },
+)
 
 type Size = "sm" | "md"
 

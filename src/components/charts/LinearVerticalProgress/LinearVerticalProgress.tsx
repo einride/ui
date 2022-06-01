@@ -2,8 +2,7 @@ import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
 import { ContentColor } from "../../../lib/theme/types"
 
-interface LinearVerticalProgressBaseProps
-  extends HTMLAttributes<HTMLDivElement> {
+interface LinearVerticalProgressBaseProps extends HTMLAttributes<HTMLDivElement> {
   color?: ContentColor
   /**
    * Default: 100
@@ -26,23 +25,22 @@ export type LinearVerticalProgressProps = (
 /**
  * Either aria-label, aria-labelledby or title must be provided for accessibility.
  */
-export const LinearVerticalProgress = forwardRef<
-  HTMLDivElement,
-  LinearVerticalProgressProps
->(({ color = "positive", max = 100, min = 0, value, ...props }, ref) => {
-  return (
-    <Wrapper
-      role="progressbar"
-      aria-valuemax={max}
-      aria-valuemin={min}
-      aria-valuenow={value}
-      {...props}
-      ref={ref}
-    >
-      <Value color={color} max={max} min={min} value={value} />
-    </Wrapper>
-  )
-})
+export const LinearVerticalProgress = forwardRef<HTMLDivElement, LinearVerticalProgressProps>(
+  ({ color = "positive", max = 100, min = 0, value, ...props }, ref) => {
+    return (
+      <Wrapper
+        role="progressbar"
+        aria-valuemax={max}
+        aria-valuemin={min}
+        aria-valuenow={value}
+        {...props}
+        ref={ref}
+      >
+        <Value color={color} max={max} min={min} value={value} />
+      </Wrapper>
+    )
+  },
+)
 
 const Wrapper = styled.div`
   display: flex;

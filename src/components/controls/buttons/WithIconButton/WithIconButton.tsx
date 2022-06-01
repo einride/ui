@@ -4,8 +4,7 @@ import { useWidthFromColumns } from "../../../../hooks/useWidthFromColumns"
 import { Icon } from "../../../content/Icon/Icon"
 import { BaseButton } from "../BaseButton/BaseButton"
 
-export interface WithIconButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface WithIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   as?: ElementType
   children: ReactNode
   columns?: number | number[]
@@ -13,32 +12,14 @@ export interface WithIconButtonProps
   icon?: ReactNode
 }
 
-export const WithIconButton = forwardRef<
-  HTMLButtonElement,
-  WithIconButtonProps
->(
-  (
-    {
-      children,
-      isFullWidth = false,
-      icon = <Icon name="arrowRight" />,
-      ...props
-    },
-    ref,
-  ) => {
+export const WithIconButton = forwardRef<HTMLButtonElement, WithIconButtonProps>(
+  ({ children, isFullWidth = false, icon = <Icon name="arrowRight" />, ...props }, ref) => {
     const width = useWidthFromColumns(props.columns, WithIconButton.name)
     return (
-      <StyledBaseButton
-        isFullWidth={isFullWidth}
-        width={width}
-        {...props}
-        ref={ref}
-      >
+      <StyledBaseButton isFullWidth={isFullWidth} width={width} {...props} ref={ref}>
         <ContentWrapper>
           <span className="einride-ui-with-icon-button-text">{children}</span>
-          <IconWrapper className="einride-ui-with-icon-button-icon">
-            {icon}
-          </IconWrapper>
+          <IconWrapper className="einride-ui-with-icon-button-icon">{icon}</IconWrapper>
         </ContentWrapper>
       </StyledBaseButton>
     )
@@ -68,8 +49,7 @@ export const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
   }
 
   &:active:not([aria-disabled="true"]) {
-    background: ${({ theme }) =>
-      theme.colors.buttons.background.active.primary};
+    background: ${({ theme }) => theme.colors.buttons.background.active.primary};
   }
 
   &:focus-visible {
@@ -80,13 +60,17 @@ export const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
     }
 
     &:not([aria-disabled="true"]) {
-      background: ${({ theme }) =>
-        theme.colors.buttons.background.focused.primary};
+      background: ${({ theme }) => theme.colors.buttons.background.focused.primary};
     }
   }
 
-  &[aria-disabled="true"] .einride-ui-with-icon-button-icon {
+  &[aria-disabled="true"] {
+    background: ${({ theme }) => theme.colors.buttons.background.disabled.primary};
     color: ${({ theme }) => theme.colors.buttons.text.disabled};
+
+    .einride-ui-with-icon-button-icon {
+      color: ${({ theme }) => theme.colors.buttons.text.disabled};
+    }
   }
 `
 

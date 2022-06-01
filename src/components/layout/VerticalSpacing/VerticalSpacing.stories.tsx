@@ -18,9 +18,7 @@ export default {
   },
 }
 
-const Template: Story<VerticalSpacingProps> = (args) => (
-  <VerticalSpacing {...args} />
-)
+const Template: Story<VerticalSpacingProps> = (args) => <VerticalSpacing {...args} />
 
 export const Default = Template.bind({})
 Default.args = {}

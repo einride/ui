@@ -6,9 +6,7 @@ export default {
   component: UserAccessPoint,
 }
 
-const Template: Story<UserAccessPointProps> = (args) => (
-  <UserAccessPoint {...args} />
-)
+const Template: Story<UserAccessPointProps> = (args) => <UserAccessPoint {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

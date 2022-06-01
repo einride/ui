@@ -6,8 +6,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          'Import like this: `import site from "@einride/ui/lib/mapIcons/site.svg"`',
+        component: 'Import like this: `import site from "@einride/ui/lib/mapIcons/site.svg"`',
       },
     },
   },

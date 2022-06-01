@@ -21,27 +21,26 @@ export type StepVerticalProgressProps = (
 /**
  * Either aria-label, aria-labelledby or title must be provided for accessibility.
  */
-export const StepVerticalProgress = forwardRef<
-  HTMLDivElement,
-  StepVerticalProgressProps
->(({ color = "positive", completedSteps, steps = 5, ...props }, ref) => {
-  return (
-    <Wrapper
-      role="progressbar"
-      aria-valuemax={steps}
-      aria-valuemin={0}
-      aria-valuenow={completedSteps}
-      aria-valuetext={`${completedSteps} of ${steps} steps completed`}
-      {...props}
-      ref={ref}
-    >
-      {Array.from(Array(steps)).map((_, index) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <Step key={index} color={color} completed={index < completedSteps} />
-      ))}
-    </Wrapper>
-  )
-})
+export const StepVerticalProgress = forwardRef<HTMLDivElement, StepVerticalProgressProps>(
+  ({ color = "positive", completedSteps, steps = 5, ...props }, ref) => {
+    return (
+      <Wrapper
+        role="progressbar"
+        aria-valuemax={steps}
+        aria-valuemin={0}
+        aria-valuenow={completedSteps}
+        aria-valuetext={`${completedSteps} of ${steps} steps completed`}
+        {...props}
+        ref={ref}
+      >
+        {Array.from(Array(steps)).map((_, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <Step key={index} color={color} completed={index < completedSteps} />
+        ))}
+      </Wrapper>
+    )
+  },
+)
 
 const Wrapper = styled.div`
   display: flex;

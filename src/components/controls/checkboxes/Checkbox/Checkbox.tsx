@@ -20,16 +20,7 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  (
-    {
-      children,
-      innerWrapperStyles = {},
-      labelStyles = {},
-      wrapperStyles = {},
-      ...props
-    },
-    ref,
-  ) => {
+  ({ children, innerWrapperStyles = {}, labelStyles = {}, wrapperStyles = {}, ...props }, ref) => {
     const uuid = useId()
 
     return (
@@ -49,8 +40,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  padding: ${({ theme }) => 1.5 * theme.spacer}px
-    ${({ theme }) => 2 * theme.spacer}px;
+  padding: ${({ theme }) => 1.5 * theme.spacer}px ${({ theme }) => 2 * theme.spacer}px;
 `
 
 const InnerWrapper = styled.div`

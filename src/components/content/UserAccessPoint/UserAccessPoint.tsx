@@ -2,29 +2,21 @@ import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
 import { Avatar } from "../Avatar/Avatar"
 
-export interface UserAccessPointProps
-  extends HTMLAttributes<HTMLButtonElement> {
+export interface UserAccessPointProps extends HTMLAttributes<HTMLButtonElement> {
   avatarImageSrc: string
   status?: Status
 }
 
-export const UserAccessPoint = forwardRef<
-  HTMLButtonElement,
-  UserAccessPointProps
->(({ avatarImageSrc, status = "default", ...props }, ref) => {
-  return (
-    <Button status={status} {...props} ref={ref}>
-      <StyledAvatar alt="User profile picture" src={avatarImageSrc} />
-      <Right>
-        {status === "notification" ? (
-          <Notification />
-        ) : (
-          <Dots aria-label="Search" />
-        )}
-      </Right>
-    </Button>
-  )
-})
+export const UserAccessPoint = forwardRef<HTMLButtonElement, UserAccessPointProps>(
+  ({ avatarImageSrc, status = "default", ...props }, ref) => {
+    return (
+      <Button status={status} {...props} ref={ref}>
+        <StyledAvatar alt="User profile picture" src={avatarImageSrc} />
+        <Right>{status === "notification" ? <Notification /> : <Dots aria-label="Search" />}</Right>
+      </Button>
+    )
+  },
+)
 
 type Status = "default" | "notification" | "no-user"
 

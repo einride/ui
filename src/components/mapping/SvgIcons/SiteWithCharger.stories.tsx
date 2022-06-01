@@ -13,8 +13,6 @@ export default {
   },
 }
 
-const Template: Story = () => (
-  <img src={siteWithChargerIcon} alt="Site with charger icon" />
-)
+const Template: Story = () => <img src={siteWithChargerIcon} alt="Site with charger icon" />
 
 export const Default = Template.bind({})

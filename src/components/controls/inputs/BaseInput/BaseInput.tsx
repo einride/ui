@@ -17,16 +17,14 @@ export interface BaseInputProps extends InputHTMLAttributes<HTMLInputElement> {
   value?: string | undefined
 }
 
-export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
-  ({ icon, ...props }, ref) => {
-    return (
-      <ContentWrapper>
-        <StyledInput {...props} ref={ref} />
-        <IconWrapper>{icon}</IconWrapper>
-      </ContentWrapper>
-    )
-  },
-)
+export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(({ icon, ...props }, ref) => {
+  return (
+    <ContentWrapper>
+      <StyledInput {...props} ref={ref} />
+      <IconWrapper>{icon}</IconWrapper>
+    </ContentWrapper>
+  )
+})
 
 const ContentWrapper = styled.div`
   position: relative;
@@ -47,8 +45,7 @@ const StyledInput = styled.input`
   border-radius: 2px;
 
   &:focus {
-    box-shadow: 0px 0px 0px 1px ${({ theme }) => theme.colors.border.selected}
-      inset;
+    box-shadow: 0px 0px 0px 1px ${({ theme }) => theme.colors.border.selected} inset;
     outline: none;
   }
 

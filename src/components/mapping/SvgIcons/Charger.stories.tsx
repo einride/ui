@@ -6,8 +6,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          'Import like this: `import charger from "@einride/ui/lib/mapIcons/charger.svg"`',
+        component: 'Import like this: `import charger from "@einride/ui/lib/mapIcons/charger.svg"`',
       },
     },
   },

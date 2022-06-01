@@ -10,9 +10,4 @@ export type BackgroundColor =
 
 export type BorderColor = "primary" | "selected"
 
-export type ContentColor =
-  | "primary"
-  | "secondary"
-  | "tertiary"
-  | "positive"
-  | "negative"
+export type ContentColor = "primary" | "secondary" | "tertiary" | "positive" | "negative"

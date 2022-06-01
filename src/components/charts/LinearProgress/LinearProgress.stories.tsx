@@ -6,9 +6,7 @@ export default {
   component: LinearProgress,
 }
 
-const Template: Story<LinearProgressProps> = (args) => (
-  <LinearProgress {...args} />
-)
+const Template: Story<LinearProgressProps> = (args) => <LinearProgress {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

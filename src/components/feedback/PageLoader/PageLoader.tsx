@@ -7,10 +7,7 @@ export interface PageLoaderProps extends HTMLAttributes<HTMLDivElement> {
   text?: ReactNode
 }
 
-export const PageLoader = ({
-  text = <>Loading</>,
-  ...props
-}: PageLoaderProps): JSX.Element => {
+export const PageLoader = ({ text = <>Loading</>, ...props }: PageLoaderProps): JSX.Element => {
   return (
     <Wrapper {...props}>
       <Loader /> {text && <Paragraph>{text}</Paragraph>}
