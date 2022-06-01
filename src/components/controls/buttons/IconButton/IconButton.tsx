@@ -12,7 +12,7 @@ export interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>
 }
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ icon = "arrowRight", variant = "primary", ...props }, ref) => {
+  ({ icon = "arrowRight", variant = "secondary", ...props }, ref) => {
     return (
       <StyledBaseButton variant={variant} {...props} ref={ref}>
         <Icon name={icon} />
