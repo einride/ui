@@ -8,7 +8,7 @@ export interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>
   "aria-label": string
   as?: ElementType
   icon?: IconName
-  variant: Variant
+  variant?: Variant
 }
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
