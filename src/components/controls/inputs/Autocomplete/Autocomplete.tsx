@@ -36,6 +36,8 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
     const theme = useTheme()
     const id = useId()
 
+    const showChevron = status !== "success" && status !== "fail"
+
     return (
       <>
         <Wrapper style={wrapperStyles}>
@@ -47,7 +49,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
               </option>
             ))}
           </datalist>
-          <StyledIcon name="chevronDown" />
+          {showChevron && <StyledIcon name="chevronDown" />}
         </Wrapper>
         {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
       </>
