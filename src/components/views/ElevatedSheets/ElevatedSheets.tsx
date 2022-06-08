@@ -176,7 +176,7 @@ const TopNav = styled.nav`
   padding: ${({ theme }) => 2 * theme.spacer}px;
   position: sticky;
   top: 0;
-  background: ${({ theme }) => theme.colors.background.primary};
+  background: ${({ theme }) => theme.colors.background.primaryElevated};
   z-index: 1; // to cover content with relative positioned elements
 `
 
