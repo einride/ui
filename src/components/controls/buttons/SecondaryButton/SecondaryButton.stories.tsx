@@ -1,4 +1,5 @@
 import { Story } from "@storybook/react/types-6-0"
+import { Icon } from "../../../content/Icon/Icon"
 import { SecondaryButton, SecondaryButtonProps } from "./SecondaryButton"
 
 export default {
@@ -22,4 +23,16 @@ const Template: Story<SecondaryButtonProps> = (args) => <SecondaryButton {...arg
 export const Default = Template.bind({})
 Default.args = {
   children: "Button",
+}
+
+export const IconRight = Template.bind({})
+IconRight.args = {
+  ...Default.args,
+  rightIcon: <Icon name="arrowRight" />,
+}
+
+export const IsLoading = Template.bind({})
+IsLoading.args = {
+  ...Default.args,
+  isLoading: true,
 }
