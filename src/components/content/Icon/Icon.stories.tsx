@@ -99,3 +99,8 @@ export const Plus = Template.bind({})
 Plus.args = {
   name: "plus",
 }
+
+export const Ellipsis = Template.bind({})
+Ellipsis.args = {
+  name: "ellipsis",
+}

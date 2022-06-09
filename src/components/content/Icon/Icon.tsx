@@ -8,6 +8,8 @@ export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
   name: IconName
 }
 
+// use for example https://mothereff.in/html-entities to convert figma icons to html entities
+
 export const Icon = forwardRef<HTMLSpanElement, IconProps>(({ name, ...props }, ref) => {
   switch (name) {
     case "checkmark":
@@ -106,6 +108,12 @@ export const Icon = forwardRef<HTMLSpanElement, IconProps>(({ name, ...props }, 
           &#43;
         </StyledSpan>
       )
+    case "ellipsis":
+      return (
+        <StyledSpan aria-hidden="true" {...props} ref={ref}>
+          &#x100360;
+        </StyledSpan>
+      )
     default:
       return null
   }
@@ -128,6 +136,7 @@ export type IconName =
   | "bolt"
   | "loupe"
   | "plus"
+  | "ellipsis"
 
 const StyledSpan = styled.span<{ color?: ContentColor }>`
   ${({ color, theme }) => color && `color: ${theme.colors.content[color]}`};
