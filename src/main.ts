@@ -16,7 +16,6 @@ export { SecondaryButton } from "./components/controls/buttons/SecondaryButton/S
 export { TertiaryButton } from "./components/controls/buttons/TertiaryButton/TertiaryButton"
 export { WithIconButton } from "./components/controls/buttons/WithIconButton/WithIconButton"
 export { Checkbox } from "./components/controls/checkboxes/Checkbox/Checkbox"
-export { Autocomplete } from "./components/controls/inputs/Autocomplete/Autocomplete"
 export { LabelTextInput } from "./components/controls/inputs/LabelTextInput/LabelTextInput"
 export { SearchInput } from "./components/controls/inputs/SearchInput/SearchInput"
 export { TextInput } from "./components/controls/inputs/TextInput/TextInput"
