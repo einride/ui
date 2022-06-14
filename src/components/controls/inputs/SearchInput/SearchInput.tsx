@@ -8,7 +8,7 @@ export interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> 
   as?: ElementType
   onInputChange?: (input: string) => void
   placeholder: string
-  value?: string | undefined
+  value?: string
 }
 
 export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
