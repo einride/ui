@@ -174,11 +174,16 @@ const getMessageColor = (status: Status | undefined): ContentColor => {
 }
 
 const Wrapper = styled.div<{ isFullWidth?: boolean }>`
+  position: relative;
   display: inline-block;
   ${({ isFullWidth }) => isFullWidth && "width: 100%"};
 `
 
 const OptionsWrapper = styled.div`
+  position: absolute;
+  top: ${({ theme }) => 6 * theme.spacer}px;
+  right: 0;
+  left: 0;
   background: ${({ theme }) => theme.colors.background.secondary};
   border-radius: ${({ theme }) => theme.spacer}px;
   margin-top: ${({ theme }) => theme.spacer}px;
