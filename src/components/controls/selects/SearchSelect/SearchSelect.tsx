@@ -51,7 +51,7 @@ export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
     const handleInputBlur = (): void => {
       if (typeof selectedIndex === "number") {
         const selected = options[selectedIndex]
-        onSearchChange?.(selected.value)
+        onSearchChange?.(selected?.value)
         onOptionSelect?.(selected)
         internalInputRef?.current?.focus()
       }
