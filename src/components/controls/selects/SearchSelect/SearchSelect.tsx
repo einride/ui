@@ -121,6 +121,7 @@ export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
     return (
       <Wrapper isFullWidth={isFullWidth} style={wrapperStyles}>
         <SearchSelectInput
+          isFullWidth={isFullWidth}
           isOpen={isOpen}
           onBlur={handleInputBlur}
           onChange={(e) => handleInputChange(e.target.value)}
