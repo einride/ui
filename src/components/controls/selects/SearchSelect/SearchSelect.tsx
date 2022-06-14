@@ -43,9 +43,8 @@ export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
     ref,
   ): JSX.Element => {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
-    const [isOpen, setIsOpen] = useState(true)
+    const [isOpen, setIsOpen] = useState(false)
     const internalInputRef = useRef<HTMLInputElement>(null)
-    const optionRef = useRef<HTMLInputElement>(null)
     const inputRef = useMergedRef(internalInputRef, ref)
 
     const handleInputBlur = (): void => {
@@ -142,7 +141,6 @@ export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
                 onClick={() => handleOptionSelect(option)}
                 onMouseOver={() => handleMouseOver(index)}
                 onMouseLeave={handleMouseLeave}
-                ref={optionRef}
               >
                 {option.label}
               </SearchSelectOption>
