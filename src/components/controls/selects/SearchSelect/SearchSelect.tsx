@@ -21,7 +21,7 @@ export interface SearchSelectProps extends InputHTMLAttributes<HTMLInputElement>
   message?: ReactNode
   onOptionSelect?: (option: Option) => void
   onSearchChange?: (value: string) => void
-  options: Option[]
+  options: Option[] | undefined
   status?: Status
   wrapperStyles?: CSSProperties
 }
@@ -82,14 +82,14 @@ export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
     const handleInputKeyDown = (e: KeyboardEvent<HTMLInputElement>): void => {
       if (e.key === "Enter") {
         e.preventDefault()
-        if (typeof selectedIndex === "number") {
+        if (typeof selectedIndex === "number" && options) {
           handleOptionSelect(options[selectedIndex])
         }
       }
 
       if (e.key === "ArrowDown") {
         e.preventDefault()
-        if (isOpen) {
+        if (isOpen && options) {
           if (selectedIndex === null) {
             setSelectedIndex(0)
           } else if (selectedIndex < options.length - 1) {
@@ -133,9 +133,9 @@ export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
           {...props}
           ref={inputRef}
         />
-        {isOpen && options.length > 0 && (
+        {isOpen && options && options.length > 0 && (
           <OptionsWrapper>
-            {options.map((option, index) => (
+            {options?.map((option, index) => (
               <SearchSelectOption
                 key={option.value}
                 isSelected={index === selectedIndex}
