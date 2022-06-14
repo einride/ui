@@ -191,4 +191,5 @@ const OptionsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacer}px;
+  z-index: 1;
 `
