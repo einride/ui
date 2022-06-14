@@ -121,7 +121,7 @@ export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
       <Wrapper isFullWidth={isFullWidth} style={wrapperStyles}>
         <SearchSelectInput
           isFullWidth={isFullWidth}
-          isOpen={isOpen}
+          isOpen={isOpen && !!options && options.length > 0}
           onBlur={handleInputBlur}
           onChange={(e) => handleInputChange(e.target.value)}
           onClick={handleInputClick}
@@ -132,7 +132,7 @@ export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
           {...props}
           ref={inputRef}
         />
-        {isOpen && options && options.length > 0 && (
+        {isOpen && !!options && options.length > 0 && (
           <OptionsWrapper>
             {options?.map((option, index) => (
               <SearchSelectOption
