@@ -31,7 +31,7 @@ const StyledInput = styled.input`
   display: block;
   padding: 12px 16px;
   border: unset;
-  border-radius: 2px;
+  border-radius: ${({ theme }) => theme.spacer}px;
 
   &:focus {
     box-shadow: 0px 0px 0px 1px ${({ theme }) => theme.colors.border.selected} inset;

@@ -63,11 +63,11 @@ const StyledTextarea = styled.textarea`
   display: block;
   min-width: 100%;
   resize: none;
-  background-color: ${({ theme }) => theme.colors.background.secondary};
+  background: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
   padding: 12px 16px;
   border: unset;
-  border-radius: 2px;
+  border-radius: ${({ theme }) => theme.spacer}px;
   flex-grow: 1;
 
   &::placeholder {
