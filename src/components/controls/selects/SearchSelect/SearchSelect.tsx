@@ -49,7 +49,7 @@ export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
     const inputRef = useMergedRef(internalInputRef, ref)
 
     const handleInputBlur = (): void => {
-      if (typeof selectedIndex === "number") {
+      if (typeof selectedIndex === "number" && options?.[selectedIndex]) {
         const selected = options[selectedIndex]
         onSearchChange?.(selected?.value)
         onOptionSelect?.(selected)
