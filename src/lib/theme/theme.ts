@@ -16,6 +16,12 @@ const common = {
     belowLarge: `@media (max-width: ${LARGE_BREAKPOINT_PIXELS - 1}px)`,
     large: `@media (min-width: ${LARGE_BREAKPOINT_PIXELS}px)`,
   },
+  border: {
+    radius: {
+      sm: 8,
+      md: 16,
+    },
+  },
   breakpoints: {
     md: MEDIUM_BREAKPOINT_PIXELS,
     lg: LARGE_BREAKPOINT_PIXELS,
