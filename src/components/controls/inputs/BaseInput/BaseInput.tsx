@@ -1,20 +1,9 @@
 import styled from "@emotion/styled"
-import {
-  ChangeEvent,
-  ElementType,
-  FocusEvent,
-  forwardRef,
-  InputHTMLAttributes,
-  ReactNode,
-} from "react"
+import { ElementType, forwardRef, InputHTMLAttributes, ReactNode } from "react"
 
 export interface BaseInputProps extends InputHTMLAttributes<HTMLInputElement> {
   as?: ElementType
-  onBlur?: ((e: FocusEvent<HTMLInputElement>) => void) | undefined
-  onChange?: ((e: ChangeEvent<HTMLInputElement>) => void) | undefined
   icon?: ReactNode
-  placeholder?: string
-  value?: string | undefined
 }
 
 export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(({ icon, ...props }, ref) => {
