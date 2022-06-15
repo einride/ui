@@ -4,6 +4,9 @@ import { BackgroundColor } from "../../../lib/theme/types"
 
 export interface SecondaryCardProps extends HTMLAttributes<HTMLDivElement> {
   as?: ElementType
+  /**
+   * Default: "secondary"
+   */
   background?: Background
   children: ReactNode
 }
@@ -20,7 +23,7 @@ export const SecondaryCard = forwardRef<HTMLDivElement, SecondaryCardProps>(
 
 type Background = Exclude<BackgroundColor, "focus">
 
-const Wrapper = styled.div<{ background: Background; isElevated?: boolean }>`
+const Wrapper = styled.div<{ background: Background }>`
   background: ${({ background, theme }) => theme.colors.background[background]};
   border-radius: ${({ theme }) => theme.spacer}px;
   padding: ${({ theme }) => theme.spacer}px;
