@@ -4,6 +4,9 @@ import { BackgroundColor } from "../../../lib/theme/types"
 
 export interface PrimaryCardProps extends HTMLAttributes<HTMLDivElement> {
   as?: ElementType
+  /**
+   * Default: "primary"
+   */
   background?: Background
   children: ReactNode
 }
@@ -20,10 +23,9 @@ export const PrimaryCard = forwardRef<HTMLDivElement, PrimaryCardProps>(
 
 type Background = Exclude<BackgroundColor, "focus">
 
-const Wrapper = styled.div<{
-  background: Background
-}>`
+const Wrapper = styled.div<{ background: Background }>`
   background: ${({ background, theme }) => theme.colors.background[background]};
   border-radius: ${({ theme }) => 2 * theme.spacer}px;
-  padding: ${({ theme }) => theme.spacer}px ${({ theme }) => 2 * theme.spacer}px;
+  padding-inline: ${({ theme }) => 2 * theme.spacer}px;
+  padding-block: ${({ theme }) => theme.spacer}px;
 `
