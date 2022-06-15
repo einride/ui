@@ -20,3 +20,15 @@ Default.args = {
   alt: "User profile picture",
   src: "https://source.unsplash.com/e5eDHbmHprg/250x250",
 }
+
+export const Circle = Template.bind({})
+Circle.args = {
+  ...Default.args,
+  radius: "full",
+}
+
+export const Square = Template.bind({})
+Square.args = {
+  ...Default.args,
+  radius: "sm",
+}
