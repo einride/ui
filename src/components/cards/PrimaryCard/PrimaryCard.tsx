@@ -1,8 +1,9 @@
 import styled from "@emotion/styled"
-import { forwardRef, HTMLAttributes, ReactNode } from "react"
+import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 import { BackgroundColor } from "../../../lib/theme/types"
 
 export interface PrimaryCardProps extends HTMLAttributes<HTMLDivElement> {
+  as?: ElementType
   background?: Background
   children: ReactNode
 }
