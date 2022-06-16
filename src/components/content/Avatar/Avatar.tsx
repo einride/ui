@@ -22,6 +22,7 @@ type Size = "sm" | "md"
 const Image = styled.img<{ radius: Radius; size: Size }>`
   height: ${({ radius, theme, size }) => getSize(radius, theme, size)}px;
   width: ${({ radius, theme, size }) => getSize(radius, theme, size)}px;
+  border: 2px solid ${({ theme }) => theme.colors.border.primary};
   border-radius: ${({ radius, theme }) => theme.borderRadii[radius]};
 `
 
