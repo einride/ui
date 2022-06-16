@@ -50,8 +50,9 @@ const StyledSpan = styled.span<{ variant: Variant }>`
   font-size: ${({ theme }) => theme.fontSizes.md};
   background: ${({ theme, variant }) => getBackground(theme, variant)};
   color: ${({ theme, variant }) => getColor(theme, variant)};
-  padding: ${({ theme }) => `${theme.spacer / 2}px ${theme.spacer}px`};
-  border-radius: 2px;
+  padding-block: ${({ theme }) => theme.spacer / 2}px;
+  padding-inline: ${({ theme }) => theme.spacer}px;
+  border-radius: ${({ theme }) => theme.borderRadii.sm};
 `
 
 type Variant = "primary" | "positive" | "negative"

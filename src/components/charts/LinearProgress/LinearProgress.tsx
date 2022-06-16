@@ -45,7 +45,7 @@ export const LinearProgress = forwardRef<HTMLDivElement, LinearProgressProps>(
 const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.background.tertiary};
   height: ${({ theme }) => theme.spacer}px;
-  border-radius: ${({ theme }) => theme.spacer}px;
+  border-radius: ${({ theme }) => theme.borderRadii.sm};
   position: relative;
   /* Width needed to make sure component takes up full width in flex containers */
   width: 100%;
@@ -59,7 +59,7 @@ const Value = styled.div<{
 }>`
   background: ${({ color, theme }) => theme.colors.content[color]};
   height: ${({ theme }) => theme.spacer}px;
-  border-radius: ${({ theme }) => theme.spacer}px;
+  border-radius: ${({ theme }) => theme.borderRadii.sm};
   width: ${({ max, min, value }) => getWidth(max, min, value)}%;
 `
 

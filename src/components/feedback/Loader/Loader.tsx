@@ -26,7 +26,7 @@ const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.content.primary};
   height: ${({ theme }) => 3 * theme.spacer}px;
   width: ${({ theme }) => 3 * theme.spacer}px;
-  border-radius: ${({ theme }) => 3 * theme.spacer}px;
+  border-radius: ${({ theme }) => theme.borderRadii.xl};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,5 +38,5 @@ const Line = styled(motion.div)`
   position: absolute;
   height: ${({ theme }) => 2 * theme.spacer}px;
   width: ${({ theme }) => 0.5 * theme.spacer}px;
-  border-radius: ${({ theme }) => 0.5 * theme.spacer}px;
+  border-radius: ${({ theme }) => theme.borderRadii.xs};
 `

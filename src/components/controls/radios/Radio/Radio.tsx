@@ -33,7 +33,7 @@ const StyledInput = styled.input`
   margin: 12px;
   background: ${({ theme }) => theme.colors.background.primary};
   border: 2px solid ${({ theme }) => theme.colors.border.primary};
-  border-radius: 24px;
+  border-radius: ${({ theme }) => theme.borderRadii.xl};
 
   &:checked {
     border-width: 8px;

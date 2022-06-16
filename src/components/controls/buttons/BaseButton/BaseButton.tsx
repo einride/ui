@@ -27,7 +27,7 @@ const StyledButton = styled.button`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
   height: ${({ theme }) => 6 * theme.spacer}px;
-  border-radius: ${({ theme }) => 3 * theme.spacer}px;
+  border-radius: ${({ theme }) => theme.borderRadii.xl};
   cursor: pointer;
   padding: 0 ${({ theme }) => 2 * theme.spacer}px;
 

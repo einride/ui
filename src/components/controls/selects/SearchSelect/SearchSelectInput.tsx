@@ -49,7 +49,7 @@ const Wrapper = styled.div<{ isFullWidth?: boolean }>`
 `
 
 const StyledBaseInput = styled(BaseInput)<{ isFullWidth?: boolean }>`
-  border-radius: ${({ theme }) => 3 * theme.spacer}px;
+  border-radius: ${({ theme }) => theme.borderRadii.xl};
   ${({ isFullWidth }) => isFullWidth && "width: 100%"};
 `
 

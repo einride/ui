@@ -25,7 +25,7 @@ const StyledIcon = styled(Icon)<{ size: Size }>`
   background: ${({ theme }) => theme.primitives.color.green.default};
   color: ${({ theme }) => theme.primitives.color.greyscale.white};
   border: 2px solid ${({ theme }) => theme.primitives.color.greyscale.white};
-  border-radius: 24px;
+  border-radius: ${({ theme }) => theme.borderRadii.xl};
   font-size: ${({ size, theme }) => getFontSize(size, theme)};
 `
 

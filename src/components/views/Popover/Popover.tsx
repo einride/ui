@@ -125,7 +125,7 @@ const Wrapper = styled(motion.div)`
   bottom: ${({ theme }) => 2 * theme.spacer}px;
   left: ${({ theme }) => 2 * theme.spacer}px;
   background: ${({ theme }) => theme.colors.background.primaryElevated};
-  border-radius: ${({ theme }) => 2 * theme.spacer}px;
+  border-radius: ${({ theme }) => theme.borderRadii.lg};
   z-index: 2;
 
   @media ${({ theme }) => theme.mediaQueries.md} {

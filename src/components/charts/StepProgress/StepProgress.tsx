@@ -53,6 +53,6 @@ const Step = styled.div<{ color: ContentColor; completed: boolean }>`
   background: ${({ color, completed, theme }) =>
     completed ? theme.colors.content[color] : theme.colors.background.tertiary};
   height: ${({ theme }) => theme.spacer}px;
-  border-radius: ${({ theme }) => theme.spacer}px;
+  border-radius: ${({ theme }) => theme.borderRadii.sm};
   flex-grow: 1;
 `

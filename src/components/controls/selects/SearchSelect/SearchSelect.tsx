@@ -183,7 +183,7 @@ const OptionsWrapper = styled.div`
   right: 0;
   left: 0;
   background: ${({ theme }) => theme.colors.background.secondary};
-  border-radius: ${({ theme }) => theme.spacer}px;
+  border-radius: ${({ theme }) => theme.borderRadii.sm};
   margin-top: ${({ theme }) => theme.spacer}px;
   padding: ${({ theme }) => theme.spacer}px;
   display: flex;

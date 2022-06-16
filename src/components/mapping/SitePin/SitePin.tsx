@@ -19,7 +19,7 @@ const Wrapper = styled.div<{ size: Size }>`
   height: ${({ size }) => getSize(size)};
   background: ${({ theme }) => theme.primitives.color.blue.dark};
   border: 2px solid ${({ theme }) => theme.primitives.color.greyscale.white};
-  border-radius: 24px;
+  border-radius: ${({ theme }) => theme.borderRadii.xl};
 `
 
 const getSize = (size: Size): string => {

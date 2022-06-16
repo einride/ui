@@ -63,7 +63,7 @@ const StyledInput = styled.input`
   appearance: none;
   width: ${({ theme }) => 3 * theme.spacer}px;
   height: ${({ theme }) => 3 * theme.spacer}px;
-  border-radius: ${({ theme }) => theme.spacer}px;
+  border-radius: ${({ theme }) => theme.borderRadii.sm};
   border: 2px solid ${({ theme }) => theme.colors.border.primary};
   background: ${({ theme }) => theme.colors.background.primary};
   margin-right: ${({ theme }) => 2 * theme.spacer}px;

@@ -40,7 +40,7 @@ const Wrapper = styled.div`
 const StyledInput = styled(BaseInput)`
   padding-right: ${({ theme }) => 5 * theme.spacer}px;
   padding-left: ${({ theme }) => 5 * theme.spacer}px;
-  border-radius: ${({ theme }) => 3 * theme.spacer}px;
+  border-radius: ${({ theme }) => theme.borderRadii.xl};
 `
 
 const LoupeIcon = styled(Icon)`

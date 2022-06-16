@@ -27,7 +27,7 @@ const StyledBaseButton = styled(BaseButton)<{ variant: Variant }>`
   width: ${({ theme }) => 6 * theme.spacer}px;
   height: ${({ theme }) => 6 * theme.spacer}px;
   min-width: ${({ theme }) => 6 * theme.spacer}px;
-  border-radius: ${({ theme }) => 6 * theme.spacer}px;
+  border-radius: ${({ theme }) => theme.borderRadii.full};
   display: flex;
   justify-content: center;
   align-items: center;
