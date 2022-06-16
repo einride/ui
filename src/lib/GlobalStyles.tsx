@@ -6,13 +6,13 @@ export const GlobalStyles = (): JSX.Element => {
 
   return (
     <Global
-      styles={`
-        html {
-          font-family: ${theme.fonts.body};
-        }
-
+      styles={`   
         body {
           background: ${theme.colors.background.primary};
+          color: ${theme.colors.content.primary};
+          font-family: ${theme.fonts.body};
+          font-size: ${theme.fontSizes.md};
+          
           --einride-ui-vertical-spacing-background: none;
           --einride-ui-horizontal-spacing-background: none;
           --einride-ui-grid-columns: 4;
