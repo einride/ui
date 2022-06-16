@@ -3,6 +3,7 @@ import { useTheme } from "../hooks/useTheme"
 
 export const GlobalStyles = (): JSX.Element => {
   const theme = useTheme()
+
   return (
     <Global
       styles={`
@@ -11,6 +12,7 @@ export const GlobalStyles = (): JSX.Element => {
         }
 
         body {
+          background: ${theme.colors.background.primary};
           --einride-ui-vertical-spacing-background: none;
           --einride-ui-horizontal-spacing-background: none;
           --einride-ui-grid-columns: 4;
