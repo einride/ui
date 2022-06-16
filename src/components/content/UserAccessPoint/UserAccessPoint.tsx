@@ -9,10 +9,16 @@ export interface UserAccessPointProps extends HTMLAttributes<HTMLButtonElement> 
 
 export const UserAccessPoint = forwardRef<HTMLButtonElement, UserAccessPointProps>(
   ({ avatarImageSrc, status = "default", ...props }, ref) => {
+    const src = status === "no-user" ? "https://einride.engineering/img/logo.svg" : avatarImageSrc
+
     return (
       <Button status={status} {...props} ref={ref}>
-        <StyledAvatar alt="User profile picture" src={avatarImageSrc} />
-        <Right>{status === "notification" ? <Notification /> : <Dots aria-label="Search" />}</Right>
+        <StyledAvatar alt="User profile picture" size="sm" src={src} />
+        {status !== "no-user" && (
+          <Right>
+            {status === "notification" ? <Notification /> : <Dots aria-label="Search" />}
+          </Right>
+        )}
       </Button>
     )
   },
@@ -31,6 +37,7 @@ const Button = styled.button<{ status: Status }>`
 
 const StyledAvatar = styled(Avatar)`
   -webkit-user-drag: none;
+  border: none;
 `
 
 const Right = styled.div`
