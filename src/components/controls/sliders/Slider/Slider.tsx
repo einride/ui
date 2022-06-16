@@ -41,7 +41,7 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
 const Wrapper = styled("div", { target: "wrapper" })`
   height: ${({ theme }) => 6 * theme.spacer}px;
   background: ${({ theme }) => theme.colors.background.secondary};
-  border-radius: ${({ theme }) => 3 * theme.spacer}px;
+  border-radius: ${({ theme }) => theme.borderRadii.xl};
   position: relative;
 `
 
@@ -94,7 +94,7 @@ const Range = styled.input<{ disabled?: boolean | undefined }>`
     box-shadow: none;
     background: ${({ disabled, theme }) =>
       disabled ? theme.colors.content.tertiary : theme.colors.content.positive};
-    border-radius: ${({ theme }) => 3 * theme.spacer}px;
+    border-radius: ${({ theme }) => theme.borderRadii.xl};
     width: ${({ theme }) => 6 * theme.spacer}px;
     height: 100%;
   }
@@ -102,7 +102,7 @@ const Range = styled.input<{ disabled?: boolean | undefined }>`
     border: none;
     background: ${({ disabled, theme }) =>
       disabled ? theme.colors.content.tertiary : theme.colors.content.positive};
-    border-radius: ${({ theme }) => 3 * theme.spacer}px;
+    border-radius: ${({ theme }) => theme.borderRadii.xl};
     width: ${({ theme }) => 6 * theme.spacer}px;
     height: 100%;
   }
@@ -126,7 +126,7 @@ const Thumb = styled.div<{
 }>`
   width: ${({ theme }) => 2 * theme.spacer}px;
   height: ${({ theme }) => 2 * theme.spacer}px;
-  border-radius: ${({ theme }) => theme.spacer}px;
+  border-radius: ${({ theme }) => theme.borderRadii.sm};
   position: absolute;
   background: ${({ theme }) => theme.colors.background.primary};
   left: ${({ percentage }) => `${percentage}%`};

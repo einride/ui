@@ -23,7 +23,7 @@ type Status = "default" | "notification" | "no-user"
 const Button = styled.button<{ status: Status }>`
   position: relative;
   background: ${({ theme }) => theme.colors.background.secondary};
-  border-radius: ${({ theme }) => 3 * theme.spacer}px;
+  border-radius: ${({ theme }) => theme.borderRadii.xl};
   align-items: center;
   display: flex;
   padding: ${({ theme }) => 0.5 * theme.spacer}px;
@@ -46,7 +46,7 @@ const Notification = styled.div`
   background: ${({ theme }) => theme.colors.content.negative};
   width: ${({ theme }) => 2 * theme.spacer}px;
   height: ${({ theme }) => 2 * theme.spacer}px;
-  border-radius: 10px;
+  border-radius: ${({ theme }) => theme.borderRadii.full};
 `
 
 const Dots = (): JSX.Element => {
@@ -62,6 +62,6 @@ const Dots = (): JSX.Element => {
 const Dot = styled.div`
   width: ${({ theme }) => 0.5 * theme.spacer}px;
   height: ${({ theme }) => 0.5 * theme.spacer}px;
-  border-radius: ${({ theme }) => 0.5 * theme.spacer}px;
+  border-radius: ${({ theme }) => theme.borderRadii.full};
   background: ${({ theme }) => theme.colors.content.primary};
 `

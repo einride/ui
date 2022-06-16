@@ -21,7 +21,7 @@ const StyledParagraph = styled(Paragraph)`
   height: ${({ theme }) => 3 * theme.spacer}px;
   background: ${({ theme }) => theme.primitives.color.blue.dark};
   color: ${({ theme }) => theme.primitives.color.greyscale.white};
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.borderRadii.xs};
   padding: 0 6px 1px;
   margin: 0;
 `

@@ -42,7 +42,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 type Status = "success" | "fail" | "neutral"
 
 const StyledBaseInput = styled(BaseInput)`
-  border-radius: ${({ theme }) => 3 * theme.spacer}px;
+  border-radius: ${({ theme }) => theme.borderRadii.xl};
 `
 
 const getStatusIcon = (theme: Theme, status?: Status): JSX.Element | null => {

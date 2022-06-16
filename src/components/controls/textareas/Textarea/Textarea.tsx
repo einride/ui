@@ -67,7 +67,7 @@ const StyledTextarea = styled.textarea`
   color: ${({ theme }) => theme.colors.content.primary};
   padding: 12px 16px;
   border: unset;
-  border-radius: ${({ theme }) => theme.spacer}px;
+  border-radius: ${({ theme }) => theme.borderRadii.sm};
   flex-grow: 1;
 
   &::placeholder {

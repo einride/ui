@@ -47,7 +47,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   background-color: ${({ theme }) => theme.colors.background.tertiary};
-  border-radius: ${({ theme }) => theme.spacer / 2}px;
+  border-radius: ${({ theme }) => theme.borderRadii.xs};
   width: ${({ theme }) => 2 * theme.spacer}px;
   height: ${({ theme }) => 8 * theme.spacer}px;
 `
@@ -61,7 +61,7 @@ const Value = styled.div<{
   background-color: ${({ theme, color }) => theme.colors.content[color]};
   height: ${({ max, min, value }) => getHeight(max, min, value)}%;
   width: 100%;
-  border-radius: ${({ theme }) => theme.spacer / 2}px;
+  border-radius: ${({ theme }) => theme.borderRadii.xs};
   transition: height 0.5s;
 `
 

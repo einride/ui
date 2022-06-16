@@ -18,8 +18,10 @@ const common = {
   },
   borderRadii: {
     none: "0",
+    xs: "0.25rem",
     sm: "0.5rem",
     lg: "1rem",
+    xl: "1.5rem",
     full: "9999px",
   },
   breakpoints: {

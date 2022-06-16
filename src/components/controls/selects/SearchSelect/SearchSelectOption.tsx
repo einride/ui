@@ -18,7 +18,7 @@ export const SearchSelectOption = forwardRef<HTMLDivElement, SearchSelectOptionP
 
 const Wrapper = styled.div<{ isSelected: boolean }>`
   cursor: pointer;
-  border-radius: ${({ theme }) => theme.spacer}px;
+  border-radius: ${({ theme }) => theme.borderRadii.sm};
   padding-inline: ${({ theme }) => theme.spacer}px;
   padding-block: ${({ theme }) => theme.spacer}px;
   background: ${({ isSelected, theme }) =>

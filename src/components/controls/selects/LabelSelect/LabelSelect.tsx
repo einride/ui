@@ -92,7 +92,7 @@ const StyledSelect = styled.select<StyledSelectProps>`
   padding: 12px 16px;
   padding-right: ${({ theme }) => 6 * theme.spacer}px;
   border: unset;
-  border-radius: ${({ theme }) => theme.spacer}px;
+  border-radius: ${({ theme }) => theme.borderRadii.sm};
   cursor: pointer;
   appearance: none;
 
