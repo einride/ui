@@ -1,11 +1,14 @@
 import styled from "@emotion/styled"
 import { useFocusReturn, useFocusTrap, useMergedRef } from "@mantine/hooks"
 import { AnimatePresence, HTMLMotionProps, motion, MotionStyle } from "framer-motion"
-import { ButtonHTMLAttributes, forwardRef, ReactNode } from "react"
+import { forwardRef, ReactNode } from "react"
 import { Theme } from "../../../lib/theme/theme"
 import { IconName } from "../../content/Icon/Icon"
-import { IconButton } from "../../controls/buttons/IconButton/IconButton"
-import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
+import { IconButton, IconButtonProps } from "../../controls/buttons/IconButton/IconButton"
+import {
+  PrimaryButton,
+  PrimaryButtonProps,
+} from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { SecondaryButton } from "../../controls/buttons/SecondaryButton/SecondaryButton"
 import { Paragraph } from "../../typography/Paragraph/Paragraph"
 
@@ -115,12 +118,12 @@ export const PlainSheets = forwardRef<HTMLDivElement, PlainSheetsProps>(
   },
 )
 
-export interface PlainSheetsNavigationAction extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface PlainSheetsNavigationAction extends Omit<IconButtonProps, "children"> {
   "aria-label": string
   handler?: () => void
   icon: IconName
 }
-export interface PlainSheetsAction extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface PlainSheetsAction extends Omit<PrimaryButtonProps, "children"> {
   handler?: () => void
   text: ReactNode
 }
