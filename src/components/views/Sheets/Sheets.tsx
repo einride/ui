@@ -1,27 +1,37 @@
+import { useMediaQuery } from "@einride/hooks"
 import styled from "@emotion/styled"
 import { useFocusReturn, useFocusTrap, useMergedRef, useScrollLock } from "@mantine/hooks"
 import { AnimatePresence, HTMLMotionProps, motion, MotionStyle } from "framer-motion"
 import { forwardRef, ReactNode } from "react"
+import { useTheme } from "../../../hooks/useTheme"
 import { Theme } from "../../../lib/theme/theme"
-import { IconName } from "../../content/Icon/Icon"
-import { IconButton } from "../../controls/buttons/IconButton/IconButton"
-import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
-import { SecondaryButton } from "../../controls/buttons/SecondaryButton/SecondaryButton"
-import { Paragraph } from "../../typography/Paragraph/Paragraph"
+import { IconButton, IconButtonProps } from "../../controls/buttons/IconButton/IconButton"
+import {
+  PrimaryButton,
+  PrimaryButtonProps,
+} from "../../controls/buttons/PrimaryButton/PrimaryButton"
+import {
+  SecondaryButton,
+  SecondaryButtonProps,
+} from "../../controls/buttons/SecondaryButton/SecondaryButton"
 
 export interface SheetsProps extends HTMLMotionProps<"div"> {
   children: ReactNode
   closeHandler: () => void
   isOpen: boolean
-  navigationAction?: ElevatedSheetsNavigationAction | undefined
-  navigationTitle?: string | undefined
+  navigationAction?: IconButtonProps
+  navigationTitle?: ReactNode
   overlayStyles?: MotionStyle
-  primaryAction?: ElevatedSheetsAction | undefined
-  secondaryAction?: ElevatedSheetsAction | undefined
+  primaryAction?: PrimaryButtonProps
+  secondaryAction?: SecondaryButtonProps
   /**
    * Default: md
    */
   size?: Size
+  /**
+   * Default: true
+   */
+  withOverlay?: boolean
 }
 
 export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
@@ -36,6 +46,7 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
       primaryAction,
       secondaryAction,
       size = "md",
+      withOverlay = true,
       ...props
     },
     ref,
@@ -44,18 +55,22 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
     useFocusReturn({ opened: isOpen, transitionDuration: 0 })
     const mergedRef = useMergedRef(ref, focusTrapRef)
     useScrollLock(isOpen)
+    const theme = useTheme()
+    const isAboveSm = useMediaQuery(theme.mediaQueries.md)
 
     return (
       <AnimatePresence>
         {isOpen && (
           <>
-            <Overlay
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              initial={{ opacity: 0 }}
-              onClick={closeHandler}
-              style={overlayStyles}
-            />
+            {withOverlay && (
+              <Overlay
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                initial={{ opacity: 0 }}
+                onClick={closeHandler}
+                style={overlayStyles}
+              />
+            )}
             <Wrapper
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -66,43 +81,25 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
             >
               <TopNav>
                 <Navigation>
-                  {navigationAction && (
-                    <IconButton
-                      aria-label={navigationAction["aria-label"]}
-                      icon={navigationAction.icon}
-                      onClick={navigationAction.handler}
-                    />
-                  )}
-                  {navigationTitle && <Paragraph>{navigationTitle}</Paragraph>}
+                  {navigationAction && <IconButton {...navigationAction} />}
+                  {navigationTitle && navigationTitle}
                 </Navigation>
-                <MdLgActions>
-                  {secondaryAction && (
-                    <SecondaryButton onClick={secondaryAction.handler}>
-                      {secondaryAction.text}
-                    </SecondaryButton>
-                  )}
-                  {primaryAction && (
-                    <PrimaryButton onClick={primaryAction.handler}>
-                      {primaryAction.text}
-                    </PrimaryButton>
-                  )}
-                </MdLgActions>
+                {isAboveSm && (
+                  <MdLgActions>
+                    {secondaryAction && <SecondaryButton {...secondaryAction} />}
+                    {primaryAction && <PrimaryButton {...primaryAction} />}
+                  </MdLgActions>
+                )}
               </TopNav>
               <Content hasPrimaryAction={!!primaryAction} hasSecondaryAction={!!secondaryAction}>
                 {children}
               </Content>
-              <SmActions>
-                {primaryAction && (
-                  <PrimaryButton isFullWidth onClick={primaryAction.handler}>
-                    {primaryAction.text}
-                  </PrimaryButton>
-                )}
-                {secondaryAction && (
-                  <SecondaryButton isFullWidth onClick={secondaryAction.handler}>
-                    {secondaryAction.text}
-                  </SecondaryButton>
-                )}
-              </SmActions>
+              {!isAboveSm && (
+                <SmActions>
+                  {primaryAction && <PrimaryButton isFullWidth {...primaryAction} />}
+                  {secondaryAction && <SecondaryButton isFullWidth {...secondaryAction} />}
+                </SmActions>
+              )}
             </Wrapper>
           </>
         )}
@@ -110,16 +107,6 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
     )
   },
 )
-export interface ElevatedSheetsNavigationAction {
-  "aria-label": string
-  handler?: () => void
-  icon: IconName
-}
-
-export interface ElevatedSheetsAction {
-  handler?: () => void
-  text: ReactNode
-}
 
 type Size = "sm" | "md"
 
@@ -190,16 +177,9 @@ const MdLgActions = styled.div`
   display: flex;
   justify-content: flex-end;
   gap: ${({ theme }) => 2 * theme.spacer}px;
-
-  @media ${({ theme }) => theme.mediaQueries.belowMd} {
-    display: none;
-  }
 `
 
-const Content = styled.div<{
-  hasPrimaryAction: boolean
-  hasSecondaryAction: boolean
-}>`
+const Content = styled.div<{ hasPrimaryAction: boolean; hasSecondaryAction: boolean }>`
   padding-inline: ${({ theme }) => 2 * theme.spacer}px;
   padding-bottom: ${({ theme }) => 2 * theme.spacer}px;
 
@@ -233,8 +213,4 @@ const SmActions = styled.nav`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => 2 * theme.spacer}px;
-
-  @media ${({ theme }) => theme.mediaQueries.md} {
-    display: none;
-  }
 `
