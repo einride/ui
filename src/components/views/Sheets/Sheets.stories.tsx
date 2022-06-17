@@ -28,11 +28,11 @@ const Template: Story<SheetsProps> = (args) => {
         navigationAction={{
           "aria-label": "Close",
           icon: "xMark",
-          handler: handlers.close,
+          onClick: handlers.close,
         }}
         navigationTitle="Page name"
-        primaryAction={{ text: "Primary" }}
-        secondaryAction={{ text: "Close", handler: handlers.close }}
+        primaryAction={{ children: "Primary" }}
+        secondaryAction={{ children: "Close", onClick: handlers.close }}
       >
         <Paragraph>Sheets content</Paragraph>
       </Sheets>
