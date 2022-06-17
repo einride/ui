@@ -63,6 +63,7 @@ export type {
 } from "./components/views/PlainSheets/PlainSheets"
 export { Popover } from "./components/views/Popover/Popover"
 export type { PopoverAction } from "./components/views/Popover/Popover"
+export { Sheets } from "./components/views/Sheets/Sheets"
 export { VisuallyHidden } from "./components/visually-hidden/VisuallyHidden"
 export { useColorScheme } from "./contexts/ColorSchemeProvider"
 export { EinrideProvider } from "./contexts/EinrideProvider"
