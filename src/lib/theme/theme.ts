@@ -156,7 +156,7 @@ export const dark: Theme = {
     warning: color.yellow.light,
     background: {
       primary: color.greyscale.black,
-      primaryElevated: color.greyscale.grey100,
+      primaryElevated: color.greyscale.grey90,
       secondary: color.greyscale.grey100,
       secondaryElevated: color.greyscale.black,
       tertiary: color.greyscale.grey80,
