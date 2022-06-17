@@ -132,7 +132,7 @@ export const light = {
         disabled: {
           primary: color.greyscale.grey20,
           secondary: color.greyscale.grey20,
-          tertiary: color.greyscale.grey20,
+          tertiary: color.greyscale.white,
         },
       },
       text: {
@@ -178,26 +178,26 @@ export const dark: Theme = {
     buttons: {
       background: {
         primary: color.greyscale.white,
-        secondary: color.greyscale.black,
-        tertiary: color.greyscale.grey100,
+        secondary: color.greyscale.grey100,
+        tertiary: color.greyscale.black,
         hover: {
           primary: color.greyscale.grey20,
-          secondary: color.greyscale.grey100,
-          tertiary: color.greyscale.black,
+          secondary: color.greyscale.grey80,
+          tertiary: color.greyscale.grey100,
         },
         active: {
           primary: color.greyscale.white,
-          secondary: color.greyscale.black,
-          tertiary: color.greyscale.grey100,
+          secondary: color.greyscale.grey100,
+          tertiary: color.greyscale.black,
         },
         focused: {
           primary: color.greyscale.grey20,
           secondary: color.greyscale.grey100,
-          tertiary: color.greyscale.black,
+          tertiary: color.greyscale.grey100,
         },
         disabled: {
-          primary: color.greyscale.black,
-          secondary: color.greyscale.black,
+          primary: color.greyscale.grey100,
+          secondary: color.greyscale.grey100,
           tertiary: color.greyscale.black,
         },
       },

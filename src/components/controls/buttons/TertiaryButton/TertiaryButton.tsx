@@ -49,6 +49,7 @@ const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
   &:hover:not([aria-disabled="true"]) {
     text-decoration: none;
     background: ${({ theme }) => theme.colors.buttons.background.hover.tertiary};
+
     .einride-ui-tertiary-button-text {
       text-decoration: underline;
     }
@@ -56,6 +57,10 @@ const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
 
   &:active:not([aria-disabled="true"]) {
     background: ${({ theme }) => theme.colors.buttons.background.active.tertiary};
+
+    .einride-ui-tertiary-button-text {
+      text-decoration: none;
+    }
   }
 
   &:focus-visible:not([aria-disabled="true"]) {
