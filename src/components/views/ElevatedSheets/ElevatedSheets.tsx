@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import { useFocusReturn, useFocusTrap, useMergedRef, useScrollLock } from "@mantine/hooks"
 import { AnimatePresence, HTMLMotionProps, motion, MotionStyle } from "framer-motion"
-import { forwardRef, ReactNode } from "react"
+import { ButtonHTMLAttributes, forwardRef, ReactNode } from "react"
 import { Theme } from "../../../lib/theme/theme"
 import { IconName } from "../../content/Icon/Icon"
 import { IconButton } from "../../controls/buttons/IconButton/IconButton"
@@ -68,21 +68,22 @@ export const ElevatedSheets = forwardRef<HTMLDivElement, ElevatedSheetsProps>(
                 <Navigation>
                   {navigationAction && (
                     <IconButton
+                      onClick={navigationAction.handler}
+                      {...navigationAction}
                       aria-label={navigationAction["aria-label"]}
                       icon={navigationAction.icon}
-                      onClick={navigationAction.handler}
                     />
                   )}
                   {navigationTitle && <Paragraph>{navigationTitle}</Paragraph>}
                 </Navigation>
                 <MdLgActions>
                   {secondaryAction && (
-                    <SecondaryButton onClick={secondaryAction.handler}>
+                    <SecondaryButton {...secondaryAction} onClick={secondaryAction.handler}>
                       {secondaryAction.text}
                     </SecondaryButton>
                   )}
                   {primaryAction && (
-                    <PrimaryButton onClick={primaryAction.handler}>
+                    <PrimaryButton {...primaryAction} onClick={primaryAction.handler}>
                       {primaryAction.text}
                     </PrimaryButton>
                   )}
@@ -93,12 +94,16 @@ export const ElevatedSheets = forwardRef<HTMLDivElement, ElevatedSheetsProps>(
               </Content>
               <SmActions>
                 {primaryAction && (
-                  <PrimaryButton isFullWidth onClick={primaryAction.handler}>
+                  <PrimaryButton isFullWidth {...primaryAction} onClick={primaryAction.handler}>
                     {primaryAction.text}
                   </PrimaryButton>
                 )}
                 {secondaryAction && (
-                  <SecondaryButton isFullWidth onClick={secondaryAction.handler}>
+                  <SecondaryButton
+                    isFullWidth
+                    {...secondaryAction}
+                    onClick={secondaryAction.handler}
+                  >
                     {secondaryAction.text}
                   </SecondaryButton>
                 )}
@@ -110,13 +115,13 @@ export const ElevatedSheets = forwardRef<HTMLDivElement, ElevatedSheetsProps>(
     )
   },
 )
-export interface ElevatedSheetsNavigationAction {
+export interface ElevatedSheetsNavigationAction extends ButtonHTMLAttributes<HTMLButtonElement> {
   "aria-label": string
   handler?: () => void
   icon: IconName
 }
 
-export interface ElevatedSheetsAction {
+export interface ElevatedSheetsAction extends ButtonHTMLAttributes<HTMLButtonElement> {
   handler?: () => void
   text: ReactNode
 }
