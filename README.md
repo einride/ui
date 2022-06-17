@@ -4,7 +4,7 @@
 [![npm version](https://img.shields.io/npm/v/@einride/ui.svg)](https://www.npmjs.com/package/@einride/ui)
 [![total npm downloads](https://img.shields.io/npm/dt/@einride/ui.svg)](https://www.npmjs.com/package/@einride/ui)
 
-Einride's UI framework with reusable components
+Reusable React components that adhere to Einride's design system
 
 ## Installation
 
