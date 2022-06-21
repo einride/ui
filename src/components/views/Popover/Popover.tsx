@@ -1,18 +1,24 @@
+import { useMediaQuery } from "@einride/hooks"
 import styled from "@emotion/styled"
 import { useFocusReturn, useFocusTrap, useMergedRef, useScrollLock } from "@mantine/hooks"
 import { AnimatePresence, HTMLMotionProps, motion, MotionStyle } from "framer-motion"
 import { forwardRef, ReactNode, useEffect } from "react"
-import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
+import { useTheme } from "../../../hooks/useTheme"
+import { IconButton, IconButtonProps } from "../../controls/buttons/IconButton/IconButton"
+import {
+  PrimaryButton,
+  PrimaryButtonProps,
+} from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { SecondaryButton } from "../../controls/buttons/SecondaryButton/SecondaryButton"
-import { Paragraph } from "../../typography/Paragraph/Paragraph"
 
 export interface PopoverProps extends Omit<HTMLMotionProps<"div">, "title"> {
   children: ReactNode
   closeHandler: () => void
   isOpen: boolean
+  navigationAction?: (IconButtonProps & { "data-testid"?: string }) | undefined
   overlayStyles?: MotionStyle
-  primaryAction?: PopoverAction
-  secondaryAction?: PopoverAction
+  primaryAction?: (PopoverAction & { "data-testid"?: string }) | undefined
+  secondaryAction?: (PopoverAction & { "data-testid"?: string }) | undefined
   title?: ReactNode
 }
 
@@ -22,6 +28,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       children,
       closeHandler,
       isOpen,
+      navigationAction,
       overlayStyles = {},
       primaryAction,
       secondaryAction,
@@ -34,6 +41,8 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     useFocusReturn({ opened: isOpen, transitionDuration: 0 })
     const mergedRef = useMergedRef(ref, focusTrapRef)
     useScrollLock(isOpen)
+    const theme = useTheme()
+    const isAboveSm = useMediaQuery(theme.mediaQueries.md)
 
     const closeOnEscapePress = (event: KeyboardEvent): void => {
       if (event.code === "Escape") {
@@ -65,34 +74,41 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
               {...props}
               ref={mergedRef}
             >
-              <MediumLargeNav>
-                {title ? <Paragraph>{title}</Paragraph> : <div />}
-                <Actions>
-                  {secondaryAction && (
-                    <SecondaryButton onClick={secondaryAction.handler}>
-                      {secondaryAction.text}
-                    </SecondaryButton>
-                  )}
+              <Navigation>
+                <NavigationAction>
+                  {navigationAction && <IconButton {...navigationAction} />}
+                  {title && title}
+                </NavigationAction>
+                {isAboveSm && (
+                  <MdLgActions>
+                    {secondaryAction && (
+                      <SecondaryButton onClick={secondaryAction.handler}>
+                        {secondaryAction.text}
+                      </SecondaryButton>
+                    )}
+                    {primaryAction && (
+                      <PrimaryButton data-autofocus onClick={primaryAction.handler}>
+                        {primaryAction.text}
+                      </PrimaryButton>
+                    )}
+                  </MdLgActions>
+                )}
+              </Navigation>
+              <Content>{children}</Content>
+              {!isAboveSm && (
+                <SmActions>
                   {primaryAction && (
-                    <PrimaryButton data-autofocus onClick={primaryAction.handler}>
+                    <PrimaryButton data-autofocus isFullWidth onClick={primaryAction.handler}>
                       {primaryAction.text}
                     </PrimaryButton>
                   )}
-                </Actions>
-              </MediumLargeNav>
-              <Content>{children}</Content>
-              <SmallNav>
-                {primaryAction && (
-                  <PrimaryButton data-autofocus isFullWidth onClick={primaryAction.handler}>
-                    {primaryAction.text}
-                  </PrimaryButton>
-                )}
-                {secondaryAction && (
-                  <SecondaryButton isFullWidth onClick={secondaryAction.handler}>
-                    {secondaryAction.text}
-                  </SecondaryButton>
-                )}
-              </SmallNav>
+                  {secondaryAction && (
+                    <SecondaryButton isFullWidth onClick={secondaryAction.handler}>
+                      {secondaryAction.text}
+                    </SecondaryButton>
+                  )}
+                </SmActions>
+              )}
             </Wrapper>
           </>
         )}
@@ -100,8 +116,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     )
   },
 )
-
-export interface PopoverAction {
+export interface PopoverAction extends Omit<PrimaryButtonProps, "children"> {
   handler?: () => void
   text: ReactNode
 }
@@ -121,51 +136,51 @@ const Overlay = styled(motion.div)`
 const Wrapper = styled(motion.div)`
   position: fixed;
   top: ${({ theme }) => 10 * theme.spacer}px;
-  right: ${({ theme }) => 2 * theme.spacer}px;
-  bottom: ${({ theme }) => 2 * theme.spacer}px;
-  left: ${({ theme }) => 2 * theme.spacer}px;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background: ${({ theme }) => theme.colors.background.primaryElevated};
-  border-radius: ${({ theme }) => theme.borderRadii.lg};
+  border-top-left-radius: ${({ theme }) => theme.borderRadii.lg};
+  border-top-right-radius: ${({ theme }) => theme.borderRadii.lg};
   z-index: 2;
 
   @media ${({ theme }) => theme.mediaQueries.md} {
-    width: max(50vw, ${({ theme }) => theme.breakpoints.md - 2 * theme.spacer}px);
+    top: 0;
+    border-radius: ${({ theme }) => theme.borderRadii.lg};
+    width: max(50vw, ${({ theme }) => theme.breakpoints.md - 4 * theme.spacer}px);
     margin: 10vh auto;
   }
 `
 
-const MediumLargeNav = styled.nav`
+const Navigation = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: ${({ theme }) => 2 * theme.spacer}px;
-  padding-bottom: 0;
 `
 
-const Actions = styled.div`
-  display: none;
+const NavigationAction = styled.div`
+  display: flex;
+  gap: ${({ theme }) => 2 * theme.spacer}px;
+  align-items: center;
+`
 
-  @media ${({ theme }) => theme.mediaQueries.md} {
-    display: flex;
-    justify-content: flex-end;
-    gap: ${({ theme }) => 2 * theme.spacer}px;
-  }
+const MdLgActions = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  gap: ${({ theme }) => 2 * theme.spacer}px;
 `
 
 const Content = styled.div`
-  padding: ${({ theme }) => 2 * theme.spacer}px;
+  padding-inline: ${({ theme }) => 2 * theme.spacer}px;
 `
 
-const SmallNav = styled.nav`
+const SmActions = styled.div`
   position: absolute;
-  right: ${({ theme }) => 4 * theme.spacer}px;
-  left: ${({ theme }) => 4 * theme.spacer}px;
-  bottom: ${({ theme }) => 5 * theme.spacer}px;
+  right: ${({ theme }) => 2 * theme.spacer}px;
+  left: ${({ theme }) => 2 * theme.spacer}px;
+  bottom: ${({ theme }) => 3 * theme.spacer}px;
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => 2 * theme.spacer}px;
-
-  @media ${({ theme }) => theme.mediaQueries.md} {
-    display: none;
-  }
 `
