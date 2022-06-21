@@ -34,10 +34,18 @@ const Template: Story<PopoverProps> = (args) => {
   )
 }
 
+const parameters = {
+  controls: {
+    exclude: /on*/,
+  },
+}
+
 export const Default = Template.bind({})
 Default.args = {}
+Default.parameters = parameters
 
 export const WithTitle = Template.bind({})
 WithTitle.args = {
   title: "Page name",
 }
+WithTitle.parameters = parameters

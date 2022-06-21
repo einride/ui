@@ -11,7 +11,4 @@ module.exports = {
     builder: "@storybook/builder-vite",
   },
   staticDirs: ["../public"],
-  typescript: {
-    reactDocgen: "react-docgen",
-  },
 }

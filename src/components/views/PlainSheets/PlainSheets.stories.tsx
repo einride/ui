@@ -36,7 +36,14 @@ const Template: Story<PlainSheetsProps> = (args) => {
   )
 }
 
+const parameters = {
+  controls: {
+    exclude: /on*/,
+  },
+}
+
 export const Default = Template.bind({})
 Default.args = {
   size: "md",
 }
+Default.parameters = parameters

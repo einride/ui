@@ -34,7 +34,14 @@ const Template: Story<SheetsProps> = (args) => {
   )
 }
 
+const parameters = {
+  controls: {
+    exclude: /on*/,
+  },
+}
+
 export const Default = Template.bind({})
 Default.args = {
   size: "md",
 }
+Default.parameters = parameters
