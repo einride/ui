@@ -120,11 +120,13 @@ export const ElevatedSheets = forwardRef<HTMLDivElement, ElevatedSheetsProps>(
 )
 export interface ElevatedSheetsNavigationAction extends Omit<IconButtonProps, "children"> {
   "aria-label": string
+  "data-testid"?: string
   handler?: () => void
   icon: IconName
 }
 
 export interface ElevatedSheetsAction extends Omit<PrimaryButtonProps, "children"> {
+  "data-testid"?: string
   handler?: () => void
   text: ReactNode
 }

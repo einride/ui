@@ -120,10 +120,12 @@ export const PlainSheets = forwardRef<HTMLDivElement, PlainSheetsProps>(
 
 export interface PlainSheetsNavigationAction extends Omit<IconButtonProps, "children"> {
   "aria-label": string
+  "data-testid"?: string
   handler?: () => void
   icon: IconName
 }
 export interface PlainSheetsAction extends Omit<PrimaryButtonProps, "children"> {
+  "data-testid"?: string
   handler?: () => void
   text: ReactNode
 }
