@@ -26,6 +26,11 @@ const Template: Story<PopoverProps> = (args) => {
         {...args}
         closeHandler={handlers.close}
         isOpen={isOpen}
+        navigationAction={{
+          "aria-label": "Close",
+          icon: "xMark",
+          onClick: handlers.close,
+        }}
         primaryAction={{ text: "Primary" }}
         secondaryAction={{ text: "Close", handler: handlers.close }}
       >
