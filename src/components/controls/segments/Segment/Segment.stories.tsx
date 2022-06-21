@@ -9,12 +9,6 @@ export default {
       control: "boolean",
     },
   },
-  parameters: {
-    design: {
-      type: "figma",
-      url: "",
-    },
-  },
 }
 
 const Template: Story<SegmentProps> = (args) => <Segment {...args} />

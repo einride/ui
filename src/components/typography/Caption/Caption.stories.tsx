@@ -4,12 +4,6 @@ import { Caption, CaptionProps } from "./Caption"
 export default {
   title: "Typography/Caption",
   component: Caption,
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=18%3A147",
-    },
-  },
 }
 
 const Template: Story<CaptionProps> = (args) => <Caption {...args} />

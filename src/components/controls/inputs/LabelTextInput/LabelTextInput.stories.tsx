@@ -9,12 +9,6 @@ export default {
       control: "boolean",
     },
   },
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=12%3A88",
-    },
-  },
 }
 
 const Template: Story<LabelTextInputProps> = (args) => <LabelTextInput {...args} />

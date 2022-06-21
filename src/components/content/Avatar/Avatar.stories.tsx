@@ -4,13 +4,6 @@ import { Avatar, AvatarProps } from "./Avatar"
 export default {
   title: "Content/Avatar",
   component: Avatar,
-  argTypes: {},
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=84%3A98",
-    },
-  },
 }
 
 const Template: Story<AvatarProps> = (args) => <Avatar {...args} />

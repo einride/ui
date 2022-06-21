@@ -6,12 +6,6 @@ import { SecondaryCard, SecondaryCardProps } from "./SecondaryCard"
 export default {
   title: "Cards/SecondaryCard",
   component: SecondaryCard,
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/UI-Components?node-id=2715%3A611",
-    },
-  },
 }
 
 const Template: Story<SecondaryCardProps> = (args) => <SecondaryCard {...args} />
@@ -27,7 +21,7 @@ Default.args = {
 }
 
 const InsidePrimaryCardTemplate: Story<SecondaryCardProps> = ({ children, ...args }) => (
-  <PrimaryCard {...args}>
+  <PrimaryCard background="secondary" {...args}>
     <Paragraph>Primary</Paragraph>
     <Paragraph color="secondary">Secondary</Paragraph>
     {children}
@@ -37,7 +31,7 @@ const InsidePrimaryCardTemplate: Story<SecondaryCardProps> = ({ children, ...arg
 export const InsidePrimaryCard = InsidePrimaryCardTemplate.bind({})
 InsidePrimaryCard.args = {
   children: (
-    <SecondaryCard>
+    <SecondaryCard background="primary">
       <Paragraph>Primary</Paragraph>
       <Paragraph color="secondary">Secondary</Paragraph>
     </SecondaryCard>

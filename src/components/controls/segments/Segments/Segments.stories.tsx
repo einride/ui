@@ -5,13 +5,6 @@ import { Segments, SegmentsProps } from "./Segments"
 export default {
   title: "Controls/Segments/Segments",
   component: Segments,
-  argTypes: {},
-  parameters: {
-    design: {
-      type: "figma",
-      url: "",
-    },
-  },
 }
 
 const Template: Story<SegmentsProps> = (args) => <Segments {...args} />

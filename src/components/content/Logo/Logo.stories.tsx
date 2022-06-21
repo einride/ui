@@ -4,13 +4,6 @@ import { Logo, LogoProps } from "./Logo"
 export default {
   title: "Content/Logo",
   component: Logo,
-  argTypes: {},
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=84%3A98",
-    },
-  },
 }
 
 const Template: Story<LogoProps> = (args) => <Logo {...args} />

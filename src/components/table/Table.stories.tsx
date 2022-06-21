@@ -1,4 +1,4 @@
-import { Meta, Story } from "@storybook/react/types-6-0"
+import { Story } from "@storybook/react/types-6-0"
 import { Table, TableProps } from "./Table/Table"
 import { Tbody } from "./Tbody/Tbody"
 import { Td } from "./Td/Td"
@@ -9,14 +9,7 @@ import { Tr } from "./Tr/Tr"
 export default {
   title: "Table/Table",
   component: Table,
-  subcomponents: { Thead, Tr, Th, Td },
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=87%3A64",
-    },
-  },
-} as Meta
+}
 
 export const Default: Story<TableProps> = (args) => (
   <Table {...args}>
