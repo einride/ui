@@ -7,12 +7,6 @@ import { PlainSheets, PlainSheetsProps } from "./PlainSheets"
 export default {
   title: "Views/PlainSheets",
   component: PlainSheets,
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=18%3A147",
-    },
-  },
 }
 
 const Template: Story<PlainSheetsProps> = (args) => {

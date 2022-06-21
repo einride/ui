@@ -6,13 +6,6 @@ import { HorizontalLayout, HorizontalLayoutProps } from "./HorizontalLayout"
 export default {
   title: "Layout/HorizontalLayout",
   component: HorizontalLayout,
-  parameters: {
-    design: {
-      // TODO: add correct link to Figma
-      type: "figma",
-      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=4%3A16",
-    },
-  },
 }
 
 const Template: Story<HorizontalLayoutProps> = (args) => (

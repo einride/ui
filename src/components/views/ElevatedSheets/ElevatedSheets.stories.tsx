@@ -7,12 +7,6 @@ import { ElevatedSheets, ElevatedSheetsProps } from "./ElevatedSheets"
 export default {
   title: "Views/ElevatedSheets",
   component: ElevatedSheets,
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=18%3A147",
-    },
-  },
 }
 
 const Template: Story<ElevatedSheetsProps> = (args) => {

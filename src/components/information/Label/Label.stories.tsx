@@ -4,12 +4,6 @@ import { Label, LabelProps } from "./Label"
 export default {
   title: "Information/Label",
   component: Label,
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=75%3A31",
-    },
-  },
 }
 
 const Template: Story<LabelProps> = (args) => <Label {...args} />

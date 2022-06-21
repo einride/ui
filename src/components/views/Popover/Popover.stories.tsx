@@ -7,12 +7,6 @@ import { Popover, PopoverProps } from "./Popover"
 export default {
   title: "Views/Popover",
   component: Popover,
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=18%3A147",
-    },
-  },
 }
 
 const Template: Story<PopoverProps> = (args) => {

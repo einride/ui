@@ -6,13 +6,6 @@ import { VerticalLayout, VerticalLayoutProps } from "./VerticalLayout"
 export default {
   title: "Layout/VerticalLayout",
   component: VerticalLayout,
-  parameters: {
-    design: {
-      // TODO: add correct link to Figma
-      type: "figma",
-      url: "https://www.figma.com/file/YYzIjuZlggbzY16y5gGyWB/Components-v1.0?node-id=4%3A16",
-    },
-  },
 }
 
 const Template: Story<VerticalLayoutProps> = (args) => (
