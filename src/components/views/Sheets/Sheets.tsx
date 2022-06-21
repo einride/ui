@@ -19,11 +19,11 @@ export interface SheetsProps extends HTMLMotionProps<"div"> {
   children: ReactNode
   closeHandler: () => void
   isOpen: boolean
-  navigationAction?: IconButtonProps | undefined
+  navigationAction?: (IconButtonProps & { "data-testid"?: string }) | undefined
   navigationTitle?: ReactNode
   overlayStyles?: MotionStyle
-  primaryAction?: PrimaryButtonProps | undefined
-  secondaryAction?: SecondaryButtonProps | undefined
+  primaryAction?: (PrimaryButtonProps & { "data-testid"?: string }) | undefined
+  secondaryAction?: (SecondaryButtonProps & { "data-testid"?: string }) | undefined
   /**
    * Default: md
    */
