@@ -16,12 +16,14 @@ import { SearchSelectOption } from "./SearchSelectOption"
 
 export interface SearchSelectProps extends InputHTMLAttributes<HTMLInputElement> {
   "aria-label": string
+  dropdownStyles?: CSSProperties
   isFullWidth?: boolean
   label?: ReactNode
   message?: ReactNode
   onOptionSelect?: (option: Option) => void
   onSearchChange?: (value: string) => void
   options: Option[] | undefined
+  optionStyles?: CSSProperties
   status?: Status
   wrapperStyles?: CSSProperties
 }
@@ -29,11 +31,13 @@ export interface SearchSelectProps extends InputHTMLAttributes<HTMLInputElement>
 export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
   (
     {
+      dropdownStyles = {},
       isFullWidth = false,
       message,
       onOptionSelect,
       onSearchChange,
       options,
+      optionStyles = {},
       placeholder = "Search...",
       status,
       value,
@@ -133,7 +137,7 @@ export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
           ref={inputRef}
         />
         {isOpen && !!options && options.length > 0 && (
-          <OptionsWrapper>
+          <OptionsWrapper style={dropdownStyles}>
             {options?.map((option, index) => (
               <SearchSelectOption
                 key={option.value}
@@ -141,6 +145,7 @@ export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
                 onClick={() => handleOptionSelect(option)}
                 onMouseOver={() => handleMouseOver(index)}
                 onMouseLeave={handleMouseLeave}
+                style={optionStyles}
               >
                 {option.label}
               </SearchSelectOption>
