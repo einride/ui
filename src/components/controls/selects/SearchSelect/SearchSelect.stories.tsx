@@ -26,6 +26,34 @@ const OPTIONS = [
     label: <Paragraph>Option 3</Paragraph>,
     value: "option 3",
   },
+  {
+    label: <Paragraph>Option 4</Paragraph>,
+    value: "option 4",
+  },
+  {
+    label: <Paragraph>Option 5</Paragraph>,
+    value: "option 5",
+  },
+  {
+    label: <Paragraph>Option 6</Paragraph>,
+    value: "option 6",
+  },
+  {
+    label: <Paragraph>Option 7</Paragraph>,
+    value: "option 7",
+  },
+  {
+    label: <Paragraph>Option 8</Paragraph>,
+    value: "option 8",
+  },
+  {
+    label: <Paragraph>Option 9</Paragraph>,
+    value: "option 9",
+  },
+  {
+    label: <Paragraph>Option 10</Paragraph>,
+    value: "option 10",
+  },
 ]
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

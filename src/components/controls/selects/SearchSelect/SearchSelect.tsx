@@ -1,11 +1,12 @@
 import styled from "@emotion/styled"
-import { useMergedRef } from "@mantine/hooks"
+import { useMergedRef, useScrollIntoView } from "@mantine/hooks"
 import {
   CSSProperties,
   forwardRef,
   InputHTMLAttributes,
   KeyboardEvent,
   ReactNode,
+  useEffect,
   useRef,
   useState,
 } from "react"
@@ -47,9 +48,20 @@ export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
     ref,
   ): JSX.Element => {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(true)
     const internalInputRef = useRef<HTMLInputElement>(null)
     const inputRef = useMergedRef(internalInputRef, ref)
+    const optionsRefs = useRef<Record<string, HTMLDivElement>>({})
+    const { scrollIntoView, targetRef, scrollableRef } = useScrollIntoView({
+      duration: 0,
+      offset: 5,
+      cancelable: false,
+      isList: true,
+    })
+
+    useEffect(() => {
+      console.log(optionsRefs.current)
+    }, [])
 
     const handleInputBlur = (): void => {
       if (typeof selectedIndex === "number" && options?.[selectedIndex]) {
@@ -96,6 +108,8 @@ export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
           if (selectedIndex === null) {
             setSelectedIndex(0)
           } else if (selectedIndex < options.length - 1) {
+            targetRef.current = optionsRefs.current[options[selectedIndex + 1].value]
+            scrollIntoView({ alignment: "start" })
             setSelectedIndex(selectedIndex + 1)
           }
         } else {
@@ -105,19 +119,23 @@ export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
 
       if (e.key === "ArrowUp") {
         e.preventDefault()
-        if (isOpen) {
+        if (isOpen && options) {
           if (selectedIndex !== null && selectedIndex > 0) {
+            targetRef.current = optionsRefs.current[options[selectedIndex - 1].value]
+            scrollIntoView({ alignment: "start" })
             setSelectedIndex(selectedIndex - 1)
           }
         }
       }
     }
 
-    const handleMouseOver = (index: number): void => {
+    const handleMouseEnter = (index: number): void => {
+      console.log("a")
       setSelectedIndex(index)
     }
 
     const handleMouseLeave = (): void => {
+      console.log("first")
       setSelectedIndex(null)
     }
 
@@ -137,15 +155,18 @@ export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
           ref={inputRef}
         />
         {isOpen && !!options && options.length > 0 && (
-          <OptionsWrapper style={dropdownStyles}>
+          <OptionsWrapper style={dropdownStyles} ref={scrollableRef}>
             {options?.map((option, index) => (
               <SearchSelectOption
                 key={option.value}
                 isSelected={index === selectedIndex}
                 onClick={() => handleOptionSelect(option)}
-                onMouseOver={() => handleMouseOver(index)}
+                onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={handleMouseLeave}
                 style={optionStyles}
+                ref={(element: HTMLDivElement) => {
+                  optionsRefs.current[option.value] = element
+                }}
               >
                 {option.label}
               </SearchSelectOption>
@@ -191,6 +212,8 @@ const OptionsWrapper = styled.div`
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   margin-top: ${({ theme }) => theme.spacer}px;
   padding: ${({ theme }) => theme.spacer}px;
+  max-height: ${({ theme }) => 7 * 4.5 * theme.spacer}px;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacer}px;
