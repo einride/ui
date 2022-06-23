@@ -1,37 +1,22 @@
-import styled from "@emotion/styled"
 import { ButtonHTMLAttributes, ElementType, forwardRef, ReactNode } from "react"
-import { ContentColor } from "../../../../lib/theme/types"
+import { ContentColor, Font } from "../../../../lib/theme/types"
+import { Link } from "../../../typography/Link/Link"
 
 export interface LinkButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   as?: ElementType
   children: ReactNode
-  color?: ContentColor
+  color?: Color
+  font?: Font
 }
 
 export const LinkButton = forwardRef<HTMLButtonElement, LinkButtonProps>(
-  ({ children, color = "primary", ...props }, ref) => {
+  ({ children, color = "primary", font = "body", ...props }, ref) => {
     return (
-      <StyledButton color={color} {...props} ref={ref}>
+      <Link as="button" color={color} font={font} {...props} ref={ref}>
         {children}
-      </StyledButton>
+      </Link>
     )
   },
 )
 
-const StyledButton = styled.button<{ color: ContentColor }>`
-  border-radius: ${({ theme }) => theme.borderRadii.sm};
-
-  &:hover:not([aria-disabled="true"]) {
-    text-decoration: underline;
-  }
-
-  &:active:not([aria-disabled="true"]) {
-    text-decoration: none;
-  }
-
-  &:focus-visible:not([aria-disabled="true"]) {
-    outline: none;
-    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
-    text-decoration: underline;
-  }
-`
+type Color = Extract<ContentColor, "primary" | "secondary">
