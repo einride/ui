@@ -31,8 +31,11 @@ const OPTIONS = [
   },
 ]
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const Template: Story<SearchSelectProps> = ({ options, ...args }) => {
+const Template: Story<SearchSelectProps<typeof OPTIONS[0]>> = ({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  options,
+  ...args
+}) => {
   const [searchTerm, setSearchTerm] = useState("")
 
   return (
@@ -40,12 +43,12 @@ const Template: Story<SearchSelectProps> = ({ options, ...args }) => {
       {...args}
       filter={(value, option) =>
         option.value.toLowerCase().trim().includes(value.toLowerCase().trim()) ||
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (option as any).description.toLowerCase().trim().includes(value.toLowerCase().trim())
+        option.description.toLowerCase().trim().includes(value.toLowerCase().trim())
       }
       isSearchable
       onSearchChange={(text) => setSearchTerm(text)}
       options={OPTIONS}
+      onOptionSelect={(option) => option.description}
       value={searchTerm}
     />
   )
