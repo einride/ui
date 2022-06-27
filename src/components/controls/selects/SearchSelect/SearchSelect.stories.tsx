@@ -17,14 +17,17 @@ const OPTIONS = [
   {
     label: <Paragraph>Option 1</Paragraph>,
     value: "option 1",
+    description: "description one",
   },
   {
     label: <Paragraph>Option 2</Paragraph>,
     value: "option 2",
+    description: "description two",
   },
   {
     label: <Paragraph>Option 3</Paragraph>,
     value: "option 3",
+    description: "description three",
   },
 ]
 
@@ -34,10 +37,16 @@ const Template: Story<SearchSelectProps> = ({ options, ...args }) => {
 
   return (
     <SearchSelect
-      value={searchTerm}
+      {...args}
+      filter={(value, option) =>
+        option.value.toLowerCase().trim().includes(value.toLowerCase().trim()) ||
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (option as any).description.toLowerCase().trim().includes(value.toLowerCase().trim())
+      }
+      isSearchable
       onSearchChange={(text) => setSearchTerm(text)}
       options={OPTIONS}
-      {...args}
+      value={searchTerm}
     />
   )
 }

@@ -17,7 +17,9 @@ import { SearchSelectOption } from "./SearchSelectOption"
 export interface SearchSelectProps extends InputHTMLAttributes<HTMLInputElement> {
   "aria-label": string
   dropdownStyles?: CSSProperties
+  filter?: (value: string, option: Option) => boolean
   isFullWidth?: boolean
+  isSearchable?: boolean
   label?: ReactNode
   message?: ReactNode
   onOptionSelect?: (option: Option) => void
@@ -25,6 +27,7 @@ export interface SearchSelectProps extends InputHTMLAttributes<HTMLInputElement>
   options: Option[] | undefined
   optionStyles?: CSSProperties
   status?: Status
+  value?: string
   wrapperStyles?: CSSProperties
 }
 
@@ -32,6 +35,7 @@ export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
   (
     {
       dropdownStyles = {},
+      filter = defaultFilter,
       isFullWidth = false,
       message,
       onOptionSelect,
@@ -39,6 +43,7 @@ export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
       options,
       optionStyles = {},
       placeholder = "Search...",
+      isSearchable = false,
       status,
       value,
       wrapperStyles = {},
@@ -51,9 +56,11 @@ export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
     const internalInputRef = useRef<HTMLInputElement>(null)
     const inputRef = useMergedRef(internalInputRef, ref)
 
+    const filteredOptions = filterOptions({ options, value, filter, isSearchable })
+
     const handleInputBlur = (): void => {
-      if (typeof selectedIndex === "number" && options?.[selectedIndex]) {
-        const selected = options[selectedIndex]
+      if (typeof selectedIndex === "number" && filteredOptions?.[selectedIndex]) {
+        const selected = filteredOptions[selectedIndex]
         onSearchChange?.(selected?.value)
         onOptionSelect?.(selected)
         internalInputRef?.current?.focus()
@@ -85,17 +92,17 @@ export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
     const handleInputKeyDown = (e: KeyboardEvent<HTMLInputElement>): void => {
       if (e.key === "Enter") {
         e.preventDefault()
-        if (typeof selectedIndex === "number" && options) {
-          handleOptionSelect(options[selectedIndex])
+        if (typeof selectedIndex === "number" && filteredOptions) {
+          handleOptionSelect(filteredOptions[selectedIndex])
         }
       }
 
       if (e.key === "ArrowDown") {
         e.preventDefault()
-        if (isOpen && options) {
+        if (isOpen && filteredOptions) {
           if (selectedIndex === null) {
             setSelectedIndex(0)
-          } else if (selectedIndex < options.length - 1) {
+          } else if (selectedIndex < filteredOptions.length - 1) {
             setSelectedIndex(selectedIndex + 1)
           }
         } else {
@@ -125,7 +132,7 @@ export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
       <Wrapper isFullWidth={isFullWidth} style={wrapperStyles}>
         <SearchSelectInput
           isFullWidth={isFullWidth}
-          isOpen={isOpen && !!options && options.length > 0}
+          isOpen={isOpen && !!filteredOptions && filteredOptions.length > 0}
           onBlur={handleInputBlur}
           onChange={(e) => handleInputChange(e.target.value)}
           onClick={handleInputClick}
@@ -136,9 +143,9 @@ export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
           {...props}
           ref={inputRef}
         />
-        {isOpen && !!options && options.length > 0 && (
+        {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
           <OptionsWrapper style={dropdownStyles}>
-            {options?.map((option, index) => (
+            {filteredOptions?.map((option, index) => (
               <SearchSelectOption
                 key={option.value}
                 isSelected={index === selectedIndex}
@@ -196,3 +203,31 @@ const OptionsWrapper = styled.div`
   gap: ${({ theme }) => theme.spacer}px;
   z-index: 1;
 `
+
+const defaultFilter = (value: string, option: Option): boolean => {
+  return option.value.toLowerCase().trim().includes(value.toLowerCase().trim())
+}
+
+interface FilterOptions {
+  filter(value: string | undefined, option: Option): boolean
+  options: Option[] | undefined
+  isSearchable: boolean
+  value: string | undefined
+}
+
+export const filterOptions = ({
+  filter,
+  options,
+  isSearchable,
+  value,
+}: FilterOptions): Option[] => {
+  if (!options) {
+    return []
+  }
+
+  if (!isSearchable) {
+    return options
+  }
+
+  return options.filter((option) => filter(value, option))
+}
