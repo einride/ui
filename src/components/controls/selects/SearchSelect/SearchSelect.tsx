@@ -54,7 +54,7 @@ export const SearchSelect = <Option extends BaseOption>({
   const handleInputBlur = (): void => {
     if (typeof selectedIndex === "number" && filteredOptions?.[selectedIndex]) {
       const selected = filteredOptions[selectedIndex]
-      onSearchChange?.(selected?.value)
+      onSearchChange?.(selected.value)
       onOptionSelect?.(selected)
       inputRef?.current?.focus()
     }
