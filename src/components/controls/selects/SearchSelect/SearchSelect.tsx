@@ -1,8 +1,7 @@
+import { useDisclosure } from "@einride/hooks"
 import styled from "@emotion/styled"
-import { useMergedRef } from "@mantine/hooks"
 import {
   CSSProperties,
-  forwardRef,
   InputHTMLAttributes,
   KeyboardEvent,
   ReactNode,
@@ -11,155 +10,174 @@ import {
 } from "react"
 import { ContentColor } from "../../../../lib/theme/types"
 import { Caption } from "../../../typography/Caption/Caption"
+import { defaultFilter, filterOptions } from "./filterOptions"
 import { SearchSelectInput } from "./SearchSelectInput"
 import { SearchSelectOption } from "./SearchSelectOption"
+import { BaseOption } from "./types"
 
-export interface SearchSelectProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface SearchSelectProps<Option> extends InputHTMLAttributes<HTMLInputElement> {
   "aria-label": string
   dropdownStyles?: CSSProperties
+  /** Filtering function to be used to populate dropdown. Filters on `option.value` by default. */
+  filter?: (value: string, option: Option) => boolean
   isFullWidth?: boolean
+  /** If `false`, consumer have control over which options to pass to dropdown. Defaults to `false` for backwards compatibility. Will default to `true` in next major.  */
+  isFilterable?: boolean
   label?: ReactNode
   message?: ReactNode
   onOptionSelect?: (option: Option) => void
   onSearchChange?: (value: string) => void
+  /** Options to render in dropdown */
   options: Option[] | undefined
   optionStyles?: CSSProperties
   status?: Status
+  /** Controlled input value */
+  value?: string
   wrapperStyles?: CSSProperties
 }
 
-export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
-  (
-    {
-      dropdownStyles = {},
-      isFullWidth = false,
-      message,
-      onOptionSelect,
-      onSearchChange,
-      options,
-      optionStyles = {},
-      placeholder = "Search...",
-      status,
-      value,
-      wrapperStyles = {},
-      ...props
-    },
-    ref,
-  ): JSX.Element => {
-    const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
-    const [isOpen, setIsOpen] = useState(false)
-    const internalInputRef = useRef<HTMLInputElement>(null)
-    const inputRef = useMergedRef(internalInputRef, ref)
+export const SearchSelect = <Option extends BaseOption>({
+  dropdownStyles = {},
+  filter = defaultFilter,
+  isFullWidth = false,
+  message,
+  onOptionSelect,
+  onSearchChange,
+  options,
+  optionStyles = {},
+  placeholder = "Search...",
+  isFilterable = false,
+  status,
+  value,
+  wrapperStyles = {},
+  ...props
+}: SearchSelectProps<Option>): JSX.Element => {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
+  const { isOpen, handlers } = useDisclosure(false)
+  const inputRef = useRef<HTMLInputElement>(null)
 
-    const handleInputBlur = (): void => {
-      if (typeof selectedIndex === "number" && options?.[selectedIndex]) {
-        const selected = options[selectedIndex]
-        onSearchChange?.(selected?.value)
-        onOptionSelect?.(selected)
-      }
-      setIsOpen(false)
+  const filteredOptions = filterOptions({ options, value, filter, isFilterable })
+
+  const handleInputBlur = (): void => {
+    if (typeof selectedIndex === "number" && filteredOptions?.[selectedIndex]) {
+      const selected = filteredOptions[selectedIndex]
+      onSearchChange?.(selected.value)
+      onOptionSelect?.(selected)
     }
+    handlers.close()
+  }
 
-    const handleInputChange = (text: string): void => {
-      onSearchChange?.(text)
-      setSelectedIndex(0)
-      setIsOpen(true)
-    }
+  const handleInputChange = (text: string): void => {
+    onSearchChange?.(text)
+    setSelectedIndex(0)
+    handlers.open()
+  }
 
-    const handleInputClick = (): void => {
-      setIsOpen(true)
-    }
+  const handleInputClick = (): void => {
+    handlers.open()
+  }
 
-    const handleInputFocus = (): void => {
-      setIsOpen(true)
-    }
+  const handleInputFocus = (): void => {
+    handlers.open()
+  }
 
-    const handleOptionSelect = (option: Option): void => {
-      onSearchChange?.(option.value)
-      onOptionSelect?.(option)
-      internalInputRef?.current?.focus()
-      setIsOpen(false)
-    }
+  const handleOptionSelect = (option: Option): void => {
+    onSearchChange?.(option.value)
+    onOptionSelect?.(option)
+    setSelectedIndex(0)
+    inputRef?.current?.focus()
+    handlers.close()
+  }
 
-    const handleInputKeyDown = (e: KeyboardEvent<HTMLInputElement>): void => {
-      if (e.key === "Enter") {
-        e.preventDefault()
-        if (typeof selectedIndex === "number" && options) {
-          handleOptionSelect(options[selectedIndex])
+  const handleInputKeyDown = (e: KeyboardEvent<HTMLInputElement>): void => {
+    if (e.key === "ArrowDown") {
+      e.preventDefault()
+      if (isOpen && filteredOptions) {
+        if (selectedIndex === null) {
+          setSelectedIndex(0)
+        } else if (selectedIndex < filteredOptions.length - 1) {
+          setSelectedIndex(selectedIndex + 1)
         }
+      } else {
+        handlers.open()
       }
+    }
 
-      if (e.key === "ArrowDown") {
-        e.preventDefault()
-        if (isOpen && options) {
-          if (selectedIndex === null) {
-            setSelectedIndex(0)
-          } else if (selectedIndex < options.length - 1) {
-            setSelectedIndex(selectedIndex + 1)
-          }
-        } else {
-          setIsOpen(true)
-        }
-      }
-
-      if (e.key === "ArrowUp") {
-        e.preventDefault()
-        if (isOpen) {
-          if (selectedIndex !== null && selectedIndex > 0) {
-            setSelectedIndex(selectedIndex - 1)
-          }
+    if (e.key === "ArrowUp") {
+      e.preventDefault()
+      if (isOpen) {
+        if (selectedIndex !== null && selectedIndex > 0) {
+          setSelectedIndex(selectedIndex - 1)
         }
       }
     }
 
-    const handleMouseOver = (index: number): void => {
-      setSelectedIndex(index)
+    if (e.key === "Enter") {
+      e.preventDefault()
+      if (typeof selectedIndex === "number" && filteredOptions) {
+        handleOptionSelect(filteredOptions[selectedIndex])
+      }
     }
 
-    const handleMouseLeave = (): void => {
+    if (e.key === "Escape") {
+      e.preventDefault()
+      handlers.close()
       setSelectedIndex(null)
     }
+  }
 
-    return (
-      <Wrapper isFullWidth={isFullWidth} style={wrapperStyles}>
-        <SearchSelectInput
-          isFullWidth={isFullWidth}
-          isOpen={isOpen && !!options && options.length > 0}
-          onBlur={handleInputBlur}
-          onChange={(e) => handleInputChange(e.target.value)}
-          onClick={handleInputClick}
-          onFocus={handleInputFocus}
-          onKeyDown={handleInputKeyDown}
-          placeholder={placeholder}
-          value={value?.toString()}
-          {...props}
-          ref={inputRef}
-        />
-        {isOpen && !!options && options.length > 0 && (
-          <OptionsWrapper style={dropdownStyles}>
-            {options?.map((option, index) => (
-              <SearchSelectOption
-                key={option.value}
-                isSelected={index === selectedIndex}
-                onClick={() => handleOptionSelect(option)}
-                onMouseOver={() => handleMouseOver(index)}
-                onMouseLeave={handleMouseLeave}
-                style={optionStyles}
-              >
-                {option.label}
-              </SearchSelectOption>
-            ))}
-          </OptionsWrapper>
-        )}
-        {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
-      </Wrapper>
-    )
-  },
-)
+  const handleMouseOver = (index: number): void => {
+    setSelectedIndex(index)
+  }
 
-interface Option {
-  label: ReactNode
-  value: string
+  const handleMouseLeave = (): void => {
+    setSelectedIndex(null)
+  }
+
+  const handleClearInput = (): void => {
+    onSearchChange?.("")
+    setSelectedIndex(null)
+    inputRef?.current?.focus()
+  }
+
+  return (
+    <Wrapper isFullWidth={isFullWidth} style={wrapperStyles}>
+      <SearchSelectInput
+        isFullWidth={isFullWidth}
+        isOpen={isOpen && !!filteredOptions && filteredOptions.length > 0}
+        onBlur={handleInputBlur}
+        onChange={(e) => handleInputChange(e.target.value)}
+        onClearInput={handleClearInput}
+        onClick={handleInputClick}
+        onFocus={handleInputFocus}
+        onKeyDown={handleInputKeyDown}
+        placeholder={placeholder}
+        value={value}
+        {...props}
+        ref={inputRef}
+      />
+      {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
+        <OptionsWrapper style={dropdownStyles}>
+          {filteredOptions?.map((option, index) => (
+            <SearchSelectOption
+              key={option.key ?? option.value}
+              isSelected={index === selectedIndex}
+              onClick={(e) => {
+                e.stopPropagation()
+                handleOptionSelect(option)
+              }}
+              onMouseOver={() => handleMouseOver(index)}
+              onMouseLeave={handleMouseLeave}
+              style={optionStyles}
+            >
+              {option.label}
+            </SearchSelectOption>
+          ))}
+        </OptionsWrapper>
+      )}
+      {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
+    </Wrapper>
+  )
 }
 
 type Status = "success" | "fail" | "neutral"
