@@ -12,16 +12,24 @@ export interface SearchSelectInputProps extends InputHTMLAttributes<HTMLInputEle
   isFullWidth?: boolean
   isOpen?: boolean
   message?: ReactNode
+  onClearInput: () => void
   status?: Status
+  value: string | undefined
 }
 
 export const SearchSelectInput = forwardRef<HTMLInputElement, SearchSelectInputProps>(
-  ({ isFullWidth = false, isOpen, status, message, ...props }, ref) => {
+  ({ isFullWidth = false, isOpen, message, onClearInput, status, value, ...props }, ref) => {
     return (
       <>
         <Wrapper isFullWidth={isFullWidth}>
-          <StyledBaseInput isFullWidth={isFullWidth} {...props} ref={ref} />
-          <StyledIcon name="chevronRight" animate={{ rotate: isOpen ? 90 : 0 }} />
+          <StyledBaseInput isFullWidth={isFullWidth} value={value} {...props} ref={ref} />
+          {value?.length ? (
+            <ClearButton type="button" onClick={onClearInput}>
+              <StyledIcon name="xMark" />
+            </ClearButton>
+          ) : (
+            <StyledIcon name="chevronRight" animate={{ rotate: isOpen ? 90 : 0 }} />
+          )}
         </Wrapper>
         {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
       </>
@@ -51,13 +59,15 @@ const Wrapper = styled.div<{ isFullWidth?: boolean }>`
 const StyledBaseInput = styled(BaseInput)<{ isFullWidth?: boolean }>`
   border-radius: ${({ theme }) => theme.borderRadii.xl};
   ${({ isFullWidth }) => isFullWidth && "width: 100%"};
+  padding-right: ${({ theme }) => 5 * theme.spacer}px;
 `
+
+const ClearButton = styled.button``
 
 const StyledIcon = styled(motion(Icon))`
   position: absolute;
   top: ${({ theme }) => 1.5 * theme.spacer}px;
   right: ${({ theme }) => theme.spacer}px;
-  pointer-events: none;
   color: ${({ theme }) => theme.colors.content.primary};
   width: ${({ theme }) => 3 * theme.spacer}px;
   text-align: center;
