@@ -4,6 +4,7 @@ import { useFocusReturn, useFocusTrap, useMergedRef, useScrollLock } from "@mant
 import { AnimatePresence, HTMLMotionProps, motion, MotionStyle } from "framer-motion"
 import { forwardRef, ReactNode, useEffect } from "react"
 import { useTheme } from "../../../hooks/useTheme"
+import { Theme } from "../../../lib/theme/theme"
 import { IconButton, IconButtonProps } from "../../controls/buttons/IconButton/IconButton"
 import {
   PrimaryButton,
@@ -94,7 +95,9 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                   </MdLgActions>
                 )}
               </Navigation>
-              <Content>{children}</Content>
+              <Content hasPrimaryAction={!!primaryAction} hasSecondaryAction={!!secondaryAction}>
+                {children}
+              </Content>
               {!isAboveSm && (
                 <SmActions>
                   {primaryAction && (
@@ -142,6 +145,8 @@ const Wrapper = styled(motion.div)`
   background: ${({ theme }) => theme.colors.background.primaryElevated};
   border-top-left-radius: ${({ theme }) => theme.borderRadii.lg};
   border-top-right-radius: ${({ theme }) => theme.borderRadii.lg};
+  // prevent navigation bar from overflowing popover
+  overflow: hidden;
   z-index: 2;
 
   @media ${({ theme }) => theme.mediaQueries.md} {
@@ -157,6 +162,9 @@ const Navigation = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: ${({ theme }) => 2 * theme.spacer}px;
+  position: sticky;
+  top: 0;
+  background: ${({ theme }) => theme.colors.background.primary};
 `
 
 const NavigationAction = styled.div`
@@ -171,9 +179,36 @@ const MdLgActions = styled.div`
   gap: ${({ theme }) => 2 * theme.spacer}px;
 `
 
-const Content = styled.div`
+const Content = styled.div<{ hasPrimaryAction: boolean; hasSecondaryAction: boolean }>`
   padding-inline: ${({ theme }) => 2 * theme.spacer}px;
+  // make sure content is not hidden when actions are added
+  padding-bottom: ${({ hasPrimaryAction, hasSecondaryAction, theme }) =>
+    getPaddingBottom(hasPrimaryAction, hasSecondaryAction, theme)}px;
+  // fix height to enable setting overflow-y
+  height: calc(100% - ${({ theme }) => 10 * theme.spacer}px);
+  // when there's more content than room in the popover, it should scroll and not overlow
+  overflow-y: auto;
+
+  @media ${({ theme }) => theme.mediaQueries.md} {
+    padding-bottom: ${({ theme }) => 2 * theme.spacer}px;
+  }
 `
+
+const getPaddingBottom = (
+  hasPrimaryAction: boolean,
+  hasSecondaryAction: boolean,
+  theme: Theme,
+): number => {
+  if (hasPrimaryAction && hasSecondaryAction) {
+    return 18 * theme.spacer
+  }
+
+  if (hasPrimaryAction || hasSecondaryAction) {
+    return 10 * theme.spacer
+  }
+
+  return 2 * theme.spacer
+}
 
 const SmActions = styled.div`
   position: absolute;
