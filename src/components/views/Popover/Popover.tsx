@@ -132,8 +132,6 @@ const Overlay = styled(motion.div)`
   left: 0;
   background: ${({ theme }) => theme.colors.background.focus};
   z-index: 1;
-  display: flex;
-  justify-content: center;
 `
 
 const Wrapper = styled(motion.div)`
