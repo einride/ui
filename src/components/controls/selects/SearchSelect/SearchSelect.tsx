@@ -56,7 +56,6 @@ export const SearchSelect = forwardRef<HTMLInputElement, SearchSelectProps>(
         const selected = options[selectedIndex]
         onSearchChange?.(selected?.value)
         onOptionSelect?.(selected)
-        internalInputRef?.current?.focus()
       }
       setIsOpen(false)
     }
