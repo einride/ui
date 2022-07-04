@@ -17,7 +17,7 @@ export const Thead = forwardRef<HTMLTableSectionElement, TheadProps>(
 )
 
 const StyledThead = styled.thead`
-  tr {
+  tr::before {
     box-shadow: unset;
   }
 `
