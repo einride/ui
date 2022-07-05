@@ -15,6 +15,7 @@ export const Tr = forwardRef<HTMLTableRowElement, TrProps>(({ children, ...props
 })
 
 const StyledTr = styled.tr`
+  position: relative;
   // box-shadow on table element is not supported in Safari
   &::before {
     content: "";
