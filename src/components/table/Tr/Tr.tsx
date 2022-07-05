@@ -15,15 +15,5 @@ export const Tr = forwardRef<HTMLTableRowElement, TrProps>(({ children, ...props
 })
 
 const StyledTr = styled.tr`
-  position: relative;
-  // box-shadow on table element is not supported in Safari
-  &::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 -1px 0 ${({ theme }) => theme.colors.border.primary};
-    // z-index to make table cell content selectable in chrome
-    z-index: -1;
-  }
+  border-top: 1px solid ${({ theme }) => theme.colors.border.primary};
 `
