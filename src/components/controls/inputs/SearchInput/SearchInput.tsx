@@ -1,63 +1,41 @@
-import styled from "@emotion/styled"
-import { ElementType, forwardRef, InputHTMLAttributes } from "react"
+import { ElementType, forwardRef, HTMLAttributes, InputHTMLAttributes } from "react"
 import { Icon } from "../../../content/Icon/Icon"
 import { BaseInput } from "../BaseInput/BaseInput"
 
 export interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  /** Accessible name, required when `label` is not provided. */
   "aria-label": string
+
+  /** Effective element used. */
   as?: ElementType
+
+  /** `onChange` handler. */
   onInputChange?: (input: string) => void
-  placeholder: string
+
+  /** Controlled input value. */
   value?: string
+
+  /** Props passed to root element. */
+  wrapperProps?: HTMLAttributes<HTMLDivElement>
 }
 
 export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
   ({ value, onInputChange, ...props }, ref) => {
     return (
-      <Wrapper>
-        <StyledInput
-          value={value}
-          onChange={(e) => onInputChange?.(e.target.value)}
-          {...props}
-          ref={ref}
-        />
-        <LoupeIcon name="loupe" color="primary" />
-        {value && (
-          <ClearButton onClick={() => onInputChange?.("")}>
-            <Icon name="xMark" color="primary" />
-          </ClearButton>
-        )}
-      </Wrapper>
+      <BaseInput
+        {...props}
+        leftIcon={<Icon name="loupe" />}
+        onChange={(e) => onInputChange?.(e.target.value)}
+        rightIcon={
+          value?.length ? (
+            <button type="button" onClick={() => onInputChange?.("")}>
+              <Icon name="xMark" color="primary" />
+            </button>
+          ) : null
+        }
+        value={value}
+        ref={ref}
+      />
     )
   },
 )
-
-const Wrapper = styled.div`
-  position: relative;
-  width: 100%;
-`
-
-const StyledInput = styled(BaseInput)`
-  padding-right: ${({ theme }) => 5 * theme.spacer}px;
-  padding-left: ${({ theme }) => 5 * theme.spacer}px;
-  border-radius: ${({ theme }) => theme.borderRadii.xl};
-`
-
-const LoupeIcon = styled(Icon)`
-  position: absolute;
-  top: ${({ theme }) => 1.5 * theme.spacer}px;
-  height: ${({ theme }) => 3 * theme.spacer}px;
-  left: ${({ theme }) => 2 * theme.spacer}px;
-  font-size: ${({ theme }) => theme.fontSizes.md};
-  font-weight: ${({ theme }) => theme.fontWeights.book};
-`
-
-const ClearButton = styled.button`
-  position: absolute;
-  top: ${({ theme }) => 1.5 * theme.spacer}px;
-  height: ${({ theme }) => 3 * theme.spacer}px;
-  right: ${({ theme }) => theme.spacer}px;
-  padding: 0 ${({ theme }) => theme.spacer}px;
-  font-size: ${({ theme }) => theme.fontSizes.md};
-  font-weight: ${({ theme }) => theme.fontWeights.book};
-`
