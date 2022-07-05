@@ -1,24 +1,51 @@
 import styled from "@emotion/styled"
-import { forwardRef, HTMLAttributes } from "react"
+import { ButtonHTMLAttributes, ElementType, forwardRef } from "react"
 import { Avatar } from "../Avatar/Avatar"
 
-export interface UserAccessPointProps extends HTMLAttributes<HTMLButtonElement> {
-  avatarImageSrc: string
+export interface UserAccessPointBaseProps
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "name"> {
+  /** Effective element used. */
+  as?: ElementType
+
+  /** Status of the user access point. Default is `default`.  */
   status?: Status
 }
 
+interface UserAccessPointWithImageProps {
+  /** Source of the image. */
+  avatarImageSrc: string | undefined
+}
+
+interface UserAccessPointWithInitialsProps {
+  /** Name of the user, used to compute initials. */
+  name: string | undefined
+}
+
+export type UserAccessPointProps = UserAccessPointBaseProps &
+  (UserAccessPointWithImageProps | UserAccessPointWithInitialsProps)
+
 export const UserAccessPoint = forwardRef<HTMLButtonElement, UserAccessPointProps>(
-  ({ avatarImageSrc, status = "default", ...props }, ref) => {
-    const src = status === "no-user" ? "https://einride.engineering/img/logo.svg" : avatarImageSrc
+  ({ status = "default", ...props }, ref) => {
+    if (status === "no-user") {
+      return (
+        <Button status={status} {...props} ref={ref}>
+          <StyledAvatar
+            alt="User profile picture"
+            size="sm"
+            src="https://einride.engineering/img/logo.svg"
+          />
+        </Button>
+      )
+    }
 
     return (
       <Button status={status} {...props} ref={ref}>
-        <StyledAvatar alt="User profile picture" size="sm" src={src} />
-        {status !== "no-user" && (
-          <Right>
-            {status === "notification" ? <Notification /> : <Dots aria-label="Search" />}
-          </Right>
+        {"avatarImageSrc" in props ? (
+          <StyledAvatar alt="User profile picture" size="sm" src={props.avatarImageSrc} />
+        ) : (
+          <StyledAvatar name={props.name} size="sm" />
         )}
+        <Right>{status === "notification" ? <Notification /> : <Dots aria-label="Search" />}</Right>
       </Button>
     )
   },

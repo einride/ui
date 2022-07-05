@@ -97,6 +97,7 @@ export const light = {
       positive: `${color.green.default}1A`, // 1A is HEX for 10 % opacity
       negative: `${color.red.default}1A`, // 1A is HEX for 10 % opacity
       focus: `${color.greyscale.black}66`, // 66 is HEX for 40 % opacity
+      reverse: color.greyscale.black,
     },
     content: {
       primary: color.greyscale.grey100,
@@ -104,6 +105,7 @@ export const light = {
       tertiary: `${color.greyscale.grey100}66`, // 66 is HEX for 40 % opacity
       positive: color.green.dark,
       negative: color.red.dark,
+      reverse: color.greyscale.white,
     },
     border: {
       primary: color.greyscale.grey50,
@@ -163,6 +165,7 @@ export const dark: Theme = {
       positive: `${color.green.default}1A`, // 1A is HEX for 10 % opacity
       negative: `${color.red.default}1A`, // 1A is HEX for 10 % opacity
       focus: `${color.greyscale.black}66`, // 66 is HEX for 40 % opacity
+      reverse: color.greyscale.white,
     },
     content: {
       primary: color.greyscale.white,
@@ -170,6 +173,7 @@ export const dark: Theme = {
       tertiary: `${color.greyscale.grey20}66`, // 66 is HEX for 40 % opacity
       positive: color.green.light,
       negative: color.red.light,
+      reverse: color.greyscale.grey100,
     },
     border: {
       primary: color.greyscale.grey80,

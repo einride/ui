@@ -25,3 +25,8 @@ Square.args = {
   ...Default.args,
   radius: "sm",
 }
+
+export const Initials = Template.bind({})
+Initials.args = {
+  name: "Filip Tammergård",
+}

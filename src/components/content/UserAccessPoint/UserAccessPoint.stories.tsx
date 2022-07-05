@@ -25,3 +25,8 @@ Notification.args = {
   avatarImageSrc: "https://avatars.githubusercontent.com/u/44197016?v=4",
   status: "notification",
 }
+
+export const Initials = Template.bind({})
+Initials.args = {
+  name: "Filip Tammergård",
+}
