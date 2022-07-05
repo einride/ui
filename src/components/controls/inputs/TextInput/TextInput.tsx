@@ -1,68 +1,77 @@
 import styled from "@emotion/styled"
 import {
-  ChangeEvent,
   ElementType,
-  FocusEvent,
   forwardRef,
+  HTMLAttributes,
   InputHTMLAttributes,
+  LabelHTMLAttributes,
   ReactNode,
 } from "react"
-import { useTheme } from "../../../../hooks/useTheme"
-import { Theme } from "../../../../lib/theme/theme"
-import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
-import { Caption } from "../../../typography/Caption/Caption"
-import { BaseInput } from "../BaseInput/BaseInput"
+import { BaseInput, Status } from "../BaseInput/BaseInput"
 
-export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  "aria-label": string
+interface TextInputBaseProps extends InputHTMLAttributes<HTMLInputElement> {
+  /** Effective element used. */
   as?: ElementType
+
+  /** Message shown below input field. Can be used together with `status` to show a success or error message. */
   message?: ReactNode
-  onBlur?: (e: FocusEvent<HTMLInputElement>) => void
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
-  placeholder: string
-  /** Default: "neutral" */
-  status?: Status
+
+  /**  Default is `neutral`. */
+  status?: Status | undefined
+
+  /** Controlled input value. */
   value?: string
+
+  /** Props passed to root element. */
+  wrapperProps?: HTMLAttributes<HTMLDivElement>
 }
+
+interface TextInputWithLabelProps {
+  /** Input label, displayed before input. */
+  label?: ReactNode
+
+  /** Props passed to label element. */
+  labelProps?: LabelHTMLAttributes<HTMLLabelElement>
+}
+
+interface TextInputWithoutLabelProps {
+  /** Accessible name, required when `label` is not provided. */
+  "aria-label": string
+}
+
+export type TextInputProps = TextInputBaseProps &
+  (TextInputWithLabelProps | TextInputWithoutLabelProps)
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   ({ message, status, ...props }, ref) => {
-    const theme = useTheme()
-
     return (
-      <>
-        <StyledBaseInput icon={getStatusIcon(theme, status)} {...props} ref={ref} />
-        {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
-      </>
+      <BaseInput
+        {...props}
+        message={message}
+        rightIcon={getStatusIcon(status)}
+        status={status}
+        ref={ref}
+      />
     )
   },
 )
 
-type Status = "success" | "fail" | "neutral"
-
-const StyledBaseInput = styled(BaseInput)`
-  border-radius: ${({ theme }) => theme.borderRadii.xl};
-`
-
-const getStatusIcon = (theme: Theme, status?: Status): JSX.Element | null => {
+const getStatusIcon = (status?: Status): JSX.Element | null => {
   switch (status) {
     case "success":
-      return <Icon name="checkmark" style={{ color: theme.colors.content.positive }} />
+      return <PositiveIcon name="checkmark" />
     case "fail":
-      return <Icon name="warning" style={{ color: theme.colors.content.negative }} />
+      return <NegativeIcon name="warning" />
     default:
       return null
   }
 }
 
-const getMessageColor = (status: Status | undefined): ContentColor => {
-  switch (status) {
-    case "success":
-      return "positive"
-    case "fail":
-      return "negative"
-    default:
-      return "secondary"
-  }
-}
+const PositiveIcon = styled(Icon)`
+  color: ${({ theme }) => theme.colors.content.positive};
+`
+
+const NegativeIcon = styled(Icon)`
+  color: ${({ theme }) => theme.colors.content.negative};
+`

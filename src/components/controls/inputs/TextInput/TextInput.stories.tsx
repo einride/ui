@@ -15,25 +15,25 @@ const Template: Story<TextInputProps> = (args) => <TextInput {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
+  "aria-label": "Label",
   placeholder: "Placeholder...",
+}
+
+export const Label = Template.bind({})
+Label.args = {
+  label: "Label",
 }
 
 export const Positive = Template.bind({})
 Positive.args = {
-  ...Default.args,
+  ...Label.args,
   message: "Confirmation message.",
   status: "success",
 }
 
 export const Negative = Template.bind({})
 Negative.args = {
-  ...Default.args,
+  ...Label.args,
   message: "Error message.",
   status: "fail",
-}
-
-export const Controlled = Template.bind({})
-Controlled.args = {
-  ...Default.args,
-  value: "",
 }
