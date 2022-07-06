@@ -114,6 +114,18 @@ const AllTemplate: Story<IconProps> = () => (
       </Paragraph>
       <Caption font="mono">ellipsis</Caption>
     </StyledPrimaryCard>
+    <StyledPrimaryCard background="secondary">
+      <Paragraph>
+        <Icon name="plusCircle" />
+      </Paragraph>
+      <Caption font="mono">plusCircle</Caption>
+    </StyledPrimaryCard>
+    <StyledPrimaryCard background="secondary">
+      <Paragraph>
+        <Icon name="minusCircle" />
+      </Paragraph>
+      <Caption font="mono">minusCircle</Caption>
+    </StyledPrimaryCard>
   </Wrapper>
 )
 
