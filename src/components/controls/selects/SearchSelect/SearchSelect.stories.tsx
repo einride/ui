@@ -55,3 +55,19 @@ Filterable.args = {
   options: OPTIONS,
   isFilterable: true,
 }
+
+export const WithLabel = Template.bind({})
+WithLabel.args = {
+  options: OPTIONS,
+  label: "Label",
+}
+
+export const WithLabelFilterable = Template.bind({})
+WithLabelFilterable.args = {
+  filter: (value, option) =>
+    option.value.toLowerCase().trim().includes(value.toLowerCase().trim()) ||
+    option.description.toLowerCase().trim().includes(value.toLowerCase().trim()),
+  options: OPTIONS,
+  isFilterable: true,
+  label: "Label",
+}
