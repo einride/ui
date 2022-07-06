@@ -52,7 +52,7 @@ export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
           {leftIcon && <LeftIconWrapper>{leftIcon}</LeftIconWrapper>}
           <StyledInput
             {...props}
-            label={!!label}
+            hasLabel={!!label}
             leftIcon={!!leftIcon}
             rightIcon={!!rightIcon}
             id={id}
@@ -102,7 +102,7 @@ const RightIconWrapper = styled(IconWrapper)`
   right: ${({ theme }) => theme.spacer}px;
 `
 
-const StyledInput = styled.input<{ label: boolean; leftIcon: boolean; rightIcon: boolean }>`
+const StyledInput = styled.input<{ hasLabel: boolean; leftIcon: boolean; rightIcon: boolean }>`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
   font-weight: ${({ theme }) => theme.fontWeights.book};
@@ -113,7 +113,8 @@ const StyledInput = styled.input<{ label: boolean; leftIcon: boolean; rightIcon:
   display: block;
   padding-block: ${({ theme }) => 1.5 * theme.spacer}px;
   padding-inline: ${({ theme }) => 2 * theme.spacer}px;
-  border-radius: ${({ label, theme }) => (label ? theme.borderRadii.sm : theme.borderRadii.xl)};
+  border-radius: ${({ hasLabel, theme }) =>
+    hasLabel ? theme.borderRadii.sm : theme.borderRadii.xl};
   ${({ leftIcon, theme }) => leftIcon && `padding-left: ${4.5 * theme.spacer}px`};
   ${({ rightIcon, theme }) => rightIcon && `padding-right: ${6 * theme.spacer}px`};
 
