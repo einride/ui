@@ -114,6 +114,18 @@ export const Icon = forwardRef<HTMLSpanElement, IconProps>(({ name, ...props }, 
           &#x100360;
         </StyledSpan>
       )
+    case "plusCircle":
+      return (
+        <StyledSpan aria-hidden="true" {...props} ref={ref}>
+          &#x10004C;
+        </StyledSpan>
+      )
+    case "minusCircle":
+      return (
+        <StyledSpan aria-hidden="true" {...props} ref={ref}>
+          &#x10004E;
+        </StyledSpan>
+      )
     default:
       return null
   }
@@ -137,6 +149,8 @@ export type IconName =
   | "loupe"
   | "plus"
   | "ellipsis"
+  | "plusCircle"
+  | "minusCircle"
 
 const StyledSpan = styled.span<{ color?: ContentColor }>`
   ${({ color, theme }) => color && `color: ${theme.colors.content[color]}`};
