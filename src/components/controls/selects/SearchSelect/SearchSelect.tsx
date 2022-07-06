@@ -4,26 +4,23 @@ import {
   CSSProperties,
   InputHTMLAttributes,
   KeyboardEvent,
+  LabelHTMLAttributes,
   ReactNode,
   useRef,
   useState,
 } from "react"
-import { ContentColor } from "../../../../lib/theme/types"
-import { Caption } from "../../../typography/Caption/Caption"
 import { defaultFilter, filterOptions } from "./filterOptions"
 import { SearchSelectInput } from "./SearchSelectInput"
 import { SearchSelectOption } from "./SearchSelectOption"
 import { BaseOption } from "./types"
 
-export interface SearchSelectProps<Option> extends InputHTMLAttributes<HTMLInputElement> {
-  "aria-label": string
+interface SearchSelectBaseProps<Option> extends InputHTMLAttributes<HTMLInputElement> {
   dropdownStyles?: CSSProperties
   /** Filtering function to be used to populate dropdown. Filters on `option.value` by default. */
   filter?: (value: string, option: Option) => boolean
   isFullWidth?: boolean
   /** If `false`, consumer have control over which options to pass to dropdown. Defaults to `false` for backwards compatibility. Will default to `true` in next major.  */
   isFilterable?: boolean
-  label?: ReactNode
   message?: ReactNode
   onOptionSelect?: (option: Option) => void
   onSearchChange?: (value: string) => void
@@ -36,22 +33,37 @@ export interface SearchSelectProps<Option> extends InputHTMLAttributes<HTMLInput
   wrapperStyles?: CSSProperties
 }
 
+interface SearchSelectWithLabelProps {
+  /** Input label, displayed before input. */
+  label: ReactNode
+
+  /** Props passed to label element. */
+  labelProps?: LabelHTMLAttributes<HTMLLabelElement>
+}
+
+interface SearchSelectWithoutLabelProps {
+  /** Accessible name, required when `label` is not provided. */
+  "aria-label": string
+}
+
+export type SearchSelectProps<Option> = SearchSelectBaseProps<Option> &
+  (SearchSelectWithLabelProps | SearchSelectWithoutLabelProps)
+
 export const SearchSelect = <Option extends BaseOption>({
   dropdownStyles = {},
   filter = defaultFilter,
   isFullWidth = false,
-  message,
   onOptionSelect,
   onSearchChange,
   options,
   optionStyles = {},
   placeholder = "Search...",
   isFilterable = false,
-  status,
   value,
   wrapperStyles = {},
   ...props
-}: SearchSelectProps<Option>): JSX.Element => {
+}: SearchSelectProps<Option> &
+  (SearchSelectWithLabelProps | SearchSelectWithoutLabelProps)): JSX.Element => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
   const { isOpen, handlers } = useDisclosure(false)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -143,6 +155,7 @@ export const SearchSelect = <Option extends BaseOption>({
   return (
     <Wrapper isFullWidth={isFullWidth} style={wrapperStyles}>
       <SearchSelectInput
+        {...props}
         isFullWidth={isFullWidth}
         isOpen={isOpen && !!filteredOptions && filteredOptions.length > 0}
         onBlur={handleInputBlur}
@@ -153,7 +166,6 @@ export const SearchSelect = <Option extends BaseOption>({
         onKeyDown={handleInputKeyDown}
         placeholder={placeholder}
         value={value}
-        {...props}
         ref={inputRef}
       />
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
@@ -175,23 +187,11 @@ export const SearchSelect = <Option extends BaseOption>({
           ))}
         </OptionsWrapper>
       )}
-      {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
     </Wrapper>
   )
 }
 
 type Status = "success" | "fail" | "neutral"
-
-const getMessageColor = (status: Status | undefined): ContentColor => {
-  switch (status) {
-    case "success":
-      return "positive"
-    case "fail":
-      return "negative"
-    default:
-      return "secondary"
-  }
-}
 
 const Wrapper = styled.div<{ isFullWidth?: boolean }>`
   position: relative;
@@ -201,7 +201,7 @@ const Wrapper = styled.div<{ isFullWidth?: boolean }>`
 
 const OptionsWrapper = styled.div`
   position: absolute;
-  top: ${({ theme }) => 6 * theme.spacer}px;
+  top: 100%;
   right: 0;
   left: 0;
   background: ${({ theme }) => theme.colors.background.secondary};

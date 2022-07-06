@@ -29,7 +29,7 @@ interface TextInputBaseProps extends InputHTMLAttributes<HTMLInputElement> {
 
 interface TextInputWithLabelProps {
   /** Input label, displayed before input. */
-  label?: ReactNode
+  label: ReactNode
 
   /** Props passed to label element. */
   labelProps?: LabelHTMLAttributes<HTMLLabelElement>
