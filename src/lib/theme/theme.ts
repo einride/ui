@@ -30,6 +30,9 @@ const common = {
   },
   mediaQueries: {
     belowMd: `(max-width: ${MEDIUM_BREAKPOINT_PIXELS - 1}px)`,
+    onlyMd: `(min-width: ${MEDIUM_BREAKPOINT_PIXELS}px) and (max-width: ${
+      LARGE_BREAKPOINT_PIXELS - 1
+    }px)`,
     md: `(min-width: ${MEDIUM_BREAKPOINT_PIXELS}px)`,
     belowLg: `(max-width: ${LARGE_BREAKPOINT_PIXELS - 1}px)`,
     lg: `(min-width: ${LARGE_BREAKPOINT_PIXELS}px)`,
