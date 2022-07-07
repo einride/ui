@@ -22,6 +22,10 @@ interface SearchSelectBaseProps<Option> extends InputHTMLAttributes<HTMLInputEle
   /** If `false`, consumer have control over which options to pass to dropdown. Defaults to `false` for backwards compatibility. Will default to `true` in next major.  */
   isFilterable?: boolean
   message?: ReactNode
+
+  /** Callback called when the clear button is clicked. */
+  onClearClick?: () => void
+
   onOptionSelect?: (option: Option) => void
   onSearchChange?: (value: string) => void
   /** Options to render in dropdown */
@@ -53,6 +57,7 @@ export const SearchSelect = <Option extends BaseOption>({
   dropdownStyles = {},
   filter = defaultFilter,
   isFullWidth = false,
+  onClearClick,
   onOptionSelect,
   onSearchChange,
   options,
@@ -149,6 +154,7 @@ export const SearchSelect = <Option extends BaseOption>({
   const handleClearInput = (): void => {
     onSearchChange?.("")
     setSelectedIndex(null)
+    onClearClick?.()
     inputRef?.current?.focus()
   }
 
