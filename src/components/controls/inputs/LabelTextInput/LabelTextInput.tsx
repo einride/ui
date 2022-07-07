@@ -41,7 +41,7 @@ export const LabelTextInput = forwardRef<HTMLInputElement, LabelTextInputProps>(
         <StyledLabel htmlFor={uuid} style={labelStyles}>
           {label} {required && " (required)"}
         </StyledLabel>
-        <BaseInput id={uuid} rightIcon={getStatusIcon(theme, status)} {...props} ref={ref} />
+        <StyledBaseInput id={uuid} rightIcon={getStatusIcon(theme, status)} {...props} ref={ref} />
         {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
       </Wrapper>
     )
@@ -87,3 +87,7 @@ const getMessageColor = (status: Status | undefined): ContentColor => {
       return "secondary"
   }
 }
+
+const StyledBaseInput = styled(BaseInput)`
+  border-radius: ${({ theme }) => theme.borderRadii.sm};
+`
