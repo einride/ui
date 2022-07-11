@@ -83,12 +83,16 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                 {isAboveSm && (
                   <MdLgActions>
                     {secondaryAction && (
-                      <SecondaryButton onClick={secondaryAction.handler}>
+                      <SecondaryButton {...secondaryAction} onClick={secondaryAction.handler}>
                         {secondaryAction.text}
                       </SecondaryButton>
                     )}
                     {primaryAction && (
-                      <PrimaryButton data-autofocus onClick={primaryAction.handler}>
+                      <PrimaryButton
+                        {...primaryAction}
+                        data-autofocus
+                        onClick={primaryAction.handler}
+                      >
                         {primaryAction.text}
                       </PrimaryButton>
                     )}
@@ -101,12 +105,21 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
               {!isAboveSm && (
                 <SmActions>
                   {primaryAction && (
-                    <PrimaryButton data-autofocus isFullWidth onClick={primaryAction.handler}>
+                    <PrimaryButton
+                      {...primaryAction}
+                      data-autofocus
+                      isFullWidth
+                      onClick={primaryAction.handler}
+                    >
                       {primaryAction.text}
                     </PrimaryButton>
                   )}
                   {secondaryAction && (
-                    <SecondaryButton isFullWidth onClick={secondaryAction.handler}>
+                    <SecondaryButton
+                      {...secondaryAction}
+                      isFullWidth
+                      onClick={secondaryAction.handler}
+                    >
                       {secondaryAction.text}
                     </SecondaryButton>
                   )}
