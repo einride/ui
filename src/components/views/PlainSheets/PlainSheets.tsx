@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { useFocusReturn, useFocusTrap, useMergedRef } from "@mantine/hooks"
 import { AnimatePresence, HTMLMotionProps, motion, MotionStyle } from "framer-motion"
 import { forwardRef, ReactNode } from "react"
-import { Theme } from "../../../lib/theme/theme"
+import { Theme } from "../../../lib/theme/types"
 import { IconName } from "../../content/Icon/Icon"
 import { IconButton, IconButtonProps } from "../../controls/buttons/IconButton/IconButton"
 import {

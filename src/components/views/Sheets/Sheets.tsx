@@ -4,7 +4,7 @@ import { useFocusReturn, useFocusTrap, useMergedRef, useScrollLock } from "@mant
 import { AnimatePresence, HTMLMotionProps, motion, MotionStyle } from "framer-motion"
 import { forwardRef, ReactNode } from "react"
 import { useTheme } from "../../../hooks/useTheme"
-import { Theme } from "../../../lib/theme/theme"
+import { Theme } from "../../../lib/theme/types"
 import { IconButton, IconButtonProps } from "../../controls/buttons/IconButton/IconButton"
 import {
   PrimaryButton,

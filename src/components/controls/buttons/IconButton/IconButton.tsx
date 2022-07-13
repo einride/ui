@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import { ButtonHTMLAttributes, ElementType, forwardRef } from "react"
-import { Theme } from "../../../../lib/theme/theme"
+import { Theme } from "../../../../lib/theme/types"
 import { Icon, IconName } from "../../../content/Icon/Icon"
 import { BaseButton } from "../BaseButton/BaseButton"
 
