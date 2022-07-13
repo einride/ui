@@ -19,8 +19,13 @@ const ControlledTemplate: Story<SliderProps> = (args) => {
     setValue(newValue)
   }
 
-  return <Slider value={value} onInputChange={handleChange} {...args} />
+  return <Slider {...args} value={value} onInputChange={handleChange} />
 }
 
 export const Controlled = ControlledTemplate.bind({})
 Controlled.args = {}
+
+export const Disabled = ControlledTemplate.bind({})
+Disabled.args = {
+  disabled: true,
+}
