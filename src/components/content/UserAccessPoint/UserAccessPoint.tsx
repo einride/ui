@@ -32,7 +32,7 @@ export const UserAccessPoint = forwardRef<HTMLButtonElement, UserAccessPointProp
           <StyledAvatar
             alt="User profile picture"
             size="sm"
-            src="https://einride.engineering/img/logo.svg"
+            src="https://avatars.githubusercontent.com/u/31446515?s=200&v=4"
           />
         </Button>
       )
