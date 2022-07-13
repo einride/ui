@@ -10,8 +10,7 @@ import {
   ReactNode,
 } from "react"
 import { useTheme } from "../../../../hooks/useTheme"
-import { Theme } from "../../../../lib/theme/theme"
-import { ContentColor } from "../../../../lib/theme/types"
+import { ContentColor, Theme } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Caption } from "../../../typography/Caption/Caption"
 import { BaseInput } from "../BaseInput/BaseInput"

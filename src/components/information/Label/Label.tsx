@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
-import { Theme } from "../../../lib/theme/theme"
+import { Theme } from "../../../lib/theme/types"
 
 export interface LabelProps extends HTMLAttributes<HTMLSpanElement> {
   as?: ElementType

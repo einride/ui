@@ -1,7 +1,6 @@
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, ElementType, ReactNode } from "react"
-import { Theme } from "../../../lib/theme/theme"
-import { ContentColor, Font } from "../../../lib/theme/types"
+import { ContentColor, Font, Theme } from "../../../lib/theme/types"
 
 export type LinkProps<C extends ElementType> = {
   as?: C

@@ -1,7 +1,6 @@
 import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes, ImgHTMLAttributes, useState } from "react"
-import { Theme } from "../../../lib/theme/theme"
-import { BackgroundColor, ContentColor, Radius } from "../../../lib/theme/types"
+import { BackgroundColor, ContentColor, Radius, Theme } from "../../../lib/theme/types"
 
 interface AvatarBaseProps {
   /** Effective element used. */
