@@ -10,7 +10,6 @@ export const common: CommonTheme = {
    * @deprecated since version 5.0.0
    * use `mediaQueries` or `breakpoints` instead
    */
-  // eslint-disable-next-line deprecation/deprecation
   breakpoint: {
     belowMedium: `@media (max-width: ${MEDIUM_BREAKPOINT_PIXELS - 1}px)`,
     medium: `@media (min-width: ${MEDIUM_BREAKPOINT_PIXELS}px)`,
