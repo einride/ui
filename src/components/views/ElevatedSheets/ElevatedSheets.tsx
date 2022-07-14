@@ -27,6 +27,7 @@ export interface ElevatedSheetsProps extends HTMLMotionProps<"div"> {
   size?: Size
 }
 
+/** @deprecated Deprecated since version 5.64.6. Use `<Sheets>` instead. */
 export const ElevatedSheets = forwardRef<HTMLDivElement, ElevatedSheetsProps>(
   (
     {
