@@ -45,7 +45,7 @@ export const ElevatedSheets = forwardRef<HTMLDivElement, ElevatedSheetsProps>(
     ref,
   ) => {
     const focusTrapRef = useFocusTrap(isOpen)
-    useFocusReturn({ opened: isOpen, transitionDuration: 0 })
+    useFocusReturn({ opened: isOpen })
     const mergedRef = useMergedRef(ref, focusTrapRef)
     useScrollLock(isOpen)
 
