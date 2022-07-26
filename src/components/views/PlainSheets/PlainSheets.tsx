@@ -45,7 +45,7 @@ export const PlainSheets = forwardRef<HTMLDivElement, PlainSheetsProps>(
     ref,
   ) => {
     const focusTrapRef = useFocusTrap(isOpen)
-    useFocusReturn({ opened: isOpen, transitionDuration: 0 })
+    useFocusReturn({ opened: isOpen })
     const mergedRef = useMergedRef(ref, focusTrapRef)
 
     return (

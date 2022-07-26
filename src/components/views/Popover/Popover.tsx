@@ -39,7 +39,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     ref,
   ) => {
     const focusTrapRef = useFocusTrap(isOpen)
-    useFocusReturn({ opened: isOpen, transitionDuration: 0 })
+    useFocusReturn({ opened: isOpen })
     const mergedRef = useMergedRef(ref, focusTrapRef)
     useScrollLock(isOpen)
     const theme = useTheme()

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { useUuid } from "@mantine/hooks"
+import { useId } from "@mantine/hooks"
 import {
   ElementType,
   forwardRef,
@@ -39,7 +39,7 @@ export interface BaseInputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
   ({ label, labelProps, leftIcon, message, rightIcon, status, wrapperProps, ...props }, ref) => {
-    const id = useUuid()
+    const id = useId()
 
     return (
       <Wrapper {...wrapperProps}>
