@@ -4,7 +4,7 @@ on: push
 
 jobs:
   chromatic-deployment:
-    if: ${{ github.actor != dependabot[bot] }}
+    if: ${{ github.actor != 'dependabot[bot]' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -18,5 +18,4 @@ jobs:
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
