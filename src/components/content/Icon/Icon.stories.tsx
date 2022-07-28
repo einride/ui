@@ -126,6 +126,12 @@ const AllTemplate: Story<IconProps> = () => (
       </Paragraph>
       <Caption font="mono">minusCircle</Caption>
     </StyledPrimaryCard>
+    <StyledPrimaryCard background="secondary">
+      <Paragraph>
+        <Icon name="UNSAFE_repeat" />
+      </Paragraph>
+      <Caption font="mono">UNSAFE_repeat</Caption>
+    </StyledPrimaryCard>
   </Wrapper>
 )
 
