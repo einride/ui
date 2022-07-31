@@ -86,7 +86,6 @@ export interface ColorTheme {
 
 export interface CommonTheme {
   borderRadii: Record<Radius, string>
-  breakpoint: Record<string, string>
   breakpoints: Record<Breakpoint, number>
   mediaQueries: Record<MediaQuery, string>
   fonts: Record<Font, string>
