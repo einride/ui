@@ -46,6 +46,6 @@ Default.parameters = parameters
 
 export const WithTitle = Template.bind({})
 WithTitle.args = {
-  title: "Page name",
+  navigationTitle: "Page name",
 }
 WithTitle.parameters = parameters
