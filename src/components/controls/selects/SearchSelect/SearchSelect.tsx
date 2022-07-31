@@ -18,7 +18,6 @@ interface SearchSelectBaseProps<Option> extends InputHTMLAttributes<HTMLInputEle
   dropdownStyles?: CSSProperties
   /** Filtering function to be used to populate dropdown. Filters on `option.value` by default. */
   filter?: (value: string, option: Option) => boolean
-  isFullWidth?: boolean
   /** If `false`, consumer have control over which options to pass to dropdown. Defaults to `false` for backwards compatibility. Will default to `true` in next major.  */
   isFilterable?: boolean
   message?: ReactNode
@@ -56,7 +55,6 @@ export type SearchSelectProps<Option> = SearchSelectBaseProps<Option> &
 export const SearchSelect = <Option extends BaseOption>({
   dropdownStyles = {},
   filter = defaultFilter,
-  isFullWidth = false,
   onClearClick,
   onOptionSelect,
   onSearchChange,
@@ -159,10 +157,9 @@ export const SearchSelect = <Option extends BaseOption>({
   }
 
   return (
-    <Wrapper isFullWidth={isFullWidth} style={wrapperStyles}>
+    <Wrapper style={wrapperStyles}>
       <SearchSelectInput
         {...props}
-        isFullWidth={isFullWidth}
         isOpen={isOpen && !!filteredOptions && filteredOptions.length > 0}
         onBlur={handleInputBlur}
         onChange={(e) => handleInputChange(e.target.value)}
@@ -199,10 +196,8 @@ export const SearchSelect = <Option extends BaseOption>({
 
 type Status = "success" | "fail" | "neutral"
 
-const Wrapper = styled.div<{ isFullWidth?: boolean }>`
+const Wrapper = styled.div`
   position: relative;
-  display: inline-block;
-  ${({ isFullWidth }) => isFullWidth && "width: 100%"};
 `
 
 const OptionsWrapper = styled.div`

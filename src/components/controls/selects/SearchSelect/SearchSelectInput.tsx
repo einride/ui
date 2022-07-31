@@ -6,7 +6,6 @@ import { BaseInput } from "../../inputs/BaseInput/BaseInput"
 
 interface SearchSelectInputBaseProps extends InputHTMLAttributes<HTMLInputElement> {
   as?: ElementType
-  isFullWidth?: boolean
   isOpen?: boolean
   message?: ReactNode
   onClearInput: () => void
@@ -31,11 +30,10 @@ export type SearchSelectInputProps = SearchSelectInputBaseProps &
   (SearchSelectInputWithLabelProps | SearchSelectInputWithoutLabelProps)
 
 export const SearchSelectInput = forwardRef<HTMLInputElement, SearchSelectInputProps>(
-  ({ isFullWidth = false, isOpen, onClearInput, value, ...props }, ref) => {
+  ({ isOpen, onClearInput, value, ...props }, ref) => {
     return (
-      <Wrapper isFullWidth={isFullWidth}>
+      <Wrapper>
         <StyledBaseInput
-          isFullWidth={isFullWidth}
           value={value}
           rightIcon={
             value?.length ? (
@@ -56,15 +54,11 @@ export const SearchSelectInput = forwardRef<HTMLInputElement, SearchSelectInputP
 
 type Status = "success" | "fail" | "neutral"
 
-const Wrapper = styled.div<{ isFullWidth?: boolean }>`
+const Wrapper = styled.div`
   position: relative;
-  display: inline-block;
-  ${({ isFullWidth }) => isFullWidth && "width: 100%"};
 `
 
-const StyledBaseInput = styled(BaseInput)<{ isFullWidth?: boolean }>`
-  ${({ isFullWidth }) => isFullWidth && "width: 100%"};
-`
+const StyledBaseInput = styled(BaseInput)``
 
 const ClearButton = styled.button``
 
