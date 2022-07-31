@@ -1,5 +1,3 @@
-import { color } from "../../primitives/color"
-
 export type BackgroundColor =
   | "primary"
   | "primaryElevated"
@@ -92,9 +90,6 @@ export interface CommonTheme {
   fontSizes: Record<FontSize, string>
   fontWeights: Record<FontWeight, number>
   grid: Record<string, string>
-  primitives: {
-    color: typeof color
-  }
   spacer: Spacer
   transitions: Record<Transition, TransitionVariant>
 }
