@@ -8,7 +8,6 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   "aria-label": string
   as?: ElementType
   children: ReactNode
-  isFullWidth?: boolean
   message?: ReactNode
   onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
   placeholder?: string
@@ -16,11 +15,11 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 }
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
-  ({ children, isFullWidth = false, placeholder, status, message, ...props }, ref) => {
+  ({ children, placeholder, status, message, ...props }, ref) => {
     return (
       <>
-        <Wrapper isFullWidth={isFullWidth}>
-          <StyledSelect isFullWidth={isFullWidth} {...props} ref={ref}>
+        <Wrapper>
+          <StyledSelect {...props} ref={ref}>
             {placeholder && <option value="">{placeholder}</option>}
             {children}
           </StyledSelect>
@@ -45,16 +44,14 @@ const getMessageColor = (status: Status | undefined): ContentColor => {
   }
 }
 
-const Wrapper = styled.div<{ isFullWidth?: boolean }>`
+const Wrapper = styled.div`
   position: relative;
-  display: inline-block;
-  ${({ isFullWidth }) => isFullWidth && "width: 100%"};
 `
 
-const StyledSelect = styled.select<{ isFullWidth?: boolean }>`
+const StyledSelect = styled.select`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
-  ${({ isFullWidth }) => isFullWidth && "width: 100%"};
+  width: 100%;
   background: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
   line-height: 24px;
