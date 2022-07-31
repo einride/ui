@@ -1,6 +1,7 @@
 import { Theme } from "@emotion/react"
 import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
+import { primitives } from "../../../primitives/primitives"
 import { Icon } from "../../content/Icon/Icon"
 
 export interface ChargerPinProps extends Omit<HTMLAttributes<HTMLDivElement>, "color"> {
@@ -22,9 +23,9 @@ const StyledIcon = styled(Icon)<{ size: Size }>`
   justify-content: center;
   width: ${({ size }) => getSize(size)};
   height: ${({ size }) => getSize(size)};
-  background: ${({ theme }) => theme.primitives.color.green.default};
-  color: ${({ theme }) => theme.primitives.color.greyscale.white};
-  border: 2px solid ${({ theme }) => theme.primitives.color.greyscale.white};
+  background: ${primitives.color.green.default};
+  color: ${primitives.color.greyscale.white};
+  border: 2px solid ${primitives.color.greyscale.white};
   border-radius: ${({ theme }) => theme.borderRadii.xl};
   font-size: ${({ size, theme }) => getFontSize(size, theme)};
 `

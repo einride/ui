@@ -67,4 +67,4 @@ export type {
   Radius,
   Theme,
 } from "./lib/theme/types"
-export { color } from "./primitives/color"
+export { primitives } from "./primitives/primitives"
