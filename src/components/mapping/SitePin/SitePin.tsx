@@ -1,5 +1,6 @@
 import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
+import { primitives } from "../../../primitives/primitives"
 
 export interface SitePinProps extends HTMLAttributes<HTMLDivElement> {
   /** Default: "md" */
@@ -17,8 +18,8 @@ type Size = "sm" | "md"
 const Wrapper = styled.div<{ size: Size }>`
   width: ${({ size }) => getSize(size)};
   height: ${({ size }) => getSize(size)};
-  background: ${({ theme }) => theme.primitives.color.blue.dark};
-  border: 2px solid ${({ theme }) => theme.primitives.color.greyscale.white};
+  background: ${primitives.color.blue.dark};
+  border: 2px solid ${primitives.color.greyscale.white};
   border-radius: ${({ theme }) => theme.borderRadii.xl};
 `
 
