@@ -1,4 +1,3 @@
-import { color } from "../../primitives/color"
 import { CommonTheme } from "./types"
 
 const MEDIUM_BREAKPOINT_PIXELS = 600
@@ -56,9 +55,6 @@ export const common: CommonTheme = {
   grid: {
     gap: "var(--einride-ui-grid-gap)",
     columns: "var(--einride-ui-grid-columns)",
-  },
-  primitives: {
-    color,
   },
   transitions: {
     easeIn: {
