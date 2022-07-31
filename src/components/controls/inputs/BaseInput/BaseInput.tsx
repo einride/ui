@@ -1,5 +1,4 @@
 import styled from "@emotion/styled"
-import { useId } from "@mantine/hooks"
 import {
   ElementType,
   forwardRef,
@@ -7,6 +6,7 @@ import {
   InputHTMLAttributes,
   LabelHTMLAttributes,
   ReactNode,
+  useId,
 } from "react"
 import { ContentColor } from "../../../../lib/theme/types"
 import { Caption } from "../../../typography/Caption/Caption"
