@@ -7,7 +7,6 @@ import { Caption } from "../../../typography/Caption/Caption"
 export interface LabelSelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   as?: ElementType
   children: ReactNode
-  isFullWidth?: boolean
   label: ReactNode
   message?: ReactNode
   onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
@@ -16,14 +15,14 @@ export interface LabelSelectProps extends SelectHTMLAttributes<HTMLSelectElement
 }
 
 export const LabelSelect = forwardRef<HTMLSelectElement, LabelSelectProps>(
-  ({ children, isFullWidth = false, label, placeholder, status, message, ...props }, ref) => {
+  ({ children, label, placeholder, status, message, ...props }, ref) => {
     const uuid = useId()
 
     return (
-      <Wrapper isFullWidth={isFullWidth}>
+      <Wrapper>
         <InnerWrapper>
           <StyledLabel htmlFor={uuid}>{label}</StyledLabel>
-          <StyledSelect id={uuid} isFullWidth={isFullWidth} {...props} ref={ref}>
+          <StyledSelect id={uuid} {...props} ref={ref}>
             {placeholder && <option value="">{placeholder}</option>}
             {children}
           </StyledSelect>
@@ -48,17 +47,13 @@ const getMessageColor = (status: Status | undefined): ContentColor => {
   }
 }
 
-const Wrapper = styled.div<{ isFullWidth?: boolean }>`
-  display: inline-block;
-  ${({ isFullWidth }) => isFullWidth && "width: 100%"};
-`
+const Wrapper = styled.div``
 
 const InnerWrapper = styled.div`
   position: relative;
 `
 
 const StyledLabel = styled.label`
-  display: inline-block;
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
   font-weight: ${({ theme }) => theme.fontWeights.book};
@@ -76,14 +71,10 @@ const StyledLabel = styled.label`
   }
 `
 
-interface StyledSelectProps {
-  isFullWidth?: boolean
-}
-
-const StyledSelect = styled.select<StyledSelectProps>`
+const StyledSelect = styled.select`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
-  ${({ isFullWidth }) => isFullWidth && "width: 100%"};
+  width: 100%;
   background: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
   line-height: 24px;
