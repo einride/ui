@@ -1,5 +1,4 @@
 import styled from "@emotion/styled"
-import { useId } from "@mantine/hooks"
 import {
   ChangeEvent,
   CSSProperties,
@@ -8,6 +7,7 @@ import {
   forwardRef,
   InputHTMLAttributes,
   ReactNode,
+  useId,
 } from "react"
 import { useTheme } from "../../../../hooks/useTheme"
 import { ContentColor, Theme } from "../../../../lib/theme/types"

@@ -1,6 +1,5 @@
 import styled from "@emotion/styled"
-import { useId } from "@mantine/hooks"
-import { ChangeEvent, ElementType, forwardRef, ReactNode, SelectHTMLAttributes } from "react"
+import { ChangeEvent, ElementType, forwardRef, ReactNode, SelectHTMLAttributes, useId } from "react"
 import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Caption } from "../../../typography/Caption/Caption"
