@@ -53,16 +53,6 @@ export { Paragraph } from "./components/typography/Paragraph/Paragraph"
 export { Title1 } from "./components/typography/Title1/Title1"
 export { Title2 } from "./components/typography/Title2/Title2"
 export { Title3 } from "./components/typography/Title3/Title3"
-export { ElevatedSheets } from "./components/views/ElevatedSheets/ElevatedSheets"
-export type {
-  ElevatedSheetsAction,
-  ElevatedSheetsNavigationAction,
-} from "./components/views/ElevatedSheets/ElevatedSheets"
-export { PlainSheets } from "./components/views/PlainSheets/PlainSheets"
-export type {
-  PlainSheetsAction,
-  PlainSheetsNavigationAction,
-} from "./components/views/PlainSheets/PlainSheets"
 export { Popover } from "./components/views/Popover/Popover"
 export type { PopoverAction } from "./components/views/Popover/Popover"
 export { Sheets } from "./components/views/Sheets/Sheets"
