@@ -6,16 +6,6 @@ const LARGE_BREAKPOINT_PIXELS = 1280
 
 export const common: CommonTheme = {
   spacer: 8,
-  /**
-   * @deprecated since version 5.0.0
-   * use `mediaQueries` or `breakpoints` instead
-   */
-  breakpoint: {
-    belowMedium: `@media (max-width: ${MEDIUM_BREAKPOINT_PIXELS - 1}px)`,
-    medium: `@media (min-width: ${MEDIUM_BREAKPOINT_PIXELS}px)`,
-    belowLarge: `@media (max-width: ${LARGE_BREAKPOINT_PIXELS - 1}px)`,
-    large: `@media (min-width: ${LARGE_BREAKPOINT_PIXELS}px)`,
-  },
   borderRadii: {
     none: "0",
     xs: "0.25rem",
