@@ -17,10 +17,10 @@ export interface PopoverProps extends Omit<HTMLMotionProps<"div">, "title"> {
   closeHandler: () => void
   isOpen: boolean
   navigationAction?: (IconButtonProps & { "data-testid"?: string }) | undefined
+  navigationTitle?: ReactNode
   overlayStyles?: MotionStyle
   primaryAction?: (PopoverAction & { "data-testid"?: string }) | undefined
   secondaryAction?: (PopoverAction & { "data-testid"?: string }) | undefined
-  title?: ReactNode
 }
 
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
@@ -30,10 +30,10 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       closeHandler,
       isOpen,
       navigationAction,
+      navigationTitle,
       overlayStyles = {},
       primaryAction,
       secondaryAction,
-      title,
       ...props
     },
     ref,
@@ -78,7 +78,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
               <Navigation>
                 <NavigationAction>
                   {navigationAction && <IconButton {...navigationAction} />}
-                  {title && title}
+                  {navigationTitle && navigationTitle}
                 </NavigationAction>
                 {isAboveSm && (
                   <MdLgActions>
