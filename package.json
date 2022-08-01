@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@einride/hooks": "1.4.5",
-    "@mantine/hooks": "5.0.0",
+    "@mantine/hooks": "5.0.2",
     "lodash.merge": "4.6.2"
   },
   "devDependencies": {
