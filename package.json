@@ -28,7 +28,7 @@
     "@einride/eslint-plugin": "6.5.0",
     "@einride/prettier-config": "2.0.0",
     "@einride/tsconfig": "1.0.0",
-    "@emotion/react": "11.9.3",
+    "@emotion/react": "11.10.0",
     "@emotion/styled": "11.9.3",
     "@storybook/addon-a11y": "6.5.9",
     "@storybook/addon-actions": "6.5.9",
