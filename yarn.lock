@@ -1715,10 +1715,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@mantine/hooks@5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-5.0.0.tgz#24fe9f945810d02ad7d933b8aecc646cf10f96dc"
-  integrity sha512-IKqqnukPPyBMYRKz4VIhz7hNRe3p8B7RUyvFLaWc9l69ZO/b5atNuesE1ThuMQYc7tBobQbU4myHuhQc/csyLA==
+"@mantine/hooks@5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-5.0.2.tgz#78fc9e2289fa5f176c23ec6a3a00012e55a0e2ae"
+  integrity sha512-TZsHUmsuPnl+hX6Jt5z8aPU0TWCUC2kuvr1CUBMUbQ2ff0UldcYeuOYmgb7pHlX79BXsGaRKIThLTcLHToYxbA==
 
 "@mdx-js/mdx@^1.6.22":
   version "1.6.22"
