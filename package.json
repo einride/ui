@@ -37,7 +37,7 @@
     "@storybook/addons": "6.5.10",
     "@storybook/builder-vite": "0.2.2",
     "@storybook/node-logger": "6.5.10",
-    "@storybook/react": "6.5.9",
+    "@storybook/react": "6.5.10",
     "@storybook/testing-library": "0.0.13",
     "@storybook/theming": "6.5.10",
     "@testing-library/jest-dom": "5.16.4",
