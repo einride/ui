@@ -2,6 +2,7 @@ import { useDisclosure } from "@einride/hooks"
 import styled from "@emotion/styled"
 import {
   CSSProperties,
+  HTMLAttributes,
   InputHTMLAttributes,
   KeyboardEvent,
   LabelHTMLAttributes,
@@ -33,7 +34,9 @@ interface SearchSelectBaseProps<Option> extends InputHTMLAttributes<HTMLInputEle
   status?: Status
   /** Controlled input value */
   value?: string
-  wrapperStyles?: CSSProperties
+
+  /** Props passed to root element. */
+  wrapperProps?: HTMLAttributes<HTMLDivElement>
 }
 
 interface SearchSelectWithLabelProps {
@@ -63,7 +66,7 @@ export const SearchSelect = <Option extends BaseOption>({
   placeholder = "Search...",
   isFilterable = true,
   value,
-  wrapperStyles = {},
+  wrapperProps,
   ...props
 }: SearchSelectProps<Option> &
   (SearchSelectWithLabelProps | SearchSelectWithoutLabelProps)): JSX.Element => {
@@ -157,7 +160,7 @@ export const SearchSelect = <Option extends BaseOption>({
   }
 
   return (
-    <Wrapper style={wrapperStyles}>
+    <Wrapper {...wrapperProps}>
       <SearchSelectInput
         {...props}
         isOpen={isOpen && !!filteredOptions && filteredOptions.length > 0}
