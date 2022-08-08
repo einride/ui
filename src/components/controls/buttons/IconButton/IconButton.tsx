@@ -1,21 +1,21 @@
 import styled from "@emotion/styled"
-import { ButtonHTMLAttributes, ElementType, forwardRef, ReactNode } from "react"
+import { ButtonHTMLAttributes, ElementType, forwardRef } from "react"
 import { Theme } from "../../../../lib/theme/types"
-import { Icon } from "../../../content/Icon/Icon"
+import { Icon, IconName } from "../../../content/Icon/Icon"
 import { BaseButton } from "../BaseButton/BaseButton"
 
 export interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   "aria-label": string
   as?: ElementType
-  icon?: ReactNode
+  icon?: IconName
   variant?: Variant
 }
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ icon = <Icon name="arrowRight" />, variant = "secondary", ...props }, ref) => {
+  ({ icon = "arrowRight", variant = "secondary", ...props }, ref) => {
     return (
       <StyledBaseButton variant={variant} {...props} ref={ref}>
-        {icon}
+        <Icon name={icon} />
       </StyledBaseButton>
     )
   },
