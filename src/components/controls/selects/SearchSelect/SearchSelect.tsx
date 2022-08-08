@@ -16,23 +16,37 @@ import { SearchSelectOption } from "./SearchSelectOption"
 import { BaseOption } from "./types"
 
 interface SearchSelectBaseProps<Option> extends InputHTMLAttributes<HTMLInputElement> {
+  /** Styles for the dropdown. */
   dropdownStyles?: CSSProperties
+
   /** Filtering function to be used to populate dropdown. Filters on `option.value` by default. */
   filter?: (value: string, option: Option) => boolean
+
   /** If `false`, consumer have control over which options to pass to dropdown. Defaults to `true`. */
   isFilterable?: boolean
+
+  /** Message shown below input field. Can be used together with `status` to show a success or error message. */
   message?: ReactNode
 
   /** Callback called when the clear button is clicked. */
   onClearClick?: () => void
 
+  /** Callback called when an option is selected. */
   onOptionSelect?: (option: Option) => void
+
+  /** Callback called when the input field is updated. */
   onSearchChange?: (value: string) => void
-  /** Options to render in dropdown */
+
+  /** Options to render in dropdown. */
   options: Option[] | undefined
+
+  /** Styles for the individual options. */
   optionStyles?: CSSProperties
+
+  /**  Default is `neutral`. */
   status?: Status
-  /** Controlled input value */
+
+  /** Controlled input value. */
   value?: string
 
   /** Props passed to root element. */
