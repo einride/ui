@@ -18,7 +18,7 @@ interface SearchSelectBaseProps<Option> extends InputHTMLAttributes<HTMLInputEle
   dropdownStyles?: CSSProperties
   /** Filtering function to be used to populate dropdown. Filters on `option.value` by default. */
   filter?: (value: string, option: Option) => boolean
-  /** If `false`, consumer have control over which options to pass to dropdown. Defaults to `false` for backwards compatibility. Will default to `true` in next major.  */
+  /** If `false`, consumer have control over which options to pass to dropdown. Defaults to `true`. */
   isFilterable?: boolean
   message?: ReactNode
 
@@ -61,7 +61,7 @@ export const SearchSelect = <Option extends BaseOption>({
   options,
   optionStyles = {},
   placeholder = "Search...",
-  isFilterable = false,
+  isFilterable = true,
   value,
   wrapperStyles = {},
   ...props
