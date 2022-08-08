@@ -1,32 +1,72 @@
 import styled from "@emotion/styled"
-import { ChangeEvent, ElementType, forwardRef, ReactNode, SelectHTMLAttributes } from "react"
+import {
+  ElementType,
+  forwardRef,
+  HTMLAttributes,
+  LabelHTMLAttributes,
+  ReactNode,
+  SelectHTMLAttributes,
+  useId,
+} from "react"
 import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Caption } from "../../../typography/Caption/Caption"
 
-export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
+export interface SelectBaseProps extends SelectHTMLAttributes<HTMLSelectElement> {
+  /** Accessible name, required when `label` is not provided. */
   "aria-label": string
+
+  /** Effective element used. */
   as?: ElementType
+
+  /** Options to render in select list. */
   children: ReactNode
+
+  /** Message shown below input field. Can be used together with `status` to show a success or error message. */
   message?: ReactNode
-  onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
-  placeholder?: string
+
+  /**  Default is `neutral`. */
   status?: Status
+
+  /** Props passed to root element. */
+  wrapperProps?: HTMLAttributes<HTMLDivElement>
 }
 
+interface SelectWithLabelProps {
+  /** Input label, displayed before input. */
+  label: ReactNode
+
+  /** Props passed to label element. */
+  labelProps?: LabelHTMLAttributes<HTMLLabelElement>
+}
+
+interface SelectWithoutLabelProps {
+  /** Accessible name, required when `label` is not provided. */
+  "aria-label": string
+}
+
+export type SelectProps = SelectBaseProps & (SelectWithLabelProps | SelectWithoutLabelProps)
+
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
-  ({ children, placeholder, status, message, ...props }, ref) => {
+  ({ children, message, placeholder, status, wrapperProps, ...props }, ref) => {
+    const id = useId()
+
     return (
-      <>
-        <Wrapper>
-          <StyledSelect {...props} ref={ref}>
+      <Wrapper {...wrapperProps}>
+        {"label" in props && (
+          <StyledLabel {...props.labelProps} htmlFor={id}>
+            {props.label}
+          </StyledLabel>
+        )}
+        <SelectWrapper>
+          <StyledSelect {...props} hasLabel={"label" in props} id={id} ref={ref}>
             {placeholder && <option value="">{placeholder}</option>}
             {children}
           </StyledSelect>
           <StyledIcon name="chevronDown" />
-        </Wrapper>
+        </SelectWrapper>
         {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
-      </>
+      </Wrapper>
     )
   },
 )
@@ -44,22 +84,37 @@ const getMessageColor = (status: Status | undefined): ContentColor => {
   }
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.div``
+
+const StyledLabel = styled.label`
+  display: inline-block;
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-weight: ${({ theme }) => theme.fontWeights.book};
+  line-height: calc(4 / 3);
+  margin-top: 5px;
+  margin-bottom: 3px;
+  color: ${({ theme }) => theme.colors.content.secondary};
+`
+
+const SelectWrapper = styled.div`
   position: relative;
 `
 
-const StyledSelect = styled.select`
+const StyledSelect = styled.select<{ hasLabel: boolean }>`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
-  width: 100%;
+  font-weight: ${({ theme }) => theme.fontWeights.book};
+  line-height: calc(4 / 3);
   background: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
-  line-height: 24px;
+  width: 100%;
   display: block;
-  padding: 12px 16px;
+  padding-block: ${({ theme }) => 1.5 * theme.spacer}px;
+  padding-left: ${({ theme }) => 2 * theme.spacer}px;
   padding-right: ${({ theme }) => 6 * theme.spacer}px;
-  border: unset;
-  border-radius: ${({ theme }) => theme.borderRadii.xl};
+  border-radius: ${({ hasLabel, theme }) =>
+    hasLabel ? theme.borderRadii.sm : theme.borderRadii.xl};
   cursor: pointer;
   appearance: none;
 
