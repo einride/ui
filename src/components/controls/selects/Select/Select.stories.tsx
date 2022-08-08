@@ -31,6 +31,11 @@ Placeholder.args = {
   placeholder: "Placeholder...",
 }
 
+export const Label = Template.bind({})
+Label.args = {
+  label: "Label",
+}
+
 export const DefaultValue = Template.bind({})
 DefaultValue.args = {
   "aria-label": "A dropdown select with a default value",
