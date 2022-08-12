@@ -13,9 +13,6 @@ import { Icon } from "../../../content/Icon/Icon"
 import { Caption } from "../../../typography/Caption/Caption"
 
 export interface SelectBaseProps extends SelectHTMLAttributes<HTMLSelectElement> {
-  /** Accessible name, required when `label` is not provided. */
-  "aria-label": string
-
   /** Effective element used. */
   as?: ElementType
 
