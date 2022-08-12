@@ -3,11 +3,13 @@ import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 import { BackgroundColor } from "../../../lib/theme/types"
 
 export interface PrimaryCardProps extends HTMLAttributes<HTMLDivElement> {
+  /** Effective element used. */
   as?: ElementType
-  /**
-   * Default: "primary"
-   */
+
+  /** Background color of the card. Default is `primary`. */
   background?: Background
+
+  /** Card content. */
   children: ReactNode
 }
 
