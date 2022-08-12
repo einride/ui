@@ -35,7 +35,7 @@ const StyledInput = styled.input`
   border: 2px solid ${({ theme }) => theme.colors.border.primary};
   border-radius: ${({ theme }) => theme.borderRadii.xl};
 
-  &:checked {
+  &:checked:not(:disabled) {
     border-width: 8px;
     border-color: ${({ theme }) => theme.colors.border.selected};
   }
@@ -50,6 +50,7 @@ const StyledInput = styled.input`
 
   &:disabled {
     background: ${({ theme }) => theme.colors.background.secondary};
+    cursor: not-allowed;
   }
 `
 

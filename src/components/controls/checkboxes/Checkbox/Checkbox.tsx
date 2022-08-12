@@ -68,7 +68,7 @@ const StyledInput = styled.input`
   background: ${({ theme }) => theme.colors.background.primary};
   margin-right: ${({ theme }) => 2 * theme.spacer}px;
 
-  &:hover {
+  &:hover:not(:disabled) {
     border-color: ${({ theme }) => theme.colors.border.selected};
   }
 
@@ -76,13 +76,14 @@ const StyledInput = styled.input`
     border-color: ${({ theme }) => theme.colors.border.selected};
   }
 
-  &:checked {
+  &:checked:not(:disabled) {
     border: 2px solid ${({ theme }) => theme.colors.border.selected};
-    background-color: ${({ theme }) => theme.colors.content.primary};
+    background: ${({ theme }) => theme.colors.content.primary};
   }
 
   &:disabled {
-    background-color: ${({ theme }) => theme.colors.background.secondary};
+    background: ${({ theme }) => theme.colors.background.secondary};
+    cursor: not-allowed;
   }
 `
 
