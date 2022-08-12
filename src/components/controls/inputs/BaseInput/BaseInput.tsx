@@ -131,8 +131,10 @@ const StyledInput = styled.input<{ hasLabel: boolean; leftIcon: boolean; rightIc
     color: ${({ theme }) => theme.colors.content.secondary};
   }
 
+  &:disabled,
   &:disabled::placeholder {
     color: ${({ theme }) => theme.colors.content.tertiary};
+    cursor: not-allowed;
   }
 `
 

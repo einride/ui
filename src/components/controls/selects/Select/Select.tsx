@@ -126,6 +126,7 @@ const StyledSelect = styled.select<{ hasLabel: boolean }>`
 
   &:disabled {
     color: ${({ theme }) => theme.colors.content.tertiary};
+    cursor: not-allowed;
   }
 `
 
