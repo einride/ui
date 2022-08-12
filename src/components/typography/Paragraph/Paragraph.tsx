@@ -3,9 +3,16 @@ import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 import { ContentColor, Font } from "../../../lib/theme/types"
 
 export interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
+  /** Effective element used. */
   as?: ElementType
+
+  /** Paragraph content. */
   children: ReactNode
+
+  /** Text color of the paragraph. Default is `primary`. */
   color?: ContentColor
+
+  /** Font styling.  */
   font?: Font
 }
 

@@ -3,9 +3,16 @@ import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 import { ContentColor, Font } from "../../../lib/theme/types"
 
 export interface CaptionProps extends HTMLAttributes<HTMLParagraphElement> {
+  /** Effective element used. */
   as?: ElementType
+
+  /** Caption content. */
   children: ReactNode
+
+  /** Text color of the caption. Default is `primary`. */
   color?: ContentColor
+
+  /** Font styling.  */
   font?: Font
 }
 
