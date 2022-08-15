@@ -1,16 +1,23 @@
 import styled from "@emotion/styled"
 import { HTMLAttributes, ReactNode } from "react"
-import { Paragraph } from "../../typography/Paragraph/Paragraph"
-import { Loader } from "../Loader/Loader"
+import { Loader, LoaderProps } from "../Loader/Loader"
 
 export interface PageLoaderProps extends HTMLAttributes<HTMLDivElement> {
+  /** Props passed to loader element. */
+  loaderProps?: LoaderProps
+
+  /** Content shown to the right of the loader. Default is `<>Loading</>`. */
   text?: ReactNode
 }
 
-export const PageLoader = ({ text = <>Loading</>, ...props }: PageLoaderProps): JSX.Element => {
+export const PageLoader = ({
+  loaderProps,
+  text = <>Loading</>,
+  ...props
+}: PageLoaderProps): JSX.Element => {
   return (
     <Wrapper {...props}>
-      <Loader /> {text && <Paragraph>{text}</Paragraph>}
+      <Loader {...loaderProps} /> {text}
     </Wrapper>
   )
 }
