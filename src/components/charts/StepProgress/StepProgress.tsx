@@ -3,24 +3,29 @@ import { forwardRef, HTMLAttributes } from "react"
 import { ContentColor } from "../../../lib/theme/types"
 
 interface StepProgressBaseProps extends HTMLAttributes<HTMLDivElement> {
+  /** Color of the completed steps. Default is `positive`. */
   color?: ContentColor
+
+  /** Number of completed steps. */
   completedSteps: number
-  /**
-   * Default: 4
-   */
+
+  /** Number of steps. Default is `4`. */
   steps?: number | undefined
 }
 
 export type StepProgressProps = (
-  | { "aria-label": string }
-  | { "aria-labelledby": string }
-  | { title: string }
+  | {
+      /** Accessible name. */
+      "aria-label": string
+    }
+  | {
+      /** Accessible name. */
+      "aria-labelledby": string
+    }
 ) &
   StepProgressBaseProps
 
-/**
- * Either aria-label, aria-labelledby or title must be provided for accessibility.
- */
+/** Either `aria-label` or `aria-labelledby` is required for accessibility. */
 export const StepProgress = forwardRef<HTMLDivElement, StepProgressProps>(
   ({ color = "positive", completedSteps, steps = 4, ...props }, ref) => {
     return (
@@ -55,4 +60,7 @@ const Step = styled.div<{ color: ContentColor; completed: boolean }>`
   height: ${({ theme }) => theme.spacer}px;
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   flex-grow: 1;
+  transition-property: background;
+  transition-duration: ${({ theme }) => theme.transitions.morph.duration};
+  transition-timing-function: ${({ theme }) => theme.transitions.morph.timingFunction};
 `

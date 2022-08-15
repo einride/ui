@@ -3,14 +3,18 @@ import { SVGAttributes } from "react"
 import { ContentColor } from "../../../lib/theme/types"
 
 export interface LinearGaugeProgressProps extends SVGAttributes<SVGSVGElement> {
+  /** Stroke color. */
   color: ContentColor
+
+  /** Percentage of gauge completed. */
   percentage: number
+
+  /** Radius of circular stroke. */
   responsiveRadius: number
+
+  /** Width of stroke. */
   strokeWidth: number
 }
-
-const TOP_GAP = -4
-const CIRCLE_START_POINT_OFFSET = (360 * TOP_GAP) / 200 - 90
 
 export const LinearGaugeProgress = ({
   color,
@@ -38,9 +42,10 @@ export const LinearGaugeProgress = ({
   )
 }
 
-const BackgroundCircle = styled.circle<{
-  strokeWidth: number
-}>`
+const TOP_GAP = -4
+const CIRCLE_START_POINT_OFFSET = (360 * TOP_GAP) / 200 - 90
+
+const BackgroundCircle = styled.circle<{ strokeWidth: number }>`
   fill: none;
   stroke: ${({ theme }) => theme.colors.background.tertiary};
   stroke-width: ${({ strokeWidth }) => strokeWidth};
@@ -64,7 +69,9 @@ const ProgressCircle = styled.circle<{
   stroke: ${({ theme, color, percentage }) =>
     percentage > 0 ? theme.colors.content[color] : "none"};
   stroke-width: ${({ strokeWidth }) => strokeWidth};
-  transition: stroke-dasharray 0.5s ease-in-out;
   transform: rotate(${CIRCLE_START_POINT_OFFSET}deg);
   transform-origin: center;
+  transition-property: stroke-dasharray;
+  transition-duration: ${({ theme }) => theme.transitions.morph.duration};
+  transition-timing-function: ${({ theme }) => theme.transitions.morph.timingFunction};
 `

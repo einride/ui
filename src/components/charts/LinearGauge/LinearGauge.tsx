@@ -5,25 +5,28 @@ import { PointerIcon } from "../StepGauge/PointerIcon"
 import { LinearGaugeProgress } from "./LinearGaugeProgress"
 
 interface LinearGaugeBaseProps extends HTMLAttributes<HTMLDivElement> {
-  /**
-   * Default: positive
-   */
+  /** Color of the completed gauge stroke. Default is `positive`. */
   color?: ContentColor
-  /**
-   * Default: 0
-   */
-  min?: number
-  /**
-   * Default: 100
-   */
+
+  /** Maximum value. Default is `100`. */
   max?: number
+
+  /** Minimum value. Default is `0`. */
+  min?: number
+
+  /** Current value. */
   value: number
 }
 
 export type LinearGaugeProps = (
-  | { "aria-label": string }
-  | { "aria-labelledby": string }
-  | { title: string }
+  | {
+      /** Accessible name. */
+      "aria-label": string
+    }
+  | {
+      /** Accessible name. */
+      "aria-labelledby": string
+    }
 ) &
   LinearGaugeBaseProps
 
@@ -31,11 +34,9 @@ const STROKE_WIDTH = 1.8
 const RESPONSIVE_RADIUS = 100 / (Math.PI * 2)
 const VIEW_BOX_VALUE = RESPONSIVE_RADIUS * 2 + STROKE_WIDTH
 
-/**
- * Either aria-label, aria-labelledby or title must be provided for accessibility.
- */
+/** Either `aria-label` or `aria-labelledby` is required for accessibility. */
 export const LinearGauge = forwardRef<HTMLDivElement, LinearGaugeProps>(
-  ({ color = "positive", min = 0, max = 100, value, ...props }, ref) => {
+  ({ color = "positive", max = 100, min = 0, value, ...props }, ref) => {
     const percentage = ((value - min) / (max - min)) * 100
 
     return (
@@ -55,7 +56,6 @@ export const LinearGauge = forwardRef<HTMLDivElement, LinearGaugeProps>(
             responsiveRadius={RESPONSIVE_RADIUS}
           />
         </StyledSvg>
-
         <StyledPointerIcon percentage={percentage} />
       </Wrapper>
     )
@@ -77,14 +77,14 @@ const StyledSvg = styled.svg`
   height: 100%;
 `
 
-const StyledPointerIcon = styled(PointerIcon)<{
-  percentage: number
-}>`
+const StyledPointerIcon = styled(PointerIcon)<{ percentage: number }>`
   /* Percentage based on pointer height divided by linear default height */
   height: ${(27 / 56) * 100}%;
   width: auto;
   transform: rotateZ(${({ percentage }) => getPointerRotation(percentage)}deg) translateY(-22%);
-  transition: transform 0.5s ease-in-out;
+  transition-property: transform;
+  transition-duration: ${({ theme }) => theme.transitions.morph.duration};
+  transition-timing-function: ${({ theme }) => theme.transitions.morph.timingFunction};
   fill: ${({ theme }) => theme.colors.content.primary};
   position: absolute;
 `

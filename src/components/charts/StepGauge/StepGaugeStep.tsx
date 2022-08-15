@@ -3,21 +3,30 @@ import { SVGAttributes } from "react"
 import { ContentColor } from "../../../lib/theme/types"
 
 export interface StepGaugeStepProps extends SVGAttributes<SVGSVGElement> {
-  index: number
-  completed: number
+  /** Color of the completed gauge stroke.  */
   color: ContentColor
+
+  /** Number of completed steps. */
+  completedSteps: number
+
+  /** Current step index. */
+  index: number
+
+  /** Number of steps. */
+  steps: number
+
+  /** Size of SVG. */
   svgSize: number
-  totalSteps: number
 }
 
 const RADIUS = 50
 
 export const StepGaugeStep = ({
-  index,
-  completed,
   color,
+  completedSteps,
+  index,
+  steps,
   svgSize,
-  totalSteps,
 }: StepGaugeStepProps): JSX.Element => {
   const convertPolarCoordinatesToCartesian = (degree: number): number[] => {
     const center = svgSize / 2
@@ -43,9 +52,9 @@ export const StepGaugeStep = ({
   }
 
   const calculateStepData = (): { startOfStep: number; endOfStep: number } => {
-    const gapBetweenSteps = 0.04 * totalSteps
-    const adjustStepStartPointToGapSize = 90 * (gapBetweenSteps / (totalSteps / 2))
-    const lengthOfStep = 360 / totalSteps
+    const gapBetweenSteps = 0.04 * steps
+    const adjustStepStartPointToGapSize = 90 * (gapBetweenSteps / (steps / 2))
+    const lengthOfStep = 360 / steps
     const startOfStep = lengthOfStep * index - (90 - adjustStepStartPointToGapSize)
     const endOfStep =
       lengthOfStep * (index + 1 - gapBetweenSteps) - (90 - adjustStepStartPointToGapSize)
@@ -61,7 +70,7 @@ export const StepGaugeStep = ({
     <StyledPath
       d={createStep()}
       index={index}
-      completed={completed}
+      completed={completedSteps}
       color={color}
       style={{
         vectorEffect: "non-scaling-stroke",
@@ -70,15 +79,12 @@ export const StepGaugeStep = ({
   )
 }
 
-const StyledPath = styled.path<{
-  index: number
-  completed: number
-  color: ContentColor
-}>`
+const StyledPath = styled.path<{ index: number; completed: number; color: ContentColor }>`
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: ${({ theme, index, completed, color }) =>
     index + 1 <= completed ? theme.colors.content[color] : theme.colors.background.tertiary};
-  transition: fill 0.3s ease-in-out, stroke 0.3s ease-in-out;
-  transition-delay: 0.3s;
+  transition-property: fill, stroke;
+  transition-duration: ${({ theme }) => theme.transitions.morph.duration};
+  transition-timing-function: ${({ theme }) => theme.transitions.morph.timingFunction};
 `
