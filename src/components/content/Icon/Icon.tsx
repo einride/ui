@@ -3,8 +3,13 @@ import { ElementType, forwardRef, HTMLAttributes } from "react"
 import { ContentColor } from "../../../lib/theme/types"
 
 export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
+  /** Effective element used. */
   as?: ElementType
+
+  /** Color of the icon. */
   color?: ContentColor
+
+  /** Icon to be used. */
   name: IconName
 }
 
