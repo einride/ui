@@ -2,7 +2,7 @@ import { SVGAttributes } from "react"
 
 type PointerIconProps = SVGAttributes<SVGElement>
 
-export const PointerIcon = ({ ...props }: PointerIconProps): JSX.Element => {
+export const PointerIcon = (props: PointerIconProps): JSX.Element => {
   return (
     <svg
       width="6"

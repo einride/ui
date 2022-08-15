@@ -3,24 +3,29 @@ import { forwardRef, HTMLAttributes } from "react"
 import { ContentColor } from "../../../lib/theme/types"
 
 interface StepVerticalProgressBaseProps extends HTMLAttributes<HTMLDivElement> {
+  /** Color of the completed steps. Default is `positive`. */
   color?: ContentColor
+
+  /** Number of completed steps. */
   completedSteps: number
-  /**
-   * Default: 5
-   */
+
+  /** Number of steps. Default is `5`. */
   steps?: number | undefined
 }
 
 export type StepVerticalProgressProps = (
-  | { "aria-label": string }
-  | { "aria-labelledby": string }
-  | { title: string }
+  | {
+      /** Accessible name. */
+      "aria-label": string
+    }
+  | {
+      /** Accessible name. */
+      "aria-labelledby": string
+    }
 ) &
   StepVerticalProgressBaseProps
 
-/**
- * Either aria-label, aria-labelledby or title must be provided for accessibility.
- */
+/** Either `aria-label` or `aria-labelledby` is required for accessibility. */
 export const StepVerticalProgress = forwardRef<HTMLDivElement, StepVerticalProgressProps>(
   ({ color = "positive", completedSteps, steps = 5, ...props }, ref) => {
     return (
@@ -50,9 +55,11 @@ const Wrapper = styled.div`
 `
 
 const Step = styled.div<{ color: ContentColor; completed: boolean }>`
-  background-color: ${({ color, completed, theme }) =>
+  background: ${({ color, completed, theme }) =>
     completed ? theme.colors.content[color] : theme.colors.background.tertiary};
   height: ${({ theme }) => 0.8 * theme.spacer}px;
   border-radius: ${({ theme }) => theme.borderRadii.sm};
-  transition: background-color 0.5s;
+  transition-property: background;
+  transition-duration: ${({ theme }) => theme.transitions.morph.duration};
+  transition-timing-function: ${({ theme }) => theme.transitions.morph.timingFunction};
 `

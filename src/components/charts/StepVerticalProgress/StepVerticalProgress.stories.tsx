@@ -10,6 +10,6 @@ const Template: Story<StepVerticalProgressProps> = (args) => <StepVerticalProgre
 
 export const Default = Template.bind({})
 Default.args = {
+  "aria-label": "Deliveries completed",
   completedSteps: 2,
-  title: "Deliveries completed",
 }

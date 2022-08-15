@@ -5,30 +5,35 @@ import { PointerIcon } from "./PointerIcon"
 import { StepGaugeStep } from "./StepGaugeStep"
 
 interface StepGaugeBaseProps extends HTMLAttributes<HTMLDivElement> {
-  /**
-   * Default: positive
-   */
+  /** Color of the completed gauge stroke. Default is `positive`. */
   color?: ContentColor
+
+  /** Number of completed steps. */
+  // TODO: Rename to `completedSteps` in next major.
   completed: number
+
+  /** Number of steps. Default is `3`. */
   steps: number
-  /**
-   * Default: 3
-   */
+
+  /** Width of stroke. Default is `3`. */
   strokeWidth?: number
 }
 
 export type StepGaugeProps = (
-  | { "aria-label": string }
-  | { "aria-labelledby": string }
-  | { title: string }
+  | {
+      /** Accessible name. */
+      "aria-label": string
+    }
+  | {
+      /** Accessible name. */
+      "aria-labelledby": string
+    }
 ) &
   StepGaugeBaseProps
 
-/**
- * Either aria-label, aria-labelledby or title must be provided for accessibility.
- */
+/** Either `aria-label` or `aria-labelledby` is required for accessibility. */
 export const StepGauge = forwardRef<HTMLDivElement, StepGaugeProps>(
-  ({ color = "positive", completed, steps, strokeWidth = 3, ...props }, ref) => {
+  ({ color = "positive", completed, steps = 3, strokeWidth = 3, ...props }, ref) => {
     const svgSize = 100 + strokeWidth * 2
 
     return (
@@ -45,15 +50,14 @@ export const StepGauge = forwardRef<HTMLDivElement, StepGaugeProps>(
           {[...Array(steps).keys()].map((step) => (
             <StepGaugeStep
               key={step}
-              index={step}
-              completed={completed}
+              completedSteps={completed}
               color={color}
+              index={step}
+              steps={steps}
               svgSize={svgSize}
-              totalSteps={steps}
             />
           ))}
         </StyledSvg>
-
         <StyledPointerIcon completed={completed} steps={steps} />
       </Wrapper>
     )
@@ -73,16 +77,15 @@ const StyledSvg = styled.svg<{ strokeWidth: number }>`
   width: 100%;
 `
 
-const StyledPointerIcon = styled(PointerIcon)<{
-  completed: number
-  steps: number
-}>`
+const StyledPointerIcon = styled(PointerIcon)<{ completed: number; steps: number }>`
   /* Percentage based on pointer viewBox height divided by StepGauge viewBox height  */
   height: ${(27 / 56) * 100}%;
   width: auto;
   transform: rotateZ(${({ completed, steps }) => getPointerRotation(completed, steps)}deg)
     translateY(-22%);
-  transition: transform 0.5s ease-in-out;
+  transition-property: transform;
+  transition-duration: ${({ theme }) => theme.transitions.morph.duration};
+  transition-timing-function: ${({ theme }) => theme.transitions.morph.timingFunction};
   fill: ${({ theme }) => theme.colors.content.primary};
   position: absolute;
 `
