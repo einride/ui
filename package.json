@@ -75,7 +75,10 @@
     "lib"
   ],
   "exports": {
-    ".": "./dist/main.js",
+    ".": {
+      "module": "./dist/main.js",
+      "default": "./dist/main.js"
+    },
     "./package.json": "./package.json"
   },
   "engines": {
