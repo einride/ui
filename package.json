@@ -69,10 +69,10 @@
     "framer-motion": "^6.2.8",
     "react": ">=18.0.0"
   },
-  "module": "./lib/main.js",
-  "types": "./lib/main.d.ts",
+  "module": "./dist/main.js",
+  "types": "./dist/main.d.ts",
   "files": [
-    "lib"
+    "dist"
   ],
   "exports": {
     ".": {
