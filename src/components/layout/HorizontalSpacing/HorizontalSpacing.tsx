@@ -1,9 +1,12 @@
 import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes } from "react"
+import { Theme } from "../../../lib/theme/types"
 
 export interface HorizontalSpacingProps extends HTMLAttributes<HTMLDivElement> {
+  /** Effective element used. */
   as?: ElementType
-  /** Default value: "sm" */
+
+  /** Size of spacing. Default is `sm`. */
   size?: Size
 }
 
@@ -13,21 +16,20 @@ export const HorizontalSpacing = forwardRef<HTMLDivElement, HorizontalSpacingPro
   },
 )
 
-const getWidth = (size?: Size): number => {
-  switch (size) {
-    case "sm":
-      return 16
-    case "lg":
-      return 24
-    default:
-      return 16
-  }
-}
+type Size = "sm" | "lg"
 
-const StyledDiv = styled.div<HorizontalSpacingProps>`
+const StyledDiv = styled.div<{ size: Size }>`
   display: inline-block;
-  background: var(--einride-ui-horizontal-spacing-background);
-  width: ${({ size }) => getWidth(size)}px;
+  width: ${({ size, theme }) => getWidth(size, theme)}px;
 `
 
-type Size = "sm" | "lg"
+const getWidth = (size: Size, theme: Theme): number => {
+  switch (size) {
+    case "sm":
+      return 2 * theme.spacer
+    case "lg":
+      return 3 * theme.spacer
+    default:
+      return 2 * theme.spacer
+  }
+}

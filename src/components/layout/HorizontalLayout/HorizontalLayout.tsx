@@ -1,10 +1,15 @@
 import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
+import { Theme } from "../../../lib/theme/types"
 
 export interface HorizontalLayoutProps extends HTMLAttributes<HTMLDivElement> {
+  /** Effective element used. */
   as?: ElementType
+
+  /** Content in layout. */
   children: ReactNode
-  /**  Default: "sm" */
+
+  /**  Gap between children. Default is `sm`. */
   gap?: Gap
 }
 
@@ -20,20 +25,18 @@ const StyledDiv = styled.div<{ gap: Gap }>`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  & > :not(:last-child) {
-    margin-right: ${({ gap }) => getGap(gap)}px;
-  }
+  gap: ${({ gap, theme }) => getGap(gap, theme)}px;
 `
 
-const getGap = (gap?: Gap): number => {
+const getGap = (gap: Gap, theme: Theme): number => {
   switch (gap) {
     case "none":
       return 0
     case "sm":
-      return 16
+      return 2 * theme.spacer
     case "lg":
-      return 24
+      return 3 * theme.spacer
     default:
-      return 16
+      return 2 * theme.spacer
   }
 }
