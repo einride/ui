@@ -47,6 +47,7 @@ export type SelectProps = SelectBaseProps & (SelectWithLabelProps | SelectWithou
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
   ({ children, message, placeholder, status, wrapperProps, ...props }, ref) => {
     const id = useId()
+    const messageId = useId()
 
     return (
       <Wrapper {...wrapperProps}>
@@ -56,13 +57,23 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           </StyledLabel>
         )}
         <SelectWrapper>
-          <StyledSelect {...props} hasLabel={"label" in props} id={id} ref={ref}>
+          <StyledSelect
+            {...props}
+            {...(status === "fail" && { "aria-errormessage": messageId, "aria-invalid": "true" })}
+            hasLabel={"label" in props}
+            id={id}
+            ref={ref}
+          >
             {placeholder && <option value="">{placeholder}</option>}
             {children}
           </StyledSelect>
           <StyledIcon name="chevronDown" />
         </SelectWrapper>
-        {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
+        {message && (
+          <Caption color={getMessageColor(status)} id={messageId}>
+            {message}
+          </Caption>
+        )}
       </Wrapper>
     )
   },
