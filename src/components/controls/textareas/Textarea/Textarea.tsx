@@ -1,107 +1,159 @@
 import styled from "@emotion/styled"
 import {
-  ChangeEvent,
   CSSProperties,
   ElementType,
   forwardRef,
   ReactNode,
   TextareaHTMLAttributes,
+  useId,
 } from "react"
-import { useTheme } from "../../../../hooks/useTheme"
-import { ContentColor, Theme } from "../../../../lib/theme/types"
+import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Caption } from "../../../typography/Caption/Caption"
 
-export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface TextareaBaseProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+  /** Effective element used. */
   as?: ElementType
-  label: ReactNode
-  labelStyles?: CSSProperties
+
+  /** Message shown below input field. Can be used together with `status` to show a success or error message. */
   message?: ReactNode
-  onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
-  placeholder?: string
-  /** Default: "neutral" */
+
+  /**  Default is `neutral`. */
   status?: Status
-  value: string
+
+  /** Styles passed to root element. */
+  // TODO: Replace with `wrapperProps` in next major
   wrapperStyles?: CSSProperties
 }
 
+interface TextareaWithLabelProps {
+  /** Textarea label, displayed before textarea. */
+  label: ReactNode
+
+  /** Styles passed to the label element. */
+  // TODO: Replace with `labelProps` in next major
+  labelStyles?: CSSProperties
+}
+
+interface TextareaWithoutLabelProps {
+  /** Accessible name, required when `label` is not provided. */
+  "aria-label": string
+}
+
+export type TextareaProps = TextareaBaseProps & (TextareaWithLabelProps | TextareaWithoutLabelProps)
+
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ label, labelStyles = {}, message, status, wrapperStyles = {}, ...props }, ref) => {
-    const theme = useTheme()
+  ({ message, status, wrapperStyles = {}, ...props }, ref) => {
+    const id = useId()
+    const messageId = useId()
 
     return (
-      <StyledLabel style={labelStyles}>
-        {label}
-        <Wrapper style={wrapperStyles}>
-          <StyledTextarea {...props} ref={ref} />
-          <IconWrapper>{getStatusIcon(theme, status)}</IconWrapper>
-        </Wrapper>
-        {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
-      </StyledLabel>
+      <Wrapper>
+        {"label" in props && (
+          <StyledLabel htmlFor={id} style={props.labelStyles}>
+            {props.label}
+          </StyledLabel>
+        )}
+        <InputWrapper style={wrapperStyles}>
+          <StyledTextarea
+            {...props}
+            {...(status === "fail" && { "aria-errormessage": messageId, "aria-invalid": "true" })}
+            hasLabel={"label" in props}
+            id={id}
+            ref={ref}
+          />
+          <IconWrapper>{getStatusIcon(status)}</IconWrapper>
+        </InputWrapper>
+        {message && (
+          <Caption color={getMessageColor(status)} id={messageId}>
+            {message}
+          </Caption>
+        )}
+      </Wrapper>
     )
   },
 )
 
-type Status = "success" | "fail" | "neutral"
+const Wrapper = styled.div``
 
 const StyledLabel = styled.label`
+  display: inline-block;
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
-  color: ${({ theme }) => theme.colors.content.secondary};
-  width: 100%;
+  font-weight: ${({ theme }) => theme.fontWeights.book};
+  line-height: calc(4 / 3);
   margin-top: 5px;
+  margin-bottom: 3px;
+  color: ${({ theme }) => theme.colors.content.secondary};
 `
 
-const Wrapper = styled.div`
+const InputWrapper = styled.div`
   position: relative;
-`
-
-const StyledTextarea = styled.textarea`
-  font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.md};
-  display: block;
-  min-width: 100%;
-  resize: none;
-  background: ${({ theme }) => theme.colors.background.secondary};
-  color: ${({ theme }) => theme.colors.content.primary};
-  padding: 12px 16px;
-  border: unset;
-  border-radius: ${({ theme }) => theme.borderRadii.sm};
-  flex-grow: 1;
-
-  &::placeholder {
-    color: ${({ theme }) => theme.colors.content.secondary};
-  }
-
-  &:hover:not(:disabled) {
-    background-color: ${({ theme }) => theme.colors.background.tertiary};
-  }
-
-  &:disabled::placeholder {
-    color: ${({ theme }) => theme.colors.content.tertiary};
-  }
-
-  &:focus {
-    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.border.selected} inset;
-    outline: none;
-  }
 `
 
 const IconWrapper = styled.span`
   position: absolute;
   top: ${({ theme }) => 1.5 * theme.spacer}px;
   right: ${({ theme }) => 2 * theme.spacer}px;
+  height: ${({ theme }) => 3 * theme.spacer}px;
+  width: ${({ theme }) => 3 * theme.spacer}px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
-const getStatusIcon = (theme: Theme, status?: Status): JSX.Element | null => {
+
+const StyledTextarea = styled.textarea<{ hasLabel: boolean }>`
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-weight: ${({ theme }) => theme.fontWeights.book};
+  line-height: calc(4 / 3);
+  background: ${({ theme }) => theme.colors.background.secondary};
+  color: ${({ theme }) => theme.colors.content.primary};
+  width: 100%;
+  display: block;
+  padding-block: ${({ theme }) => 1.5 * theme.spacer}px;
+  padding-inline: ${({ theme }) => 2 * theme.spacer}px;
+  resize: none;
+  border-radius: ${({ hasLabel, theme }) =>
+    hasLabel ? theme.borderRadii.sm : theme.borderRadii.xl};
+
+  &:focus {
+    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.border.selected} inset;
+    outline: none;
+  }
+
+  &:hover:not(:disabled) {
+    background: ${({ theme }) => theme.colors.background.tertiary};
+  }
+
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.content.secondary};
+  }
+
+  &:disabled,
+  &:disabled::placeholder {
+    color: ${({ theme }) => theme.colors.content.tertiary};
+  }
+`
+
+const getStatusIcon = (status?: Status): JSX.Element | null => {
   switch (status) {
     case "success":
-      return <Icon name="checkmark" style={{ color: theme.colors.content.positive }} />
+      return <PositiveIcon name="checkmark" />
     case "fail":
-      return <Icon name="warning" style={{ color: theme.colors.content.negative }} />
+      return <NegativeIcon name="warning" />
     default:
       return null
   }
 }
+
+const PositiveIcon = styled(Icon)`
+  color: ${({ theme }) => theme.colors.content.positive};
+`
+
+const NegativeIcon = styled(Icon)`
+  color: ${({ theme }) => theme.colors.content.negative};
+`
 
 const getMessageColor = (status: Status | undefined): ContentColor => {
   switch (status) {
@@ -113,3 +165,5 @@ const getMessageColor = (status: Status | undefined): ContentColor => {
       return "secondary"
   }
 }
+
+type Status = "success" | "fail" | "neutral"
