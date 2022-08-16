@@ -1,9 +1,12 @@
 import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes } from "react"
+import { Theme } from "../../../lib/theme/types"
 
 export interface VerticalSpacingProps extends HTMLAttributes<HTMLDivElement> {
+  /** Effective element used. */
   as?: ElementType
-  /** Default: "sm" */
+
+  /** Size of spacing. Default is `sm`. */
   size?: Size
 }
 
@@ -13,26 +16,25 @@ export const VerticalSpacing = forwardRef<HTMLDivElement, VerticalSpacingProps>(
   },
 )
 
-const getHeight = (size?: Size): number => {
-  switch (size) {
-    case "xs":
-      return 8
-    case "sm":
-      return 16
-    case "md":
-      return 24
-    case "lg":
-      return 48
-    case "xl":
-      return 64
-    default:
-      return 16
-  }
-}
+type Size = "xs" | "sm" | "md" | "lg" | "xl"
 
-const StyledDiv = styled.div<VerticalSpacingProps>`
-  background: var(--einride-ui-vertical-spacing-background);
-  height: ${({ size }) => getHeight(size)}px;
+const StyledDiv = styled.div<{ size: Size }>`
+  height: ${({ size, theme }) => getHeight(size, theme)}px;
 `
 
-type Size = "xs" | "sm" | "md" | "lg" | "xl"
+const getHeight = (size: Size, theme: Theme): number => {
+  switch (size) {
+    case "xs":
+      return theme.spacer
+    case "sm":
+      return 2 * theme.spacer
+    case "md":
+      return 3 * theme.spacer
+    case "lg":
+      return 6 * theme.spacer
+    case "xl":
+      return 8 * theme.spacer
+    default:
+      return 2 * theme.spacer
+  }
+}
