@@ -40,6 +40,7 @@ export interface BaseInputProps extends InputHTMLAttributes<HTMLInputElement> {
 export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
   ({ label, labelProps, leftIcon, message, rightIcon, status, wrapperProps, ...props }, ref) => {
     const id = useId()
+    const messageId = useId()
 
     return (
       <Wrapper {...wrapperProps}>
@@ -52,6 +53,7 @@ export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
           {leftIcon && <LeftIconWrapper>{leftIcon}</LeftIconWrapper>}
           <StyledInput
             {...props}
+            {...(status === "fail" && { "aria-errormessage": messageId, "aria-invalid": "true" })}
             hasLabel={!!label}
             leftIcon={!!leftIcon}
             rightIcon={!!rightIcon}
@@ -60,7 +62,11 @@ export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
           />
           {rightIcon && <RightIconWrapper>{rightIcon}</RightIconWrapper>}
         </InputWrapper>
-        {message && <Caption color={getMessageColor(status)}>{message}</Caption>}
+        {message && (
+          <Caption color={getMessageColor(status)} id={messageId}>
+            {message}
+          </Caption>
+        )}
       </Wrapper>
     )
   },
