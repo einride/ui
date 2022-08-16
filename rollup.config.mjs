@@ -18,5 +18,5 @@ export default {
     dir: "dist",
     format: "esm",
   },
-  plugins: [typescript({ tsconfig: "tsconfig.build.json" })],
+  plugins: [typescript({ tsconfig: "./tsconfig.build.json" })],
 }

@@ -2,7 +2,7 @@
   "name": "@einride/ui",
   "version": "0.0.0-development",
   "description": "Einride's UI framework with reusable components",
-  "main": "./lib/main.js",
+  "main": "./dist/main.js",
   "scripts": {
     "build": "rollup --config",
     "build-storybook": "build-storybook",
@@ -74,6 +74,10 @@
   "files": [
     "lib"
   ],
+  "exports": {
+    ".": "./dist/main.js",
+    "./package.json": "./package.json"
+  },
   "engines": {
     "node": "16"
   },
