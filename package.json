@@ -72,13 +72,6 @@
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "module": "./dist/main.js",
-      "default": "./dist/main.js"
-    },
-    "./package.json": "./package.json"
-  },
   "engines": {
     "node": "16"
   },
