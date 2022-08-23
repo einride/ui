@@ -71,7 +71,7 @@
   "exports": {
     ".": {
       "import": "./dist/esm/main.js",
-      "require": "./dist/cjs.main.js"
+      "require": "./dist/cjs/main.js"
     }
   },
   "files": [
