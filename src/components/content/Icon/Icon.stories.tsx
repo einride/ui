@@ -128,6 +128,12 @@ const AllTemplate: Story<IconProps> = () => (
     </StyledPrimaryCard>
     <StyledPrimaryCard background="secondary">
       <Paragraph>
+        <Icon name="arrowClockwise" />
+      </Paragraph>
+      <Caption font="mono">arrowClockwise</Caption>
+    </StyledPrimaryCard>
+    <StyledPrimaryCard background="secondary">
+      <Paragraph>
         <Icon name="arrowCounterclockwise" />
       </Paragraph>
       <Caption font="mono">arrowCounterclockwise</Caption>

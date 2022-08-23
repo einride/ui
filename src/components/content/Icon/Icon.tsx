@@ -131,6 +131,12 @@ export const Icon = forwardRef<HTMLSpanElement, IconProps>(({ name, ...props }, 
           &#x10004E;
         </StyledSpan>
       )
+    case "arrowClockwise":
+      return (
+        <StyledSpan aria-hidden="true" {...props} ref={ref}>
+          &#x100148;
+        </StyledSpan>
+      )
     case "arrowCounterclockwise":
       return (
         <StyledSpan aria-hidden="true" {...props} ref={ref}>
@@ -162,6 +168,7 @@ export type IconName =
   | "ellipsis"
   | "plusCircle"
   | "minusCircle"
+  | "arrowClockwise"
   | "arrowCounterclockwise"
 
 const StyledSpan = styled.span<{ color?: ContentColor }>`
