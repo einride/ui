@@ -2,7 +2,6 @@
   "name": "@einride/ui",
   "version": "0.0.0-development",
   "description": "Einride's UI framework with reusable components",
-  "main": "./dist/main.js",
   "scripts": {
     "build": "rollup --config",
     "build-storybook": "build-storybook",
@@ -67,8 +66,14 @@
     "framer-motion": "^6.2.8",
     "react": ">=18.0.0"
   },
-  "module": "./dist/main.js",
-  "types": "./dist/main.d.ts",
+  "main": "./dist/cjs/main.js",
+  "module": "./dist/esm/main.js",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/main.js",
+      "require": "./dist/cjs.main.js"
+    }
+  },
   "files": [
     "dist"
   ],

@@ -14,9 +14,15 @@ export default {
     "react/jsx-runtime",
   ],
   input: "src/main.ts",
-  output: {
-    dir: "dist",
-    format: "esm",
-  },
+  output: [
+    {
+      file: "dist/cjs/main.js",
+      format: "cjs",
+    },
+    {
+      file: "dist/esm/main.js",
+      format: "esm",
+    },
+  ],
   plugins: [typescript({ tsconfig: "./tsconfig.build.json" })],
 }
