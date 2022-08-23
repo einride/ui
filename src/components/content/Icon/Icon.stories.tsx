@@ -128,9 +128,9 @@ const AllTemplate: Story<IconProps> = () => (
     </StyledPrimaryCard>
     <StyledPrimaryCard background="secondary">
       <Paragraph>
-        <Icon name="UNSAFE_repeat" />
+        <Icon name="arrowCounterclockwise" />
       </Paragraph>
-      <Caption font="mono">UNSAFE_repeat</Caption>
+      <Caption font="mono">arrowCounterclockwise</Caption>
     </StyledPrimaryCard>
   </Wrapper>
 )
@@ -140,7 +140,7 @@ All.args = {}
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: ${({ theme }) => theme.spacer}px;
 `
 
