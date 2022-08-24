@@ -1,5 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import typescript from "@rollup/plugin-typescript"
+// eslint-disable-next-line import/no-extraneous-dependencies
+import copy from "rollup-plugin-copy"
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -24,5 +26,12 @@ export default {
       format: "esm",
     },
   ],
-  plugins: [typescript({ tsconfig: "./tsconfig.build.json" })],
+  plugins: [
+    typescript({ tsconfig: "./tsconfig.build.json" }),
+    copy({
+      targets: [
+        { src: ["src/mapIcons/*.svg"], dest: ["dist/cjs/lib/mapIcons", "dist/esm/lib/mapIcons"] },
+      ],
+    }),
+  ],
 }
