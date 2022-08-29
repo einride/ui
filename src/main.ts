@@ -1,3 +1,12 @@
+import ChargerIcon from "./components/mapping/icons/charger.svg"
+import ChargerSmallIcon from "./components/mapping/icons/chargerSmall.svg"
+import ConventionalTruckIcon from "./components/mapping/icons/conventionalTruck.svg"
+import PodIcon from "./components/mapping/icons/pod.svg"
+import SiteIcon from "./components/mapping/icons/site.svg"
+import SiteSmallIcon from "./components/mapping/icons/siteSmall.svg"
+import SiteWithChargerIcon from "./components/mapping/icons/siteWithCharger.svg"
+import SiteWithChargerSmall from "./components/mapping/icons/siteWithChargerSmall.svg"
+
 export { PrimaryCard } from "./components/cards/PrimaryCard/PrimaryCard"
 export { SecondaryCard } from "./components/cards/SecondaryCard/SecondaryCard"
 export { LinearGauge } from "./components/charts/LinearGauge/LinearGauge"
@@ -66,3 +75,13 @@ export type {
   Theme,
 } from "./lib/theme/types"
 export { primitives } from "./primitives/primitives"
+export {
+  ChargerIcon,
+  ChargerSmallIcon,
+  ConventionalTruckIcon,
+  PodIcon,
+  SiteIcon,
+  SiteSmallIcon,
+  SiteWithChargerIcon,
+  SiteWithChargerSmall,
+}
