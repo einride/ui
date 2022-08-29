@@ -28,6 +28,7 @@
     "@einride/tsconfig": "1.0.0",
     "@emotion/react": "11.10.0",
     "@emotion/styled": "11.10.0",
+    "@rollup/plugin-image": "2.1.1",
     "@rollup/plugin-typescript": "8.4.0",
     "@storybook/addon-a11y": "6.5.10",
     "@storybook/addon-actions": "6.5.10",

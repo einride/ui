@@ -1,7 +1,6 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
+/* eslint-disable import/no-extraneous-dependencies */
+import image from "@rollup/plugin-image"
 import typescript from "@rollup/plugin-typescript"
-import svg from "rollup-plugin-svg"
-// eslint-disable-next-line import/no-extraneous-dependencies
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -26,5 +25,5 @@ export default {
       format: "esm",
     },
   ],
-  plugins: [svg(), typescript({ tsconfig: "./tsconfig.build.json" })],
+  plugins: [image(), typescript({ tsconfig: "./tsconfig.build.json" })],
 }
