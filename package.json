@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.18.13",
-    "@commitlint/cli": "17.0.3",
+    "@commitlint/cli": "17.1.1",
     "@commitlint/config-conventional": "17.1.0",
     "@einride/eslint-plugin": "6.7.0",
     "@einride/prettier-config": "2.0.0",
