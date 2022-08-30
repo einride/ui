@@ -8,8 +8,12 @@ export const light: ColorTheme = {
   background: {
     primary: color.greyscale.white,
     primaryElevated: color.greyscale.white,
+    primaryElevatedInverted: color.greyscale.grey90,
+    primaryInverted: color.greyscale.black,
     secondary: color.greyscale.grey20,
     secondaryElevated: color.greyscale.grey20,
+    secondaryElevatedInverted: color.greyscale.black,
+    secondaryInverted: color.greyscale.grey100,
     tertiary: color.greyscale.grey40,
     positive: `${color.green.default}1A`, // 1A is HEX for 10 % opacity
     negative: `${color.red.default}1A`, // 1A is HEX for 10 % opacity
