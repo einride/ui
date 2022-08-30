@@ -1,8 +1,6 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import image from "@rollup/plugin-image"
 import typescript from "@rollup/plugin-typescript"
 
-// eslint-disable-next-line import/no-default-export
 export default {
   external: [
     "@einride/hooks",
