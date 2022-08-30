@@ -1,8 +1,12 @@
 export type BackgroundColor =
   | "primary"
   | "primaryElevated"
+  | "primaryElevatedInverted"
+  | "primaryInverted"
   | "secondary"
   | "secondaryElevated"
+  | "secondaryElevatedInverted"
+  | "secondaryInverted"
   | "tertiary"
   | "positive"
   | "negative"
