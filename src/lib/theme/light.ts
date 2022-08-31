@@ -18,6 +18,7 @@ export const light: ColorTheme = {
     positive: `${color.green.default}1A`, // 1A is HEX for 10 % opacity
     negative: `${color.red.default}1A`, // 1A is HEX for 10 % opacity
     focus: `${color.greyscale.black}66`, // 66 is HEX for 40 % opacity
+    /** @deprecated since version 6.9.0. Use `primaryInverted` instead.  */
     reverse: color.greyscale.black,
   },
   content: {
@@ -27,6 +28,7 @@ export const light: ColorTheme = {
     tertiary: `${color.greyscale.grey100}66`, // 66 is HEX for 40 % opacity
     positive: color.green.dark,
     negative: color.red.dark,
+    /** @deprecated since version 6.9.0. Use `primaryInverted` instead.  */
     reverse: color.greyscale.white,
   },
   border: {
