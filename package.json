@@ -26,7 +26,7 @@
     "@einride/eslint-plugin": "6.8.0",
     "@einride/prettier-config": "2.0.0",
     "@einride/tsconfig": "1.0.0",
-    "@emotion/react": "11.10.0",
+    "@emotion/react": "11.10.4",
     "@emotion/styled": "11.10.4",
     "@rollup/plugin-image": "2.1.1",
     "@rollup/plugin-typescript": "8.4.0",
