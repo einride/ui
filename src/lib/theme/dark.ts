@@ -22,6 +22,7 @@ export const dark: ColorTheme = {
   },
   content: {
     primary: color.greyscale.white,
+    primaryInverted: color.greyscale.grey100,
     secondary: `${color.greyscale.grey20}B3`, // B3 is HEX for 70 % opacity
     tertiary: `${color.greyscale.grey20}66`, // 66 is HEX for 40 % opacity
     positive: color.green.light,
