@@ -40,6 +40,7 @@ interface ButtonIcon {
 
 export type ContentColor =
   | "primary"
+  | "primaryInverted"
   | "secondary"
   | "tertiary"
   | "positive"

@@ -43,7 +43,12 @@ export const UserAccessPoint = forwardRef<HTMLButtonElement, UserAccessPointProp
         {"avatarImageSrc" in props ? (
           <StyledAvatar alt="User profile picture" size="sm" src={props.avatarImageSrc} />
         ) : (
-          <StyledAvatar background="primaryInverted" color="reverse" name={props.name} size="sm" />
+          <StyledAvatar
+            background="primaryInverted"
+            color="primaryInverted"
+            name={props.name}
+            size="sm"
+          />
         )}
         <Right>{status === "notification" ? <Notification /> : <Dots aria-label="Search" />}</Right>
       </Button>
