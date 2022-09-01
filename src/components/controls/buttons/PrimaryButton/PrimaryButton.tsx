@@ -41,7 +41,7 @@ const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 120px;
+  min-width: ${({ theme }) => 11 * theme.spacer}px;
   ${({ isFullWidth }) => isFullWidth && "width: 100%;"}
   ${({ width }) => width};
   background: ${({ theme }) => theme.colors.buttons.background.primary};
