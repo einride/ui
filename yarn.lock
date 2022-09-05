@@ -1676,10 +1676,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@mantine/hooks@5.2.4":
-  version "5.2.4"
-  resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-5.2.4.tgz#6c9a9b9e401b9c9d3b77948b673bf15218befd0a"
-  integrity sha512-AwJYgZTn/KknhlFftVCIAranzekwX5UNFlR4D88dDxuY7EsZSvn1b+DuJ4vAO5+XlHj03BYlEM0IauSaCAihXg==
+"@mantine/hooks@5.2.5":
+  version "5.2.5"
+  resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-5.2.5.tgz#c9d032bde426919b75b7c36afbe6b1b7f9f7615a"
+  integrity sha512-FLSITrq5bJ1oRAhYq8w8oDxC4FDpsiHEDJdnVD00WCmZ/Cc9vR5RSTYLhQqiB76Gw702X9WtEHy55yaHTng6Ug==
 
 "@mdx-js/mdx@^1.6.22":
   version "1.6.22"
