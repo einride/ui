@@ -41,7 +41,7 @@
     "@storybook/testing-library": "0.0.13",
     "@storybook/theming": "6.5.10",
     "@testing-library/jest-dom": "5.16.5",
-    "@testing-library/react": "13.3.0",
+    "@testing-library/react": "13.4.0",
     "@testing-library/user-event": "14.4.3",
     "@types/jest": "29.0.0",
     "@types/lodash.merge": "4.6.7",
