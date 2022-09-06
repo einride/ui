@@ -29,7 +29,7 @@
     "@emotion/react": "11.10.4",
     "@emotion/styled": "11.10.4",
     "@rollup/plugin-image": "2.1.1",
-    "@rollup/plugin-typescript": "8.4.0",
+    "@rollup/plugin-typescript": "8.5.0",
     "@storybook/addon-a11y": "6.5.10",
     "@storybook/addon-actions": "6.5.10",
     "@storybook/addon-essentials": "6.5.10",
