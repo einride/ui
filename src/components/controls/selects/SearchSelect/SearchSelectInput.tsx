@@ -1,11 +1,21 @@
 import styled from "@emotion/styled"
 import { motion } from "framer-motion"
-import { ElementType, forwardRef, InputHTMLAttributes, LabelHTMLAttributes, ReactNode } from "react"
+import {
+  ButtonHTMLAttributes,
+  ElementType,
+  forwardRef,
+  InputHTMLAttributes,
+  LabelHTMLAttributes,
+  ReactNode,
+} from "react"
 import { Icon } from "../../../content/Icon/Icon"
 import { BaseInput } from "../../inputs/BaseInput/BaseInput"
 
 interface SearchSelectInputBaseProps extends InputHTMLAttributes<HTMLInputElement> {
   as?: ElementType
+
+  /** Props passed to the clear button element. */
+  clearButtonProps?: ButtonHTMLAttributes<HTMLButtonElement> | undefined
   isOpen?: boolean
   message?: ReactNode
   onClearInput: () => void
@@ -30,14 +40,14 @@ export type SearchSelectInputProps = SearchSelectInputBaseProps &
   (SearchSelectInputWithLabelProps | SearchSelectInputWithoutLabelProps)
 
 export const SearchSelectInput = forwardRef<HTMLInputElement, SearchSelectInputProps>(
-  ({ isOpen, onClearInput, value, ...props }, ref) => {
+  ({ clearButtonProps, isOpen, onClearInput, value, ...props }, ref) => {
     return (
       <Wrapper>
         <StyledBaseInput
           value={value}
           rightIcon={
             value?.length ? (
-              <ClearButton type="button" onClick={onClearInput}>
+              <ClearButton type="button" onClick={onClearInput} {...clearButtonProps}>
                 <StyledIcon name="xMark" />
               </ClearButton>
             ) : (
