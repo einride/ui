@@ -16,9 +16,16 @@ export interface PrimaryButtonProps extends ButtonHTMLAttributes<HTMLButtonEleme
 export const PrimaryButton = forwardRef<HTMLButtonElement, PrimaryButtonProps>(
   ({ children, isLoading = false, rightIcon, isFullWidth = false, ...props }, ref) => {
     const width = useWidthFromColumns(props.columns, PrimaryButton.name)
+    const hasIcon = !!rightIcon || isLoading
 
     return (
-      <StyledBaseButton isFullWidth={isFullWidth} width={width} {...props} ref={ref}>
+      <StyledBaseButton
+        hasIcon={hasIcon}
+        isFullWidth={isFullWidth}
+        width={width}
+        {...props}
+        ref={ref}
+      >
         <span className="einride-ui-primary-button-text">{children}</span>
         {(rightIcon || isLoading) && (
           <BaseButtonIcon
@@ -38,9 +45,6 @@ interface StyledBaseButtonProps {
 }
 
 const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-width: ${({ theme }) => 11 * theme.spacer}px;
   ${({ isFullWidth }) => isFullWidth && "width: 100%;"}
   ${({ width }) => width};
