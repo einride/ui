@@ -4,6 +4,7 @@ import { ButtonHTMLAttributes, ElementType, forwardRef, MouseEvent, ReactNode } 
 export interface BaseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   as?: ElementType
   children: ReactNode
+  hasIcon: boolean
 }
 
 export const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(
@@ -23,13 +24,16 @@ export const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(
   },
 )
 
-const StyledButton = styled.button`
+const StyledButton = styled.button<{ hasIcon: boolean }>`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
   height: ${({ theme }) => 6 * theme.spacer}px;
   border-radius: ${({ theme }) => theme.borderRadii.xl};
   cursor: pointer;
   padding: 0 ${({ theme }) => 2 * theme.spacer}px;
+  display: flex;
+  justify-content: ${({ hasIcon }) => (hasIcon ? "space-between" : "center")};
+  align-items: center;
 
   &:hover:not([aria-disabled="true"]) {
     text-decoration: underline;

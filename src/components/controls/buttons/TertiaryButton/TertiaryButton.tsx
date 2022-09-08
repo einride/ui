@@ -16,8 +16,16 @@ export interface TertiaryButtonProps extends ButtonHTMLAttributes<HTMLButtonElem
 export const TertiaryButton = forwardRef<HTMLButtonElement, TertiaryButtonProps>(
   ({ children, isLoading = false, rightIcon, isFullWidth = false, ...props }, ref) => {
     const width = useWidthFromColumns(props.columns, TertiaryButton.name)
+    const hasIcon = !!rightIcon || isLoading
+
     return (
-      <StyledBaseButton isFullWidth={isFullWidth} width={width} {...props} ref={ref}>
+      <StyledBaseButton
+        hasIcon={hasIcon}
+        isFullWidth={isFullWidth}
+        width={width}
+        {...props}
+        ref={ref}
+      >
         <span className="einride-ui-tertiary-button-text">{children}</span>
         {(rightIcon || isLoading) && (
           <BaseButtonIcon
@@ -37,9 +45,6 @@ interface StyledBaseButtonProps {
 }
 
 const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-width: ${({ theme }) => 11 * theme.spacer}px;
   ${({ isFullWidth }) => isFullWidth && "width: 100%;"}
   ${({ width }) => width};
