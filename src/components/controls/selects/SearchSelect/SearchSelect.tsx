@@ -1,6 +1,7 @@
 import { useDisclosure } from "@einride/hooks"
 import styled from "@emotion/styled"
 import {
+  ButtonHTMLAttributes,
   CSSProperties,
   HTMLAttributes,
   InputHTMLAttributes,
@@ -16,6 +17,9 @@ import { SearchSelectOption } from "./SearchSelectOption"
 import { BaseOption } from "./types"
 
 interface SearchSelectBaseProps<Option> extends InputHTMLAttributes<HTMLInputElement> {
+  /** Props passed to the clear button element. */
+  clearButtonProps?: ButtonHTMLAttributes<HTMLButtonElement> & { "data-testid": string }
+
   /** Styles for the dropdown. */
   dropdownStyles?: CSSProperties
 
