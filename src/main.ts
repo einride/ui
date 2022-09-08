@@ -3,6 +3,8 @@ import ChargerSmallIcon from "./components/mapping/icons/chargerSmall.svg"
 import ConventionalTruckIcon from "./components/mapping/icons/conventionalTruck.svg"
 import PodIcon from "./components/mapping/icons/pod.svg"
 import SiteIcon from "./components/mapping/icons/site.svg"
+import SiteHoveredIcon from "./components/mapping/icons/siteHovered.svg"
+import SiteSelectedIcon from "./components/mapping/icons/siteSelected.svg"
 import SiteSmallIcon from "./components/mapping/icons/siteSmall.svg"
 import SiteWithChargerIcon from "./components/mapping/icons/siteWithCharger.svg"
 import SiteWithChargerSmall from "./components/mapping/icons/siteWithChargerSmall.svg"
@@ -82,6 +84,8 @@ export {
   ConventionalTruckIcon,
   PodIcon,
   SiteIcon,
+  SiteHoveredIcon,
+  SiteSelectedIcon,
   SiteSmallIcon,
   SiteWithChargerIcon,
   SiteWithChargerSmall,
