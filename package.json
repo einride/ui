@@ -48,7 +48,7 @@
     "@types/react": "18.0.18",
     "@types/react-dom": "18.0.6",
     "chromatic": "6.9.0",
-    "concurrently": "7.3.0",
+    "concurrently": "7.4.0",
     "eslint": "8.23.0",
     "eslint-plugin-storybook": "0.6.4",
     "framer-motion": "7.3.2",
