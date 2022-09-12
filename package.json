@@ -15,7 +15,7 @@
     "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
-    "@einride/hooks": "1.6.0",
+    "@einride/hooks": "1.7.0",
     "@mantine/hooks": "5.2.7",
     "lodash.merge": "4.6.2"
   },
