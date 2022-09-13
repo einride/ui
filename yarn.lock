@@ -3034,10 +3034,21 @@
     prettier ">=2.2.1 <=2.3.0"
     ts-dedent "^2.0.0"
 
-"@storybook/node-logger@6.5.10", "@storybook/node-logger@^6.4.3":
+"@storybook/node-logger@6.5.10":
   version "6.5.10"
   resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.5.10.tgz#bce4c04009c4b62d6d2fb617176d7ef0084e9e89"
   integrity sha512-bYswXIKV7Stru8vYfkjUMNN8UhF7Qg7NRsUvG5Djt5lLIae1XmUIgnH40mU/nW4X4BSfcR9MKxsSsngvn2WmQg==
+  dependencies:
+    "@types/npmlog" "^4.1.2"
+    chalk "^4.1.0"
+    core-js "^3.8.2"
+    npmlog "^5.0.1"
+    pretty-hrtime "^1.0.3"
+
+"@storybook/node-logger@6.5.11", "@storybook/node-logger@^6.4.3":
+  version "6.5.11"
+  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.5.11.tgz#c9d6279c41eba39a3c80426e4aafff892cbb5b7a"
+  integrity sha512-1KAP4V/x0ne+cYHktmC3oXawpQtLlXy7NkMKh3s7y5tLdERlgyVxPUz9tQeILBiWJVm9pQIGdNJOimA9Nh1+Ig==
   dependencies:
     "@types/npmlog" "^4.1.2"
     chalk "^4.1.0"
