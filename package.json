@@ -32,7 +32,7 @@
     "@rollup/plugin-typescript": "8.5.0",
     "@storybook/addon-a11y": "6.5.11",
     "@storybook/addon-actions": "6.5.11",
-    "@storybook/addon-essentials": "6.5.10",
+    "@storybook/addon-essentials": "6.5.11",
     "@storybook/addon-links": "6.5.10",
     "@storybook/addons": "6.5.11",
     "@storybook/builder-vite": "0.2.2",
