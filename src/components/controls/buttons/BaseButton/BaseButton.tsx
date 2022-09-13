@@ -4,7 +4,7 @@ import { ButtonHTMLAttributes, ElementType, forwardRef, MouseEvent, ReactNode } 
 export interface BaseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   as?: ElementType
   children: ReactNode
-  hasIcon: boolean
+  hasIcon?: boolean
 }
 
 export const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(
@@ -24,7 +24,7 @@ export const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(
   },
 )
 
-const StyledButton = styled.button<{ hasIcon: boolean }>`
+const StyledButton = styled.button<{ hasIcon?: boolean }>`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
   height: ${({ theme }) => 6 * theme.spacer}px;
