@@ -11,8 +11,9 @@
     "format-check": "prettier --check .",
     "lint": "eslint --ext ts,tsx src/",
     "prettier": "prettier --write .",
-    "review": "yarn install --frozen-lockfile && concurrently --kill-others-on-fail 'yarn commitlint' 'yarn format-check' 'yarn lint' 'yarn build'",
-    "storybook": "start-storybook -p 6006"
+    "review": "yarn install --frozen-lockfile && concurrently --kill-others-on-fail 'yarn commitlint' 'yarn format-check' 'yarn lint' 'yarn typecheck' 'yarn build'",
+    "storybook": "start-storybook -p 6006",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@einride/hooks": "1.7.0",
