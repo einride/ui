@@ -2,7 +2,7 @@ import { useMediaQuery } from "@einride/hooks"
 import styled from "@emotion/styled"
 import { useFocusReturn, useFocusTrap, useMergedRef, useScrollLock } from "@mantine/hooks"
 import { AnimatePresence, HTMLMotionProps, motion, MotionStyle } from "framer-motion"
-import { forwardRef, ReactNode } from "react"
+import { forwardRef, ReactNode, useCallback, useEffect } from "react"
 import { useTheme } from "../../../hooks/useTheme"
 import { Theme } from "../../../lib/theme/types"
 import { IconButton, IconButtonProps } from "../../controls/buttons/IconButton/IconButton"
@@ -57,6 +57,20 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
     useScrollLock(isOpen)
     const theme = useTheme()
     const isAboveSm = useMediaQuery(theme.mediaQueries.md)
+
+    const closeOnEscape = useCallback(
+      (event: KeyboardEvent): void => {
+        if (event.key === "Escape") {
+          closeHandler()
+        }
+      },
+      [closeHandler],
+    )
+
+    useEffect(() => {
+      window.addEventListener("keydown", closeOnEscape)
+      return () => window.removeEventListener("keydown", closeOnEscape)
+    })
 
     return (
       <AnimatePresence>
