@@ -150,7 +150,7 @@ export const SearchSelect = <Option extends BaseOption>({
 
     if (e.key === "Enter") {
       e.preventDefault()
-      if (typeof selectedIndex === "number" && filteredOptions) {
+      if (typeof selectedIndex === "number" && filteredOptions.length > 0) {
         handleOptionSelect(filteredOptions[selectedIndex])
       }
     }
