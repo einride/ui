@@ -1,3 +1,4 @@
+import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, ElementType, ReactNode } from "react"
 import { ContentColor, Font, Theme } from "../../../lib/theme/types"
@@ -24,7 +25,14 @@ export const Link = <C extends ElementType>({
 
 type Color = Extract<ContentColor, "primary" | "secondary">
 
-const StyledAnchor = styled.a<{ color: Color; font: Font }>`
+interface StyledAnchorProps {
+  color: Color
+  font: Font
+}
+
+const StyledAnchor = styled("a", {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color",
+})<StyledAnchorProps>`
   color: ${({ color, theme }) => theme.colors.content[color]};
   font-family: ${({ font, theme }) => theme.fonts[font]};
   cursor: pointer;

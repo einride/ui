@@ -1,3 +1,4 @@
+import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 import { ContentColor, Font } from "../../../lib/theme/types"
@@ -31,7 +32,9 @@ interface StyledTextProps {
   font: Font
 }
 
-const StyledText = styled.p<StyledTextProps>`
+const StyledText = styled("p", {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color",
+})<StyledTextProps>`
   color: ${({ color, theme }) => theme.colors.content[color]};
   font-family: ${({ font, theme }) => theme.fonts[font]};
   font-size: ${({ theme }) => theme.fontSizes.sm};
