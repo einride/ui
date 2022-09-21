@@ -1,3 +1,4 @@
+import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes, ImgHTMLAttributes, useState } from "react"
 import { BackgroundColor, ContentColor, Radius, Theme } from "../../../lib/theme/types"
@@ -100,7 +101,9 @@ interface ImageProps {
   size: Size
 }
 
-const Image = styled.img<ImageProps>`
+const Image = styled("img", {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color",
+})<ImageProps>`
   background: ${({ background, theme }) => theme.colors.background[background]};
   color: ${({ color, theme }) => theme.colors.content[color]};
   height: ${({ radius, theme, size }) => getSize(radius, theme, size)}px;
