@@ -1,3 +1,4 @@
+import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
 import { ContentColor } from "../../../lib/theme/types"
@@ -54,7 +55,14 @@ const Wrapper = styled.div`
   width: 100%;
 `
 
-const Step = styled.div<{ color: ContentColor; completed: boolean }>`
+interface StepProps {
+  color: ContentColor
+  completed: boolean
+}
+
+const Step = styled("div", {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color", // avoid passing `color` attribute to HTML element
+})<StepProps>`
   background: ${({ color, completed, theme }) =>
     completed ? theme.colors.content[color] : theme.colors.background.tertiary};
   height: ${({ theme }) => theme.spacer}px;

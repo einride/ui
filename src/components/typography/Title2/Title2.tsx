@@ -33,7 +33,7 @@ interface StyledTextProps {
 }
 
 const StyledText = styled("h2", {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color",
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color", // avoid passing `color` attribute to HTML element
 })<StyledTextProps>`
   color: ${({ color, theme }) => theme.colors.content[color]};
   font-family: ${({ font, theme }) => theme.fonts[font]};

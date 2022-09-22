@@ -1,3 +1,4 @@
+import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
 import { ContentColor } from "../../../lib/theme/types"
@@ -55,7 +56,16 @@ const Wrapper = styled.div`
   width: 100%;
 `
 
-const Value = styled.div<{ color: ContentColor; max: number; min: number; value: number }>`
+interface ValueProps {
+  color: ContentColor
+  max: number
+  min: number
+  value: number
+}
+
+const Value = styled("div", {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color", // avoid passing `color` attribute to HTML element
+})<ValueProps>`
   background: ${({ color, theme }) => theme.colors.content[color]};
   height: ${({ theme }) => theme.spacer}px;
   border-radius: ${({ theme }) => theme.borderRadii.sm};
