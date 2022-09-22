@@ -1,3 +1,4 @@
+import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { SVGAttributes } from "react"
 import { ContentColor } from "../../../lib/theme/types"
@@ -79,7 +80,15 @@ export const StepGaugeStep = ({
   )
 }
 
-const StyledPath = styled.path<{ index: number; completed: number; color: ContentColor }>`
+interface StyledPathProps {
+  index: number
+  completed: number
+  color: ContentColor
+}
+
+const StyledPath = styled("path", {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color", // avoid passing `color` attribute to HTML element
+})<StyledPathProps>`
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: ${({ theme, index, completed, color }) =>

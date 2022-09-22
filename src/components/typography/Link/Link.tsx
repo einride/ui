@@ -31,7 +31,7 @@ interface StyledAnchorProps {
 }
 
 const StyledAnchor = styled("a", {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color",
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color", // avoid passing `color` attribute to HTML element
 })<StyledAnchorProps>`
   color: ${({ color, theme }) => theme.colors.content[color]};
   font-family: ${({ font, theme }) => theme.fonts[font]};

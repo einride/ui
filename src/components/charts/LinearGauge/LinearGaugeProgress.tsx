@@ -1,3 +1,4 @@
+import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { SVGAttributes } from "react"
 import { ContentColor } from "../../../lib/theme/types"
@@ -56,11 +57,15 @@ const BackgroundCircle = styled.circle<{ strokeWidth: number }>`
   transform-origin: center;
 `
 
-const ProgressCircle = styled.circle<{
+interface ProgressCircleProps {
   color: ContentColor
   percentage: number
   strokeWidth: number
-}>`
+}
+
+const ProgressCircle = styled("circle", {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color", // avoid passing `color` attribute to HTML element
+})<ProgressCircleProps>`
   fill: none;
   stroke-dasharray: ${({ percentage }) =>
     `${percentage + TOP_GAP / 2 > 0 ? percentage + TOP_GAP / 2 : 0},${100}`};
