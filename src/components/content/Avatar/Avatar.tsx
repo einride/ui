@@ -2,6 +2,7 @@ import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes, ImgHTMLAttributes, useState } from "react"
 import { BackgroundColor, ContentColor, Radius, Theme } from "../../../lib/theme/types"
+import { getInitials } from "./getInitials"
 
 interface AvatarBaseProps {
   /** Effective element used. */
@@ -134,15 +135,4 @@ const getSize = (radius: Radius, theme: Theme, size: Size): number => {
     default:
       return 5 * theme.spacer
   }
-}
-
-export const getInitials = (name: string | undefined): string | null => {
-  if (!name) return null
-
-  const parts = name.split(" ")
-
-  if (parts.length === 1) return parts[0].charAt(0)
-  if (parts.length >= 2) return `${parts[0].charAt(0)}${parts[parts.length - 1].charAt(0)}`
-
-  return null
 }
