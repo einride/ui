@@ -20,7 +20,7 @@
   "dependencies": {
     "@einride/hooks": "1.7.0",
     "@emotion/is-prop-valid": "1.2.0",
-    "@mantine/hooks": "5.4.0",
+    "@mantine/hooks": "5.4.1",
     "lodash.merge": "4.6.2"
   },
   "devDependencies": {
