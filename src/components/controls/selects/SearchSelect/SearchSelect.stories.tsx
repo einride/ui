@@ -16,20 +16,20 @@ export default {
 const OPTIONS = [
   {
     key: "option-1",
-    label: <Paragraph>Option 1</Paragraph>,
-    value: "Option 1",
+    label: <Paragraph>Snowfall guzzler drapery</Paragraph>,
+    value: "Snowfall guzzler drapery",
     description: "description one",
   },
   {
     key: "option-2",
-    label: <Paragraph>Option 2</Paragraph>,
-    value: "Option 2",
+    label: <Paragraph>Remorse strike tartly</Paragraph>,
+    value: "Remorse strike tartly",
     description: "description two",
   },
   {
     key: "option-3",
-    label: <Paragraph>Option 3</Paragraph>,
-    value: "Option 3",
+    label: <Paragraph>Operator dazzling breeding</Paragraph>,
+    value: "Operator dazzling breeding",
     description: "description three",
   },
 ]
@@ -47,27 +47,16 @@ Default.args = {
   options: OPTIONS,
 }
 
-export const Filterable = Template.bind({})
-Filterable.args = {
+export const CustomFilter = Template.bind({})
+CustomFilter.args = {
+  ...Default.args,
   filter: (value, option) =>
     option.value.toLowerCase().trim().includes(value.toLowerCase().trim()) ||
     option.description.toLowerCase().trim().includes(value.toLowerCase().trim()),
-  options: OPTIONS,
-  isFilterable: true,
 }
 
 export const WithLabel = Template.bind({})
 WithLabel.args = {
-  options: OPTIONS,
-  label: "Label",
-}
-
-export const WithLabelFilterable = Template.bind({})
-WithLabelFilterable.args = {
-  filter: (value, option) =>
-    option.value.toLowerCase().trim().includes(value.toLowerCase().trim()) ||
-    option.description.toLowerCase().trim().includes(value.toLowerCase().trim()),
-  options: OPTIONS,
-  isFilterable: true,
+  ...Default.args,
   label: "Label",
 }
