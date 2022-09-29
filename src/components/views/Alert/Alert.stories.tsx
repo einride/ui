@@ -13,16 +13,16 @@ const Template: Story<AlertProps> = (args) => {
 
   return (
     <>
-      <PrimaryButton onClick={handlers.open}>Open</PrimaryButton>
+      <PrimaryButton onClick={handlers.open}>Delete organization</PrimaryButton>
 
       <Alert
         {...args}
         closeHandler={handlers.close}
-        description={<>Are you sure? You won&apos;t be able to undo this action.</>}
+        description="Are you sure? You won't be able to undo this action."
         isOpen={isOpen}
-        primaryAction={{ children: "Delete organization" }}
+        primaryAction={{ children: "Delete" }}
         secondaryAction={{ children: "Cancel", onClick: handlers.close }}
-        title={<>Delete organization</>}
+        title="Delete organization"
       />
     </>
   )
