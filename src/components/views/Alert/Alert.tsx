@@ -11,13 +11,17 @@ import {
   SecondaryButtonProps,
 } from "../../controls/buttons/SecondaryButton/SecondaryButton"
 import { VerticalSpacing } from "../../layout/VerticalSpacing/VerticalSpacing"
+import { Paragraph } from "../../typography/Paragraph/Paragraph"
 
 export interface AlertProps extends Omit<HTMLMotionProps<"div">, "title"> {
-  /** Content of the alert. */
-  children: ReactNode
+  /** Custom content of the alert. Prefer using `title` and `description`. */
+  children?: ReactNode
 
   /** A callback that closes the alert. Needed for closing on escape and overlay click. */
   closeHandler: () => void
+
+  /** Description of the alert. */
+  description?: string
 
   /** Controls whether the alert is open or closed. */
   isOpen: boolean
@@ -30,6 +34,9 @@ export interface AlertProps extends Omit<HTMLMotionProps<"div">, "title"> {
 
   /** Secondary action of the alert. Usually a cancel button that closes the alert. */
   secondaryAction?: (SecondaryButtonProps & { "data-testid"?: string }) | undefined
+
+  /** Title of the alert. */
+  title?: string
 }
 
 /** An alert commonly used when there's a need to interrupt the user with a mandatory confirmation or action. */
@@ -38,10 +45,12 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
     {
       children,
       closeHandler,
+      description,
       isOpen,
       overlayStyles = {},
       primaryAction,
       secondaryAction,
+      title,
       ...props
     },
     ref,
@@ -83,6 +92,8 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
               ref={mergedRef}
               onClick={(e) => e.stopPropagation()}
             >
+              {title && <Paragraph>{title}</Paragraph>}
+              {description && <Paragraph color="secondary">{description}</Paragraph>}
               <Content>{children}</Content>
               <VerticalSpacing size="xl" />
               <VerticalSpacing size="md" />

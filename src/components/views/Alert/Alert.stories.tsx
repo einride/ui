@@ -1,7 +1,6 @@
 import { useDisclosure } from "@einride/hooks"
 import { Story } from "@storybook/react/types-6-0"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
-import { Paragraph } from "../../typography/Paragraph/Paragraph"
 import { Alert, AlertProps } from "./Alert"
 
 export default {
@@ -19,15 +18,12 @@ const Template: Story<AlertProps> = (args) => {
       <Alert
         {...args}
         closeHandler={handlers.close}
+        description="Are you sure? You won't be able to undo this action."
         isOpen={isOpen}
-        primaryAction={{ children: "Delete customer" }}
+        primaryAction={{ children: "Delete organization" }}
         secondaryAction={{ children: "Cancel", onClick: handlers.close }}
-      >
-        <Paragraph>Delete organization</Paragraph>
-        <Paragraph color="secondary">
-          Are you sure? You won&apos;t be able to undo this action.
-        </Paragraph>
-      </Alert>
+        title="Delete organization"
+      />
     </>
   )
 }
