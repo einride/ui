@@ -23,6 +23,7 @@ export interface PopoverProps extends Omit<HTMLMotionProps<"div">, "title"> {
   secondaryAction?: (PopoverAction & { "data-testid"?: string }) | undefined
 }
 
+/** @deprecated Since version 6.14.0. Use `<Alert>` or `<Sheets>` instead. */
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
   (
     {
