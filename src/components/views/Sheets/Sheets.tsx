@@ -18,6 +18,9 @@ import {
 export interface SheetsProps extends HTMLMotionProps<"div"> {
   children: ReactNode
   closeHandler: () => void
+
+  /** Controls whether sheets should close when clicking outside or not. Default is `true`. */
+  closeOnClickOutside?: boolean
   isOpen: boolean
   navigationAction?: (IconButtonProps & { "data-testid"?: string }) | undefined
   navigationTitle?: ReactNode
@@ -39,6 +42,7 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
     {
       children,
       closeHandler,
+      closeOnClickOutside = true,
       isOpen,
       navigationAction,
       navigationTitle,
@@ -57,6 +61,12 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
     useScrollLock(isOpen)
     const theme = useTheme()
     const isAboveSm = useMediaQuery(theme.mediaQueries.md)
+
+    const handleOutsideClick = (): void => {
+      if (closeOnClickOutside) {
+        closeHandler()
+      }
+    }
 
     useEffect(() => {
       const closeOnEscape = (event: KeyboardEvent): void => {
@@ -78,7 +88,7 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 initial={{ opacity: 0 }}
-                onClick={closeHandler}
+                onClick={handleOutsideClick}
                 style={overlayStyles}
               />
             )}
