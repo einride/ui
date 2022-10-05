@@ -85,7 +85,7 @@
     "dist"
   ],
   "engines": {
-    "node": "16"
+    "node": "16 || 18"
   },
   "author": "Filip Tammergård",
   "publishConfig": {
