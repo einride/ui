@@ -55,7 +55,7 @@
     "concurrently": "7.4.0",
     "eslint": "8.24.0",
     "eslint-plugin-storybook": "0.6.4",
-    "framer-motion": "7.5.1",
+    "framer-motion": "7.5.2",
     "jsdom": "20.0.1",
     "prettier": "2.7.1",
     "react": "18.2.0",
