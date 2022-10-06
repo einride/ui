@@ -29,7 +29,7 @@
     "@commitlint/config-conventional": "17.1.0",
     "@einride/eslint-plugin": "6.10.0",
     "@einride/prettier-config": "2.0.0",
-    "@einride/tsconfig": "1.0.0",
+    "@einride/tsconfig": "1.0.1",
     "@emotion/react": "11.10.4",
     "@emotion/styled": "11.10.4",
     "@rollup/plugin-image": "2.1.1",
