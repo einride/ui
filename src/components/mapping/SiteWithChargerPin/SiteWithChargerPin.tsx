@@ -4,7 +4,7 @@ import { ChargerPin } from "../ChargerPin/ChargerPin"
 import { SitePin } from "../SitePin/SitePin"
 
 export interface SiteWithChargerPinProps extends HTMLAttributes<HTMLDivElement> {
-  /** Default: "md" */
+  /** Size of the pin. Default is `md`. */
   size: Size
 }
 
@@ -23,19 +23,19 @@ type Size = "sm" | "md"
 
 const StyledSitePin = styled(SitePin)<{ size: Size }>`
   position: absolute;
-  top: 0;
-  left: 0;
+  inset-block-start: 0;
+  inset-inline-start: 0;
 `
 
 const StyledChargerPin = styled(ChargerPin)<{ size: Size }>`
   position: absolute;
-  top: 0;
-  right: 0;
+  inset-block-start: 0;
+  inset-inline-end: 0;
 `
 
 const Wrapper = styled.div<{ size: Size }>`
-  width: ${({ size }) => getWidth(size)};
-  height: ${({ size }) => getHeight(size)};
+  inline-size: ${({ size }) => getWidth(size)};
+  block-size: ${({ size }) => getHeight(size)};
   position: relative;
 `
 

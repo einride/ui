@@ -3,7 +3,7 @@ import { forwardRef, HTMLAttributes } from "react"
 import { primitives } from "../../../primitives/primitives"
 
 export interface SitePinProps extends HTMLAttributes<HTMLDivElement> {
-  /** Default: "md" */
+  /** Size of the pin. Default is `md`. */
   size: Size
 }
 
@@ -16,8 +16,8 @@ export const SitePin = forwardRef<HTMLDivElement, SitePinProps>(
 type Size = "sm" | "md"
 
 const Wrapper = styled.div<{ size: Size }>`
-  width: ${({ size }) => getSize(size)};
-  height: ${({ size }) => getSize(size)};
+  inline-size: ${({ size }) => getSize(size)};
+  block-size: ${({ size }) => getSize(size)};
   background: ${primitives.color.blue.dark};
   border: 2px solid ${primitives.color.greyscale.white};
   border-radius: ${({ theme }) => theme.borderRadii.xl};

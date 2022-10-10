@@ -4,7 +4,7 @@ import { ConventionalTruckIcon } from "./icons/ConventionalTruckIcon"
 import { PodIcon } from "./icons/PodIcon"
 
 export interface MapVehicleProps extends SVGAttributes<SVGSVGElement> {
-  /** Default: "pod" */
+  /** Vehicle to render. Default is `pod`. */
   icon?: Icon
 }
 
