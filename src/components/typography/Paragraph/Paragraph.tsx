@@ -40,6 +40,6 @@ const StyledText = styled("p", {
   font-size: ${({ theme }) => theme.fontSizes.md};
   font-weight: ${({ theme }) => theme.fontWeights.book};
   line-height: calc(4 / 3);
-  margin-top: 5px;
-  margin-bottom: 3px;
+  margin-block-start: 5px;
+  margin-block-end: 3px;
 `
