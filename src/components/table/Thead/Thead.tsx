@@ -21,6 +21,6 @@ export const Thead = forwardRef<HTMLTableSectionElement, TheadProps>(
 
 const StyledThead = styled.thead`
   tr {
-    border-top: none;
+    border-block-start: none;
   }
 `
