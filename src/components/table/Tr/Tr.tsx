@@ -15,5 +15,5 @@ export const Tr = forwardRef<HTMLTableRowElement, TrProps>(({ children, ...props
 })
 
 const StyledTr = styled.tr`
-  border-top: 1px solid ${({ theme }) => theme.colors.border.primary};
+  border-block-start: 1px solid ${({ theme }) => theme.colors.border.primary};
 `

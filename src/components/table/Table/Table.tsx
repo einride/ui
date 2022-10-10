@@ -15,5 +15,5 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(({ children, ...pr
 })
 
 const StyledTable = styled.table`
-  width: 100%;
+  inline-size: 100%;
 `
