@@ -20,4 +20,7 @@ const Wrapper = styled.div`
 const IconWrapper = styled.div`
   width: ${({ theme }) => 3 * theme.spacer}px;
   height: ${({ theme }) => 3 * theme.spacer}px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
