@@ -2,8 +2,11 @@ import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 
 interface TbodyProps extends HTMLAttributes<HTMLTableSectionElement> {
+  /** Effective element used. */
   as?: ElementType
-  children: ReactNode
+
+  /** Content of the table body. */
+  children?: ReactNode
 }
 
 export const Tbody = forwardRef<HTMLTableSectionElement, TbodyProps>(
