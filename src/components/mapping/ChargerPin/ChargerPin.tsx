@@ -21,8 +21,8 @@ const StyledIcon = styled(Icon)<{ size: Size }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: ${({ size }) => getSize(size)};
-  height: ${({ size }) => getSize(size)};
+  inline-size: ${({ size }) => getSize(size)};
+  block-size: ${({ size }) => getSize(size)};
   background: ${primitives.color.green.default};
   color: ${primitives.color.greyscale.white};
   border: 2px solid ${primitives.color.greyscale.white};

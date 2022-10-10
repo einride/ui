@@ -19,10 +19,11 @@ export const MapLabel = forwardRef<HTMLParagraphElement, MapLabelProps>(
 
 const StyledParagraph = styled(Paragraph)`
   display: inline-block;
-  height: ${({ theme }) => 3 * theme.spacer}px;
+  block-size: ${({ theme }) => 3 * theme.spacer}px;
   background: ${primitives.color.blue.dark};
   color: ${primitives.color.greyscale.white};
   border-radius: ${({ theme }) => theme.borderRadii.xs};
-  padding: 0 6px 1px;
+  padding-inline: 6px;
+  padding-block-end: 1px;
   margin: 0;
 `
