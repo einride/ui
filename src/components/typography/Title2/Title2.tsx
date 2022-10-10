@@ -40,6 +40,6 @@ const StyledText = styled("h2", {
   font-size: ${({ theme }) => theme.fontSizes.xl};
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   line-height: calc(8 / 7);
-  margin-top: 6px;
-  margin-bottom: 2px;
+  margin-block-start: 6px;
+  margin-block-end: 2px;
 `
