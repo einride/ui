@@ -3,15 +3,16 @@ import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 import { ContentColor, Font } from "../../../lib/theme/types"
 
 interface TdProps extends HTMLAttributes<HTMLTableCellElement> {
+  /** Effective element used. */
   as?: ElementType
-  children: ReactNode
-  /**
-   * Default: "primary"
-   */
+
+  /** Content of the table data cell. */
+  children?: ReactNode
+
+  /** Color used in the table data cell. Default is `primary`. */
   color?: ContentColor
-  /**
-   * Default: "body"
-   */
+
+  /** Font used in the table data cell. Default is `body`. */
   font?: Font
 }
 
