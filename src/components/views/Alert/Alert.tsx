@@ -144,7 +144,7 @@ const Overlay = styled(motion.div)`
 `
 
 const Wrapper = styled(motion.div)`
-  max-width: ${({ theme }) => 44 * theme.spacer}px;
+  max-inline-size: ${({ theme }) => 44 * theme.spacer}px;
   padding: ${({ theme }) => 2 * theme.spacer}px;
   background: ${({ theme }) => theme.colors.background.primaryElevated};
   border-radius: ${({ theme }) => theme.borderRadii.lg};

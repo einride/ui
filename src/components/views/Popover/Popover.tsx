@@ -140,32 +140,29 @@ export interface PopoverAction extends Omit<PrimaryButtonProps, "children"> {
 
 const Overlay = styled(motion.div)`
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   background: ${({ theme }) => theme.colors.background.focus};
   z-index: 1;
 `
 
 const Wrapper = styled(motion.div)`
   position: fixed;
-  top: ${({ theme }) => 10 * theme.spacer}px;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset-block-start: ${({ theme }) => 10 * theme.spacer}px;
+  inset-block-end: 0;
+  inset-inline: 0;
   background: ${({ theme }) => theme.colors.background.primaryElevated};
-  border-top-left-radius: ${({ theme }) => theme.borderRadii.lg};
-  border-top-right-radius: ${({ theme }) => theme.borderRadii.lg};
+  border-start-start-radius: ${({ theme }) => theme.borderRadii.lg};
+  border-start-end-radius: ${({ theme }) => theme.borderRadii.lg};
   // prevent navigation bar from overflowing popover
   overflow: hidden;
   z-index: 2;
 
   @media ${({ theme }) => theme.mediaQueries.md} {
-    top: 0;
+    inset-block-start: 0;
     border-radius: ${({ theme }) => theme.borderRadii.lg};
-    width: max(50vw, ${({ theme }) => theme.breakpoints.md - 4 * theme.spacer}px);
-    margin: 10vh auto;
+    inline-size: max(50vw, ${({ theme }) => theme.breakpoints.md - 4 * theme.spacer}px);
+    margin-block: 10vh;
+    margin-inline: auto;
   }
 `
 
@@ -175,7 +172,7 @@ const Navigation = styled.nav`
   align-items: center;
   padding: ${({ theme }) => 2 * theme.spacer}px;
   position: sticky;
-  top: 0;
+  inset-block-start: 0;
   background: ${({ theme }) => theme.colors.background.primaryElevated};
 `
 
@@ -194,19 +191,19 @@ const MdLgActions = styled.div`
 const Content = styled.div<{ hasPrimaryAction: boolean; hasSecondaryAction: boolean }>`
   padding-inline: ${({ theme }) => 2 * theme.spacer}px;
   // make sure content is not hidden when actions are added
-  padding-bottom: ${({ hasPrimaryAction, hasSecondaryAction, theme }) =>
-    getPaddingBottom(hasPrimaryAction, hasSecondaryAction, theme)}px;
+  padding-block-end: ${({ hasPrimaryAction, hasSecondaryAction, theme }) =>
+    getPaddingBlockEnd(hasPrimaryAction, hasSecondaryAction, theme)}px;
   // fix height to enable setting overflow-y
-  height: calc(100% - ${({ theme }) => 10 * theme.spacer}px);
+  block-size: calc(100% - ${({ theme }) => 10 * theme.spacer}px);
   // when there's more content than room in the popover, it should scroll and not overlow
   overflow-y: auto;
 
   @media ${({ theme }) => theme.mediaQueries.md} {
-    padding-bottom: ${({ theme }) => 2 * theme.spacer}px;
+    padding-block-end: ${({ theme }) => 2 * theme.spacer}px;
   }
 `
 
-const getPaddingBottom = (
+const getPaddingBlockEnd = (
   hasPrimaryAction: boolean,
   hasSecondaryAction: boolean,
   theme: Theme,
@@ -224,9 +221,8 @@ const getPaddingBottom = (
 
 const SmActions = styled.div`
   position: absolute;
-  right: ${({ theme }) => 2 * theme.spacer}px;
-  left: ${({ theme }) => 2 * theme.spacer}px;
-  bottom: ${({ theme }) => 3 * theme.spacer}px;
+  inset-inline: ${({ theme }) => 2 * theme.spacer}px;
+  inset-block-end: ${({ theme }) => 3 * theme.spacer}px;
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => 2 * theme.spacer}px;
