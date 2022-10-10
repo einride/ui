@@ -19,10 +19,10 @@ export const VerticalSpacing = forwardRef<HTMLDivElement, VerticalSpacingProps>(
 type Size = "xs" | "sm" | "md" | "lg" | "xl"
 
 const StyledDiv = styled.div<{ size: Size }>`
-  height: ${({ size, theme }) => getHeight(size, theme)}px;
+  block-size: ${({ size, theme }) => getBlockSize(size, theme)}px;
 `
 
-const getHeight = (size: Size, theme: Theme): number => {
+const getBlockSize = (size: Size, theme: Theme): number => {
   switch (size) {
     case "xs":
       return theme.spacer

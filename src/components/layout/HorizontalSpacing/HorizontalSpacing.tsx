@@ -20,10 +20,10 @@ type Size = "sm" | "lg"
 
 const StyledDiv = styled.div<{ size: Size }>`
   display: inline-block;
-  width: ${({ size, theme }) => getWidth(size, theme)}px;
+  inline-size: ${({ size, theme }) => getInlineSize(size, theme)}px;
 `
 
-const getWidth = (size: Size, theme: Theme): number => {
+const getInlineSize = (size: Size, theme: Theme): number => {
   switch (size) {
     case "sm":
       return 2 * theme.spacer
