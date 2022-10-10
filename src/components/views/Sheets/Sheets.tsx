@@ -133,46 +133,41 @@ type Size = "sm" | "md"
 
 const Overlay = styled(motion.div)`
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   background: ${({ theme }) => theme.colors.background.focus};
   z-index: 1;
 `
 
 const Wrapper = styled(motion.div)<{ size: Size }>`
   position: fixed;
-  top: ${({ theme }) => 8 * theme.spacer}px;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset-block-start: ${({ theme }) => 8 * theme.spacer}px;
+  inset-block-end: 0;
+  inset-inline: 0;
   background: ${({ theme }) => theme.colors.background.primaryElevated};
-  border-top-left-radius: ${({ theme }) => theme.borderRadii.lg};
-  border-top-right-radius: ${({ theme }) => theme.borderRadii.lg};
+  border-start-start-radius: ${({ theme }) => theme.borderRadii.lg};
+  border-start-end-radius: ${({ theme }) => theme.borderRadii.lg};
   // prevent navigation bar from overflowing popover
   overflow: hidden;
   z-index: 2;
 
   @media ${({ theme }) => theme.mediaQueries.md} {
-    top: ${({ theme }) => 2 * theme.spacer}px;
-    right: ${({ theme }) => 2 * theme.spacer}px;
-    left: unset;
-    bottom: ${({ theme }) => 2 * theme.spacer}px;
-    border-bottom-left-radius: ${({ theme }) => 2 * theme.spacer}px;
-    border-bottom-right-radius: ${({ theme }) => 2 * theme.spacer}px;
-    min-width: ${({ size, theme }) =>
+    inset-block: ${({ theme }) => 2 * theme.spacer}px;
+    inset-inline-end: ${({ theme }) => 2 * theme.spacer}px;
+    inset-inline-start: unset;
+    border-end-start-radius: ${({ theme }) => 2 * theme.spacer}px;
+    border-end-end-radius: ${({ theme }) => 2 * theme.spacer}px;
+    min-inline-size: ${({ size, theme }) =>
       size === "sm"
         ? `calc((300% / 8) - 3 * ${theme.spacer}px)` // to fit grid
         : `calc((100% / 2) - 3 * ${theme.spacer}px)`}; // to fit grid
   }
 
   @media ${({ theme }) => theme.mediaQueries.lg} {
-    top: ${({ theme }) => 3 * theme.spacer}px;
-    right: ${({ theme }) => 3 * theme.spacer}px;
-    left: unset;
-    bottom: ${({ theme }) => 3 * theme.spacer}px;
-    min-width: ${({ size, theme }) =>
+    inset-block-start: ${({ theme }) => 3 * theme.spacer}px;
+    inset-inline-end: ${({ theme }) => 3 * theme.spacer}px;
+    inset-inline-start: unset;
+    inset-block-end: ${({ theme }) => 3 * theme.spacer}px;
+    min-inline-size: ${({ size, theme }) =>
       size === "sm"
         ? `calc((100% / 3) - 4 * ${theme.spacer}px)` // to fit grid
         : `calc((100% / 2) - 4.5 * ${theme.spacer}px)`}; // to fit grid
@@ -184,7 +179,7 @@ const Navigation = styled.nav`
   justify-content: space-between;
   padding: ${({ theme }) => 2 * theme.spacer}px;
   position: sticky;
-  top: 0;
+  inset-block-start: 0;
   background: ${({ theme }) => theme.colors.background.primaryElevated};
   z-index: 1; // to cover content with relative positioned elements
 `
@@ -204,19 +199,19 @@ const MdLgActions = styled.div`
 const Content = styled.div<{ hasPrimaryAction: boolean; hasSecondaryAction: boolean }>`
   padding-inline: ${({ theme }) => 2 * theme.spacer}px;
   // make sure content is not hidden when actions are added
-  padding-bottom: ${({ hasPrimaryAction, hasSecondaryAction, theme }) =>
-    getPaddingBottom(hasPrimaryAction, hasSecondaryAction, theme)}px;
+  padding-block-end: ${({ hasPrimaryAction, hasSecondaryAction, theme }) =>
+    getPaddingBlockEnd(hasPrimaryAction, hasSecondaryAction, theme)}px;
   // fix height to enable setting overflow-y
-  height: calc(100% - ${({ theme }) => 10 * theme.spacer}px);
+  block-size: calc(100% - ${({ theme }) => 10 * theme.spacer}px);
   // when there's more content than room in the popover, it should scroll and not overlow
   overflow-y: auto;
 
   @media ${({ theme }) => theme.mediaQueries.md} {
-    padding-bottom: ${({ theme }) => 2 * theme.spacer}px;
+    padding-block-end: ${({ theme }) => 2 * theme.spacer}px;
   }
 `
 
-const getPaddingBottom = (
+const getPaddingBlockEnd = (
   hasPrimaryAction: boolean,
   hasSecondaryAction: boolean,
   theme: Theme,
@@ -234,9 +229,8 @@ const getPaddingBottom = (
 
 const SmActions = styled.nav`
   position: fixed;
-  right: ${({ theme }) => 2 * theme.spacer}px;
-  left: ${({ theme }) => 2 * theme.spacer}px;
-  bottom: ${({ theme }) => 3 * theme.spacer}px;
+  inset-inline: ${({ theme }) => 2 * theme.spacer}px;
+  inset-block-end: ${({ theme }) => 3 * theme.spacer}px;
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => 2 * theme.spacer}px;
