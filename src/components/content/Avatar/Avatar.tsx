@@ -107,8 +107,8 @@ const Image = styled("img", {
 })<ImageProps>`
   background: ${({ background, theme }) => theme.colors.background[background]};
   color: ${({ color, theme }) => theme.colors.content[color]};
-  height: ${({ radius, theme, size }) => getSize(radius, theme, size)}px;
-  width: ${({ radius, theme, size }) => getSize(radius, theme, size)}px;
+  block-size: ${({ radius, theme, size }) => getSize(radius, theme, size)}px;
+  inline-size: ${({ radius, theme, size }) => getSize(radius, theme, size)}px;
   border: 2px solid ${({ theme }) => theme.colors.border.primary};
   border-radius: ${({ radius, theme }) => theme.borderRadii[radius]};
   display: flex;

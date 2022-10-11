@@ -51,8 +51,8 @@ export const StepProgress = forwardRef<HTMLDivElement, StepProgressProps>(
 const Wrapper = styled.div`
   display: flex;
   gap: ${({ theme }) => 0.5 * theme.spacer}px;
-  /* Width needed to make sure component takes up full width in flex containers */
-  width: 100%;
+  /* Needed to make sure component takes up full inline size in flex containers */
+  inline-size: 100%;
 `
 
 interface StepProps {
@@ -65,7 +65,7 @@ const Step = styled("div", {
 })<StepProps>`
   background: ${({ color, completed, theme }) =>
     completed ? theme.colors.content[color] : theme.colors.background.tertiary};
-  height: ${({ theme }) => theme.spacer}px;
+  block-size: ${({ theme }) => theme.spacer}px;
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   flex-grow: 1;
   transition-property: background;

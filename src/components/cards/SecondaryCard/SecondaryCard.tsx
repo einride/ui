@@ -28,7 +28,7 @@ type Background = Exclude<BackgroundColor, "focus">
 const Wrapper = styled.div<{ background: Background }>`
   background: ${({ background, theme }) => theme.colors.background[background]};
   border-radius: ${({ theme }) => theme.borderRadii.sm};
-  padding: ${({ theme }) => theme.spacer}px;
-  padding-top: 0;
+  padding-inline: ${({ theme }) => theme.spacer}px;
+  padding-block-end: ${({ theme }) => theme.spacer}px;
   overflow: hidden;
 `

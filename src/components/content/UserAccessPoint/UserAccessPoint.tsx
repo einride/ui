@@ -73,7 +73,7 @@ const StyledAvatar = styled(Avatar)`
 `
 
 const Right = styled.div`
-  width: ${({ theme }) => 5 * theme.spacer}px;
+  inline-size: ${({ theme }) => 5 * theme.spacer}px;
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => 0.5 * theme.spacer}px;
@@ -83,8 +83,8 @@ const Right = styled.div`
 
 const Notification = styled.div`
   background: ${({ theme }) => theme.colors.content.negative};
-  width: ${({ theme }) => 2 * theme.spacer}px;
-  height: ${({ theme }) => 2 * theme.spacer}px;
+  inline-size: ${({ theme }) => 2 * theme.spacer}px;
+  block-size: ${({ theme }) => 2 * theme.spacer}px;
   border-radius: ${({ theme }) => theme.borderRadii.full};
 `
 
@@ -99,8 +99,8 @@ const Dots = (): JSX.Element => {
 }
 
 const Dot = styled.div`
-  width: ${({ theme }) => 0.5 * theme.spacer}px;
-  height: ${({ theme }) => 0.5 * theme.spacer}px;
+  inline-size: ${({ theme }) => 0.5 * theme.spacer}px;
+  block-size: ${({ theme }) => 0.5 * theme.spacer}px;
   border-radius: ${({ theme }) => theme.borderRadii.full};
   background: ${({ theme }) => theme.colors.content.primary};
 `

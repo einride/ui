@@ -64,8 +64,8 @@ export const LinearGauge = forwardRef<HTMLDivElement, LinearGaugeProps>(
 
 const Wrapper = styled.div`
   position: relative;
-  width: 56px;
-  height: 56px;
+  inline-size: ${({ theme }) => 7 * theme.spacer}px;
+  block-size: ${({ theme }) => 7 * theme.spacer}px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,14 +73,14 @@ const Wrapper = styled.div`
 `
 
 const StyledSvg = styled.svg`
-  width: 100%;
-  height: 100%;
+  inline-size: 100%;
+  block-size: 100%;
 `
 
 const StyledPointerIcon = styled(PointerIcon)<{ percentage: number }>`
   /* Percentage based on pointer height divided by linear default height */
-  height: ${(27 / 56) * 100}%;
-  width: auto;
+  block-size: ${(27 / 56) * 100}%;
+  inline-size: auto;
   transform: rotateZ(${({ percentage }) => getPointerRotation(percentage)}deg) translateY(-22%);
   transition-property: transform;
   transition-duration: ${({ theme }) => theme.transitions.morph.duration};

@@ -49,11 +49,11 @@ export const LinearProgress = forwardRef<HTMLDivElement, LinearProgressProps>(
 
 const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.background.tertiary};
-  height: ${({ theme }) => theme.spacer}px;
+  block-size: ${({ theme }) => theme.spacer}px;
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   position: relative;
-  /* Width needed to make sure component takes up full width in flex containers */
-  width: 100%;
+  /* Needed to make sure component takes up full inline size in flex containers */
+  inline-size: 100%;
 `
 
 interface ValueProps {
@@ -67,15 +67,15 @@ const Value = styled("div", {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color", // avoid passing `color` attribute to HTML element
 })<ValueProps>`
   background: ${({ color, theme }) => theme.colors.content[color]};
-  height: ${({ theme }) => theme.spacer}px;
+  block-size: ${({ theme }) => theme.spacer}px;
   border-radius: ${({ theme }) => theme.borderRadii.sm};
-  width: ${({ max, min, value }) => getWidth(max, min, value)}%;
+  inline-size: ${({ max, min, value }) => getInlineSize(max, min, value)}%;
   transition-property: width;
   transition-duration: ${({ theme }) => theme.transitions.morph.duration};
   transition-timing-function: ${({ theme }) => theme.transitions.morph.timingFunction};
 `
 
-const getWidth = (max: number, min: number, value: number): number => {
+const getInlineSize = (max: number, min: number, value: number): number => {
   if (value > max) return 100
   if (value < min) return 0
   return ((value - min) / (max - min)) * 100

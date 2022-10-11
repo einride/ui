@@ -53,8 +53,8 @@ const Wrapper = styled.div`
   justify-content: flex-end;
   background: ${({ theme }) => theme.colors.background.tertiary};
   border-radius: ${({ theme }) => theme.borderRadii.xs};
-  width: ${({ theme }) => 2 * theme.spacer}px;
-  height: ${({ theme }) => 8 * theme.spacer}px;
+  inline-size: ${({ theme }) => 2 * theme.spacer}px;
+  block-size: ${({ theme }) => 8 * theme.spacer}px;
 `
 
 interface ValueProps {
@@ -68,15 +68,15 @@ const Value = styled("div", {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color", // avoid passing `color` attribute to HTML element
 })<ValueProps>`
   background: ${({ theme, color }) => theme.colors.content[color]};
-  height: ${({ max, min, value }) => getHeight(max, min, value)}%;
-  width: 100%;
+  block-size: ${({ max, min, value }) => getBlockSize(max, min, value)}%;
+  inline-size: 100%;
   border-radius: ${({ theme }) => theme.borderRadii.xs};
   transition-property: height;
   transition-duration: ${({ theme }) => theme.transitions.morph.duration};
   transition-timing-function: ${({ theme }) => theme.transitions.morph.timingFunction};
 `
 
-const getHeight = (max: number, min: number, value: number): number => {
+const getBlockSize = (max: number, min: number, value: number): number => {
   if (value > max) return 100
   if (value < min) return 0
   return ((value - min) / (max - min)) * 100

@@ -66,7 +66,7 @@ export const StepGauge = forwardRef<HTMLDivElement, StepGaugeProps>(
 
 const Wrapper = styled.div`
   position: relative;
-  width: 56px;
+  inline-size: 56px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,13 +74,13 @@ const Wrapper = styled.div`
 
 const StyledSvg = styled.svg<{ strokeWidth: number }>`
   stroke-width: ${({ strokeWidth }) => strokeWidth};
-  width: 100%;
+  inline-size: 100%;
 `
 
 const StyledPointerIcon = styled(PointerIcon)<{ completed: number; steps: number }>`
   /* Percentage based on pointer viewBox height divided by StepGauge viewBox height  */
-  height: ${(27 / 56) * 100}%;
-  width: auto;
+  block-size: ${(27 / 56) * 100}%;
+  inline-size: auto;
   transform: rotateZ(${({ completed, steps }) => getPointerRotation(completed, steps)}deg)
     translateY(-22%);
   transition-property: transform;

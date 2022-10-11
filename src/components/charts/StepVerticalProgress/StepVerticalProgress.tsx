@@ -52,7 +52,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column-reverse;
   gap: ${({ theme }) => theme.spacer}px;
-  width: ${({ theme }) => 2 * theme.spacer}px;
+  inline-size: ${({ theme }) => 2 * theme.spacer}px;
 `
 
 interface StepProps {
@@ -65,7 +65,7 @@ const Step = styled("div", {
 })<StepProps>`
   background: ${({ color, completed, theme }) =>
     completed ? theme.colors.content[color] : theme.colors.background.tertiary};
-  height: ${({ theme }) => 0.8 * theme.spacer}px;
+  block-size: ${({ theme }) => 0.8 * theme.spacer}px;
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   transition-property: background;
   transition-duration: ${({ theme }) => theme.transitions.morph.duration};
