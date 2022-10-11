@@ -28,9 +28,9 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
 
 const StyledInput = styled.input`
   appearance: none;
-  width: 24px;
-  height: 24px;
-  margin: 12px;
+  inline-size: ${({ theme }) => 3 * theme.spacer}px;
+  block-size: ${({ theme }) => 3 * theme.spacer}px;
+  margin: ${({ theme }) => 1.5 * theme.spacer}px;
   background: ${({ theme }) => theme.colors.background.primary};
   border: 2px solid ${({ theme }) => theme.colors.border.primary};
   border-radius: ${({ theme }) => theme.borderRadii.xl};
@@ -59,7 +59,8 @@ const StyledLabel = styled.label`
   font-size: ${({ theme }) => theme.fontSizes.md};
   display: flex;
   align-items: center;
-  margin: 12px 16px;
+  margin-block: ${({ theme }) => 1.5 * theme.spacer}px;
+  margin-inline: ${({ theme }) => 2 * theme.spacer}px;
   color: ${({ theme }) => theme.colors.content.primary};
 
   &:focus-within {
@@ -68,5 +69,5 @@ const StyledLabel = styled.label`
 `
 
 const StyledRadio = styled(StyledInput)`
-  margin: 0 16px 0 0;
+  margin-inline-end: ${({ theme }) => 2 * theme.spacer}px;
 `

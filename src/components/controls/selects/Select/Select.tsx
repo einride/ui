@@ -100,8 +100,8 @@ const StyledLabel = styled.label`
   font-size: ${({ theme }) => theme.fontSizes.md};
   font-weight: ${({ theme }) => theme.fontWeights.book};
   line-height: calc(4 / 3);
-  margin-top: 5px;
-  margin-bottom: 3px;
+  margin-block-start: 5px;
+  margin-block-end: 3px;
   color: ${({ theme }) => theme.colors.content.secondary};
 `
 
@@ -116,11 +116,11 @@ const StyledSelect = styled.select<{ hasLabel: boolean }>`
   line-height: calc(4 / 3);
   background: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
-  width: 100%;
+  inline-size: 100%;
   display: block;
   padding-block: ${({ theme }) => 1.5 * theme.spacer}px;
-  padding-left: ${({ theme }) => 2 * theme.spacer}px;
-  padding-right: ${({ theme }) => 6 * theme.spacer}px;
+  padding-inline-start: ${({ theme }) => 2 * theme.spacer}px;
+  padding-inline-end: ${({ theme }) => 6 * theme.spacer}px;
   border-radius: ${({ hasLabel, theme }) =>
     hasLabel ? theme.borderRadii.sm : theme.borderRadii.xl};
   cursor: pointer;
@@ -143,10 +143,10 @@ const StyledSelect = styled.select<{ hasLabel: boolean }>`
 
 const StyledIcon = styled(Icon)`
   position: absolute;
-  top: ${({ theme }) => 1.5 * theme.spacer}px;
-  right: ${({ theme }) => theme.spacer}px;
+  inset-block-start: ${({ theme }) => 1.5 * theme.spacer}px;
+  inset-inline-end: ${({ theme }) => theme.spacer}px;
   pointer-events: none;
   color: ${({ theme }) => theme.colors.content.primary};
-  width: ${({ theme }) => 3 * theme.spacer}px;
+  inline-size: ${({ theme }) => 3 * theme.spacer}px;
   text-align: center;
 `

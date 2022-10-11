@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ChangeEvent, forwardRef, InputHTMLAttributes, useState, useEffect } from "react"
+import { ChangeEvent, forwardRef, InputHTMLAttributes, useEffect, useState } from "react"
 
 export interface SliderProps extends InputHTMLAttributes<HTMLInputElement> {
   /** Maximum possible value. Default is ´100´. */
@@ -78,7 +78,7 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
 )
 
 const Wrapper = styled("div", { target: "wrapper" })`
-  height: ${({ theme }) => 6 * theme.spacer}px;
+  block-size: ${({ theme }) => 6 * theme.spacer}px;
   background: ${({ theme }) => theme.colors.background.secondary};
   border-radius: ${({ theme }) => theme.borderRadii.xl};
   position: relative;
@@ -86,46 +86,45 @@ const Wrapper = styled("div", { target: "wrapper" })`
 
 const LeftFill = styled.div<{ disabled: boolean }>`
   position: absolute;
-  height: 100%;
-  width: ${({ theme }) => 3 * theme.spacer}px;
+  block-size: 100%;
+  inline-size: ${({ theme }) => 3 * theme.spacer}px;
   background: ${({ disabled, theme }) =>
     disabled ? theme.colors.content.tertiary : theme.colors.content.positive};
-  border-top-left-radius: ${({ theme }) => 3 * theme.spacer}px;
-  border-bottom-left-radius: ${({ theme }) => 3 * theme.spacer}px;
+  border-start-start-radius: ${({ theme }) => 3 * theme.spacer}px;
+  border-end-start-radius: ${({ theme }) => 3 * theme.spacer}px;
 `
 
 const FillWrapper = styled.div`
   position: absolute;
-  height: 100%;
-  top: 0;
-  right: ${({ theme }) => 3 * theme.spacer}px;
-  left: ${({ theme }) => 3 * theme.spacer}px;
+  block-size: 100%;
+  inset-block-start: 0;
+  inset-inline: ${({ theme }) => 3 * theme.spacer}px;
 `
 
 const Fill = styled.div<{ disabled: boolean; percentage: number }>`
-  height: 100%;
-  width: ${({ percentage }) => percentage}%;
+  block-size: 100%;
+  inline-size: ${({ percentage }) => percentage}%;
   background: ${({ disabled, theme }) =>
     disabled ? theme.colors.content.tertiary : theme.colors.content.positive};
 `
 
 const Range = styled.input<{ disabled?: boolean | undefined }>`
   position: absolute;
-  top: 0;
+  inset-block-start: 0;
   appearance: none;
   background: transparent;
   ${({ disabled }) => !disabled && "cursor: pointer"};
-  width: 100%;
-  height: 100%;
+  inline-size: 100%;
+  block-size: 100%;
   &:focus {
     outline: none;
   }
 
   &::-webkit-slider-runnable-track {
-    height: ${({ theme }) => 6 * theme.spacer}px;
+    block-size: ${({ theme }) => 6 * theme.spacer}px;
   }
   &::-moz-range-track {
-    height: ${({ theme }) => 6 * theme.spacer}px;
+    block-size: ${({ theme }) => 6 * theme.spacer}px;
   }
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -138,8 +137,8 @@ const Range = styled.input<{ disabled?: boolean | undefined }>`
         ? `linear-gradient(90deg, transparent 0%, transparent 50%, ${theme.colors.content.tertiary} 50%, ${theme.colors.content.tertiary} 100%)`
         : theme.colors.content.positive};
     border-radius: ${({ theme }) => theme.borderRadii.xl};
-    width: ${({ theme }) => 6 * theme.spacer}px;
-    height: 100%;
+    inline-size: ${({ theme }) => 6 * theme.spacer}px;
+    block-size: 100%;
   }
   &::-moz-range-thumb {
     border: none;
@@ -150,17 +149,17 @@ const Range = styled.input<{ disabled?: boolean | undefined }>`
         ? `linear-gradient(90deg, transparent 0%, transparent 50%, ${theme.colors.content.tertiary} 50%, ${theme.colors.content.tertiary} 100%)`
         : theme.colors.content.positive};
     border-radius: ${({ theme }) => theme.borderRadii.xl};
-    width: ${({ theme }) => 6 * theme.spacer}px;
-    height: 100%;
+    inline-size: ${({ theme }) => 6 * theme.spacer}px;
+    block-size: 100%;
   }
 `
 
 const ThumbWrapper = styled.div`
   position: absolute;
-  top: 0;
-  left: ${({ theme }) => 2 * theme.spacer}px;
-  width: ${({ theme }) => `calc(100% - ${6 * theme.spacer}px)`};
-  height: 100%;
+  inset-block-start: 0;
+  inset-inline-start: ${({ theme }) => 2 * theme.spacer}px;
+  inline-size: ${({ theme }) => `calc(100% - ${6 * theme.spacer}px)`};
+  block-size: 100%;
   display: flex;
   align-items: center;
   pointer-events: none;
@@ -171,8 +170,8 @@ const Thumb = styled.div<{
   hasFocus: boolean
   percentage: number
 }>`
-  width: ${({ theme }) => 2 * theme.spacer}px;
-  height: ${({ theme }) => 2 * theme.spacer}px;
+  inline-size: ${({ theme }) => 2 * theme.spacer}px;
+  block-size: ${({ theme }) => 2 * theme.spacer}px;
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   position: absolute;
   background: ${({ theme }) => theme.colors.background.primary};
@@ -186,18 +185,18 @@ const Thumb = styled.div<{
     hasFocus &&
     !disabled &&
     `
-    width: ${theme.spacer}px;
-    height: ${4 * theme.spacer}px;
-    margin-left: ${0.5 * theme.spacer}px;
+    inline-size: ${theme.spacer}px;
+    block-size: ${4 * theme.spacer}px;
+    margin-inline-start: ${0.5 * theme.spacer}px;
   `};
 
   ${({ disabled, theme }) =>
     !disabled &&
     `
   ${Wrapper}:hover & {
-    width: ${theme.spacer}px;
-    height: ${4 * theme.spacer}px;
-    margin-left: ${0.5 * theme.spacer}px;
+    inline-size: ${theme.spacer}px;
+    block-size: ${4 * theme.spacer}px;
+    margin-inline-start: ${0.5 * theme.spacer}px;
   }
 `}
 `

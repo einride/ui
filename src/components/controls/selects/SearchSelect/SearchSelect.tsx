@@ -223,12 +223,11 @@ const Wrapper = styled.div`
 
 const OptionsWrapper = styled.div`
   position: absolute;
-  top: 100%;
-  right: 0;
-  left: 0;
+  inset-block-start: 100%;
+  inset-inline: 0;
   background: ${({ theme }) => theme.colors.background.secondary};
   border-radius: ${({ theme }) => theme.borderRadii.sm};
-  margin-top: ${({ theme }) => theme.spacer}px;
+  margin-block-start: ${({ theme }) => theme.spacer}px;
   padding: ${({ theme }) => theme.spacer}px;
   display: flex;
   flex-direction: column;

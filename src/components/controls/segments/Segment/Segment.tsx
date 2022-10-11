@@ -22,10 +22,10 @@ const Wrapper = styled.button`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
   color: ${({ theme }) => theme.colors.content.secondary};
-  padding-top: ${({ theme }) => theme.spacer + 1}px;
-  padding-bottom: ${({ theme }) => 2 * theme.spacer - 1}px;
+  padding-block-start: ${({ theme }) => theme.spacer + 1}px;
+  padding-block-end: ${({ theme }) => 2 * theme.spacer - 1}px;
   box-shadow: inset 0 -1px 0 ${({ theme }) => theme.colors.border.primary};
-  margin-bottom: ${({ theme }) => 3 * theme.spacer}px;
+  margin-block-end: ${({ theme }) => 3 * theme.spacer}px;
 
   &[aria-selected],
   &:hover {

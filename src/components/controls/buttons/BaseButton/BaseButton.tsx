@@ -27,10 +27,10 @@ export const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(
 const StyledButton = styled.button<{ hasIcon?: boolean }>`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
-  height: ${({ theme }) => 6 * theme.spacer}px;
+  block-size: ${({ theme }) => 6 * theme.spacer}px;
   border-radius: ${({ theme }) => theme.borderRadii.xl};
   cursor: pointer;
-  padding: 0 ${({ theme }) => 2 * theme.spacer}px;
+  padding-inline: ${({ theme }) => 2 * theme.spacer}px;
   display: flex;
   justify-content: ${({ hasIcon }) => (hasIcon ? "space-between" : "center")};
   align-items: center;

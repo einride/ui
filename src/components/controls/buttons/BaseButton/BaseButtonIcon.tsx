@@ -14,12 +14,12 @@ export const BaseButtonIcon = ({ icon, isLoading, ...props }: BaseButtonIconProp
 
 const Wrapper = styled.div`
   color: ${({ theme }) => theme.colors.buttons.icon.primary};
-  margin-left: ${({ theme }) => 2 * theme.spacer}px;
+  margin-inline-start: ${({ theme }) => 2 * theme.spacer}px;
 `
 
 const IconWrapper = styled.div`
-  width: ${({ theme }) => 3 * theme.spacer}px;
-  height: ${({ theme }) => 3 * theme.spacer}px;
+  inline-size: ${({ theme }) => 3 * theme.spacer}px;
+  block-size: ${({ theme }) => 3 * theme.spacer}px;
   display: flex;
   justify-content: center;
   align-items: center;

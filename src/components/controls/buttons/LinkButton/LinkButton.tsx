@@ -3,9 +3,16 @@ import { ContentColor, Font } from "../../../../lib/theme/types"
 import { Link } from "../../../typography/Link/Link"
 
 export interface LinkButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Effective element used. */
   as?: ElementType
+
+  /** Content of the link. */
   children: ReactNode
+
+  /** Color used in the link. Default is `primary`. */
   color?: Color
+
+  /** Font use in the link. Default is `body`. */
   font?: Font
 }
 

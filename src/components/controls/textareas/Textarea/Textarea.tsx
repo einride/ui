@@ -82,8 +82,8 @@ const StyledLabel = styled.label`
   font-size: ${({ theme }) => theme.fontSizes.md};
   font-weight: ${({ theme }) => theme.fontWeights.book};
   line-height: calc(4 / 3);
-  margin-top: 5px;
-  margin-bottom: 3px;
+  margin-block-start: 5px;
+  margin-block-end: 3px;
   color: ${({ theme }) => theme.colors.content.secondary};
 `
 
@@ -93,10 +93,10 @@ const InputWrapper = styled.div`
 
 const IconWrapper = styled.span`
   position: absolute;
-  top: ${({ theme }) => 1.5 * theme.spacer}px;
-  right: ${({ theme }) => 2 * theme.spacer}px;
-  height: ${({ theme }) => 3 * theme.spacer}px;
-  width: ${({ theme }) => 3 * theme.spacer}px;
+  inset-block-start: ${({ theme }) => 1.5 * theme.spacer}px;
+  inset-inline-end: ${({ theme }) => 2 * theme.spacer}px;
+  block-size: ${({ theme }) => 3 * theme.spacer}px;
+  inline-size: ${({ theme }) => 3 * theme.spacer}px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -109,7 +109,7 @@ const StyledTextarea = styled.textarea<{ hasLabel: boolean }>`
   line-height: calc(4 / 3);
   background: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
-  width: 100%;
+  inline-size: 100%;
   display: block;
   padding-block: ${({ theme }) => 1.5 * theme.spacer}px;
   padding-inline: ${({ theme }) => 2 * theme.spacer}px;

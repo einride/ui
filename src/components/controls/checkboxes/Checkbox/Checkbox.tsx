@@ -40,7 +40,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  padding: ${({ theme }) => 1.5 * theme.spacer}px ${({ theme }) => 2 * theme.spacer}px;
+  padding-block: ${({ theme }) => 1.5 * theme.spacer}px;
+  padding-inline: ${({ theme }) => 2 * theme.spacer}px;
 `
 
 const InnerWrapper = styled.div`
@@ -61,12 +62,12 @@ const StyledLabel = styled.label`
 
 const StyledInput = styled.input`
   appearance: none;
-  width: ${({ theme }) => 3 * theme.spacer}px;
-  height: ${({ theme }) => 3 * theme.spacer}px;
+  inline-size: ${({ theme }) => 3 * theme.spacer}px;
+  block-size: ${({ theme }) => 3 * theme.spacer}px;
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   border: 2px solid ${({ theme }) => theme.colors.border.primary};
   background: ${({ theme }) => theme.colors.background.primary};
-  margin-right: ${({ theme }) => 2 * theme.spacer}px;
+  margin-inline-end: ${({ theme }) => 2 * theme.spacer}px;
 
   &:hover:not(:disabled) {
     border-color: ${({ theme }) => theme.colors.border.selected};
@@ -89,7 +90,7 @@ const StyledInput = styled.input`
 
 const StyledIcon = styled(Icon)`
   position: absolute;
-  left: 6px;
+  inset-inline-end: 6px;
   color: ${({ theme }) => theme.colors.background.primary};
   pointer-events: none;
 `

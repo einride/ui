@@ -5,9 +5,16 @@ import { Icon, IconName } from "../../../content/Icon/Icon"
 import { BaseButton } from "../BaseButton/BaseButton"
 
 export interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Accessible name of the icon button. Describe what happens when you click the button. */
   "aria-label": string
+
+  /** Effective element used. */
   as?: ElementType
+
+  /** Icon to render in the button. Default is `arrowRight`. */
   icon?: IconName
+
+  /** Color variant of the icon button. Default is `secondary`. */
   variant?: Variant
 }
 
@@ -24,9 +31,9 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
 type Variant = "primary" | "secondary" | "tertiary"
 
 const StyledBaseButton = styled(BaseButton)<{ variant: Variant }>`
-  width: ${({ theme }) => 6 * theme.spacer}px;
-  height: ${({ theme }) => 6 * theme.spacer}px;
-  min-width: ${({ theme }) => 6 * theme.spacer}px;
+  inline-size: ${({ theme }) => 6 * theme.spacer}px;
+  block-size: ${({ theme }) => 6 * theme.spacer}px;
+  min-inline-size: ${({ theme }) => 6 * theme.spacer}px;
   border-radius: ${({ theme }) => theme.borderRadii.full};
   display: flex;
   justify-content: center;
