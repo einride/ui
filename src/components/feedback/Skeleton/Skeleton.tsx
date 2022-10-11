@@ -3,7 +3,10 @@ import { HTMLAttributes } from "react"
 import { Theme } from "../../../lib/theme/types"
 
 export interface SkeletonProps extends HTMLAttributes<HTMLDivElement> {
+  /** Height of the skeleton. Default is `md`. */
   height?: Height
+
+  /** Shape of the skeleton. Default is `rectangle`. */
   shape?: Shape
 }
 
@@ -25,14 +28,15 @@ interface WrapperProps {
 }
 
 const Wrapper = styled.div<WrapperProps>`
-  height: ${({ height, theme }) => getHeight(height, theme)}px;
+  block-size: ${({ height, theme }) => getBlockSize(height, theme)}px;
   background: ${({ theme }) => theme.colors.background.secondary};
   border-radius: ${({ shape, theme }) =>
     shape === "circle" ? theme.borderRadii.full : theme.borderRadii.sm};
-  ${({ height, shape, theme }) => shape === "circle" && `width: ${getHeight(height, theme)}px`};
+  ${({ height, shape, theme }) =>
+    shape === "circle" && `inline-size: ${getBlockSize(height, theme)}px`};
 `
 
-const getHeight = (height: Height, theme: Theme): number => {
+const getBlockSize = (height: Height, theme: Theme): number => {
   switch (height) {
     case "xs":
       return theme.spacer

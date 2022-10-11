@@ -24,8 +24,8 @@ export const Loader = (props: LoaderProps): JSX.Element => {
 const Wrapper = styled.div`
   position: relative;
   background: ${({ theme }) => theme.colors.content.primary};
-  height: ${({ theme }) => 3 * theme.spacer}px;
-  width: ${({ theme }) => 3 * theme.spacer}px;
+  block-size: ${({ theme }) => 3 * theme.spacer}px;
+  inline-size: ${({ theme }) => 3 * theme.spacer}px;
   border-radius: ${({ theme }) => theme.borderRadii.xl};
   display: flex;
   align-items: center;
@@ -36,7 +36,7 @@ const Wrapper = styled.div`
 const Line = styled(motion.div)`
   background: ${({ theme }) => theme.colors.background.primary};
   position: absolute;
-  height: ${({ theme }) => 2 * theme.spacer}px;
-  width: ${({ theme }) => 0.5 * theme.spacer}px;
+  block-size: ${({ theme }) => 2 * theme.spacer}px;
+  inline-size: ${({ theme }) => 0.5 * theme.spacer}px;
   border-radius: ${({ theme }) => theme.borderRadii.xs};
 `

@@ -24,9 +24,8 @@ export const PageLoader = ({
 
 const Wrapper = styled.div`
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: ${({ theme }) => 4 * theme.spacer}px;
+  inset-block: 0;
+  inset-inline-start: ${({ theme }) => 4 * theme.spacer}px;
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacer}px;
