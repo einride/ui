@@ -3,19 +3,19 @@ import { ElementType, forwardRef, ReactNode, ThHTMLAttributes } from "react"
 import { ContentColor, Font } from "../../../lib/theme/types"
 
 interface ThProps extends ThHTMLAttributes<HTMLTableCellElement> {
+  /** Effective element used. */
   as?: ElementType
-  children: ReactNode
-  /**
-   * Default: "primary"
-   */
+
+  /** Content of the table header. */
+  children?: ReactNode
+
+  /** Color used in the table header. Default is `primary`. */
   color?: ContentColor
-  /**
-   * Default: "body"
-   */
+
+  /** Font used in the table header. Default is `body`. */
   font?: Font
-  /**
-   * Defines the cells that the header element relates to.
-   */
+
+  /** Indicates what cells the header element relates to. */
   scope: "col" | "row"
 }
 
