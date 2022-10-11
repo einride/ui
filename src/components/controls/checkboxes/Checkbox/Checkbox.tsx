@@ -90,7 +90,7 @@ const StyledInput = styled.input`
 
 const StyledIcon = styled(Icon)`
   position: absolute;
-  inset-inline-end: 6px;
+  inset-inline-start: 6px;
   color: ${({ theme }) => theme.colors.background.primary};
   pointer-events: none;
 `
