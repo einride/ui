@@ -3,9 +3,13 @@ import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 import { Theme } from "../../../lib/theme/types"
 
 export interface LabelProps extends HTMLAttributes<HTMLSpanElement> {
+  /** Effective element used. */
   as?: ElementType
+
+  /** Content of the label. */
   children: ReactNode
-  /** Default: "primary" */
+
+  /** Color variant of the label. Default is `primary`. */
   variant?: Variant
 }
 
