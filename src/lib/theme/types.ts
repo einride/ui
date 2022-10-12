@@ -51,6 +51,8 @@ export type Font = "heading" | "body" | "mono"
 
 type FontSize = "sm" | "md" | "lg" | "xl" | "2xl" | "3xl"
 
+type FontVariant = { numeric: string }
+
 type FontWeight =
   | "hairline"
   | "thin"
@@ -93,6 +95,7 @@ export interface CommonTheme {
   mediaQueries: Record<MediaQuery, string>
   fonts: Record<Font, string>
   fontSizes: Record<FontSize, string>
+  fontVariants: FontVariant
   fontWeights: Record<FontWeight, number>
   grid: Record<string, string>
   spacer: Spacer

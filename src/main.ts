@@ -72,6 +72,7 @@ export { VisuallyHidden } from "./components/visually-hidden/VisuallyHidden"
 export { useColorScheme } from "./contexts/ColorSchemeProvider"
 export { EinrideProvider } from "./contexts/EinrideProvider"
 export { useTheme } from "./hooks/useTheme"
+export { einrideTheme } from "./lib/theme/einride"
 export type {
   BackgroundColor,
   BorderColor,
