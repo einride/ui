@@ -5,11 +5,22 @@ import { BaseButton } from "../BaseButton/BaseButton"
 import { BaseButtonIcon } from "../BaseButton/BaseButtonIcon"
 
 export interface TertiaryButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Effective element used. */
   as?: ElementType
+
+  /** Content of the button. */
   children: ReactNode
+
+  /** @deprecated since version 6.16.5. */
   columns?: number | number[]
+
+  /** Adds a loading spinner to the button. */
   isLoading?: boolean
+
+  /** Sets the button to full width. */
   isFullWidth?: boolean
+
+  /** Adds an icon to the right side of the button. */
   rightIcon?: ReactNode
 }
 

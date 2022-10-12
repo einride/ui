@@ -1,5 +1,6 @@
 import { useTheme } from "./useTheme"
 
+/** @deprecated since version 6.16.5. */
 export const useWidthFromColumns = (
   columns: number | number[] | undefined,
   componentName: string | undefined,
