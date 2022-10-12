@@ -12,6 +12,7 @@ export const GlobalStyles = (): JSX.Element => {
           color: ${theme.colors.content.primary};
           font-family: ${theme.fonts.body};
           font-size: ${theme.fontSizes.md};
+          font-variant-numeric: ${theme.fontVariants.numeric};
           
           --einride-ui-vertical-spacing-background: none;
           --einride-ui-horizontal-spacing-background: none;

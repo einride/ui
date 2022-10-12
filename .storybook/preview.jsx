@@ -2,6 +2,7 @@ import styled from "@emotion/styled"
 import { themes } from "@storybook/theming"
 import { useDarkMode } from "storybook-dark-mode"
 import { EinrideProvider } from "../src/contexts/EinrideProvider"
+import { einrideTheme } from "../src/lib/theme/einride"
 import { color } from "../src/primitives/color"
 
 const customViewports = {
@@ -56,18 +57,11 @@ export const parameters = {
   },
 }
 
-const theme = {
-  fonts: {
-    body: "SuisseIntl, EinrideIcons, sans-serif",
-    heading: "SuisseIntl, EinrideIcons, sans-serif",
-  },
-}
-
 export const decorators = [
   (Story) => {
     const colorMode = useDarkMode() ? "dark" : "light"
     return (
-      <EinrideProvider theme={theme} colorMode={colorMode}>
+      <EinrideProvider theme={einrideTheme} colorMode={colorMode}>
         <Wrapper>
           <Story />
         </Wrapper>

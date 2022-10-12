@@ -40,6 +40,9 @@ export const common: CommonTheme = {
     "2xl": "2.5rem",
     "3xl": "5rem",
   },
+  fontVariants: {
+    numeric: "normal",
+  },
   fontWeights: {
     hairline: 100,
     thin: 200,
