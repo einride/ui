@@ -10,7 +10,7 @@ export interface LabelProps extends HTMLAttributes<HTMLSpanElement> {
   children: ReactNode
 
   /** Color variant of the label. Default is `primary`. */
-  variant?: Variant
+  variant?: LabelVariant
 }
 
 export const Label = forwardRef<HTMLSpanElement, LabelProps>(
@@ -23,7 +23,7 @@ export const Label = forwardRef<HTMLSpanElement, LabelProps>(
   },
 )
 
-const getBackground = (theme: Theme, variant?: Variant): string => {
+const getBackground = (theme: Theme, variant?: LabelVariant): string => {
   switch (variant) {
     case "primary":
       return theme.colors.background.secondary
@@ -36,7 +36,7 @@ const getBackground = (theme: Theme, variant?: Variant): string => {
   }
 }
 
-const getColor = (theme: Theme, variant?: Variant): string => {
+const getColor = (theme: Theme, variant?: LabelVariant): string => {
   switch (variant) {
     case "primary":
       return theme.colors.content.primary
@@ -49,7 +49,7 @@ const getColor = (theme: Theme, variant?: Variant): string => {
   }
 }
 
-const StyledSpan = styled.span<{ variant: Variant }>`
+const StyledSpan = styled.span<{ variant: LabelVariant }>`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
   background: ${({ theme, variant }) => getBackground(theme, variant)};
@@ -59,4 +59,4 @@ const StyledSpan = styled.span<{ variant: Variant }>`
   border-radius: ${({ theme }) => theme.borderRadii.sm};
 `
 
-type Variant = "primary" | "positive" | "negative"
+export type LabelVariant = "primary" | "positive" | "negative"
