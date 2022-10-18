@@ -51,7 +51,7 @@ interface SearchSelectBaseProps<Option> extends InputHTMLAttributes<HTMLInputEle
   status?: Status
 
   /** Controlled input value. */
-  value?: string
+  value: string
 
   /** Props passed to root element. */
   wrapperProps?: HTMLAttributes<HTMLDivElement>
