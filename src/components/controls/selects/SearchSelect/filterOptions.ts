@@ -28,5 +28,5 @@ export const defaultFilter = <Option extends BaseOption>(
   value: string,
   option: Option,
 ): boolean => {
-  return option.value.toLowerCase().trim().includes(value.toLowerCase().trim())
+  return option?.value?.toLowerCase().trim().includes(value.toLowerCase().trim())
 }
