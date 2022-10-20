@@ -10,10 +10,10 @@ export interface CaptionProps extends HTMLAttributes<HTMLParagraphElement> {
   /** Caption content. */
   children: ReactNode
 
-  /** Text color of the caption. Default is `primary`. */
+  /** Text color of the caption. */
   color?: ContentColor
 
-  /** Font styling.  */
+  /** Font styling. */
   font?: Font
 }
 
@@ -28,15 +28,15 @@ export const Caption = forwardRef<HTMLParagraphElement, CaptionProps>(
 )
 
 interface StyledTextProps {
-  color: ContentColor
-  font: Font
+  color: ContentColor | undefined
+  font: Font | undefined
 }
 
 const StyledText = styled("p", {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color", // avoid passing `color` attribute to HTML element
 })<StyledTextProps>`
-  color: ${({ color, theme }) => theme.colors.content[color]};
-  font-family: ${({ font, theme }) => theme.fonts[font]};
+  color: ${({ color, theme }) => color && theme.colors.content[color]};
+  font-family: ${({ font, theme }) => font && theme.fonts[font]};
   font-size: ${({ theme }) => theme.fontSizes.sm};
   font-weight: ${({ theme }) => theme.fontWeights.book};
   line-height: calc(8 / 7);
