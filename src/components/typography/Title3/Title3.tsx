@@ -10,15 +10,15 @@ export interface Title3Props extends HTMLAttributes<HTMLHeadingElement> {
   /** Title content. */
   children: ReactNode
 
-  /** Text color of the title. Default is `primary`. */
+  /** Text color of the title. */
   color?: ContentColor
 
-  /** Font styling.  */
+  /** Font styling. */
   font?: Font
 }
 
 export const Title3 = forwardRef<HTMLHeadingElement, Title3Props>(
-  ({ children, color = "primary", font = "heading", ...props }, ref) => {
+  ({ children, color, font, ...props }, ref) => {
     return (
       <StyledText color={color} font={font} {...props} ref={ref}>
         {children}
@@ -28,15 +28,15 @@ export const Title3 = forwardRef<HTMLHeadingElement, Title3Props>(
 )
 
 interface StyledTextProps {
-  color: ContentColor
-  font: Font
+  color: ContentColor | undefined
+  font: Font | undefined
 }
 
 const StyledText = styled("h3", {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color", // avoid passing `color` attribute to HTML element
 })<StyledTextProps>`
-  color: ${({ color, theme }) => theme.colors.content[color]};
-  font-family: ${({ font, theme }) => theme.fonts[font]};
+  color: ${({ color, theme }) => color && theme.colors.content[color]};
+  font-family: ${({ font, theme }) => font && theme.fonts[font]};
   font-size: ${({ theme }) => theme.fontSizes.lg};
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   line-height: calc(4 / 3);
