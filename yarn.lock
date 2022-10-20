@@ -1339,10 +1339,10 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@einride/eslint-plugin@6.11.0":
-  version "6.11.0"
-  resolved "https://registry.yarnpkg.com/@einride/eslint-plugin/-/eslint-plugin-6.11.0.tgz#db833cd9ad3d33c7194a99223a7e438e037acf7b"
-  integrity sha512-7jViipSXeRvCRyyEeZWeYIaVVLef8R7d2PP6GiM0LHYjBlr1gCpkodnrasBfafsQRbX3q9RcplSW/4FjgTaU3g==
+"@einride/eslint-plugin@6.12.0":
+  version "6.12.0"
+  resolved "https://registry.yarnpkg.com/@einride/eslint-plugin/-/eslint-plugin-6.12.0.tgz#ff5dbc4eafa53bae283d41789b78e26d3644e6a3"
+  integrity sha512-cbTq6u62ybAlkayuUfZ17P+zhYrDy5TEpC/mSvOFTdcIkrAEjP5cuwc6Gw85XzezammHwZFImRY22ooEpd9SMA==
   dependencies:
     "@typescript-eslint/eslint-plugin" "5.40.0"
     "@typescript-eslint/parser" "5.40.0"
