@@ -19,3 +19,5 @@ jobs:
         uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
