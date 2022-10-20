@@ -40,8 +40,7 @@ interface TextInputWithoutLabelProps {
   "aria-label": string
 }
 
-export type TextInputProps = TextInputBaseProps &
-  (TextInputWithLabelProps | TextInputWithoutLabelProps)
+type TextInputProps = TextInputBaseProps & (TextInputWithLabelProps | TextInputWithoutLabelProps)
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   ({ message, status, ...props }, ref) => {
