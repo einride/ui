@@ -26,15 +26,15 @@ export const Link = <C extends ElementType>({
 type Color = Extract<ContentColor, "primary" | "secondary">
 
 interface StyledAnchorProps {
-  color: Color
-  font: Font
+  color: Color | undefined
+  font: Font | undefined
 }
 
 const StyledAnchor = styled("a", {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color", // avoid passing `color` attribute to HTML element
 })<StyledAnchorProps>`
-  color: ${({ color, theme }) => theme.colors.content[color]};
-  font-family: ${({ font, theme }) => theme.fonts[font]};
+  color: ${({ color, theme }) => color && theme.colors.content[color]};
+  font-family: ${({ font, theme }) => font && theme.fonts[font]};
   cursor: pointer;
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   text-decoration: underline;
@@ -49,7 +49,7 @@ const StyledAnchor = styled("a", {
   }
 `
 
-const getHoverColor = (color: ContentColor, theme: Theme): string => {
+const getHoverColor = (color: ContentColor | undefined, theme: Theme): string => {
   switch (color) {
     case "primary":
       return theme.colors.content.secondary
