@@ -20,7 +20,10 @@ interface SearchSelectBaseProps<Option> extends InputHTMLAttributes<HTMLInputEle
   /** Props passed to the clear button element. */
   clearButtonProps?: ButtonHTMLAttributes<HTMLButtonElement> & { "data-testid": string }
 
-  /** Styles for the dropdown. */
+  /** Props passed to dropdown element. */
+  dropdownProps?: HTMLAttributes<HTMLDivElement> & { "data-testid": string }
+
+  /** @deprecated Since version 6.168.3. Use `dropdownProps` instead. */
   dropdownStyles?: CSSProperties
 
   /** Filtering function to be used to populate dropdown. Filters on `option.value` by default. */
@@ -74,6 +77,7 @@ export type SearchSelectProps<Option> = SearchSelectBaseProps<Option> &
   (SearchSelectWithLabelProps | SearchSelectWithoutLabelProps)
 
 export const SearchSelect = <Option extends BaseOption>({
+  dropdownProps,
   dropdownStyles = {},
   filter = defaultFilter,
   onClearClick,
@@ -193,7 +197,7 @@ export const SearchSelect = <Option extends BaseOption>({
         ref={inputRef}
       />
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
-        <OptionsWrapper style={dropdownStyles}>
+        <OptionsWrapper style={dropdownStyles} {...dropdownProps}>
           {filteredOptions?.map((option, index) => (
             <SearchSelectOption
               key={option.key ?? option.value}
