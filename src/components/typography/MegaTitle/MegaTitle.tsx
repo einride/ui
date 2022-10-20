@@ -18,7 +18,7 @@ export interface MegaTitleProps extends HTMLAttributes<HTMLHeadingElement> {
 }
 
 export const MegaTitle = forwardRef<HTMLHeadingElement, MegaTitleProps>(
-  ({ children, color = "primary", font = "heading", ...props }, ref) => {
+  ({ children, color, font, ...props }, ref) => {
     return (
       <StyledText color={color} font={font} {...props} ref={ref}>
         {children}

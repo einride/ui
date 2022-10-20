@@ -18,7 +18,7 @@ export interface Title1Props extends HTMLAttributes<HTMLHeadingElement> {
 }
 
 export const Title1 = forwardRef<HTMLHeadingElement, Title1Props>(
-  ({ children, color = "primary", font = "heading", ...props }, ref) => {
+  ({ children, color, font, ...props }, ref) => {
     return (
       <StyledText color={color} font={font} {...props} ref={ref}>
         {children}

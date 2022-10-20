@@ -18,7 +18,7 @@ export interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
 }
 
 export const Paragraph = forwardRef<HTMLParagraphElement, ParagraphProps>(
-  ({ children, color = "primary", font = "body", ...props }, ref) => {
+  ({ children, color, font, ...props }, ref) => {
     return (
       <StyledText color={color} font={font} {...props} ref={ref}>
         {children}

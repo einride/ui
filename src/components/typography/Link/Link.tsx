@@ -19,8 +19,8 @@ export type LinkProps<C extends ElementType> = {
 
 export const Link = <C extends ElementType>({
   children,
-  color = "primary",
-  font = "body",
+  color,
+  font,
   ...props
 }: LinkProps<C>): JSX.Element => {
   return (
