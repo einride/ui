@@ -10,10 +10,10 @@ export interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
   /** Paragraph content. */
   children: ReactNode
 
-  /** Text color of the paragraph. Default is `primary`. */
+  /** Text color of the paragraph. */
   color?: ContentColor
 
-  /** Font styling.  */
+  /** Font styling. */
   font?: Font
 }
 

@@ -10,15 +10,15 @@ export interface Title2Props extends HTMLAttributes<HTMLHeadingElement> {
   /** Title content. */
   children: ReactNode
 
-  /** Text color of the title. Default is `primary`. */
+  /** Text color of the title. */
   color?: ContentColor
 
-  /** Font styling.  */
+  /** Font styling. */
   font?: Font
 }
 
 export const Title2 = forwardRef<HTMLHeadingElement, Title2Props>(
-  ({ children, color = "primary", font = "heading", ...props }, ref) => {
+  ({ children, color, font, ...props }, ref) => {
     return (
       <StyledText color={color} font={font} {...props} ref={ref}>
         {children}

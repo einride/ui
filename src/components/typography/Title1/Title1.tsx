@@ -10,10 +10,10 @@ export interface Title1Props extends HTMLAttributes<HTMLHeadingElement> {
   /** Title content. */
   children: ReactNode
 
-  /** Text color of the title. Default is `primary`. */
+  /** Text color of the title. */
   color?: ContentColor
 
-  /** Font styling.  */
+  /** Font styling. */
   font?: Font
 }
 

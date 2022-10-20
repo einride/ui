@@ -10,10 +10,10 @@ export interface MegaTitleProps extends HTMLAttributes<HTMLHeadingElement> {
   /** Mega title content. */
   children: ReactNode
 
-  /** Text color of the mega title. Default is `primary`. */
+  /** Text color of the mega title. */
   color?: ContentColor
 
-  /** Font styling.  */
+  /** Font styling. */
   font?: Font
 }
 

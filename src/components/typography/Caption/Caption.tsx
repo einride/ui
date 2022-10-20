@@ -10,10 +10,10 @@ export interface CaptionProps extends HTMLAttributes<HTMLParagraphElement> {
   /** Caption content. */
   children: ReactNode
 
-  /** Text color of the caption. Default is `primary`. */
+  /** Text color of the caption. */
   color?: ContentColor
 
-  /** Font styling.  */
+  /** Font styling. */
   font?: Font
 }
 

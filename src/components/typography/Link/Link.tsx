@@ -4,9 +4,16 @@ import { ComponentPropsWithoutRef, ElementType, ReactNode } from "react"
 import { ContentColor, Font, Theme } from "../../../lib/theme/types"
 
 export type LinkProps<C extends ElementType> = {
+  /** Effective element used. */
   as?: C
+
+  /** Link content. */
   children: ReactNode
+
+  /** Text color of the link. */
   color?: Color
+
+  /** Font styling. */
   font?: Font
 } & ComponentPropsWithoutRef<C>
 
