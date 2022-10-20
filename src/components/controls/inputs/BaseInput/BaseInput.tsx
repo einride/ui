@@ -53,7 +53,9 @@ export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
           {leftIcon && <LeftIconWrapper>{leftIcon}</LeftIconWrapper>}
           <StyledInput
             {...props}
-            {...(status === "fail" && { "aria-errormessage": messageId, "aria-invalid": "true" })}
+            aria-errormessage={status === "fail" && message ? messageId : undefined}
+            aria-describedby={status !== "fail" && message ? messageId : undefined}
+            aria-invalid={status === "fail"}
             hasLabel={!!label}
             leftIcon={!!leftIcon}
             rightIcon={!!rightIcon}
