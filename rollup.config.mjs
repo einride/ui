@@ -4,6 +4,7 @@ import typescript from "@rollup/plugin-typescript"
 export default {
   external: [
     "@einride/hooks",
+    "@emotion/is-prop-valid",
     "@emotion/react",
     "@emotion/styled",
     "@mantine/hooks",
