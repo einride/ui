@@ -1,12 +1,7 @@
 import { usePrefersColorScheme } from "@einride/hooks"
-import { ThemeProvider } from "@emotion/react"
-import { MotionConfig } from "framer-motion"
-import merge from "lodash.merge"
 import { ReactNode } from "react"
-import { CSSReset } from "../lib/CSSReset"
-import { GlobalStyles } from "../lib/GlobalStyles"
-import { themes } from "../lib/theme/theme"
 import { ColorScheme, ColorSchemeProvider } from "./ColorSchemeProvider"
+import { EinrideThemeProvider } from "./EinrideThemeProvider"
 
 interface EinrideProviderProps {
   children: ReactNode
@@ -27,19 +22,11 @@ export const EinrideProvider = ({
 }: EinrideProviderProps): JSX.Element => {
   const colorScheme = useColorScheme(colorMode)
 
-  const defaultTheme = themes[colorScheme]
-  const mergedTheme = {
-    ...merge(defaultTheme, theme),
-    custom: customTheme[colorScheme],
-  }
-
   return (
     <ColorSchemeProvider colorScheme={colorScheme}>
-      <ThemeProvider theme={mergedTheme}>
-        {resetCSS && <CSSReset />}
-        <GlobalStyles />
-        <MotionConfig reducedMotion="user">{children}</MotionConfig>
-      </ThemeProvider>
+      <EinrideThemeProvider resetCSS={resetCSS} customTheme={customTheme} theme={theme}>
+        {children}
+      </EinrideThemeProvider>
     </ColorSchemeProvider>
   )
 }
