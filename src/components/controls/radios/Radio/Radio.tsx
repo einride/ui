@@ -59,6 +59,7 @@ const Wrapper = styled.div`
 
 const StyledInput = styled.input`
   appearance: none;
+  flex-shrink: 0; // ensure consistent radio button shape dispite long label content
   inline-size: ${({ theme }) => 3 * theme.spacer}px;
   block-size: ${({ theme }) => 3 * theme.spacer}px;
   background: ${({ theme }) => theme.colors.background.primary};
