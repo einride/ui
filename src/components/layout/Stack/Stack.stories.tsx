@@ -1,6 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react"
-import { TextInput } from "../../controls/inputs/TextInput/TextInput"
-import { Paragraph } from "../../typography/Paragraph/Paragraph"
+import { IconButton } from "../../controls/buttons/IconButton/IconButton"
+import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
+import { SecondaryButton } from "../../controls/buttons/SecondaryButton/SecondaryButton"
 import { Stack } from "./Stack"
 
 export default {
@@ -10,20 +11,17 @@ export default {
 
 const Template: ComponentStory<typeof Stack> = (args) => (
   <Stack {...args}>
-    <Paragraph>This is the first row in the stack.</Paragraph>
-    <TextInput label="First and last name" />
-    <Paragraph>This is the last row in the stack.</Paragraph>
+    <PrimaryButton>Button</PrimaryButton>
+    <SecondaryButton>Button</SecondaryButton>
+    <IconButton aria-label="Button" icon="bolt" />
   </Stack>
 )
 
 export const Default = Template.bind({})
 Default.args = {}
 
-export const Custom = Template.bind({})
-Custom.args = {
+export const AlignStart = Template.bind({})
+AlignStart.args = {
   ...Default.args,
-  align: "stretch",
-  gap: "xl",
-  width: "50%",
-  justify: "center",
+  align: "start",
 }
