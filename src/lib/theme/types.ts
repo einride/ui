@@ -38,32 +38,37 @@ interface ButtonIcon {
   primary: string
 }
 
-export type ContentColor =
-  | "primary"
-  | "primaryInverted"
-  | "secondary"
-  | "tertiary"
-  | "positive"
-  | "negative"
-  | "reverse"
+export const contentColors = [
+  "primary",
+  "primaryInverted",
+  "secondary",
+  "tertiary",
+  "positive",
+  "negative",
+  "reverse",
+] as const
+export type ContentColor = typeof contentColors[number]
 
-export type Font = "heading" | "body" | "mono"
+export const fonts = ["heading", "body", "mono"] as const
+export type Font = typeof fonts[number]
 
 type FontSize = "sm" | "md" | "lg" | "xl" | "2xl" | "3xl"
 
 type FontVariant = { numeric: string }
 
-type FontWeight =
-  | "hairline"
-  | "thin"
-  | "light"
-  | "normal"
-  | "book"
-  | "medium"
-  | "semibold"
-  | "bold"
-  | "extrabold"
-  | "black"
+const fontWeights = [
+  "hairline",
+  "thin",
+  "light",
+  "normal",
+  "book",
+  "medium",
+  "semibold",
+  "bold",
+  "extrabold",
+  "black",
+]
+export type FontWeight = typeof fontWeights[number]
 
 type MediaQuery = "belowMd" | "onlyMd" | "md" | "belowLg" | "lg"
 
