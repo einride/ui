@@ -75,7 +75,7 @@ export const decorators = [
 ]
 
 const SetupColorScheme = ({ children, colorScheme }) => {
-  const { setColorScheme}  = useColorScheme()
+  const { setColorScheme } = useColorScheme()
 
   useEffect(() => {
     setColorScheme(colorScheme)
