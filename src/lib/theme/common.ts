@@ -59,6 +59,13 @@ export const common: CommonTheme = {
     gap: "var(--einride-ui-grid-gap)",
     columns: "var(--einride-ui-grid-columns)",
   },
+  spacing: {
+    xs: "0.5rem",
+    sm: "1rem",
+    md: "1.5rem",
+    lg: "3rem",
+    xl: "4rem",
+  },
   transitions: {
     easeIn: {
       duration: "400ms",
