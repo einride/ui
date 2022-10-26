@@ -30,7 +30,7 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(
 interface WrapperProps {
   align: AlignItems
   gap: Gap
-  justify?: JustifyContent
+  justify: JustifyContent
   width?: Width
 }
 
