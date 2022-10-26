@@ -4,7 +4,6 @@ const MEDIUM_BREAKPOINT_PIXELS = 600
 const LARGE_BREAKPOINT_PIXELS = 1280
 
 export const common: CommonTheme = {
-  spacer: 8,
   borderRadii: {
     none: "0",
     xs: "0.25rem",
@@ -59,6 +58,8 @@ export const common: CommonTheme = {
     gap: "var(--einride-ui-grid-gap)",
     columns: "var(--einride-ui-grid-columns)",
   },
+  spacer: 8,
+  spacingBase: 0.5,
   spacing: {
     xs: "0.5rem",
     sm: "1rem",
