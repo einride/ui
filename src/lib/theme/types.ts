@@ -71,6 +71,8 @@ export type Radius = "none" | "xs" | "sm" | "lg" | "xl" | "full"
 
 type Spacer = number
 
+type SpacingBase = number
+
 export const spacings = ["xs", "sm", "md", "lg", "xl"] as const
 export type Spacing = typeof spacings[number]
 
@@ -102,6 +104,7 @@ export interface CommonTheme {
   fontWeights: Record<FontWeight, number>
   grid: Record<string, string>
   spacer: Spacer
+  spacingBase: SpacingBase
   spacing: Record<Spacing, string>
   transitions: Record<Transition, TransitionVariant>
 }
