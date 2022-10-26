@@ -1,18 +1,15 @@
 import styled from "@emotion/styled"
-import { forwardRef, HTMLAttributes, ReactNode } from "react"
+import { ComponentPropsWithoutRef, forwardRef } from "react"
 import { isInArray } from "../../../lib/theme/guard"
 import { AlignItems, As, Gap, JustifyContent, Width } from "../../../lib/theme/props"
 import { spacings, Theme } from "../../../lib/theme/types"
 
-interface StackProps extends HTMLAttributes<HTMLDivElement> {
+interface StackProps extends ComponentPropsWithoutRef<"div"> {
   /** `align-items` CSS property. Default is `stretch`. */
   align?: AlignItems
 
   /** Effective element used. Default is `div`. */
   as?: As
-
-  /** Content in layout. */
-  children: ReactNode
 
   /**  Gap between children. Default is `sm`. */
   gap?: Gap
@@ -47,8 +44,8 @@ const Wrapper = styled.div<WrapperProps>`
 `
 
 const getGap = (gap: Gap, theme: Theme): string => {
-  if (typeof gap === "number") return `${gap * theme.spacer}px`
-  if (gap === "none") return ""
+  if (typeof gap === "number") return `${gap * theme.spacingBase}rem`
+  if (gap === "none") return "0px"
   if (isInArray(gap, spacings)) return theme.spacing[gap]
   return gap.toString()
 }
