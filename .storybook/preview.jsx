@@ -1,6 +1,8 @@
 import styled from "@emotion/styled"
 import { themes } from "@storybook/theming"
+import { useEffect } from "react"
 import { useDarkMode } from "storybook-dark-mode"
+import { useColorScheme } from "../src/contexts/ColorSchemeProvider"
 import { EinrideProvider } from "../src/contexts/EinrideProvider"
 import { einrideTheme } from "../src/lib/theme/einride"
 import { color } from "../src/primitives/color"
@@ -62,14 +64,25 @@ export const decorators = [
     const colorMode = useDarkMode() ? "dark" : "light"
     return (
       <EinrideProvider theme={einrideTheme} colorMode={colorMode}>
-        <Wrapper>
-          <Story />
-        </Wrapper>
+        <SetupColorScheme colorScheme={colorMode}>
+          <Wrapper>
+            <Story />
+          </Wrapper>
+        </SetupColorScheme>
       </EinrideProvider>
     )
   },
 ]
 
+const SetupColorScheme = ({ children, colorScheme }) => {
+  const { setColorScheme}  = useColorScheme()
+
+  useEffect(() => {
+    setColorScheme(colorScheme)
+  }, [colorScheme])
+
+  return <>{children}</>
+}
 const Wrapper = styled.div`
   padding: ${({ theme }) => theme.grid.gap};
 `
