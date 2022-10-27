@@ -3,17 +3,17 @@ import { MenuProvider } from "./MenuProvider"
 
 interface MenuProps extends ComponentPropsWithoutRef<"div"> {
   /** Position of the dropdown in relation to the trigger. Default is `bottom-start`. */
-  position?: Position
+  dropdownPosition?: DropdownPosition
 }
 
 export const Menu = forwardRef<HTMLDivElement, MenuProps>(
-  ({ children, position = "bottom-start", ...props }, ref) => {
+  ({ children, dropdownPosition = "bottom-start", ...props }, ref) => {
     return (
-      <MenuProvider position={position} {...props} ref={ref}>
+      <MenuProvider dropdownPosition={dropdownPosition} {...props} ref={ref}>
         {children}
       </MenuProvider>
     )
   },
 )
 
-type Position = "top-start" | "top-end" | "bottom-start" | "bottom-end"
+type DropdownPosition = "top-start" | "top-end" | "bottom-start" | "bottom-end"

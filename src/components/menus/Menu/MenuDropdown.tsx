@@ -7,7 +7,7 @@ type MenuDropdownProps = HTMLMotionProps<"div">
 
 export const MenuDropdown = forwardRef<HTMLDivElement, MenuDropdownProps>(
   ({ children, ...props }, ref): JSX.Element | null => {
-    const { isOpen, height, position } = useMenu()
+    const { isOpen, height, dropdownPosition } = useMenu()
 
     return (
       <AnimatePresence>
@@ -16,7 +16,7 @@ export const MenuDropdown = forwardRef<HTMLDivElement, MenuDropdownProps>(
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             initial={{ opacity: 0 }}
-            data-position={position}
+            data-position={dropdownPosition}
             menuTriggerHeight={height}
             {...props}
             ref={ref}

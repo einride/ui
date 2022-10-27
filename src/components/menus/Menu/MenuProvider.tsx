@@ -5,11 +5,11 @@ import { ComponentPropsWithoutRef, createContext, forwardRef, useContext, useMem
 
 interface MenuProviderProps extends ComponentPropsWithoutRef<"div"> {
   /** Position of the dropdown in relation to the trigger. Default is `bottom-start`. */
-  position: Position
+  dropdownPosition: DropdownPosition
 }
 
 export const MenuProvider = forwardRef<HTMLDivElement, MenuProviderProps>(
-  ({ children, position, ...props }, ref) => {
+  ({ children, dropdownPosition, ...props }, ref) => {
     const { isOpen, handlers } = useDisclosure(false)
     const { ref: elementSizeRef, height } = useElementSize()
     const clickOutsideRef = useClickOutside(handlers.close)
@@ -17,12 +17,12 @@ export const MenuProvider = forwardRef<HTMLDivElement, MenuProviderProps>(
 
     const value = useMemo(
       () => ({
+        dropdownPosition,
         isOpen,
         handlers,
         height,
-        position,
       }),
-      [handlers, isOpen, height, position],
+      [dropdownPosition, isOpen, handlers, height],
     )
 
     return (
@@ -35,7 +35,7 @@ export const MenuProvider = forwardRef<HTMLDivElement, MenuProviderProps>(
   },
 )
 
-export type Position = "top-start" | "top-end" | "bottom-start" | "bottom-end"
+export type DropdownPosition = "top-start" | "top-end" | "bottom-start" | "bottom-end"
 
 const Wrapper = styled.div`
   position: relative;
@@ -43,10 +43,10 @@ const Wrapper = styled.div`
 `
 
 interface MenuContext {
+  dropdownPosition: DropdownPosition
   isOpen: boolean
   handlers: UseDisclosureHandlers
   height: number
-  position: Position
 }
 
 const Context = createContext<MenuContext | null>(null)
