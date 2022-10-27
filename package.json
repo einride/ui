@@ -54,7 +54,7 @@
     "@types/lodash.merge": "4.6.7",
     "@types/react": "18.0.23",
     "@types/react-dom": "18.0.7",
-    "@vitejs/plugin-react": "2.1.0",
+    "@vitejs/plugin-react": "2.2.0",
     "chromatic": "6.11.2",
     "concurrently": "7.5.0",
     "eslint": "8.26.0",
