@@ -156,7 +156,7 @@ const Wrapper = styled(motion.div)<{ size: Size }>`
     inset-inline-start: unset;
     border-end-start-radius: ${({ theme }) => 2 * theme.spacer}px;
     border-end-end-radius: ${({ theme }) => 2 * theme.spacer}px;
-    min-inline-size: ${({ size, theme }) =>
+    inline-size: ${({ size, theme }) =>
       size === "sm"
         ? `calc((300% / 8) - 3 * ${theme.spacer}px)` // to fit grid
         : `calc((100% / 2) - 3 * ${theme.spacer}px)`}; // to fit grid
@@ -167,7 +167,7 @@ const Wrapper = styled(motion.div)<{ size: Size }>`
     inset-inline-end: ${({ theme }) => 3 * theme.spacer}px;
     inset-inline-start: unset;
     inset-block-end: ${({ theme }) => 3 * theme.spacer}px;
-    min-inline-size: ${({ size, theme }) =>
+    inline-size: ${({ size, theme }) =>
       size === "sm"
         ? `calc((100% / 3) - 4 * ${theme.spacer}px)` // to fit grid
         : `calc((100% / 2) - 4.5 * ${theme.spacer}px)`}; // to fit grid
