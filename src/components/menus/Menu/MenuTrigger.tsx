@@ -1,7 +1,7 @@
-import { cloneElement, ComponentPropsWithRef, forwardRef, Fragment, ReactElement } from "react"
+import { cloneElement, ComponentPropsWithoutRef, forwardRef, Fragment, ReactElement } from "react"
 import { useMenu } from "./MenuProvider"
 
-type MenuTriggerProps = ComponentPropsWithRef<"div">
+type MenuTriggerProps = ComponentPropsWithoutRef<"div">
 
 export const MenuTrigger = forwardRef<HTMLDivElement, MenuTriggerProps>(
   ({ children, ...props }, ref) => {

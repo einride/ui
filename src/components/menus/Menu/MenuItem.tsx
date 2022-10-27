@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithRef, forwardRef, ReactNode } from "react"
+import { ComponentPropsWithoutRef, forwardRef, ReactNode } from "react"
 
-interface MenuItemProps extends ComponentPropsWithRef<"button"> {
+interface MenuItemProps extends ComponentPropsWithoutRef<"button"> {
   icon?: ReactNode
 }
 

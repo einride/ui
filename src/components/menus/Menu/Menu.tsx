@@ -1,7 +1,7 @@
-import { ComponentPropsWithRef, forwardRef } from "react"
+import { ComponentPropsWithoutRef, forwardRef } from "react"
 import { MenuProvider } from "./MenuProvider"
 
-interface MenuProps extends ComponentPropsWithRef<"div"> {
+interface MenuProps extends ComponentPropsWithoutRef<"div"> {
   /** Position of the dropdown in relation to the trigger. Default is `bottom-start`. */
   position?: Position
 }

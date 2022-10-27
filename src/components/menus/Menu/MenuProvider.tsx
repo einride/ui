@@ -1,9 +1,9 @@
 import { useDisclosure, UseDisclosureHandlers } from "@einride/hooks"
 import styled from "@emotion/styled"
 import { useClickOutside, useElementSize, useMergedRef } from "@mantine/hooks"
-import { ComponentPropsWithRef, createContext, forwardRef, useContext, useMemo } from "react"
+import { ComponentPropsWithoutRef, createContext, forwardRef, useContext, useMemo } from "react"
 
-interface MenuProviderProps extends ComponentPropsWithRef<"div"> {
+interface MenuProviderProps extends ComponentPropsWithoutRef<"div"> {
   /** Position of the dropdown in relation to the trigger. Default is `bottom-start`. */
   position: Position
 }
