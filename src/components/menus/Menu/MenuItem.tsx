@@ -1,14 +1,23 @@
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, forwardRef, ReactNode } from "react"
+import { useMenu } from "./MenuProvider"
 
 interface MenuItemProps extends ComponentPropsWithoutRef<"button"> {
   icon?: ReactNode
+  onClick?: () => void
 }
 
 export const MenuItem = forwardRef<HTMLButtonElement, MenuItemProps>(
-  ({ children, icon, ...props }, ref) => {
+  ({ children, icon, onClick, ...props }, ref) => {
+    const { handlers } = useMenu()
+
+    const handleClick = (): void => {
+      handlers.close()
+      onClick?.()
+    }
+
     return (
-      <Wrapper {...props} ref={ref}>
+      <Wrapper onClick={handleClick} {...props} ref={ref}>
         {children}
         {icon}
       </Wrapper>
