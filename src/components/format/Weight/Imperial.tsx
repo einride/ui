@@ -26,4 +26,4 @@ const formatImperial = (
   }).format(kilograms * POUND_FACTOR)
 }
 
-const POUND_FACTOR = 2.2046226218
+export const POUND_FACTOR = 2.2046226218
