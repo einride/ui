@@ -9,4 +9,5 @@ export type FontFamily = Font | Omit<string, Font>
 export type FontWeight = Weight | number
 export type Gap = Spacing | "none" | Omit<string, Spacing | "none"> | number
 export type JustifyContent = CSSProperties["justifyContent"]
+export type TextAlign = CSSProperties["textAlign"]
 export type Width = Spacing | Omit<string, Spacing> | number

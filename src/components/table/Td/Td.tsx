@@ -1,5 +1,6 @@
 import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
+import { TextAlign } from "../../../lib/theme/props"
 import { ContentColor, Font } from "../../../lib/theme/types"
 
 interface TdProps extends HTMLAttributes<HTMLTableCellElement> {
@@ -14,6 +15,9 @@ interface TdProps extends HTMLAttributes<HTMLTableCellElement> {
 
   /** Font used in the table data cell. Default is `body`. */
   font?: Font
+
+  /** `text-align` CSS property. Set to `end` to end-align content in table cell.  */
+  textAlign?: TextAlign
 }
 
 export const Td = forwardRef<HTMLTableCellElement, TdProps>(
@@ -26,7 +30,13 @@ export const Td = forwardRef<HTMLTableCellElement, TdProps>(
   },
 )
 
-const StyledTd = styled.td<{ color: ContentColor; font: Font }>`
+interface StyledTdProps {
+  color: ContentColor
+  font: Font
+  textAlign?: TextAlign
+}
+
+const StyledTd = styled.td<StyledTdProps>`
   color: ${({ color, theme }) => theme.colors.content[color]};
   font-family: ${({ font, theme }) => theme.fonts[font]};
   font-size: ${({ theme }) => theme.fontSizes.md};
@@ -34,4 +44,5 @@ const StyledTd = styled.td<{ color: ContentColor; font: Font }>`
   line-height: calc(4 / 3);
   padding-inline: ${({ theme }) => 2 * theme.spacer}px;
   block-size: ${({ theme }) => 10 * theme.spacer}px;
+  text-align: ${({ textAlign }) => textAlign};
 `
