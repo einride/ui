@@ -54,7 +54,7 @@ const InTableTemlate: ComponentStory<typeof Menu> = (args) => (
         <Tr key={founder.key}>
           <Td>{founder.firstName}</Td>
           <Td>{founder.lastName}</Td>
-          <Td style={{ display: "flex", alignItems: "center", justifyContent: "end" }}>
+          <Td textAlign="end">
             <Menu {...args}>
               <MenuTrigger>
                 <IconButton aria-label="See options" icon="ellipsis" />
