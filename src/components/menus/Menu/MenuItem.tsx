@@ -30,6 +30,7 @@ const StyledItem = styled(DropdownMenu.Item)`
   color: ${({ theme }) => theme.colors.content.primary};
   background: ${({ theme }) => theme.colors.background.secondary};
   border-radius: ${({ theme }) => theme.borderRadii.sm};
+  pointer-events: auto;
   transition-duration: ${({ theme }) => theme.transitions.easeIn.duration};
   transition-timing-function: ${({ theme }) => theme.transitions.easeIn.timingFunction};
 
