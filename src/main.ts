@@ -89,6 +89,7 @@ export type {
   Radius,
   Theme,
 } from "./lib/theme/types"
+export { zIndex } from "./lib/zIndex"
 export { primitives } from "./primitives/primitives"
 export {
   ChargerIcon,

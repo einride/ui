@@ -5,6 +5,7 @@ import { AnimatePresence, HTMLMotionProps, motion, MotionStyle } from "framer-mo
 import { forwardRef, ReactNode, useEffect } from "react"
 import { useTheme } from "../../../hooks/useTheme"
 import { Theme } from "../../../lib/theme/types"
+import { zIndex } from "../../../lib/zIndex"
 import { IconButton, IconButtonProps } from "../../controls/buttons/IconButton/IconButton"
 import {
   PrimaryButton,
@@ -142,7 +143,7 @@ const Overlay = styled(motion.div)`
   position: fixed;
   inset: 0;
   background: ${({ theme }) => theme.colors.background.focus};
-  z-index: 1;
+  z-index: ${zIndex.overlay};
 `
 
 const Wrapper = styled(motion.div)`
@@ -155,7 +156,7 @@ const Wrapper = styled(motion.div)`
   border-start-end-radius: ${({ theme }) => theme.borderRadii.lg};
   // prevent navigation bar from overflowing popover
   overflow: hidden;
-  z-index: 2;
+  z-index: ${zIndex.sheets};
 
   @media ${({ theme }) => theme.mediaQueries.md} {
     inset-block-start: 0;

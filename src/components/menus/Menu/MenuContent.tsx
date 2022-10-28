@@ -2,6 +2,7 @@ import { useTheme } from "@emotion/react"
 import styled from "@emotion/styled"
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
 import { ComponentPropsWithoutRef, forwardRef } from "react"
+import { zIndex } from "../../../lib/zIndex"
 
 type MenuContentProps = ComponentPropsWithoutRef<"div">
 
@@ -40,7 +41,7 @@ const StyledContent = styled(DropdownMenu.Content)`
   border-radius: ${({ theme }) => theme.borderRadii.lg};
   display: flex;
   flex-direction: column;
-  z-index: 1;
+  z-index: ${zIndex.dropdown};
 
   @media ${({ theme }) => theme.mediaQueries.belowMd} {
     position: fixed;
