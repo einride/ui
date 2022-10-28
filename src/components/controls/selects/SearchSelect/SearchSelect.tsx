@@ -11,6 +11,7 @@ import {
   useRef,
   useState,
 } from "react"
+import { zIndex } from "../../../../lib/zIndex"
 import { defaultFilter, filterOptions } from "./filterOptions"
 import { SearchSelectInput } from "./SearchSelectInput"
 import { SearchSelectOption } from "./SearchSelectOption"
@@ -236,5 +237,5 @@ const OptionsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacer}px;
-  z-index: 1;
+  z-index: ${zIndex.dropdown};
 `

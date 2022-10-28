@@ -2,6 +2,7 @@ import styled from "@emotion/styled"
 import { useFocusReturn, useFocusTrap, useMergedRef, useScrollLock } from "@mantine/hooks"
 import { AnimatePresence, HTMLMotionProps, motion, MotionStyle } from "framer-motion"
 import { forwardRef, ReactNode, useCallback, useEffect } from "react"
+import { zIndex } from "../../../lib/zIndex"
 import {
   PrimaryButton,
   PrimaryButtonProps,
@@ -130,7 +131,7 @@ const Overlay = styled(motion.div)`
   position: fixed;
   inset: 0;
   background: ${({ theme }) => theme.colors.background.focus};
-  z-index: 1;
+  z-index: ${zIndex.overlay};
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -148,7 +149,7 @@ const Wrapper = styled(motion.div)`
   padding: ${({ theme }) => 2 * theme.spacer}px;
   background: ${({ theme }) => theme.colors.background.primaryElevated};
   border-radius: ${({ theme }) => theme.borderRadii.lg};
-  z-index: 2;
+  z-index: ${zIndex.alert};
   display: flex;
   flex-direction: column;
 `
