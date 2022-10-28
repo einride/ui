@@ -1,4 +1,6 @@
+import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { userEvent, within } from "@storybook/testing-library"
 import { Icon } from "../../content/Icon/Icon"
 import { IconButton } from "../../controls/buttons/IconButton/IconButton"
 import { Table } from "../../table/Table/Table"
@@ -74,4 +76,18 @@ const InTableTemlate: ComponentStory<typeof Menu> = (args) => (
 )
 
 export const InTable = InTableTemlate.bind({})
-Default.args = {}
+InTableTemlate.args = {}
+
+export const Pointer = Default.bind({})
+Pointer.args = {}
+Pointer.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement.parentElement ?? canvasElement)
+  const button = canvas.getByRole("button")
+  await userEvent.click(button)
+  const menu = canvas.getByRole("menu")
+  await expect(menu).toBeInTheDocument()
+  const firstItem = canvas.getByRole("menuitem", { name: "Option 1" })
+  await expect(firstItem).toBeInTheDocument()
+  await userEvent.click(firstItem)
+  await expect(menu).not.toBeInTheDocument()
+}
