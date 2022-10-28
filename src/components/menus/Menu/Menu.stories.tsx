@@ -8,7 +8,7 @@ import { Th } from "../../table/Th/Th"
 import { Thead } from "../../table/Thead/Thead"
 import { Tr } from "../../table/Tr/Tr"
 import { Menu } from "./Menu"
-import { MenuDropdown } from "./MenuDropdown"
+import { MenuContent } from "./MenuContent"
 import { MenuItem } from "./MenuItem"
 import { MenuTrigger } from "./MenuTrigger"
 
@@ -22,12 +22,12 @@ const Template: ComponentStory<typeof Menu> = (args) => (
     <MenuTrigger>
       <IconButton aria-label="See options" icon="ellipsis" />
     </MenuTrigger>
-    <MenuDropdown>
+    <MenuContent>
       <MenuItem icon={<Icon name="arrowDownCircle" />}>Option 1</MenuItem>
       <MenuItem icon={<Icon name="arrowDownCircle" />}>Option 2</MenuItem>
       <MenuItem>Option 3</MenuItem>
       <MenuItem>Option 4</MenuItem>
-    </MenuDropdown>
+    </MenuContent>
   </Menu>
 )
 
@@ -55,16 +55,16 @@ const InTableTemlate: ComponentStory<typeof Menu> = (args) => (
           <Td>{founder.firstName}</Td>
           <Td>{founder.lastName}</Td>
           <Td style={{ display: "flex", alignItems: "center", justifyContent: "end" }}>
-            <Menu {...args} dropdownPosition="bottom-end">
+            <Menu {...args}>
               <MenuTrigger>
                 <IconButton aria-label="See options" icon="ellipsis" />
               </MenuTrigger>
-              <MenuDropdown>
+              <MenuContent>
                 <MenuItem icon={<Icon name="arrowDownCircle" />}>Option 1</MenuItem>
                 <MenuItem icon={<Icon name="arrowDownCircle" />}>Option 2</MenuItem>
                 <MenuItem>Option 3</MenuItem>
                 <MenuItem>Option 4</MenuItem>
-              </MenuDropdown>
+              </MenuContent>
             </Menu>
           </Td>
         </Tr>

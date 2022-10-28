@@ -1,19 +1,10 @@
-import { ComponentPropsWithoutRef, forwardRef } from "react"
-import { MenuProvider } from "./MenuProvider"
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
+import { ReactNode } from "react"
 
-interface MenuProps extends ComponentPropsWithoutRef<"div"> {
-  /** Position of the dropdown in relation to the trigger. Default is `bottom-start`. */
-  dropdownPosition?: DropdownPosition
+interface MenuProps {
+  children: ReactNode
 }
 
-export const Menu = forwardRef<HTMLDivElement, MenuProps>(
-  ({ children, dropdownPosition = "bottom-start", ...props }, ref) => {
-    return (
-      <MenuProvider dropdownPosition={dropdownPosition} {...props} ref={ref}>
-        {children}
-      </MenuProvider>
-    )
-  },
-)
-
-type DropdownPosition = "top-start" | "top-end" | "bottom-start" | "bottom-end"
+export const Menu = ({ children }: MenuProps): JSX.Element => {
+  return <DropdownMenu.Root>{children}</DropdownMenu.Root>
+}

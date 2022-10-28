@@ -1,34 +1,30 @@
 import styled from "@emotion/styled"
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
 import { ComponentPropsWithoutRef, forwardRef, ReactNode } from "react"
-import { useMenu } from "./MenuProvider"
 
-interface MenuItemProps extends ComponentPropsWithoutRef<"button"> {
+interface MenuItemProps extends ComponentPropsWithoutRef<"div"> {
+  children: ReactNode
   icon?: ReactNode
-  onClick?: () => void
+  onSelect?: () => void
 }
 
-export const MenuItem = forwardRef<HTMLButtonElement, MenuItemProps>(
-  ({ children, icon, onClick, ...props }, ref) => {
-    const { handlers } = useMenu()
-
-    const handleClick = (): void => {
-      handlers.close()
-      onClick?.()
-    }
-
+export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
+  ({ children, icon, ...props }, forwardedRef) => {
     return (
-      <Wrapper onClick={handleClick} {...props} ref={ref}>
+      <StyledItem {...props} ref={forwardedRef}>
         {children}
         {icon}
-      </Wrapper>
+      </StyledItem>
     )
   },
 )
 
-const Wrapper = styled.button`
+const StyledItem = styled(DropdownMenu.Item)`
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   padding-block: ${({ theme }) => 1.5 * theme.spacer}px;
   padding-inline: ${({ theme }) => 1 * theme.spacer}px;
   color: ${({ theme }) => theme.colors.content.primary};
@@ -37,12 +33,12 @@ const Wrapper = styled.button`
   transition-duration: ${({ theme }) => theme.transitions.easeIn.duration};
   transition-timing-function: ${({ theme }) => theme.transitions.easeIn.timingFunction};
 
-  &:hover {
+  &:focus-visible {
+    outline: none;
     background: ${({ theme }) => theme.colors.background.tertiary};
   }
 
-  &:focus-visible {
-    outline: none;
+  &:focus-visible:not(:hover) {
     box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
   }
 `
