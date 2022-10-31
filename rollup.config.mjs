@@ -1,16 +1,11 @@
 import image from "@rollup/plugin-image"
 import typescript from "@rollup/plugin-typescript"
+import pkg from "./package.json" assert { type: "json" }
 
 export default {
   external: [
-    "@einride/hooks",
-    "@emotion/is-prop-valid",
-    "@emotion/react",
-    "@emotion/styled",
-    "@mantine/hooks",
-    "framer-motion",
-    "lodash.merge",
-    "react",
+    ...Object.keys(pkg.dependencies ?? {}),
+    ...Object.keys(pkg.peerDependencies ?? {}),
     "react/jsx-runtime",
   ],
   input: "src/main.ts",
