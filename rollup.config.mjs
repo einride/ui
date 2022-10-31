@@ -3,11 +3,6 @@ import typescript from "@rollup/plugin-typescript"
 import pkg from "./package.json" assert { type: "json" }
 
 export default {
-  external: [
-    ...Object.keys(pkg.dependencies ?? {}),
-    ...Object.keys(pkg.peerDependencies ?? {}),
-    "react/jsx-runtime",
-  ],
   input: "src/main.ts",
   output: [
     {
@@ -18,6 +13,11 @@ export default {
       file: "dist/esm/main.js",
       format: "esm",
     },
+  ],
+  external: [
+    ...Object.keys(pkg.dependencies ?? {}),
+    ...Object.keys(pkg.peerDependencies ?? {}),
+    "react/jsx-runtime",
   ],
   plugins: [image(), typescript({ tsconfig: "./tsconfig.build.json" })],
 }
