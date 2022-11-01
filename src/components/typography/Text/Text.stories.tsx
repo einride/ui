@@ -18,7 +18,7 @@ export const TitleXl = Template.bind({})
 TitleXl.args = {
   ...Default.args,
   as: "h2",
-  variant: "title-xl",
+  variant: "titleXl",
 }
 
 export const Secondary = Template.bind({})

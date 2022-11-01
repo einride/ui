@@ -31,7 +31,7 @@ export const Text = forwardRef<HTMLParagraphElement, TextProps>(
   },
 )
 
-type Variant = "body-sm" | "body-md" | "title-sm" | "title-md" | "title-lg" | "title-xl"
+type Variant = "bodySm" | "bodyMd" | "titleSm" | "titleMd" | "titleLg" | "titleXl"
 
 interface StyledTextProps {
   font?: FontFamily
@@ -61,17 +61,17 @@ const getFont = (font: FontFamily, theme: Theme): string => {
 
 const getFontSize = (theme: Theme, variant: Variant): string => {
   switch (variant) {
-    case "title-xl":
+    case "titleXl":
       return theme.fontSizes["3xl"]
-    case "title-lg":
+    case "titleLg":
       return theme.fontSizes["2xl"]
-    case "title-md":
+    case "titleMd":
       return theme.fontSizes.xl
-    case "title-sm":
+    case "titleSm":
       return theme.fontSizes.lg
-    case "body-md":
+    case "bodyMd":
       return theme.fontSizes.md
-    case "body-sm":
+    case "bodySm":
       return theme.fontSizes.sm
     default:
       return theme.fontSizes.md
@@ -86,17 +86,17 @@ const getFontWeight = (
   if (typeof weight === "number") return weight
   if (weight) return theme.fontWeights[weight]
   switch (variant) {
-    case "title-xl":
+    case "titleXl":
       return theme.fontWeights.medium
-    case "title-lg":
+    case "titleLg":
       return theme.fontWeights.medium
-    case "title-md":
+    case "titleMd":
       return theme.fontWeights.medium
-    case "title-sm":
+    case "titleSm":
       return theme.fontWeights.medium
-    case "body-md":
+    case "bodyMd":
       return theme.fontWeights.book
-    case "body-sm":
+    case "bodySm":
       return theme.fontWeights.book
     default:
       return theme.fontWeights.book
@@ -105,17 +105,17 @@ const getFontWeight = (
 
 const getLineHeight = (variant: Variant | undefined): string => {
   switch (variant) {
-    case "title-xl":
+    case "titleXl":
       return "1"
-    case "title-lg":
+    case "titleLg":
       return "calc(6 / 5)"
-    case "title-md":
+    case "titleMd":
       return "calc(8 / 7)"
-    case "title-sm":
+    case "titleSm":
       return "calc(4 / 3)"
-    case "body-md":
+    case "bodyMd":
       return "calc(4 / 3)"
-    case "body-sm":
+    case "bodySm":
       return "calc(8 / 7)"
     default:
       return "calc(4 / 3)"
@@ -124,17 +124,17 @@ const getLineHeight = (variant: Variant | undefined): string => {
 
 const getPaddingBlock = (variant: Variant | undefined): string => {
   switch (variant) {
-    case "title-xl":
+    case "titleXl":
       return "2px 6px"
-    case "title-lg":
+    case "titleLg":
       return "1px 7px"
-    case "title-md":
+    case "titleMd":
       return "6px 2px"
-    case "title-sm":
+    case "titleSm":
       return "7px 1px"
-    case "body-md":
+    case "bodyMd":
       return "5px 3px"
-    case "body-sm":
+    case "bodySm":
       return "3px 5px"
     default:
       return "5px 3px"
