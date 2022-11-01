@@ -9,6 +9,7 @@ import SiteSmallIcon from "./components/mapping/icons/siteSmall.svg"
 import SiteWithChargerIcon from "./components/mapping/icons/siteWithCharger.svg"
 import SiteWithChargerSmall from "./components/mapping/icons/siteWithChargerSmall.svg"
 
+export { Card } from "./components/cards/Card/Card"
 export { PrimaryCard } from "./components/cards/PrimaryCard/PrimaryCard"
 export { SecondaryCard } from "./components/cards/SecondaryCard/SecondaryCard"
 export { LinearGauge } from "./components/charts/LinearGauge/LinearGauge"
@@ -35,6 +36,7 @@ export { Segments } from "./components/controls/segments/Segments/Segments"
 export { SearchSelect } from "./components/controls/selects/SearchSelect/SearchSelect"
 export { Select } from "./components/controls/selects/Select/Select"
 export { Slider } from "./components/controls/sliders/Slider/Slider"
+export { Switch } from "./components/controls/switches/Switch/Switch"
 export { Textarea } from "./components/controls/textareas/Textarea/Textarea"
 export { Loader } from "./components/feedback/Loader/Loader"
 export { PageLoader } from "./components/feedback/PageLoader/PageLoader"
@@ -84,9 +86,9 @@ export { einrideTheme } from "./lib/theme/einride"
 export type {
   BackgroundColor,
   BorderColor,
+  BorderRadius as Radius,
   ContentColor,
   Font,
-  Radius,
   Theme,
 } from "./lib/theme/types"
 export { zIndex } from "./lib/zIndex"
