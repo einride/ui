@@ -23,5 +23,5 @@ Default.args = {}
 export const SpaceBetween = Template.bind({})
 SpaceBetween.args = {
   ...Default.args,
-  justify: "space-between",
+  justifyContent: "space-between",
 }

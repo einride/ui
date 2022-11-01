@@ -6,7 +6,7 @@ import { spacings, Theme } from "../../../lib/theme/types"
 
 interface GroupProps extends ComponentPropsWithoutRef<"div"> {
   /** `align-items` CSS property. */
-  align?: AlignItems
+  alignItems?: AlignItems
 
   /** Effective element used. Default is `div`. */
   as?: As
@@ -18,27 +18,29 @@ interface GroupProps extends ComponentPropsWithoutRef<"div"> {
   gap?: Gap
 
   /** `justify-content` CSS property. Default is `start`. */
-  justify?: JustifyContent
+  justifyContent?: JustifyContent
 }
 
 export const Group = forwardRef<HTMLDivElement, GroupProps>(
-  ({ flexWrap = "wrap", gap = "md", justify = "start", ...props }, ref) => {
-    return <Wrapper flexWrap={flexWrap} gap={gap} justify={justify} {...props} ref={ref} />
+  ({ flexWrap = "wrap", gap = "md", justifyContent = "start", ...props }, ref) => {
+    return (
+      <Wrapper flexWrap={flexWrap} gap={gap} justifyContent={justifyContent} {...props} ref={ref} />
+    )
   },
 )
 
 interface WrapperProps {
-  align?: AlignItems
+  alignItems?: AlignItems
   flexWrap: FlexWrap
   gap: Gap
-  justify: JustifyContent
+  justifyContent: JustifyContent
 }
 
 const Wrapper = styled.div<WrapperProps>`
   display: flex;
   flex-direction: row;
-  justify-content: ${({ justify }) => justify};
-  align-items: ${({ align }) => align};
+  justify-content: ${({ justifyContent }) => justifyContent};
+  align-items: ${({ alignItems }) => alignItems};
   flex-wrap: ${({ flexWrap }) => flexWrap};
   gap: ${({ gap, theme }) => getGap(gap, theme)};
 `
