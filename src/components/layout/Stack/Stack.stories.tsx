@@ -23,5 +23,5 @@ Default.args = {}
 export const AlignStart = Template.bind({})
 AlignStart.args = {
   ...Default.args,
-  align: "start",
+  alignItems: "start",
 }

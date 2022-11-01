@@ -1,17 +1,19 @@
-export type BackgroundColor =
-  | "primary"
-  | "primaryElevated"
-  | "primaryElevatedInverted"
-  | "primaryInverted"
-  | "secondary"
-  | "secondaryElevated"
-  | "secondaryElevatedInverted"
-  | "secondaryInverted"
-  | "tertiary"
-  | "positive"
-  | "negative"
-  | "focus"
-  | "reverse"
+export const backgroundColors = [
+  "primary",
+  "primaryElevated",
+  "primaryElevatedInverted",
+  "primaryInverted",
+  "secondary",
+  "secondaryElevated",
+  "secondaryElevatedInverted",
+  "secondaryInverted",
+  "tertiary",
+  "positive",
+  "negative",
+  "focus",
+  "reverse",
+] as const
+export type BackgroundColor = typeof backgroundColors[number]
 
 export type BorderColor = "primary" | "selected"
 

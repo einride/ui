@@ -6,7 +6,7 @@ import { spacings, Theme } from "../../../lib/theme/types"
 
 interface StackProps extends ComponentPropsWithoutRef<"div"> {
   /** `align-items` CSS property. Default is `stretch`. */
-  align?: AlignItems
+  alignItems?: AlignItems
 
   /** Effective element used. Default is `div`. */
   as?: As
@@ -15,30 +15,38 @@ interface StackProps extends ComponentPropsWithoutRef<"div"> {
   gap?: Gap
 
   /** `justify-content` CSS property. Default is `center`. */
-  justify?: JustifyContent
+  justifyContent?: JustifyContent
 
   /** Width of the stack. */
   width?: Width
 }
 
 export const Stack = forwardRef<HTMLDivElement, StackProps>(
-  ({ align = "stretch", gap = "md", justify = "center", ...props }, ref) => {
-    return <Wrapper align={align} gap={gap} justify={justify} {...props} ref={ref} />
+  ({ alignItems = "stretch", gap = "md", justifyContent = "center", ...props }, ref) => {
+    return (
+      <Wrapper
+        alignItems={alignItems}
+        gap={gap}
+        justifyContent={justifyContent}
+        {...props}
+        ref={ref}
+      />
+    )
   },
 )
 
 interface WrapperProps {
-  align: AlignItems
+  alignItems: AlignItems
   gap: Gap
-  justify: JustifyContent
+  justifyContent: JustifyContent
   width?: Width
 }
 
 const Wrapper = styled.div<WrapperProps>`
   display: flex;
   flex-direction: column;
-  justify-content: ${({ justify }) => justify};
-  align-items: ${({ align }) => align};
+  justify-content: ${({ justifyContent }) => justifyContent};
+  align-items: ${({ alignItems }) => alignItems};
   gap: ${({ gap, theme }) => getGap(gap, theme)};
   width: ${({ theme, width }) => width && getWidth(theme, width)};
 `
@@ -51,7 +59,7 @@ const getGap = (gap: Gap, theme: Theme): string => {
 }
 
 const getWidth = (theme: Theme, width: Width): string => {
-  if (typeof width === "number") return `${width * theme.spacer}px`
+  if (typeof width === "number") return `${width * theme.spacingBase}rem`
   if (isInArray(width, spacings)) return theme.spacing[width]
   return width.toString()
 }
