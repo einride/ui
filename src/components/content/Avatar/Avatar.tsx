@@ -1,7 +1,7 @@
 import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes, ImgHTMLAttributes, useState } from "react"
-import { BackgroundColor, ContentColor, Radius, Theme } from "../../../lib/theme/types"
+import { BackgroundColor, BorderRadius, ContentColor, Theme } from "../../../lib/theme/types"
 import { getInitials } from "./getInitials"
 
 interface AvatarBaseProps {
@@ -15,7 +15,7 @@ interface AvatarBaseProps {
   background?: BackgroundColor
 
   /** Radius of the avatar. Default is `full`. */
-  radius?: Radius
+  radius?: BorderRadius
 
   /** Size of the avatar. Default is `md`. */
   size?: Size
@@ -98,7 +98,7 @@ type Size = "sm" | "md"
 interface ImageProps {
   background: BackgroundColor
   color: ContentColor
-  radius: Radius
+  radius: BorderRadius
   size: Size
 }
 
@@ -116,7 +116,7 @@ const Image = styled("img", {
   justify-content: center;
 `
 
-const getSize = (radius: Radius, theme: Theme, size: Size): number => {
+const getSize = (radius: BorderRadius, theme: Theme, size: Size): number => {
   if (radius === "full") {
     switch (size) {
       case "sm":

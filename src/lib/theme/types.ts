@@ -17,6 +17,9 @@ export type BackgroundColor = typeof backgroundColors[number]
 
 export type BorderColor = "primary" | "selected"
 
+export const borderRadii = ["none", "xs", "sm", "lg", "xl", "full"] as const
+export type BorderRadius = typeof borderRadii[number]
+
 type Breakpoint = "md" | "lg"
 
 interface ButtonBackground {
@@ -74,8 +77,6 @@ export type FontWeight = typeof fontWeights[number]
 
 type MediaQuery = "belowMd" | "onlyMd" | "md" | "belowLg" | "lg"
 
-export type Radius = "none" | "xs" | "sm" | "lg" | "xl" | "full"
-
 type Spacer = number
 
 type SpacingBase = number
@@ -102,7 +103,7 @@ export interface ColorTheme {
 }
 
 export interface CommonTheme {
-  borderRadii: Record<Radius, string>
+  borderRadii: Record<BorderRadius, string>
   breakpoints: Record<Breakpoint, number>
   mediaQueries: Record<MediaQuery, string>
   fonts: Record<Font, string>

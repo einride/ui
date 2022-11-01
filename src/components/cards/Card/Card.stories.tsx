@@ -75,3 +75,22 @@ Gauge.args = {
     </Group>
   ),
 }
+
+export const InsideCard = Template.bind({})
+InsideCard.args = {
+  background: "secondary",
+  children: (
+    <Stack>
+      <Group justifyContent="space-between">
+        <Text as="p">Slot</Text>
+        <Text as="p">Slot</Text>
+      </Group>
+      <Card background="primary" borderRadius="sm">
+        <Text as="p" color="secondary">
+          Electrification potential
+        </Text>
+        <Text as="p">Good</Text>
+      </Card>
+    </Stack>
+  ),
+}
