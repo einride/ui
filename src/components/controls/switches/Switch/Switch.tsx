@@ -35,8 +35,8 @@ export const Switch = (props: SwitchProps): JSX.Element => {
     <Group alignItems="center" gap="sm">
       {/* eslint-disable-next-line react/destructuring-assignment */}
       {"label" in props && <StyledLabel htmlFor={id}>{props.label}</StyledLabel>}
-      <Root {...props}>
-        <SwitchPrimitive.Thumb asChild id={id}>
+      <Root {...props} id={id}>
+        <SwitchPrimitive.Thumb asChild>
           <OuterThumb>
             <InnerThumb data-anatomy="inner-thumb" />
           </OuterThumb>
