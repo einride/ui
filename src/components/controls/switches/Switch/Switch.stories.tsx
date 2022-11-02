@@ -1,4 +1,6 @@
+import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { userEvent, within } from "@storybook/testing-library"
 import { useState } from "react"
 import { Switch } from "./Switch"
 
@@ -13,16 +15,31 @@ export const Default = Template.bind({})
 Default.args = {
   label: "Label",
 }
+Default.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("switch")
+  await expect(input).toHaveAccessibleName("Label")
+}
 
 export const WithoutLabel = Template.bind({})
 WithoutLabel.args = {
   "aria-label": "Label",
+}
+WithoutLabel.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("switch")
+  await expect(input).toHaveAccessibleName("Label")
 }
 
 export const DefaultChecked = Template.bind({})
 DefaultChecked.args = {
   ...Default.args,
   defaultChecked: true,
+}
+DefaultChecked.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("switch")
+  await expect(input).toBeChecked()
 }
 
 const ControlledTemplate: ComponentStory<typeof Switch> = (args) => {
@@ -33,4 +50,33 @@ const ControlledTemplate: ComponentStory<typeof Switch> = (args) => {
 export const Controlled = ControlledTemplate.bind({})
 Controlled.args = {
   ...Default.args,
+}
+
+export const Mouse = Template.bind({})
+Mouse.args = {
+  ...Default.args,
+}
+Mouse.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("switch")
+  await expect(input).not.toBeChecked()
+  await userEvent.click(input)
+  await expect(input).toBeChecked()
+  await userEvent.click(input)
+  await expect(input).not.toBeChecked()
+}
+
+export const Keyboard = Template.bind({})
+Keyboard.args = {
+  ...Default.args,
+}
+Keyboard.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("switch")
+  await expect(input).not.toBeChecked()
+  await userEvent.tab()
+  await userEvent.keyboard("[Enter]")
+  await expect(input).toBeChecked()
+  await userEvent.keyboard("[Space]")
+  await expect(input).not.toBeChecked()
 }
