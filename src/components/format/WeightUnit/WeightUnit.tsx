@@ -14,8 +14,8 @@ interface WeightUnitProps {
 
 /** Formats weight unit based on locale and unit system.
  *
+ * @example <WeightUnit locales="en-US" unitSystem="metric" /> // => <>kg</>
  * @example <WeightUnit locales="en-US" unitSystem="imperial" /> // => <>lb</>
- * @example <WeightUnit locales="sv-SE" unitSystem="metric" /> // => <>kg</>
  */
 export const WeightUnit = ({
   locales = "en-US",
