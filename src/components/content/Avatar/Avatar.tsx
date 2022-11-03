@@ -37,7 +37,7 @@ interface AvatarInitialsProps extends HTMLAttributes<HTMLDivElement> {
   name: string | undefined
 }
 
-export type AvatarProps = AvatarBaseProps & (AvatarImageProps | AvatarInitialsProps)
+type AvatarProps = AvatarBaseProps & (AvatarImageProps | AvatarInitialsProps)
 
 export const Avatar = forwardRef<HTMLImageElement, AvatarProps>(
   ({ background = "primary", color = "primary", radius = "full", size = "md", ...props }, ref) => {
