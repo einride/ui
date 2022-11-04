@@ -85,5 +85,9 @@ const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
   &[aria-disabled="true"] {
     background: ${({ theme }) => theme.colors.buttons.background.disabled.primary};
     color: ${({ theme }) => theme.colors.buttons.text.disabled};
+
+    .einride-ui-primary-button-icon {
+      color: ${({ theme }) => theme.colors.content.tertiary};
+    }
   }
 `
