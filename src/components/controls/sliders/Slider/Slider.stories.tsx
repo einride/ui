@@ -44,11 +44,7 @@ Keyboard.play = async ({ canvasElement }) => {
   await expect(slider).toHaveAttribute("aria-valuenow", "0")
   await userEvent.click(slider)
   await userEvent.keyboard("[ArrowRight]")
-  await userEvent.keyboard("[ArrowRight]")
-  await userEvent.keyboard("[ArrowRight]")
-  await userEvent.keyboard("[ArrowRight]")
-  await userEvent.keyboard("[ArrowRight]")
-  await expect(slider).toHaveAttribute("aria-valuenow", "5")
+  await expect(slider).toHaveAttribute("aria-valuenow", "1")
 }
 
 export const Disabled = Template.bind({})
