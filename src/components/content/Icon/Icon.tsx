@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 import { ContentColor } from "../../../lib/theme/types"
 
-export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
+interface IconProps extends HTMLAttributes<HTMLSpanElement> {
   /** Effective element used. */
   as?: ElementType
 

@@ -1,5 +1,5 @@
-import { Story } from "@storybook/react/types-6-0"
-import { Segment, SegmentProps } from "./Segment"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Segment } from "./Segment"
 
 export default {
   title: "Controls/Segments/Segment",
@@ -9,9 +9,9 @@ export default {
       control: "boolean",
     },
   },
-}
+} as ComponentMeta<typeof Segment>
 
-const Template: Story<SegmentProps> = (args) => <Segment {...args} />
+const Template: ComponentStory<typeof Segment> = (args) => <Segment {...args} />
 
 export const Unselected = Template.bind({})
 Unselected.args = {

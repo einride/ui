@@ -4,7 +4,7 @@ import { useWidthFromColumns } from "../../../../hooks/useWidthFromColumns"
 import { BaseButton } from "../BaseButton/BaseButton"
 import { BaseButtonIcon } from "../BaseButton/BaseButtonIcon"
 
-export interface TertiaryButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface TertiaryButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Effective element used. */
   as?: ElementType
 

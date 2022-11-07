@@ -1,12 +1,12 @@
-import { Story } from "@storybook/react/types-6-0"
-import { VerticalSpacing, VerticalSpacingProps } from "./VerticalSpacing"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { VerticalSpacing } from "./VerticalSpacing"
 
 export default {
   title: "Layout/VerticalSpacing",
   component: VerticalSpacing,
-}
+} as ComponentMeta<typeof VerticalSpacing>
 
-const Template: Story<VerticalSpacingProps> = (args) => <VerticalSpacing {...args} />
+const Template: ComponentStory<typeof VerticalSpacing> = (args) => <VerticalSpacing {...args} />
 
 export const Default = Template.bind({})
 Default.args = {}

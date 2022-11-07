@@ -9,7 +9,7 @@ import {
   useId,
 } from "react"
 
-export interface RadioProps extends InputHTMLAttributes<HTMLInputElement> {
+interface RadioProps extends InputHTMLAttributes<HTMLInputElement> {
   /** Effective element used. */
   as?: ElementType
 

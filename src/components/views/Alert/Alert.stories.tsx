@@ -1,14 +1,14 @@
 import { useDisclosure } from "@einride/hooks"
-import { Story } from "@storybook/react/types-6-0"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
-import { Alert, AlertProps } from "./Alert"
+import { Alert } from "./Alert"
 
 export default {
   title: "Views/Alert",
   component: Alert,
-}
+} as ComponentMeta<typeof Alert>
 
-const Template: Story<AlertProps> = (args) => {
+const Template: ComponentStory<typeof Alert> = (args) => {
   const { isOpen, handlers } = useDisclosure(true)
 
   return (

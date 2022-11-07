@@ -1,12 +1,12 @@
-import { Story } from "@storybook/react/types-6-0"
-import { HorizontalSpacing, HorizontalSpacingProps } from "./HorizontalSpacing"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { HorizontalSpacing } from "./HorizontalSpacing"
 
 export default {
   title: "Layout/HorizontalSpacing",
   component: HorizontalSpacing,
-}
+} as ComponentMeta<typeof HorizontalSpacing>
 
-const Template: Story<HorizontalSpacingProps> = (args) => <HorizontalSpacing {...args} />
+const Template: ComponentStory<typeof HorizontalSpacing> = (args) => <HorizontalSpacing {...args} />
 
 export const Default = Template.bind({})
 Default.args = {}

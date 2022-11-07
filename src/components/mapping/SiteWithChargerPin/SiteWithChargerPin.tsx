@@ -3,7 +3,7 @@ import { forwardRef, HTMLAttributes } from "react"
 import { ChargerPin } from "../ChargerPin/ChargerPin"
 import { SitePin } from "../SitePin/SitePin"
 
-export interface SiteWithChargerPinProps extends HTMLAttributes<HTMLDivElement> {
+interface SiteWithChargerPinProps extends HTMLAttributes<HTMLDivElement> {
   /** Size of the pin. Default is `md`. */
   size: Size
 }

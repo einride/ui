@@ -1,12 +1,12 @@
-import { Story } from "@storybook/react/types-6-0"
-import { LinkButton, LinkButtonProps } from "./LinkButton"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { LinkButton } from "./LinkButton"
 
 export default {
   title: "Controls/Buttons/LinkButton",
   component: LinkButton,
-}
+} as ComponentMeta<typeof LinkButton>
 
-const Template: Story<LinkButtonProps> = (args) => <LinkButton {...args} />
+const Template: ComponentStory<typeof LinkButton> = (args) => <LinkButton {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

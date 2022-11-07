@@ -1,12 +1,12 @@
-import { Story } from "@storybook/react/types-6-0"
-import { Loader, LoaderProps } from "./Loader"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Loader } from "./Loader"
 
 export default {
   title: "Feedback/Loader",
   component: Loader,
-}
+} as ComponentMeta<typeof Loader>
 
-const Template: Story<LoaderProps> = (args) => <Loader {...args} />
+const Template: ComponentStory<typeof Loader> = (args) => <Loader {...args} />
 
 export const Default = Template.bind({})
 Default.args = {}

@@ -1,5 +1,5 @@
-import { Story } from "@storybook/react/types-6-0"
-import { Radio, RadioProps } from "./Radio"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Radio } from "./Radio"
 
 export default {
   title: "Controls/Radios/Radio",
@@ -9,9 +9,9 @@ export default {
       control: "boolean",
     },
   },
-}
+} as ComponentMeta<typeof Radio>
 
-const Template: Story<RadioProps> = (args) => <Radio {...args} />
+const Template: ComponentStory<typeof Radio> = (args) => <Radio {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

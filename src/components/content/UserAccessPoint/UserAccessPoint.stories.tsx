@@ -1,12 +1,12 @@
-import { Story } from "@storybook/react/types-6-0"
-import { UserAccessPoint, UserAccessPointProps } from "./UserAccessPoint"
+import { ComponentStory } from "@storybook/react"
+import { UserAccessPoint } from "./UserAccessPoint"
 
 export default {
   title: "Content/UserAccessPoint",
   component: UserAccessPoint,
 }
 
-const Template: Story<UserAccessPointProps> = (args) => <UserAccessPoint {...args} />
+const Template: ComponentStory<typeof UserAccessPoint> = (args) => <UserAccessPoint {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

@@ -4,7 +4,7 @@ import { forwardRef, HTMLAttributes } from "react"
 import { primitives } from "../../../primitives/primitives"
 import { Icon } from "../../content/Icon/Icon"
 
-export interface ChargerPinProps extends Omit<HTMLAttributes<HTMLDivElement>, "color"> {
+interface ChargerPinProps extends Omit<HTMLAttributes<HTMLDivElement>, "color"> {
   /** Default: "md" */
   size: Size
 }

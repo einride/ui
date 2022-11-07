@@ -12,7 +12,7 @@ import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Caption } from "../../../typography/Caption/Caption"
 
-export interface SelectBaseProps extends SelectHTMLAttributes<HTMLSelectElement> {
+interface SelectBaseProps extends SelectHTMLAttributes<HTMLSelectElement> {
   /** Effective element used. */
   as?: ElementType
 

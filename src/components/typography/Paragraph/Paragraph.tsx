@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 import { ContentColor, Font } from "../../../lib/theme/types"
 
-export interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
+interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
   /** Effective element used. */
   as?: ElementType
 

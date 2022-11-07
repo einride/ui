@@ -1,15 +1,15 @@
 import { useDisclosure } from "@einride/hooks"
-import { Story } from "@storybook/react/types-6-0"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { Paragraph } from "../../typography/Paragraph/Paragraph"
-import { Popover, PopoverProps } from "./Popover"
+import { Popover } from "./Popover"
 
 export default {
   title: "Views/Popover",
   component: Popover,
-}
+} as ComponentMeta<typeof Popover>
 
-const Template: Story<PopoverProps> = (args) => {
+const Template: ComponentStory<typeof Popover> = (args) => {
   const { isOpen, handlers } = useDisclosure(true)
 
   return (

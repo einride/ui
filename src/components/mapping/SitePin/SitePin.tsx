@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
 import { primitives } from "../../../primitives/primitives"
 
-export interface SitePinProps extends HTMLAttributes<HTMLDivElement> {
+interface SitePinProps extends HTMLAttributes<HTMLDivElement> {
   /** Size of the pin. Default is `md`. */
   size: Size
 }

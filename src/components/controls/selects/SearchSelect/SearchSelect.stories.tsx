@@ -1,7 +1,7 @@
-import { Story } from "@storybook/react/types-6-0"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { useState } from "react"
 import { Paragraph } from "../../../typography/Paragraph/Paragraph"
-import { SearchSelect, SearchSelectProps } from "./SearchSelect"
+import { SearchSelect } from "./SearchSelect"
 
 export default {
   title: "Controls/Selects/SearchSelect",
@@ -11,7 +11,7 @@ export default {
       control: "boolean",
     },
   },
-}
+} as ComponentMeta<typeof SearchSelect>
 
 const OPTIONS = [
   {
@@ -34,7 +34,7 @@ const OPTIONS = [
   },
 ]
 
-const Template: Story<SearchSelectProps<typeof OPTIONS[0]>> = (args) => {
+const Template: ComponentStory<typeof SearchSelect<typeof OPTIONS[0]>> = (args) => {
   const [searchTerm, setSearchTerm] = useState("")
 
   return (

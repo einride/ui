@@ -1,6 +1,6 @@
-import { Story } from "@storybook/react/types-6-0"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { Icon } from "../../../content/Icon/Icon"
-import { PrimaryButton, PrimaryButtonProps } from "./PrimaryButton"
+import { PrimaryButton } from "./PrimaryButton"
 
 export default {
   title: "Controls/Buttons/PrimaryButton",
@@ -10,9 +10,9 @@ export default {
       control: "boolean",
     },
   },
-}
+} as ComponentMeta<typeof PrimaryButton>
 
-const Template: Story<PrimaryButtonProps> = (args) => <PrimaryButton {...args} />
+const Template: ComponentStory<typeof PrimaryButton> = (args) => <PrimaryButton {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

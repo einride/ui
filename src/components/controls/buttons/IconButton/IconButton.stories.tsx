@@ -1,5 +1,5 @@
-import { Story } from "@storybook/react/types-6-0"
-import { IconButton, IconButtonProps } from "./IconButton"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { IconButton } from "./IconButton"
 
 export default {
   title: "Controls/Buttons/IconButton",
@@ -9,9 +9,9 @@ export default {
       control: "boolean",
     },
   },
-}
+} as ComponentMeta<typeof IconButton>
 
-const Template: Story<IconButtonProps> = (args) => <IconButton {...args} />
+const Template: ComponentStory<typeof IconButton> = (args) => <IconButton {...args} />
 
 export const Default = Template.bind({})
 Default.args = {}

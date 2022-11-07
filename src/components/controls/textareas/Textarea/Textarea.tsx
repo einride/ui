@@ -11,7 +11,7 @@ import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Caption } from "../../../typography/Caption/Caption"
 
-export interface TextareaBaseProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+interface TextareaBaseProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   /** Effective element used. */
   as?: ElementType
 

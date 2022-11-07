@@ -3,7 +3,7 @@ import { forwardRef, HTMLAttributes, ReactNode } from "react"
 import { primitives } from "../../../primitives/primitives"
 import { Paragraph } from "../../typography/Paragraph/Paragraph"
 
-export interface MapLabelProps extends Omit<HTMLAttributes<HTMLParagraphElement>, "color"> {
+interface MapLabelProps extends Omit<HTMLAttributes<HTMLParagraphElement>, "color"> {
   children: ReactNode
 }
 

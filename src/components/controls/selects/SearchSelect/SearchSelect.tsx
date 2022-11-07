@@ -74,7 +74,7 @@ interface SearchSelectWithoutLabelProps {
   "aria-label": string
 }
 
-export type SearchSelectProps<Option> = SearchSelectBaseProps<Option> &
+type SearchSelectProps<Option> = SearchSelectBaseProps<Option> &
   (SearchSelectWithLabelProps | SearchSelectWithoutLabelProps)
 
 export const SearchSelect = <Option extends BaseOption>({

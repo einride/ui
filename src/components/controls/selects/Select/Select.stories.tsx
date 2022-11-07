@@ -1,6 +1,6 @@
-import { Story } from "@storybook/react/types-6-0"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { ChangeEvent, useState } from "react"
-import { Select, SelectProps } from "./Select"
+import { Select } from "./Select"
 
 export default {
   title: "Controls/Selects/Select",
@@ -10,9 +10,9 @@ export default {
       control: "boolean",
     },
   },
-}
+} as ComponentMeta<typeof Select>
 
-const Template: Story<SelectProps> = (args) => (
+const Template: ComponentStory<typeof Select> = (args) => (
   <Select {...args}>
     <option value="option1">Option 1</option>
     <option value="option2">Option 2</option>
@@ -42,7 +42,7 @@ DefaultValue.args = {
   defaultValue: "option2",
 }
 
-const ControlledTemplate: Story<SelectProps> = (args) => {
+const ControlledTemplate: ComponentStory<typeof Select> = (args) => {
   const [value, setValue] = useState("")
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>): void => {

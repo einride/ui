@@ -1,6 +1,6 @@
-import { Story } from "@storybook/react/types-6-0"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { Icon } from "../../../content/Icon/Icon"
-import { TertiaryButton, TertiaryButtonProps } from "./TertiaryButton"
+import { TertiaryButton } from "./TertiaryButton"
 
 export default {
   title: "Controls/Buttons/TertiaryButton",
@@ -10,9 +10,9 @@ export default {
       control: "boolean",
     },
   },
-}
+} as ComponentMeta<typeof TertiaryButton>
 
-const Template: Story<TertiaryButtonProps> = (args) => <TertiaryButton {...args} />
+const Template: ComponentStory<typeof TertiaryButton> = (args) => <TertiaryButton {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

@@ -1,12 +1,14 @@
-import { Story } from "@storybook/react/types-6-0"
-import { SiteWithChargerPin, SiteWithChargerPinProps } from "./SiteWithChargerPin"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { SiteWithChargerPin } from "./SiteWithChargerPin"
 
 export default {
   title: "Mapping/SiteWithChargerPin",
   component: SiteWithChargerPin,
-}
+} as ComponentMeta<typeof SiteWithChargerPin>
 
-const Template: Story<SiteWithChargerPinProps> = (args) => <SiteWithChargerPin {...args} />
+const Template: ComponentStory<typeof SiteWithChargerPin> = (args) => (
+  <SiteWithChargerPin {...args} />
+)
 
 export const Default = Template.bind({})
 Default.args = {

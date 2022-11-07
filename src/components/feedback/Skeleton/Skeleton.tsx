@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { HTMLAttributes } from "react"
 import { Theme } from "../../../lib/theme/types"
 
-export interface SkeletonProps extends HTMLAttributes<HTMLDivElement> {
+interface SkeletonProps extends HTMLAttributes<HTMLDivElement> {
   /** Height of the skeleton. Default is `md`. */
   height?: Height
 

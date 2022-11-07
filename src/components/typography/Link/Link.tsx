@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, ElementType, ReactNode } from "react"
 import { ContentColor, Font, Theme } from "../../../lib/theme/types"
 
-export type LinkProps<C extends ElementType> = {
+type LinkProps<C extends ElementType> = {
   /** Effective element used. */
   as?: C
 
