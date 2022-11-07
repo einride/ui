@@ -1,12 +1,12 @@
-import { Story } from "@storybook/react/types-6-0"
-import { ChargerPin, ChargerPinProps } from "./ChargerPin"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ChargerPin } from "./ChargerPin"
 
 export default {
   title: "Mapping/ChargerPin",
   component: ChargerPin,
-}
+} as ComponentMeta<typeof ChargerPin>
 
-const Template: Story<ChargerPinProps> = (args) => <ChargerPin {...args} />
+const Template: ComponentStory<typeof ChargerPin> = (args) => <ChargerPin {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

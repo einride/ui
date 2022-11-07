@@ -1,12 +1,12 @@
-import { Story } from "@storybook/react/types-6-0"
-import { PageLoader, PageLoaderProps } from "./PageLoader"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { PageLoader } from "./PageLoader"
 
 export default {
   title: "Feedback/PageLoader",
   component: PageLoader,
-}
+} as ComponentMeta<typeof PageLoader>
 
-const Template: Story<PageLoaderProps> = (args) => <PageLoader {...args} />
+const Template: ComponentStory<typeof PageLoader> = (args) => <PageLoader {...args} />
 
 export const Default = Template.bind({})
 Default.args = {}

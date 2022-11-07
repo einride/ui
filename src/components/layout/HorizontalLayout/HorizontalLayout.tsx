@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 import { Theme } from "../../../lib/theme/types"
 
-export interface HorizontalLayoutProps extends HTMLAttributes<HTMLDivElement> {
+interface HorizontalLayoutProps extends HTMLAttributes<HTMLDivElement> {
   /** Effective element used. */
   as?: ElementType
 

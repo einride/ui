@@ -1,15 +1,15 @@
 import { useDisclosure } from "@einride/hooks"
-import { Story } from "@storybook/react/types-6-0"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { Paragraph } from "../../typography/Paragraph/Paragraph"
-import { Sheets, SheetsProps } from "./Sheets"
+import { Sheets } from "./Sheets"
 
 export default {
   title: "Views/Sheets",
   component: Sheets,
-}
+} as ComponentMeta<typeof Sheets>
 
-const Template: Story<SheetsProps> = (args) => {
+const Template: ComponentStory<typeof Sheets> = (args) => {
   const { isOpen, handlers } = useDisclosure(true)
 
   return (

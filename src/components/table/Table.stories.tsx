@@ -1,5 +1,5 @@
-import { Story } from "@storybook/react/types-6-0"
-import { Table, TableProps } from "./Table/Table"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Table } from "./Table/Table"
 import { Tbody } from "./Tbody/Tbody"
 import { Td } from "./Td/Td"
 import { Th } from "./Th/Th"
@@ -9,9 +9,9 @@ import { Tr } from "./Tr/Tr"
 export default {
   title: "Table/Table",
   component: Table,
-}
+} as ComponentMeta<typeof Table>
 
-export const Default: Story<TableProps> = (args) => (
+export const Default: ComponentStory<typeof Table> = (args) => (
   <Table {...args}>
     <Thead>
       <Tr>

@@ -13,7 +13,7 @@ import {
 } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { SecondaryButton } from "../../controls/buttons/SecondaryButton/SecondaryButton"
 
-export interface PopoverProps extends Omit<HTMLMotionProps<"div">, "title"> {
+interface PopoverProps extends Omit<HTMLMotionProps<"div">, "title"> {
   children: ReactNode
   closeHandler: () => void
   isOpen: boolean

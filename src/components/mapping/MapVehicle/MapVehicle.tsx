@@ -3,7 +3,7 @@ import { forwardRef, SVGAttributes } from "react"
 import { ConventionalTruckIcon } from "./icons/ConventionalTruckIcon"
 import { PodIcon } from "./icons/PodIcon"
 
-export interface MapVehicleProps extends SVGAttributes<SVGSVGElement> {
+interface MapVehicleProps extends SVGAttributes<SVGSVGElement> {
   /** Vehicle to render. Default is `pod`. */
   icon?: Icon
 }

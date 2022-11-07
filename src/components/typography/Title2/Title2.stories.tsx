@@ -1,12 +1,12 @@
-import { Story } from "@storybook/react/types-6-0"
-import { Title2, Title2Props } from "./Title2"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Title2 } from "./Title2"
 
 export default {
   title: "Typography/Title2",
   component: Title2,
-}
+} as ComponentMeta<typeof Title2>
 
-const Template: Story<Title2Props> = (args) => <Title2 {...args} />
+const Template: ComponentStory<typeof Title2> = (args) => <Title2 {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

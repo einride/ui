@@ -10,7 +10,7 @@ import {
 } from "react"
 import { Segment } from "../Segment/Segment"
 
-export interface SegmentsProps extends HTMLAttributes<HTMLDivElement> {
+interface SegmentsProps extends HTMLAttributes<HTMLDivElement> {
   as?: ElementType
   segments: {
     content: ReactNode

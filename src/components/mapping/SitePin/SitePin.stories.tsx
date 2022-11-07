@@ -1,12 +1,12 @@
-import { Story } from "@storybook/react/types-6-0"
-import { SitePin, SitePinProps } from "./SitePin"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { SitePin } from "./SitePin"
 
 export default {
   title: "Mapping/SitePin",
   component: SitePin,
-}
+} as ComponentMeta<typeof SitePin>
 
-const Template: Story<SitePinProps> = (args) => <SitePin {...args} />
+const Template: ComponentStory<typeof SitePin> = (args) => <SitePin {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

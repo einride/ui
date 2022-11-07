@@ -1,14 +1,14 @@
-import { Story } from "@storybook/react/types-6-0"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { Paragraph } from "../../typography/Paragraph/Paragraph"
-import { HorizontalLayout, HorizontalLayoutProps } from "./HorizontalLayout"
+import { HorizontalLayout } from "./HorizontalLayout"
 
 export default {
   title: "Layout/HorizontalLayout",
   component: HorizontalLayout,
-}
+} as ComponentMeta<typeof HorizontalLayout>
 
-const Template: Story<HorizontalLayoutProps> = (args) => (
+const Template: ComponentStory<typeof HorizontalLayout> = (args) => (
   <HorizontalLayout {...args}>
     <Paragraph>Row 1</Paragraph>
     <Paragraph>Row 2</Paragraph>

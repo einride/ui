@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { HTMLAttributes, ReactNode } from "react"
 import { Loader, LoaderProps } from "../Loader/Loader"
 
-export interface PageLoaderProps extends HTMLAttributes<HTMLDivElement> {
+interface PageLoaderProps extends HTMLAttributes<HTMLDivElement> {
   /** Props passed to loader element. */
   loaderProps?: LoaderProps
 

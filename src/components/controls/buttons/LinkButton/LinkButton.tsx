@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, ElementType, forwardRef, ReactNode } from "react"
 import { ContentColor, Font } from "../../../../lib/theme/types"
 import { Link } from "../../../typography/Link/Link"
 
-export interface LinkButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface LinkButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Effective element used. */
   as?: ElementType
 

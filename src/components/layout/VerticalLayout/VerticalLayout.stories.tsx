@@ -1,14 +1,14 @@
-import { Story } from "@storybook/react/types-6-0"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { Paragraph } from "../../typography/Paragraph/Paragraph"
-import { VerticalLayout, VerticalLayoutProps } from "./VerticalLayout"
+import { VerticalLayout } from "./VerticalLayout"
 
 export default {
   title: "Layout/VerticalLayout",
   component: VerticalLayout,
-}
+} as ComponentMeta<typeof VerticalLayout>
 
-const Template: Story<VerticalLayoutProps> = (args) => (
+const Template: ComponentStory<typeof VerticalLayout> = (args) => (
   <VerticalLayout {...args}>
     <Paragraph>Row 1</Paragraph>
     <Paragraph>Row 2</Paragraph>

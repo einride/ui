@@ -1,5 +1,5 @@
-import { Story } from "@storybook/react/types-6-0"
-import { Textarea, TextareaProps } from "./Textarea"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Textarea } from "./Textarea"
 
 export default {
   title: "Controls/Textareas/Textarea",
@@ -9,9 +9,9 @@ export default {
       control: "boolean",
     },
   },
-}
+} as ComponentMeta<typeof Textarea>
 
-const Template: Story<TextareaProps> = (args) => <Textarea {...args} />
+const Template: ComponentStory<typeof Textarea> = (args) => <Textarea {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

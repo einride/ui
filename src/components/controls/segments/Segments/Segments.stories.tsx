@@ -1,13 +1,13 @@
-import { Story } from "@storybook/react/types-6-0"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { Paragraph } from "../../../typography/Paragraph/Paragraph"
-import { Segments, SegmentsProps } from "./Segments"
+import { Segments } from "./Segments"
 
 export default {
   title: "Controls/Segments/Segments",
   component: Segments,
-}
+} as ComponentMeta<typeof Segments>
 
-const Template: Story<SegmentsProps> = (args) => <Segments {...args} />
+const Template: ComponentStory<typeof Segments> = (args) => <Segments {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

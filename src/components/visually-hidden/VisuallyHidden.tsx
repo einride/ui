@@ -1,12 +1,15 @@
 import styled from "@emotion/styled"
-import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
+import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
 
-export interface VisuallyHiddenProps extends HTMLAttributes<HTMLDivElement> {
+interface VisuallyHiddenProps extends ComponentPropsWithoutRef<"span"> {
+  /** Effective element used. Default is `span`. */
   as?: ElementType
+
+  /** Visually hidden content. */
   children: ReactNode
 }
 
-export const VisuallyHidden = forwardRef<HTMLDivElement, VisuallyHiddenProps>(
+export const VisuallyHidden = forwardRef<HTMLSpanElement, VisuallyHiddenProps>(
   ({ children, ...props }, ref) => {
     return (
       <Wrapper {...props} ref={ref}>

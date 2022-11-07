@@ -1,20 +1,17 @@
-import { Story } from "@storybook/react/types-6-0"
-import { Paragraph } from "../typography/Paragraph/Paragraph"
-import { VisuallyHidden, VisuallyHiddenProps } from "./VisuallyHidden"
+import { ComponentMeta } from "@storybook/react"
+import { PrimaryButton } from "../controls/buttons/PrimaryButton/PrimaryButton"
+import { VisuallyHidden } from "./VisuallyHidden"
 
 export default {
   title: "VisuallyHidden/VisuallyHidden",
   component: VisuallyHidden,
-}
+} as ComponentMeta<typeof VisuallyHidden>
 
-const Template: Story<VisuallyHiddenProps> = (args) => (
-  <>
-    <Paragraph>This is visible</Paragraph>
-    <VisuallyHidden {...args} />
-  </>
-)
-
-export const Default = Template.bind({})
-Default.args = {
-  children: <Paragraph>This is hidden</Paragraph>,
+export const Basic = (): JSX.Element => {
+  return (
+    <PrimaryButton>
+      Update
+      <VisuallyHidden>user with name Filip</VisuallyHidden>
+    </PrimaryButton>
+  )
 }

@@ -1,12 +1,12 @@
-import { Story } from "@storybook/react/types-6-0"
-import { Paragraph, ParagraphProps } from "./Paragraph"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Paragraph } from "./Paragraph"
 
 export default {
   title: "Typography/Paragraph",
   component: Paragraph,
-}
+} as ComponentMeta<typeof Paragraph>
 
-const Template: Story<ParagraphProps> = (args) => <Paragraph {...args} />
+const Template: ComponentStory<typeof Paragraph> = (args) => <Paragraph {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

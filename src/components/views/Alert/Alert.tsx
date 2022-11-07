@@ -14,7 +14,7 @@ import {
 import { VerticalSpacing } from "../../layout/VerticalSpacing/VerticalSpacing"
 import { Paragraph } from "../../typography/Paragraph/Paragraph"
 
-export interface AlertProps extends Omit<HTMLMotionProps<"div">, "title"> {
+interface AlertProps extends Omit<HTMLMotionProps<"div">, "title"> {
   /** Custom content of the alert. Prefer using `title` and `description`. */
   children?: ReactNode
 

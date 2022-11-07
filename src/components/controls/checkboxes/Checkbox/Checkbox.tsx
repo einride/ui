@@ -10,7 +10,7 @@ import {
 } from "react"
 import { Icon } from "../../../content/Icon/Icon"
 
-export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
+interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   as?: ElementType
   children: ReactNode
   innerWrapperStyles?: CSSProperties
