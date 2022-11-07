@@ -12,11 +12,27 @@ export default {
 const Template: ComponentStory<typeof Slider> = (args) => <Slider {...args} />
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  label: "Label",
+  "aria-label": "Accessible name",
+}
 Default.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const slider = canvas.getByRole("slider")
   await expect(slider).toHaveAttribute("aria-valuenow", "0")
+  const label = canvas.getByText("Label")
+  await expect(label).toBeInTheDocument()
+  await expect(slider).toHaveAccessibleName("Accessible name")
+}
+
+export const WithoutLabel = Template.bind({})
+WithoutLabel.args = {
+  "aria-label": "Accessible name",
+}
+WithoutLabel.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const slider = canvas.getByRole("slider")
+  await expect(slider).toHaveAccessibleName("Accessible name")
 }
 
 const ControlledTemplate: ComponentStory<typeof Slider> = (args) => {
@@ -50,19 +66,4 @@ Keyboard.play = async ({ canvasElement }) => {
   await userEvent.keyboard("[ArrowRight]")
   await userEvent.keyboard("[ArrowRight]")
   await expect(slider).toHaveAttribute("aria-valuenow", "5")
-}
-
-export const Disabled = Template.bind({})
-Disabled.args = {
-  ...Default.args,
-  defaultValue: [10],
-  disabled: true,
-}
-Disabled.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const slider = canvas.getByRole("slider")
-  await expect(slider).toHaveAttribute("aria-valuenow", "10")
-  await expect(slider).toHaveAttribute("data-disabled", "")
-  await userEvent.tab()
-  await expect(slider).not.toHaveFocus()
 }
