@@ -57,16 +57,16 @@ const Root = styled(SwitchPrimitive.Root)`
   transition-duration: ${({ theme }) => theme.transitions.easeIn.duration};
   transition-timing-function: ${({ theme }) => theme.transitions.easeIn.timingFunction};
 
-  :is(:hover, :focus-visible) [data-anatomy="inner-thumb"] {
+  &:is(:hover, :focus-visible) [data-anatomy="inner-thumb"] {
     transform: scale(1.5);
   }
 
-  :hover,
-  :focus {
+  &:hover,
+  &:focus-visible {
     background: ${({ theme }) => theme.colors.background.tertiary};
   }
 
-  :focus-visible {
+  &:focus-visible {
     outline: none;
     box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
   }
