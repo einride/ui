@@ -44,12 +44,21 @@ DefaultChecked.play = async ({ canvasElement }) => {
 
 const ControlledTemplate: ComponentStory<typeof Switch> = (args) => {
   const [checked, setChecked] = useState(false)
-  return <Switch checked={checked} onCheckedChange={setChecked} {...args} />
+  return <Switch {...args} checked={checked} onCheckedChange={setChecked} />
 }
 
 export const Controlled = ControlledTemplate.bind({})
 Controlled.args = {
   ...Default.args,
+}
+Controlled.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("switch")
+  await expect(input).not.toBeChecked()
+  await userEvent.click(input)
+  await expect(input).toBeChecked()
+  await userEvent.click(input)
+  await expect(input).not.toBeChecked()
 }
 
 export const Mouse = Template.bind({})
