@@ -17,7 +17,7 @@ interface LinearVerticalProgressBaseProps extends HTMLAttributes<HTMLDivElement>
   value: number
 }
 
-export type LinearVerticalProgressProps = (
+type LinearVerticalProgressProps = (
   | {
       /** Accessible name. */
       "aria-label": string

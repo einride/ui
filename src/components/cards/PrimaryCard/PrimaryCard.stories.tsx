@@ -1,13 +1,13 @@
-import { Story } from "@storybook/react/types-6-0"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { Paragraph } from "../../typography/Paragraph/Paragraph"
-import { PrimaryCard, PrimaryCardProps } from "./PrimaryCard"
+import { PrimaryCard } from "./PrimaryCard"
 
 export default {
   title: "Cards/PrimaryCard",
   component: PrimaryCard,
-}
+} as ComponentMeta<typeof PrimaryCard>
 
-const Template: Story<PrimaryCardProps> = (args) => <PrimaryCard {...args} />
+const Template: ComponentStory<typeof PrimaryCard> = (args) => <PrimaryCard {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

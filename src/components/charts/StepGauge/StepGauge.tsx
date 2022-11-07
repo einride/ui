@@ -19,7 +19,7 @@ interface StepGaugeBaseProps extends HTMLAttributes<HTMLDivElement> {
   strokeWidth?: number
 }
 
-export type StepGaugeProps = (
+type StepGaugeProps = (
   | {
       /** Accessible name. */
       "aria-label": string

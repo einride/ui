@@ -14,7 +14,7 @@ interface StepVerticalProgressBaseProps extends HTMLAttributes<HTMLDivElement> {
   steps?: number | undefined
 }
 
-export type StepVerticalProgressProps = (
+type StepVerticalProgressProps = (
   | {
       /** Accessible name. */
       "aria-label": string

@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 import { BackgroundColor } from "../../../lib/theme/types"
 
-export interface PrimaryCardProps extends HTMLAttributes<HTMLDivElement> {
+interface PrimaryCardProps extends HTMLAttributes<HTMLDivElement> {
   /** Effective element used. */
   as?: ElementType
 

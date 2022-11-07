@@ -1,12 +1,14 @@
-import { Story } from "@storybook/react/types-6-0"
-import { StepVerticalProgress, StepVerticalProgressProps } from "./StepVerticalProgress"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { StepVerticalProgress } from "./StepVerticalProgress"
 
 export default {
   title: "Charts/StepVerticalProgress",
   component: StepVerticalProgress,
-}
+} as ComponentMeta<typeof StepVerticalProgress>
 
-const Template: Story<StepVerticalProgressProps> = (args) => <StepVerticalProgress {...args} />
+const Template: ComponentStory<typeof StepVerticalProgress> = (args) => (
+  <StepVerticalProgress {...args} />
+)
 
 export const Default = Template.bind({})
 Default.args = {

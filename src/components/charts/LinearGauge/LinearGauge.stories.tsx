@@ -1,12 +1,12 @@
-import { Story } from "@storybook/react/types-6-0"
-import { LinearGauge, LinearGaugeProps } from "./LinearGauge"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { LinearGauge } from "./LinearGauge"
 
 export default {
   title: "Charts/LinearGauge",
   component: LinearGauge,
-}
+} as ComponentMeta<typeof LinearGauge>
 
-const Template: Story<LinearGaugeProps> = (args) => <LinearGauge {...args} />
+const Template: ComponentStory<typeof LinearGauge> = (args) => <LinearGauge {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

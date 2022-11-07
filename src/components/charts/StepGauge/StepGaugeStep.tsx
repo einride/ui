@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 import { SVGAttributes } from "react"
 import { ContentColor } from "../../../lib/theme/types"
 
-export interface StepGaugeStepProps extends SVGAttributes<SVGSVGElement> {
+interface StepGaugeStepProps extends SVGAttributes<SVGSVGElement> {
   /** Color of the completed gauge stroke.  */
   color: ContentColor
 

@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 import { SVGAttributes } from "react"
 import { ContentColor } from "../../../lib/theme/types"
 
-export interface LinearGaugeProgressProps extends SVGAttributes<SVGSVGElement> {
+interface LinearGaugeProgressProps extends SVGAttributes<SVGSVGElement> {
   /** Stroke color. */
   color: ContentColor
 

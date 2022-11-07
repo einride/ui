@@ -1,14 +1,14 @@
-import { Story } from "@storybook/react/types-6-0"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { Paragraph } from "../../typography/Paragraph/Paragraph"
 import { PrimaryCard } from "../PrimaryCard/PrimaryCard"
-import { SecondaryCard, SecondaryCardProps } from "./SecondaryCard"
+import { SecondaryCard } from "./SecondaryCard"
 
 export default {
   title: "Cards/SecondaryCard",
   component: SecondaryCard,
-}
+} as ComponentMeta<typeof SecondaryCard>
 
-const Template: Story<SecondaryCardProps> = (args) => <SecondaryCard {...args} />
+const Template: ComponentStory<typeof SecondaryCard> = (args) => <SecondaryCard {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
@@ -20,7 +20,7 @@ Default.args = {
   ),
 }
 
-const InsidePrimaryCardTemplate: Story<SecondaryCardProps> = ({ children, ...args }) => (
+const InsidePrimaryCardTemplate: ComponentStory<typeof SecondaryCard> = ({ children, ...args }) => (
   <PrimaryCard background="secondary" {...args}>
     <Paragraph>Primary</Paragraph>
     <Paragraph color="secondary">Secondary</Paragraph>

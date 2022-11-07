@@ -1,12 +1,12 @@
-import { Story } from "@storybook/react/types-6-0"
-import { LinearProgress, LinearProgressProps } from "./LinearProgress"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { LinearProgress } from "./LinearProgress"
 
 export default {
   title: "Charts/LinearProgress",
   component: LinearProgress,
-}
+} as ComponentMeta<typeof LinearProgress>
 
-const Template: Story<LinearProgressProps> = (args) => <LinearProgress {...args} />
+const Template: ComponentStory<typeof LinearProgress> = (args) => <LinearProgress {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
