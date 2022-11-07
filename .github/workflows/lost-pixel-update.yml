@@ -42,4 +42,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "chore: update lost-pixel baselines"
           title: "chore: update lost-pixel baselines"
+          delete-branch: true
+          branch: "lost-pixel-update/${{ github.ref_name }}"
           body: Automated baseline update PR created by Lost Pixel
