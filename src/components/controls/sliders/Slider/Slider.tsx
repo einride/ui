@@ -1,13 +1,20 @@
 import styled from "@emotion/styled"
 import * as SliderPrimitive from "@radix-ui/react-slider"
-import { forwardRef } from "react"
+import { ComponentPropsWithoutRef, forwardRef, ReactNode } from "react"
+import { Group } from "../../../layout/Group/Group"
 
 interface SliderProps {
+  /** Accessible name. */
+  "aria-label": string
+
   /** Default slider value when uncontrolled. */
   defaultValue?: Array<number>
 
-  /** When true, prevents the user from interacting with the slider. */
-  disabled?: boolean
+  /** Slider label. */
+  label?: ReactNode
+
+  /** Props passed to label element. */
+  labelProps?: ComponentPropsWithoutRef<"label">
 
   /** Maximum possible value. Default is ´100´. */
   max?: number
@@ -32,39 +39,49 @@ interface SliderProps {
 }
 
 export const Slider = forwardRef<HTMLSpanElement, SliderProps>(
-  ({ max = 100, min = 0, ...props }, ref) => {
+  ({ "aria-label": ariaLabel, max = 100, min = 0, ...props }, ref) => {
     return (
-      <Root max={max} min={min} {...props} ref={ref}>
-        <StartRange data-anatomy="start-range" />
-        <Track>
-          <InnerTrack>
-            <Range />
-          </InnerTrack>
-        </Track>
-        <OuterThumb>
-          <InnerThumb data-anatomy="inner-thumb" />
-        </OuterThumb>
-      </Root>
+      <Group alignItems="center" gap="sm">
+        {/* eslint-disable-next-line react/destructuring-assignment */}
+        {"label" in props && <StyledLabel>{props.label}</StyledLabel>}
+        <Root max={max} min={min} {...props} ref={ref}>
+          <StartRange data-anatomy="start-range" />
+          <Track data-anatomy="track">
+            <InnerTrack>
+              <Range />
+            </InnerTrack>
+          </Track>
+          <OuterThumb aria-label={ariaLabel}>
+            <InnerThumb data-anatomy="inner-thumb" />
+          </OuterThumb>
+        </Root>
+      </Group>
     )
   },
 )
 
+const StyledLabel = styled.label``
+
 const Root = styled(SliderPrimitive.Root)`
+  flex-grow: 1;
   position: relative;
   display: flex;
   cursor: pointer;
 
-  :is(:hover, :focus-visible):not([data-disabled]) [data-anatomy="inner-thumb"] {
-    inline-size: ${({ theme }) => theme.spacingBase}rem;
-    block-size: ${({ theme }) => 4 * theme.spacingBase}rem;
+  &:hover {
+    [data-anatomy="track"] {
+      background: ${({ theme }) => theme.colors.background.tertiary};
+    }
+
+    [data-anatomy="inner-thumb"] {
+      inline-size: ${({ theme }) => theme.spacingBase}rem;
+      block-size: ${({ theme }) => 4 * theme.spacingBase}rem;
+    }
   }
 
-  &[data-disabled] {
-    cursor: not-allowed;
-
-    [data-anatomy="start-range"] {
-      background: ${({ theme }) => theme.colors.content.tertiary};
-    }
+  &:has([role="slider"]:focus-visible) [data-anatomy="track"] {
+    background: ${({ theme }) => theme.colors.background.tertiary};
+    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
   }
 `
 
@@ -80,9 +97,12 @@ const StartRange = styled.span`
 const Track = styled(SliderPrimitive.Track)`
   inline-size: 100%;
   padding-inline: ${({ theme }) => 3 * theme.spacingBase}rem;
-  block-size: ${({ theme }) => 6 * theme.spacer}px;
+  block-size: ${({ theme }) => 6 * theme.spacingBase}rem;
   background: ${({ theme }) => theme.colors.background.secondary};
   border-radius: ${({ theme }) => theme.borderRadii.xl};
+  transition-property: background;
+  transition-duration: ${({ theme }) => theme.transitions.easeIn.duration};
+  transition-timing-function: ${({ theme }) => theme.transitions.easeIn.timingFunction};
 `
 
 const InnerTrack = styled.span`
@@ -93,13 +113,9 @@ const InnerTrack = styled.span`
 
 const Range = styled(SliderPrimitive.Range)`
   position: absolute;
-  inset-inline: 24px;
+  inset-inline: ${({ theme }) => 3 * theme.spacingBase}rem;
   block-size: 100%;
   background: ${({ theme }) => theme.colors.content.positive};
-
-  &[data-disabled] {
-    background: ${({ theme }) => theme.colors.content.tertiary};
-  }
 `
 
 const OuterThumb = styled(SliderPrimitive.Thumb)`
@@ -111,12 +127,7 @@ const OuterThumb = styled(SliderPrimitive.Thumb)`
   justify-content: center;
   align-items: center;
 
-  &[data-disabled] {
-    background: ${({ theme }) =>
-      `linear-gradient(90deg, transparent 0%, transparent 50%, ${theme.colors.content.tertiary} 50%, ${theme.colors.content.tertiary} 100%)`};
-  }
-
-  :focus-visible {
+  &:focus-visible {
     outline: none;
 
     [data-anatomy="inner-thumb"] {
