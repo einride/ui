@@ -6,6 +6,10 @@ jobs:
   lost-pixel-update:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      id-token: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -34,7 +38,7 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         if: ${{ failure() && steps.lost-pixel.conclusion == 'failure' }}
         with:
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "chore: update lost-pixel baselines"
           title: "chore: update lost-pixel baselines"
           body: Automated baseline update PR created by Lost Pixel
