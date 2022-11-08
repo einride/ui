@@ -1,8 +1,7 @@
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, forwardRef } from "react"
-import { isInArray } from "../../../lib/theme/guard"
+import { getGap } from "../../../lib/theme/prop-system"
 import { AlignItems, As, FlexWrap, Gap, JustifyContent } from "../../../lib/theme/props"
-import { spacings, Theme } from "../../../lib/theme/types"
 
 interface GroupProps extends ComponentPropsWithoutRef<"div"> {
   /** `align-items` CSS property. */
@@ -44,10 +43,3 @@ const Wrapper = styled.div<WrapperProps>`
   flex-wrap: ${({ flexWrap }) => flexWrap};
   gap: ${({ gap, theme }) => getGap(gap, theme)};
 `
-
-const getGap = (gap: Gap, theme: Theme): string => {
-  if (typeof gap === "number") return `${gap * theme.spacingBase}rem`
-  if (gap === "none") return "0px"
-  if (isInArray(gap, spacings)) return theme.spacing[gap]
-  return gap.toString()
-}
