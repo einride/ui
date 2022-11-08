@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest"
-import { getBackground, getBorderRadius, getColor, getSpacing } from "./prop-system"
+import { getBackground, getBorderRadius, getColor, getGap, getSpacing } from "./prop-system"
 import { themes } from "./theme"
 
 const theme = themes.light
@@ -31,6 +31,21 @@ describe("getColor", () => {
   })
   it("handles custom colors", () => {
     expect(getColor("#123456", theme)).toEqual("#123456")
+  })
+})
+
+describe("getGap", () => {
+  it("handles none", () => {
+    expect(getGap("none", theme)).toEqual("0px")
+  })
+  it("handles theme spacings", () => {
+    expect(getGap("lg", theme)).toEqual(theme.spacing.lg)
+  })
+  it("handles custom spacings based on theme spacing", () => {
+    expect(getGap(12, theme)).toEqual(`${12 * theme.spacingBase}rem`)
+  })
+  it("handles custom spacings", () => {
+    expect(getGap("3.14px", theme)).toEqual("3.14px")
   })
 })
 
