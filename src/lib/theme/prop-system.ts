@@ -17,9 +17,9 @@ export const getColor = (color: Color, theme: Theme): string => {
   if (isInArray(color, contentColors)) return theme.colors.content[color]
   return color.toString()
 }
+
 export const getSpacing = (input: SpacingInput, theme: Theme): string => {
   if (typeof input === "number") return `${input * theme.spacingBase}rem`
-  if (input === "none") return "0px"
   if (isInArray(input, spacings)) return theme.spacing[input]
   return input.toString()
 }
