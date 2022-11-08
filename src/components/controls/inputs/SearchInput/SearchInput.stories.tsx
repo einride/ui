@@ -17,10 +17,21 @@ const Template: ComponentStory<typeof SearchInput> = (args) => <SearchInput {...
 
 export const Default = Template.bind({})
 Default.args = {
-  "aria-label": "Search for something fun",
+  label: "Search for something fun",
   placeholder: "Search...",
 }
 Default.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("textbox")
+  await expect(input).toHaveAccessibleName("Search for something fun")
+}
+
+export const WithoutLabel = Template.bind({})
+WithoutLabel.args = {
+  "aria-label": "Search for something fun",
+  placeholder: "Search...",
+}
+WithoutLabel.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const input = canvas.getByRole("textbox")
   await expect(input).toHaveAccessibleName("Search for something fun")

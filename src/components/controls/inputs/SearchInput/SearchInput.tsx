@@ -1,12 +1,16 @@
 import { useUncontrolled } from "@mantine/hooks"
-import { ElementType, forwardRef, HTMLAttributes, InputHTMLAttributes } from "react"
+import {
+  ElementType,
+  forwardRef,
+  HTMLAttributes,
+  InputHTMLAttributes,
+  LabelHTMLAttributes,
+  ReactNode,
+} from "react"
 import { Icon } from "../../../content/Icon/Icon"
 import { BaseInput } from "../BaseInput/BaseInput"
 
-interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  /** Accessible name, required when `label` is not provided. */
-  "aria-label": string
-
+interface SearchInputBaseProps extends InputHTMLAttributes<HTMLInputElement> {
   /** Effective element used. */
   as?: ElementType
 
@@ -16,6 +20,21 @@ interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
   /** Props passed to root element. */
   wrapperProps?: HTMLAttributes<HTMLDivElement>
 }
+interface SearchInputWithLabelProps {
+  /** Input label, displayed before input. */
+  label: ReactNode
+
+  /** Props passed to label element. */
+  labelProps?: LabelHTMLAttributes<HTMLLabelElement>
+}
+
+interface SearchInputWithoutLabelProps {
+  /** Accessible name, required when `label` is not provided. */
+  "aria-label": string
+}
+
+type SearchInputProps = SearchInputBaseProps &
+  (SearchInputWithLabelProps | SearchInputWithoutLabelProps)
 
 export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
   ({ value, defaultValue, onInputChange, ...props }, ref) => {
