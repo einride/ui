@@ -32,7 +32,7 @@ import {
   Width,
 } from "../../../lib/theme/props"
 
-interface BoxProps extends Omit<ComponentPropsWithoutRef<"div">, "color"> {
+export interface BoxProps extends Omit<ComponentPropsWithoutRef<"div">, "color"> {
   /** `align-items` CSS property. */
   alignItems?: AlignItems
 
