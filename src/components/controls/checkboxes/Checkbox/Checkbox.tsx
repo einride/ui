@@ -9,6 +9,7 @@ import {
   useId,
 } from "react"
 import { Icon } from "../../../content/Icon/Icon"
+import { Box } from "../../../layout/Box/Box"
 
 interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   as?: ElementType
@@ -24,30 +25,24 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     const uuid = useId()
 
     return (
-      <Wrapper style={wrapperStyles}>
-        <InnerWrapper style={innerWrapperStyles}>
+      <Box
+        display="flex"
+        alignItems="center"
+        paddingBlock={1.5}
+        paddingInline={2}
+        style={wrapperStyles}
+      >
+        <Box display="flex" position="relative" style={innerWrapperStyles}>
           <StyledInput id={uuid} type="checkbox" {...props} ref={ref} />
           <StyledIcon name="checkmark" />
-        </InnerWrapper>
+        </Box>
         <StyledLabel htmlFor={uuid} style={labelStyles}>
           {children}
         </StyledLabel>
-      </Wrapper>
+      </Box>
     )
   },
 )
-
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  padding-block: ${({ theme }) => 1.5 * theme.spacer}px;
-  padding-inline: ${({ theme }) => 2 * theme.spacer}px;
-`
-
-const InnerWrapper = styled.div`
-  position: relative;
-  display: flex;
-`
 
 const StyledLabel = styled.label`
   font-family: ${({ theme }) => theme.fonts.body};

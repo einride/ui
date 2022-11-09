@@ -25,10 +25,13 @@ import {
   MarginRight,
   MarginTop,
   Padding,
+  PaddingBlock,
   PaddingBottom,
+  PaddingInline,
   PaddingLeft,
   PaddingRight,
   PaddingTop,
+  Position,
   Width,
 } from "../../../lib/theme/props"
 
@@ -87,8 +90,14 @@ export interface BoxProps extends Omit<ComponentPropsWithoutRef<"div">, "color">
   /** Padding of the box. */
   padding?: Padding
 
+  /** Block padding of the box. */
+  paddingBlock?: PaddingBlock
+
   /** Bottom padding of the box. */
   paddingBottom?: PaddingBottom
+
+  /** Inline padding of the box. */
+  paddingInline?: PaddingInline
 
   /** Left padding of the box. */
   paddingLeft?: PaddingLeft
@@ -98,6 +107,9 @@ export interface BoxProps extends Omit<ComponentPropsWithoutRef<"div">, "color">
 
   /** Top padding of the box. */
   paddingTop?: PaddingTop
+
+  /** `position` CSS property. */
+  position?: Position
 
   /** Width of the box. */
   width?: Width
@@ -124,10 +136,13 @@ interface WrapperProps {
   marginRight?: MarginRight
   marginTop?: MarginTop
   padding?: Padding
+  paddingBlock?: PaddingBlock
   paddingBottom?: PaddingBottom
+  paddingInline?: PaddingInline
   paddingLeft?: PaddingLeft
   paddingRight?: PaddingRight
   paddingTop?: PaddingTop
+  position?: Position
   textColor: Color | undefined
   width?: Width
 }
@@ -151,10 +166,14 @@ const Wrapper = styled.div<WrapperProps>`
   margin-right: ${({ marginRight, theme }) => marginRight && getSpacing(marginRight, theme)};
   margin-top: ${({ marginTop, theme }) => marginTop && getSpacing(marginTop, theme)};
   padding: ${({ padding, theme }) => padding && getSpacing(padding, theme)};
+  padding-block: ${({ paddingBlock, theme }) => paddingBlock && getSpacing(paddingBlock, theme)};
   padding-bottom: ${({ paddingBottom, theme }) =>
     paddingBottom && getSpacing(paddingBottom, theme)};
+  padding-inline: ${({ paddingInline, theme }) =>
+    paddingInline && getSpacing(paddingInline, theme)};
   padding-left: ${({ paddingLeft, theme }) => paddingLeft && getSpacing(paddingLeft, theme)};
   padding-right: ${({ paddingRight, theme }) => paddingRight && getSpacing(paddingRight, theme)};
   padding-top: ${({ paddingTop, theme }) => paddingTop && getSpacing(paddingTop, theme)};
+  position: ${({ position }) => position};
   width: ${({ width, theme }) => width && getSpacing(width, theme)};
 `
