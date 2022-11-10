@@ -144,7 +144,7 @@ const StyledInput = styled.input<StyledInputProps>`
 
   &:hover:not(:disabled) {
     background: ${({ background, theme }) =>
-      background ? getHoverBackground(background, theme) : theme.colors.background.negative};
+      background ? getHoverBackground(background, theme) : theme.colors.background.tertiary};
   }
 
   &::placeholder {
