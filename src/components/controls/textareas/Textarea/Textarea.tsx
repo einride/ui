@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import {
+  ComponentPropsWithoutRef,
   CSSProperties,
-  ElementType,
   forwardRef,
   ReactNode,
   TextareaHTMLAttributes,
@@ -9,20 +9,22 @@ import {
 } from "react"
 import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
+import { Box, BoxProps } from "../../../layout/Box/Box"
 import { Caption } from "../../../typography/Caption/Caption"
 
 interface TextareaBaseProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
-  /** Effective element used. */
-  as?: ElementType
-
   /** Message shown below input field. Can be used together with `status` to show a success or error message. */
   message?: ReactNode
 
   /**  Default is `neutral`. */
   status?: Status
 
-  /** Styles passed to root element. */
-  // TODO: Replace with `wrapperProps` in next major
+  /** Props passed to root elemenet. */
+  wrapperProps?: BoxProps
+
+  /** Styles passed to root element.
+   *  @deprecated since version 6.34.0. Use `wrapperProps` instead. */
+  // TODO: Remove in next major.
   wrapperStyles?: CSSProperties
 }
 
@@ -30,8 +32,12 @@ interface TextareaWithLabelProps {
   /** Textarea label, displayed before textarea. */
   label: ReactNode
 
-  /** Styles passed to the label element. */
-  // TODO: Replace with `labelProps` in next major
+  /** Props passed to label elemenet. */
+  labelProps?: ComponentPropsWithoutRef<"label">
+
+  /** Styles passed to the label element.
+   *  @deprecated since version 6.34.0. Use `labelProps` instead. */
+  // TODO: Remove in next major.
   labelStyles?: CSSProperties
 }
 
@@ -43,63 +49,55 @@ interface TextareaWithoutLabelProps {
 export type TextareaProps = TextareaBaseProps & (TextareaWithLabelProps | TextareaWithoutLabelProps)
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ message, status, wrapperStyles = {}, ...props }, ref) => {
+  ({ message, status, wrapperProps, wrapperStyles = {}, ...props }, ref) => {
     const id = useId()
     const messageId = useId()
-
     return (
-      <Wrapper>
+      <Box {...wrapperProps}>
         {"label" in props && (
-          <StyledLabel htmlFor={id} style={props.labelStyles}>
+          <StyledLabel {...props.labelProps} htmlFor={id} style={props.labelStyles}>
             {props.label}
           </StyledLabel>
         )}
-        <InputWrapper style={wrapperStyles}>
+        <Box position="relative" style={wrapperStyles}>
           <StyledTextarea
             {...props}
-            {...(status === "fail" && { "aria-errormessage": messageId, "aria-invalid": "true" })}
+            aria-errormessage={status === "fail" && message ? messageId : undefined}
+            aria-describedby={status !== "fail" && message ? messageId : undefined}
+            aria-invalid={status === "fail"}
             hasLabel={"label" in props}
             id={id}
             ref={ref}
           />
-          <IconWrapper>{getStatusIcon(status)}</IconWrapper>
-        </InputWrapper>
+          <Box
+            alignItems="center"
+            blockSize={3}
+            display="flex"
+            inlineSize={3}
+            insetBlockStart={1.5}
+            insetInlineEnd={2}
+            justifyContent="center"
+            position="absolute"
+          >
+            {getStatusIcon(status)}
+          </Box>
+        </Box>
         {message && (
           <Caption color={getMessageColor(status)} id={messageId}>
             {message}
           </Caption>
         )}
-      </Wrapper>
+      </Box>
     )
   },
 )
 
-const Wrapper = styled.div``
-
 const StyledLabel = styled.label`
   display: inline-block;
-  font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.md};
-  font-weight: ${({ theme }) => theme.fontWeights.book};
   line-height: calc(4 / 3);
   margin-block-start: 5px;
   margin-block-end: 3px;
   color: ${({ theme }) => theme.colors.content.secondary};
-`
-
-const InputWrapper = styled.div`
-  position: relative;
-`
-
-const IconWrapper = styled.span`
-  position: absolute;
-  inset-block-start: ${({ theme }) => 1.5 * theme.spacer}px;
-  inset-inline-end: ${({ theme }) => 2 * theme.spacer}px;
-  block-size: ${({ theme }) => 3 * theme.spacer}px;
-  inline-size: ${({ theme }) => 3 * theme.spacer}px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `
 
 const StyledTextarea = styled.textarea<{ hasLabel: boolean }>`
@@ -139,21 +137,13 @@ const StyledTextarea = styled.textarea<{ hasLabel: boolean }>`
 const getStatusIcon = (status?: Status): JSX.Element | null => {
   switch (status) {
     case "success":
-      return <PositiveIcon name="checkmark" />
+      return <Icon color="positive" name="checkmark" />
     case "fail":
-      return <NegativeIcon name="warning" />
+      return <Icon color="negative" name="warning" />
     default:
       return null
   }
 }
-
-const PositiveIcon = styled(Icon)`
-  color: ${({ theme }) => theme.colors.content.positive};
-`
-
-const NegativeIcon = styled(Icon)`
-  color: ${({ theme }) => theme.colors.content.negative};
-`
 
 const getMessageColor = (status: Status | undefined): ContentColor => {
   switch (status) {
