@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { StepGauge } from "../../charts/StepGauge/StepGauge"
 import { StepProgress } from "../../charts/StepProgress/StepProgress"
 import { Icon } from "../../content/Icon/Icon"
+import { TextInput } from "../../controls/inputs/TextInput/TextInput"
 import { Group } from "../../layout/Group/Group"
 import { Stack } from "../../layout/Stack/Stack"
 import { Text } from "../../typography/Text/Text"
@@ -91,6 +92,17 @@ InsideCard.args = {
         </Text>
         <Text as="p">Good</Text>
       </Card>
+    </Stack>
+  ),
+}
+
+export const WithInput = Template.bind({})
+WithInput.args = {
+  background: "secondary",
+  children: (
+    <Stack>
+      <Text as="p">Slot</Text>
+      <TextInput label="Label" background="secondaryOpacity" />
     </Stack>
   ),
 }

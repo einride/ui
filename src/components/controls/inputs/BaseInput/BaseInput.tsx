@@ -8,12 +8,16 @@ import {
   ReactNode,
   useId,
 } from "react"
-import { ContentColor } from "../../../../lib/theme/types"
+import { getBackground } from "../../../../lib/theme/prop-system"
+import { BackgroundColor, ContentColor, Theme } from "../../../../lib/theme/types"
 import { Caption } from "../../../typography/Caption/Caption"
 
 export interface BaseInputProps extends InputHTMLAttributes<HTMLInputElement> {
   /** Effective element used. */
   as?: ElementType
+
+  /** Background color of the input field. Default is `secondary`. */
+  background?: BackgroundColor
 
   /** Input label, displayed before input. */
   label?: ReactNode
@@ -109,12 +113,20 @@ const RightIconWrapper = styled(IconWrapper)`
   inset-inline-end: ${({ theme }) => theme.spacer}px;
 `
 
-const StyledInput = styled.input<{ hasLabel: boolean; leftIcon: boolean; rightIcon: boolean }>`
+interface StyledInputProps {
+  background?: BackgroundColor
+  hasLabel: boolean
+  leftIcon: boolean
+  rightIcon: boolean
+}
+
+const StyledInput = styled.input<StyledInputProps>`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
   font-weight: ${({ theme }) => theme.fontWeights.book};
   line-height: calc(4 / 3);
-  background: ${({ theme }) => theme.colors.background.secondary};
+  background: ${({ background, theme }) =>
+    background ? getBackground(background, theme) : theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
   inline-size: 100%;
   display: block;
@@ -131,7 +143,8 @@ const StyledInput = styled.input<{ hasLabel: boolean; leftIcon: boolean; rightIc
   }
 
   &:hover:not(:disabled) {
-    background: ${({ theme }) => theme.colors.background.tertiary};
+    background: ${({ background, theme }) =>
+      background ? getHoverBackground(background, theme) : theme.colors.background.negative};
   }
 
   &::placeholder {
@@ -157,3 +170,14 @@ const getMessageColor = (status: Status | undefined): ContentColor => {
 }
 
 export type Status = "success" | "fail" | "neutral"
+
+const getHoverBackground = (background: BackgroundColor, theme: Theme): string => {
+  switch (background) {
+    case "secondary":
+      return theme.colors.background.tertiary
+    case "secondaryOpacity":
+      return theme.colors.background.tertiaryOpacity
+    default:
+      return theme.colors.background.tertiary
+  }
+}
