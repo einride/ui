@@ -7,7 +7,7 @@ import {
   LabelHTMLAttributes,
   ReactNode,
 } from "react"
-import { BackgroundColor } from "../../../../main"
+import { BackgroundColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { BaseInput } from "../BaseInput/BaseInput"
 
