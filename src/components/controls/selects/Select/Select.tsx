@@ -8,13 +8,17 @@ import {
   SelectHTMLAttributes,
   useId,
 } from "react"
-import { ContentColor } from "../../../../lib/theme/types"
+import { getBackground } from "../../../../lib/theme/prop-system"
+import { BackgroundColor, ContentColor, Theme } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Caption } from "../../../typography/Caption/Caption"
 
 interface SelectBaseProps extends SelectHTMLAttributes<HTMLSelectElement> {
   /** Effective element used. */
   as?: ElementType
+
+  /** Background color of the input field. Default is `secondary`. */
+  background?: Extract<BackgroundColor, "secondary" | "secondaryOpacity">
 
   /** Options to render in select list. */
   children: ReactNode
@@ -109,12 +113,18 @@ const SelectWrapper = styled.div`
   position: relative;
 `
 
-const StyledSelect = styled.select<{ hasLabel: boolean }>`
+interface StyledSelectProps {
+  background?: Extract<BackgroundColor, "secondary" | "secondaryOpacity">
+  hasLabel: boolean
+}
+
+const StyledSelect = styled.select<StyledSelectProps>`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
   font-weight: ${({ theme }) => theme.fontWeights.book};
   line-height: calc(4 / 3);
-  background: ${({ theme }) => theme.colors.background.secondary};
+  background: ${({ background, theme }) =>
+    background ? getBackground(background, theme) : theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
   inline-size: 100%;
   display: block;
@@ -132,7 +142,8 @@ const StyledSelect = styled.select<{ hasLabel: boolean }>`
   }
 
   &:hover:not(:disabled) {
-    background: ${({ theme }) => theme.colors.background.tertiary};
+    background: ${({ background, theme }) =>
+      background ? getHoverBackground(background, theme) : theme.colors.background.tertiary};
   }
 
   &:disabled {
@@ -150,3 +161,17 @@ const StyledIcon = styled(Icon)`
   inline-size: ${({ theme }) => 3 * theme.spacer}px;
   text-align: center;
 `
+
+const getHoverBackground = (
+  background: Extract<BackgroundColor, "secondary" | "secondaryOpacity">,
+  theme: Theme,
+): string => {
+  switch (background) {
+    case "secondary":
+      return theme.colors.background.tertiary
+    case "secondaryOpacity":
+      return theme.colors.background.tertiaryOpacity
+    default:
+      return theme.colors.background.tertiary
+  }
+}
