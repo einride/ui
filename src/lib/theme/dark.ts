@@ -14,18 +14,20 @@ export const dark: ColorTheme = {
     secondaryElevated: color.greyscale.black,
     secondaryElevatedInverted: color.greyscale.grey20,
     secondaryInverted: color.greyscale.grey20,
+    secondaryOpacity: `${color.greyscale.grey20}0D`, // 0D is HEX for ~5% opacity
     tertiary: color.greyscale.grey80,
-    positive: `${color.green.default}1A`, // 1A is HEX for 10 % opacity
-    negative: `${color.red.default}1A`, // 1A is HEX for 10 % opacity
-    focus: `${color.greyscale.black}66`, // 66 is HEX for 40 % opacity
+    tertiaryOpacity: `${color.greyscale.grey20}1A`, // 1A is HEX for ~10% opacity
+    positive: `${color.green.default}1A`, // 1A is HEX for ~10% opacity
+    negative: `${color.red.default}1A`, // 1A is HEX for ~10% opacity
+    focus: `${color.greyscale.black}66`, // 66 is HEX for ~40% opacity
     /** @deprecated since version 6.9.0. Use `primaryInverted` instead.  */
     reverse: color.greyscale.white,
   },
   content: {
     primary: color.greyscale.white,
     primaryInverted: color.greyscale.grey100,
-    secondary: `${color.greyscale.grey20}B3`, // B3 is HEX for 70 % opacity
-    tertiary: `${color.greyscale.grey20}66`, // 66 is HEX for 40 % opacity
+    secondary: `${color.greyscale.grey20}B3`, // B3 is HEX for ~70% opacity
+    tertiary: `${color.greyscale.grey20}66`, // 66 is HEX for ~40% opacity
     positive: color.green.light,
     negative: color.red.light,
     /** @deprecated since version 6.9.0. Use `primaryInverted` instead.  */
@@ -65,7 +67,7 @@ export const dark: ColorTheme = {
       primary: color.greyscale.black,
       secondary: color.greyscale.white,
       tertiary: color.greyscale.white,
-      disabled: `${color.greyscale.grey20}66`, // 66 is HEX for 40 % opacity
+      disabled: `${color.greyscale.grey20}66`, // 66 is HEX for ~40% opacity
     },
     icon: {
       primary: color.green.dark,

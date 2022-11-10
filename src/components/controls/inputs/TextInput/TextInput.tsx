@@ -7,12 +7,16 @@ import {
   LabelHTMLAttributes,
   ReactNode,
 } from "react"
+import { BackgroundColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { BaseInput, Status } from "../BaseInput/BaseInput"
 
 interface TextInputBaseProps extends InputHTMLAttributes<HTMLInputElement> {
   /** Effective element used. */
   as?: ElementType
+
+  /** Background color of the input field. Default is `secondary`. */
+  background?: Extract<BackgroundColor, "secondary" | "secondaryOpacity">
 
   /** Message shown below input field. Can be used together with `status` to show a success or error message. */
   message?: ReactNode
