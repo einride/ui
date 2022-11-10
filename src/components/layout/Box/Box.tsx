@@ -10,6 +10,7 @@ import {
   AlignItems,
   As,
   Background,
+  BlockSize,
   BorderRadius,
   Color,
   Display,
@@ -18,8 +19,15 @@ import {
   FlexWrap,
   Gap,
   Height,
+  InlineSize,
+  InsetBlockEnd,
+  InsetBlockStart,
+  InsetInlineEnd,
+  InsetInlineStart,
   JustifyContent,
   Margin,
+  MarginBlockEnd,
+  MarginBlockStart,
   MarginBottom,
   MarginLeft,
   MarginRight,
@@ -45,6 +53,9 @@ export interface BoxProps extends Omit<ComponentPropsWithoutRef<"div">, "color">
   /** Box background color. */
   background?: Background
 
+  /** Block size of the box. */
+  blockSize?: BlockSize
+
   /** Box border radius. */
   borderRadius?: BorderRadius
 
@@ -69,11 +80,32 @@ export interface BoxProps extends Omit<ComponentPropsWithoutRef<"div">, "color">
   /** Box height. */
   height?: Height
 
+  /** Inline size of the box. */
+  inlineSize?: InlineSize
+
+  /** Block end inset of the box. */
+  insetBlockEnd?: InsetBlockEnd
+
+  /** Block start inset of the box. */
+  insetBlockStart?: InsetBlockStart
+
+  /** Inline end inset of the box. */
+  insetInlineEnd?: InsetInlineEnd
+
+  /** Inline start inset of the box. */
+  insetInlineStart?: InsetInlineStart
+
   /** `justify-content` CSS property. */
   justifyContent?: JustifyContent
 
   /** Margin of the box. */
   margin?: Margin
+
+  /** Block end margin of the box. */
+  marginBlockEnd?: MarginBlockEnd
+
+  /** Block start margin of the box. */
+  marginBlockStart?: MarginBlockStart
 
   /** Bottom margin of the box. */
   marginBottom?: MarginBottom
@@ -122,6 +154,7 @@ export const Box = forwardRef<HTMLDivElement, BoxProps>(({ color, ...props }, fo
 interface WrapperProps {
   alignItems?: AlignItems
   background?: Background
+  blockSize?: BlockSize
   borderRadius?: BorderRadius
   display?: Display
   flexDirection?: FlexDirection
@@ -129,8 +162,15 @@ interface WrapperProps {
   flexWrap?: FlexWrap
   gap?: Gap
   height?: Height
+  inlineSize?: InlineSize
+  insetBlockEnd?: InsetBlockEnd
+  insetBlockStart?: InsetBlockStart
+  insetInlineEnd?: InsetInlineEnd
+  insetInlineStart?: InsetInlineStart
   justifyContent?: JustifyContent
   margin?: Margin
+  marginBlockEnd?: MarginBlockEnd
+  marginBlockStart?: MarginBlockStart
   marginBottom?: MarginBottom
   marginLeft?: MarginLeft
   marginRight?: MarginRight
@@ -150,6 +190,7 @@ interface WrapperProps {
 const Wrapper = styled.div<WrapperProps>`
   align-items: ${({ alignItems }) => alignItems};
   background: ${({ background, theme }) => background && getBackground(background, theme)};
+  block-size: ${({ blockSize, theme }) => blockSize && getSpacing(blockSize, theme)};
   border-radius: ${({ borderRadius, theme }) =>
     borderRadius && getBorderRadius(borderRadius, theme)};
   color: ${({ textColor, theme }) => textColor && getColor(textColor, theme)};
@@ -159,8 +200,21 @@ const Wrapper = styled.div<WrapperProps>`
   flex-wrap: ${({ flexWrap }) => flexWrap};
   gap: ${({ gap, theme }) => gap && getSpacing(gap, theme)};
   height: ${({ height, theme }) => height && getSpacing(height, theme)};
+  inline-size: ${({ inlineSize, theme }) => inlineSize && getSpacing(inlineSize, theme)};
+  inset-block-end: ${({ insetBlockEnd, theme }) =>
+    insetBlockEnd && getSpacing(insetBlockEnd, theme)};
+  inset-block-start: ${({ insetBlockStart, theme }) =>
+    insetBlockStart && getSpacing(insetBlockStart, theme)};
+  inset-inline-end: ${({ insetInlineEnd, theme }) =>
+    insetInlineEnd && getSpacing(insetInlineEnd, theme)};
+  inset-inline-start: ${({ insetInlineStart, theme }) =>
+    insetInlineStart && getSpacing(insetInlineStart, theme)};
   justify-content: ${({ justifyContent }) => justifyContent};
   margin: ${({ margin, theme }) => margin && getSpacing(margin, theme)};
+  margin-block-end: ${({ marginBlockEnd, theme }) =>
+    marginBlockEnd && getSpacing(marginBlockEnd, theme)};
+  margin-block-start: ${({ marginBlockStart, theme }) =>
+    marginBlockStart && getSpacing(marginBlockStart, theme)};
   margin-bottom: ${({ marginBottom, theme }) => marginBottom && getSpacing(marginBottom, theme)};
   margin-left: ${({ marginLeft, theme }) => marginLeft && getSpacing(marginLeft, theme)};
   margin-right: ${({ marginRight, theme }) => marginRight && getSpacing(marginRight, theme)};
