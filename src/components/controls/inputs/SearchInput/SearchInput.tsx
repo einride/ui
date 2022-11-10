@@ -7,12 +7,16 @@ import {
   LabelHTMLAttributes,
   ReactNode,
 } from "react"
+import { BackgroundColor } from "../../../../main"
 import { Icon } from "../../../content/Icon/Icon"
 import { BaseInput } from "../BaseInput/BaseInput"
 
 interface SearchInputBaseProps extends InputHTMLAttributes<HTMLInputElement> {
   /** Effective element used. */
   as?: ElementType
+
+  /** Background color of the input field. Default is `secondary`. */
+  background?: Extract<BackgroundColor, "secondary" | "secondaryOpacity">
 
   /** `onChange` handler. */
   onInputChange?: (input: string) => void // TODO: change name to onChange
