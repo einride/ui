@@ -186,6 +186,7 @@ export const SearchSelect = <Option extends BaseOption>({
     <Wrapper {...wrapperProps}>
       <SearchSelectInput
         {...props}
+        autoComplete="off"
         isOpen={isOpen && !!filteredOptions && filteredOptions.length > 0}
         onBlur={handleInputBlur}
         onChange={(e) => handleInputChange(e.target.value)}
