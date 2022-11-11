@@ -11,6 +11,7 @@ import {
   useRef,
   useState,
 } from "react"
+import { BackgroundColor } from "../../../../lib/theme/types"
 import { zIndex } from "../../../../lib/zIndex"
 import { defaultFilter, filterOptions } from "./filterOptions"
 import { SearchSelectInput } from "./SearchSelectInput"
@@ -18,6 +19,9 @@ import { SearchSelectOption } from "./SearchSelectOption"
 import { BaseOption } from "./types"
 
 interface SearchSelectBaseProps<Option> extends InputHTMLAttributes<HTMLInputElement> {
+  /** Background color of the input field. Default is `secondary`. */
+  background?: Extract<BackgroundColor, "secondary" | "secondaryOpacity">
+
   /** Props passed to the clear button element. */
   clearButtonProps?: ButtonHTMLAttributes<HTMLButtonElement> & { "data-testid": string }
 
@@ -231,7 +235,7 @@ const OptionsWrapper = styled.div`
   position: absolute;
   inset-block-start: 100%;
   inset-inline: 0;
-  background: ${({ theme }) => theme.colors.background.secondary};
+  background: ${({ theme }) => theme.colors.background.secondaryElevated};
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   margin-block-start: ${({ theme }) => theme.spacer}px;
   padding: ${({ theme }) => theme.spacer}px;

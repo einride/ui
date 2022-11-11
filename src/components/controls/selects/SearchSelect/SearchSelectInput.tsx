@@ -8,14 +8,19 @@ import {
   LabelHTMLAttributes,
   ReactNode,
 } from "react"
+import { BackgroundColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { BaseInput } from "../../inputs/BaseInput/BaseInput"
 
 interface SearchSelectInputBaseProps extends InputHTMLAttributes<HTMLInputElement> {
   as?: ElementType
 
+  /** Background color of the input field. Default is `secondary`. */
+  background?: Extract<BackgroundColor, "secondary" | "secondaryOpacity">
+
   /** Props passed to the clear button element. */
   clearButtonProps?: ButtonHTMLAttributes<HTMLButtonElement> | undefined
+
   isOpen?: boolean
   message?: ReactNode
   onClearInput: () => void
