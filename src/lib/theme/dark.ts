@@ -11,7 +11,7 @@ export const dark: ColorTheme = {
     primaryElevatedInverted: color.greyscale.white,
     primaryInverted: color.greyscale.white,
     secondary: color.greyscale.grey100,
-    secondaryElevated: color.greyscale.black,
+    secondaryElevated: color.greyscale.grey100,
     secondaryElevatedInverted: color.greyscale.grey20,
     secondaryInverted: color.greyscale.grey20,
     secondaryOpacity: `${color.greyscale.grey20}0D`, // 0D is HEX for ~5% opacity
