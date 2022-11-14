@@ -28,6 +28,7 @@ export { PrimaryButton } from "./components/controls/buttons/PrimaryButton/Prima
 export { SecondaryButton } from "./components/controls/buttons/SecondaryButton/SecondaryButton"
 export { TertiaryButton } from "./components/controls/buttons/TertiaryButton/TertiaryButton"
 export { Checkbox } from "./components/controls/checkboxes/Checkbox/Checkbox"
+export { DatePicker } from "./components/controls/dates/DatePicker/DatePicker"
 export { SearchInput } from "./components/controls/inputs/SearchInput/SearchInput"
 export { TextInput } from "./components/controls/inputs/TextInput/TextInput"
 export { Radio } from "./components/controls/radios/Radio/Radio"

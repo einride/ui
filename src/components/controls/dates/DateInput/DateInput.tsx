@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { createCalendar } from "@internationalized/date"
+import { CalendarDate, createCalendar, DateValue } from "@internationalized/date"
 import { useDateField, useDateSegment } from "@react-aria/datepicker"
 import { useLocale } from "@react-aria/i18n"
 import {
@@ -15,6 +15,15 @@ import { Box } from "../../../layout/Box/Box"
 export interface DateInputBaseProps {
   /** Background color of the input field. Default is `secondary`. */
   background?: BackgroundColor
+
+  /** Default calendar value when uncontrolled. */
+  defaultValue?: CalendarDate
+
+  /** Controlled calendar value. */
+  value?: CalendarDate
+
+  /** Event handler called when the value of the calendar changes. */
+  onChange?: (value: CalendarDate) => void
 
   /** Props passed to root element. */
   wrapperProps?: Omit<ComponentPropsWithoutRef<"div">, "color">
@@ -35,18 +44,17 @@ interface DateInputWithoutLabelProps {
 
 type DateInputProps = DateInputBaseProps & (DateInputWithLabelProps | DateInputWithoutLabelProps)
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const DateInput = ({ wrapperProps, ...props }: DateInputProps): JSX.Element => {
   const { locale } = useLocale()
   const state = useDateFieldState({
     ...props,
+    onChange: props.onChange as (value: DateValue) => void,
     locale,
     createCalendar,
   })
   const ref = useRef<HTMLDivElement>(null)
   const { labelProps, fieldProps } = useDateField(props, state, ref)
   const id = useId()
-
   return (
     <Box display="inline-block" {...wrapperProps}>
       {"label" in props && (

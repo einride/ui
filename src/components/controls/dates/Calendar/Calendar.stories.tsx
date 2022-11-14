@@ -4,13 +4,12 @@ import { useState } from "react"
 import { Calendar } from "./Calendar"
 
 export default {
-  title: "Controls/Date/Calendar",
+  title: "Controls/Dates/Calendar",
   component: Calendar,
 } as ComponentMeta<typeof Calendar>
 
 const ControlledTemplate: ComponentStory<typeof Calendar> = (args) => {
   const [value, setValue] = useState(parseDate("2022-08-10"))
-
   return <Calendar {...args} value={value} onChange={setValue} />
 }
 
