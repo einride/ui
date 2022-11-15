@@ -45,6 +45,7 @@ export type PaddingInline = SpacingInput
 export type PaddingLeft = SpacingInput
 export type PaddingRight = SpacingInput
 export type PaddingTop = SpacingInput
+export type PointerEvents = CSSProperties["pointerEvents"]
 export type Position = CSSProperties["position"]
 export type TextAlign = CSSProperties["textAlign"]
 export type Width = SpacingInput

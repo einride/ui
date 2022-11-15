@@ -39,6 +39,7 @@ import {
   PaddingLeft,
   PaddingRight,
   PaddingTop,
+  PointerEvents,
   Position,
   Width,
 } from "../../../lib/theme/props"
@@ -140,6 +141,9 @@ export interface BoxProps extends Omit<ComponentPropsWithoutRef<"div">, "color">
   /** Top padding of the box. */
   paddingTop?: PaddingTop
 
+  /** `pointer-events` CSS property. */
+  pointerEvents?: PointerEvents
+
   /** `position` CSS property. */
   position?: Position
 
@@ -182,6 +186,7 @@ interface WrapperProps {
   paddingLeft?: PaddingLeft
   paddingRight?: PaddingRight
   paddingTop?: PaddingTop
+  pointerEvents?: PointerEvents
   position?: Position
   textColor: Color | undefined
   width?: Width
@@ -228,6 +233,7 @@ const Wrapper = styled.div<WrapperProps>`
   padding-left: ${({ paddingLeft, theme }) => paddingLeft && getSpacing(paddingLeft, theme)};
   padding-right: ${({ paddingRight, theme }) => paddingRight && getSpacing(paddingRight, theme)};
   padding-top: ${({ paddingTop, theme }) => paddingTop && getSpacing(paddingTop, theme)};
+  pointer-events: ${({ pointerEvents }) => pointerEvents};
   position: ${({ position }) => position};
   width: ${({ width, theme }) => width && getSpacing(width, theme)};
 `

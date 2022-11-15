@@ -73,18 +73,21 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             id={id}
             ref={ref}
           />
-          <Box
-            alignItems="center"
-            blockSize={3}
-            display="flex"
-            inlineSize={3}
-            insetBlockStart={1.5}
-            insetInlineEnd={2}
-            justifyContent="center"
-            position="absolute"
-          >
-            {getStatusIcon(status)}
-          </Box>
+          {(status === "fail" || status === "success") && (
+            <Box
+              alignItems="center"
+              blockSize={3}
+              display="flex"
+              inlineSize={3}
+              insetBlockStart={1.5}
+              insetInlineEnd={2}
+              justifyContent="center"
+              pointerEvents="none"
+              position="absolute"
+            >
+              {getStatusIcon(status)}
+            </Box>
+          )}
         </Box>
         {message && (
           <Caption color={getMessageColor(status)} id={messageId}>
