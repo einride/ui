@@ -1,12 +1,12 @@
 import styled from "@emotion/styled"
-import { forwardRef, HTMLAttributes } from "react"
-import { isInArray } from "../../../lib/theme/guard"
+import { ElementType, forwardRef, HTMLAttributes } from "react"
+import { getColor, getFont } from "../../../lib/theme/prop-system"
 import { As, Color, FontFamily, FontWeight } from "../../../lib/theme/props"
-import { contentColors, fonts, Theme } from "../../../lib/theme/types"
+import { Theme } from "../../../lib/theme/types"
 
 interface TextProps extends Omit<HTMLAttributes<HTMLParagraphElement>, "color"> {
   /** Effective element used. */
-  as: As
+  as?: As
 
   /** Text color. */
   color?: Color
@@ -23,8 +23,9 @@ interface TextProps extends Omit<HTMLAttributes<HTMLParagraphElement>, "color"> 
 
 export const Text = forwardRef<HTMLParagraphElement, TextProps>(
   ({ children, color, ...props }, ref) => {
+    const as = getAs(props.variant)
     return (
-      <StyledText textColor={color} {...props} ref={ref}>
+      <StyledText as={as} textColor={color} {...props} ref={ref}>
         {children}
       </StyledText>
     )
@@ -49,14 +50,18 @@ const StyledText = styled.p<StyledTextProps>`
   padding-block: ${({ variant }) => getPaddingBlock(variant)};
 `
 
-const getColor = (textColor: Color, theme: Theme): string => {
-  if (isInArray(textColor, contentColors)) return theme.colors.content[textColor]
-  return textColor.toString()
-}
-
-const getFont = (font: FontFamily, theme: Theme): string => {
-  if (isInArray(font, fonts)) return theme.fonts[font]
-  return font.toString()
+const getAs = (variant?: Variant): ElementType => {
+  switch (variant) {
+    case "titleXl":
+    case "titleLg":
+    case "titleMd":
+    case "titleSm":
+      return "h2"
+    case "bodyMd":
+    case "bodySm":
+    default:
+      return "p"
+  }
 }
 
 const getFontSize = (theme: Theme, variant: Variant): string => {

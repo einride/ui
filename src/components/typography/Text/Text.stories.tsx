@@ -17,13 +17,11 @@ Default.args = {
 export const TitleXl = Template.bind({})
 TitleXl.args = {
   ...Default.args,
-  as: "h2",
   variant: "titleXl",
 }
 
 export const Secondary = Template.bind({})
 Secondary.args = {
   ...Default.args,
-  as: "h2",
   color: "secondary",
 }

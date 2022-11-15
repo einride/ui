@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest"
-import { getBackground, getBorderRadius, getColor, getGap, getSpacing } from "./prop-system"
+import {
+  getBackground,
+  getBorderRadius,
+  getColor,
+  getFont,
+  getGap,
+  getSpacing,
+} from "./prop-system"
 import { themes } from "./theme"
 
 const theme = themes.light
@@ -31,6 +38,15 @@ describe("getColor", () => {
   })
   it("handles custom colors", () => {
     expect(getColor("#123456", theme)).toEqual("#123456")
+  })
+})
+
+describe("getFont", () => {
+  it("handles theme fonts", () => {
+    expect(getFont("mono", theme)).toEqual(theme.fonts.mono)
+  })
+  it("handles custom fonts", () => {
+    expect(getFont("Arial", theme)).toEqual("Arial")
   })
 })
 
