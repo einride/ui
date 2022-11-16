@@ -3087,21 +3087,7 @@
     "@react-types/shared" "^3.15.0"
     clsx "^1.1.1"
 
-"@react-aria/i18n@3.6.1":
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/@react-aria/i18n/-/i18n-3.6.1.tgz#b97e78e3ec040a5ca08d166033f2d358ef1af4c5"
-  integrity sha512-kAetWsj9HOqwaqLhmFU2udhZ+4QGGYkQOgGBJYdrB7GfLZQ1GPBlZjv3QFdkX4oSf/k9cFqgftxvVQQDYZLOew==
-  dependencies:
-    "@babel/runtime" "^7.6.2"
-    "@internationalized/date" "^3.0.1"
-    "@internationalized/message" "^3.0.9"
-    "@internationalized/number" "^3.1.1"
-    "@internationalized/string" "^3.0.0"
-    "@react-aria/ssr" "^3.3.0"
-    "@react-aria/utils" "^3.14.0"
-    "@react-types/shared" "^3.15.0"
-
-"@react-aria/i18n@^3.6.1", "@react-aria/i18n@^3.6.2":
+"@react-aria/i18n@3.6.2", "@react-aria/i18n@^3.6.1", "@react-aria/i18n@^3.6.2":
   version "3.6.2"
   resolved "https://registry.yarnpkg.com/@react-aria/i18n/-/i18n-3.6.2.tgz#74fa50f4b13ca7efe7738fd1960732a076ed049d"
   integrity sha512-/G22mZQcISX6DcKLBn4j/X53y2SOnFfiD4wOEuY7sIZZDryktd+3I/QHukCnNlf0tKK3PdixQLvWa9Q1RqTSaw==
@@ -3152,13 +3138,6 @@
     "@react-aria/utils" "^3.14.0"
     "@react-types/button" "^3.6.2"
     "@react-types/shared" "^3.15.0"
-
-"@react-aria/ssr@^3.3.0":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/@react-aria/ssr/-/ssr-3.3.0.tgz#25e81daf0c7a270a4a891159d8d984578e4512d8"
-  integrity sha512-yNqUDuOVZIUGP81R87BJVi/ZUZp/nYOBXbPsRe7oltJOfErQZD+UezMpw4vM2KRz18cURffvmC8tJ6JTeyDtaQ==
-  dependencies:
-    "@babel/runtime" "^7.6.2"
 
 "@react-aria/ssr@^3.4.0":
   version "3.4.0"
