@@ -1,19 +1,32 @@
 import styled from "@emotion/styled"
-import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
+import { forwardRef, HTMLAttributes, ReactNode } from "react"
+import { getColor } from "../../../lib/theme/prop-system"
+import { As, Color } from "../../../lib/theme/props"
 
-interface TrProps extends HTMLAttributes<HTMLTableRowElement> {
-  as?: ElementType
+interface TrProps extends Omit<HTMLAttributes<HTMLTableRowElement>, "color"> {
+  /** Effective element used. */
+  as?: As
+
+  /** Content of the table row. */
   children: ReactNode
+
+  /** Color used in the table header. */
+  color?: Color
 }
 
-export const Tr = forwardRef<HTMLTableRowElement, TrProps>(({ children, ...props }, ref) => {
+export const Tr = forwardRef<HTMLTableRowElement, TrProps>(({ children, color, ...props }, ref) => {
   return (
-    <StyledTr {...props} ref={ref}>
+    <StyledTr textColor={color} {...props} ref={ref}>
       {children}
     </StyledTr>
   )
 })
 
-const StyledTr = styled.tr`
+interface StyledTrProps {
+  textColor: Color | undefined
+}
+
+const StyledTr = styled.tr<StyledTrProps>`
+  color: ${({ textColor, theme }) => textColor && getColor(textColor, theme)};
   border-block-start: 1px solid ${({ theme }) => theme.colors.border.primary};
 `

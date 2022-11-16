@@ -1,38 +1,43 @@
 import styled from "@emotion/styled"
-import { ElementType, forwardRef, ReactNode, ThHTMLAttributes } from "react"
-import { ContentColor, Font } from "../../../lib/theme/types"
+import { forwardRef, ReactNode, ThHTMLAttributes } from "react"
+import { getColor, getFont } from "../../../lib/theme/prop-system"
+import { As, Color, FontFamily } from "../../../lib/theme/props"
 
-interface ThProps extends ThHTMLAttributes<HTMLTableCellElement> {
+interface ThProps extends Omit<ThHTMLAttributes<HTMLTableCellElement>, "color"> {
   /** Effective element used. */
-  as?: ElementType
+  as?: As
 
   /** Content of the table header. */
   children?: ReactNode
 
-  /** Color used in the table header. Default is `primary`. */
-  color?: ContentColor
+  /** Color used in the table header. */
+  color?: Color
 
-  /** Font used in the table header. Default is `body`. */
-  font?: Font
+  /** Font used in the table header. */
+  font?: FontFamily
 
   /** Indicates what cells the header element relates to. */
   scope: "col" | "row"
 }
 
 export const Th = forwardRef<HTMLTableCellElement, ThProps>(
-  ({ children, color = "primary", font = "body", ...props }, ref) => {
+  ({ children, color, ...props }, ref) => {
     return (
-      <StyledTh color={color} font={font} {...props} ref={ref}>
+      <StyledTh textColor={color} {...props} ref={ref}>
         {children}
       </StyledTh>
     )
   },
 )
 
-const StyledTh = styled.th<{ color: ContentColor; font: Font }>`
-  color: ${({ color, theme }) => theme.colors.content[color]};
-  font-family: ${({ font, theme }) => theme.fonts[font]};
-  font-size: ${({ theme }) => theme.fontSizes.md};
+interface StyledThProps {
+  font?: FontFamily
+  textColor: Color | undefined
+}
+
+const StyledTh = styled.th<StyledThProps>`
+  color: ${({ textColor, theme }) => textColor && getColor(textColor, theme)};
+  font-family: ${({ font, theme }) => font && getFont(font, theme)};
   font-weight: ${({ theme }) => theme.fontWeights.book};
   line-height: calc(4 / 3);
   padding-inline: ${({ theme }) => 2 * theme.spacer}px;
