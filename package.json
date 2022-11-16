@@ -28,7 +28,7 @@
     "@radix-ui/react-switch": "1.0.1",
     "@react-aria/button": "3.6.2",
     "@react-aria/calendar": "3.0.4",
-    "@react-aria/datepicker": "3.1.2",
+    "@react-aria/datepicker": "3.2.0",
     "@react-aria/i18n": "3.6.2",
     "@react-stately/calendar": "3.0.4",
     "@react-stately/datepicker": "3.1.0",
