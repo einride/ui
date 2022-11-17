@@ -13,7 +13,7 @@ export default {
   component: Table,
 } as ComponentMeta<typeof Table>
 
-export const Default: ComponentStory<typeof Table> = (args) => (
+export const Basic: ComponentStory<typeof Table> = (args) => (
   <Table {...args}>
     <Thead>
       <Tr color="secondary">
@@ -46,7 +46,7 @@ export const Default: ComponentStory<typeof Table> = (args) => (
   </Table>
 )
 
-Default.play = async ({ canvasElement }) => {
+Basic.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const table = canvas.getByRole("table")
   await expect(table).toBeInTheDocument()

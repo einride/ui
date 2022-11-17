@@ -1,10 +1,7 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
+import { ComponentPropsWithoutRef, forwardRef, ReactNode } from "react"
 
 interface VisuallyHiddenProps extends ComponentPropsWithoutRef<"span"> {
-  /** Effective element used. Default is `span`. */
-  as?: ElementType
-
   /** Visually hidden content. */
   children: ReactNode
 }
