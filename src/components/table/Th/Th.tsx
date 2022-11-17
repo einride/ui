@@ -1,22 +1,16 @@
 import styled from "@emotion/styled"
-import { forwardRef, ReactNode, ThHTMLAttributes } from "react"
+import { ComponentPropsWithoutRef, forwardRef } from "react"
 import { getColor, getFont } from "../../../lib/theme/prop-system"
-import { As, Color, FontFamily } from "../../../lib/theme/props"
+import { Color, FontFamily } from "../../../lib/theme/props"
 
-interface ThProps extends Omit<ThHTMLAttributes<HTMLTableCellElement>, "color"> {
-  /** Effective element used. */
-  as?: As
-
-  /** Content of the table header. */
-  children?: ReactNode
-
-  /** Color used in the table header. */
+interface ThProps extends Omit<ComponentPropsWithoutRef<"th">, "color"> {
+  /** Text color set on the table header. */
   color?: Color
 
-  /** Font used in the table header. */
+  /** Font set on the table header. */
   font?: FontFamily
 
-  /** Indicates what cells the header element relates to. */
+  /** Indicates what cells the table header element relates to. */
   scope: "col" | "row"
 }
 

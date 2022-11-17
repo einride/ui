@@ -14,7 +14,7 @@ export default {
 export const Default: ComponentStory<typeof Table> = (args) => (
   <Table {...args}>
     <Thead>
-      <Tr>
+      <Tr color="secondary">
         <Th scope="col">Country</Th>
         <Th scope="col">Capital</Th>
         <Th scope="col">Date format</Th>

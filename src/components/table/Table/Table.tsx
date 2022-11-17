@@ -1,22 +1,33 @@
 import styled from "@emotion/styled"
-import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
+import { ComponentPropsWithoutRef, forwardRef } from "react"
+import { getColor, getFont } from "../../../lib/theme/prop-system"
+import { Color, FontFamily } from "../../../lib/theme/props"
 
-interface TableProps extends HTMLAttributes<HTMLTableElement> {
-  /** Effective element used. */
-  as?: ElementType
+interface TableProps extends Omit<ComponentPropsWithoutRef<"table">, "color"> {
+  /** Text color set on the table. */
+  color?: Color
 
-  /** Content of the table. */
-  children?: ReactNode
+  /** Font set on the table. */
+  font?: FontFamily
 }
 
-export const Table = forwardRef<HTMLTableElement, TableProps>(({ children, ...props }, ref) => {
-  return (
-    <StyledTable {...props} ref={ref}>
-      {children}
-    </StyledTable>
-  )
-})
+export const Table = forwardRef<HTMLTableElement, TableProps>(
+  ({ children, color, ...props }, ref) => {
+    return (
+      <StyledTable textColor={color} {...props} ref={ref}>
+        {children}
+      </StyledTable>
+    )
+  },
+)
 
-const StyledTable = styled.table`
+interface StyledTableProps {
+  font?: FontFamily
+  textColor: Color | undefined
+}
+
+const StyledTable = styled.table<StyledTableProps>`
+  color: ${({ textColor, theme }) => textColor && getColor(textColor, theme)};
+  font-family: ${({ font, theme }) => font && getFont(font, theme)};
   inline-size: 100%;
 `

@@ -1,22 +1,32 @@
 import styled from "@emotion/styled"
-import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
+import { ComponentPropsWithoutRef, forwardRef } from "react"
+import { getColor, getFont } from "../../../lib/theme/prop-system"
+import { Color, FontFamily } from "../../../lib/theme/props"
 
-interface TbodyProps extends HTMLAttributes<HTMLTableSectionElement> {
-  /** Effective element used. */
-  as?: ElementType
+interface TbodyProps extends Omit<ComponentPropsWithoutRef<"tbody">, "color"> {
+  /** Text color set on the table body. */
+  color?: Color
 
-  /** Content of the table body. */
-  children?: ReactNode
+  /** Font set on the table body. */
+  font?: FontFamily
 }
 
 export const Tbody = forwardRef<HTMLTableSectionElement, TbodyProps>(
-  ({ children, ...props }, ref) => {
+  ({ children, color, ...props }, ref) => {
     return (
-      <StyledTbody {...props} ref={ref}>
+      <StyledTbody textColor={color} {...props} ref={ref}>
         {children}
       </StyledTbody>
     )
   },
 )
 
-const StyledTbody = styled.tbody``
+interface StyledTbodyProps {
+  font?: FontFamily
+  textColor: Color | undefined
+}
+
+const StyledTbody = styled.tbody<StyledTbodyProps>`
+  color: ${({ textColor, theme }) => textColor && getColor(textColor, theme)};
+  font-family: ${({ font, theme }) => font && getFont(font, theme)};
+`
