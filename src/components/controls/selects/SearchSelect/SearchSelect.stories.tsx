@@ -42,21 +42,21 @@ const Template: ComponentStory<typeof SearchSelect<typeof OPTIONS[0]>> = (args) 
   )
 }
 
-export const Default = Template.bind({})
-Default.args = {
+export const Basic = Template.bind({})
+Basic.args = {
+  label: "Label",
+  options: OPTIONS,
+}
+
+export const WithoutLabel = Template.bind({})
+WithoutLabel.args = {
   options: OPTIONS,
 }
 
 export const CustomFilter = Template.bind({})
 CustomFilter.args = {
-  ...Default.args,
+  ...Basic.args,
   filter: (value, option) =>
     option.value.toLowerCase().trim().includes(value.toLowerCase().trim()) ||
     option.description.toLowerCase().trim().includes(value.toLowerCase().trim()),
-}
-
-export const WithLabel = Template.bind({})
-WithLabel.args = {
-  ...Default.args,
-  label: "Label",
 }
