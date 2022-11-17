@@ -67,5 +67,4 @@ export const Prefix = Template.bind({})
 Prefix.args = {
   ...Basic,
   prefix: <>Prefix:</>,
-  prefixWidth: 52,
 }
