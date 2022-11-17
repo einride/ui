@@ -1,6 +1,12 @@
 import styled from "@emotion/styled"
-import { useElementSize } from "@mantine/hooks"
-import { ComponentPropsWithoutRef, forwardRef, ReactNode, useId } from "react"
+import {
+  ComponentPropsWithoutRef,
+  forwardRef,
+  ReactNode,
+  useCallback,
+  useId,
+  useState,
+} from "react"
 import { getBackground } from "../../../../lib/theme/prop-system"
 import { Background } from "../../../../lib/theme/props"
 import { BackgroundColor, ContentColor, Theme } from "../../../../lib/theme/types"
@@ -17,9 +23,6 @@ interface SelectBaseProps extends Omit<ComponentPropsWithoutRef<"select">, "pref
 
   /** Prefix shown before select value. For example `Group by:`. */
   prefix?: ReactNode
-
-  /** Width of the prefix in pixels, used to prevent layout shifts. */
-  prefixWidth?: number
 
   /** Message shown below input field. Can be used together with `status` to show a success or error message. */
   message?: ReactNode
@@ -50,8 +53,11 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
   ({ children, message, placeholder, prefix, status, wrapperProps, ...props }, ref) => {
     const id = useId()
     const messageId = useId()
-    const { ref: prefixRef, width: prefixWidth } = useElementSize()
-    const resolvedPrefixWidth = props.prefixWidth ?? prefixWidth
+    const [prefixWidthPx, setPrefixWidthPx] = useState(0)
+    const prefixRef = useCallback((node: HTMLDivElement | null) => {
+      setPrefixWidthPx(node ? node.offsetWidth : 0)
+    }, [])
+    const offsetWidthRem = getOffsetWidthRem(prefixWidthPx)
 
     return (
       <Box {...wrapperProps}>
@@ -70,7 +76,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             {...props}
             {...(status === "fail" && { "aria-errormessage": messageId, "aria-invalid": "true" })}
             hasLabel={"label" in props}
-            prefixWidth={resolvedPrefixWidth}
+            offsetWidthRem={offsetWidthRem}
             id={id}
             ref={ref}
           >
@@ -90,6 +96,11 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
 )
 
 type Status = "success" | "fail" | "neutral"
+
+const getOffsetWidthRem = (prefixWidth: number | undefined): number => {
+  if (prefixWidth) return (prefixWidth + 4) / 16 // add some spacing between prefix and value and convert to rem
+  return 0
+}
 
 const getMessageColor = (status: Status | undefined): ContentColor => {
   switch (status) {
@@ -120,7 +131,7 @@ const SelectWrapper = styled.div`
 interface StyledSelectProps {
   background?: Extract<Background, "secondary" | "secondaryOpacity">
   hasLabel: boolean
-  prefixWidth: number
+  offsetWidthRem: number
 }
 
 const StyledSelect = styled.select<StyledSelectProps>`
@@ -134,7 +145,7 @@ const StyledSelect = styled.select<StyledSelectProps>`
   inline-size: 100%;
   display: block;
   padding-block: ${({ theme }) => 1.5 * theme.spacer}px;
-  padding-inline-start: ${({ prefixWidth, theme }) => prefixWidth + 2 * theme.spacer + 4}px;
+  padding-inline-start: ${({ offsetWidthRem, theme }) => offsetWidthRem + 2 * theme.spacingBase}rem;
   padding-inline-end: ${({ theme }) => 6 * theme.spacer}px;
   border-radius: ${({ hasLabel, theme }) =>
     hasLabel ? theme.borderRadii.sm : theme.borderRadii.xl};
@@ -186,6 +197,7 @@ const Prefix = styled.div`
   inset-block: 0;
   inset-inline-start: ${({ theme }) => 2 * theme.spacer}px;
   color: ${({ theme }) => theme.colors.content.secondary};
+  font-size: ${({ theme }) => theme.fontSizes.md};
   display: flex;
   align-items: center;
   pointer-events: none;
