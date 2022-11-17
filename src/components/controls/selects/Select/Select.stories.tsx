@@ -20,8 +20,13 @@ const Template: ComponentStory<typeof Select> = (args) => (
   </Select>
 )
 
-export const Default = Template.bind({})
-Default.args = {
+export const Basic = Template.bind({})
+Basic.args = {
+  label: "Label",
+}
+
+export const WithoutLabel = Template.bind({})
+WithoutLabel.args = {
   "aria-label": "A dropdown select",
 }
 
@@ -29,11 +34,6 @@ export const Placeholder = Template.bind({})
 Placeholder.args = {
   "aria-label": "A dropdown select with a placeholder",
   placeholder: "Placeholder...",
-}
-
-export const Label = Template.bind({})
-Label.args = {
-  label: "Label",
 }
 
 export const DefaultValue = Template.bind({})
@@ -61,4 +61,11 @@ const ControlledTemplate: ComponentStory<typeof Select> = (args) => {
 export const Controlled = ControlledTemplate.bind({})
 Controlled.args = {
   value: "option2",
+}
+
+export const Prefix = Template.bind({})
+Prefix.args = {
+  ...Basic,
+  prefix: <>Prefix:</>,
+  prefixWidth: 52,
 }

@@ -1,27 +1,25 @@
 import styled from "@emotion/styled"
-import {
-  ElementType,
-  forwardRef,
-  HTMLAttributes,
-  LabelHTMLAttributes,
-  ReactNode,
-  SelectHTMLAttributes,
-  useId,
-} from "react"
+import { useElementSize } from "@mantine/hooks"
+import { ComponentPropsWithoutRef, forwardRef, ReactNode, useId } from "react"
 import { getBackground } from "../../../../lib/theme/prop-system"
+import { Background } from "../../../../lib/theme/props"
 import { BackgroundColor, ContentColor, Theme } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
+import { Box, BoxProps } from "../../../layout/Box/Box"
 import { Caption } from "../../../typography/Caption/Caption"
 
-interface SelectBaseProps extends SelectHTMLAttributes<HTMLSelectElement> {
-  /** Effective element used. */
-  as?: ElementType
-
+interface SelectBaseProps extends Omit<ComponentPropsWithoutRef<"select">, "prefix"> {
   /** Background color of the input field. Default is `secondary`. */
-  background?: Extract<BackgroundColor, "secondary" | "secondaryOpacity">
+  background?: Extract<Background, "secondary" | "secondaryOpacity">
 
   /** Options to render in select list. */
   children: ReactNode
+
+  /** Prefix shown before select value. For example `Group by:`. */
+  prefix?: ReactNode
+
+  /** Width of the prefix in pixels, used to prevent layout shifts. */
+  prefixWidth?: number
 
   /** Message shown below input field. Can be used together with `status` to show a success or error message. */
   message?: ReactNode
@@ -30,7 +28,7 @@ interface SelectBaseProps extends SelectHTMLAttributes<HTMLSelectElement> {
   status?: Status
 
   /** Props passed to root element. */
-  wrapperProps?: HTMLAttributes<HTMLDivElement>
+  wrapperProps?: BoxProps
 }
 
 interface SelectWithLabelProps {
@@ -38,7 +36,7 @@ interface SelectWithLabelProps {
   label: ReactNode
 
   /** Props passed to label element. */
-  labelProps?: LabelHTMLAttributes<HTMLLabelElement>
+  labelProps?: ComponentPropsWithoutRef<"label">
 }
 
 interface SelectWithoutLabelProps {
@@ -49,22 +47,30 @@ interface SelectWithoutLabelProps {
 export type SelectProps = SelectBaseProps & (SelectWithLabelProps | SelectWithoutLabelProps)
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
-  ({ children, message, placeholder, status, wrapperProps, ...props }, ref) => {
+  ({ children, message, placeholder, prefix, status, wrapperProps, ...props }, ref) => {
     const id = useId()
     const messageId = useId()
+    const { ref: prefixRef, width: prefixWidth } = useElementSize()
+    const resolvedPrefixWidth = props.prefixWidth ?? prefixWidth
 
     return (
-      <Wrapper {...wrapperProps}>
+      <Box {...wrapperProps}>
         {"label" in props && (
           <StyledLabel {...props.labelProps} htmlFor={id}>
             {props.label}
           </StyledLabel>
         )}
         <SelectWrapper>
+          {prefix && (
+            <Prefix aria-hidden ref={prefixRef}>
+              {prefix}
+            </Prefix>
+          )}
           <StyledSelect
             {...props}
             {...(status === "fail" && { "aria-errormessage": messageId, "aria-invalid": "true" })}
             hasLabel={"label" in props}
+            prefixWidth={resolvedPrefixWidth}
             id={id}
             ref={ref}
           >
@@ -78,7 +84,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             {message}
           </Caption>
         )}
-      </Wrapper>
+      </Box>
     )
   },
 )
@@ -96,8 +102,6 @@ const getMessageColor = (status: Status | undefined): ContentColor => {
   }
 }
 
-const Wrapper = styled.div``
-
 const StyledLabel = styled.label`
   display: inline-block;
   font-family: ${({ theme }) => theme.fonts.body};
@@ -114,8 +118,9 @@ const SelectWrapper = styled.div`
 `
 
 interface StyledSelectProps {
-  background?: Extract<BackgroundColor, "secondary" | "secondaryOpacity">
+  background?: Extract<Background, "secondary" | "secondaryOpacity">
   hasLabel: boolean
+  prefixWidth: number
 }
 
 const StyledSelect = styled.select<StyledSelectProps>`
@@ -129,7 +134,7 @@ const StyledSelect = styled.select<StyledSelectProps>`
   inline-size: 100%;
   display: block;
   padding-block: ${({ theme }) => 1.5 * theme.spacer}px;
-  padding-inline-start: ${({ theme }) => 2 * theme.spacer}px;
+  padding-inline-start: ${({ prefixWidth, theme }) => prefixWidth + 2 * theme.spacer + 4}px;
   padding-inline-end: ${({ theme }) => 6 * theme.spacer}px;
   border-radius: ${({ hasLabel, theme }) =>
     hasLabel ? theme.borderRadii.sm : theme.borderRadii.xl};
@@ -175,3 +180,13 @@ const getHoverBackground = (
       return theme.colors.background.tertiary
   }
 }
+
+const Prefix = styled.div`
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: ${({ theme }) => 2 * theme.spacer}px;
+  color: ${({ theme }) => theme.colors.content.secondary};
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+`
