@@ -15,7 +15,7 @@ interface DatePickerBaseProps {
   onChange: (value: CalendarDate) => void
 
   /** Props passed to root element. */
-  wrapperProps: BoxProps
+  wrapperProps?: BoxProps
 }
 
 interface DatePickerWithLabelProps {
