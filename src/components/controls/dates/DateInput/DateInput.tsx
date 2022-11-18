@@ -44,7 +44,7 @@ export const DateInput = ({ wrapperProps, ...props }: DateInputProps): JSX.Eleme
     createCalendar,
   })
   const ref = useRef<HTMLDivElement>(null)
-  const { labelProps, fieldProps } = useDateField(props, state, ref)
+  const { labelProps } = useDateField(props, state, ref)
   const id = useId()
 
   return (
@@ -54,7 +54,7 @@ export const DateInput = ({ wrapperProps, ...props }: DateInputProps): JSX.Eleme
           {props.label}
         </StyledLabel>
       )}
-      <Field display="flex" hasLabel={"label" in props} {...fieldProps} ref={ref}>
+      <Field display="flex" hasLabel={"label" in props} ref={ref}>
         {state.segments.map((segment, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <DateSegment key={index} segment={segment} state={state} />
@@ -128,11 +128,10 @@ interface DateSegmentProps {
 
 export const DateSegment = ({ segment, state }: DateSegmentProps): JSX.Element => {
   const ref = useRef<HTMLDivElement>(null)
-  const { segmentProps } = useDateSegment(segment, state, ref)
+  useDateSegment(segment, state, ref)
 
   return (
-    <Segment {...segmentProps} ref={ref}>
-      {/* Always reserve space for the placeholder, to prevent layout shift when editing. */}
+    <Segment ref={ref}>
       <Placeholder aria-hidden="true" isPlaceholder={segment.isPlaceholder}>
         {segment.placeholder}
       </Placeholder>

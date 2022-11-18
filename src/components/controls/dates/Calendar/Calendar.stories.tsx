@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Calendar } from "./Calendar"
 
 export default {
-  title: "Controls/Date/Calendar",
+  title: "Controls/Dates/Calendar",
   component: Calendar,
 } as ComponentMeta<typeof Calendar>
 
