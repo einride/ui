@@ -83,6 +83,7 @@ const Field = styled(Box)<StyledInputProps>`
   padding-inline: ${({ theme }) => 2 * theme.spacer}px;
   border-radius: ${({ hasLabel, theme }) =>
     hasLabel ? theme.borderRadii.sm : theme.borderRadii.xl};
+  cursor: pointer;
 
   &:focus-within {
     box-shadow: 0px 0px 0px 1px ${({ theme }) => theme.colors.border.selected} inset;
