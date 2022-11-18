@@ -1,19 +1,16 @@
+import styled from "@emotion/styled"
 import { CalendarDate } from "@internationalized/date"
-import { useClickOutside } from "@mantine/hooks"
-import { useDatePicker } from "@react-aria/datepicker"
+import { AriaDatePickerProps, useDatePicker } from "@react-aria/datepicker"
 import { useDatePickerState } from "@react-stately/datepicker"
-import { ComponentPropsWithoutRef, ReactNode, useRef } from "react"
+import { ReactNode, useRef } from "react"
 import { Box, BoxProps } from "../../../layout/Box/Box"
+import { Stack } from "../../../layout/Stack/Stack"
 import { Calendar } from "../Calendar/Calendar"
 import { DateInput } from "../DateInput/DateInput"
+import { Dialog } from "../Dialog"
+import { Popover } from "../Popover"
 
-interface DatePickerBaseProps {
-  /** Controlled date picker value. */
-  value: CalendarDate
-
-  /** Event handler called when the value of the date picker changes. */
-  onChange: (value: CalendarDate) => void
-
+interface DatePickerBaseProps extends AriaDatePickerProps<CalendarDate> {
   /** Props passed to root element. */
   wrapperProps?: BoxProps
 }
@@ -21,9 +18,6 @@ interface DatePickerBaseProps {
 interface DatePickerWithLabelProps {
   /** Date picker label, displayed before date picker. */
   label: ReactNode
-
-  /** Props passed to label element. */
-  labelProps?: ComponentPropsWithoutRef<"label">
 }
 
 interface DatePickerWithoutLabelProps {
@@ -34,34 +28,40 @@ interface DatePickerWithoutLabelProps {
 export type DatePickerProps = DatePickerBaseProps &
   (DatePickerWithLabelProps | DatePickerWithoutLabelProps)
 
-export const DatePicker = ({ wrapperProps, ...props }: DatePickerProps): JSX.Element => {
-  const state = useDatePickerState(props)
+export const DatePicker = ({ ...props }: DatePickerProps): JSX.Element => {
+  const state = useDatePickerState({
+    ...props,
+    shouldCloseOnSelect: false,
+  })
   const ref = useRef<HTMLDivElement>(null)
-  const { labelProps, fieldProps, calendarProps } = useDatePicker(props, state, ref)
-  const calendarRef = useClickOutside(() => state.setOpen(false))
-
-  const handleClick = (): void => {
-    state.setOpen(true)
-  }
-
+  const { groupProps, labelProps, fieldProps, dialogProps, buttonProps, calendarProps } =
+    useDatePicker(props, state, ref)
   return (
-    <Box {...wrapperProps} display="flex" flexDirection="column" gap="sm">
-      <Box data-asd="q2">
-        <DateInput
-          {...props}
-          labelProps={labelProps}
-          wrapperProps={{ onClick: handleClick }}
-          {...fieldProps}
-        />
-      </Box>
-      {state.isOpen && (
-        <Calendar
-          aria-label={"aria-label" in props ? props["aria-label"] : ""}
-          onChange={calendarProps.onChange as (value: CalendarDate) => void}
-          value={calendarProps.value as CalendarDate}
-          ref={calendarRef}
-        />
-      )}
+    <Box display="inline-flex" flexDirection="column">
+      {"label" in props && <StyledLabel {...labelProps}>{props.label}</StyledLabel>}
+      <Stack gap="lg">
+        <Box {...groupProps} ref={ref} onClick={() => state.setOpen(true)}>
+          <DateInput hasLabel={"label" in props} buttonProps={buttonProps} {...fieldProps} />
+        </Box>
+        {state.isOpen && (
+          <Popover triggerRef={ref} state={state}>
+            <Dialog {...dialogProps}>
+              <Calendar {...calendarProps} aria-label="" />
+            </Dialog>
+          </Popover>
+        )}
+      </Stack>
     </Box>
   )
 }
+
+const StyledLabel = styled.label`
+  display: inline-block;
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-weight: ${({ theme }) => theme.fontWeights.book};
+  line-height: calc(4 / 3);
+  margin-block-start: 5px;
+  margin-block-end: 3px;
+  color: ${({ theme }) => theme.colors.content.secondary};
+`

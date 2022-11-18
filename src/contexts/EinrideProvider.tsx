@@ -1,4 +1,5 @@
 import { usePrefersColorScheme } from "@einride/hooks"
+import { I18nProvider } from "@react-aria/i18n"
 import { ReactNode } from "react"
 import { ColorScheme, ColorSchemeProvider } from "./ColorSchemeProvider"
 import { EinrideThemeProvider } from "./EinrideThemeProvider"
@@ -14,6 +15,9 @@ interface EinrideProviderProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   customTheme?: any
 
+  /** Locale to adhere to. */
+  locale?: string
+
   /** Resets CSS to sensible defaults. Default is `true`.  */
   resetCSS?: boolean
 
@@ -26,6 +30,7 @@ export const EinrideProvider = ({
   children,
   colorMode = "light",
   customTheme = {},
+  locale = "en-US",
   resetCSS = true,
   theme = {},
 }: EinrideProviderProps): JSX.Element => {
@@ -34,7 +39,7 @@ export const EinrideProvider = ({
   return (
     <ColorSchemeProvider colorScheme={colorScheme}>
       <EinrideThemeProvider resetCSS={resetCSS} customTheme={customTheme} theme={theme}>
-        {children}
+        <I18nProvider locale={locale}>{children}</I18nProvider>
       </EinrideThemeProvider>
     </ColorSchemeProvider>
   )

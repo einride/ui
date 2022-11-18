@@ -11,9 +11,10 @@ interface CalendarGridProps {
   state: CalendarState
 }
 
-export const CalendarGrid = ({ state, ...props }: CalendarGridProps): JSX.Element => {
+export const CalendarGrid = ({ state }: CalendarGridProps): JSX.Element => {
   const { locale } = useLocale()
-  const { gridProps, headerProps, weekDays } = useCalendarGrid(props, state)
+  const { gridProps, headerProps, weekDays } = useCalendarGrid({}, state)
+  // Get the number of weeks in the month so we can render the proper number of rows.
   const weeksInMonth = getWeeksInMonth(state.visibleRange.start, locale)
 
   return (

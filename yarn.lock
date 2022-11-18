@@ -3076,6 +3076,19 @@
     "@react-types/dialog" "^3.4.5"
     "@react-types/shared" "^3.16.0"
 
+"@react-aria/dialog@3.4.1":
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/@react-aria/dialog/-/dialog-3.4.1.tgz#373c389e21b9b9fcc6947ec092074daedd46030c"
+  integrity sha512-1P6zCn78OP9nv7/1i4QsysOKQ6gxHy9JUyOj0ixrR1jwYI/psCM2MwT9cfPjuj7pGQys6lsu4glSmZ82zARURQ==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/focus" "^3.10.0"
+    "@react-aria/overlays" "^3.12.0"
+    "@react-aria/utils" "^3.14.1"
+    "@react-stately/overlays" "^3.4.3"
+    "@react-types/dialog" "^3.4.5"
+    "@react-types/shared" "^3.16.0"
+
 "@react-aria/focus@^3.10.0":
   version "3.10.0"
   resolved "https://registry.yarnpkg.com/@react-aria/focus/-/focus-3.10.0.tgz#12d85d46f58590a915009e57bddb2d90b56f5836"
@@ -3127,6 +3140,23 @@
   dependencies:
     "@babel/runtime" "^7.6.2"
 
+"@react-aria/overlays@3.12.0", "@react-aria/overlays@^3.12.0":
+  version "3.12.0"
+  resolved "https://registry.yarnpkg.com/@react-aria/overlays/-/overlays-3.12.0.tgz#66fc930a39771888123c6fd1b246fedd5e76ad89"
+  integrity sha512-jsGeLTB3W3S5Cf2zDTxh1ODTNkE69miFDOGMB0VLwS1GWDwDvytcTRpBKY9JBrxad+4u0x6evnah7IbJ61qNBA==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/focus" "^3.10.0"
+    "@react-aria/i18n" "^3.6.2"
+    "@react-aria/interactions" "^3.13.0"
+    "@react-aria/ssr" "^3.4.0"
+    "@react-aria/utils" "^3.14.1"
+    "@react-aria/visually-hidden" "^3.6.0"
+    "@react-stately/overlays" "^3.4.3"
+    "@react-types/button" "^3.7.0"
+    "@react-types/overlays" "^3.6.5"
+    "@react-types/shared" "^3.16.0"
+
 "@react-aria/spinbutton@^3.2.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@react-aria/spinbutton/-/spinbutton-3.2.0.tgz#f1e12954c3ca20c298f71494e371cec99781de1a"
@@ -3157,6 +3187,17 @@
     "@react-types/shared" "^3.16.0"
     clsx "^1.1.1"
 
+"@react-aria/visually-hidden@^3.6.0":
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/@react-aria/visually-hidden/-/visually-hidden-3.6.0.tgz#cc4dd9e648a5c8b6d8dfbd1f70d8672b36d3f1bc"
+  integrity sha512-W3Ix5wdlVzh2GY7dytqOAyLCXiHzk3S4jLKSaoiCwPJX9fHE5zMlZwahhDy27V0LXfjmdjBltbwyEZOq4G/Q0w==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/interactions" "^3.13.0"
+    "@react-aria/utils" "^3.14.1"
+    "@react-types/shared" "^3.16.0"
+    clsx "^1.1.1"
+
 "@react-stately/calendar@3.0.4", "@react-stately/calendar@^3.0.4":
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@react-stately/calendar/-/calendar-3.0.4.tgz#b6bd88b11064a1b020a99f7e225becc050a35665"
@@ -3182,7 +3223,7 @@
     "@react-types/datepicker" "^3.1.3"
     "@react-types/shared" "^3.16.0"
 
-"@react-stately/overlays@^3.4.3":
+"@react-stately/overlays@3.4.3", "@react-stately/overlays@^3.4.3":
   version "3.4.3"
   resolved "https://registry.yarnpkg.com/@react-stately/overlays/-/overlays-3.4.3.tgz#2e935c404c0845ee7a7c6f001ff057d315161a16"
   integrity sha512-WZCr3J8hj0cplQki1OVBR3MXg2l9V017h15Y2h+TNduWvnKH0yYOE/XfWviAT4KUP0LYoQfCnZ7XMHv+UI+8JA==
