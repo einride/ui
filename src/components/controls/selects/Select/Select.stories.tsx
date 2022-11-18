@@ -65,6 +65,6 @@ Controlled.args = {
 
 export const Prefix = Template.bind({})
 Prefix.args = {
-  ...Basic,
+  ...Basic.args,
   prefix: <>Prefix:</>,
 }
