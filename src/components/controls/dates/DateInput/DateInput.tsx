@@ -1,12 +1,8 @@
 import styled from "@emotion/styled"
 import { createCalendar } from "@internationalized/date"
-import { useDateField, useDateSegment } from "@react-aria/datepicker"
+import { useDateField } from "@react-aria/datepicker"
 import { useLocale } from "@react-aria/i18n"
-import {
-  DateFieldState,
-  DateSegment as DateSegmentType,
-  useDateFieldState,
-} from "@react-stately/datepicker"
+import { DateSegment as DateSegmentType, useDateFieldState } from "@react-stately/datepicker"
 import { ComponentPropsWithoutRef, LabelHTMLAttributes, ReactNode, useId, useRef } from "react"
 import { getBackground } from "../../../../lib/theme/prop-system"
 import { BackgroundColor, Theme } from "../../../../lib/theme/types"
@@ -35,7 +31,6 @@ interface DateInputWithoutLabelProps {
 
 type DateInputProps = DateInputBaseProps & (DateInputWithLabelProps | DateInputWithoutLabelProps)
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const DateInput = ({ wrapperProps, ...props }: DateInputProps): JSX.Element => {
   const { locale } = useLocale()
   const state = useDateFieldState({
@@ -57,7 +52,7 @@ export const DateInput = ({ wrapperProps, ...props }: DateInputProps): JSX.Eleme
       <Field display="flex" hasLabel={"label" in props} ref={ref}>
         {state.segments.map((segment, index) => (
           // eslint-disable-next-line react/no-array-index-key
-          <DateSegment key={index} segment={segment} state={state} />
+          <DateSegment key={index} segment={segment} />
         ))}
       </Field>
     </Box>
@@ -123,41 +118,18 @@ const getHoverBackground = (background: BackgroundColor, theme: Theme): string =
 
 interface DateSegmentProps {
   segment: DateSegmentType
-  state: DateFieldState
 }
 
-export const DateSegment = ({ segment, state }: DateSegmentProps): JSX.Element => {
-  const ref = useRef<HTMLDivElement>(null)
-  useDateSegment(segment, state, ref)
-
+export const DateSegment = ({ segment }: DateSegmentProps): JSX.Element => {
   return (
-    <Segment ref={ref}>
-      <Placeholder aria-hidden="true" isPlaceholder={segment.isPlaceholder}>
-        {segment.placeholder}
-      </Placeholder>
-      {segment.isPlaceholder ? "" : segment.text}
-    </Segment>
+    <Box>
+      {segment.isPlaceholder ? (
+        <Box as="span" aria-hidden="true">
+          {segment.placeholder}
+        </Box>
+      ) : (
+        <Box as="span">{segment.text}</Box>
+      )}
+    </Box>
   )
 }
-
-const Segment = styled.div`
-  text-align: end;
-
-  &:focus-visible {
-    outline: none;
-    background: ${({ theme }) => theme.colors.background.primaryInverted};
-    color: ${({ theme }) => theme.colors.content.primaryInverted};
-    border-radius: ${({ theme }) => theme.borderRadii.xs};
-  }
-`
-
-interface PlaceholderProps {
-  isPlaceholder?: boolean
-}
-
-const Placeholder = styled.span<PlaceholderProps>`
-  visibility: ${({ isPlaceholder }) => !isPlaceholder && "hidden"};
-  height: ${({ isPlaceholder }) => !isPlaceholder && 0};
-  pointer-events: none;
-  display: block;
-`
