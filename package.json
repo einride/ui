@@ -114,6 +114,9 @@
     "einride",
     "styleguide"
   ],
+  "resolutions": {
+    "@testing-library/user-event": "14.4.3"
+  },
   "license": "MIT",
   "homepage": "https://github.com/einride/ui",
   "repository": {
