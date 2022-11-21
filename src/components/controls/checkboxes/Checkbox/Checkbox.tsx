@@ -1,29 +1,43 @@
 import styled from "@emotion/styled"
-import {
-  ChangeEvent,
-  CSSProperties,
-  ElementType,
-  forwardRef,
-  InputHTMLAttributes,
-  ReactNode,
-  useId,
-} from "react"
+import { ComponentPropsWithoutRef, CSSProperties, forwardRef, useId } from "react"
 import { Icon } from "../../../content/Icon/Icon"
-import { Box } from "../../../layout/Box/Box"
+import { Box, BoxProps } from "../../../layout/Box/Box"
 
-interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
-  as?: ElementType
-  children: ReactNode
+interface CheckboxProps extends ComponentPropsWithoutRef<"input"> {
+  /** Props passed to the inner wrapper element. */
+  innerWrapperProps?: BoxProps
+
+  /** @deprecated since version 6.47.0. Use `innerWrapperProps` instead. */
   innerWrapperStyles?: CSSProperties
+
+  /** Props passed to the label element. */
+  labelProps?: ComponentPropsWithoutRef<"label">
+
+  /** @deprecated since version 6.47.0. Use `labelProps` instead. */
   labelStyles?: CSSProperties
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+
+  /** Props passed to the root element.. */
+  wrapperProps?: BoxProps
+
+  /** @deprecated since version 6.47.0. Use `wrapperProps` instead. */
   wrapperStyles?: CSSProperties
 }
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ children, innerWrapperStyles = {}, labelStyles = {}, wrapperStyles = {}, ...props }, ref) => {
-    const uuid = useId()
-
+  (
+    {
+      children,
+      innerWrapperProps,
+      innerWrapperStyles = {},
+      labelProps,
+      labelStyles = {},
+      wrapperProps,
+      wrapperStyles = {},
+      ...props
+    },
+    ref,
+  ) => {
+    const id = useId()
     return (
       <Box
         display="flex"
@@ -31,12 +45,13 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         paddingBlock={1.5}
         paddingInline={2}
         style={wrapperStyles}
+        {...wrapperProps}
       >
-        <Box display="flex" position="relative" style={innerWrapperStyles}>
-          <StyledInput id={uuid} type="checkbox" {...props} ref={ref} />
+        <Box display="flex" position="relative" style={innerWrapperStyles} {...innerWrapperProps}>
+          <StyledInput id={id} type="checkbox" {...props} ref={ref} />
           <StyledIcon name="checkmark" />
         </Box>
-        <StyledLabel htmlFor={uuid} style={labelStyles}>
+        <StyledLabel htmlFor={id} style={labelStyles} {...labelProps}>
           {children}
         </StyledLabel>
       </Box>
