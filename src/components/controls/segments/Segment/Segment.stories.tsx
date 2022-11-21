@@ -21,5 +21,5 @@ Unselected.args = {
 export const Selected = Template.bind({})
 Selected.args = {
   children: "Segment",
-  selected: true,
+  "aria-selected": true,
 }

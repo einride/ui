@@ -1,17 +1,12 @@
 import styled from "@emotion/styled"
-import { ButtonHTMLAttributes, ElementType, forwardRef, ReactNode } from "react"
+import { ComponentPropsWithoutRef, forwardRef } from "react"
 
-interface SegmentProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  as?: ElementType
-  children: ReactNode
-  onClick: () => void
-  selected?: boolean
-}
+type SegmentProps = ComponentPropsWithoutRef<"button">
 
 export const Segment = forwardRef<HTMLButtonElement, SegmentProps>(
-  ({ children, selected, ...props }, ref) => {
+  ({ children, ...props }, ref) => {
     return (
-      <Wrapper aria-selected={selected ? "true" : undefined} role="tab" {...props} ref={ref}>
+      <Wrapper role="tab" {...props} ref={ref}>
         {children}
       </Wrapper>
     )
@@ -19,8 +14,6 @@ export const Segment = forwardRef<HTMLButtonElement, SegmentProps>(
 )
 
 const Wrapper = styled.button`
-  font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.md};
   color: ${({ theme }) => theme.colors.content.secondary};
   padding-block-start: ${({ theme }) => theme.spacer + 1}px;
   padding-block-end: ${({ theme }) => 2 * theme.spacer - 1}px;
