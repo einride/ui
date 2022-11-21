@@ -91,7 +91,7 @@ const StyledInput = styled.input`
     border-color: ${({ theme }) => theme.colors.border.selected};
   }
 
-  &:focus {
+  &:focus-visible {
     outline: none;
     border-color: ${({ theme }) => theme.colors.border.selected};
   }
