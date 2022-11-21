@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, CSSProperties, forwardRef, useId } from "react"
+import { ChangeEvent, ComponentPropsWithoutRef, CSSProperties, forwardRef, useId } from "react"
 import { Icon } from "../../../content/Icon/Icon"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 
@@ -16,6 +16,9 @@ interface CheckboxProps extends ComponentPropsWithoutRef<"input"> {
   /** @deprecated since version 6.47.0. Use `labelProps` instead. */
   labelStyles?: CSSProperties
 
+  /** Event handler called when the state of the checkbox changes. */
+  onCheckedChange?: (checked: boolean) => void
+
   /** Props passed to the root element.. */
   wrapperProps?: BoxProps
 
@@ -31,6 +34,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       innerWrapperStyles = {},
       labelProps,
       labelStyles = {},
+      onCheckedChange,
       wrapperProps,
       wrapperStyles = {},
       ...props
@@ -38,6 +42,10 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     ref,
   ) => {
     const id = useId()
+    const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
+      onCheckedChange?.(e.target.checked)
+      props.onChange?.(e)
+    }
     return (
       <Box
         display="flex"
@@ -48,7 +56,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         {...wrapperProps}
       >
         <Box display="flex" position="relative" style={innerWrapperStyles} {...innerWrapperProps}>
-          <StyledInput id={id} type="checkbox" {...props} ref={ref} />
+          <StyledInput id={id} type="checkbox" {...props} onChange={handleChange} ref={ref} />
           <StyledIcon name="checkmark" />
         </Box>
         <StyledLabel htmlFor={id} style={labelStyles} {...labelProps}>
@@ -84,6 +92,7 @@ const StyledInput = styled.input`
   }
 
   &:focus {
+    outline: none;
     border-color: ${({ theme }) => theme.colors.border.selected};
   }
 
