@@ -47,7 +47,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       props.onChange?.(e)
     }
     return (
-      <Box
+      <Wrapper
         display="flex"
         alignItems="center"
         paddingBlock={1.5}
@@ -55,37 +55,48 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         style={wrapperStyles}
         {...wrapperProps}
       >
-        <Box display="flex" position="relative" style={innerWrapperStyles} {...innerWrapperProps}>
+        <InnerWrapper
+          display="flex"
+          position="relative"
+          style={innerWrapperStyles}
+          {...innerWrapperProps}
+        >
           <StyledInput id={id} type="checkbox" {...props} onChange={handleChange} ref={ref} />
-          <StyledIcon name="checkmark" />
-        </Box>
+          <StyledIcon color="primaryInverted" name="checkmark" />
+        </InnerWrapper>
         <StyledLabel htmlFor={id} style={labelStyles} {...labelProps}>
           {children}
         </StyledLabel>
-      </Box>
+      </Wrapper>
     )
   },
 )
 
-const StyledLabel = styled.label`
-  font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.md};
-  font-weight: ${({ theme }) => theme.fontWeights.book};
-  line-height: calc(4 / 3);
-
-  &:focus-within {
+const Wrapper = styled(Box)`
+  &:has(input[type="checkbox"]:focus-visible) label {
     text-decoration: underline;
   }
 `
 
+const InnerWrapper = styled(Box)`
+  &:has(input[type="checkbox"]:disabled) span {
+    color: transparent;
+  }
+`
+
+const StyledLabel = styled.label`
+  line-height: calc(4 / 3);
+`
+
 const StyledInput = styled.input`
   appearance: none;
-  inline-size: ${({ theme }) => 3 * theme.spacer}px;
-  block-size: ${({ theme }) => 3 * theme.spacer}px;
+  inline-size: ${({ theme }) => 3 * theme.spacingBase}rem;
+  block-size: ${({ theme }) => 3 * theme.spacingBase}rem;
   border-radius: ${({ theme }) => theme.borderRadii.sm};
-  border: 2px solid ${({ theme }) => theme.colors.border.primary};
+  border: ${({ theme }) => 0.25 * theme.spacingBase}rem solid
+    ${({ theme }) => theme.colors.border.primary};
   background: ${({ theme }) => theme.colors.background.primary};
-  margin-inline-end: ${({ theme }) => 2 * theme.spacer}px;
+  margin-inline-end: ${({ theme }) => 2 * theme.spacingBase}rem;
 
   &:hover:not(:disabled) {
     border-color: ${({ theme }) => theme.colors.border.selected};
@@ -97,7 +108,7 @@ const StyledInput = styled.input`
   }
 
   &:checked:not(:disabled) {
-    border: 2px solid ${({ theme }) => theme.colors.border.selected};
+    border-color: ${({ theme }) => theme.colors.border.selected};
     background: ${({ theme }) => theme.colors.content.primary};
   }
 
@@ -109,7 +120,6 @@ const StyledInput = styled.input`
 
 const StyledIcon = styled(Icon)`
   position: absolute;
-  inset-inline-start: 6px;
-  color: ${({ theme }) => theme.colors.background.primary};
+  inset-inline-start: ${({ theme }) => 0.625 * theme.spacingBase}rem;
   pointer-events: none;
 `
