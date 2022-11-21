@@ -1,4 +1,5 @@
 import styled from "@emotion/styled"
+import { useUncontrolled } from "@mantine/hooks"
 import {
   ComponentPropsWithoutRef,
   ElementType,
@@ -8,7 +9,6 @@ import {
   useRef,
 } from "react"
 import { Segment } from "../Segment/Segment"
-import { useSegmentState } from "./useSegmentsState"
 
 interface SegmentsProps extends ComponentPropsWithoutRef<"div"> {
   /** Effective element used. */
@@ -29,38 +29,30 @@ interface SegmentsProps extends ComponentPropsWithoutRef<"div"> {
 
 export const Segments = forwardRef<HTMLDivElement, SegmentsProps>(
   ({ defaultValue, onValueChange, segments, value: valueProp, ...props }, ref) => {
-    const { value, handleChange } = useSegmentState({
+    const [value, onChange] = useUncontrolled<number | undefined>({
       value: valueProp,
       defaultValue,
+      finalValue: 0,
       onChange: onValueChange,
     })
     const segmentRefs: HTMLButtonElement[] = []
     const contentRef = useRef<HTMLElement>(null)
-
     const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>): void => {
-      if (e.code === "ArrowLeft" && value > 0) {
-        const newIndex = value - 1
-        handleChange(newIndex)
-        segmentRefs[newIndex].focus()
-      } else if (e.code === "ArrowRight" && value < segments.length - 1) {
-        const newIndex = value + 1
-        handleChange(newIndex)
-        segmentRefs[newIndex].focus()
-      } else if (e.code === "ArrowDown") {
-        contentRef.current?.focus()
+      if (value) {
+        if (e.code === "ArrowLeft" && value > 0) {
+          const newIndex = value - 1
+          onChange(newIndex)
+          segmentRefs[newIndex].focus()
+        } else if (e.code === "ArrowRight" && value < segments.length - 1) {
+          const newIndex = value + 1
+          onChange(newIndex)
+          segmentRefs[newIndex].focus()
+        } else if (e.code === "ArrowDown") {
+          contentRef.current?.focus()
+        }
       }
     }
-
-    // const getSelectedSegmentContent = (): ReactNode => {
-    //   if (openIndex && segments[openIndex]) return segments[openIndex].content
-    //   return segments[selectedSegmentIndex].
-    // }
-
-    const handleClick = (index: number): void => {
-      handleChange(index)
-    }
-
-    const selectedSegmentContent = segments[value].content
+    const selectedSegmentContent = segments[value ?? 0].content
 
     return (
       <>
@@ -68,7 +60,7 @@ export const Segments = forwardRef<HTMLDivElement, SegmentsProps>(
           {segments.map((segment, index) => (
             <Segment
               type="button"
-              onClick={() => handleClick(index)}
+              onClick={() => onChange(index)}
               onKeyDown={handleKeyDown}
               key={segment.id}
               tabIndex={index === value ? undefined : -1}
