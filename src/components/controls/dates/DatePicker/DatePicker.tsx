@@ -56,7 +56,7 @@ const StyledDatePicker = styled(MantineDatePicker)`
     font-size: ${({ theme }) => theme.fontSizes.md};
     font-weight: ${({ theme }) => theme.fontWeights.book};
     line-height: calc(4 / 3);
-    color: ${({ theme }) => theme.colors.content.primary};
+    color: ${({ theme }) => theme.colors.content.secondary};
     padding-block-start: 5px;
     padding-block-end: 3px;
   }
