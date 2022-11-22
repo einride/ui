@@ -86,6 +86,7 @@ const InnerWrapper = styled(Box)`
 
 const StyledLabel = styled.label`
   line-height: calc(4 / 3);
+  padding-inline-start: ${({ theme }) => 2 * theme.spacingBase}rem;
 `
 
 const StyledInput = styled.input`
@@ -96,7 +97,6 @@ const StyledInput = styled.input`
   border: ${({ theme }) => 0.25 * theme.spacingBase}rem solid
     ${({ theme }) => theme.colors.border.primary};
   background: ${({ theme }) => theme.colors.background.primary};
-  margin-inline-end: ${({ theme }) => 2 * theme.spacingBase}rem;
 
   &:hover:not(:disabled) {
     border-color: ${({ theme }) => theme.colors.border.selected};
