@@ -74,7 +74,7 @@ const fontWeights = [
   "bold",
   "extrabold",
   "black",
-]
+] as const
 export type FontWeight = typeof fontWeights[number]
 
 type MediaQuery = "belowMd" | "onlyMd" | "md" | "belowLg" | "lg"

@@ -21,17 +21,13 @@
   "dependencies": {
     "@einride/hooks": "1.7.1",
     "@emotion/is-prop-valid": "1.2.0",
-    "@internationalized/date": "3.0.1",
+    "@mantine/core": "5.8.2",
+    "@mantine/dates": "5.8.2",
     "@mantine/hooks": "5.8.2",
     "@radix-ui/react-dropdown-menu": "2.0.1",
     "@radix-ui/react-slider": "1.1.0",
     "@radix-ui/react-switch": "1.0.1",
-    "@react-aria/button": "3.6.3",
-    "@react-aria/calendar": "3.0.4",
-    "@react-aria/datepicker": "3.2.0",
-    "@react-aria/i18n": "3.6.2",
-    "@react-stately/calendar": "3.0.4",
-    "@react-stately/datepicker": "3.2.0",
+    "dayjs": "1.11.6",
     "lodash.merge": "4.6.2"
   },
   "devDependencies": {
