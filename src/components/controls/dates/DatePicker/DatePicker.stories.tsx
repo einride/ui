@@ -9,8 +9,8 @@ export default {
 
 const Template: ComponentStory<typeof DatePicker> = (args) => <DatePicker {...args} />
 
-export const Default = Template.bind({})
-Default.args = {
+export const Basic = Template.bind({})
+Basic.args = {
   label: "Label",
 }
 
@@ -21,5 +21,5 @@ const ControlledTemplate: ComponentStory<typeof DatePicker> = (args) => {
 
 export const Controlled = ControlledTemplate.bind({})
 Controlled.args = {
-  label: "Label",
+  ...Basic.args,
 }
