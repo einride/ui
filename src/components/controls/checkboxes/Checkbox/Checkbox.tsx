@@ -64,9 +64,11 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           <StyledInput id={id} type="checkbox" {...props} onChange={handleChange} ref={ref} />
           <StyledIcon color="primaryInverted" name="checkmark" />
         </InnerWrapper>
-        <StyledLabel htmlFor={id} style={labelStyles} {...labelProps}>
-          {children}
-        </StyledLabel>
+        {children ? (
+          <StyledLabel htmlFor={id} style={labelStyles} {...labelProps}>
+            {children}
+          </StyledLabel>
+        ) : null}
       </Wrapper>
     )
   },
