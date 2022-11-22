@@ -1,10 +1,9 @@
 import styled from "@emotion/styled"
 import { DatePicker as MantineDatePicker } from "@mantine/dates"
-import { ComponentPropsWithoutRef, DetailedHTMLProps, HTMLAttributes, ReactNode } from "react"
+import { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react"
 import { useTheme } from "../../../../hooks/useTheme"
 
-interface DatePickerBaseProps
-  extends Omit<ComponentPropsWithoutRef<"input">, "defaultValue" | "onChange" | "value"> {
+interface DatePickerBaseProps {
   /** Default value for uncontrolled input. */
   defaultValue?: Date
 
