@@ -22,7 +22,7 @@ export const Popover = (props: PopoverProps): JSX.Element => {
   return (
     <Overlay>
       <Box {...underlayProps} style={{ display: "fixed", inset: 0 }} />
-      <Box {...popoverProps} marginTop={1} ref={ref} background="white">
+      <Box {...popoverProps} marginTop={1} ref={ref}>
         {children}
       </Box>
     </Overlay>
