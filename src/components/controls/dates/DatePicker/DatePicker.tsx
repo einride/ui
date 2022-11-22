@@ -1,12 +1,24 @@
 import styled from "@emotion/styled"
 import { DatePicker as MantineDatePicker } from "@mantine/dates"
-import { ReactNode } from "react"
+import { ComponentPropsWithoutRef, DetailedHTMLProps, HTMLAttributes, ReactNode } from "react"
 import { useTheme } from "../../../../hooks/useTheme"
 
-interface DatePickerBaseProps {
+interface DatePickerBaseProps
+  extends Omit<ComponentPropsWithoutRef<"input">, "defaultValue" | "onChange" | "value"> {
+  /** Default value for uncontrolled input. */
   defaultValue?: Date
+
+  /** Called when date changes. */
   onChange?: (value: Date) => void
+
+  /** Selected date, required with controlled input. */
   value?: Date
+
+  /** Props passed to root element. */
+  wrapperProps: Pick<
+    DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
+    "key" | keyof HTMLAttributes<HTMLDivElement>
+  >
 }
 
 interface DatePickerWithLabelProps {
@@ -32,7 +44,6 @@ export const DatePicker = ({ ...props }: DatePickerProps): JSX.Element => {
         fontFamily: theme.fonts.body,
         fontSize: theme.fontSizes.md,
         fontWeight: theme.fontWeights.book,
-        width: "100%",
       })}
       inputFormat="YYYY-MM-DD"
       {...props}
@@ -47,6 +58,8 @@ const StyledDatePicker = styled(MantineDatePicker)`
     font-weight: ${({ theme }) => theme.fontWeights.book};
     line-height: calc(4 / 3);
     color: ${({ theme }) => theme.colors.content.primary};
+    padding-block-start: 5px;
+    padding-block-end: 3px;
   }
   .mantine-DatePicker-input {
     font-family: ${({ theme }) => theme.fonts.body};
