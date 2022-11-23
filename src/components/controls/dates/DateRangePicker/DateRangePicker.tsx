@@ -7,6 +7,9 @@ interface DateRangePickerBaseProps {
   /** Default value for uncontrolled input. */
   defaultValue?: DateRangePickerValue
 
+  /** Maximum possible date. */
+  maxDate?: Date
+
   /** Called when date changes. */
   onChange?: (value: DateRangePickerValue) => void
 
