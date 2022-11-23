@@ -13,6 +13,9 @@ interface DateRangePickerBaseProps {
   /** Called when date changes. */
   onChange?: (value: DateRangePickerValue) => void
 
+  /** Placeholder, displayed when date is not selected. */
+  placeholder?: string
+
   /** Selected date, required with controlled input. */
   value?: DateRangePickerValue
 
@@ -83,6 +86,9 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
     &:hover {
       background: ${({ theme }) => theme.colors.background.tertiaryOpacity};
     }
+    &::placeholder {
+      color: ${({ theme }) => theme.colors.content.secondary};
+    }
   }
   .mantine-DateRangePicker-dropdown {
     background: ${({ theme }) => theme.colors.background.secondary};
@@ -105,16 +111,15 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
         color: ${({ theme }) => theme.colors.content.primary};
         padding: 0;
         justify-content: start;
-        wrap-
       }
-      
+
       .mantine-DateRangePicker-calendarHeaderControl {
         background: ${({ theme }) => theme.colors.background.primary};
         color: ${({ theme }) => theme.colors.content.primary};
         border-radius: ${({ theme }) => theme.borderRadii.full};
         height: ${({ theme }) => 6 * theme.spacingBase}rem;
         width: ${({ theme }) => 6 * theme.spacingBase}rem;
-        
+
         &:focus-visible {
           outline: none;
           background: ${({ theme }) => theme.colors.buttons.background.focused.tertiary};
@@ -141,7 +146,7 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
       display: flex;
       align-items: center;
       justify-content: center;
-      
+
       &[data-outside] {
         display: none;
       }

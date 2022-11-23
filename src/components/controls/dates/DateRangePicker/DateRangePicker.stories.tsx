@@ -9,9 +9,15 @@ export default {
 
 const Template: ComponentStory<typeof DateRangePicker> = (args) => <DateRangePicker {...args} />
 
-export const Basic = Template.bind({})
-Basic.args = {
+export const WithLabel = Template.bind({})
+WithLabel.args = {
   label: "Label",
+}
+
+export const WithoutLabel = Template.bind({})
+WithoutLabel.args = {
+  "aria-label": "Label",
+  placeholder: "Placeholder",
 }
 
 const ControlledTemplate: ComponentStory<typeof DateRangePicker> = (args) => {
@@ -24,5 +30,5 @@ const ControlledTemplate: ComponentStory<typeof DateRangePicker> = (args) => {
 
 export const Controlled = ControlledTemplate.bind({})
 Controlled.args = {
-  ...Basic.args,
+  ...WithLabel.args,
 }
