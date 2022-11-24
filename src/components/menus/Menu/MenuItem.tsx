@@ -44,4 +44,9 @@ const StyledItem = styled(DropdownMenu.Item)`
     background: ${({ theme }) => theme.colors.background.tertiary};
     box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
   }
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.background.tertiary};
+    box-shadow: none;
+  }
 `
