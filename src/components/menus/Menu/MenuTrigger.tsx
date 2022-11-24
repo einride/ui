@@ -3,6 +3,7 @@ import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
 import { ComponentPropsWithoutRef, forwardRef, ReactNode } from "react"
 
 interface MenuTriggerProps extends ComponentPropsWithoutRef<"button"> {
+  /** Menu trigger. For example an `<IconButton>`. */
   children: ReactNode
 }
 

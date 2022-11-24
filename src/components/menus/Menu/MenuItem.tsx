@@ -3,8 +3,13 @@ import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
 import { ComponentPropsWithoutRef, forwardRef, ReactNode } from "react"
 
 interface MenuItemProps extends ComponentPropsWithoutRef<"div"> {
+  /** Menu item content. */
   children: ReactNode
+
+  /** Icon shown at the end of the menu item row. */
   icon?: ReactNode
+
+  /** Event handler called when the user selects an item. */
   onSelect?: () => void
 }
 
@@ -37,9 +42,6 @@ const StyledItem = styled(DropdownMenu.Item)`
   &:focus-visible {
     outline: none;
     background: ${({ theme }) => theme.colors.background.tertiary};
-  }
-
-  &:focus-visible:not(:hover) {
     box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
   }
 `
