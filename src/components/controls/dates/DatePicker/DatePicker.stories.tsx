@@ -17,8 +17,8 @@ WithLabel.args = {
 }
 WithLabel.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const input = canvas.getByRole("textbox")
-  await expect(input).toHaveAccessibleName("Label")
+  const input = canvas.getByRole("textbox", { name: "Label" })
+  await expect(input).toHaveValue("")
 }
 
 export const WithoutLabel = Template.bind({})
@@ -28,8 +28,24 @@ WithoutLabel.args = {
 }
 WithoutLabel.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const input = canvas.getByRole("textbox")
-  await expect(input).toHaveAccessibleName("Label")
+  const input = canvas.getByRole("textbox", { name: "Label" })
+  await expect(input).toHaveValue("")
+}
+
+export const DefaultValue = Template.bind({})
+DefaultValue.args = {
+  ...WithLabel.args,
+  defaultValue: new Date(),
+}
+DefaultValue.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("textbox", { name: "Label" })
+  await expect(input).toHaveValue(
+    `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date()
+      .getDate()
+      .toString()
+      .padStart(2, "0")}`,
+  )
 }
 
 const ControlledTemplate: ComponentStory<typeof DatePicker> = (args) => {
@@ -43,8 +59,8 @@ Controlled.args = {
 }
 Controlled.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const input = canvas.getByRole("textbox")
-  await expect(input).toHaveAccessibleName("Label")
+  const input = canvas.getByRole("textbox", { name: "Label" })
+  await expect(input).toHaveValue("")
 }
 
 export const Mouse = Template.bind({})
@@ -53,7 +69,7 @@ Mouse.args = {
 }
 Mouse.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const input = canvas.getByRole("textbox")
+  const input = canvas.getByRole("textbox", { name: "Label" })
   await expect(input).toHaveValue("")
   await userEvent.click(input)
   const firstDayInCurrentMonthButton = canvas.getByRole("button", { name: "1" })
@@ -73,7 +89,7 @@ Keyboard.args = {
 }
 Keyboard.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const input = canvas.getByRole("textbox")
+  const input = canvas.getByRole("textbox", { name: "Label" })
   await expect(input).toHaveValue("")
   await expect(input).not.toHaveFocus()
   await userEvent.tab()
