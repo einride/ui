@@ -17,8 +17,8 @@ WithLabel.args = {
 }
 WithLabel.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const input = canvas.getByRole("textbox")
-  await expect(input).toHaveAccessibleName("Label")
+  const input = canvas.getByRole("textbox", { name: "Label" })
+  await expect(input).toHaveValue("")
 }
 
 export const WithoutLabel = Template.bind({})
@@ -28,8 +28,23 @@ WithoutLabel.args = {
 }
 WithoutLabel.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const input = canvas.getByRole("textbox")
-  await expect(input).toHaveAccessibleName("Label")
+  const input = canvas.getByRole("textbox", { name: "Label" })
+  await expect(input).toHaveValue("")
+}
+
+export const DefaultValue = Template.bind({})
+DefaultValue.args = {
+  ...WithLabel.args,
+  defaultValue: [new Date(new Date().setDate(1)), new Date(new Date().setDate(10))],
+}
+DefaultValue.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("textbox", { name: "Label" })
+  await expect(input).toHaveValue(
+    `${new Date().getFullYear()}-${new Date().getMonth() + 1}-01 – ${new Date().getFullYear()}-${
+      new Date().getMonth() + 1
+    }-10`,
+  )
 }
 
 const ControlledTemplate: ComponentStory<typeof DateRangePicker> = (args) => {
@@ -43,8 +58,8 @@ Controlled.args = {
 }
 Controlled.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const input = canvas.getByRole("textbox")
-  await expect(input).toHaveAccessibleName("Label")
+  const input = canvas.getByRole("textbox", { name: "Label" })
+  await expect(input).toHaveValue("")
 }
 
 export const Mouse = Template.bind({})
@@ -53,7 +68,7 @@ Mouse.args = {
 }
 Mouse.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const input = canvas.getByRole("textbox")
+  const input = canvas.getByRole("textbox", { name: "Label" })
   await expect(input).toHaveValue("")
   await userEvent.click(input)
   const firstDayInCurrentMonthButton = canvas.getByRole("button", { name: "1" })
