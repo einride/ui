@@ -17,7 +17,7 @@ interface DatePickerBaseProps {
   placeholder?: string
 
   /** Selected date, required with controlled input. */
-  value?: Date
+  value?: Date | null
 
   /** Props passed to root element. */
   wrapperProps: Pick<

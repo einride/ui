@@ -1,4 +1,6 @@
+import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { userEvent, within } from "@storybook/testing-library"
 import { useState } from "react"
 import { DatePicker } from "./DatePicker"
 
@@ -13,19 +15,76 @@ export const WithLabel = Template.bind({})
 WithLabel.args = {
   label: "Label",
 }
+WithLabel.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("textbox")
+  await expect(input).toHaveAccessibleName("Label")
+}
 
 export const WithoutLabel = Template.bind({})
 WithoutLabel.args = {
   "aria-label": "Label",
   placeholder: "Placeholder",
 }
+WithoutLabel.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("textbox")
+  await expect(input).toHaveAccessibleName("Label")
+}
 
 const ControlledTemplate: ComponentStory<typeof DatePicker> = (args) => {
-  const [value, setValue] = useState(new Date())
+  const [value, setValue] = useState<Date | null>(null)
   return <DatePicker {...args} value={value} onChange={setValue} />
 }
 
 export const Controlled = ControlledTemplate.bind({})
 Controlled.args = {
   ...WithLabel.args,
+}
+Controlled.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("textbox")
+  await expect(input).toHaveAccessibleName("Label")
+}
+
+export const Mouse = Template.bind({})
+Mouse.args = {
+  ...WithLabel.args,
+}
+Mouse.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("textbox")
+  await expect(input).toHaveValue("")
+  await userEvent.click(input)
+  const firstDayInCurrentMonthButton = canvas.getByRole("button", { name: "1" })
+  await userEvent.click(firstDayInCurrentMonthButton)
+  await expect(input).toHaveValue(`${new Date().getFullYear()}-${new Date().getMonth() + 1}-01`)
+  await userEvent.click(input)
+  const previousMonthButton = canvas.getAllByRole("button")[0]
+  await userEvent.click(previousMonthButton)
+  const firstDayInLastMonthButton = canvas.getByRole("button", { name: "1" })
+  await userEvent.click(firstDayInLastMonthButton)
+  await expect(input).toHaveValue(`${new Date().getFullYear()}-${new Date().getMonth()}-01`)
+}
+
+export const Keyboard = ControlledTemplate.bind({})
+Keyboard.args = {
+  ...WithLabel.args,
+}
+Keyboard.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("textbox")
+  await expect(input).toHaveValue("")
+  await expect(input).not.toHaveFocus()
+  await userEvent.tab()
+  await expect(input).toHaveFocus()
+  await userEvent.keyboard("[Enter]")
+  await userEvent.keyboard("[Enter]")
+  await expect(input).toHaveValue(`${new Date().getFullYear()}-${new Date().getMonth() + 1}-01`)
+  await userEvent.keyboard("[Enter]")
+  await userEvent.tab()
+  await userEvent.keyboard("[Enter]")
+  const firstDayInLastMonthButton = canvas.getByRole("button", { name: "1" })
+  await userEvent.click(firstDayInLastMonthButton) // until keyboard navigation is fixed in Mantine component
+  await expect(input).toHaveValue(`${new Date().getFullYear()}-${new Date().getMonth()}-01`)
 }
