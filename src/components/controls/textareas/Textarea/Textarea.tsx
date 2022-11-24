@@ -1,19 +1,12 @@
 import styled from "@emotion/styled"
-import {
-  ComponentPropsWithoutRef,
-  CSSProperties,
-  forwardRef,
-  ReactNode,
-  TextareaHTMLAttributes,
-  useId,
-} from "react"
+import { ComponentPropsWithoutRef, CSSProperties, forwardRef, ReactNode, useId } from "react"
 import { getBackground } from "../../../../lib/theme/prop-system"
 import { BackgroundColor, ContentColor, Theme } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 import { Caption } from "../../../typography/Caption/Caption"
 
-interface TextareaBaseProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+interface TextareaBaseProps extends ComponentPropsWithoutRef<"textarea"> {
   /** Background color of the input field. Default is `secondary`. */
   background?: Extract<BackgroundColor, "secondary" | "secondaryOpacity">
 
