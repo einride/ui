@@ -1,5 +1,6 @@
+import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
-import { Icon } from "../../../content/Icon/Icon"
+import { within } from "@storybook/testing-library"
 import { SecondaryButton } from "./SecondaryButton"
 
 export default {
@@ -14,19 +15,34 @@ export default {
 
 const Template: ComponentStory<typeof SecondaryButton> = (args) => <SecondaryButton {...args} />
 
-export const Default = Template.bind({})
-Default.args = {
+export const Basic = Template.bind({})
+Basic.args = {
   children: "Button",
 }
-
-export const IconRight = Template.bind({})
-IconRight.args = {
-  ...Default.args,
-  rightIcon: <Icon name="arrowRight" />,
+Basic.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const button = canvas.getByRole("button", { name: "Button" })
+  await expect(button).not.toBeDisabled()
 }
 
 export const IsLoading = Template.bind({})
 IsLoading.args = {
-  ...Default.args,
+  ...Basic.args,
   isLoading: true,
+}
+IsLoading.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const button = canvas.getByRole("button", { name: "Button" })
+  await expect(button).not.toBeDisabled()
+}
+
+export const Disabled = Template.bind({})
+Disabled.args = {
+  ...Basic.args,
+  disabled: true,
+}
+Disabled.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const button = canvas.getByRole("button", { name: "Button" })
+  await expect(button).toBeDisabled()
 }
