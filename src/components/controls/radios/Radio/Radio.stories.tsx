@@ -1,6 +1,7 @@
 import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
+import { useState } from "react"
 import { Radio } from "./Radio"
 
 export default {
@@ -15,28 +16,68 @@ export default {
 
 const Template: ComponentStory<typeof Radio> = (args) => <Radio {...args} />
 
-export const Default = Template.bind({})
-Default.args = {
+export const WithLabel = Template.bind({})
+WithLabel.args = {
   children: "Label",
 }
-Default.play = async ({ canvasElement }) => {
+WithLabel.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const radio = canvas.getByRole("radio")
-  await expect(radio).toHaveAccessibleName(/label/i)
+  const radio = canvas.getByRole("radio", { name: "Label" })
   await expect(radio).not.toBeChecked()
-  await userEvent.click(radio)
+}
+
+export const DefaultChecked = Template.bind({})
+DefaultChecked.args = {
+  ...WithLabel.args,
+  checked: true,
+}
+DefaultChecked.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const radio = canvas.getByRole("radio", { name: "Label" })
   await expect(radio).toBeChecked()
 }
 
-export const Controlled = Template.bind({})
+const ControlledTemplate: ComponentStory<typeof Radio> = (args) => {
+  const [checked, setChecked] = useState(false)
+  return <Radio {...args} checked={checked} onChange={(e) => setChecked(e.target.checked)} />
+}
+
+export const Controlled = ControlledTemplate.bind({})
 Controlled.args = {
-  checked: true,
-  children: "Label",
+  ...WithLabel.args,
 }
 Controlled.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const radio = canvas.getByRole("radio")
-  await expect(radio).toHaveAccessibleName(/label/i)
+  const radio = canvas.getByRole("radio", { name: "Label" })
+  await expect(radio).not.toBeChecked()
+}
+
+export const Mouse = Template.bind({})
+Mouse.args = {
+  ...WithLabel.args,
+}
+Mouse.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const radio = canvas.getByRole("radio", { name: "Label" })
+  await expect(radio).not.toHaveFocus()
+  await expect(radio).not.toBeChecked()
+  await userEvent.click(radio)
+  await expect(radio).toHaveFocus()
+  await expect(radio).toBeChecked()
+}
+
+export const Keyboard = Template.bind({})
+Keyboard.args = {
+  ...WithLabel.args,
+}
+Keyboard.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const radio = canvas.getByRole("radio", { name: "Label" })
+  await expect(radio).not.toHaveFocus()
+  await expect(radio).not.toBeChecked()
+  await userEvent.tab()
+  await expect(radio).toHaveFocus()
+  await userEvent.keyboard("[Space]")
   await expect(radio).toBeChecked()
 }
 
@@ -50,15 +91,12 @@ const GroupTemplate: ComponentStory<typeof Radio> = () => {
   )
 }
 
-export const Group = GroupTemplate.bind({})
-Group.play = async ({ canvasElement }) => {
+export const GroupMouse = GroupTemplate.bind({})
+GroupMouse.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const radio1 = canvas.getByRole("radio", { name: "Label 1" })
   const radio2 = canvas.getByRole("radio", { name: "Label 2" })
   const radio3 = canvas.getByRole("radio", { name: "Label 3" })
-  await expect(radio1).toHaveAccessibleName(/label 1/i)
-  await expect(radio2).toHaveAccessibleName(/label 2/i)
-  await expect(radio3).toHaveAccessibleName(/label 3/i)
   await expect(radio1).not.toBeChecked()
   await expect(radio2).not.toBeChecked()
   await expect(radio3).not.toBeChecked()
@@ -80,8 +118,8 @@ Group.play = async ({ canvasElement }) => {
   await expect(radio3).toBeChecked()
 }
 
-export const Keyboard = GroupTemplate.bind({})
-Keyboard.play = async ({ canvasElement }) => {
+export const GroupKeyboard = GroupTemplate.bind({})
+GroupKeyboard.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const radio1 = canvas.getByRole("radio", { name: "Label 1" })
   const radio2 = canvas.getByRole("radio", { name: "Label 2" })
