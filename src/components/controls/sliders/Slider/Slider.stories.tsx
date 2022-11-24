@@ -11,28 +11,35 @@ export default {
 
 const Template: ComponentStory<typeof Slider> = (args) => <Slider {...args} />
 
-export const Default = Template.bind({})
-Default.args = {
+export const WithLabel = Template.bind({})
+WithLabel.args = {
   label: "Label",
-  "aria-label": "Accessible name",
 }
-Default.play = async ({ canvasElement }) => {
+WithLabel.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const slider = canvas.getByRole("slider")
+  const slider = canvas.getByRole("slider", { name: "Label" })
   await expect(slider).toHaveAttribute("aria-valuenow", "0")
-  const label = canvas.getByText("Label")
-  await expect(label).toBeInTheDocument()
-  await expect(slider).toHaveAccessibleName("Accessible name")
 }
 
 export const WithoutLabel = Template.bind({})
 WithoutLabel.args = {
-  "aria-label": "Accessible name",
+  "aria-label": "Label",
 }
 WithoutLabel.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const slider = canvas.getByRole("slider")
-  await expect(slider).toHaveAccessibleName("Accessible name")
+  const slider = canvas.getByRole("slider", { name: "Label" })
+  await expect(slider).toHaveAttribute("aria-valuenow", "0")
+}
+
+export const DefaultValue = Template.bind({})
+DefaultValue.args = {
+  ...WithLabel.args,
+  defaultValue: [40],
+}
+DefaultValue.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const slider = canvas.getByRole("slider", { name: "Label" })
+  await expect(slider).toHaveAttribute("aria-valuenow", "40")
 }
 
 const ControlledTemplate: ComponentStory<typeof Slider> = (args) => {
@@ -42,21 +49,21 @@ const ControlledTemplate: ComponentStory<typeof Slider> = (args) => {
 
 export const Controlled = ControlledTemplate.bind({})
 Controlled.args = {
-  ...Default.args,
+  ...WithLabel.args,
 }
 Controlled.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const slider = canvas.getByRole("slider")
+  const slider = canvas.getByRole("slider", { name: "Label" })
   await expect(slider).toHaveAttribute("aria-valuenow", "0")
 }
 
 export const Keyboard = Template.bind({})
 Keyboard.args = {
-  ...Default.args,
+  ...WithLabel.args,
 }
 Keyboard.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const slider = canvas.getByRole("slider")
+  const slider = canvas.getByRole("slider", { name: "Label" })
   await expect(slider).toHaveAttribute("aria-valuenow", "0")
   await userEvent.tab()
   await expect(slider).toHaveFocus()

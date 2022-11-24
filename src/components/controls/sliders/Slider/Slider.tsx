@@ -3,18 +3,9 @@ import * as SliderPrimitive from "@radix-ui/react-slider"
 import { ComponentPropsWithoutRef, forwardRef, ReactNode } from "react"
 import { Group } from "../../../layout/Group/Group"
 
-interface SliderProps {
-  /** Accessible name. */
-  "aria-label": string
-
+interface SliderBaseProps {
   /** Default slider value when uncontrolled. */
   defaultValue?: Array<number>
-
-  /** Slider label. */
-  label?: ReactNode
-
-  /** Props passed to label element. */
-  labelProps?: ComponentPropsWithoutRef<"label">
 
   /** Maximum possible value. Default is ´100´. */
   max?: number
@@ -38,12 +29,26 @@ interface SliderProps {
   value?: Array<number>
 }
 
+interface SliderWithLabelProps {
+  /** Input label, displayed before input. */
+  label: ReactNode
+
+  /** Props passed to label element. */
+  labelProps?: ComponentPropsWithoutRef<"label">
+}
+
+interface SliderWithoutLabelProps {
+  /** Accessible name, required when `label` is not provided. */
+  "aria-label": string
+}
+
+type SliderProps = SliderBaseProps & (SliderWithLabelProps | SliderWithoutLabelProps)
+
 export const Slider = forwardRef<HTMLSpanElement, SliderProps>(
-  ({ "aria-label": ariaLabel, max = 100, min = 0, ...props }, ref) => {
+  ({ max = 100, min = 0, ...props }, ref) => {
     return (
       <Group alignItems="center" gap="sm">
-        {/* eslint-disable-next-line react/destructuring-assignment */}
-        {"label" in props && <StyledLabel>{props.label}</StyledLabel>}
+        {"label" in props && <StyledLabel {...props.labelProps}>{props.label}</StyledLabel>}
         <Root max={max} min={min} {...props} ref={ref}>
           <StartRange data-anatomy="start-range" />
           <Track data-anatomy="track">
@@ -51,7 +56,7 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(
               <Range />
             </InnerTrack>
           </Track>
-          <OuterThumb aria-label={ariaLabel}>
+          <OuterThumb aria-label={"label" in props ? props.label?.toString() : props["aria-label"]}>
             <InnerThumb data-anatomy="inner-thumb" />
           </OuterThumb>
         </Root>
