@@ -89,6 +89,10 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
     &::placeholder {
       color: ${({ theme }) => theme.colors.content.secondary};
     }
+    &:focus {
+      box-shadow: 0px 0px 0px 1px ${({ theme }) => theme.colors.border.selected} inset;
+      outline: none;
+    }
   }
   .mantine-DateRangePicker-dropdown {
     background: ${({ theme }) => theme.colors.background.secondary};
