@@ -1,6 +1,7 @@
 import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
+import { useState } from "react"
 import { SearchInput } from "./SearchInput"
 
 export default {
@@ -15,15 +16,14 @@ export default {
 
 const Template: ComponentStory<typeof SearchInput> = (args) => <SearchInput {...args} />
 
-export const Default = Template.bind({})
-Default.args = {
+export const WithLabel = Template.bind({})
+WithLabel.args = {
   label: "Search for something fun",
-  placeholder: "Search...",
 }
-Default.play = async ({ canvasElement }) => {
+WithLabel.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const input = canvas.getByRole("textbox")
-  await expect(input).toHaveAccessibleName("Search for something fun")
+  const input = canvas.getByRole("textbox", { name: "Search for something fun" })
+  await expect(input).toHaveValue("")
 }
 
 export const WithoutLabel = Template.bind({})
@@ -33,24 +33,62 @@ WithoutLabel.args = {
 }
 WithoutLabel.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const input = canvas.getByRole("textbox")
-  await expect(input).toHaveAccessibleName("Search for something fun")
+  const input = canvas.getByRole("textbox", { name: "Search for something fun" })
+  await expect(input).toHaveValue("")
+}
+
+export const DefaultValue = Template.bind({})
+DefaultValue.args = {
+  ...WithLabel.args,
+  defaultValue: "I'm searching for something fun! 🤓",
+}
+DefaultValue.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("textbox", { name: "Search for something fun" })
+  await expect(input).toHaveValue("I'm searching for something fun! 🤓")
+}
+
+const ControlledTemplate: ComponentStory<typeof SearchInput> = (args) => {
+  const [value, setValue] = useState("")
+  return <SearchInput {...args} value={value} onInputChange={setValue} />
+}
+
+export const Controlled = ControlledTemplate.bind({})
+Controlled.args = {
+  ...WithLabel.args,
+}
+Controlled.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("textbox", { name: "Search for something fun" })
+  await expect(input).toHaveValue("")
 }
 
 export const ClearButton = Template.bind({})
 ClearButton.args = {
-  ...Default.args,
+  ...WithLabel.args,
 }
 ClearButton.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const input = canvas.getByRole("textbox")
-  await expect(input).toHaveAccessibleName("Search for something fun")
-  await userEvent.type(input, "I'm searching for something fun!", { delay: 10 })
-  await expect(input).toHaveValue("I'm searching for something fun!")
-  const clearButton = canvas.getByRole("button")
-  await expect(clearButton).toBeInTheDocument()
-  await expect(clearButton).toHaveAccessibleName("Clear input")
+  const input = canvas.getByRole("textbox", { name: "Search for something fun" })
+  await userEvent.type(input, "I'm searching for something fun! 🤓", { delay: 10 })
+  await expect(input).toHaveValue("I'm searching for something fun! 🤓")
+  const clearButton = canvas.getByRole("button", { name: "Clear input" })
   await userEvent.click(clearButton)
   await expect(input).toHaveValue("")
   await expect(clearButton).not.toBeInTheDocument()
+}
+
+export const Keyboard = ControlledTemplate.bind({})
+Keyboard.args = {
+  ...WithLabel.args,
+}
+
+Keyboard.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("textbox", { name: "Search for something fun" })
+  await expect(input).not.toHaveFocus()
+  await userEvent.tab()
+  await expect(input).toHaveFocus()
+  await userEvent.type(input, "I'm searching for something fun! 🤓", { delay: 10 })
+  await expect(input).toHaveValue("I'm searching for something fun! 🤓")
 }
