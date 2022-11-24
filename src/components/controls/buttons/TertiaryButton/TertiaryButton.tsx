@@ -1,10 +1,10 @@
 import styled from "@emotion/styled"
-import { ButtonHTMLAttributes, ElementType, forwardRef, ReactNode } from "react"
+import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
 import { useWidthFromColumns } from "../../../../hooks/useWidthFromColumns"
 import { BaseButton } from "../BaseButton/BaseButton"
 import { BaseButtonIcon } from "../BaseButton/BaseButtonIcon"
 
-interface TertiaryButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface TertiaryButtonProps extends ComponentPropsWithoutRef<"button"> {
   /** Effective element used. */
   as?: ElementType
 
@@ -37,13 +37,9 @@ export const TertiaryButton = forwardRef<HTMLButtonElement, TertiaryButtonProps>
         {...props}
         ref={ref}
       >
-        <span className="einride-ui-tertiary-button-text">{children}</span>
+        <span data-content>{children}</span>
         {(rightIcon || isLoading) && (
-          <BaseButtonIcon
-            className="einride-ui-tertiary-button-icon"
-            icon={rightIcon}
-            isLoading={isLoading}
-          />
+          <BaseButtonIcon data-icon icon={rightIcon} isLoading={isLoading} />
         )}
       </StyledBaseButton>
     )
@@ -61,33 +57,35 @@ const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
   background: ${({ theme }) => theme.colors.buttons.background.tertiary};
   color: ${({ theme }) => theme.colors.buttons.text.tertiary};
 
-  &:hover:not([aria-disabled="true"]) {
-    text-decoration: none;
-    background: ${({ theme }) => theme.colors.buttons.background.hover.tertiary};
-
-    .einride-ui-tertiary-button-text {
-      text-decoration: underline;
-    }
-  }
-
-  &:active:not([aria-disabled="true"]) {
-    background: ${({ theme }) => theme.colors.buttons.background.active.tertiary};
-
-    .einride-ui-tertiary-button-text {
-      text-decoration: none;
-    }
-  }
-
-  &:focus-visible:not([aria-disabled="true"]) {
-    background: ${({ theme }) => theme.colors.buttons.background.focused.tertiary};
-  }
-
-  &[aria-disabled="true"] {
+  &:disabled {
     background: ${({ theme }) => theme.colors.buttons.background.disabled.tertiary};
     color: ${({ theme }) => theme.colors.buttons.text.disabled};
 
-    .einride-ui-tertiary-button-icon {
+    [data-icon] {
       color: ${({ theme }) => theme.colors.content.tertiary};
+    }
+  }
+
+  &:not(:disabled) {
+    &:hover {
+      text-decoration: none;
+      background: ${({ theme }) => theme.colors.buttons.background.hover.tertiary};
+
+      [data-content] {
+        text-decoration: underline;
+      }
+    }
+
+    &:active {
+      background: ${({ theme }) => theme.colors.buttons.background.active.tertiary};
+
+      [data-content] {
+        text-decoration: none;
+      }
+    }
+
+    &:focus-visible {
+      background: ${({ theme }) => theme.colors.buttons.background.focused.tertiary};
     }
   }
 `

@@ -1,10 +1,10 @@
 import styled from "@emotion/styled"
-import { ButtonHTMLAttributes, ElementType, forwardRef, ReactNode } from "react"
+import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
 import { useWidthFromColumns } from "../../../../hooks/useWidthFromColumns"
 import { BaseButton } from "../BaseButton/BaseButton"
 import { BaseButtonIcon } from "../BaseButton/BaseButtonIcon"
 
-export interface SecondaryButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface SecondaryButtonProps extends ComponentPropsWithoutRef<"button"> {
   /** Effective element used. */
   as?: ElementType
 
@@ -37,13 +37,9 @@ export const SecondaryButton = forwardRef<HTMLButtonElement, SecondaryButtonProp
         {...props}
         ref={ref}
       >
-        <span className="einride-ui-secondary-button-text">{children}</span>
+        <span data-content>{children}</span>
         {(rightIcon || isLoading) && (
-          <BaseButtonIcon
-            className="einride-ui-secondary-button-icon"
-            icon={rightIcon}
-            isLoading={isLoading}
-          />
+          <BaseButtonIcon data-icon icon={rightIcon} isLoading={isLoading} />
         )}
       </StyledBaseButton>
     )
@@ -61,33 +57,35 @@ const StyledBaseButton = styled(BaseButton)<StyledBaseButtonProps>`
   background: ${({ theme }) => theme.colors.buttons.background.secondary};
   color: ${({ theme }) => theme.colors.buttons.text.secondary};
 
-  &:hover:not([aria-disabled="true"]) {
-    text-decoration: none;
-    background: ${({ theme }) => theme.colors.buttons.background.hover.secondary};
-
-    .einride-ui-secondary-button-text {
-      text-decoration: underline;
-    }
-  }
-
-  &:active:not([aria-disabled="true"]) {
-    background: ${({ theme }) => theme.colors.buttons.background.active.secondary};
-
-    .einride-ui-secondary-button-text {
-      text-decoration: none;
-    }
-  }
-
-  &:focus-visible:not([aria-disabled="true"]) {
-    background: ${({ theme }) => theme.colors.buttons.background.focused.secondary};
-  }
-
-  &[aria-disabled="true"] {
+  &:disabled {
     background: ${({ theme }) => theme.colors.buttons.background.disabled.secondary};
     color: ${({ theme }) => theme.colors.buttons.text.disabled};
 
-    .einride-ui-secondary-button-icon {
+    [data-icon] {
       color: ${({ theme }) => theme.colors.content.tertiary};
+    }
+  }
+
+  &:not(:disabled) {
+    &:hover {
+      text-decoration: none;
+      background: ${({ theme }) => theme.colors.buttons.background.hover.secondary};
+
+      [data-content] {
+        text-decoration: underline;
+      }
+    }
+
+    &:active {
+      background: ${({ theme }) => theme.colors.buttons.background.active.secondary};
+
+      [data-content] {
+        text-decoration: none;
+      }
+    }
+
+    &:focus-visible {
+      background: ${({ theme }) => theme.colors.buttons.background.focused.secondary};
     }
   }
 `
