@@ -1,8 +1,8 @@
 import styled from "@emotion/styled"
-import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
+import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
 import { Theme } from "../../../lib/theme/types"
 
-interface LabelProps extends HTMLAttributes<HTMLSpanElement> {
+interface LabelProps extends ComponentPropsWithoutRef<"span"> {
   /** Effective element used. */
   as?: ElementType
 
