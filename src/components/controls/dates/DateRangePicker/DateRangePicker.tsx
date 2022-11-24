@@ -78,6 +78,8 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
     border: none;
     inline-size: 100%;
     display: block;
+    min-inline-size: ${({ theme }) =>
+      35 * theme.spacingBase}rem; // make sure range fits in input field
     padding-block: ${({ theme }) => 1.5 * theme.spacer}px;
     padding-inline: ${({ theme }) => 2 * theme.spacer}px;
     height: unset;
