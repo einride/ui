@@ -1,9 +1,8 @@
 import styled from "@emotion/styled"
-import { ButtonHTMLAttributes, ElementType, forwardRef } from "react"
+import { ComponentPropsWithoutRef, ElementType, forwardRef } from "react"
 import { Avatar } from "../Avatar/Avatar"
 
-export interface UserAccessPointBaseProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "name"> {
+export interface UserAccessPointBaseProps extends Omit<ComponentPropsWithoutRef<"button">, "name"> {
   /** Effective element used. */
   as?: ElementType
 
@@ -30,7 +29,7 @@ export const UserAccessPoint = forwardRef<HTMLButtonElement, UserAccessPointProp
       return (
         <Button status={status} {...props} ref={ref}>
           <StyledAvatar
-            alt="User profile picture"
+            alt="Einride logo"
             size="sm"
             src="https://avatars.githubusercontent.com/u/31446515?s=200&v=4"
           />
@@ -44,6 +43,7 @@ export const UserAccessPoint = forwardRef<HTMLButtonElement, UserAccessPointProp
           <StyledAvatar alt="User profile picture" size="sm" src={props.avatarImageSrc} />
         ) : (
           <StyledAvatar
+            aria-label={props.name}
             background="primaryInverted"
             color="primaryInverted"
             name={props.name}
