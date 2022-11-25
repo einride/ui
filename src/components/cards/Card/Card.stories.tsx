@@ -86,7 +86,7 @@ InsideCard.args = {
         <Text as="p">Slot</Text>
         <Text as="p">Slot</Text>
       </Group>
-      <Card background="primary" borderRadius="sm">
+      <Card background="secondaryOpacity" borderRadius="sm">
         <Text as="p" color="secondary">
           Electrification potential
         </Text>
