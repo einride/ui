@@ -63,6 +63,45 @@ Controlled.play = async ({ canvasElement }) => {
   await expect(input).toHaveValue("")
 }
 
+export const Message = Template.bind({})
+Message.args = {
+  ...WithLabel.args,
+  message: "Message.",
+  messageProps: { "data-testid": "asd" },
+}
+Message.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("textbox", { name: "Search for something fun" })
+  await expect(input).toHaveAccessibleDescription("Message.")
+  await expect(input).not.toHaveErrorMessage()
+}
+
+export const SuccessMessage = Template.bind({})
+SuccessMessage.args = {
+  ...WithLabel.args,
+  message: "Success message.",
+  status: "success",
+}
+SuccessMessage.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("textbox", { name: "Search for something fun" })
+  await expect(input).toHaveAccessibleDescription("Success message.")
+  await expect(input).not.toHaveErrorMessage()
+}
+
+export const ErrorMessage = Template.bind({})
+ErrorMessage.args = {
+  ...WithLabel.args,
+  message: "Error message.",
+  status: "fail",
+}
+ErrorMessage.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("textbox", { name: "Search for something fun" })
+  await expect(input).not.toHaveAccessibleDescription()
+  await expect(input).toHaveErrorMessage("Error message.")
+}
+
 export const ClearButton = Template.bind({})
 ClearButton.args = {
   ...WithLabel.args,
