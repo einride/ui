@@ -1,17 +1,11 @@
 import styled from "@emotion/styled"
-import {
-  ElementType,
-  forwardRef,
-  HTMLAttributes,
-  InputHTMLAttributes,
-  LabelHTMLAttributes,
-  ReactNode,
-} from "react"
+import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
 import { BackgroundColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
+import { BoxProps } from "../../../layout/Box/Box"
 import { BaseInput, Status } from "../BaseInput/BaseInput"
 
-interface TextInputBaseProps extends InputHTMLAttributes<HTMLInputElement> {
+interface TextInputBaseProps extends ComponentPropsWithoutRef<"input"> {
   /** Effective element used. */
   as?: ElementType
 
@@ -21,14 +15,17 @@ interface TextInputBaseProps extends InputHTMLAttributes<HTMLInputElement> {
   /** Message shown below input field. Can be used together with `status` to show a success or error message. */
   message?: ReactNode
 
-  /**  Default is `neutral`. */
+  /** Props passed to message element. */
+  messageProps?: ComponentPropsWithoutRef<"span"> & { "data-testid"?: string }
+
+  /** Status of the input, controlling color and icon. */
   status?: Status | undefined
 
   /** Controlled input value. */
   value?: string
 
   /** Props passed to root element. */
-  wrapperProps?: HTMLAttributes<HTMLDivElement>
+  wrapperProps?: BoxProps
 }
 
 interface TextInputWithLabelProps {
@@ -36,7 +33,7 @@ interface TextInputWithLabelProps {
   label: ReactNode
 
   /** Props passed to label element. */
-  labelProps?: LabelHTMLAttributes<HTMLLabelElement>
+  labelProps?: ComponentPropsWithoutRef<"label"> & { "data-testid"?: string }
 }
 
 interface TextInputWithoutLabelProps {

@@ -1,18 +1,11 @@
 import styled from "@emotion/styled"
-import {
-  ElementType,
-  forwardRef,
-  HTMLAttributes,
-  InputHTMLAttributes,
-  LabelHTMLAttributes,
-  ReactNode,
-  useId,
-} from "react"
+import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode, useId } from "react"
 import { getBackground } from "../../../../lib/theme/prop-system"
 import { BackgroundColor, ContentColor, Theme } from "../../../../lib/theme/types"
+import { Box, BoxProps } from "../../../layout/Box/Box"
 import { Caption } from "../../../typography/Caption/Caption"
 
-export interface BaseInputProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface BaseInputProps extends ComponentPropsWithoutRef<"input"> {
   /** Effective element used. */
   as?: ElementType
 
@@ -23,7 +16,7 @@ export interface BaseInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: ReactNode
 
   /** Props passed to label element. */
-  labelProps?: LabelHTMLAttributes<HTMLLabelElement>
+  labelProps?: ComponentPropsWithoutRef<"label"> & { "data-testid"?: string }
 
   /** Icon shown on the left side. */
   leftIcon?: ReactNode
@@ -31,14 +24,17 @@ export interface BaseInputProps extends InputHTMLAttributes<HTMLInputElement> {
   /** Message shown below input field. Can be used together with `status` to show a success or error message. */
   message?: ReactNode
 
+  /** Props passed to message element. */
+  messageProps?: Omit<ComponentPropsWithoutRef<"span"> & { "data-testid"?: string }, "color">
+
   /** Icon shown on the right side. */
   rightIcon?: ReactNode
 
-  /**  Default is `neutral`. */
+  /** Status of the input, controlling color and icon. */
   status?: Status | undefined
 
   /** Props passed to root element. */
-  wrapperProps?: HTMLAttributes<HTMLDivElement>
+  wrapperProps?: BoxProps
 }
 
 export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
@@ -47,7 +43,7 @@ export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
     const messageId = useId()
 
     return (
-      <Wrapper {...wrapperProps}>
+      <Box {...wrapperProps}>
         {label && (
           <StyledLabel {...labelProps} htmlFor={id}>
             {label}
@@ -69,16 +65,14 @@ export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
           {rightIcon && <RightIconWrapper>{rightIcon}</RightIconWrapper>}
         </InputWrapper>
         {message && (
-          <Caption color={getMessageColor(status)} id={messageId}>
+          <Caption color={getMessageColor(status)} {...props.messageProps} id={messageId}>
             {message}
           </Caption>
         )}
-      </Wrapper>
+      </Box>
     )
   },
 )
-
-const Wrapper = styled.div``
 
 const StyledLabel = styled.label`
   display: inline-block;

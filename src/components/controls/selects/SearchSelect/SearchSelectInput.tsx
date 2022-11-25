@@ -2,9 +2,9 @@ import styled from "@emotion/styled"
 import { motion } from "framer-motion"
 import {
   ButtonHTMLAttributes,
+  ComponentPropsWithoutRef,
   ElementType,
   forwardRef,
-  InputHTMLAttributes,
   LabelHTMLAttributes,
   ReactNode,
 } from "react"
@@ -12,7 +12,7 @@ import { BackgroundColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { BaseInput } from "../../inputs/BaseInput/BaseInput"
 
-interface SearchSelectInputBaseProps extends InputHTMLAttributes<HTMLInputElement> {
+interface SearchSelectInputBaseProps extends ComponentPropsWithoutRef<"input"> {
   as?: ElementType
 
   /** Background color of the input field. Default is `secondary`. */
