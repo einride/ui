@@ -1,12 +1,9 @@
 import { useDisclosure } from "@einride/hooks"
 import styled from "@emotion/styled"
 import {
-  ButtonHTMLAttributes,
+  ComponentPropsWithoutRef,
   CSSProperties,
-  HTMLAttributes,
-  InputHTMLAttributes,
   KeyboardEvent,
-  LabelHTMLAttributes,
   ReactNode,
   useRef,
   useState,
@@ -18,17 +15,17 @@ import { SearchSelectInput } from "./SearchSelectInput"
 import { SearchSelectOption } from "./SearchSelectOption"
 import { BaseOption } from "./types"
 
-interface SearchSelectBaseProps<Option> extends InputHTMLAttributes<HTMLInputElement> {
+interface SearchSelectBaseProps<Option> extends ComponentPropsWithoutRef<"input"> {
   /** Background color of the input field. Default is `secondary`. */
   background?: Extract<BackgroundColor, "secondary" | "secondaryOpacity">
 
   /** Props passed to the clear button element. */
-  clearButtonProps?: ButtonHTMLAttributes<HTMLButtonElement> & { "data-testid": string }
+  clearButtonProps?: ComponentPropsWithoutRef<"button"> & { "data-testid": string }
 
   /** Props passed to dropdown element. */
-  dropdownProps?: HTMLAttributes<HTMLDivElement> & { "data-testid": string }
+  dropdownProps?: ComponentPropsWithoutRef<"div"> & { "data-testid": string }
 
-  /** @deprecated Since version 6.168.3. Use `dropdownProps` instead. */
+  /** @deprecated Since version 6.16.3. Use `dropdownProps` instead. */
   dropdownStyles?: CSSProperties
 
   /** Filtering function to be used to populate dropdown. Filters on `option.value` by default. */
@@ -52,7 +49,11 @@ interface SearchSelectBaseProps<Option> extends InputHTMLAttributes<HTMLInputEle
   /** Options to render in dropdown. */
   options: Option[] | undefined
 
+  /** Props passed to the individual options. */
+  optionProps?: ComponentPropsWithoutRef<"div">
+
   /** Styles for the individual options. */
+  /** @deprecated Since version 6.56.0. Use `optionProps` instead. */
   optionStyles?: CSSProperties
 
   /**  Default is `neutral`. */
@@ -62,7 +63,7 @@ interface SearchSelectBaseProps<Option> extends InputHTMLAttributes<HTMLInputEle
   value: string
 
   /** Props passed to root element. */
-  wrapperProps?: HTMLAttributes<HTMLDivElement>
+  wrapperProps?: ComponentPropsWithoutRef<"div">
 }
 
 interface SearchSelectWithLabelProps {
@@ -70,7 +71,7 @@ interface SearchSelectWithLabelProps {
   label: ReactNode
 
   /** Props passed to label element. */
-  labelProps?: LabelHTMLAttributes<HTMLLabelElement>
+  labelProps?: ComponentPropsWithoutRef<"label">
 }
 
 interface SearchSelectWithoutLabelProps {
@@ -89,6 +90,7 @@ export const SearchSelect = <Option extends BaseOption>({
   onOptionSelect,
   onSearchChange,
   options,
+  optionProps,
   optionStyles = {},
   placeholder = "Search...",
   isFilterable = true,
@@ -215,6 +217,7 @@ export const SearchSelect = <Option extends BaseOption>({
               onMouseOver={() => handleMouseOver(index)}
               onMouseLeave={handleMouseLeave}
               style={optionStyles}
+              {...optionProps}
             >
               {option.label}
             </SearchSelectOption>
