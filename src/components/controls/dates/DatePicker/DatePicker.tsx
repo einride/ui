@@ -122,17 +122,25 @@ const StyledDatePicker = styled(MantineDatePicker)`
       border-radius: ${({ theme }) => theme.borderRadii.full};
       height: ${({ theme }) => 6 * theme.spacingBase}rem;
       width: ${({ theme }) => 6 * theme.spacingBase}rem;
-
+      svg {
+        display: none;
+      }
+      &:first-child {
+        grid-area: previous-month;
+        &::before {
+          content: "←";
+        }
+      }
+      &:last-child {
+        gria-area: next-month;
+        &::before {
+          content: "→";
+        }
+      }
       &:focus-visible {
         outline: none;
         background: ${({ theme }) => theme.colors.buttons.background.focused.tertiary};
         box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
-      }
-      &:first-child {
-        grid-area: previous-month;
-      }
-      &:last-child {
-        gria-area: next-month;
       }
     }
     .mantine-DatePicker-weekday {
