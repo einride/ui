@@ -54,6 +54,7 @@ export const common: CommonTheme = {
     extrabold: 800,
     black: 900,
   },
+  /** @deprecated since 6.56.0. */
   grid: {
     gap: "var(--einride-ui-grid-gap)",
     columns: "var(--einride-ui-grid-columns)",
