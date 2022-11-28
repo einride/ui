@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import { useFocusReturn, useFocusTrap, useMergedRef, useScrollLock } from "@mantine/hooks"
-import { AnimatePresence, HTMLMotionProps, motion, MotionStyle } from "framer-motion"
+import { AnimatePresence, HTMLMotionProps, motion, MotionProps, MotionStyle } from "framer-motion"
 import { forwardRef, ReactNode, useCallback, useEffect } from "react"
 import { zIndex } from "../../../lib/zIndex"
 import {
@@ -27,7 +27,10 @@ interface AlertProps extends Omit<HTMLMotionProps<"div">, "title"> {
   /** Controls whether the alert is open or closed. */
   isOpen: boolean
 
-  /** Custom overlay styles. */
+  /** Props passed to the overlay element. */
+  overlayProps?: MotionProps
+
+  /** @deprecated since 6.56.1. Use `overlayProps` instead. */
   overlayStyles?: MotionStyle
 
   /** Primary action of the alert. Usually a confirmation of an action. */
@@ -48,6 +51,7 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
       closeHandler,
       description,
       isOpen,
+      overlayProps,
       overlayStyles = {},
       primaryAction,
       secondaryAction,
@@ -84,6 +88,7 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
             initial={{ opacity: 0 }}
             onClick={closeHandler}
             style={overlayStyles}
+            {...overlayProps}
           >
             <Wrapper
               animate={{ opacity: 1 }}

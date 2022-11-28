@@ -14,7 +14,6 @@ const Template: ComponentStory<typeof Alert> = (args) => {
   return (
     <>
       <PrimaryButton onClick={handlers.open}>Delete organization</PrimaryButton>
-
       <Alert
         {...args}
         closeHandler={handlers.close}
