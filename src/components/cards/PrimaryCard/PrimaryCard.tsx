@@ -13,6 +13,7 @@ interface PrimaryCardProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode
 }
 
+/** @deprecated since 6.56.2. Use `<Card>` instead. */
 export const PrimaryCard = forwardRef<HTMLDivElement, PrimaryCardProps>(
   ({ background = "primary", children, ...props }, ref) => {
     return (

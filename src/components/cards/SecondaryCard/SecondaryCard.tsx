@@ -13,6 +13,7 @@ interface SecondaryCardProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode
 }
 
+/** @deprecated since 6.56.2. Use `<Card background="secondaryOpacity">` instead. */
 export const SecondaryCard = forwardRef<HTMLDivElement, SecondaryCardProps>(
   ({ background = "secondary", children, ...props }, ref) => {
     return (
