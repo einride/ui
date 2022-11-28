@@ -1,7 +1,7 @@
 import { useMediaQuery } from "@einride/hooks"
 import styled from "@emotion/styled"
 import { useFocusReturn, useFocusTrap, useMergedRef, useScrollLock } from "@mantine/hooks"
-import { AnimatePresence, HTMLMotionProps, motion, MotionStyle } from "framer-motion"
+import { AnimatePresence, HTMLMotionProps, motion, MotionProps, MotionStyle } from "framer-motion"
 import { forwardRef, ReactNode, useEffect } from "react"
 import { useTheme } from "../../../hooks/useTheme"
 import { Theme } from "../../../lib/theme/types"
@@ -17,24 +17,40 @@ import {
 } from "../../controls/buttons/SecondaryButton/SecondaryButton"
 
 export interface SheetsProps extends HTMLMotionProps<"div"> {
+  /** Content of the sheets. */
   children: ReactNode
+
+  /** Event handler that closes the sheets. Used to make close on Escape or overlay click. */
   closeHandler: () => void
 
   /** Controls whether sheets should close when clicking outside or not. Default is `true`. */
   closeOnClickOutside?: boolean
+
+  /** Controls whether the sheets is open or not. */
   isOpen: boolean
+
+  /** Navigation action. */
   navigationAction?: (IconButtonProps & { "data-testid"?: string }) | undefined
+
+  /** Navigation title. */
   navigationTitle?: ReactNode
+
+  /** Props passed to the overlay element. */
+  overlayProps?: MotionProps
+
+  /** @deprecated since 6.56.0. Use `overlayProps` instead. */
   overlayStyles?: MotionStyle
+
+  /** Primary action of the sheets. */
   primaryAction?: (PrimaryButtonProps & { "data-testid"?: string }) | undefined
+
+  /** Secondary action of the sheets. */
   secondaryAction?: (SecondaryButtonProps & { "data-testid"?: string }) | undefined
-  /**
-   * Default: md
-   */
+
+  /** Size of the sheets. Default is `md`. */
   size?: Size
-  /**
-   * Default: true
-   */
+
+  /** Whether or not to show an overlay. Default is `true`. */
   withOverlay?: boolean
 }
 
@@ -47,6 +63,7 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
       isOpen,
       navigationAction,
       navigationTitle,
+      overlayProps,
       overlayStyles = {},
       primaryAction,
       secondaryAction,
@@ -91,6 +108,7 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
                 initial={{ opacity: 0 }}
                 onClick={handleOutsideClick}
                 style={overlayStyles}
+                {...overlayProps}
               />
             )}
             <Wrapper
