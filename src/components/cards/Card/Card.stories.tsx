@@ -15,16 +15,48 @@ export default {
 
 const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />
 
+export const Gauge = Template.bind({})
+Gauge.args = {
+  background: "secondary",
+  children: (
+    <Group justifyContent="space-between">
+      <Stack gap="none">
+        <Text color="secondary">Electrification potential</Text>
+        <Text>Good</Text>
+      </Stack>
+      <StepGauge aria-label="Electrification potential" steps={3} completed={2} />
+    </Group>
+  ),
+}
+
+export const Progress = Template.bind({})
+Progress.args = {
+  background: "secondary",
+  paddingBlockEnd: "sm",
+  children: (
+    <Stack gap="sm">
+      <Group justifyContent="space-between">
+        <Text>
+          Sweden <Icon name="arrowRight" /> Germany
+        </Text>
+        <Text color="positive">In transit</Text>
+      </Group>
+      <StepProgress
+        aria-label="Progress on transit between Sweden and Germany"
+        completedSteps={2}
+      />
+    </Stack>
+  ),
+}
+
 export const Stat = Template.bind({})
 Stat.args = {
   background: "secondary",
   children: (
     <Stack height={22} justifyContent="space-between">
       <Group justifyContent="space-between">
-        <Text as="p" color="secondary">
-          Emissions
-        </Text>
-        <Text as="p" color="secondary">
+        <Text color="secondary">Emissions</Text>
+        <Text color="secondary">
           <Text as="span" color="positive">
             <Icon name="arrowDown" />
             3%
@@ -39,58 +71,18 @@ Stat.args = {
   ),
 }
 
-export const Progress = Template.bind({})
-Progress.args = {
-  background: "secondary",
-  paddingBlockEnd: "sm",
-  children: (
-    <Stack gap="sm">
-      <Group justifyContent="space-between">
-        <Text as="p">
-          Sweden <Icon name="arrowRight" /> Germany
-        </Text>
-        <Text as="p" color="positive">
-          In transit
-        </Text>
-      </Group>
-      <StepProgress
-        aria-label="Progress on transit between Sweden and Germany"
-        completedSteps={2}
-      />
-    </Stack>
-  ),
-}
-
-export const Gauge = Template.bind({})
-Gauge.args = {
-  background: "secondary",
-  children: (
-    <Group justifyContent="space-between">
-      <Stack gap="none">
-        <Text as="p" color="secondary">
-          Electrification potential
-        </Text>
-        <Text as="p">Good</Text>
-      </Stack>
-      <StepGauge aria-label="Electrification potential" steps={3} completed={2} />
-    </Group>
-  ),
-}
-
 export const InsideCard = Template.bind({})
 InsideCard.args = {
   background: "secondary",
   children: (
     <Stack>
       <Group justifyContent="space-between">
-        <Text as="p">Slot</Text>
-        <Text as="p">Slot</Text>
+        <Text>Slot</Text>
+        <Text>Slot</Text>
       </Group>
       <Card background="secondaryOpacity" borderRadius="sm">
-        <Text as="p" color="secondary">
-          Electrification potential
-        </Text>
-        <Text as="p">Good</Text>
+        <Text color="secondary">Electrification potential</Text>
+        <Text>Good</Text>
       </Card>
     </Stack>
   ),
@@ -101,7 +93,7 @@ WithInput.args = {
   background: "secondary",
   children: (
     <Stack>
-      <Text as="p">Slot</Text>
+      <Text>Slot</Text>
       <TextInput label="Label" background="secondaryOpacity" />
     </Stack>
   ),
