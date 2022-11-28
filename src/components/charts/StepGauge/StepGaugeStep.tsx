@@ -67,17 +67,7 @@ export const StepGaugeStep = ({
     return createStepPath(startOfStep, endOfStep)
   }
 
-  return (
-    <StyledPath
-      d={createStep()}
-      index={index}
-      completed={completedSteps}
-      color={color}
-      style={{
-        vectorEffect: "non-scaling-stroke",
-      }}
-    />
-  )
+  return <StyledPath d={createStep()} index={index} completed={completedSteps} color={color} />
 }
 
 interface StyledPathProps {
@@ -96,4 +86,5 @@ const StyledPath = styled("path", {
   transition-property: fill, stroke;
   transition-duration: ${({ theme }) => theme.transitions.morph.duration};
   transition-timing-function: ${({ theme }) => theme.transitions.morph.timingFunction};
+  vector-effect: non-scaling-stroke;
 `
