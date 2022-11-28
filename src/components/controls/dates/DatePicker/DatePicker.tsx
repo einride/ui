@@ -117,11 +117,23 @@ const StyledDatePicker = styled(MantineDatePicker)`
     }
 
     .mantine-DatePicker-calendarHeaderControl {
-      background: ${({ theme }) => theme.colors.background.primary};
+      background: ${({ theme }) => theme.colors.buttons.background.tertiary};
       color: ${({ theme }) => theme.colors.content.primary};
       border-radius: ${({ theme }) => theme.borderRadii.full};
       height: ${({ theme }) => 6 * theme.spacingBase}rem;
       width: ${({ theme }) => 6 * theme.spacingBase}rem;
+      transform: none;
+      &:hover {
+        background: ${({ theme }) => theme.colors.buttons.background.hover.tertiary};
+      }
+      &:active {
+        background: ${({ theme }) => theme.colors.buttons.background.active.tertiary};
+      }
+      &:focus-visible {
+        outline: none;
+        background: ${({ theme }) => theme.colors.buttons.background.focused.tertiary};
+        box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
+      }
       svg {
         display: none;
       }
@@ -136,11 +148,6 @@ const StyledDatePicker = styled(MantineDatePicker)`
         &::before {
           content: "→";
         }
-      }
-      &:focus-visible {
-        outline: none;
-        background: ${({ theme }) => theme.colors.buttons.background.focused.tertiary};
-        box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
       }
     }
     .mantine-DatePicker-weekday {
