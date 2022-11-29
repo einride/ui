@@ -44,6 +44,7 @@ export const DateRangePicker = ({ ...props }: DateRangePickerProps): JSX.Element
   return (
     <StyledDatePicker
       allowLevelChange={false}
+      allowSingleDateInRange
       clearable={false}
       dayStyle={() => ({
         fontFamily: theme.fonts.body,
@@ -192,6 +193,9 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
         &[data-last-in-range] {
           border-top-left-radius: 0;
           border-bottom-left-radius: 0;
+        }
+        &[data-first-in-range][data-last-in-range] {
+          border-radius: ${({ theme }) => theme.borderRadii.sm};
         }
       }
       &:focus-visible {
