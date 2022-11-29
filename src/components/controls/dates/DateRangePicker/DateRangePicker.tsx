@@ -140,13 +140,13 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
         svg {
           display: none;
         }
-        &:first-child {
+        &:first-of-type {
           grid-area: previous-month;
           &::before {
             content: "←";
           }
         }
-        &:last-child {
+        &:last-of-type {
           gria-area: next-month;
           &::before {
             content: "→";
