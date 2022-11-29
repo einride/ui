@@ -1,3 +1,4 @@
+import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, ElementType, ReactNode } from "react"
 import { getColor, getFont } from "../../../lib/theme/prop-system"
@@ -34,7 +35,9 @@ interface StyledAnchorProps {
   textColor: Extract<ContentColor, "primary" | "secondary"> | undefined
 }
 
-const StyledAnchor = styled.a<StyledAnchorProps>`
+const StyledAnchor = styled("a", {
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== "textColor", // avoid passing `color` attribute to HTML element
+})<StyledAnchorProps>`
   color: ${({ textColor, theme }) => textColor && getColor(textColor, theme)};
   font-family: ${({ font, theme }) => font && getFont(font, theme)};
   cursor: pointer;
