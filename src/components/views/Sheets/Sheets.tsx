@@ -1,8 +1,8 @@
 import { useMediaQuery } from "@einride/hooks"
 import styled from "@emotion/styled"
-import { useFocusReturn, useFocusTrap, useMergedRef, useScrollLock } from "@mantine/hooks"
-import { AnimatePresence, HTMLMotionProps, motion, MotionProps, MotionStyle } from "framer-motion"
-import { forwardRef, ReactNode, useEffect } from "react"
+import * as Dialog from "@radix-ui/react-dialog"
+import { AnimatePresence, motion } from "framer-motion"
+import { ComponentPropsWithoutRef, CSSProperties, forwardRef, ReactNode } from "react"
 import { useTheme } from "../../../hooks/useTheme"
 import { Theme } from "../../../lib/theme/types"
 import { zIndex } from "../../../lib/zIndex"
@@ -16,7 +16,12 @@ import {
   SecondaryButtonProps,
 } from "../../controls/buttons/SecondaryButton/SecondaryButton"
 
-export interface SheetsProps extends HTMLMotionProps<"div"> {
+export interface SheetsProps
+  extends Omit<
+      ComponentPropsWithoutRef<"div">,
+      "onAnimationStart" | "onDrag" | "onDragEnd" | "onDragStart" | "style" | "title"
+    >,
+    DialogStyles {
   /** Content of the sheets. */
   children: ReactNode
 
@@ -36,10 +41,15 @@ export interface SheetsProps extends HTMLMotionProps<"div"> {
   navigationTitle?: ReactNode
 
   /** Props passed to the overlay element. */
-  overlayProps?: MotionProps
+  overlayProps?: Omit<
+    ComponentPropsWithoutRef<"div">,
+    "onAnimationStart" | "onDrag" | "onDragEnd" | "onDragStart" | "style"
+  > & {
+    style: Omit<CSSProperties, "rotate" | "scale" | "perspective">
+  }
 
   /** @deprecated since 6.56.0. Use `overlayProps` instead. */
-  overlayStyles?: MotionStyle
+  overlayStyles?: Omit<CSSProperties, "rotate" | "scale" | "perspective">
 
   /** Primary action of the sheets. */
   primaryAction?: (PrimaryButtonProps & { "data-testid"?: string }) | undefined
@@ -52,6 +62,10 @@ export interface SheetsProps extends HTMLMotionProps<"div"> {
 
   /** Whether or not to show an overlay. Default is `true`. */
   withOverlay?: boolean
+}
+
+interface DialogStyles {
+  style?: Omit<CSSProperties, "rotate" | "scale" | "perspective">
 }
 
 export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
@@ -71,53 +85,33 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
       withOverlay = true,
       ...props
     },
-    ref,
+    forwardedRef,
   ) => {
-    const focusTrapRef = useFocusTrap(isOpen)
-    useFocusReturn({ opened: isOpen })
-    const mergedRef = useMergedRef(ref, focusTrapRef)
-    useScrollLock(isOpen)
     const theme = useTheme()
     const isAboveSm = useMediaQuery(theme.mediaQueries.md)
-
-    const handleOutsideClick = (): void => {
-      if (closeOnClickOutside) {
-        closeHandler()
-      }
-    }
-
-    useEffect(() => {
-      const closeOnEscape = (event: KeyboardEvent): void => {
-        if (event.key === "Escape") {
-          closeHandler()
-        }
-      }
-
-      window.addEventListener("keydown", closeOnEscape)
-      return () => window.removeEventListener("keydown", closeOnEscape)
-    }, [closeHandler])
-
     return (
-      <AnimatePresence>
-        {isOpen && (
-          <>
+      <Dialog.Root open={isOpen}>
+        <Dialog.Portal>
+          <AnimatePresence>
             {withOverlay && (
-              <Overlay
+              <DialogOverlay
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 initial={{ opacity: 0 }}
-                onClick={handleOutsideClick}
                 style={overlayStyles}
                 {...overlayProps}
               />
             )}
-            <Wrapper
+            <DialogContent
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               initial={{ opacity: 0 }}
               size={size}
+              onEscapeKeyDown={closeHandler}
+              // eslint-disable-next-line @typescript-eslint/no-empty-function
+              onInteractOutside={closeOnClickOutside ? closeHandler : () => {}}
               {...props}
-              ref={mergedRef}
+              ref={forwardedRef}
             >
               <Navigation>
                 <NavigationAction>
@@ -140,24 +134,24 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
                   {secondaryAction && <SecondaryButton isFullWidth {...secondaryAction} />}
                 </SmActions>
               )}
-            </Wrapper>
-          </>
-        )}
-      </AnimatePresence>
+            </DialogContent>
+          </AnimatePresence>
+        </Dialog.Portal>
+      </Dialog.Root>
     )
   },
 )
 
 type Size = "sm" | "md"
 
-const Overlay = styled(motion.div)`
+const DialogOverlay = styled(motion(Dialog.Overlay))`
   position: fixed;
   inset: 0;
   background: ${({ theme }) => theme.colors.background.focus};
   z-index: ${zIndex.overlay};
 `
 
-const Wrapper = styled(motion.div)<{ size: Size }>`
+const DialogContent = styled(motion(Dialog.Content))<{ size: Size }>`
   position: fixed;
   inset-block-start: ${({ theme }) => 8 * theme.spacer}px;
   inset-block-end: 0;
