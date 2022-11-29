@@ -55,7 +55,7 @@ interface AlertProps
 }
 
 interface AlertStyles {
-  style: Omit<CSSProperties, "rotate" | "scale" | "perspective">
+  style?: Omit<CSSProperties, "rotate" | "scale" | "perspective">
 }
 
 /** An alert commonly used when there's a need to interrupt the user with a mandatory confirmation or action. */
