@@ -4,6 +4,9 @@ import { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react"
 import { useTheme } from "../../../../hooks/useTheme"
 
 interface DateRangePickerBaseProps {
+  /** Whether to allow clearing value or not. Default it `false`. */
+  clearable?: boolean
+
   /** Default value for uncontrolled input. */
   defaultValue?: DateRangePickerValue
 
@@ -97,6 +100,20 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
       outline: none;
     }
   }
+  .mantine-DateRangePicker-rightSection button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      display: none;
+    }
+    &::before {
+      font-family: ${({ theme }) => theme.fonts.body};
+      font-size: ${({ theme }) => theme.fontSizes.md};
+      color: ${({ theme }) => theme.colors.content.primary};
+      content: "❌";
+    }
+  }
   .mantine-DateRangePicker-dropdown {
     background: ${({ theme }) => theme.colors.background.secondary};
     border: none;
@@ -144,12 +161,16 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
         &:first-of-type {
           grid-area: previous-month;
           &::before {
+            font-family: ${({ theme }) => theme.fonts.body};
+            font-size: ${({ theme }) => theme.fontSizes.md};
             content: "←";
           }
         }
         &:last-of-type {
           gria-area: next-month;
           &::before {
+            font-family: ${({ theme }) => theme.fonts.body};
+            font-size: ${({ theme }) => theme.fontSizes.md};
             content: "→";
           }
         }
