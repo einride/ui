@@ -175,6 +175,9 @@ const StyledDatePicker = styled(MantineDatePicker)`
         background: ${({ theme }) => theme.colors.background.primaryElevatedInverted};
         color: ${({ theme }) => theme.colors.content.primaryInverted};
       }
+      &:disabled {
+        color: ${({ theme }) => theme.colors.content.tertiary};
+      }
       &:focus-visible {
         outline: none;
         box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border.selected};

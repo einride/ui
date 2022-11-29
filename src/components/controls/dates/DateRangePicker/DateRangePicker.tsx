@@ -198,6 +198,9 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
           border-radius: ${({ theme }) => theme.borderRadii.sm};
         }
       }
+      &:disabled {
+        color: ${({ theme }) => theme.colors.content.tertiary};
+      }
       &:focus-visible {
         outline: none;
         box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
