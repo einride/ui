@@ -4,6 +4,9 @@ import { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react"
 import { useTheme } from "../../../../hooks/useTheme"
 
 interface DatePickerBaseProps {
+  /** Whether to allow clearing value or not. Default it `false`. */
+  clearable?: boolean
+
   /** Default value for uncontrolled input. */
   defaultValue?: Date
 
@@ -92,6 +95,20 @@ const StyledDatePicker = styled(MantineDatePicker)`
       outline: none;
     }
   }
+  .mantine-DatePicker-rightSection button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      display: none;
+    }
+    &::before {
+      font-family: ${({ theme }) => theme.fonts.body};
+      font-size: ${({ theme }) => theme.fontSizes.md};
+      color: ${({ theme }) => theme.colors.content.primary};
+      content: "❌";
+    }
+  }
   .mantine-DatePicker-dropdown {
     background: ${({ theme }) => theme.colors.background.secondary};
     border: none;
@@ -140,12 +157,16 @@ const StyledDatePicker = styled(MantineDatePicker)`
       &:first-of-type {
         grid-area: previous-month;
         &::before {
+          font-family: ${({ theme }) => theme.fonts.body};
+          font-size: ${({ theme }) => theme.fontSizes.md};
           content: "←";
         }
       }
       &:last-of-type {
         gria-area: next-month;
         &::before {
+          font-family: ${({ theme }) => theme.fonts.body};
+          font-size: ${({ theme }) => theme.fontSizes.md};
           content: "→";
         }
       }
