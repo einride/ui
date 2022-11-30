@@ -24,7 +24,7 @@ Gauge.args = {
         <Text color="secondary">Electrification potential</Text>
         <Text>Good</Text>
       </Stack>
-      <StepGauge aria-label="Electrification potential" steps={3} completed={2} />
+      <StepGauge aria-label="Electrification potential" steps={3} completedSteps={2} />
     </Group>
   ),
 }

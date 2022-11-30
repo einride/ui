@@ -11,5 +11,5 @@ const Template: ComponentStory<typeof StepGauge> = (args) => <StepGauge {...args
 export const Default = Template.bind({})
 Default.args = {
   "aria-label": "Progress",
-  completed: 2,
+  completedSteps: 2,
 }

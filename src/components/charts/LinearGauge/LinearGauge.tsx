@@ -1,10 +1,10 @@
 import styled from "@emotion/styled"
-import { forwardRef, HTMLAttributes } from "react"
+import { ComponentPropsWithoutRef, forwardRef } from "react"
 import { ContentColor } from "../../../lib/theme/types"
 import { PointerIcon } from "../StepGauge/PointerIcon"
 import { LinearGaugeProgress } from "./LinearGaugeProgress"
 
-interface LinearGaugeBaseProps extends HTMLAttributes<HTMLDivElement> {
+interface LinearGaugeBaseProps extends ComponentPropsWithoutRef<"div"> {
   /** Color of the completed gauge stroke. Default is `positive`. */
   color?: ContentColor
 
@@ -64,8 +64,8 @@ export const LinearGauge = forwardRef<HTMLDivElement, LinearGaugeProps>(
 
 const Wrapper = styled.div`
   position: relative;
-  inline-size: ${({ theme }) => 7 * theme.spacer}px;
-  block-size: ${({ theme }) => 7 * theme.spacer}px;
+  inline-size: ${({ theme }) => 7 * theme.spacingBase}rem;
+  block-size: ${({ theme }) => 7 * theme.spacingBase}rem;
   display: flex;
   justify-content: center;
   align-items: center;

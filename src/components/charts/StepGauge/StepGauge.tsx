@@ -1,22 +1,18 @@
 import styled from "@emotion/styled"
-import { forwardRef, HTMLAttributes } from "react"
+import { ComponentPropsWithoutRef, forwardRef, useCallback, useState } from "react"
 import { ContentColor } from "../../../lib/theme/types"
 import { PointerIcon } from "./PointerIcon"
 import { StepGaugeStep } from "./StepGaugeStep"
 
-interface StepGaugeBaseProps extends HTMLAttributes<HTMLDivElement> {
+interface StepGaugeBaseProps extends ComponentPropsWithoutRef<"div"> {
   /** Color of the completed gauge stroke. Default is `positive`. */
   color?: ContentColor
 
   /** Number of completed steps. */
-  // TODO: Rename to `completedSteps` in next major.
-  completed: number
+  completedSteps: number
 
   /** Number of steps. Default is `3`. */
   steps: number
-
-  /** Width of stroke. Default is `3`. */
-  strokeWidth?: number
 }
 
 type StepGaugeProps = (
@@ -33,55 +29,75 @@ type StepGaugeProps = (
 
 /** Either `aria-label` or `aria-labelledby` is required for accessibility. */
 export const StepGauge = forwardRef<HTMLDivElement, StepGaugeProps>(
-  ({ color = "positive", completed, steps = 3, strokeWidth = 3, ...props }, ref) => {
-    const svgSize = 100 + strokeWidth * 2
-
+  ({ color = "positive", completedSteps, steps = 3, ...props }, forwardedRef) => {
+    const [svgHeight, setSvgHeight] = useState(0)
+    const [pointerHeight, setPointerHeight] = useState(0)
+    const svgRef = useCallback((node: SVGSVGElement | null) => {
+      setSvgHeight(node ? node.clientHeight : 0)
+    }, [])
+    const pointerRef = useCallback((node: SVGSVGElement | null) => {
+      setPointerHeight(node ? node.viewBox.baseVal.height : 0)
+    }, [])
     return (
       <Wrapper
         {...props}
-        ref={ref}
+        ref={forwardedRef}
         role="progressbar"
         aria-valuemax={steps}
         aria-valuemin={0}
-        aria-valuenow={completed}
-        aria-valuetext={`${completed} of ${steps} steps completed`}
+        aria-valuenow={completedSteps}
+        aria-valuetext={`${completedSteps} of ${steps} steps completed`}
       >
-        <StyledSvg viewBox={`0 0 ${svgSize} ${svgSize}`} strokeWidth={strokeWidth}>
+        <StyledSvg viewBox={`0 0 ${SVG_SIZE} ${SVG_SIZE}`} ref={svgRef}>
           {[...Array(steps).keys()].map((step) => (
             <StepGaugeStep
-              key={step}
-              completedSteps={completed}
               color={color}
+              completedSteps={completedSteps}
               index={step}
+              key={step}
               steps={steps}
-              svgSize={svgSize}
+              svgSize={SVG_SIZE}
             />
           ))}
         </StyledSvg>
-        <StyledPointerIcon completed={completed} steps={steps} />
+        <StyledPointerIcon
+          completedSteps={completedSteps}
+          pointerHeight={pointerHeight}
+          svgHeight={svgHeight}
+          steps={steps}
+          ref={pointerRef}
+        />
       </Wrapper>
     )
   },
 )
 
+const SVG_SIZE = 106
+
 const Wrapper = styled.div`
   position: relative;
-  inline-size: 56px;
+  inline-size: ${({ theme }) => 7 * theme.spacingBase}rem;
   display: flex;
   justify-content: center;
   align-items: center;
 `
 
-const StyledSvg = styled.svg<{ strokeWidth: number }>`
-  stroke-width: ${({ strokeWidth }) => strokeWidth};
+const StyledSvg = styled.svg`
+  stroke-width: ${({ theme }) => 0.375 * theme.spacingBase}rem;
   inline-size: 100%;
 `
 
-const StyledPointerIcon = styled(PointerIcon)<{ completed: number; steps: number }>`
-  /* Percentage based on pointer viewBox height divided by StepGauge viewBox height  */
-  block-size: ${(27 / 56) * 100}%;
+interface StyledPointerIconProps {
+  completedSteps: number
+  steps: number
+  pointerHeight: number
+  svgHeight: number
+}
+
+const StyledPointerIcon = styled(PointerIcon)<StyledPointerIconProps>`
+  block-size: ${({ pointerHeight, svgHeight }) => `${(pointerHeight / svgHeight) * 100}%`};
   inline-size: auto;
-  transform: rotateZ(${({ completed, steps }) => getPointerRotation(completed, steps)}deg)
+  transform: rotateZ(${({ completedSteps, steps }) => getPointerRotation(completedSteps, steps)}deg)
     translateY(-22%);
   transition-property: transform;
   transition-duration: ${({ theme }) => theme.transitions.morph.duration};
@@ -90,8 +106,8 @@ const StyledPointerIcon = styled(PointerIcon)<{ completed: number; steps: number
   position: absolute;
 `
 
-const getPointerRotation = (completed: number, steps: number): number => {
-  if (completed > steps) return 360
-  if (completed < 0) return 0
-  return (360 / steps) * completed
+const getPointerRotation = (completedSteps: number, steps: number): number => {
+  if (completedSteps >= steps) return 360 - 7 // to point to the end of the
+  if (completedSteps <= 0) return 0
+  return (360 / steps) * completedSteps - 7 // to point to the end of the filled step
 }
