@@ -1,8 +1,8 @@
 import styled from "@emotion/styled"
-import { HTMLAttributes, ReactNode } from "react"
+import { ComponentPropsWithoutRef, forwardRef, ReactNode } from "react"
 import { Loader, LoaderProps } from "../Loader/Loader"
 
-interface PageLoaderProps extends HTMLAttributes<HTMLDivElement> {
+interface PageLoaderProps extends ComponentPropsWithoutRef<"div"> {
   /** Props passed to loader element. */
   loaderProps?: LoaderProps
 
@@ -10,17 +10,15 @@ interface PageLoaderProps extends HTMLAttributes<HTMLDivElement> {
   text?: ReactNode
 }
 
-export const PageLoader = ({
-  loaderProps,
-  text = <>Loading</>,
-  ...props
-}: PageLoaderProps): JSX.Element => {
+export const PageLoader = forwardRef<HTMLDivElement, PageLoaderProps>(({ loaderProps, text = <>
+      Loading
+    </>, ...props }, forwardedRef): JSX.Element => {
   return (
-    <Wrapper {...props}>
+    <Wrapper {...props} ref={forwardedRef}>
       <Loader {...loaderProps} /> {text}
     </Wrapper>
   )
-}
+})
 
 const Wrapper = styled.div`
   position: fixed;
@@ -28,5 +26,5 @@ const Wrapper = styled.div`
   inset-inline-start: ${({ theme }) => 4 * theme.spacer}px;
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => theme.spacer}px;
+  gap: ${({ theme }) => theme.spacingBase}rem;
 `

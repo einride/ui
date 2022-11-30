@@ -1,54 +1,38 @@
 import styled from "@emotion/styled"
-import { HTMLAttributes } from "react"
-import { Theme } from "../../../lib/theme/types"
+import { forwardRef } from "react"
+import { SpacingInput } from "../../../lib/theme/props"
+import { Box, BoxProps } from "../../layout/Box/Box"
 
-interface SkeletonProps extends HTMLAttributes<HTMLDivElement> {
+interface SkeletonProps extends BoxProps {
   /** Height of the skeleton. Default is `md`. */
-  height?: Height
+  height?: SpacingInput
 
   /** Shape of the skeleton. Default is `rectangle`. */
   shape?: Shape
 }
 
-export const Skeleton = ({
-  height = "md",
-  shape = "rectangle",
-  ...props
-}: SkeletonProps): JSX.Element => {
-  return <Wrapper height={height} shape={shape} {...props} />
-}
-
-type Height = "xs" | "sm" | "md" | "lg" | "xl"
+export const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
+  ({ height = "md", shape = "rectangle", ...props }, forwardedRef): JSX.Element => {
+    return (
+      <Wrapper
+        height={height}
+        inlineSize={shape === "circle" ? height : "100%"}
+        shape={shape}
+        {...props}
+        ref={forwardedRef}
+      />
+    )
+  },
+)
 
 type Shape = "rectangle" | "circle"
 
 interface WrapperProps {
-  height: Height
   shape: Shape
 }
 
-const Wrapper = styled.div<WrapperProps>`
-  block-size: ${({ height, theme }) => getBlockSize(height, theme)}px;
+const Wrapper = styled(Box)<WrapperProps>`
   background: ${({ theme }) => theme.colors.background.secondary};
   border-radius: ${({ shape, theme }) =>
     shape === "circle" ? theme.borderRadii.full : theme.borderRadii.sm};
-  ${({ height, shape, theme }) =>
-    shape === "circle" && `inline-size: ${getBlockSize(height, theme)}px`};
 `
-
-const getBlockSize = (height: Height, theme: Theme): number => {
-  switch (height) {
-    case "xs":
-      return theme.spacer
-    case "sm":
-      return 2 * theme.spacer
-    case "md":
-      return 3 * theme.spacer
-    case "lg":
-      return 6 * theme.spacer
-    case "xl":
-      return 8 * theme.spacer
-    default:
-      return 2 * theme.spacer
-  }
-}
