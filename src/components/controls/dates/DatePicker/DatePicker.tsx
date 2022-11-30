@@ -195,13 +195,20 @@ const StyledDatePicker = styled(MantineDatePicker)`
       &[data-selected] {
         background: ${({ theme }) => theme.colors.background.primaryElevatedInverted};
         color: ${({ theme }) => theme.colors.content.primaryInverted};
+
+        &:focus-visible {
+          background: ${({ theme }) => theme.colors.background.primaryElevatedInverted};
+          text-decoration: underline;
+        }
       }
       &:disabled {
         color: ${({ theme }) => theme.colors.content.tertiary};
       }
       &:focus-visible {
         outline: none;
+        background: ${({ theme }) => theme.colors.background.tertiary};
         box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
+        text-decoration: underline;
       }
     }
   }

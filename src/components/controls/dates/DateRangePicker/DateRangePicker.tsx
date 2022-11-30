@@ -207,6 +207,10 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
         background: ${({ theme }) => theme.colors.background.primaryElevatedInverted};
         color: ${({ theme }) => theme.colors.content.primaryInverted};
 
+        &:focus-visible {
+          background: ${({ theme }) => theme.colors.background.primaryElevatedInverted};
+          text-decoration: underline;
+        }
         &[data-first-in-range] {
           border-top-right-radius: 0;
           border-bottom-right-radius: 0;
@@ -224,7 +228,9 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
       }
       &:focus-visible {
         outline: none;
+        background: ${({ theme }) => theme.colors.background.tertiary};
         box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
+        text-decoration: underline;
       }
     }
   }
