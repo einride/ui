@@ -90,9 +90,9 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
     const theme = useTheme()
     const isAboveSm = useMediaQuery(theme.mediaQueries.md)
     return (
-      <Dialog.Root open={isOpen}>
-        <Dialog.Portal>
-          <AnimatePresence>
+      <AnimatePresence>
+        <Dialog.Root open={isOpen}>
+          <Dialog.Portal>
             {withOverlay && (
               <DialogOverlay
                 animate={{ opacity: 1 }}
@@ -135,9 +135,9 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
                 </SmActions>
               )}
             </DialogContent>
-          </AnimatePresence>
-        </Dialog.Portal>
-      </Dialog.Root>
+          </Dialog.Portal>
+        </Dialog.Root>
+      </AnimatePresence>
     )
   },
 )

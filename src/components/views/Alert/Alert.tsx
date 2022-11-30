@@ -76,9 +76,9 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
     forwardedRef,
   ) => {
     return (
-      <AlertDialog.Root open={isOpen}>
-        <AlertDialog.Portal>
-          <AnimatePresence>
+      <AnimatePresence>
+        <AlertDialog.Root open={isOpen}>
+          <AlertDialog.Portal>
             <AlertDialogOverlay
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -128,9 +128,9 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
                 )}
               </Box>
             </AlertDialogContent>
-          </AnimatePresence>
-        </AlertDialog.Portal>
-      </AlertDialog.Root>
+          </AlertDialog.Portal>
+        </AlertDialog.Root>
+      </AnimatePresence>
     )
   },
 )
