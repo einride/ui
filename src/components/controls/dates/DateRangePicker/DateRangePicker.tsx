@@ -54,6 +54,7 @@ export const DateRangePicker = ({ ...props }: DateRangePickerProps): JSX.Element
         fontSize: theme.fontSizes.md,
         fontWeight: theme.fontWeights.book,
       })}
+      dayClassName={(date) => (date.getDate() === new Date().getDate() ? "today" : "")}
       inputFormat="YYYY-MM-DD"
       {...props}
     />
@@ -190,11 +191,16 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
       align-items: center;
       justify-content: center;
 
+      &.today {
+        background: ${({ theme }) => theme.colors.background.positive};
+        color: ${({ theme }) => theme.colors.content.positive};
+      }
       &[data-outside] {
         display: none;
       }
       &[data-in-range]:not([data-selected]) {
         background: ${({ theme }) => theme.colors.background.tertiaryOpacity};
+        color: ${({ theme }) => theme.colors.content.primary};
         border-radius: unset;
       }
       &[data-weekend] {
@@ -202,13 +208,15 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
       }
       &:hover {
         background: ${({ theme }) => theme.colors.background.tertiary};
+        color: ${({ theme }) => theme.colors.content.primary};
       }
       &[data-selected] {
-        background: ${({ theme }) => theme.colors.background.primaryElevatedInverted};
+        background: ${({ theme }) => theme.colors.background.primaryInverted};
         color: ${({ theme }) => theme.colors.content.primaryInverted};
 
         &:focus-visible {
           background: ${({ theme }) => theme.colors.background.primaryElevatedInverted};
+          color: ${({ theme }) => theme.colors.content.primaryInverted};
           text-decoration: underline;
         }
         &[data-first-in-range] {
@@ -229,6 +237,7 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
       &:focus-visible {
         outline: none;
         background: ${({ theme }) => theme.colors.background.tertiary};
+        color: ${({ theme }) => theme.colors.content.primary};
         box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
         text-decoration: underline;
       }
