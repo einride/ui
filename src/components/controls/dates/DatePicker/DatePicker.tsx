@@ -53,6 +53,7 @@ export const DatePicker = ({ ...props }: DatePickerProps): JSX.Element => {
         fontSize: theme.fontSizes.md,
         fontWeight: theme.fontWeights.book,
       })}
+      dayClassName={(date) => (date.getDate() === new Date().getDate() ? "today" : "")}
       inputFormat="YYYY-MM-DD"
       {...props}
     />
@@ -183,6 +184,11 @@ const StyledDatePicker = styled(MantineDatePicker)`
       display: flex;
       align-items: center;
       justify-content: center;
+
+      &.today {
+        background: ${({ theme }) => theme.colors.background.positive};
+        color: ${({ theme }) => theme.colors.content.positive};
+      }
       &[data-outside] {
         display: none;
       }
@@ -191,13 +197,15 @@ const StyledDatePicker = styled(MantineDatePicker)`
       }
       &:hover {
         background: ${({ theme }) => theme.colors.background.tertiary};
+        color: ${({ theme }) => theme.colors.content.primary};
       }
       &[data-selected] {
-        background: ${({ theme }) => theme.colors.background.primaryElevatedInverted};
+        background: ${({ theme }) => theme.colors.background.primaryInverted};
         color: ${({ theme }) => theme.colors.content.primaryInverted};
 
         &:focus-visible {
-          background: ${({ theme }) => theme.colors.background.primaryElevatedInverted};
+          background: ${({ theme }) => theme.colors.background.primaryInverted};
+          color: ${({ theme }) => theme.colors.content.primaryInverted};
           text-decoration: underline;
         }
       }
@@ -207,6 +215,7 @@ const StyledDatePicker = styled(MantineDatePicker)`
       &:focus-visible {
         outline: none;
         background: ${({ theme }) => theme.colors.background.tertiary};
+        color: ${({ theme }) => theme.colors.content.primary};
         box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
         text-decoration: underline;
       }
