@@ -7,17 +7,12 @@ import {
   useId,
   useState,
 } from "react"
-import { getBackground } from "../../../../lib/theme/prop-system"
-import { Background } from "../../../../lib/theme/props"
-import { BackgroundColor, ContentColor, Theme } from "../../../../lib/theme/types"
+import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 import { Caption } from "../../../typography/Caption/Caption"
 
 interface SelectBaseProps extends Omit<ComponentPropsWithoutRef<"select">, "prefix"> {
-  /** Background color of the input field. Default is `secondary`. */
-  background?: Extract<Background, "secondary" | "secondaryOpacity">
-
   /** Options to render in select list. */
   children: ReactNode
 
@@ -129,7 +124,6 @@ const SelectWrapper = styled.div`
 `
 
 interface StyledSelectProps {
-  background?: Extract<Background, "secondary" | "secondaryOpacity">
   hasLabel: boolean
   offsetWidthRem: number
 }
@@ -139,8 +133,7 @@ const StyledSelect = styled.select<StyledSelectProps>`
   font-size: ${({ theme }) => theme.fontSizes.md};
   font-weight: ${({ theme }) => theme.fontWeights.book};
   line-height: calc(4 / 3);
-  background: ${({ background, theme }) =>
-    background ? getBackground(background, theme) : theme.colors.background.secondary};
+  background: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
   inline-size: 100%;
   display: block;
@@ -158,8 +151,7 @@ const StyledSelect = styled.select<StyledSelectProps>`
   }
 
   &:hover:not(:disabled) {
-    background: ${({ background, theme }) =>
-      background ? getHoverBackground(background, theme) : theme.colors.background.tertiary};
+    background: ${({ theme }) => theme.colors.background.tertiary};
   }
 
   &:disabled {
@@ -177,20 +169,6 @@ const StyledIcon = styled(Icon)`
   inline-size: ${({ theme }) => 3 * theme.spacer}px;
   text-align: center;
 `
-
-const getHoverBackground = (
-  background: Extract<BackgroundColor, "secondary" | "secondaryOpacity">,
-  theme: Theme,
-): string => {
-  switch (background) {
-    case "secondary":
-      return theme.colors.background.tertiary
-    case "secondaryOpacity":
-      return theme.colors.background.tertiaryOpacity
-    default:
-      return theme.colors.background.tertiary
-  }
-}
 
 const Prefix = styled.div`
   position: absolute;

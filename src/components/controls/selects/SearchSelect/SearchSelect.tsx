@@ -8,7 +8,6 @@ import {
   useRef,
   useState,
 } from "react"
-import { BackgroundColor } from "../../../../lib/theme/types"
 import { zIndex } from "../../../../lib/zIndex"
 import { defaultFilter, filterOptions } from "./filterOptions"
 import { SearchSelectInput } from "./SearchSelectInput"
@@ -16,9 +15,6 @@ import { SearchSelectOption } from "./SearchSelectOption"
 import { BaseOption } from "./types"
 
 interface SearchSelectBaseProps<Option> extends ComponentPropsWithoutRef<"input"> {
-  /** Background color of the input field. Default is `secondary`. */
-  background?: Extract<BackgroundColor, "secondary" | "secondaryOpacity">
-
   /** Props passed to the clear button element. */
   clearButtonProps?: ComponentPropsWithoutRef<"button"> & { "data-testid": string }
 
