@@ -1,3 +1,4 @@
+import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, forwardRef, useCallback, useState } from "react"
 import { ContentColor } from "../../../lib/theme/types"
@@ -94,7 +95,9 @@ interface StyledPointerIconProps {
   svgHeight: number
 }
 
-const StyledPointerIcon = styled(PointerIcon)<StyledPointerIconProps>`
+const StyledPointerIcon = styled(PointerIcon, {
+  shouldForwardProp: (prop) => isPropValid(prop),
+})<StyledPointerIconProps>`
   block-size: ${({ pointerHeight, svgHeight }) => `${(pointerHeight / svgHeight) * 100}%`};
   inline-size: auto;
   transform: rotateZ(${({ completedSteps, steps }) => getPointerRotation(completedSteps, steps)}deg)
