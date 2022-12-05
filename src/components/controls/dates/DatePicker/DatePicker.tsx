@@ -180,7 +180,7 @@ const StyledDatePicker = styled(MantineDatePicker)`
     .mantine-DatePicker-day {
       border-radius: ${({ theme }) => theme.borderRadii.sm};
       color: ${({ theme }) => theme.colors.content.primary};
-      padding: 8px 4.5px;
+      margin-block-start: ${({ theme }) => theme.spacingBase}rem;
       display: flex;
       align-items: center;
       justify-content: center;
