@@ -75,7 +75,7 @@ const StyledDatePicker = styled(MantineDatePicker)`
     font-size: ${({ theme }) => theme.fontSizes.md};
     font-weight: ${({ theme }) => theme.fontWeights.book};
     line-height: calc(4 / 3);
-    background: ${({ theme }) => theme.colors.background.secondaryOpacity};
+    background: ${({ theme }) => theme.colors.background.secondary};
     color: ${({ theme }) => theme.colors.content.primary};
     border: none;
     inline-size: 100%;
@@ -86,7 +86,7 @@ const StyledDatePicker = styled(MantineDatePicker)`
     border-radius: ${({ theme }) => theme.borderRadii.sm};
 
     &:hover {
-      background: ${({ theme }) => theme.colors.background.tertiaryOpacity};
+      background: ${({ theme }) => theme.colors.background.tertiary};
     }
     &::placeholder {
       color: ${({ theme }) => theme.colors.content.secondary};
@@ -111,7 +111,7 @@ const StyledDatePicker = styled(MantineDatePicker)`
     }
   }
   .mantine-DatePicker-dropdown {
-    background: ${({ theme }) => theme.colors.background.secondary};
+    background: ${({ theme }) => theme.colors.background.secondaryElevated};
     border: none;
     border-radius: ${({ theme }) => theme.borderRadii.lg};
     padding: ${({ theme }) => 2 * theme.spacingBase}rem;

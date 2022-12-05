@@ -80,7 +80,7 @@ InsideCard.args = {
         <Text>Slot</Text>
         <Text>Slot</Text>
       </Group>
-      <Card background="secondaryOpacity" borderRadius="sm">
+      <Card background="secondary" borderRadius="sm">
         <Text color="secondary">Electrification potential</Text>
         <Text>Good</Text>
       </Card>
@@ -94,7 +94,7 @@ WithInput.args = {
   children: (
     <Stack>
       <Text>Slot</Text>
-      <TextInput label="Label" background="secondaryOpacity" />
+      <TextInput label="Label" />
     </Stack>
   ),
 }

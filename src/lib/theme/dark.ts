@@ -2,75 +2,73 @@ import { color } from "../../primitives/color"
 import { ColorTheme } from "./types"
 
 export const dark: ColorTheme = {
-  positive: color.green.light,
-  negative: color.red.light,
-  warning: color.yellow.light,
+  positive: color.green[20],
+  negative: color.red[40],
+  warning: color.yellow[40],
   background: {
-    primary: color.greyscale.black,
-    primaryElevated: color.greyscale.grey90,
-    primaryElevatedInverted: color.greyscale.white,
-    primaryInverted: color.greyscale.white,
-    secondary: color.greyscale.grey100,
-    secondaryElevated: color.greyscale.grey100,
-    secondaryElevatedInverted: color.greyscale.grey20,
-    secondaryInverted: color.greyscale.grey20,
-    secondaryOpacity: `${color.greyscale.grey20}0D`, // 0D is HEX for ~5% opacity
-    tertiary: color.greyscale.grey80,
-    tertiaryOpacity: `${color.greyscale.grey20}1A`, // 1A is HEX for ~10% opacity
-    positive: `${color.green.default}1A`, // 1A is HEX for ~10% opacity
-    negative: `${color.red.default}1A`, // 1A is HEX for ~10% opacity
-    focus: `${color.greyscale.black}66`, // 66 is HEX for ~40% opacity
+    primary: color.black,
+    primaryElevated: color.grey[80],
+    primaryElevatedInverted: color.white,
+    primaryInverted: color.white,
+    secondary: `${color.grey[20]}0D`, // 0D is HEX for ~5% opacity
+    secondaryElevated: color.grey[80],
+    secondaryElevatedInverted: color.grey[20],
+    secondaryInverted: color.grey[20],
+    tertiary: `${color.grey[20]}1A`, // 1A is HEX for ~10% opacity
+    positive: `${color.green[40]}1A`, // 1A is HEX for ~10% opacity
+    negative: `${color.red[60]}1A`, // 1A is HEX for ~10% opacity
+    focus: `${color.black}66`, // 66 is HEX for ~40% opacity
     /** @deprecated since version 6.9.0. Use `primaryInverted` instead.  */
-    reverse: color.greyscale.white,
+    reverse: color.white,
   },
   content: {
-    primary: color.greyscale.white,
-    primaryInverted: color.greyscale.black,
-    secondary: `${color.greyscale.grey20}B3`, // B3 is HEX for ~70% opacity
-    tertiary: `${color.greyscale.grey20}66`, // 66 is HEX for ~40% opacity
-    positive: color.green.light,
-    negative: color.red.light,
+    primary: color.white,
+    primaryInverted: color.black,
+    secondary: `${color.grey[20]}B3`, // B3 is HEX for ~70% opacity
+    tertiary: `${color.grey[20]}66`, // 66 is HEX for ~40% opacity
+    positive: color.green[20],
+    negative: color.red[40],
     /** @deprecated since version 6.9.0. Use `primaryInverted` instead.  */
-    reverse: color.greyscale.grey100,
+    reverse: color.grey[90],
   },
   border: {
-    primary: color.greyscale.grey80,
-    selected: color.greyscale.white,
+    primary: color.grey[60],
+    selected: color.white,
   },
   buttons: {
     background: {
-      primary: color.greyscale.white,
-      secondary: color.greyscale.grey100,
-      tertiary: color.greyscale.black,
+      primary: color.white,
+      secondary: color.grey[80],
+      tertiary: color.black,
       hover: {
-        primary: color.greyscale.grey20,
-        secondary: color.greyscale.grey80,
-        tertiary: color.greyscale.grey100,
+        primary: color.grey[20],
+        secondary: color.grey[60],
+        tertiary: color.grey[80],
       },
       active: {
-        primary: color.greyscale.white,
-        secondary: color.greyscale.grey100,
-        tertiary: color.greyscale.black,
+        primary: color.white,
+        secondary: color.grey[80],
+        tertiary: color.black,
       },
       focused: {
-        primary: color.greyscale.grey20,
-        secondary: color.greyscale.grey100,
-        tertiary: color.greyscale.grey100,
+        primary: color.grey[20],
+        secondary: color.grey[80],
+        tertiary: color.grey[80],
       },
       disabled: {
-        primary: color.greyscale.grey100,
-        secondary: color.greyscale.grey100,
-        tertiary: color.greyscale.black,
+        primary: color.grey[80],
+        secondary: color.grey[80],
+        tertiary: color.black,
       },
     },
     text: {
-      primary: color.greyscale.black,
-      secondary: color.greyscale.white,
-      tertiary: color.greyscale.white,
-      disabled: `${color.greyscale.grey20}66`, // 66 is HEX for ~40% opacity
+      primary: color.black,
+      secondary: color.white,
+      tertiary: color.white,
+      disabled: `${color.grey[20]}66`, // 66 is HEX for ~40% opacity
     },
     icon: {
-      primary: color.green.dark,
+      primary: color.green[60],
     },
   },
 }

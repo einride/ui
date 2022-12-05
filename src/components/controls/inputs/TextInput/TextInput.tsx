@@ -1,6 +1,5 @@
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
-import { BackgroundColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { BoxProps } from "../../../layout/Box/Box"
 import { BaseInput, Status } from "../BaseInput/BaseInput"
@@ -8,9 +7,6 @@ import { BaseInput, Status } from "../BaseInput/BaseInput"
 interface TextInputBaseProps extends ComponentPropsWithoutRef<"input"> {
   /** Effective element used. */
   as?: ElementType
-
-  /** Background color of the input field. Default is `secondary`. */
-  background?: Extract<BackgroundColor, "secondary" | "secondaryOpacity">
 
   /** Message shown below input field. Can be used together with `status` to show a success or error message. */
   message?: ReactNode

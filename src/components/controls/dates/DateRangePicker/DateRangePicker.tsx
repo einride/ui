@@ -78,7 +78,7 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
     font-size: ${({ theme }) => theme.fontSizes.md};
     font-weight: ${({ theme }) => theme.fontWeights.book};
     line-height: calc(4 / 3);
-    background: ${({ theme }) => theme.colors.background.secondaryOpacity};
+    background: ${({ theme }) => theme.colors.background.secondary};
     color: ${({ theme }) => theme.colors.content.primary};
     border: none;
     inline-size: 100%;
@@ -91,7 +91,7 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
     border-radius: ${({ theme }) => theme.borderRadii.sm};
 
     &:hover {
-      background: ${({ theme }) => theme.colors.background.tertiaryOpacity};
+      background: ${({ theme }) => theme.colors.background.tertiary};
     }
     &::placeholder {
       color: ${({ theme }) => theme.colors.content.secondary};
@@ -116,7 +116,7 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
     }
   }
   .mantine-DateRangePicker-dropdown {
-    background: ${({ theme }) => theme.colors.background.secondary};
+    background: ${({ theme }) => theme.colors.background.secondaryElevated};
     border: none;
     border-radius: ${({ theme }) => theme.borderRadii.lg};
     padding: ${({ theme }) => 2 * theme.spacingBase}rem;
@@ -198,7 +198,7 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
         display: none;
       }
       &[data-in-range]:not([data-selected]) {
-        background: ${({ theme }) => theme.colors.background.tertiaryOpacity};
+        background: ${({ theme }) => theme.colors.background.tertiary};
         color: ${({ theme }) => theme.colors.content.primary};
         border-radius: unset;
       }
@@ -214,7 +214,7 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
         color: ${({ theme }) => theme.colors.content.primaryInverted};
 
         &:focus-visible {
-          background: ${({ theme }) => theme.colors.background.primaryElevatedInverted};
+          background: ${({ theme }) => theme.colors.background.primaryInverted};
           color: ${({ theme }) => theme.colors.content.primaryInverted};
           text-decoration: underline;
         }
@@ -224,7 +224,7 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
           inset: 0;
           border-start-start-radius: ${({ theme }) => theme.borderRadii.sm};
           border-end-start-radius: ${({ theme }) => theme.borderRadii.sm};
-          background: ${({ theme }) => theme.colors.background.tertiaryOpacity};
+          background: ${({ theme }) => theme.colors.background.tertiary};
         }
         &[data-last-in-range]::before {
           content: "";
@@ -232,7 +232,7 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
           inset: 0;
           border-start-end-radius: ${({ theme }) => theme.borderRadii.sm};
           border-end-end-radius: ${({ theme }) => theme.borderRadii.sm};
-          background: ${({ theme }) => theme.colors.background.tertiaryOpacity};
+          background: ${({ theme }) => theme.colors.background.tertiary};
         }
         &[data-first-in-range][data-last-in-range] {
           border-radius: ${({ theme }) => theme.borderRadii.sm};

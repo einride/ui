@@ -42,19 +42,19 @@ export const parameters = {
   viewport: { viewports: customViewports },
   backgrounds: {
     values: [
-      { name: "light", value: color.greyscale.white },
-      { name: "dark", value: color.greyscale.black },
+      { name: "light", value: color.white },
+      { name: "dark", value: color.black },
     ],
   },
   layout: "fullscreen",
   darkMode: {
     dark: {
       ...themes.dark,
-      appBg: color.greyscale.grey100,
-      appContentBg: color.greyscale.black,
-      appBorderColor: color.greyscale.grey80,
-      barBg: color.greyscale.grey100,
-      inputBg: color.greyscale.grey100,
+      appBg: color.grey[90],
+      appContentBg: color.black,
+      appBorderColor: color.grey[60],
+      barBg: color.grey[90],
+      inputBg: color.grey[90],
     },
   },
 }
