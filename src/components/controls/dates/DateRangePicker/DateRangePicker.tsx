@@ -224,8 +224,6 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
           border-bottom-right-radius: 0;
         }
         &[data-last-in-range] {
-          border-top-left-radius: 0;
-          border-bottom-left-radius: 0;
         }
         &[data-first-in-range][data-last-in-range] {
           border-radius: ${({ theme }) => theme.borderRadii.sm};

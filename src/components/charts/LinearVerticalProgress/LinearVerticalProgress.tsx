@@ -1,4 +1,3 @@
-import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
 import { ContentColor } from "../../../lib/theme/types"
@@ -41,7 +40,7 @@ export const LinearVerticalProgress = forwardRef<HTMLDivElement, LinearVerticalP
         {...props}
         ref={ref}
       >
-        <Value color={color} max={max} min={min} value={value} />
+        <Value max={max} min={min} textColor={color} value={value} />
       </Wrapper>
     )
   },
@@ -53,21 +52,19 @@ const Wrapper = styled.div`
   justify-content: flex-end;
   background: ${({ theme }) => theme.colors.background.tertiary};
   border-radius: ${({ theme }) => theme.borderRadii.xs};
-  inline-size: ${({ theme }) => 2 * theme.spacer}px;
-  block-size: ${({ theme }) => 8 * theme.spacer}px;
+  inline-size: ${({ theme }) => 2 * theme.spacingBase}rem;
+  block-size: ${({ theme }) => 8 * theme.spacingBase}rem;
 `
 
 interface ValueProps {
-  color: ContentColor
   max: number
   min: number
+  textColor: ContentColor
   value: number
 }
 
-const Value = styled("div", {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color", // avoid passing `color` attribute to HTML element
-})<ValueProps>`
-  background: ${({ theme, color }) => theme.colors.content[color]};
+const Value = styled.div<ValueProps>`
+  background: ${({ textColor, theme }) => theme.colors.content[textColor]};
   block-size: ${({ max, min, value }) => getBlockSize(max, min, value)}%;
   inline-size: 100%;
   border-radius: ${({ theme }) => theme.borderRadii.xs};

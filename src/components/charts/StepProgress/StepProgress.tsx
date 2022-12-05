@@ -1,4 +1,3 @@
-import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
 import { ContentColor } from "../../../lib/theme/types"
@@ -41,7 +40,7 @@ export const StepProgress = forwardRef<HTMLDivElement, StepProgressProps>(
       >
         {Array.from(Array(steps)).map((_, index) => (
           // eslint-disable-next-line react/no-array-index-key
-          <Step key={index} color={color} completed={index < completedSteps} />
+          <Step key={index} completed={index < completedSteps} textColor={color} />
         ))}
       </Wrapper>
     )
@@ -50,22 +49,20 @@ export const StepProgress = forwardRef<HTMLDivElement, StepProgressProps>(
 
 const Wrapper = styled.div`
   display: flex;
-  gap: ${({ theme }) => 0.5 * theme.spacer}px;
+  gap: ${({ theme }) => 0.5 * theme.spacingBase}rem;
   /* Needed to make sure component takes up full inline size in flex containers */
   inline-size: 100%;
 `
 
 interface StepProps {
-  color: ContentColor
   completed: boolean
+  textColor: ContentColor
 }
 
-const Step = styled("div", {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color", // avoid passing `color` attribute to HTML element
-})<StepProps>`
-  background: ${({ color, completed, theme }) =>
-    completed ? theme.colors.content[color] : theme.colors.background.tertiary};
-  block-size: ${({ theme }) => theme.spacer}px;
+const Step = styled.div<StepProps>`
+  background: ${({ completed, textColor, theme }) =>
+    completed ? theme.colors.content[textColor] : theme.colors.background.tertiary};
+  block-size: ${({ theme }) => theme.spacingBase}rem;
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   flex-grow: 1;
   transition-property: background;
