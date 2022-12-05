@@ -10,7 +10,10 @@ interface EinrideProviderProps {
   /** Color mode used. Default is `light`. */
   colorMode?: ColorMode
 
-  /** Extends the theme by adding properties to `theme.custom`. Pass an object with `dark` and `light` properties to support both modes. */
+  /**
+   * Extends the theme by adding properties to `theme.custom`. Pass an object with `dark` and `light` properties to support both modes.
+   * @deprecated since v6.63.2.
+   */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   customTheme?: any
 
