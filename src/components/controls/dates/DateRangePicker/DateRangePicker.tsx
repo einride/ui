@@ -142,8 +142,8 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
         background: ${({ theme }) => theme.colors.background.primary};
         color: ${({ theme }) => theme.colors.content.primary};
         border-radius: ${({ theme }) => theme.borderRadii.full};
-        height: ${({ theme }) => 6 * theme.spacingBase}rem;
-        width: ${({ theme }) => 6 * theme.spacingBase}rem;
+        block-size: ${({ theme }) => 6 * theme.spacingBase}rem;
+        inline-size: ${({ theme }) => 6 * theme.spacingBase}rem;
         transform: none;
         &:hover {
           background: ${({ theme }) => theme.colors.buttons.background.hover.tertiary};
@@ -185,8 +185,7 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
     .mantine-DateRangePicker-day {
       border-radius: ${({ theme }) => theme.borderRadii.sm};
       color: ${({ theme }) => theme.colors.content.primary};
-      padding: 8px 4.5px;
-      margin-block-start: 8px;
+      margin-block-start: ${({ theme }) => theme.spacingBase}rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -219,11 +218,21 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
           color: ${({ theme }) => theme.colors.content.primaryInverted};
           text-decoration: underline;
         }
-        &[data-first-in-range] {
-          border-top-right-radius: 0;
-          border-bottom-right-radius: 0;
+        &[data-first-in-range]::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-start-start-radius: ${({ theme }) => theme.borderRadii.sm};
+          border-end-start-radius: ${({ theme }) => theme.borderRadii.sm};
+          background: ${({ theme }) => theme.colors.background.tertiaryOpacity};
         }
-        &[data-last-in-range] {
+        &[data-last-in-range]::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-start-end-radius: ${({ theme }) => theme.borderRadii.sm};
+          border-end-end-radius: ${({ theme }) => theme.borderRadii.sm};
+          background: ${({ theme }) => theme.colors.background.tertiaryOpacity};
         }
         &[data-first-in-range][data-last-in-range] {
           border-radius: ${({ theme }) => theme.borderRadii.sm};
