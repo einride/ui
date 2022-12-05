@@ -1,4 +1,3 @@
-import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
 import { ContentColor } from "../../../lib/theme/types"
@@ -41,7 +40,7 @@ export const StepVerticalProgress = forwardRef<HTMLDivElement, StepVerticalProgr
       >
         {Array.from(Array(steps)).map((_, index) => (
           // eslint-disable-next-line react/no-array-index-key
-          <Step key={index} color={color} completed={index < completedSteps} />
+          <Step key={index} completed={index < completedSteps} textColor={color} />
         ))}
       </Wrapper>
     )
@@ -51,21 +50,19 @@ export const StepVerticalProgress = forwardRef<HTMLDivElement, StepVerticalProgr
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column-reverse;
-  gap: ${({ theme }) => theme.spacer}px;
-  inline-size: ${({ theme }) => 2 * theme.spacer}px;
+  gap: ${({ theme }) => theme.spacingBase}rem;
+  inline-size: ${({ theme }) => 2 * theme.spacingBase}rem;
 `
 
 interface StepProps {
-  color: ContentColor
   completed: boolean
+  textColor: ContentColor
 }
 
-const Step = styled("div", {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color", // avoid passing `color` attribute to HTML element
-})<StepProps>`
-  background: ${({ color, completed, theme }) =>
-    completed ? theme.colors.content[color] : theme.colors.background.tertiary};
-  block-size: ${({ theme }) => 0.8 * theme.spacer}px;
+const Step = styled.div<StepProps>`
+  background: ${({ completed, textColor, theme }) =>
+    completed ? theme.colors.content[textColor] : theme.colors.background.tertiary};
+  block-size: ${({ theme }) => 0.8 * theme.spacingBase}rem;
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   transition-property: background;
   transition-duration: ${({ theme }) => theme.transitions.morph.duration};

@@ -1,4 +1,3 @@
-import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
 import { ContentColor } from "../../../lib/theme/types"
@@ -41,7 +40,7 @@ export const LinearProgress = forwardRef<HTMLDivElement, LinearProgressProps>(
         {...props}
         ref={ref}
       >
-        <Value color={color} max={max} min={min} value={value} />
+        <Value max={max} min={min} textColor={color} value={value} />
       </Wrapper>
     )
   },
@@ -49,7 +48,7 @@ export const LinearProgress = forwardRef<HTMLDivElement, LinearProgressProps>(
 
 const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.background.tertiary};
-  block-size: ${({ theme }) => theme.spacer}px;
+  block-size: ${({ theme }) => theme.spacingBase}rem;
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   position: relative;
   /* Needed to make sure component takes up full inline size in flex containers */
@@ -57,17 +56,15 @@ const Wrapper = styled.div`
 `
 
 interface ValueProps {
-  color: ContentColor
   max: number
   min: number
+  textColor: ContentColor
   value: number
 }
 
-const Value = styled("div", {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color", // avoid passing `color` attribute to HTML element
-})<ValueProps>`
-  background: ${({ color, theme }) => theme.colors.content[color]};
-  block-size: ${({ theme }) => theme.spacer}px;
+const Value = styled.div<ValueProps>`
+  background: ${({ textColor, theme }) => theme.colors.content[textColor]};
+  block-size: ${({ theme }) => theme.spacingBase}rem;
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   inline-size: ${({ max, min, value }) => getInlineSize(max, min, value)}%;
   transition-property: width;
