@@ -36,7 +36,7 @@
     "@babel/core": "7.20.5",
     "@commitlint/cli": "17.3.0",
     "@commitlint/config-conventional": "17.3.0",
-    "@einride/eslint-plugin": "6.15.0",
+    "@einride/eslint-plugin": "6.16.0",
     "@einride/prettier-config": "2.0.0",
     "@einride/tsconfig": "1.0.1",
     "@emotion/react": "11.10.5",
