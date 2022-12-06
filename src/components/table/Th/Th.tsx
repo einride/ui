@@ -34,7 +34,7 @@ const StyledTh = styled.th<StyledThProps>`
   font-family: ${({ font, theme }) => font && getFont(font, theme)};
   font-weight: ${({ theme }) => theme.fontWeights.book};
   line-height: calc(4 / 3);
-  padding-inline: ${({ theme }) => 2 * theme.spacer}px;
-  block-size: ${({ theme }) => 10 * theme.spacer}px;
+  padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem;
+  block-size: ${({ theme }) => 10 * theme.spacingBase}rem;
   text-align: start;
 `

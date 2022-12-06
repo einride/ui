@@ -27,5 +27,6 @@ interface StyledTrProps {
 const StyledTr = styled.tr<StyledTrProps>`
   color: ${({ textColor, theme }) => textColor && getColor(textColor, theme)};
   font-family: ${({ font, theme }) => font && getFont(font, theme)};
-  border-block-start: 1px solid ${({ theme }) => theme.colors.border.primary};
+  border-block-start: ${({ theme }) => 0.125 * theme.spacingBase}rem solid
+    ${({ theme }) => theme.colors.border.primary};
 `

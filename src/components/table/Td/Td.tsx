@@ -34,7 +34,7 @@ const StyledTd = styled.td<StyledTdProps>`
   color: ${({ textColor, theme }) => textColor && getColor(textColor, theme)};
   font-family: ${({ font, theme }) => font && getFont(font, theme)};
   line-height: calc(4 / 3);
-  padding-inline: ${({ theme }) => 2 * theme.spacer}px;
-  block-size: ${({ theme }) => 10 * theme.spacer}px;
+  padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem;
+  block-size: ${({ theme }) => 10 * theme.spacingBase}rem;
   text-align: ${({ textAlign }) => textAlign};
 `
