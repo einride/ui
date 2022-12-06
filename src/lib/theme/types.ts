@@ -11,6 +11,7 @@ export const backgroundColors = [
   "tertiary",
   "tertiaryOpacity",
   "positive",
+  "warning",
   "negative",
   "focus",
   "reverse",
@@ -51,6 +52,7 @@ export const contentColors = [
   "secondary",
   "tertiary",
   "positive",
+  "warning",
   "negative",
   "reverse",
 ] as const
