@@ -37,11 +37,11 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
 )
 
 const Wrapper = styled.div`
-  padding-block: ${({ theme }) => 1.5 * theme.spacer}px;
-  padding-inline: ${({ theme }) => 2 * theme.spacer}px;
+  padding-block: ${({ theme }) => 1.5 * theme.spacingBase}rem;
+  padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem;
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => 2 * theme.spacer}px;
+  gap: ${({ theme }) => 2 * theme.spacingBase}rem;
 
   &:has(input:focus-visible) label {
     text-decoration: underline;
@@ -55,14 +55,15 @@ const Wrapper = styled.div`
 const StyledInput = styled.input`
   appearance: none;
   flex-shrink: 0; // ensure consistent radio button shape dispite long label content
-  inline-size: ${({ theme }) => 3 * theme.spacer}px;
-  block-size: ${({ theme }) => 3 * theme.spacer}px;
+  inline-size: ${({ theme }) => 3 * theme.spacingBase}rem;
+  block-size: ${({ theme }) => 3 * theme.spacingBase}rem;
   background: ${({ theme }) => theme.colors.background.primary};
-  border: 2px solid ${({ theme }) => theme.colors.border.primary};
+  border: ${({ theme }) => 0.25 * theme.spacingBase}rem solid
+    ${({ theme }) => theme.colors.border.primary};
   border-radius: ${({ theme }) => theme.borderRadii.xl};
 
   &:checked:not(:disabled) {
-    border-width: 8px;
+    border-width: ${({ theme }) => theme.spacingBase}rem;
     border-color: ${({ theme }) => theme.colors.border.selected};
   }
 

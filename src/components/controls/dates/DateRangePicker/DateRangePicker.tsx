@@ -85,9 +85,9 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
     display: block;
     min-inline-size: ${({ theme }) =>
       35 * theme.spacingBase}rem; // make sure range fits in input field
-    padding-block: ${({ theme }) => 1.5 * theme.spacer}px;
-    padding-inline: ${({ theme }) => 2 * theme.spacer}px;
-    height: unset;
+    padding-block: ${({ theme }) => 1.5 * theme.spacingBase}rem;
+    padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem;
+    block-size: unset;
     border-radius: ${({ theme }) => theme.borderRadii.sm};
 
     &:hover {
@@ -127,7 +127,7 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
       align-items: center;
       gap: ${({ theme }) => theme.spacingBase}rem;
       grid-template-areas: "text previous-month next-month";
-      grid-template-columns: 150px auto auto;
+      grid-template-columns: ${({ theme }) => 18.75 * theme.spacingBase}rem auto auto;
       white-space: nowrap;
 
       .mantine-DateRangePicker-calendarHeaderLevel {

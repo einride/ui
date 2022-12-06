@@ -144,9 +144,9 @@ const StyledSelect = styled.select<StyledSelectProps>`
   color: ${({ theme }) => theme.colors.content.primary};
   inline-size: 100%;
   display: block;
-  padding-block: ${({ theme }) => 1.5 * theme.spacer}px;
+  padding-block: ${({ theme }) => 1.5 * theme.spacingBase}rem;
   padding-inline-start: ${({ offsetWidthRem, theme }) => offsetWidthRem + 2 * theme.spacingBase}rem;
-  padding-inline-end: ${({ theme }) => 6 * theme.spacer}px;
+  padding-inline-end: ${({ theme }) => 6 * theme.spacingBase}rem;
   border-radius: ${({ hasLabel, theme }) =>
     hasLabel ? theme.borderRadii.sm : theme.borderRadii.xl};
   cursor: pointer;
@@ -170,11 +170,11 @@ const StyledSelect = styled.select<StyledSelectProps>`
 
 const StyledIcon = styled(Icon)`
   position: absolute;
-  inset-block-start: ${({ theme }) => 1.5 * theme.spacer}px;
-  inset-inline-end: ${({ theme }) => theme.spacer}px;
+  inset-block-start: ${({ theme }) => 1.5 * theme.spacingBase}rem;
+  inset-inline-end: ${({ theme }) => theme.spacingBase}rem;
   pointer-events: none;
   color: ${({ theme }) => theme.colors.content.primary};
-  inline-size: ${({ theme }) => 3 * theme.spacer}px;
+  inline-size: ${({ theme }) => 3 * theme.spacingBase}rem;
   text-align: center;
 `
 
@@ -195,7 +195,7 @@ const getHoverBackground = (
 const Prefix = styled.div`
   position: absolute;
   inset-block: 0;
-  inset-inline-start: ${({ theme }) => 2 * theme.spacer}px;
+  inset-inline-start: ${({ theme }) => 2 * theme.spacingBase}rem;
   color: ${({ theme }) => theme.colors.content.secondary};
   font-size: ${({ theme }) => theme.fontSizes.md};
   display: flex;

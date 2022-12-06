@@ -115,8 +115,8 @@ const StyledTextarea = styled.textarea<StyledTextareaProps>`
   color: ${({ theme }) => theme.colors.content.primary};
   inline-size: 100%;
   display: block;
-  padding-block: ${({ theme }) => 1.5 * theme.spacer}px;
-  padding-inline: ${({ theme }) => 2 * theme.spacer}px;
+  padding-block: ${({ theme }) => 1.5 * theme.spacingBase}rem;
+  padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem;
   resize: none;
   border-radius: ${({ hasLabel, theme }) =>
     hasLabel ? theme.borderRadii.sm : theme.borderRadii.xl};

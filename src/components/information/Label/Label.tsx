@@ -54,8 +54,8 @@ const StyledSpan = styled.span<{ variant: LabelVariant }>`
   font-size: ${({ theme }) => theme.fontSizes.md};
   background: ${({ theme, variant }) => getBackground(theme, variant)};
   color: ${({ theme, variant }) => getColor(theme, variant)};
-  padding-block: ${({ theme }) => theme.spacer / 2}px;
-  padding-inline: ${({ theme }) => theme.spacer}px;
+  padding-block: ${({ theme }) => 0.5 * theme.spacingBase}rem;
+  padding-inline: ${({ theme }) => theme.spacingBase}rem;
   border-radius: ${({ theme }) => theme.borderRadii.sm};
 `
 

@@ -52,9 +52,9 @@ export const Avatar = forwardRef<HTMLImageElement, AvatarProps>(
             as="div"
             {...rest}
             background={background}
-            color={color}
             radius={radius}
             size={size}
+            textColor={color}
             ref={ref}
           >
             {getInitials(name)}
@@ -66,11 +66,11 @@ export const Avatar = forwardRef<HTMLImageElement, AvatarProps>(
         <Image
           {...rest}
           background={background}
-          color={color}
           onError={() => setHasError(true)}
           radius={radius}
           size={size}
           src={src}
+          textColor={color}
           ref={ref}
         />
       )
@@ -82,9 +82,9 @@ export const Avatar = forwardRef<HTMLImageElement, AvatarProps>(
         as="div"
         {...rest}
         background={background}
-        color={color}
         radius={radius}
         size={size}
+        textColor={color}
         ref={ref}
       >
         {getInitials(name)}
@@ -97,19 +97,20 @@ type Size = "sm" | "md"
 
 interface ImageProps {
   background: BackgroundColor
-  color: ContentColor
   radius: BorderRadius
   size: Size
+  textColor: ContentColor
 }
 
 const Image = styled("img", {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color",
 })<ImageProps>`
   background: ${({ background, theme }) => theme.colors.background[background]};
-  color: ${({ color, theme }) => theme.colors.content[color]};
-  block-size: ${({ radius, theme, size }) => getSize(radius, theme, size)}px;
-  inline-size: ${({ radius, theme, size }) => getSize(radius, theme, size)}px;
-  border: 2px solid ${({ theme }) => theme.colors.border.primary};
+  color: ${({ textColor, theme }) => theme.colors.content[textColor]};
+  block-size: ${({ radius, theme, size }) => getSize(radius, theme, size)}rem;
+  inline-size: ${({ radius, theme, size }) => getSize(radius, theme, size)}rem;
+  border: ${({ theme }) => 0.25 * theme.spacingBase}rem solid
+    ${({ theme }) => theme.colors.border.primary};
   border-radius: ${({ radius, theme }) => theme.borderRadii[radius]};
   display: flex;
   align-items: center;
@@ -120,19 +121,19 @@ const getSize = (radius: BorderRadius, theme: Theme, size: Size): number => {
   if (radius === "full") {
     switch (size) {
       case "sm":
-        return 5 * theme.spacer
+        return 5 * theme.spacingBase
       case "md":
-        return 6 * theme.spacer
+        return 6 * theme.spacingBase
       default:
-        return 6 * theme.spacer
+        return 6 * theme.spacingBase
     }
   }
   switch (size) {
     case "sm":
-      return 4 * theme.spacer
+      return 4 * theme.spacingBase
     case "md":
-      return 5 * theme.spacer
+      return 5 * theme.spacingBase
     default:
-      return 5 * theme.spacer
+      return 5 * theme.spacingBase
   }
 }

@@ -64,7 +64,7 @@ const Button = styled.button<{ status: Status }>`
   border-radius: ${({ theme }) => theme.borderRadii.xl};
   align-items: center;
   display: flex;
-  padding: ${({ theme }) => 0.5 * theme.spacer}px;
+  padding: ${({ theme }) => 0.5 * theme.spacingBase}rem;
 `
 
 const StyledAvatar = styled(Avatar)`
@@ -73,18 +73,18 @@ const StyledAvatar = styled(Avatar)`
 `
 
 const Right = styled.div`
-  inline-size: ${({ theme }) => 5 * theme.spacer}px;
+  inline-size: ${({ theme }) => 5 * theme.spacingBase}rem;
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => 0.5 * theme.spacer}px;
+  gap: ${({ theme }) => 0.5 * theme.spacingBase}rem;
   justify-content: center;
   align-items: center;
 `
 
 const Notification = styled.div`
   background: ${({ theme }) => theme.colors.content.negative};
-  inline-size: ${({ theme }) => 2 * theme.spacer}px;
-  block-size: ${({ theme }) => 2 * theme.spacer}px;
+  inline-size: ${({ theme }) => 2 * theme.spacingBase}rem;
+  block-size: ${({ theme }) => 2 * theme.spacingBase}rem;
   border-radius: ${({ theme }) => theme.borderRadii.full};
 `
 
@@ -99,8 +99,8 @@ const Dots = (): JSX.Element => {
 }
 
 const Dot = styled.div`
-  inline-size: ${({ theme }) => 0.5 * theme.spacer}px;
-  block-size: ${({ theme }) => 0.5 * theme.spacer}px;
+  inline-size: ${({ theme }) => 0.5 * theme.spacingBase}rem;
+  block-size: ${({ theme }) => 0.5 * theme.spacingBase}rem;
   border-radius: ${({ theme }) => theme.borderRadii.full};
   background: ${({ theme }) => theme.colors.content.primary};
 `
