@@ -53,7 +53,7 @@ export const DatePicker = ({ ...props }: DatePickerProps): JSX.Element => {
         fontSize: theme.fontSizes.md,
         fontWeight: theme.fontWeights.book,
       })}
-      dayClassName={(date) => (date.getDate() === new Date().getDate() ? "today" : "")}
+      dayClassName={(date) => (date.toDateString() === new Date().toDateString() ? "today" : "")}
       inputFormat="YYYY-MM-DD"
       {...props}
     />
@@ -190,9 +190,6 @@ const StyledDatePicker = styled(MantineDatePicker)`
       }
       &[data-outside] {
         display: none;
-      }
-      &[data-weekend] {
-        color: ${({ theme }) => theme.colors.content.primary};
       }
       &:hover {
         background: ${({ theme }) => theme.colors.background.tertiary};

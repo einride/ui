@@ -54,7 +54,7 @@ export const DateRangePicker = ({ ...props }: DateRangePickerProps): JSX.Element
         fontSize: theme.fontSizes.md,
         fontWeight: theme.fontWeights.book,
       })}
-      dayClassName={(date) => (date.getDate() === new Date().getDate() ? "today" : "")}
+      dayClassName={(date) => (date.toDateString() === new Date().toDateString() ? "today" : "")}
       inputFormat="YYYY-MM-DD"
       {...props}
     />
@@ -200,9 +200,6 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
         background: ${({ theme }) => theme.colors.background.tertiaryOpacity};
         color: ${({ theme }) => theme.colors.content.primary};
         border-radius: unset;
-      }
-      &[data-weekend] {
-        color: ${({ theme }) => theme.colors.content.primary};
       }
       &:hover {
         background: ${({ theme }) => theme.colors.background.tertiary};
