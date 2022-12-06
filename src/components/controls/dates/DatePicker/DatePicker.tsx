@@ -80,9 +80,9 @@ const StyledDatePicker = styled(MantineDatePicker)`
     border: none;
     inline-size: 100%;
     display: block;
-    padding-block: ${({ theme }) => 1.5 * theme.spacer}px;
-    padding-inline: ${({ theme }) => 2 * theme.spacer}px;
-    height: unset;
+    padding-block: ${({ theme }) => 1.5 * theme.spacingBase}rem;
+    padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem;
+    block-size: unset;
     border-radius: ${({ theme }) => theme.borderRadii.sm};
 
     &:hover {
@@ -122,7 +122,7 @@ const StyledDatePicker = styled(MantineDatePicker)`
       align-items: center;
       gap: ${({ theme }) => theme.spacingBase}rem;
       grid-template-areas: "text previous-month next-month";
-      grid-template-columns: 150px auto auto;
+      grid-template-columns: ${({ theme }) => 18.75 * theme.spacingBase}rem auto auto;
       white-space: nowrap;
 
       .mantine-DatePicker-calendarHeaderLevel {
@@ -138,8 +138,8 @@ const StyledDatePicker = styled(MantineDatePicker)`
       background: ${({ theme }) => theme.colors.buttons.background.tertiary};
       color: ${({ theme }) => theme.colors.content.primary};
       border-radius: ${({ theme }) => theme.borderRadii.full};
-      height: ${({ theme }) => 6 * theme.spacingBase}rem;
-      width: ${({ theme }) => 6 * theme.spacingBase}rem;
+      block-size: ${({ theme }) => 6 * theme.spacingBase}rem;
+      inline-size: ${({ theme }) => 6 * theme.spacingBase}rem;
       transform: none;
       &:hover {
         background: ${({ theme }) => theme.colors.buttons.background.hover.tertiary};

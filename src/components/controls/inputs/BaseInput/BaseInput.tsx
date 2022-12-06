@@ -91,20 +91,20 @@ const InputWrapper = styled.div`
 
 const IconWrapper = styled.div`
   position: absolute;
-  inset-block: ${({ theme }) => 1.5 * theme.spacer}px;
-  block-size: ${({ theme }) => 3 * theme.spacer}px;
-  inline-size: ${({ theme }) => 3 * theme.spacer}px;
+  inset-block: ${({ theme }) => 1.5 * theme.spacingBase}rem;
+  block-size: ${({ theme }) => 3 * theme.spacingBase}rem;
+  inline-size: ${({ theme }) => 3 * theme.spacingBase}rem;
   display: flex;
   justify-content: center;
   align-items: center;
 `
 
 const LeftIconWrapper = styled(IconWrapper)`
-  inset-inline-start: ${({ theme }) => theme.spacer}px;
+  inset-inline-start: ${({ theme }) => theme.spacingBase}rem;
 `
 
 const RightIconWrapper = styled(IconWrapper)`
-  inset-inline-end: ${({ theme }) => theme.spacer}px;
+  inset-inline-end: ${({ theme }) => theme.spacingBase}rem;
 `
 
 interface StyledInputProps {
@@ -124,12 +124,12 @@ const StyledInput = styled.input<StyledInputProps>`
   color: ${({ theme }) => theme.colors.content.primary};
   inline-size: 100%;
   display: block;
-  padding-block: ${({ theme }) => 1.5 * theme.spacer}px;
-  padding-inline: ${({ theme }) => 2 * theme.spacer}px;
+  padding-block: ${({ theme }) => 1.5 * theme.spacingBase}rem;
+  padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem;
   border-radius: ${({ hasLabel, theme }) =>
     hasLabel ? theme.borderRadii.sm : theme.borderRadii.xl};
-  ${({ leftIcon, theme }) => leftIcon && `padding-inline-start: ${4.5 * theme.spacer}px`};
-  ${({ rightIcon, theme }) => rightIcon && `padding-inline-end: ${6 * theme.spacer}px`};
+  ${({ leftIcon, theme }) => leftIcon && `padding-inline-start: ${4.5 * theme.spacingBase}rem`};
+  ${({ rightIcon, theme }) => rightIcon && `padding-inline-end: ${6 * theme.spacingBase}rem`};
 
   &:focus {
     box-shadow: 0px 0px 0px 1px ${({ theme }) => theme.colors.border.selected} inset;
