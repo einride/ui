@@ -186,7 +186,6 @@ const StyledDatePicker = styled(MantineDatePicker)`
       justify-content: center;
 
       &.today {
-        background: ${({ theme }) => theme.colors.background.positive};
         color: ${({ theme }) => theme.colors.content.positive};
       }
       &[data-outside] {
