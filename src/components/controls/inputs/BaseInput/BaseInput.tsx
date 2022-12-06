@@ -1,16 +1,12 @@
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode, useId } from "react"
-import { getBackground } from "../../../../lib/theme/prop-system"
-import { BackgroundColor, ContentColor, Theme } from "../../../../lib/theme/types"
+import { ContentColor } from "../../../../lib/theme/types"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 import { Caption } from "../../../typography/Caption/Caption"
 
 export interface BaseInputProps extends ComponentPropsWithoutRef<"input"> {
   /** Effective element used. */
   as?: ElementType
-
-  /** Background color of the input field. Default is `secondary`. */
-  background?: BackgroundColor
 
   /** Input label, displayed before input. */
   label?: ReactNode
@@ -109,7 +105,6 @@ const RightIconWrapper = styled(IconWrapper)`
 `
 
 interface StyledInputProps {
-  background?: BackgroundColor
   hasLabel: boolean
   leftIcon: boolean
   rightIcon: boolean
@@ -120,8 +115,7 @@ const StyledInput = styled.input<StyledInputProps>`
   font-size: ${({ theme }) => theme.fontSizes.md};
   font-weight: ${({ theme }) => theme.fontWeights.book};
   line-height: calc(4 / 3);
-  background: ${({ background, theme }) =>
-    background ? getBackground(background, theme) : theme.colors.background.secondary};
+  background: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
   inline-size: 100%;
   display: block;
@@ -138,8 +132,7 @@ const StyledInput = styled.input<StyledInputProps>`
   }
 
   &:hover:not(:disabled) {
-    background: ${({ background, theme }) =>
-      background ? getHoverBackground(background, theme) : theme.colors.background.tertiary};
+    background: ${({ theme }) => theme.colors.background.tertiary};
   }
 
   &::placeholder {
@@ -165,14 +158,3 @@ const getMessageColor = (status: Status | undefined): ContentColor => {
 }
 
 export type Status = "success" | "fail" | "neutral"
-
-const getHoverBackground = (background: BackgroundColor, theme: Theme): string => {
-  switch (background) {
-    case "secondary":
-      return theme.colors.background.tertiary
-    case "secondaryOpacity":
-      return theme.colors.background.tertiaryOpacity
-    default:
-      return theme.colors.background.tertiary
-  }
-}

@@ -33,7 +33,7 @@ const StyledItem = styled(DropdownMenu.Item)`
   padding-block: ${({ theme }) => 1.5 * theme.spacer}px;
   padding-inline: ${({ theme }) => 1 * theme.spacer}px;
   color: ${({ theme }) => theme.colors.content.primary};
-  background: ${({ theme }) => theme.colors.background.secondary};
+  background: ${({ theme }) => theme.colors.background.secondaryElevated};
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   pointer-events: auto;
   transition-duration: ${({ theme }) => theme.transitions.easeIn.duration};

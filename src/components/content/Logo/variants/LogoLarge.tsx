@@ -6,8 +6,8 @@ type LogoLargeProps = SVGAttributes<SVGSVGElement>
 
 export const LogoLarge = forwardRef<SVGSVGElement, LogoLargeProps>((props, ref) => {
   const { colorScheme } = useColorScheme()
-  const main = colorScheme === "dark" ? color.greyscale.white : color.greyscale.black
-  const inverse = colorScheme === "dark" ? color.greyscale.black : color.greyscale.white
+  const main = colorScheme === "dark" ? color.white : color.black
+  const inverse = colorScheme === "dark" ? color.black : color.white
 
   return (
     <svg

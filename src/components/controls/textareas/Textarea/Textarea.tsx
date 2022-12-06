@@ -1,15 +1,11 @@
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, CSSProperties, forwardRef, ReactNode, useId } from "react"
-import { getBackground } from "../../../../lib/theme/prop-system"
-import { BackgroundColor, ContentColor, Theme } from "../../../../lib/theme/types"
+import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 import { Caption } from "../../../typography/Caption/Caption"
 
 interface TextareaBaseProps extends ComponentPropsWithoutRef<"textarea"> {
-  /** Background color of the input field. Default is `secondary`. */
-  background?: Extract<BackgroundColor, "secondary" | "secondaryOpacity">
-
   /** Message shown below input field. Can be used together with `status` to show a success or error message. */
   message?: ReactNode
 
@@ -101,7 +97,6 @@ const StyledLabel = styled.label`
 `
 
 interface StyledTextareaProps {
-  background?: Extract<BackgroundColor, "secondary" | "secondaryOpacity">
   hasLabel: boolean
 }
 
@@ -110,8 +105,7 @@ const StyledTextarea = styled.textarea<StyledTextareaProps>`
   font-size: ${({ theme }) => theme.fontSizes.md};
   font-weight: ${({ theme }) => theme.fontWeights.book};
   line-height: calc(4 / 3);
-  background: ${({ background, theme }) =>
-    background ? getBackground(background, theme) : theme.colors.background.secondary};
+  background: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
   inline-size: 100%;
   display: block;
@@ -127,8 +121,7 @@ const StyledTextarea = styled.textarea<StyledTextareaProps>`
   }
 
   &:hover:not(:disabled) {
-    background: ${({ background, theme }) =>
-      background ? getHoverBackground(background, theme) : theme.colors.background.tertiary};
+    background: ${({ theme }) => theme.colors.background.tertiary};
   }
 
   &::placeholder {
@@ -164,14 +157,3 @@ const getMessageColor = (status: Status | undefined): ContentColor => {
 }
 
 type Status = "success" | "fail" | "neutral"
-
-const getHoverBackground = (background: BackgroundColor, theme: Theme): string => {
-  switch (background) {
-    case "secondary":
-      return theme.colors.background.tertiary
-    case "secondaryOpacity":
-      return theme.colors.background.tertiaryOpacity
-    default:
-      return theme.colors.background.tertiary
-  }
-}

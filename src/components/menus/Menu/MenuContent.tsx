@@ -40,7 +40,7 @@ const Wrapper = styled.div`
 
 const StyledContent = styled(DropdownMenu.Content)`
   padding: ${({ theme }) => theme.spacing.xs};
-  background: ${({ theme }) => theme.colors.background.secondary};
+  background: ${({ theme }) => theme.colors.background.secondaryElevated};
   border-radius: ${({ theme }) => theme.borderRadii.lg};
   display: flex;
   flex-direction: column;

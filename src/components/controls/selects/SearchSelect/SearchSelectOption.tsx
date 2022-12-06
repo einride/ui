@@ -21,5 +21,5 @@ const Wrapper = styled.div<{ isSelected: boolean }>`
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   padding: ${({ theme }) => theme.spacer}px;
   background: ${({ isSelected, theme }) =>
-    isSelected ? theme.colors.background.tertiary : theme.colors.background.secondary};
+    isSelected ? theme.colors.background.tertiary : theme.colors.background.secondaryElevated};
 `
