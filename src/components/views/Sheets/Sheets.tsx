@@ -153,7 +153,7 @@ const DialogOverlay = styled(motion(Dialog.Overlay))`
 
 const DialogContent = styled(motion(Dialog.Content))<{ size: Size }>`
   position: fixed;
-  inset-block-start: ${({ theme }) => 8 * theme.spacer}px;
+  inset-block-start: ${({ theme }) => 8 * theme.spacingBase}rem;
   inset-block-end: 0;
   inset-inline: 0;
   background: ${({ theme }) => theme.colors.background.primaryElevated};
@@ -164,15 +164,15 @@ const DialogContent = styled(motion(Dialog.Content))<{ size: Size }>`
   z-index: ${zIndex.sheets};
 
   @media ${({ theme }) => theme.mediaQueries.md} {
-    inset-block: ${({ theme }) => 2 * theme.spacer}px;
-    inset-inline-end: ${({ theme }) => 2 * theme.spacer}px;
+    inset-block: ${({ theme }) => 2 * theme.spacingBase}rem;
+    inset-inline-end: ${({ theme }) => 2 * theme.spacingBase}rem;
     inset-inline-start: unset;
-    border-end-start-radius: ${({ theme }) => 2 * theme.spacer}px;
-    border-end-end-radius: ${({ theme }) => 2 * theme.spacer}px;
+    border-end-start-radius: ${({ theme }) => theme.borderRadii.lg};
+    border-end-end-radius: ${({ theme }) => theme.borderRadii.lg};
     inline-size: ${({ size, theme }) =>
       size === "sm"
-        ? `calc((300% / 8) - 3 * ${theme.spacer}px)` // to fit grid
-        : `calc((100% / 2) - 3 * ${theme.spacer}px)`}; // to fit grid
+        ? `calc((300% / 8) - 3 * ${theme.spacingBase}rem)` // to fit grid
+        : `calc((100% / 2) - 3 * ${theme.spacingBase}rem)`}; // to fit grid
   }
 
   @media ${({ theme }) => theme.mediaQueries.lg} {
@@ -182,15 +182,15 @@ const DialogContent = styled(motion(Dialog.Content))<{ size: Size }>`
     inset-block-end: ${({ theme }) => 3 * theme.spacer}px;
     inline-size: ${({ size, theme }) =>
       size === "sm"
-        ? `calc((100% / 3) - 4 * ${theme.spacer}px)` // to fit grid
-        : `calc((100% / 2) - 4.5 * ${theme.spacer}px)`}; // to fit grid
+        ? `calc((100% / 3) - 4 * ${theme.spacingBase}rem)` // to fit grid
+        : `calc((100% / 2) - 4.5 * ${theme.spacingBase}rem)`}; // to fit grid
   }
 `
 
 const Navigation = styled.nav`
   display: flex;
   justify-content: space-between;
-  padding: ${({ theme }) => 2 * theme.spacer}px;
+  padding: ${({ theme }) => 2 * theme.spacingBase}rem;
   position: sticky;
   inset-block-start: 0;
   background: ${({ theme }) => theme.colors.background.primaryElevated};
@@ -199,28 +199,28 @@ const Navigation = styled.nav`
 
 const NavigationAction = styled.div`
   display: flex;
-  gap: ${({ theme }) => 2 * theme.spacer}px;
+  gap: ${({ theme }) => 2 * theme.spacingBase}rem;
   align-items: center;
 `
 
 const MdLgActions = styled.div`
   display: flex;
   justify-content: flex-end;
-  gap: ${({ theme }) => 2 * theme.spacer}px;
+  gap: ${({ theme }) => 2 * theme.spacingBase}rem;
 `
 
 const Content = styled.div<{ hasPrimaryAction: boolean; hasSecondaryAction: boolean }>`
-  padding-inline: ${({ theme }) => 2 * theme.spacer}px;
+  padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem;
   // make sure content is not hidden when actions are added
   padding-block-end: ${({ hasPrimaryAction, hasSecondaryAction, theme }) =>
-    getPaddingBlockEnd(hasPrimaryAction, hasSecondaryAction, theme)}px;
+    getPaddingBlockEnd(hasPrimaryAction, hasSecondaryAction, theme)}rem;
   // fix height to enable setting overflow-y
-  block-size: calc(100% - ${({ theme }) => 10 * theme.spacer}px);
+  block-size: calc(100% - ${({ theme }) => 10 * theme.spacingBase}rem);
   // when there's more content than room in the popover, it should scroll and not overlow
   overflow-y: auto;
 
   @media ${({ theme }) => theme.mediaQueries.md} {
-    padding-block-end: ${({ theme }) => 2 * theme.spacer}px;
+    padding-block-end: ${({ theme }) => 2 * theme.spacingBase}rem;
   }
 `
 
@@ -230,21 +230,19 @@ const getPaddingBlockEnd = (
   theme: Theme,
 ): number => {
   if (hasPrimaryAction && hasSecondaryAction) {
-    return 18 * theme.spacer
+    return 18 * theme.spacingBase
   }
-
   if (hasPrimaryAction || hasSecondaryAction) {
-    return 10 * theme.spacer
+    return 10 * theme.spacingBase
   }
-
-  return 2 * theme.spacer
+  return 2 * theme.spacingBase
 }
 
 const SmActions = styled.nav`
   position: fixed;
-  inset-inline: ${({ theme }) => 2 * theme.spacer}px;
-  inset-block-end: ${({ theme }) => 3 * theme.spacer}px;
+  inset-inline: ${({ theme }) => 2 * theme.spacingBase}rem;
+  inset-block-end: ${({ theme }) => 3 * theme.spacingBase}rem;
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => 2 * theme.spacer}px;
+  gap: ${({ theme }) => 2 * theme.spacingBase}rem;
 `
