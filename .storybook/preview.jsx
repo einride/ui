@@ -84,5 +84,5 @@ const SetupColorScheme = ({ children, colorScheme }) => {
   return <>{children}</>
 }
 const Wrapper = styled.div`
-  padding: ${({ theme }) => 3 * theme.spacer}px;
+  padding: ${({ theme }) => 3 * theme.spacingBase}rem;
 `
