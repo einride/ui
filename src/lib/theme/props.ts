@@ -4,6 +4,7 @@ import {
   BorderRadius as BorderRadiusType,
   ContentColor,
   Font,
+  FontSize as FontSizeType,
   FontWeight as FontWeightType,
   Spacing,
 } from "./types"
@@ -21,6 +22,7 @@ export type FlexDirection = CSSProperties["flexDirection"]
 export type FlexGrow = CSSProperties["flexGrow"]
 export type FlexWrap = CSSProperties["flexWrap"]
 export type FontFamily = Font | Omit<string, Font>
+export type FontSize = FontSizeType | Omit<string, FontSizeType> | number
 export type FontWeight = FontWeightType | number
 export type Gap = Spacing | "none" | Omit<string, Spacing | "none"> | number
 export type Height = SpacingInput

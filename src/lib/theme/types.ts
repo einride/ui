@@ -61,7 +61,8 @@ export type ContentColor = typeof contentColors[number]
 export const fonts = ["heading", "body", "mono"] as const
 export type Font = typeof fonts[number]
 
-type FontSize = "sm" | "md" | "lg" | "xl" | "2xl" | "3xl"
+export const fontSizes = ["sm", "md", "lg", "xl", "2xl", "3xl"] as const
+export type FontSize = typeof fontSizes[number]
 
 type FontVariant = { numeric: string }
 
