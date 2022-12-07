@@ -4,7 +4,6 @@ import * as Dialog from "@radix-ui/react-dialog"
 import { AnimatePresence, motion } from "framer-motion"
 import { ComponentPropsWithoutRef, CSSProperties, forwardRef, ReactNode } from "react"
 import { useTheme } from "../../../hooks/useTheme"
-import { Theme } from "../../../lib/theme/types"
 import { zIndex } from "../../../lib/zIndex"
 import { IconButton, IconButtonProps } from "../../controls/buttons/IconButton/IconButton"
 import {
@@ -125,7 +124,10 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
                   </MdLgActions>
                 )}
               </Navigation>
-              <Content hasPrimaryAction={!!primaryAction} hasSecondaryAction={!!secondaryAction}>
+              <Content
+                data-primary-action={Boolean(primaryAction)}
+                data-secondary-action={Boolean(secondaryAction)}
+              >
                 {children}
               </Content>
               {!isAboveSm && (
@@ -209,11 +211,16 @@ const MdLgActions = styled.div`
   gap: ${({ theme }) => 2 * theme.spacingBase}rem;
 `
 
-const Content = styled.div<{ hasPrimaryAction: boolean; hasSecondaryAction: boolean }>`
+const Content = styled.div`
   padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem;
   // make sure content is not hidden when actions are added
-  padding-block-end: ${({ hasPrimaryAction, hasSecondaryAction, theme }) =>
-    getPaddingBlockEnd(hasPrimaryAction, hasSecondaryAction, theme)}rem;
+  padding-block-end: ${({ theme }) => 2 * theme.spacingBase}rem;
+  &:where([data-primary-action="true"], [data-secondary-action="true"]) {
+    padding-block-end: ${({ theme }) => 10 * theme.spacingBase}rem;
+  }
+  &:where([data-primary-action="true"][data-secondary-action="true"]) {
+    padding-block-end: ${({ theme }) => 18 * theme.spacingBase}rem;
+  }
   // fix height to enable setting overflow-y
   block-size: calc(100% - ${({ theme }) => 10 * theme.spacingBase}rem);
   // when there's more content than room in the popover, it should scroll and not overlow
@@ -223,20 +230,6 @@ const Content = styled.div<{ hasPrimaryAction: boolean; hasSecondaryAction: bool
     padding-block-end: ${({ theme }) => 2 * theme.spacingBase}rem;
   }
 `
-
-const getPaddingBlockEnd = (
-  hasPrimaryAction: boolean,
-  hasSecondaryAction: boolean,
-  theme: Theme,
-): number => {
-  if (hasPrimaryAction && hasSecondaryAction) {
-    return 18 * theme.spacingBase
-  }
-  if (hasPrimaryAction || hasSecondaryAction) {
-    return 10 * theme.spacingBase
-  }
-  return 2 * theme.spacingBase
-}
 
 const SmActions = styled.nav`
   position: fixed;
