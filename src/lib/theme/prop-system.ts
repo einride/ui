@@ -1,6 +1,14 @@
 import { isInArray } from "./guard"
-import { Background, BorderRadius, Color, FontFamily, Gap, SpacingInput } from "./props"
-import { backgroundColors, borderRadii, contentColors, fonts, spacings, Theme } from "./types"
+import { Background, BorderRadius, Color, FontFamily, FontSize, Gap, SpacingInput } from "./props"
+import {
+  backgroundColors,
+  borderRadii,
+  contentColors,
+  fonts,
+  fontSizes,
+  spacings,
+  Theme,
+} from "./types"
 
 export const getBackground = (background: Background, theme: Theme): string => {
   if (isInArray(background, backgroundColors)) return theme.colors.background[background]
@@ -21,6 +29,12 @@ export const getColor = (color: Color, theme: Theme): string => {
 export const getFont = (font: FontFamily, theme: Theme): string => {
   if (isInArray(font, fonts)) return theme.fonts[font]
   return font.toString()
+}
+
+export const getFontSize = (fontSize: FontSize, theme: Theme): string => {
+  if (typeof fontSize === "number") return `${fontSize}rem`
+  if (isInArray(fontSize, fontSizes)) return theme.fontSizes[fontSize]
+  return fontSize.toString()
 }
 
 export const getGap = (gap: Gap, theme: Theme): string => {

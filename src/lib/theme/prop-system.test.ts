@@ -4,6 +4,7 @@ import {
   getBorderRadius,
   getColor,
   getFont,
+  getFontSize,
   getGap,
   getSpacing,
 } from "./prop-system"
@@ -47,6 +48,18 @@ describe("getFont", () => {
   })
   it("handles custom fonts", () => {
     expect(getFont("Arial", theme)).toEqual("Arial")
+  })
+})
+
+describe("getFontSize", () => {
+  it("handles theme font size", () => {
+    expect(getFontSize("sm", theme)).toEqual(theme.fontSizes.sm)
+  })
+  it("handles custom font sizes with relative units", () => {
+    expect(getFontSize(4, theme)).toEqual("4rem")
+  })
+  it("handles custom border radii", () => {
+    expect(getFontSize("19.5px", theme)).toEqual("19.5px")
   })
 })
 
