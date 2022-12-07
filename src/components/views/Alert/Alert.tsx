@@ -147,9 +147,9 @@ const AlertDialogContent = styled(motion(AlertDialog.Content))`
   inset-block-start: 50%;
   inset-inline-start: 50%;
   transform: translate(-50%, -50%);
-  flex-basis: ${({ theme }) => 44 * theme.spacer}px;
-  max-inline-size: ${({ theme }) => 44 * theme.spacer}px;
-  padding: ${({ theme }) => 2 * theme.spacer}px;
+  flex-basis: ${({ theme }) => 44 * theme.spacingBase}rem;
+  max-inline-size: ${({ theme }) => 44 * theme.spacingBase}rem;
+  padding: ${({ theme }) => 2 * theme.spacingBase}rem;
   background: ${({ theme }) => theme.colors.background.primaryElevated};
   border-radius: ${({ theme }) => theme.borderRadii.lg};
   z-index: ${zIndex.alert};
