@@ -54,13 +54,18 @@ export const DatePicker = ({ ...props }: DatePickerProps): JSX.Element => {
         fontWeight: theme.fontWeights.book,
       })}
       dayClassName={(date) => (date.toDateString() === new Date().toDateString() ? "today" : "")}
+      hasLabel={"label" in props}
       inputFormat="YYYY-MM-DD"
       {...props}
     />
   )
 }
 
-const StyledDatePicker = styled(MantineDatePicker)`
+interface StyledDatePickerProps {
+  hasLabel: boolean
+}
+
+const StyledDatePicker = styled(MantineDatePicker)<StyledDatePickerProps>`
   .mantine-DatePicker-label {
     font-family: ${({ theme }) => theme.fonts.body};
     font-size: ${({ theme }) => theme.fontSizes.md};
@@ -83,7 +88,8 @@ const StyledDatePicker = styled(MantineDatePicker)`
     padding-block: ${({ theme }) => 1.5 * theme.spacingBase}rem;
     padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem;
     block-size: unset;
-    border-radius: ${({ theme }) => theme.borderRadii.sm};
+    border-radius: ${({ hasLabel, theme }) =>
+      hasLabel ? theme.borderRadii.sm : theme.borderRadii.xl};
 
     &:hover {
       background: ${({ theme }) => theme.colors.background.tertiaryOpacity};
