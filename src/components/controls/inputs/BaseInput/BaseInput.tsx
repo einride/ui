@@ -101,6 +101,7 @@ const IconWrapper = styled.div`
 
 const LeftIconWrapper = styled(IconWrapper)`
   inset-inline-start: ${({ theme }) => theme.spacingBase}rem;
+  pointer-events: none;
 `
 
 const RightIconWrapper = styled(IconWrapper)`
