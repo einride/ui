@@ -45,7 +45,7 @@ export type DateRangePickerProps = DateRangePickerBaseProps &
 export const DateRangePicker = ({ ...props }: DateRangePickerProps): JSX.Element => {
   const theme = useTheme()
   return (
-    <StyledDatePicker
+    <StyledDateRangePicker
       allowLevelChange={false}
       allowSingleDateInRange
       clearable={false}
@@ -55,6 +55,7 @@ export const DateRangePicker = ({ ...props }: DateRangePickerProps): JSX.Element
         fontWeight: theme.fontWeights.book,
       })}
       dayClassName={(date) => (date.toDateString() === new Date().toDateString() ? "today" : "")}
+      hasLabel={"label" in props}
       inputFormat="YYYY-MM-DD"
       {...props}
     />
@@ -63,7 +64,11 @@ export const DateRangePicker = ({ ...props }: DateRangePickerProps): JSX.Element
 
 export type DateRangePickerValue = [Date | null, Date | null]
 
-const StyledDatePicker = styled(MantineDateRangePicker)`
+interface StyledDateRangePickerProps {
+  hasLabel: boolean
+}
+
+const StyledDateRangePicker = styled(MantineDateRangePicker)<StyledDateRangePickerProps>`
   .mantine-DateRangePicker-label {
     font-family: ${({ theme }) => theme.fonts.body};
     font-size: ${({ theme }) => theme.fontSizes.md};
@@ -88,7 +93,8 @@ const StyledDatePicker = styled(MantineDateRangePicker)`
     padding-block: ${({ theme }) => 1.5 * theme.spacingBase}rem;
     padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem;
     block-size: unset;
-    border-radius: ${({ theme }) => theme.borderRadii.sm};
+    border-radius: ${({ hasLabel, theme }) =>
+      hasLabel ? theme.borderRadii.sm : theme.borderRadii.xl};
 
     &:hover {
       background: ${({ theme }) => theme.colors.background.tertiaryOpacity};
