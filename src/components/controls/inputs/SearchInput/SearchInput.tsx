@@ -64,7 +64,7 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
               tabIndex={-1}
               aria-label="Clear input"
             >
-              <Icon name="xMark" color="primary" />
+              <Icon name="xMark" />
             </button>
           ) : null
         }

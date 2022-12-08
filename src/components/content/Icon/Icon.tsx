@@ -1,5 +1,6 @@
 import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
+import { getColor } from "../../../lib/theme/prop-system"
 import { ContentColor } from "../../../lib/theme/types"
 
 interface IconProps extends HTMLAttributes<HTMLSpanElement> {
@@ -15,16 +16,20 @@ interface IconProps extends HTMLAttributes<HTMLSpanElement> {
 
 // use for example https://mothereff.in/html-entities to convert figma icons to html entities
 
-export const Icon = forwardRef<HTMLSpanElement, IconProps>(({ name, ...props }, ref) => {
+export const Icon = forwardRef<HTMLSpanElement, IconProps>(({ name, color, ...props }, ref) => {
   return (
-    <StyledSpan aria-hidden="true" {...props} ref={ref}>
+    <StyledSpan aria-hidden="true" textColor={color} {...props} ref={ref}>
       {getEncodedEntity(name)}
     </StyledSpan>
   )
 })
 
-const StyledSpan = styled.span<{ color?: ContentColor }>`
-  ${({ color, theme }) => color && `color: ${theme.colors.content[color]}`};
+interface StyledSpanProps {
+  textColor: ContentColor | undefined
+}
+
+const StyledSpan = styled.span<StyledSpanProps>`
+  color: ${({ textColor, theme }) => textColor && getColor(textColor, theme)};
 `
 
 export const iconNames = [
