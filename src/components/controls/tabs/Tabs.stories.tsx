@@ -34,11 +34,11 @@ DefaultValue.play = async ({ canvasElement }) => {
   const tab1 = canvas.getByRole("tab", { name: /first tab/i })
   const tab2 = canvas.getByRole("tab", { name: /second tab/i })
   const tab3 = canvas.getByRole("tab", { name: /third tab/i })
-  await expect(tab1).not.toHaveAttribute("aria-selected", "true")
-  await expect(tab2).toHaveAttribute("aria-selected", "true")
+  await expect(tab1).toHaveAttribute("aria-selected", "true")
+  await expect(tab2).not.toHaveAttribute("aria-selected", "true")
   await expect(tab3).not.toHaveAttribute("aria-selected", "true")
-  const tabpanel = canvas.getByRole("tabpanel", { name: /second tab/i })
-  await expect(tabpanel).toHaveTextContent(/second tab content/i)
+  const tabpanel = canvas.getByRole("tabpanel", { name: /first tab/i })
+  await expect(tabpanel).toHaveTextContent(/first tab content/i)
 }
 
 const DisabledTemplate: ComponentStory<typeof Tabs> = (args) => (
