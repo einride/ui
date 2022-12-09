@@ -13,7 +13,7 @@ export default {
   },
 } as ComponentMeta<typeof SearchSelect>
 
-const OPTIONS = [
+const basicOptions = [
   {
     key: "option-1",
     label: <Paragraph>Snowfall guzzler drapery</Paragraph>,
@@ -34,9 +34,8 @@ const OPTIONS = [
   },
 ]
 
-const Template: ComponentStory<typeof SearchSelect<typeof OPTIONS[0]>> = (args) => {
+const Template: ComponentStory<typeof SearchSelect<typeof basicOptions[0]>> = (args) => {
   const [searchTerm, setSearchTerm] = useState("")
-
   return (
     <SearchSelect {...args} onSearchChange={(text) => setSearchTerm(text)} value={searchTerm} />
   )
@@ -45,12 +44,48 @@ const Template: ComponentStory<typeof SearchSelect<typeof OPTIONS[0]>> = (args) 
 export const Basic = Template.bind({})
 Basic.args = {
   label: "Label",
-  options: OPTIONS,
+  options: basicOptions,
 }
 
 export const WithoutLabel = Template.bind({})
 WithoutLabel.args = {
-  options: OPTIONS,
+  options: basicOptions,
+}
+
+const inputValueOptions = [
+  {
+    label: <Paragraph>Snowfall guzzler drapery</Paragraph>,
+    inputValue: "Snowfall guzzler drapery",
+    value: "snowfall-guzzler-drapery",
+    description: "description one",
+  },
+  {
+    label: <Paragraph>Remorse strike tartly</Paragraph>,
+    inputValue: "Remorse strike tartly",
+    value: "remorse-strike-tartly",
+    description: "description two",
+  },
+  {
+    label: <Paragraph>Operator dazzling breeding</Paragraph>,
+    inputValue: "Operator dazzling breeding",
+    value: "operator-dazzling-breeding",
+    description: "description three",
+  },
+]
+
+const InputValueTemplate: ComponentStory<typeof SearchSelect<typeof inputValueOptions[0]>> = (
+  args,
+) => {
+  const [searchTerm, setSearchTerm] = useState("")
+  return (
+    <SearchSelect {...args} onSearchChange={(text) => setSearchTerm(text)} value={searchTerm} />
+  )
+}
+
+export const InputValue = InputValueTemplate.bind({})
+InputValue.args = {
+  label: "Label",
+  options: inputValueOptions,
 }
 
 export const CustomFilter = Template.bind({})
