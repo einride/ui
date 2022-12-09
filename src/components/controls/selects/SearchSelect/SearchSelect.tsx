@@ -201,7 +201,7 @@ export const SearchSelect = <Option extends BaseOption>({
         onFocus={handleInputFocus}
         onKeyDown={handleInputKeyDown}
         placeholder={placeholder}
-        value={value}
+        value={options?.find((option) => option?.value === value)?.inputValue ?? value}
         ref={inputRef}
       />
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
