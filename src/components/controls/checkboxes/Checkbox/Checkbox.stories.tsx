@@ -29,7 +29,7 @@ WithLabel.play = async ({ canvasElement }) => {
 export const DefaultChecked = Template.bind({})
 DefaultChecked.args = {
   ...WithLabel.args,
-  checked: true,
+  defaultChecked: true,
 }
 DefaultChecked.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
