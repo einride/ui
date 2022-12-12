@@ -1,3 +1,4 @@
+import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { DateRangePicker as MantineDateRangePicker } from "@mantine/dates"
 import { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react"
@@ -68,7 +69,9 @@ interface StyledDateRangePickerProps {
   hasLabel: boolean
 }
 
-const StyledDateRangePicker = styled(MantineDateRangePicker)<StyledDateRangePickerProps>`
+const StyledDateRangePicker = styled(MantineDateRangePicker, {
+  shouldForwardProp: (prop) => isPropValid(prop),
+})<StyledDateRangePickerProps>`
   .mantine-DateRangePicker-label {
     font-family: ${({ theme }) => theme.fonts.body};
     font-size: ${({ theme }) => theme.fontSizes.md};
