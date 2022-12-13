@@ -21,7 +21,7 @@ interface EinrideProviderProps {
 
 export const EinrideProvider = ({
   children,
-  colorMode = "light",
+  colorMode = "system",
   resetCSS = true,
   theme,
 }: EinrideProviderProps): JSX.Element => {
