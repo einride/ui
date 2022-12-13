@@ -39,7 +39,7 @@ DefaultChecked.play = async ({ canvasElement }) => {
 
 const ControlledTemplate: ComponentStory<typeof Radio> = (args) => {
   const [checked, setChecked] = useState(false)
-  return <Radio {...args} checked={checked} onChange={(e) => setChecked(e.target.checked)} />
+  return <Radio {...args} checked={checked} onCheckedChange={setChecked} />
 }
 
 export const Controlled = ControlledTemplate.bind({})

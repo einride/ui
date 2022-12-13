@@ -1,23 +1,32 @@
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, forwardRef, HTMLAttributes, ReactNode, useId } from "react"
 
-interface RadioProps extends ComponentPropsWithoutRef<"input"> {
+interface RadioProps extends Omit<ComponentPropsWithoutRef<"input">, "onChange"> {
   /** Radio label. */
   children?: ReactNode
 
   /** Props passed to the label element. */
   labelProps?: HTMLAttributes<HTMLLabelElement>
 
+  /** Event handler called when the state of the radio changes. */
+  onCheckedChange?: (checked: boolean) => void
+
   /** Props passed to root element. */
   wrapperProps?: HTMLAttributes<HTMLDivElement>
 }
 
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(
-  ({ children, labelProps, wrapperProps, ...props }, ref) => {
+  ({ children, labelProps, onCheckedChange, wrapperProps, ...props }, ref) => {
     const id = useId()
     return (
       <Wrapper {...wrapperProps}>
-        <StyledInput type="radio" id={id} {...props} ref={ref} />
+        <StyledInput
+          type="radio"
+          id={id}
+          {...props}
+          onChange={(value) => onCheckedChange?.(value.target.checked)}
+          ref={ref}
+        />
         <StyledLabel htmlFor={id} {...labelProps}>
           {children}
         </StyledLabel>
