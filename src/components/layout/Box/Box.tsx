@@ -4,6 +4,7 @@ import {
   getBackground,
   getBorderRadius,
   getColor,
+  getFont,
   getSpacing,
 } from "../../../lib/theme/prop-system"
 import {
@@ -17,6 +18,7 @@ import {
   FlexDirection,
   FlexGrow,
   FlexWrap,
+  FontFamily,
   Gap,
   Height,
   InlineSize,
@@ -74,6 +76,9 @@ export interface BoxProps extends Omit<ComponentPropsWithoutRef<"div">, "color">
 
   /** `flex-wrap` CSS property. */
   flexWrap?: FlexWrap
+
+  /** Box font family. */
+  fontFamily?: FontFamily
 
   /** Gap between children. */
   gap?: Gap
@@ -164,6 +169,7 @@ interface WrapperProps {
   flexDirection?: FlexDirection
   flexGrow?: FlexGrow
   flexWrap?: FlexWrap
+  fontFamily?: FontFamily
   gap?: Gap
   height?: Height
   inlineSize?: InlineSize
@@ -203,6 +209,7 @@ const Wrapper = styled.div<WrapperProps>`
   flex-direction: ${({ flexDirection }) => flexDirection};
   flex-grow: ${({ flexGrow }) => flexGrow};
   flex-wrap: ${({ flexWrap }) => flexWrap};
+  font-family: ${({ fontFamily, theme }) => fontFamily && getFont(fontFamily, theme)};
   gap: ${({ gap, theme }) => gap && getSpacing(gap, theme)};
   height: ${({ height, theme }) => height && getSpacing(height, theme)};
   inline-size: ${({ inlineSize, theme }) => inlineSize && getSpacing(inlineSize, theme)};
