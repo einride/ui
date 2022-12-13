@@ -1,9 +1,9 @@
 import styled from "@emotion/styled"
-import { ChangeEvent, ComponentPropsWithoutRef, forwardRef, useId } from "react"
+import { ComponentPropsWithoutRef, forwardRef, useId } from "react"
 import { Icon } from "../../../content/Icon/Icon"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 
-interface CheckboxProps extends ComponentPropsWithoutRef<"input"> {
+interface CheckboxProps extends Omit<ComponentPropsWithoutRef<"input">, "onChange"> {
   /** Props passed to the inner wrapper element. */
   innerWrapperProps?: BoxProps
 
@@ -20,10 +20,6 @@ interface CheckboxProps extends ComponentPropsWithoutRef<"input"> {
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   ({ children, innerWrapperProps, labelProps, onCheckedChange, wrapperProps, ...props }, ref) => {
     const id = useId()
-    const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
-      onCheckedChange?.(e.target.checked)
-      props.onChange?.(e)
-    }
     return (
       <Wrapper
         display="flex"
@@ -33,7 +29,13 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         {...wrapperProps}
       >
         <InnerWrapper display="flex" position="relative" {...innerWrapperProps}>
-          <StyledInput id={id} type="checkbox" {...props} onChange={handleChange} ref={ref} />
+          <StyledInput
+            id={id}
+            type="checkbox"
+            {...props}
+            onChange={(e) => onCheckedChange?.(e.target.checked)}
+            ref={ref}
+          />
           <StyledIcon color="primaryInverted" name="checkmark" />
         </InnerWrapper>
         {children ? (
