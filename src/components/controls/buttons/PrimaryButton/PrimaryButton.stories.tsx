@@ -26,6 +26,17 @@ Basic.play = async ({ canvasElement }) => {
   await expect(button).not.toBeDisabled()
 }
 
+export const FullWidth = Template.bind({})
+FullWidth.args = {
+  ...Basic.args,
+  isFullWidth: true,
+}
+FullWidth.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const button = canvas.getByRole("button", { name: "Button" })
+  await expect(button).not.toBeDisabled()
+}
+
 export const IconRight = Template.bind({})
 IconRight.args = {
   ...Basic.args,
