@@ -10,13 +10,6 @@ interface EinrideProviderProps {
   /** Color mode used. Default is `light`. */
   colorMode?: ColorMode
 
-  /**
-   * Extends the theme by adding properties to `theme.custom`. Pass an object with `dark` and `light` properties to support both modes.
-   * @deprecated since v6.63.2.
-   */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  customTheme?: any
-
   /** Resets CSS to sensible defaults. Default is `true`.  */
   resetCSS?: boolean
 
@@ -28,7 +21,6 @@ interface EinrideProviderProps {
 export const EinrideProvider = ({
   children,
   colorMode = "light",
-  customTheme = {},
   resetCSS = true,
   theme = {},
 }: EinrideProviderProps): JSX.Element => {
@@ -36,7 +28,7 @@ export const EinrideProvider = ({
 
   return (
     <ColorSchemeProvider colorScheme={colorScheme}>
-      <EinrideThemeProvider resetCSS={resetCSS} customTheme={customTheme} theme={theme}>
+      <EinrideThemeProvider resetCSS={resetCSS} theme={theme}>
         {children}
       </EinrideThemeProvider>
     </ColorSchemeProvider>
