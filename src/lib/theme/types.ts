@@ -114,7 +114,6 @@ export interface CommonTheme {
   fontSizes: Record<FontSize, string>
   fontVariants: FontVariant
   fontWeights: Record<FontWeight, number>
-  grid: Record<string, string>
   spacer: Spacer
   spacingBase: SpacingBase
   spacing: Record<Spacing, string>
