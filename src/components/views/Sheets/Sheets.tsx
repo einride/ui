@@ -164,7 +164,7 @@ const DialogContent = styled(motion(Dialog.Content))<{ size: Size }>`
   background: ${({ theme }) => theme.colors.background.primaryElevated};
   border-start-start-radius: ${({ theme }) => theme.borderRadii.lg};
   border-start-end-radius: ${({ theme }) => theme.borderRadii.lg};
-  // prevent navigation bar from overflowing popover
+  // prevent navigation bar from overflowing sheets
   overflow: hidden;
   z-index: ${zIndex.sheets};
 
@@ -226,7 +226,7 @@ const Content = styled.div`
   }
   // fix height to enable setting overflow-y
   block-size: calc(100% - ${({ theme }) => 10 * theme.spacingBase}rem);
-  // when there's more content than room in the popover, it should scroll and not overlow
+  // when there's more content than room in the sheets, it should scroll and not overlow
   overflow-y: auto;
 
   @media ${({ theme }) => theme.mediaQueries.md} {
