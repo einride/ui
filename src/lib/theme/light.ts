@@ -22,8 +22,6 @@ export const light: ColorTheme = {
     accent2: color.violet[60],
     accent3: color.orange[60],
     focus: `${color.black}66`, // 66 is HEX for ~40% opacity
-    /** @deprecated since version 6.9.0. Use `primaryInverted` instead.  */
-    reverse: color.black,
   },
   content: {
     primary: color.grey[90],
@@ -33,8 +31,6 @@ export const light: ColorTheme = {
     positive: color.green[60],
     warning: color.yellow[60],
     negative: color.red[60],
-    /** @deprecated since version 6.9.0. Use `primaryInverted` instead.  */
-    reverse: color.white,
   },
   border: {
     primary: color.grey[30],

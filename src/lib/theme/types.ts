@@ -15,7 +15,6 @@ export const backgroundColors = [
   "accent2",
   "accent3",
   "focus",
-  "reverse",
 ] as const
 export type BackgroundColor = typeof backgroundColors[number]
 
@@ -55,7 +54,6 @@ export const contentColors = [
   "positive",
   "warning",
   "negative",
-  "reverse",
 ] as const
 export type ContentColor = typeof contentColors[number]
 
