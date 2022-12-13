@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ChangeEvent, ComponentPropsWithoutRef, CSSProperties, forwardRef, useId } from "react"
+import { ChangeEvent, ComponentPropsWithoutRef, forwardRef, useId } from "react"
 import { Icon } from "../../../content/Icon/Icon"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 
@@ -7,40 +7,18 @@ interface CheckboxProps extends ComponentPropsWithoutRef<"input"> {
   /** Props passed to the inner wrapper element. */
   innerWrapperProps?: BoxProps
 
-  /** @deprecated since version 6.47.0. Use `innerWrapperProps` instead. */
-  innerWrapperStyles?: CSSProperties
-
   /** Props passed to the label element. */
   labelProps?: ComponentPropsWithoutRef<"label">
-
-  /** @deprecated since version 6.47.0. Use `labelProps` instead. */
-  labelStyles?: CSSProperties
 
   /** Event handler called when the state of the checkbox changes. */
   onCheckedChange?: (checked: boolean) => void
 
   /** Props passed to the root element.. */
   wrapperProps?: BoxProps
-
-  /** @deprecated since version 6.47.0. Use `wrapperProps` instead. */
-  wrapperStyles?: CSSProperties
 }
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  (
-    {
-      children,
-      innerWrapperProps,
-      innerWrapperStyles = {},
-      labelProps,
-      labelStyles = {},
-      onCheckedChange,
-      wrapperProps,
-      wrapperStyles = {},
-      ...props
-    },
-    ref,
-  ) => {
+  ({ children, innerWrapperProps, labelProps, onCheckedChange, wrapperProps, ...props }, ref) => {
     const id = useId()
     const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
       onCheckedChange?.(e.target.checked)
@@ -52,20 +30,14 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         alignItems="center"
         paddingBlock={1.5}
         paddingInline={2}
-        style={wrapperStyles}
         {...wrapperProps}
       >
-        <InnerWrapper
-          display="flex"
-          position="relative"
-          style={innerWrapperStyles}
-          {...innerWrapperProps}
-        >
+        <InnerWrapper display="flex" position="relative" {...innerWrapperProps}>
           <StyledInput id={id} type="checkbox" {...props} onChange={handleChange} ref={ref} />
           <StyledIcon color="primaryInverted" name="checkmark" />
         </InnerWrapper>
         {children ? (
-          <StyledLabel htmlFor={id} style={labelStyles} {...labelProps}>
+          <StyledLabel htmlFor={id} {...labelProps}>
             {children}
           </StyledLabel>
         ) : null}

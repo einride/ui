@@ -1,12 +1,5 @@
 import styled from "@emotion/styled"
-import {
-  ComponentPropsWithoutRef,
-  CSSProperties,
-  forwardRef,
-  HTMLAttributes,
-  ReactNode,
-  useId,
-} from "react"
+import { ComponentPropsWithoutRef, forwardRef, HTMLAttributes, ReactNode, useId } from "react"
 
 interface RadioProps extends ComponentPropsWithoutRef<"input"> {
   /** Radio label. */
@@ -15,20 +8,17 @@ interface RadioProps extends ComponentPropsWithoutRef<"input"> {
   /** Props passed to the label element. */
   labelProps?: HTMLAttributes<HTMLLabelElement>
 
-  /** @deprecated Since version 6.16.5. Use `labelProps` instead. */
-  labelStyles?: CSSProperties
-
   /** Props passed to root element. */
   wrapperProps?: HTMLAttributes<HTMLDivElement>
 }
 
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(
-  ({ children, labelProps, labelStyles = {}, wrapperProps, ...props }, ref) => {
+  ({ children, labelProps, wrapperProps, ...props }, ref) => {
     const id = useId()
     return (
       <Wrapper {...wrapperProps}>
         <StyledInput type="radio" id={id} {...props} ref={ref} />
-        <StyledLabel htmlFor={id} style={labelStyles} {...labelProps}>
+        <StyledLabel htmlFor={id} {...labelProps}>
           {children}
         </StyledLabel>
       </Wrapper>

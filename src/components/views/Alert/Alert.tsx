@@ -41,9 +41,6 @@ interface AlertProps
     style: Omit<CSSProperties, "rotate" | "scale" | "perspective">
   }
 
-  /** @deprecated since 6.56.1. Use `overlayProps` instead. */
-  overlayStyles?: Omit<CSSProperties, "rotate" | "scale" | "perspective">
-
   /** Primary action of the alert. Usually a confirmation of an action. */
   primaryAction?: (PrimaryButtonProps & { "data-testid"?: string }) | undefined
 
@@ -67,7 +64,6 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
       description,
       isOpen,
       overlayProps,
-      overlayStyles = {},
       primaryAction,
       secondaryAction,
       title,
@@ -83,7 +79,6 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               initial={{ opacity: 0 }}
-              style={overlayStyles}
               {...overlayProps}
             />
             <AlertDialogContent

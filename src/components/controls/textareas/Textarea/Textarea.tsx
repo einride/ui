@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, CSSProperties, forwardRef, ReactNode, useId } from "react"
+import { ComponentPropsWithoutRef, forwardRef, ReactNode, useId } from "react"
 import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Box, BoxProps } from "../../../layout/Box/Box"
@@ -14,11 +14,6 @@ interface TextareaBaseProps extends ComponentPropsWithoutRef<"textarea"> {
 
   /** Props passed to root elemenet. */
   wrapperProps?: BoxProps
-
-  /** Styles passed to root element.
-   *  @deprecated since version 6.34.0. Use `wrapperProps` instead. */
-  // TODO: Remove in next major.
-  wrapperStyles?: CSSProperties
 }
 
 interface TextareaWithLabelProps {
@@ -27,11 +22,6 @@ interface TextareaWithLabelProps {
 
   /** Props passed to label elemenet. */
   labelProps?: ComponentPropsWithoutRef<"label">
-
-  /** Styles passed to the label element.
-   *  @deprecated since version 6.34.0. Use `labelProps` instead. */
-  // TODO: Remove in next major.
-  labelStyles?: CSSProperties
 }
 
 interface TextareaWithoutLabelProps {
@@ -42,17 +32,17 @@ interface TextareaWithoutLabelProps {
 export type TextareaProps = TextareaBaseProps & (TextareaWithLabelProps | TextareaWithoutLabelProps)
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ message, status, wrapperProps, wrapperStyles = {}, ...props }, ref) => {
+  ({ message, status, wrapperProps, ...props }, ref) => {
     const id = useId()
     const messageId = useId()
     return (
       <Box {...wrapperProps}>
         {"label" in props && (
-          <StyledLabel {...props.labelProps} htmlFor={id} style={props.labelStyles}>
+          <StyledLabel {...props.labelProps} htmlFor={id}>
             {props.label}
           </StyledLabel>
         )}
-        <Box position="relative" style={wrapperStyles}>
+        <Box position="relative">
           <StyledTextarea
             {...props}
             aria-errormessage={status === "fail" && message ? messageId : undefined}
