@@ -9,8 +9,6 @@ import { useColorScheme } from "./ColorSchemeProvider"
 
 interface EinrideThemeProviderProps {
   children: ReactNode
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  customTheme?: any
   resetCSS?: boolean
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   theme?: any
@@ -18,16 +16,12 @@ interface EinrideThemeProviderProps {
 
 export const EinrideThemeProvider = ({
   children,
-  customTheme,
   resetCSS,
   theme,
 }: EinrideThemeProviderProps): JSX.Element => {
   const { colorScheme } = useColorScheme()
   const defaultTheme = themes[colorScheme]
-  const mergedTheme = {
-    ...merge(defaultTheme, theme),
-    custom: customTheme[colorScheme],
-  }
+  const mergedTheme = merge(defaultTheme, theme)
 
   return (
     <ThemeProvider theme={mergedTheme}>
