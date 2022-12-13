@@ -17,6 +17,6 @@ export const TabsContent = ({ children, ...props }: TabsContentProps): JSX.Eleme
 const StyledTabsContent = styled(Tabs.Content)`
   &:focus-visible {
     outline: none;
-    box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
+    box-shadow: inset 0 0 0 0.125rem ${({ theme }) => theme.colors.border.selected};
   }
 `

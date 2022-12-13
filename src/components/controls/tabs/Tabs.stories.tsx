@@ -70,6 +70,37 @@ Disabled.play = async ({ canvasElement }) => {
   await expect(tab3).toBeDisabled()
 }
 
+const GrowTemplate: ComponentStory<typeof Tabs> = (args) => (
+  <Tabs {...args}>
+    <TabsList grow>
+      <TabsTrigger value="tab1">First tab</TabsTrigger>
+      <TabsTrigger value="tab2">Second tab</TabsTrigger>
+      <TabsTrigger value="tab3" disabled>
+        Third tab
+      </TabsTrigger>
+    </TabsList>
+    <TabsContent value="tab1">First tab content</TabsContent>
+    <TabsContent value="tab2">Second tab content</TabsContent>
+    <TabsContent value="tab3">Third tab content</TabsContent>
+  </Tabs>
+)
+
+export const Grow = GrowTemplate.bind({})
+Grow.args = {
+  defaultValue: "tab1",
+}
+Grow.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const tab1 = canvas.getByRole("tab", { name: /first tab/i })
+  const tab2 = canvas.getByRole("tab", { name: /second tab/i })
+  const tab3 = canvas.getByRole("tab", { name: /third tab/i })
+  await expect(tab1).toHaveAttribute("aria-selected", "true")
+  await expect(tab2).not.toHaveAttribute("aria-selected", "true")
+  await expect(tab3).not.toHaveAttribute("aria-selected", "true")
+  const tabpanel = canvas.getByRole("tabpanel", { name: /first tab/i })
+  await expect(tabpanel).toHaveTextContent(/first tab content/i)
+}
+
 const ControlledTemplate: ComponentStory<typeof Tabs> = (args) => {
   const [value, setValue] = useState("tab1")
   return (
