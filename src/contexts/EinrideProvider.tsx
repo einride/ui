@@ -1,5 +1,7 @@
 import { usePrefersColorScheme } from "@einride/hooks"
 import { ReactNode } from "react"
+import { DeepPartial } from "../lib/theme/deep-partial"
+import { Theme } from "../lib/theme/types"
 import { ColorScheme, ColorSchemeProvider } from "./ColorSchemeProvider"
 import { EinrideThemeProvider } from "./EinrideThemeProvider"
 
@@ -14,15 +16,14 @@ interface EinrideProviderProps {
   resetCSS?: boolean
 
   /** Overrides the default theme. Can be used to set a font as an example. */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  theme?: any
+  theme?: DeepPartial<Theme>
 }
 
 export const EinrideProvider = ({
   children,
   colorMode = "light",
   resetCSS = true,
-  theme = {},
+  theme,
 }: EinrideProviderProps): JSX.Element => {
   const colorScheme = useColorScheme(colorMode)
 
