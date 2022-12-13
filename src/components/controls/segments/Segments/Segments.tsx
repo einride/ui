@@ -27,6 +27,7 @@ interface SegmentsProps extends ComponentPropsWithoutRef<"div"> {
   value?: number
 }
 
+/** @deprecated since v6.71.2. Use `<Tabs>` instead. */
 export const Segments = forwardRef<HTMLDivElement, SegmentsProps>(
   ({ defaultValue, onValueChange, segments, value: valueProp, ...props }, ref) => {
     const [value, onChange] = useUncontrolled<number | undefined>({

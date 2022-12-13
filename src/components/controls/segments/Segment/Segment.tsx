@@ -3,6 +3,7 @@ import { ComponentPropsWithoutRef, forwardRef } from "react"
 
 type SegmentProps = ComponentPropsWithoutRef<"button">
 
+/** @deprecated since v6.71.2. Use `<Tabs>` instead. */
 export const Segment = forwardRef<HTMLButtonElement, SegmentProps>(
   ({ children, ...props }, ref) => {
     return (
