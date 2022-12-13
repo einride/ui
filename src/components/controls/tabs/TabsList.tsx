@@ -22,7 +22,7 @@ const StyledTabsList = styled(Tabs.List, {
   shouldForwardProp: (prop) => prop !== "grow",
 })<StyledTabsListProps>`
   display: flex;
-  box-shadow: inset 0 -0.125rem 0 ${({ theme }) => theme.colors.border.primary};
+  box-shadow: inset 0 -0.0625rem 0 ${({ theme }) => theme.colors.border.primary};
   margin-block-end: ${({ theme }) => 3 * theme.spacingBase}rem;
   text-align: center;
 
