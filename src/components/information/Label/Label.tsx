@@ -1,62 +1,86 @@
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
+import { ColorScheme, useColorScheme } from "../../../contexts/ColorSchemeProvider"
+import { getBackground, getColor } from "../../../lib/theme/prop-system"
+import { Background, Color } from "../../../lib/theme/props"
 import { Theme } from "../../../lib/theme/types"
 
-interface LabelProps extends ComponentPropsWithoutRef<"span"> {
+interface LabelProps extends Omit<ComponentPropsWithoutRef<"span">, "color"> {
   /** Effective element used. */
   as?: ElementType
+
+  /** Background color of the label. Default is `secondary`. */
+  background?: Exclude<Background, "primary" | "focus">
 
   /** Content of the label. */
   children: ReactNode
 
-  /** Color variant of the label. Default is `primary`. */
-  variant?: LabelVariant
+  /** Text color of the label. */
+  color?: Color
+
+  /** Variant of the label. Default is `secondary`. */
+  variant?: Variant
 }
 
 export const Label = forwardRef<HTMLSpanElement, LabelProps>(
-  ({ children, variant = "primary", ...props }, ref) => {
+  ({ children, color, variant = "secondary", ...props }, ref) => {
+    const colorScheme = useColorScheme()
     return (
-      <StyledSpan variant={variant} {...props} ref={ref}>
+      <StyledSpan
+        colorScheme={colorScheme.colorScheme}
+        variant={variant}
+        textColor={color}
+        {...props}
+        ref={ref}
+      >
         {children}
       </StyledSpan>
     )
   },
 )
 
-const getBackground = (theme: Theme, variant?: LabelVariant): string => {
-  switch (variant) {
-    case "primary":
-      return theme.colors.background.secondary
-    case "positive":
-      return theme.colors.background.positive
-    case "negative":
-      return theme.colors.background.negative
-    default:
-      return theme.colors.background.secondary
-  }
+export type Variant = Extract<
+  Background,
+  | "primary"
+  | "secondary"
+  | "tertiary"
+  | "positive"
+  | "warning"
+  | "negative"
+  | "accent1"
+  | "accent2"
+  | "accent3"
+>
+
+interface StyledSpanProps {
+  background?: Background
+  colorScheme: ColorScheme
+  variant: Variant
+  textColor: Color | undefined
 }
 
-const getColor = (theme: Theme, variant?: LabelVariant): string => {
-  switch (variant) {
-    case "primary":
-      return theme.colors.content.primary
-    case "positive":
-      return theme.colors.content.positive
-    case "negative":
-      return theme.colors.content.negative
-    default:
-      return theme.colors.content.primary
-  }
-}
-
-const StyledSpan = styled.span<{ variant: LabelVariant }>`
-  font-family: ${({ theme }) => theme.fonts.body};
-  font-size: ${({ theme }) => theme.fontSizes.md};
-  background: ${({ theme, variant }) => getBackground(theme, variant)};
-  color: ${({ theme, variant }) => getColor(theme, variant)};
+const StyledSpan = styled.span<StyledSpanProps>`
+  background: ${({ background, variant, theme }) =>
+    background ? getBackground(background, theme) : getBackground(variant, theme)};
+  color: ${({ variant, colorScheme, textColor, theme }) =>
+    textColor ? getColor(textColor, theme) : getColorFromVariant(colorScheme, variant, theme)};
   padding-block: ${({ theme }) => 0.5 * theme.spacingBase}rem;
   padding-inline: ${({ theme }) => theme.spacingBase}rem;
   border-radius: ${({ theme }) => theme.borderRadii.sm};
 `
 
-export type LabelVariant = "primary" | "positive" | "negative"
+const getColorFromVariant = (colorScheme: ColorScheme, variant: Variant, theme: Theme): string => {
+  switch (variant) {
+    case "primary":
+    case "secondary":
+    case "tertiary":
+      return theme.colors.content.primary
+    case "warning":
+    case "accent3":
+      return colorScheme === "dark"
+        ? theme.colors.content.primaryInverted
+        : theme.colors.content.primary
+    default:
+      return theme.colors.content.primaryInverted
+  }
+}
