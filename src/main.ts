@@ -10,8 +10,6 @@ import SiteWithChargerIcon from "./components/mapping/siteWithCharger.svg"
 import SiteWithChargerSmall from "./components/mapping/siteWithChargerSmall.svg"
 
 export { Card } from "./components/cards/Card/Card"
-export { PrimaryCard } from "./components/cards/PrimaryCard/PrimaryCard"
-export { SecondaryCard } from "./components/cards/SecondaryCard/SecondaryCard"
 export { LinearGauge } from "./components/charts/LinearGauge/LinearGauge"
 export { LinearProgress } from "./components/charts/LinearProgress/LinearProgress"
 export { LinearVerticalProgress } from "./components/charts/LinearVerticalProgress/LinearVerticalProgress"
