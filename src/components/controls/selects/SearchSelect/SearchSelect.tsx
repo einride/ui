@@ -1,13 +1,6 @@
 import { useDisclosure } from "@einride/hooks"
 import styled from "@emotion/styled"
-import {
-  ComponentPropsWithoutRef,
-  CSSProperties,
-  KeyboardEvent,
-  ReactNode,
-  useRef,
-  useState,
-} from "react"
+import { ComponentPropsWithoutRef, KeyboardEvent, ReactNode, useRef, useState } from "react"
 import { zIndex } from "../../../../lib/zIndex"
 import { defaultFilter, filterOptions } from "./filterOptions"
 import { SearchSelectInput } from "./SearchSelectInput"
@@ -20,9 +13,6 @@ interface SearchSelectBaseProps<Option> extends ComponentPropsWithoutRef<"input"
 
   /** Props passed to dropdown element. */
   dropdownProps?: ComponentPropsWithoutRef<"div"> & { "data-testid": string }
-
-  /** @deprecated Since version 6.16.3. Use `dropdownProps` instead. */
-  dropdownStyles?: CSSProperties
 
   /** Filtering function to be used to populate dropdown. Filters on `option.value` by default. */
   filter?: (value: string, option: Option) => boolean
@@ -47,10 +37,6 @@ interface SearchSelectBaseProps<Option> extends ComponentPropsWithoutRef<"input"
 
   /** Props passed to the individual options. */
   optionProps?: ComponentPropsWithoutRef<"div">
-
-  /** Styles for the individual options. */
-  /** @deprecated Since version 6.56.0. Use `optionProps` instead. */
-  optionStyles?: CSSProperties
 
   /**  Default is `neutral`. */
   status?: Status
@@ -80,14 +66,12 @@ type SearchSelectProps<Option> = SearchSelectBaseProps<Option> &
 
 export const SearchSelect = <Option extends BaseOption>({
   dropdownProps,
-  dropdownStyles = {},
   filter = defaultFilter,
   onClearClick,
   onOptionSelect,
   onSearchChange,
   options,
   optionProps,
-  optionStyles = {},
   placeholder = "Search...",
   isFilterable = true,
   value,
@@ -201,7 +185,7 @@ export const SearchSelect = <Option extends BaseOption>({
         ref={inputRef}
       />
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
-        <OptionsWrapper style={dropdownStyles} {...dropdownProps}>
+        <OptionsWrapper {...dropdownProps}>
           {filteredOptions?.map((option, index) => (
             <SearchSelectOption
               key={option.key ?? option.value}
@@ -212,7 +196,6 @@ export const SearchSelect = <Option extends BaseOption>({
               }}
               onMouseOver={() => handleMouseOver(index)}
               onMouseLeave={handleMouseLeave}
-              style={optionStyles}
               {...optionProps}
             >
               {option.label}

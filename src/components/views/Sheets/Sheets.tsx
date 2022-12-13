@@ -47,9 +47,6 @@ export interface SheetsProps
     style: Omit<CSSProperties, "rotate" | "scale" | "perspective">
   }
 
-  /** @deprecated since 6.56.0. Use `overlayProps` instead. */
-  overlayStyles?: Omit<CSSProperties, "rotate" | "scale" | "perspective">
-
   /** Primary action of the sheets. */
   primaryAction?: (PrimaryButtonProps & { "data-testid"?: string }) | undefined
 
@@ -77,7 +74,6 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
       navigationAction,
       navigationTitle,
       overlayProps,
-      overlayStyles = {},
       primaryAction,
       secondaryAction,
       size = "md",
@@ -97,7 +93,6 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 initial={{ opacity: 0 }}
-                style={overlayStyles}
                 {...overlayProps}
               />
             )}
