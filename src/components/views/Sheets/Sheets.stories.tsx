@@ -103,7 +103,7 @@ const ContextMenuTemplate: ComponentStory<typeof Sheets> = (args) => {
   const { isOpen, handlers } = useDisclosure(true)
   return (
     <>
-      <Menu {...args}>
+      <Menu>
         <MenuTrigger>
           <IconButton aria-label="See options" icon="ellipsis" />
         </MenuTrigger>
