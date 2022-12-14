@@ -107,8 +107,11 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
               initial={{ opacity: 0 }}
               size={size}
               onEscapeKeyDown={closeHandler}
-              // eslint-disable-next-line @typescript-eslint/no-empty-function
-              onInteractOutside={closeOnClickOutside ? closeHandler : () => {}}
+              onPointerDownOutside={() => {
+                if (closeOnClickOutside) {
+                  closeHandler()
+                }
+              }}
               {...props}
               ref={forwardedRef}
             >
