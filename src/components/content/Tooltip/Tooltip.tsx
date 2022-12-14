@@ -11,6 +11,9 @@ interface TooltipProps {
   /** The content of the tooltip. */
   content: ReactNode
 
+  /** Disables tooltip from showing. */
+  disabled?: boolean
+
   /** Determines whether or not to show a dashed underline on children as a tooltip hint. */
   hint?: boolean
 
@@ -21,11 +24,13 @@ interface TooltipProps {
 export const Tooltip = ({
   children,
   content,
+  disabled,
   hint,
   triggerAsChild,
   ...props
 }: TooltipProps): JSX.Element => {
   const theme = useTheme()
+  if (disabled) return <>{children}</>
   return (
     <RadixTooltip.Provider delayDuration={0}>
       <RadixTooltip.Root>
