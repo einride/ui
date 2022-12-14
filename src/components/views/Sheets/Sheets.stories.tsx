@@ -2,7 +2,12 @@ import { useDisclosure } from "@einride/hooks"
 import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
+import { IconButton } from "../../controls/buttons/IconButton/IconButton"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
+import { Menu } from "../../menus/Menu/Menu"
+import { MenuContent } from "../../menus/Menu/MenuContent"
+import { MenuItem } from "../../menus/Menu/MenuItem"
+import { MenuTrigger } from "../../menus/Menu/MenuTrigger"
 import { Text } from "../../typography/Text/Text"
 import { Sheets } from "./Sheets"
 
@@ -93,3 +98,36 @@ Keyboard.play = async ({ canvasElement }) => {
   await userEvent.keyboard("[Enter]")
   await expect(dialog).not.toBeInTheDocument()
 }
+
+const ContextMenuTemplate: ComponentStory<typeof Sheets> = (args) => {
+  const { isOpen, handlers } = useDisclosure(true)
+  return (
+    <>
+      <Menu {...args}>
+        <MenuTrigger>
+          <IconButton aria-label="See options" icon="ellipsis" />
+        </MenuTrigger>
+        <MenuContent>
+          <MenuItem onClick={handlers.open}>Option 1</MenuItem>
+          <MenuItem onClick={handlers.open}>Option 2</MenuItem>
+        </MenuContent>
+      </Menu>
+      <Sheets
+        {...args}
+        closeHandler={handlers.close}
+        isOpen={isOpen}
+        navigationAction={{
+          "aria-label": "Close",
+          icon: "xMark",
+          onClick: handlers.close,
+        }}
+        navigationTitle="Page name"
+      >
+        <Text>Sheets content</Text>
+      </Sheets>
+    </>
+  )
+}
+
+export const ContextMenu = ContextMenuTemplate.bind({})
+ContextMenu.args = {}
