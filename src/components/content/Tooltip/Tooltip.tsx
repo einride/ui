@@ -2,6 +2,7 @@ import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import * as RadixTooltip from "@radix-ui/react-tooltip"
 import { ReactNode } from "react"
+import { useTheme } from "../../../hooks/useTheme"
 
 interface TooltipProps {
   /** Tooltip components. */
@@ -24,13 +25,14 @@ export const Tooltip = ({
   triggerAsChild,
   ...props
 }: TooltipProps): JSX.Element => {
+  const theme = useTheme()
   return (
     <RadixTooltip.Provider delayDuration={0}>
       <RadixTooltip.Root>
         <StyledTooltipTrigger hint={hint} asChild={Boolean(triggerAsChild)}>
           {children}
         </StyledTooltipTrigger>
-        <StyledTooltipContent sideOffset={5} {...props}>
+        <StyledTooltipContent collisionPadding={2 * theme.spacer} sideOffset={5} {...props}>
           {content}
         </StyledTooltipContent>
       </RadixTooltip.Root>
