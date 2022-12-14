@@ -21,6 +21,7 @@ export { StepVerticalProgress } from "./components/charts/StepVerticalProgress/S
 export { Avatar } from "./components/content/Avatar/Avatar"
 export { Icon } from "./components/content/Icon/Icon"
 export { Logo } from "./components/content/Logo/Logo"
+export { Tooltip } from "./components/content/Tooltip/Tooltip"
 export { UserAccessPoint } from "./components/content/UserAccessPoint/UserAccessPoint"
 export { IconButton } from "./components/controls/buttons/IconButton/IconButton"
 export { LinkButton } from "./components/controls/buttons/LinkButton/LinkButton"
