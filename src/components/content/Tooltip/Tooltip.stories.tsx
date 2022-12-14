@@ -1,3 +1,4 @@
+import styled from "@emotion/styled"
 import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { userEvent, waitFor, within } from "@storybook/testing-library"
@@ -8,6 +9,7 @@ import { Td } from "../../table/Td/Td"
 import { Th } from "../../table/Th/Th"
 import { Thead } from "../../table/Thead/Thead"
 import { Tr } from "../../table/Tr/Tr"
+import { Text } from "../../typography/Text/Text"
 import { Tooltip } from "./Tooltip"
 
 export default {
@@ -58,20 +60,38 @@ const TableTemplate: ComponentStory<typeof Tooltip> = () => (
           </Tooltip>{" "}
           savings
         </Th>
+        <Td>Address</Td>
       </Tr>
     </Thead>
     <Tbody>
       <Tr>
         <Td>January</Td>
         <Td>100 kg</Td>
+        <Td>
+          <Tooltip content="Regeringsgatan 65, 111 56 Stockholm">
+            <TruncatedText>Regeringsgatan 65, 111 56 Stockholm</TruncatedText>
+          </Tooltip>
+        </Td>
       </Tr>
       <Tr>
         <Td>February</Td>
         <Td>500 kg</Td>
+        <Td>
+          <Tooltip content="Anders Carlssons gata 12, Gothenburg, 417 55">
+            <TruncatedText>Anders Carlssons gata 12B, 417 55 Gothenburg</TruncatedText>
+          </Tooltip>
+        </Td>
       </Tr>
     </Tbody>
   </TableComponent>
 )
+
+const TruncatedText = styled(Text)`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-inline-size: ${({ theme }) => 30 * theme.spacingBase}rem;
+`
 
 export const Table = TableTemplate.bind({})
 Table.args = {}
