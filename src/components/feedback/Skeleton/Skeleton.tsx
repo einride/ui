@@ -65,7 +65,7 @@ const Wrapper = styled(Box)<WrapperProps>`
         content: "";
         position: absolute;
         inset: 0;
-        background: ${theme.colors.background.secondary};
+        background: ${theme.colors.background.secondaryElevated};
         border-radius: ${shape === "circle" ? theme.borderRadii.full : theme.borderRadii.sm};
       }
     `}
