@@ -19,8 +19,8 @@ Background.args = {
 export const WithContent = Template.bind({})
 WithContent.args = {
   background: "positive",
+  color: "primaryInverted",
   borderRadius: "lg",
   children: "Content",
-  color: "positive",
   padding: 2,
 }
