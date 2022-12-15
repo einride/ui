@@ -4,14 +4,20 @@ import merge from "lodash.merge"
 import { ReactNode } from "react"
 import { CSSReset } from "../lib/CSSReset"
 import { GlobalStyles } from "../lib/GlobalStyles"
+import { DeepPartial } from "../lib/theme/deep-partial"
 import { themes } from "../lib/theme/theme"
+import { Theme } from "../lib/theme/types"
 import { useColorScheme } from "./ColorSchemeProvider"
 
 interface EinrideThemeProviderProps {
+  /** Children of the provider. */
   children: ReactNode
+
+  /** Resets CSS to sensible defaults. */
   resetCSS?: boolean
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  theme?: any
+
+  /** Overrides the default theme. Can be used to set a font as an example. */
+  theme: DeepPartial<Theme> | undefined
 }
 
 export const EinrideThemeProvider = ({
