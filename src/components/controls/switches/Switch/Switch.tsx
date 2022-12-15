@@ -29,11 +29,10 @@ interface SwitchWithoutLabelProps {
 
 type SwitchProps = SwitchBaseProps & (SwitchWithLabelProps | SwitchWithoutLabelProps)
 
-export const Switch = (props: SwitchProps): JSX.Element => {
+export const Switch = ({ ...props }: SwitchProps): JSX.Element => {
   const id = useId()
   return (
     <Group alignItems="center" gap="sm">
-      {/* eslint-disable-next-line react/destructuring-assignment */}
       {"label" in props && <StyledLabel htmlFor={id}>{props.label}</StyledLabel>}
       <Root {...props} id={id}>
         <SwitchPrimitive.Thumb asChild>
