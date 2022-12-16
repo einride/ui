@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode, useId } from "react"
+import { ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef, useId } from "react"
 import { ContentColor } from "../../../../lib/theme/types"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 import { Caption } from "../../../typography/Caption/Caption"
@@ -76,8 +76,8 @@ const StyledLabel = styled.label`
   font-size: ${({ theme }) => theme.fontSizes.md};
   font-weight: ${({ theme }) => theme.fontWeights.book};
   line-height: calc(4 / 3);
-  margin-block-start: 5px;
-  margin-block-end: 3px;
+  padding-block-start: 5px;
+  padding-block-end: 3px;
   color: ${({ theme }) => theme.colors.content.secondary};
 `
 
