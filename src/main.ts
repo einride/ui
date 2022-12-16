@@ -47,8 +47,9 @@ export { Textarea } from "./components/controls/textareas/Textarea/Textarea"
 export { Loader } from "./components/feedback/Loader/Loader"
 export { PageLoader } from "./components/feedback/PageLoader/PageLoader"
 export { Skeleton } from "./components/feedback/Skeleton/Skeleton"
-export { POUND_FACTOR } from "./components/format/Weight/formatImperial"
+export { TableSkeleton } from "./components/feedback/TableSkeleton/TableSkeleton"
 export { Weight } from "./components/format/Weight/Weight"
+export { POUND_FACTOR } from "./components/format/Weight/formatImperial"
 export { WeightUnit } from "./components/format/WeightUnit/WeightUnit"
 export { Label, type Variant as LabelVariant } from "./components/information/Label/Label"
 export { Box } from "./components/layout/Box/Box"
@@ -86,9 +87,9 @@ export { einrideTheme } from "./lib/theme/einride"
 export type {
   BackgroundColor,
   BorderColor,
-  BorderRadius as Radius,
   ContentColor,
   Font,
+  BorderRadius as Radius,
   Theme,
 } from "./lib/theme/types"
 export { zIndex } from "./lib/zIndex"
