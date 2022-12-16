@@ -60,7 +60,7 @@ type Status = "default" | "notification" | "no-user"
 
 const Button = styled.button<{ status: Status }>`
   position: relative;
-  background: ${({ theme }) => theme.colors.background.secondary};
+  background: ${({ theme }) => theme.colors.background.secondaryElevated};
   border-radius: ${({ theme }) => theme.borderRadii.xl};
   align-items: center;
   display: flex;
