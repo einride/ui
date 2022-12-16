@@ -62,11 +62,14 @@ const StyledTooltipTrigger = styled(RadixTooltip.Trigger, {
       text-decoration-style: dashed;
       text-decoration-thickness: ${theme.spacingBase / 8}rem;
       text-underline-position: under;
+
+      &:hover {
+        text-decoration-style: solid;
+      }
     `}
 
   &:focus-visible {
-    outline: none;
-    text-decoration-style: solid;
+    outline: ${({ theme }) => theme.spacingBase / 8}rem solid currentColor;
   }
 `
 
