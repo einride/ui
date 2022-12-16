@@ -28,8 +28,8 @@ All.args = {}
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: ${({ theme }) => theme.spacer}px;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: ${({ theme }) => theme.spacingBase}rem;
 `
 
 const StyledCard = styled(Card)`
