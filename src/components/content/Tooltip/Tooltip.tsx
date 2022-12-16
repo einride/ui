@@ -60,7 +60,7 @@ const StyledTooltipTrigger = styled(RadixTooltip.Trigger, {
       text-decoration-line: underline;
       text-decoration-color: ${theme.colors.content.tertiary};
       text-decoration-style: dashed;
-      text-decoration-thickness: 1px;
+      text-decoration-thickness: ${theme.spacingBase / 8}rem;
       text-underline-position: under;
     `}
 
