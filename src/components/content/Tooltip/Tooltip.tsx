@@ -37,9 +37,11 @@ export const Tooltip = ({
         <StyledTooltipTrigger hint={hint} asChild={Boolean(triggerAsChild)}>
           {children}
         </StyledTooltipTrigger>
-        <StyledTooltipContent collisionPadding={2 * theme.spacer} sideOffset={5} {...props}>
-          {content}
-        </StyledTooltipContent>
+        <RadixTooltip.Portal>
+          <StyledTooltipContent collisionPadding={2 * theme.spacer} sideOffset={5} {...props}>
+            {content}
+          </StyledTooltipContent>
+        </RadixTooltip.Portal>
       </RadixTooltip.Root>
     </RadixTooltip.Provider>
   )
