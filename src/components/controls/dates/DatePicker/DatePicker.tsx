@@ -100,8 +100,8 @@ const StyledDatePicker = styled(MantineDatePicker, {
       color: ${({ theme }) => theme.colors.content.secondary};
     }
     &:focus {
-      box-shadow: 0px 0px 0px 1px ${({ theme }) => theme.colors.border.selected} inset;
-      outline: none;
+      outline: ${({ theme }) => theme.spacingBase / 8}rem solid
+        ${({ theme }) => theme.colors.border.selected};
     }
   }
   .mantine-DatePicker-rightSection button {
@@ -158,7 +158,8 @@ const StyledDatePicker = styled(MantineDatePicker, {
       &:focus-visible {
         outline: none;
         background: ${({ theme }) => theme.colors.buttons.background.focused.tertiary};
-        box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
+        border: ${({ theme }) => theme.spacingBase / 8}rem solid
+          ${({ theme }) => theme.colors.border.selected};
       }
       svg {
         display: none;
@@ -220,7 +221,8 @@ const StyledDatePicker = styled(MantineDatePicker, {
         outline: none;
         background: ${({ theme }) => theme.colors.background.tertiary};
         color: ${({ theme }) => theme.colors.content.primary};
-        box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
+        border: ${({ theme }) => theme.spacingBase / 8}rem solid
+          ${({ theme }) => theme.colors.border.selected};
         text-decoration: underline;
       }
     }
