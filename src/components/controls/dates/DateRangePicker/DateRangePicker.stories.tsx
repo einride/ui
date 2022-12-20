@@ -47,6 +47,21 @@ DefaultValue.play = async ({ canvasElement }) => {
   )
 }
 
+const ControlledTemplate: ComponentStory<typeof DateRangePicker> = (args) => {
+  const [value, setValue] = useState<DateRangePickerValue>([null, null])
+  return <DateRangePicker {...args} value={value} onChange={setValue} />
+}
+
+export const Controlled = ControlledTemplate.bind({})
+Controlled.args = {
+  ...WithLabel.args,
+}
+Controlled.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("textbox", { name: "Label" })
+  await expect(input).toHaveValue("")
+}
+
 export const Message = Template.bind({})
 Message.args = {
   ...WithLabel.args,
@@ -65,21 +80,6 @@ ErrorMessage.args = {
   ...WithLabel.args,
   message: "Error message",
   status: "fail",
-}
-
-const ControlledTemplate: ComponentStory<typeof DateRangePicker> = (args) => {
-  const [value, setValue] = useState<DateRangePickerValue>([null, null])
-  return <DateRangePicker {...args} value={value} onChange={setValue} />
-}
-
-export const Controlled = ControlledTemplate.bind({})
-Controlled.args = {
-  ...WithLabel.args,
-}
-Controlled.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const input = canvas.getByRole("textbox", { name: "Label" })
-  await expect(input).toHaveValue("")
 }
 
 export const Mouse = Template.bind({})
