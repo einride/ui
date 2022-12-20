@@ -66,7 +66,7 @@ export const DatePicker = ({
     <Box>
       <StyledDatePicker
         allowLevelChange={false}
-        clearable
+        clearable={false}
         dayStyle={() => ({
           fontFamily: theme.fonts.body,
           fontSize: theme.fontSizes.md,
