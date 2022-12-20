@@ -12,7 +12,7 @@ interface DatePickerBaseProps {
   clearable?: boolean
 
   /** Default value for uncontrolled input. */
-  defaultValue?: Date
+  defaultValue?: DatePickerValue
 
   /** Maximum possible date. */
   maxDate?: Date
@@ -24,7 +24,7 @@ interface DatePickerBaseProps {
   messageProps?: Omit<ComponentPropsWithoutRef<"span">, "color"> & { "data-testid"?: string }
 
   /** Called when date changes. */
-  onChange?: (value: Date) => void
+  onChange?: (value: DatePickerValue) => void
 
   /** Placeholder, displayed when date is not selected. */
   placeholder?: string
@@ -33,7 +33,7 @@ interface DatePickerBaseProps {
   status?: Status | undefined
 
   /** Selected date, required with controlled input. */
-  value?: Date | null
+  value?: DatePickerValue
 
   /** Props passed to root element. */
   wrapperProps: Pick<
@@ -66,7 +66,7 @@ export const DatePicker = ({
     <Box>
       <StyledDatePicker
         allowLevelChange={false}
-        clearable={false}
+        clearable
         dayStyle={() => ({
           fontFamily: theme.fonts.body,
           fontSize: theme.fontSizes.md,
@@ -96,6 +96,8 @@ const getMessageColor = (status: Status | undefined): ContentColor => {
       return "secondary"
   }
 }
+
+type DatePickerValue = Date | null
 
 interface StyledDatePickerProps {
   hasLabel: boolean
