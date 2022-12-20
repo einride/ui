@@ -48,6 +48,26 @@ DefaultValue.play = async ({ canvasElement }) => {
   )
 }
 
+export const Message = Template.bind({})
+Message.args = {
+  ...WithLabel.args,
+  message: "Message",
+}
+
+export const SuccessMessage = Template.bind({})
+SuccessMessage.args = {
+  ...WithLabel.args,
+  message: "Success message",
+  status: "success",
+}
+
+export const ErrorMessage = Template.bind({})
+ErrorMessage.args = {
+  ...WithLabel.args,
+  message: "Error message",
+  status: "fail",
+}
+
 const ControlledTemplate: ComponentStory<typeof DatePicker> = (args) => {
   const [value, setValue] = useState<Date | null>(null)
   return <DatePicker {...args} value={value} onChange={setValue} />

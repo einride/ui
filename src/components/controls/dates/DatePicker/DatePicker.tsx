@@ -1,7 +1,11 @@
 import styled from "@emotion/styled"
 import { DatePicker as MantineDatePicker } from "@mantine/dates"
-import { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react"
+import { ComponentPropsWithoutRef, DetailedHTMLProps, HTMLAttributes, ReactNode } from "react"
 import { useTheme } from "../../../../hooks/useTheme"
+import { ContentColor } from "../../../../lib/theme/types"
+import { Box } from "../../../layout/Box/Box"
+import { Caption } from "../../../typography/Caption/Caption"
+import { Status } from "../../inputs/BaseInput/BaseInput"
 
 interface DatePickerBaseProps {
   /** Whether to allow clearing value or not. Default it `false`. */
@@ -13,11 +17,20 @@ interface DatePickerBaseProps {
   /** Maximum possible date. */
   maxDate?: Date
 
+  /** Message shown below input field. Can be used together with `status` to show a success or error message. */
+  message?: ReactNode
+
+  /** Props passed to message element. */
+  messageProps?: Omit<ComponentPropsWithoutRef<"span">, "color"> & { "data-testid"?: string }
+
   /** Called when date changes. */
   onChange?: (value: Date) => void
 
   /** Placeholder, displayed when date is not selected. */
   placeholder?: string
+
+  /** Status of the input, controlling color and icon. */
+  status?: Status | undefined
 
   /** Selected date, required with controlled input. */
   value?: Date | null
@@ -42,23 +55,46 @@ interface DatePickerWithoutLabelProps {
 export type DatePickerProps = DatePickerBaseProps &
   (DatePickerWithLabelProps | DatePickerWithoutLabelProps)
 
-export const DatePicker = ({ ...props }: DatePickerProps): JSX.Element => {
+export const DatePicker = ({
+  message,
+  messageProps,
+  status,
+  ...props
+}: DatePickerProps): JSX.Element => {
   const theme = useTheme()
   return (
-    <StyledDatePicker
-      allowLevelChange={false}
-      clearable={false}
-      dayStyle={() => ({
-        fontFamily: theme.fonts.body,
-        fontSize: theme.fontSizes.md,
-        fontWeight: theme.fontWeights.book,
-      })}
-      dayClassName={(date) => (date.toDateString() === new Date().toDateString() ? "today" : "")}
-      hasLabel={"label" in props}
-      inputFormat="YYYY-MM-DD"
-      {...props}
-    />
+    <Box>
+      <StyledDatePicker
+        allowLevelChange={false}
+        clearable={false}
+        dayStyle={() => ({
+          fontFamily: theme.fonts.body,
+          fontSize: theme.fontSizes.md,
+          fontWeight: theme.fontWeights.book,
+        })}
+        dayClassName={(date) => (date.toDateString() === new Date().toDateString() ? "today" : "")}
+        hasLabel={"label" in props}
+        inputFormat="YYYY-MM-DD"
+        {...props}
+      />
+      {message && (
+        <Caption color={getMessageColor(status)} {...messageProps}>
+          {message}
+        </Caption>
+      )}
+    </Box>
   )
+}
+
+const getMessageColor = (status: Status | undefined): ContentColor => {
+  switch (status) {
+    case "success":
+      return "positive"
+    case "fail":
+      return "negative"
+    default:
+      return "secondary"
+  }
 }
 
 interface StyledDatePickerProps {
