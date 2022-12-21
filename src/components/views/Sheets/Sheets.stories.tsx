@@ -31,6 +31,7 @@ const Template: ComponentStory<typeof Sheets> = (args) => {
           onClick: handlers.close,
         }}
         navigationTitle="Page name"
+        primaryAction={{ children: "Primary" }}
       >
         <Text>Sheets content</Text>
       </Sheets>
@@ -61,6 +62,7 @@ const NavigationTemplate: ComponentStory<typeof Sheets> = (args) => {
           onClick: handlers.close,
         }}
         navigationTitle="Page name"
+        primaryAction={{ children: "Primary" }}
       >
         <Text>Sheets content</Text>
       </Sheets>
@@ -122,6 +124,7 @@ const ContextMenuTemplate: ComponentStory<typeof Sheets> = (args) => {
           onClick: handlers.close,
         }}
         navigationTitle="Page name"
+        primaryAction={{ children: "Primary" }}
       >
         <Text>Sheets content</Text>
       </Sheets>
