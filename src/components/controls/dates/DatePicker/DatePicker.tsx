@@ -23,7 +23,7 @@ interface DatePickerBaseProps {
   value?: Date | null
 
   /** Props passed to root element. */
-  wrapperProps: Pick<
+  wrapperProps?: Pick<
     DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
     "key" | keyof HTMLAttributes<HTMLDivElement>
   >
