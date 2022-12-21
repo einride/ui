@@ -62,6 +62,26 @@ Controlled.play = async ({ canvasElement }) => {
   await expect(input).toHaveValue("")
 }
 
+export const Message = Template.bind({})
+Message.args = {
+  ...WithLabel.args,
+  message: "Message",
+}
+
+export const SuccessMessage = Template.bind({})
+SuccessMessage.args = {
+  ...WithLabel.args,
+  message: "Success message",
+  status: "success",
+}
+
+export const ErrorMessage = Template.bind({})
+ErrorMessage.args = {
+  ...WithLabel.args,
+  message: "Error message",
+  status: "fail",
+}
+
 export const Mouse = Template.bind({})
 Mouse.args = {
   ...WithLabel.args,
