@@ -1,9 +1,9 @@
 import styled from "@emotion/styled"
 import { DateRangePicker as MantineDateRangePicker } from "@mantine/dates"
-import { ComponentPropsWithoutRef, DetailedHTMLProps, HTMLAttributes, ReactNode } from "react"
+import { ComponentPropsWithoutRef, ReactNode } from "react"
 import { useTheme } from "../../../../hooks/useTheme"
 import { ContentColor } from "../../../../lib/theme/types"
-import { Box } from "../../../layout/Box/Box"
+import { Box, BoxProps } from "../../../layout/Box/Box"
 import { Caption } from "../../../typography/Caption/Caption"
 import { Status } from "../../inputs/BaseInput/BaseInput"
 
@@ -36,10 +36,7 @@ interface DateRangePickerBaseProps {
   value?: DateRangePickerValue
 
   /** Props passed to root element. */
-  wrapperProps?: Pick<
-    DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
-    "key" | keyof HTMLAttributes<HTMLDivElement>
-  >
+  wrapperProps?: BoxProps
 }
 
 interface DateRangePickerWithLabelProps {
@@ -59,11 +56,12 @@ export const DateRangePicker = ({
   message,
   messageProps,
   status,
+  wrapperProps,
   ...props
 }: DateRangePickerProps): JSX.Element => {
   const theme = useTheme()
   return (
-    <Box inlineSize="100%">
+    <Box {...wrapperProps}>
       <StyledDateRangePicker
         allowLevelChange={false}
         allowSingleDateInRange
