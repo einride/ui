@@ -79,7 +79,7 @@
     "storybook-dark-mode": "2.0.4",
     "typescript": "4.9.4",
     "vite": "4.0.2",
-    "vitest": "0.26.1"
+    "vitest": "0.26.2"
   },
   "peerDependencies": {
     "@emotion/react": "^11.4.1",
