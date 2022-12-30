@@ -3721,7 +3721,7 @@
     core-js "^3.8.2"
     global "^4.4.0"
 
-"@storybook/components@6.5.15":
+"@storybook/components@6.5.15", "@storybook/components@^6.5.14":
   version "6.5.15"
   resolved "https://registry.yarnpkg.com/@storybook/components/-/components-6.5.15.tgz#8145be807bf48c1d010f29114411f390a9e3228f"
   integrity sha512-bHTT0Oa3s4g+MBMaLBbX9ofMtb1AW59AzIUNGrfqW1XqJMGuUHMiJ7TSo+i5dRSFpbFygnwMEG9LfHxpR2Z0Dw==
@@ -3729,20 +3729,6 @@
     "@storybook/client-logger" "6.5.15"
     "@storybook/csf" "0.0.2--canary.4566f4d.1"
     "@storybook/theming" "6.5.15"
-    core-js "^3.8.2"
-    memoizerific "^1.11.3"
-    qs "^6.10.0"
-    regenerator-runtime "^0.13.7"
-    util-deprecate "^1.0.2"
-
-"@storybook/components@^6.5.14":
-  version "6.5.14"
-  resolved "https://registry.yarnpkg.com/@storybook/components/-/components-6.5.14.tgz#e4d35b689674a16d88d0d16f50319865387497dd"
-  integrity sha512-wqB9CF3sjxtgffnDW1G/W5SsKumsFQ0ftn/3PdrsvKULu5LM5bjNEqC2cTCWrk9vQhj+EVQxzdVM/BlPl/lSwg==
-  dependencies:
-    "@storybook/client-logger" "6.5.14"
-    "@storybook/csf" "0.0.2--canary.4566f4d.1"
-    "@storybook/theming" "6.5.14"
     core-js "^3.8.2"
     memoizerific "^1.11.3"
     qs "^6.10.0"
@@ -15486,10 +15472,10 @@ store2@^2.12.0:
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.14.2.tgz#56138d200f9fe5f582ad63bc2704dbc0e4a45068"
   integrity sha512-siT1RiqlfQnGqgT/YzXVUNsom9S0H1OX+dpdGN1xkyYATo4I6sep5NmsRD/40s3IIOvlCq6akxkqG82urIZW1w==
 
-storybook-dark-mode@2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/storybook-dark-mode/-/storybook-dark-mode-2.0.4.tgz#dfac18675742f6022c352217f7b8a4627ac2ec57"
-  integrity sha512-+cJXUOMj49RbXCqCqggIMWf7GGlhvJoOgjK1E2WZUy1OMwlvgeS13Td9jccl3KmuGBx0Eke+Q2ONecNIohUpEQ==
+storybook-dark-mode@2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/storybook-dark-mode/-/storybook-dark-mode-2.0.5.tgz#a15e8a43bf4b60745f73fd362133ba565a3bc61e"
+  integrity sha512-egOMu2tgGttGAMtFZcDLZobs1xc7LzFOh+pRVqaW59AVp05ABdQ3Hj6IX2Pz7tYGmF9AmaK+nBv0hDFxPe7Hfg==
   dependencies:
     "@storybook/addons" "^6.5.14"
     "@storybook/api" "^6.5.14"
