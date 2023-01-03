@@ -41,10 +41,9 @@ DefaultValue.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const input = canvas.getByRole("textbox", { name: "Label" })
   await expect(input).toHaveValue(
-    `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date()
-      .getDate()
+    `${new Date().getFullYear()}-${(new Date().getMonth() + 1)
       .toString()
-      .padStart(2, "0")}`,
+      .padStart(2, "0")}-${new Date().getDate().toString().padStart(2, "0")}`,
   )
 }
 
@@ -94,13 +93,17 @@ Mouse.play = async ({ canvasElement }) => {
   await userEvent.click(input)
   const firstDayInCurrentMonthButton = canvas.getByRole("button", { name: "1" })
   await userEvent.click(firstDayInCurrentMonthButton)
-  await expect(input).toHaveValue(`${new Date().getFullYear()}-${new Date().getMonth() + 1}-01`)
+  await expect(input).toHaveValue(
+    `${new Date().getFullYear()}-${(new Date().getMonth() + 1).toString().padStart(2, "0")}-01`,
+  )
   await userEvent.click(input)
   const previousMonthButton = canvas.getAllByRole("button")[0]
   await userEvent.click(previousMonthButton)
   const firstDayInLastMonthButton = canvas.getByRole("button", { name: "1" })
   await userEvent.click(firstDayInLastMonthButton)
-  await expect(input).toHaveValue(`${new Date().getFullYear()}-${new Date().getMonth()}-01`)
+  await expect(input).toHaveValue(
+    `${new Date().getFullYear()}-${new Date().getMonth().toString().padStart(2, "0")}-01`,
+  )
 }
 
 export const Keyboard = ControlledTemplate.bind({})
@@ -116,11 +119,15 @@ Keyboard.play = async ({ canvasElement }) => {
   await expect(input).toHaveFocus()
   await userEvent.keyboard("[Enter]")
   await userEvent.keyboard("[Enter]")
-  await expect(input).toHaveValue(`${new Date().getFullYear()}-${new Date().getMonth() + 1}-01`)
+  await expect(input).toHaveValue(
+    `${new Date().getFullYear()}-${(new Date().getMonth() + 1).toString().padStart(2, "0")}-01`,
+  )
   await userEvent.keyboard("[Enter]")
   await userEvent.tab()
   await userEvent.keyboard("[Enter]")
   const firstDayInLastMonthButton = canvas.getByRole("button", { name: "1" })
   await userEvent.click(firstDayInLastMonthButton) // until keyboard navigation is fixed in Mantine component
-  await expect(input).toHaveValue(`${new Date().getFullYear()}-${new Date().getMonth()}-01`)
+  await expect(input).toHaveValue(
+    `${new Date().getFullYear()}-${new Date().getMonth().toString().padStart(2, "0")}-01`,
+  )
 }
