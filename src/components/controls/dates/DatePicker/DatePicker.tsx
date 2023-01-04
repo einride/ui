@@ -14,6 +14,9 @@ interface DatePickerBaseProps {
   /** Default value for uncontrolled input. */
   defaultValue?: DatePickerValue
 
+  /** Controls disabled state. */
+  disabled?: boolean
+
   /** Maximum possible date. */
   maxDate?: Date
 
@@ -138,6 +141,15 @@ const StyledDatePicker = styled(MantineDatePicker, {
     &:focus {
       outline: ${({ theme }) => theme.spacingBase / 8}rem solid
         ${({ theme }) => theme.colors.border.selected};
+    }
+    &:disabled {
+      background: ${({ theme }) => theme.colors.background.secondary};
+      color: ${({ theme }) => theme.colors.content.tertiary};
+      cursor: not-allowed;
+      opacity: 1;
+    }
+    &:disabled::placeholder {
+      color: ${({ theme }) => theme.colors.content.tertiary};
     }
   }
   .mantine-DatePicker-rightSection button {
