@@ -32,6 +32,9 @@ interface DateRangePickerBaseProps {
   /** Placeholder, displayed when date is not selected. */
   placeholder?: string
 
+  /** Controls required state. */
+  required?: boolean
+
   /** Status of the input, controlling color and icon. */
   status?: Status | undefined
 
@@ -77,6 +80,7 @@ export const DateRangePicker = ({
         dayClassName={(date) => (date.toDateString() === new Date().toDateString() ? "today" : "")}
         hasLabel={"label" in props}
         inputFormat="YYYY-MM-DD"
+        withAsterisk={false}
         {...props}
       />
       {message && (
