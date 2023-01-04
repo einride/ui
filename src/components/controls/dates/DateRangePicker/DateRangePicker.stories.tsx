@@ -7,6 +7,11 @@ import { DateRangePicker, DateRangePickerValue } from "./DateRangePicker"
 export default {
   title: "Controls/Dates/DateRangePicker",
   component: DateRangePicker,
+  argTypes: {
+    disabled: {
+      control: "boolean",
+    },
+  },
 } as ComponentMeta<typeof DateRangePicker>
 
 const Template: ComponentStory<typeof DateRangePicker> = (args) => <DateRangePicker {...args} />
