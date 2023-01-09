@@ -31,6 +31,8 @@ import {
   MarginBlockEnd,
   MarginBlockStart,
   MarginBottom,
+  MarginInlineEnd,
+  MarginInlineStart,
   MarginLeft,
   MarginRight,
   MarginTop,
@@ -116,6 +118,12 @@ export interface BoxProps extends Omit<ComponentPropsWithoutRef<"div">, "color">
   /** Bottom margin of the box. */
   marginBottom?: MarginBottom
 
+  /** Inline end margin of the box. */
+  marginInlineEnd?: MarginInlineEnd
+
+  /** Inline start margin of the box. */
+  marginInlineStart?: MarginInlineStart
+
   /** Left margin of the box. */
   marginLeft?: MarginLeft
 
@@ -182,6 +190,8 @@ interface WrapperProps {
   marginBlockEnd?: MarginBlockEnd
   marginBlockStart?: MarginBlockStart
   marginBottom?: MarginBottom
+  marginInlineEnd?: MarginInlineEnd
+  marginInlineStart?: MarginInlineStart
   marginLeft?: MarginLeft
   marginRight?: MarginRight
   marginTop?: MarginTop
@@ -228,6 +238,10 @@ const Wrapper = styled.div<WrapperProps>`
   margin-block-start: ${({ marginBlockStart, theme }) =>
     marginBlockStart && getSpacing(marginBlockStart, theme)};
   margin-bottom: ${({ marginBottom, theme }) => marginBottom && getSpacing(marginBottom, theme)};
+  margin-inline-end: ${({ marginInlineEnd, theme }) =>
+    marginInlineEnd && getSpacing(marginInlineEnd, theme)};
+  margin-inline-start: ${({ marginInlineStart, theme }) =>
+    marginInlineStart && getSpacing(marginInlineStart, theme)};
   margin-left: ${({ marginLeft, theme }) => marginLeft && getSpacing(marginLeft, theme)};
   margin-right: ${({ marginRight, theme }) => marginRight && getSpacing(marginRight, theme)};
   margin-top: ${({ marginTop, theme }) => marginTop && getSpacing(marginTop, theme)};
