@@ -34,7 +34,7 @@ const basicOptions = [
   },
 ]
 
-const Template: ComponentStory<typeof SearchSelect<typeof basicOptions[0]>> = (args) => {
+const Template: ComponentStory<typeof SearchSelect<(typeof basicOptions)[0]>> = (args) => {
   const [searchTerm, setSearchTerm] = useState("")
   return (
     <SearchSelect {...args} onSearchChange={(text) => setSearchTerm(text)} value={searchTerm} />
@@ -73,7 +73,7 @@ const inputValueOptions = [
   },
 ]
 
-const InputValueTemplate: ComponentStory<typeof SearchSelect<typeof inputValueOptions[0]>> = (
+const InputValueTemplate: ComponentStory<typeof SearchSelect<(typeof inputValueOptions)[0]>> = (
   args,
 ) => {
   const [searchTerm, setSearchTerm] = useState("")

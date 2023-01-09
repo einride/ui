@@ -77,7 +77,7 @@ export const iconNames = [
   "circularEconomy",
 ] as const
 
-export type IconName = typeof iconNames[number]
+export type IconName = (typeof iconNames)[number]
 
 const getEncodedEntity = (name: IconName): ReactNode => {
   if (name === "checkmark") return <>&#10003;</>
