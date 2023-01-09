@@ -16,12 +16,12 @@ export const backgroundColors = [
   "accent3",
   "focus",
 ] as const
-export type BackgroundColor = typeof backgroundColors[number]
+export type BackgroundColor = (typeof backgroundColors)[number]
 
 export type BorderColor = "primary" | "selected"
 
 export const borderRadii = ["none", "xs", "sm", "lg", "xl", "full"] as const
-export type BorderRadius = typeof borderRadii[number]
+export type BorderRadius = (typeof borderRadii)[number]
 
 type Breakpoint = "md" | "lg"
 
@@ -55,13 +55,13 @@ export const contentColors = [
   "warning",
   "negative",
 ] as const
-export type ContentColor = typeof contentColors[number]
+export type ContentColor = (typeof contentColors)[number]
 
 export const fonts = ["heading", "body", "mono"] as const
-export type Font = typeof fonts[number]
+export type Font = (typeof fonts)[number]
 
 export const fontSizes = ["sm", "md", "lg", "xl", "2xl", "3xl"] as const
-export type FontSize = typeof fontSizes[number]
+export type FontSize = (typeof fontSizes)[number]
 
 type FontVariant = { numeric: string }
 
@@ -77,7 +77,7 @@ const fontWeights = [
   "extrabold",
   "black",
 ] as const
-export type FontWeight = typeof fontWeights[number]
+export type FontWeight = (typeof fontWeights)[number]
 
 type MediaQuery = "belowMd" | "onlyMd" | "md" | "belowLg" | "lg"
 
@@ -86,7 +86,7 @@ type Spacer = number
 type SpacingBase = number
 
 export const spacings = ["xs", "sm", "md", "lg", "xl"] as const
-export type Spacing = typeof spacings[number]
+export type Spacing = (typeof spacings)[number]
 
 type Transition = "easeIn" | "easeOut" | "morph"
 
