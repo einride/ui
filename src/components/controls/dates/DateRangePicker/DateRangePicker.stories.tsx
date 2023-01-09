@@ -105,6 +105,7 @@ Mouse.play = async ({ canvasElement }) => {
       new Date().getMonth() + 1
     }-04`,
   )
+  asd
   await userEvent.click(input)
   const previousMonthButton = canvas.getAllByRole("button")[0]
   await userEvent.click(previousMonthButton)
