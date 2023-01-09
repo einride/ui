@@ -3545,10 +3545,10 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/builder-vite@0.2.6":
-  version "0.2.6"
-  resolved "https://registry.yarnpkg.com/@storybook/builder-vite/-/builder-vite-0.2.6.tgz#d2ad32b979015fc6f033511309ed7e466de542c8"
-  integrity sha512-TwlqJykq5KfM8SmDXWQtUHrYg4XySxwOe3RKud4iGZDYmqPc/ayB9XSF6DR50WgC7gKK7WIVIN+ZcGPphy5zWg==
+"@storybook/builder-vite@0.2.7":
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/@storybook/builder-vite/-/builder-vite-0.2.7.tgz#f4457db83b94b1a94532d40b7bb595f2ee55d45a"
+  integrity sha512-IvgInn1dsL4amHn8IDHWv2KaoWyRWxGQvHvctfHl7ayN8fke6Tzg8lBUxVoGBfqeoO3glo/zsVUUO+aNeUUlxQ==
   dependencies:
     "@joshwooding/vite-plugin-react-docgen-typescript" "0.0.5"
     "@storybook/core-common" "^6.4.3"
@@ -4213,29 +4213,13 @@
     core-js "^3.6.5"
     find-up "^4.1.0"
 
-"@storybook/source-loader@6.5.15":
+"@storybook/source-loader@6.5.15", "@storybook/source-loader@^6.4.3":
   version "6.5.15"
   resolved "https://registry.yarnpkg.com/@storybook/source-loader/-/source-loader-6.5.15.tgz#363a9b2812a2cef6cc5cb948e55d8a2624e18643"
   integrity sha512-MaWzki40g0/7NWmJgUBhOp+e7y8Ohw6G/bRr/rcDP7eXSnud6ThYylXv0QqBScLPPTy8txjmBClCoqdLGyvLWQ==
   dependencies:
     "@storybook/addons" "6.5.15"
     "@storybook/client-logger" "6.5.15"
-    "@storybook/csf" "0.0.2--canary.4566f4d.1"
-    core-js "^3.8.2"
-    estraverse "^5.2.0"
-    global "^4.4.0"
-    loader-utils "^2.0.4"
-    lodash "^4.17.21"
-    prettier ">=2.2.1 <=2.3.0"
-    regenerator-runtime "^0.13.7"
-
-"@storybook/source-loader@^6.4.3":
-  version "6.5.14"
-  resolved "https://registry.yarnpkg.com/@storybook/source-loader/-/source-loader-6.5.14.tgz#cf4e78166a40edd7dd3df3563face750f70c29df"
-  integrity sha512-0GKMZ6IMVGxfQn/RYdRdnzxCe4+zZsxHBY9SQB2bbYWyfjJQ5rCJvmYQuMAuuuUmXBv9gk50iJLwai+lb4tbFg==
-  dependencies:
-    "@storybook/addons" "6.5.14"
-    "@storybook/client-logger" "6.5.14"
     "@storybook/csf" "0.0.2--canary.4566f4d.1"
     core-js "^3.8.2"
     estraverse "^5.2.0"
