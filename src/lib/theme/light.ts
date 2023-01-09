@@ -29,6 +29,7 @@ export const light: ColorTheme = {
     secondary: `${color.grey[90]}99`, // 99 is HEX for ~60% opacity
     tertiary: `${color.grey[90]}66`, // 66 is HEX for ~40% opacity
     positive: color.green[60],
+    positiveInverted: color.green[20],
     warning: color.yellow[60],
     negative: color.red[60],
   },

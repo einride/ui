@@ -52,6 +52,7 @@ export const contentColors = [
   "secondary",
   "tertiary",
   "positive",
+  "positiveInverted",
   "warning",
   "negative",
 ] as const
