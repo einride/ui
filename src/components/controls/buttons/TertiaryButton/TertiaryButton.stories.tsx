@@ -1,6 +1,7 @@
 import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { within } from "@storybook/testing-library"
+import { Icon } from "../../../content/Icon/Icon"
 import { TertiaryButton } from "./TertiaryButton"
 
 export default {
@@ -31,6 +32,17 @@ FullWidth.args = {
   isFullWidth: true,
 }
 FullWidth.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const button = canvas.getByRole("button", { name: "Button" })
+  await expect(button).not.toBeDisabled()
+}
+
+export const IconRight = Template.bind({})
+IconRight.args = {
+  ...Basic.args,
+  rightIcon: <Icon name="arrowRight" />,
+}
+IconRight.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const button = canvas.getByRole("button", { name: "Button" })
   await expect(button).not.toBeDisabled()

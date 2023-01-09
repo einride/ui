@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
+import { ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef } from "react"
 import { BaseButton } from "../BaseButton/BaseButton"
 import { BaseButtonIcon } from "../BaseButton/BaseButtonIcon"
 
@@ -27,7 +27,12 @@ export const PrimaryButton = forwardRef<HTMLButtonElement, PrimaryButtonProps>(
       <StyledBaseButton hasIcon={hasIcon} isFullWidth={isFullWidth} {...props} ref={ref}>
         <span data-content>{children}</span>
         {(rightIcon || isLoading) && (
-          <BaseButtonIcon data-icon icon={rightIcon} isLoading={isLoading} />
+          <BaseButtonIcon
+            data-icon
+            icon={rightIcon}
+            innerWrapperProps={{ color: "positiveInverted" }}
+            isLoading={isLoading}
+          />
         )}
       </StyledBaseButton>
     )
