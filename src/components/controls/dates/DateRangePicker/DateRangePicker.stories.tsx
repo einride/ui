@@ -1,8 +1,11 @@
 import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
+import { DateTime } from "luxon"
 import { useState } from "react"
 import { DateRangePicker, DateRangePickerValue } from "./DateRangePicker"
+
+const DATE_FORMAT = "yyyy-MM-dd"
 
 export default {
   title: "Controls/Dates/DateRangePicker",
@@ -45,10 +48,9 @@ DefaultValue.args = {
 DefaultValue.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const input = canvas.getByRole("textbox", { name: "Label" })
+  const firstDayInCurrentMonth = DateTime.now().set({ day: 1 })
   await expect(input).toHaveValue(
-    `${new Date().getFullYear()}-${new Date().getMonth() + 1}-01 – ${new Date().getFullYear()}-${
-      new Date().getMonth() + 1
-    }-10`,
+    `${firstDayInCurrentMonth.toFormat(DATE_FORMAT)} – ${DateTime.now().toFormat(DATE_FORMAT)}`,
   )
 }
 
@@ -94,6 +96,8 @@ Mouse.args = {
 Mouse.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const input = canvas.getByRole("textbox", { name: "Label" })
+  const firstDayInCurrentMonth = DateTime.now().set({ day: 1 })
+  const fourthDayInCurrentMonth = DateTime.now().set({ day: 4 })
   await expect(input).toHaveValue("")
   await userEvent.click(input)
   const firstDayInCurrentMonthButton = canvas.getByRole("button", { name: "1" })
@@ -101,9 +105,9 @@ Mouse.play = async ({ canvasElement }) => {
   const fourthDayInCurrentMonthButton = canvas.getByRole("button", { name: "4" })
   await userEvent.click(fourthDayInCurrentMonthButton)
   await expect(input).toHaveValue(
-    `${new Date().getFullYear()}-${new Date().getMonth() + 1}-01 – ${new Date().getFullYear()}-${
-      new Date().getMonth() + 1
-    }-04`,
+    `${firstDayInCurrentMonth.toFormat(DATE_FORMAT)} – ${fourthDayInCurrentMonth.toFormat(
+      DATE_FORMAT,
+    )}`,
   )
   await userEvent.click(input)
   const previousMonthButton = canvas.getAllByRole("button")[0]
@@ -112,8 +116,10 @@ Mouse.play = async ({ canvasElement }) => {
   await userEvent.click(firstDayInLastMonthButton)
   const fourthDayInLastMonthButton = canvas.getByRole("button", { name: "4" })
   await userEvent.click(fourthDayInLastMonthButton)
+  const firstDayInLastMonth = DateTime.now().set({ day: 1 }).minus({ month: 1 })
+  const fourthDayInLastMonth = DateTime.now().set({ day: 4 }).minus({ month: 1 })
   await expect(input).toHaveValue(
-    `${new Date().getFullYear()}-${new Date().getMonth()}-01 – ${new Date().getFullYear()}-${new Date().getMonth()}-04`,
+    `${firstDayInLastMonth.toFormat(DATE_FORMAT)} – ${fourthDayInLastMonth.toFormat(DATE_FORMAT)}`,
   )
 }
 
@@ -124,6 +130,7 @@ Keyboard.args = {
 Keyboard.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const input = canvas.getByRole("textbox")
+  const firstDayInCurrentMonth = DateTime.now().set({ day: 1 })
   await expect(input).toHaveValue("")
   await expect(input).not.toHaveFocus()
   await userEvent.tab()
@@ -135,9 +142,9 @@ Keyboard.play = async ({ canvasElement }) => {
   await userEvent.keyboard("[ArrowRight]")
   await userEvent.keyboard("[Enter]")
   await expect(input).toHaveValue(
-    `${new Date().getFullYear()}-${new Date().getMonth() + 1}-01 – ${new Date().getFullYear()}-${
-      new Date().getMonth() + 1
-    }-04`,
+    `${firstDayInCurrentMonth.toFormat(DATE_FORMAT)} – ${firstDayInCurrentMonth.toFormat(
+      DATE_FORMAT,
+    )}`,
   )
   await userEvent.keyboard("[Enter]")
   await userEvent.tab()
@@ -146,7 +153,9 @@ Keyboard.play = async ({ canvasElement }) => {
   await userEvent.click(firstDayInLastMonthButton) // until keyboard navigation is fixed in Mantine component
   const fourthDayInLastMonthButton = canvas.getByRole("button", { name: "4" })
   await userEvent.click(fourthDayInLastMonthButton) // until keyboard navigation is fixed in Mantine component
+  const firstDayInLastMonth = DateTime.now().set({ day: 1 }).minus({ month: 1 })
+  const fourthDayInLastMonth = DateTime.now().set({ day: 4 }).minus({ month: 1 })
   await expect(input).toHaveValue(
-    `${new Date().getFullYear()}-${new Date().getMonth()}-01 – ${new Date().getFullYear()}-${new Date().getMonth()}-04`,
+    `${firstDayInLastMonth.toFormat(DATE_FORMAT)} – ${fourthDayInLastMonth.toFormat(DATE_FORMAT)}`,
   )
 }
