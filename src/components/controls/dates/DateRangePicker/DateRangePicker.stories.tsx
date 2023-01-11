@@ -49,8 +49,11 @@ DefaultValue.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const input = canvas.getByRole("textbox", { name: "Label" })
   const firstDayInCurrentMonth = DateTime.now().set({ day: 1 })
+  const tenthDayInCurrentMonth = DateTime.now().set({ day: 10 })
   await expect(input).toHaveValue(
-    `${firstDayInCurrentMonth.toFormat(DATE_FORMAT)} – ${DateTime.now().toFormat(DATE_FORMAT)}`,
+    `${firstDayInCurrentMonth.toFormat(DATE_FORMAT)} – ${tenthDayInCurrentMonth.toFormat(
+      DATE_FORMAT,
+    )}`,
   )
 }
 
