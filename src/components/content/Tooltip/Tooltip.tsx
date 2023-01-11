@@ -3,6 +3,7 @@ import styled from "@emotion/styled"
 import * as RadixTooltip from "@radix-ui/react-tooltip"
 import { ReactNode } from "react"
 import { useTheme } from "../../../hooks/useTheme"
+import { zIndex } from "../../../lib/zIndex"
 
 interface TooltipProps {
   /** Tooltip components. */
@@ -79,4 +80,5 @@ const StyledTooltipContent = styled(RadixTooltip.Content)`
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   padding-block: ${({ theme }) => 0.5 * theme.spacingBase}rem;
   padding-inline: ${({ theme }) => theme.spacingBase}rem;
+  z-index: ${zIndex.tooltip};
 `
