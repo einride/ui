@@ -140,12 +140,11 @@ Keyboard.play = async ({ canvasElement }) => {
   await expect(input).toHaveFocus()
   await userEvent.keyboard("[Enter]")
   await userEvent.keyboard("[Enter]")
-  await userEvent.keyboard("[ArrowRight]")
-  await userEvent.keyboard("[ArrowRight]")
-  await userEvent.keyboard("[ArrowRight]")
+  await userEvent.keyboard("[ArrowDown]")
   await userEvent.keyboard("[Enter]")
+  const eighthDayInCurrentMonth = DateTime.now().set({ day: 8 })
   await expect(input).toHaveValue(
-    `${firstDayInCurrentMonth.toFormat(DATE_FORMAT)} – ${firstDayInCurrentMonth.toFormat(
+    `${firstDayInCurrentMonth.toFormat(DATE_FORMAT)} – ${eighthDayInCurrentMonth.toFormat(
       DATE_FORMAT,
     )}`,
   )
@@ -154,11 +153,11 @@ Keyboard.play = async ({ canvasElement }) => {
   await userEvent.keyboard("[Enter]")
   const firstDayInLastMonthButton = canvas.getByRole("button", { name: "1" })
   await userEvent.click(firstDayInLastMonthButton) // until keyboard navigation is fixed in Mantine component
-  const fourthDayInLastMonthButton = canvas.getByRole("button", { name: "4" })
-  await userEvent.click(fourthDayInLastMonthButton) // until keyboard navigation is fixed in Mantine component
+  await userEvent.keyboard("[ArrowDown]")
+  await userEvent.keyboard("[Enter]")
   const firstDayInLastMonth = DateTime.now().set({ day: 1 }).minus({ month: 1 })
-  const fourthDayInLastMonth = DateTime.now().set({ day: 4 }).minus({ month: 1 })
+  const eighthDayInLastMonth = DateTime.now().set({ day: 8 }).minus({ month: 1 })
   await expect(input).toHaveValue(
-    `${firstDayInLastMonth.toFormat(DATE_FORMAT)} – ${fourthDayInLastMonth.toFormat(DATE_FORMAT)}`,
+    `${firstDayInLastMonth.toFormat(DATE_FORMAT)} – ${eighthDayInLastMonth.toFormat(DATE_FORMAT)}`,
   )
 }
