@@ -3,4 +3,5 @@ export const zIndex = {
   overlay: 200,
   sheets: 300,
   alert: 400,
+  tooltip: 500,
 }
