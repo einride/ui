@@ -8,7 +8,7 @@ import { Caption } from "../../../typography/Caption/Caption"
 import { Status } from "../../inputs/BaseInput/BaseInput"
 
 interface DatePickerBaseProps {
-  /** Whether to allow clearing value or not. Default it `false`. */
+  /** Whether to allow clearing value or not. Default is `false`. */
   clearable?: boolean
 
   /** Default value for uncontrolled input. */
@@ -105,6 +105,9 @@ const getMessageColor = (status: Status | undefined): ContentColor => {
 type DatePickerValue = Date | null
 
 interface StyledDatePickerProps {
+  /** Whether to allow clearing value or not. Default is `false`. */
+  clearable?: boolean
+
   hasLabel: boolean
 }
 
@@ -131,7 +134,8 @@ const StyledDatePicker = styled(MantineDatePicker, {
     inline-size: 100%;
     display: block;
     padding-block: ${({ theme }) => 1.5 * theme.spacingBase}rem;
-    padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem;
+    padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem
+      ${({ theme, clearable }) => (clearable ? 6 : 2) * theme.spacingBase}rem;
     block-size: unset;
     border-radius: ${({ hasLabel, theme }) =>
       hasLabel ? theme.borderRadii.sm : theme.borderRadii.xl};
@@ -156,18 +160,23 @@ const StyledDatePicker = styled(MantineDatePicker, {
       color: ${({ theme }) => theme.colors.content.tertiary};
     }
   }
-  .mantine-DatePicker-rightSection button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    svg {
-      display: none;
-    }
-    &::before {
-      font-family: ${({ theme }) => theme.fonts.body};
-      font-size: ${({ theme }) => theme.fontSizes.md};
-      color: ${({ theme }) => theme.colors.content.primary};
-      content: "❌";
+  .mantine-DatePicker-rightSection {
+    inset-inline-end: ${({ theme }) => 1 * theme.spacingBase}rem;
+    inline-size: ${({ theme }) => 3 * theme.spacingBase}rem;
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        display: none;
+      }
+      &::before {
+        font-family: ${({ theme }) => theme.fonts.body};
+        font-size: ${({ theme }) => theme.fontSizes.md};
+        color: ${({ theme }) => theme.colors.content.primary};
+        content: "❌";
+      }
     }
   }
   .mantine-DatePicker-dropdown {
