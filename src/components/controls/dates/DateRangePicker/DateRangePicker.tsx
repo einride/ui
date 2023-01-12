@@ -8,7 +8,7 @@ import { Caption } from "../../../typography/Caption/Caption"
 import { Status } from "../../inputs/BaseInput/BaseInput"
 
 interface DateRangePickerBaseProps {
-  /** Whether to allow clearing value or not. Default it `false`. */
+  /** Whether to allow clearing value or not. Default is `false`. */
   clearable?: boolean
 
   /** Default value for uncontrolled input. */
@@ -106,6 +106,9 @@ const getMessageColor = (status: Status | undefined): ContentColor => {
 export type DateRangePickerValue = [Date | null, Date | null]
 
 interface StyledDateRangePickerProps {
+  /** Whether to allow clearing value or not. Default is `false`. */
+  clearable?: boolean
+
   hasLabel: boolean
 }
 
@@ -121,6 +124,10 @@ const StyledDateRangePicker = styled(MantineDateRangePicker, {
     padding-block-start: 5px;
     padding-block-end: 3px;
   }
+  .mantine-DateRangePicker-wrapper {
+    min-inline-size: ${({ theme, clearable }) =>
+      (clearable ? 39 : 35) * theme.spacingBase}rem; // make sure range fits in input field
+  }
   .mantine-DateRangePicker-input {
     font-family: ${({ theme }) => theme.fonts.body};
     font-size: ${({ theme }) => theme.fontSizes.md};
@@ -131,10 +138,9 @@ const StyledDateRangePicker = styled(MantineDateRangePicker, {
     border: none;
     inline-size: 100%;
     display: block;
-    min-inline-size: ${({ theme }) =>
-      35 * theme.spacingBase}rem; // make sure range fits in input field
     padding-block: ${({ theme }) => 1.5 * theme.spacingBase}rem;
-    padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem;
+    padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem
+      ${({ theme, clearable }) => (clearable ? 6 : 2) * theme.spacingBase}rem;
     block-size: unset;
     border-radius: ${({ hasLabel, theme }) =>
       hasLabel ? theme.borderRadii.sm : theme.borderRadii.xl};
@@ -159,18 +165,23 @@ const StyledDateRangePicker = styled(MantineDateRangePicker, {
       color: ${({ theme }) => theme.colors.content.tertiary};
     }
   }
-  .mantine-DateRangePicker-rightSection button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    svg {
-      display: none;
-    }
-    &::before {
-      font-family: ${({ theme }) => theme.fonts.body};
-      font-size: ${({ theme }) => theme.fontSizes.md};
-      color: ${({ theme }) => theme.colors.content.primary};
-      content: "❌";
+  .mantine-DateRangePicker-rightSection {
+    inset-inline-end: ${({ theme }) => 1 * theme.spacingBase}rem;
+    inline-size: ${({ theme }) => 3 * theme.spacingBase}rem;
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        display: none;
+      }
+      &::before {
+        font-family: ${({ theme }) => theme.fonts.body};
+        font-size: ${({ theme }) => theme.fontSizes.md};
+        color: ${({ theme }) => theme.colors.content.primary};
+        content: "❌";
+      }
     }
   }
   .mantine-DateRangePicker-dropdown {
