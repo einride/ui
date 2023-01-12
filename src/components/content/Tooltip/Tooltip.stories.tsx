@@ -110,7 +110,7 @@ Multiline.args = {
 }
 Multiline.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const tooltipTrigger = canvas.getByRole("button", { name: "CO2e" })
+  const tooltipTrigger = canvas.getByRole("button", { name: "Tooltip trigger" })
   await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
 }
 
