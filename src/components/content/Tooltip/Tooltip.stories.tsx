@@ -101,6 +101,19 @@ Table.play = async ({ canvasElement }) => {
   await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
 }
 
+export const Multiline = Template.bind({})
+Multiline.args = {
+  children: "Tooltip trigger",
+  content:
+    "Some really really really really really really really really really really really really really really really really really really really really really really really long tooltip content.",
+  width: 50,
+}
+Multiline.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const tooltipTrigger = canvas.getByRole("button", { name: "Tooltip trigger" })
+  await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
+}
+
 export const Mouse = Template.bind({})
 Mouse.args = {
   ...Basic.args,
