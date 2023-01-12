@@ -1,3 +1,4 @@
+import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, forwardRef } from "react"
 import {
@@ -208,7 +209,11 @@ interface WrapperProps {
   width?: Width
 }
 
-const Wrapper = styled.div<WrapperProps>`
+const validPropsToAvoidForwarding = ["height", "width"] // valid HTML attributes that should not be forwarded
+
+const Wrapper = styled("div", {
+  shouldForwardProp: (prop) => isPropValid(prop) && !validPropsToAvoidForwarding.includes(prop),
+})<WrapperProps>`
   align-items: ${({ alignItems }) => alignItems};
   background: ${({ background, theme }) => background && getBackground(background, theme)};
   block-size: ${({ blockSize, theme }) => blockSize && getSpacing(blockSize, theme)};
