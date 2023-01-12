@@ -169,6 +169,8 @@ const DialogContent = styled(motion(Dialog.Content))<{ size: Size }>`
   background: ${({ theme }) => theme.colors.background.primaryElevated};
   border-start-start-radius: ${({ theme }) => theme.borderRadii.lg};
   border-start-end-radius: ${({ theme }) => theme.borderRadii.lg};
+  display: flex;
+  flex-direction: column;
   // prevent navigation bar from overflowing sheets
   overflow: hidden;
   z-index: ${zIndex.sheets};
@@ -179,6 +181,7 @@ const DialogContent = styled(motion(Dialog.Content))<{ size: Size }>`
     inset-inline-start: unset;
     border-end-start-radius: ${({ theme }) => theme.borderRadii.lg};
     border-end-end-radius: ${({ theme }) => theme.borderRadii.lg};
+    display: initial;
     inline-size: ${({ size, theme }) =>
       size === "sm"
         ? `calc((300% / 8) - 3 * ${theme.spacingBase}rem)` // to fit grid
@@ -221,14 +224,6 @@ const MdLgActions = styled.div`
 
 const Content = styled.div`
   padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem;
-  // make sure content is not hidden when actions are added
-  padding-block-end: ${({ theme }) => 2 * theme.spacingBase}rem;
-  &:where([data-primary-action="true"], [data-secondary-action="true"]) {
-    padding-block-end: ${({ theme }) => 10 * theme.spacingBase}rem;
-  }
-  &:where([data-primary-action="true"][data-secondary-action="true"]) {
-    padding-block-end: ${({ theme }) => 18 * theme.spacingBase}rem;
-  }
   // fix height to enable setting overflow-y
   block-size: calc(100% - ${({ theme }) => 10 * theme.spacingBase}rem);
   // when there's more content than room in the sheets, it should scroll and not overlow
@@ -240,9 +235,9 @@ const Content = styled.div`
 `
 
 const SmActions = styled.nav`
-  position: fixed;
-  inset-inline: ${({ theme }) => 2 * theme.spacingBase}rem;
-  inset-block-end: ${({ theme }) => 3 * theme.spacingBase}rem;
+  margin-inline: ${({ theme }) => 2 * theme.spacingBase}rem;
+  margin-block-start: ${({ theme }) => theme.spacingBase}rem;
+  margin-block-end: ${({ theme }) => 2 * theme.spacingBase}rem;
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => 2 * theme.spacingBase}rem;
