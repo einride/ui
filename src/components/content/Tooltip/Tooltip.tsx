@@ -3,7 +3,9 @@ import styled from "@emotion/styled"
 import * as RadixTooltip from "@radix-ui/react-tooltip"
 import { ReactNode } from "react"
 import { useTheme } from "../../../hooks/useTheme"
+import { Width } from "../../../lib/theme/props"
 import { zIndex } from "../../../lib/zIndex"
+import { Box } from "../../layout/Box/Box"
 
 interface TooltipProps {
   /** Tooltip components. */
@@ -20,6 +22,9 @@ interface TooltipProps {
 
   /** Merges the original component props with the props of the supplied component and change the underlying DOM node. */
   triggerAsChild?: boolean
+
+  /** Width of the tooltip. */
+  width?: Width
 }
 
 export const Tooltip = ({
@@ -39,8 +44,8 @@ export const Tooltip = ({
           {children}
         </StyledTooltipTrigger>
         <RadixTooltip.Portal>
-          <StyledTooltipContent collisionPadding={2 * theme.spacer} sideOffset={5} {...props}>
-            {content}
+          <StyledTooltipContent collisionPadding={2 * theme.spacer} sideOffset={5}>
+            <Box {...props}>{content}</Box>
           </StyledTooltipContent>
         </RadixTooltip.Portal>
       </RadixTooltip.Root>
