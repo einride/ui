@@ -2,7 +2,7 @@ import { useMediaQuery } from "@einride/hooks"
 import styled from "@emotion/styled"
 import * as Dialog from "@radix-ui/react-dialog"
 import { AnimatePresence, motion } from "framer-motion"
-import { ComponentPropsWithoutRef, CSSProperties, forwardRef, ReactNode } from "react"
+import { CSSProperties, ComponentPropsWithoutRef, ReactNode, forwardRef } from "react"
 import { useTheme } from "../../../hooks/useTheme"
 import { zIndex } from "../../../lib/zIndex"
 import { IconButton, IconButtonProps } from "../../controls/buttons/IconButton/IconButton"
@@ -27,11 +27,17 @@ export interface SheetsProps
   /** Event handler that closes the sheets. Used to make close on Escape or overlay click. */
   closeHandler: () => void
 
-  /** Controls whether sheets should close when clicking outside or not. Default is `true`. */
+  /**
+   * Controls whether sheets should close when clicking outside or not. Default is `true`.
+   * @deprecated since v7.10.0. Use `modal` instead.
+   */
   closeOnClickOutside?: boolean
 
   /** Controls whether the sheets is open or not. */
   isOpen: boolean
+
+  /** The modality of the sheets. When `true`, interaction with outside elements will be disabled, only dialog content will be visible to screen readers and an overlay will appear. Default is `true`. */
+  modal?: boolean
 
   /** Navigation action. */
   navigationAction?: (IconButtonProps & { "data-testid"?: string }) | undefined
@@ -56,7 +62,10 @@ export interface SheetsProps
   /** Size of the sheets. Default is `md`. */
   size?: Size
 
-  /** Whether or not to show an overlay. Default is `true`. */
+  /**
+   * Whether or not to show an overlay. Default is `true`.
+   * @deprecated since v7.10.0. Use `modal` instead.
+   */
   withOverlay?: boolean
 }
 
@@ -71,6 +80,7 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
       closeHandler,
       closeOnClickOutside = true,
       isOpen,
+      modal = true,
       navigationAction,
       navigationTitle,
       overlayProps,
@@ -86,7 +96,7 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
     const isAboveSm = useMediaQuery(theme.mediaQueries.md)
     return (
       <AnimatePresence>
-        <Dialog.Root open={isOpen}>
+        <Dialog.Root modal={modal} open={isOpen}>
           <Dialog.Portal>
             {withOverlay && (
               <DialogOverlay
@@ -103,7 +113,7 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
               size={size}
               onEscapeKeyDown={closeHandler}
               onPointerDownOutside={() => {
-                if (closeOnClickOutside) {
+                if (closeOnClickOutside && modal) {
                   closeHandler()
                 }
               }}
