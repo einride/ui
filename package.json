@@ -19,7 +19,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@einride/hooks": "1.7.1",
+    "@einride/hooks": "1.7.2",
     "@emotion/is-prop-valid": "1.2.0",
     "@mantine/core": "5.9.4",
     "@mantine/dates": "5.9.4",
