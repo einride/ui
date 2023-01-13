@@ -41,6 +41,7 @@ export type MarginInlineStart = SpacingInput
 export type MarginLeft = SpacingInput
 export type MarginRight = SpacingInput
 export type MarginTop = SpacingInput
+export type MaxWidth = SpacingInput
 export type Padding = SpacingInput
 export type PaddingBottom = SpacingInput
 export type PaddingBlock = SpacingInput
