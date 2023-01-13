@@ -47,6 +47,16 @@ Basic.play = async ({ canvasElement }) => {
   await expect(alert).toBeInTheDocument()
 }
 
+export const NonModal = Template.bind({})
+NonModal.args = {
+  modal: false,
+}
+NonModal.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement.parentElement ?? canvasElement)
+  const alert = canvas.getByRole("dialog")
+  await expect(alert).toBeInTheDocument()
+}
+
 const NavigationTemplate: ComponentStory<typeof Sheets> = (args) => {
   const { isOpen, handlers } = useDisclosure(false)
   return (
