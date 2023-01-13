@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 import * as RadixTooltip from "@radix-ui/react-tooltip"
 import { ReactNode } from "react"
 import { useTheme } from "../../../hooks/useTheme"
-import { Width } from "../../../lib/theme/props"
+import { MaxWidth, Width } from "../../../lib/theme/props"
 import { zIndex } from "../../../lib/zIndex"
 import { Box } from "../../layout/Box/Box"
 
@@ -19,6 +19,9 @@ interface TooltipProps {
 
   /** Determines whether or not to show a dashed underline on children as a tooltip hint. */
   hint?: boolean
+
+  /** Max width of the tooltip. */
+  maxWidth?: MaxWidth
 
   /** Merges the original component props with the props of the supplied component and change the underlying DOM node. */
   triggerAsChild?: boolean
