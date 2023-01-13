@@ -136,7 +136,7 @@ export interface BoxProps extends Omit<ComponentPropsWithoutRef<"div">, "color">
   marginTop?: MarginTop
 
   /** Max width of the box. */
-  maxWidth: MaxWidth
+  maxWidth?: MaxWidth
 
   /** Padding of the box. */
   padding?: Padding
