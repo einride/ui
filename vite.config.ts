@@ -16,7 +16,7 @@ export default defineConfig({
         ...Object.keys(pkg.peerDependencies ?? {}),
         "react/jsx-runtime",
       ],
-      plugins: [typescript({ tsconfig: resolve(__dirname, "./tsconfig.build.json") })],
+      plugins: [typescript({ tsconfig: resolve(__dirname, "tsconfig.build.json") })],
     },
   },
   test: {
