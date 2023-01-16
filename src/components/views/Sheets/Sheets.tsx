@@ -158,7 +158,7 @@ const DialogOverlay = styled(motion(Dialog.Overlay))`
   position: fixed;
   inset: 0;
   background: ${({ theme }) => theme.colors.background.focus};
-  z-index: ${zIndex.overlay};
+  z-index: ${zIndex.sheets - 10}; // below but close to sheets
 `
 
 const DialogContent = styled(motion(Dialog.Content))<{ size: Size }>`
