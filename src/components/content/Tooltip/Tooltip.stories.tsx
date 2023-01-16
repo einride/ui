@@ -101,6 +101,20 @@ Table.play = async ({ canvasElement }) => {
   await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
 }
 
+export const OpenDelay = Template.bind({})
+OpenDelay.args = {
+  children: "Text with tooltip that opens with a delay",
+  content: "Here's the tooltip!",
+  openDelayDuration: 700,
+}
+OpenDelay.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const tooltipTrigger = canvas.getByRole("button", {
+    name: "Text with tooltip that opens with a delay",
+  })
+  await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
+}
+
 export const Multiline = Template.bind({})
 Multiline.args = {
   children: "Tooltip trigger",
