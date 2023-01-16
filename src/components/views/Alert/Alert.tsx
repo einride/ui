@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import * as AlertDialog from "@radix-ui/react-alert-dialog"
 import { AnimatePresence, motion } from "framer-motion"
-import { ComponentPropsWithoutRef, CSSProperties, forwardRef, ReactNode } from "react"
+import { CSSProperties, ComponentPropsWithoutRef, ReactNode, forwardRef } from "react"
 import { zIndex } from "../../../lib/zIndex"
 import {
   PrimaryButton,
@@ -134,7 +134,7 @@ const AlertDialogOverlay = styled(motion(AlertDialog.Overlay))`
   position: fixed;
   inset: 0;
   background: ${({ theme }) => theme.colors.background.focus};
-  z-index: ${zIndex.overlay};
+  z-index: ${zIndex.alert - 10}; // below but close to alert
 `
 
 const AlertDialogContent = styled(motion(AlertDialog.Content))`
