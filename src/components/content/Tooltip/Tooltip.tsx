@@ -23,6 +23,9 @@ interface TooltipProps {
   /** Max width of the tooltip. */
   maxWidth?: MaxWidth
 
+  /** The duration from when the mouse enters a tooltip trigger until the tooltip opens. Default is `0`. */
+  openDelayDuration?: number
+
   /** Merges the original component props with the props of the supplied component and change the underlying DOM node. */
   triggerAsChild?: boolean
 
@@ -35,13 +38,14 @@ export const Tooltip = ({
   content,
   disabled,
   hint,
+  openDelayDuration = 0,
   triggerAsChild,
   ...props
 }: TooltipProps): JSX.Element => {
   const theme = useTheme()
   if (disabled) return <>{children}</>
   return (
-    <RadixTooltip.Provider delayDuration={0}>
+    <RadixTooltip.Provider delayDuration={openDelayDuration}>
       <RadixTooltip.Root>
         <StyledTooltipTrigger hint={hint} asChild={Boolean(triggerAsChild)}>
           {children}
