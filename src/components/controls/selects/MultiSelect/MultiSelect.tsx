@@ -12,7 +12,7 @@ import {
   useState,
   useId,
 } from "react"
-import { Box, zIndex } from "../../../../main"
+import { Box, useTheme, zIndex } from "../../../../main"
 import { SearchSelectOption } from "../SearchSelect/SearchSelectOption"
 // TODO move types
 import { BaseOption } from "../SearchSelect/types"
@@ -110,6 +110,7 @@ export const MultiSelect = <Option extends BaseOption>({
   const shadowElRef = useRef<HTMLElement>(null)
 
   const id = useId()
+  const theme = useTheme()
 
   const filteredOptions = useMemo<Option[]>(() => {
     return (options || [])?.filter((option) =>
@@ -271,8 +272,8 @@ export const MultiSelect = <Option extends BaseOption>({
   }
 
   useLayoutEffect(() => {
-    setInputWidth(Math.max(shadowElRef.current?.offsetWidth || 0, (isOpen ? 3 : 1) * 16))
-  }, [inputValue, isOpen])
+    setInputWidth(Math.max(shadowElRef.current?.offsetWidth || 0, (isOpen ? 8 : 4) * theme.spacer))
+  }, [inputValue, isOpen, theme.spacer])
 
   useLayoutEffect(() => {
     setContentWidth((optionWrapperRef.current?.clientWidth || 0) + inputWidth)
@@ -421,7 +422,7 @@ const InputWrapper = styled.div`
   position: relative;
   flex: 1 1 auto;
   inline-size: 100%;
-  transition: all 0.1s;
+  transition: min-inline-size 0.1s;
 `
 
 const Shadow = styled.span`
