@@ -10,6 +10,7 @@ import {
   useMemo,
   useRef,
   useState,
+  useId,
 } from "react"
 import { Box, zIndex } from "../../../../main"
 import { SearchSelectOption } from "../SearchSelect/SearchSelectOption"
@@ -90,6 +91,8 @@ export const MultiSelect = <Option extends BaseOption>({
   clearSearchAfterSelect,
   value,
   wrapperProps,
+  label,
+  labelProps,
   ...props
 }: MultiSelectProps<Option> &
   (MultiSelectWithLabelProps | MultiSelectWithoutLabelProps)): JSX.Element => {
@@ -105,6 +108,8 @@ export const MultiSelect = <Option extends BaseOption>({
   const optionWrapperRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const shadowElRef = useRef<HTMLElement>(null)
+
+  const id = useId()
 
   const filteredOptions = useMemo<Option[]>(() => {
     return (options || [])?.filter((option) =>
@@ -280,6 +285,9 @@ export const MultiSelect = <Option extends BaseOption>({
       onBlur={handleBlur}
       ref={outerWrapperRef}
     >
+      <StyledLabel {...labelProps} htmlFor={id}>
+        {label}
+      </StyledLabel>
       <Wrapper>
         <ScrollContent style={{ flex: `0 0 ${contentWidth}px` }}>
           <OptionWrapper ref={optionWrapperRef}>
@@ -303,6 +311,7 @@ export const MultiSelect = <Option extends BaseOption>({
           <InputWrapper style={{ minInlineSize: `${inputWidth}px` }}>
             <Input
               type="text"
+              id={id}
               value={inputValue}
               placeholder={placeholder}
               onKeyDown={handleInputKeyDown}
@@ -347,6 +356,17 @@ type Status = "success" | "fail" | "neutral"
 
 const OuterWrapper = styled(Box)`
   position: relative;
+`
+
+const StyledLabel = styled.label`
+  display: inline-block;
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-weight: ${({ theme }) => theme.fontWeights.book};
+  line-height: calc(4 / 3);
+  padding-block-start: 5px;
+  padding-block-end: 3px;
+  color: ${({ theme }) => theme.colors.content.secondary};
 `
 
 const Wrapper = styled.div<StyledInputProps>`
