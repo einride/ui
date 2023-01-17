@@ -11,6 +11,7 @@ import {
   useRef,
   useState,
   useId,
+  useEffect,
 } from "react"
 import { Box, useTheme, zIndex } from "../../../../main"
 import { SearchSelectOption } from "../SearchSelect/SearchSelectOption"
@@ -103,6 +104,7 @@ export const MultiSelect = <Option extends BaseOption>({
   const [inputValue, setInputValue] = useState("")
   const [inputWidth, setInputWidth] = useState(0)
   const [contentWidth, setContentWidth] = useState<number | undefined>()
+  const [dropdownMaxBlockSize, setDropdownMaxBlockSize] = useState<number | undefined>()
 
   const outerWrapperRef = useRef<HTMLInputElement>(null)
   const optionWrapperRef = useRef<HTMLInputElement>(null)
@@ -279,6 +281,13 @@ export const MultiSelect = <Option extends BaseOption>({
     setContentWidth((optionWrapperRef.current?.clientWidth || 0) + inputWidth)
   }, [inputWidth, isOpen, selectedOptions])
 
+  useEffect(() => {
+    const bottom = outerWrapperRef.current?.getBoundingClientRect().bottom || 0
+    setDropdownMaxBlockSize(
+      Math.max(window.innerHeight - bottom - 8 * theme.spacer, theme.spacer * 22),
+    )
+  }, [isOpen, theme.spacer])
+
   return (
     <OuterWrapper
       onKeyDown={handleKeyDown}
@@ -326,7 +335,7 @@ export const MultiSelect = <Option extends BaseOption>({
         </ScrollContent>
       </Wrapper>
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
-        <OptionsWrapper {...dropdownProps}>
+        <OptionsWrapper {...dropdownProps} style={{ maxBlockSize: `${dropdownMaxBlockSize}px` }}>
           {filteredOptions?.map((option, index) => (
             <SearchSelectOption
               key={option.key ?? option.value}
@@ -479,6 +488,8 @@ const OptionsWrapper = styled.div`
   flex-direction: column;
   gap: ${({ theme }) => theme.spacer}px;
   z-index: ${zIndex.dropdown};
+  overflow: auto;
+  overscroll-behavior: contain;
 `
 
 const OptionWrapper = styled.div`
