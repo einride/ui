@@ -31,6 +31,8 @@ interface MultiSelectBaseProps<Option> extends ComponentPropsWithoutRef<"input">
   /** If `false`, consumer have control over which options to pass to dropdown. Defaults to `true`. */
   isFilterable?: boolean
 
+  clearSearchAfterSelect?: boolean
+
   /** Message shown below input field. Can be used together with `status` to show a success or error message. */
   message?: ReactNode
 
@@ -85,6 +87,7 @@ export const MultiSelect = <Option extends BaseOption>({
   optionProps,
   placeholder = "Search...",
   isFilterable = true,
+  clearSearchAfterSelect,
   value,
   wrapperProps,
   ...props
@@ -136,7 +139,9 @@ export const MultiSelect = <Option extends BaseOption>({
       onOptionSelect?.(option)
       setSelectedOptions([...(selectedOptions || []), option])
     }
-    setInputValue("")
+    if (clearSearchAfterSelect) {
+      setInputValue("")
+    }
   }
 
   const handleInputKeyDown = (e: KeyboardEvent<HTMLInputElement>): void => {
