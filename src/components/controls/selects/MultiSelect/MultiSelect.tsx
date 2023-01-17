@@ -102,8 +102,8 @@ export const MultiSelect = <Option extends BaseOption>({
   const { isOpen, handlers } = useDisclosure(false)
 
   const [inputValue, setInputValue] = useState("")
-  const [inputWidth, setInputWidth] = useState(0)
-  const [contentWidth, setContentWidth] = useState<number | undefined>()
+  const [inputInlineSize, setInputInlineSize] = useState(0)
+  const [contentInlineSize, setContentInlineSize] = useState<number | undefined>()
   const [dropdownMaxBlockSize, setDropdownMaxBlockSize] = useState<number | undefined>()
 
   const outerWrapperRef = useRef<HTMLInputElement>(null)
@@ -274,12 +274,14 @@ export const MultiSelect = <Option extends BaseOption>({
   }
 
   useLayoutEffect(() => {
-    setInputWidth(Math.max(shadowElRef.current?.offsetWidth || 0, (isOpen ? 8 : 4) * theme.spacer))
+    setInputInlineSize(
+      Math.max(shadowElRef.current?.offsetWidth || 0, (isOpen ? 8 : 4) * theme.spacer),
+    )
   }, [inputValue, isOpen, theme.spacer])
 
   useLayoutEffect(() => {
-    setContentWidth((optionWrapperRef.current?.clientWidth || 0) + inputWidth)
-  }, [inputWidth, isOpen, selectedOptions])
+    setContentInlineSize((optionWrapperRef.current?.clientWidth || 0) + inputInlineSize)
+  }, [inputInlineSize, isOpen, selectedOptions])
 
   useEffect(() => {
     const bottom = outerWrapperRef.current?.getBoundingClientRect().bottom || 0
@@ -299,7 +301,7 @@ export const MultiSelect = <Option extends BaseOption>({
         {label}
       </StyledLabel>
       <Wrapper>
-        <ScrollContent style={{ flex: `0 0 ${contentWidth}px` }}>
+        <ScrollContent style={{ flex: `0 0 ${contentInlineSize}px` }}>
           <OptionWrapper ref={optionWrapperRef}>
             {selectedOptions
               // .slice(0, MAX_ITEMS)
@@ -318,7 +320,7 @@ export const MultiSelect = <Option extends BaseOption>({
               <Pill group>+ {selectedOptions.length - MAX_ITEMS}</Pill>
             )} */}
           </OptionWrapper>
-          <InputWrapper style={{ minInlineSize: `${inputWidth}px` }}>
+          <InputWrapper style={{ minInlineSize: `${inputInlineSize}px` }}>
             <Input
               type="text"
               id={id}
