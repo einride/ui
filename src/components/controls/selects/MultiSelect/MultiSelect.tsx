@@ -3,7 +3,6 @@ import styled from "@emotion/styled"
 import {
   ComponentPropsWithoutRef,
   FocusEvent,
-  HTMLAttributes,
   KeyboardEvent,
   MouseEvent,
   ReactNode,
@@ -94,10 +93,14 @@ export const MultiSelect = <Option extends BaseOption>({
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
   const [selectedOptions, setSelectedOptions] = useState<Option[]>([])
   const { isOpen, handlers } = useDisclosure(false)
-  const inputRef = useRef<HTMLInputElement>(null)
 
   const [inputValue, setInputValue] = useState("")
   const [inputWidth, setInputWidth] = useState(0)
+  const [contentWidth, setContentWidth] = useState<number | undefined>()
+
+  const outerWrapperRef = useRef<HTMLInputElement>(null)
+  const optionWrapperRef = useRef<HTMLInputElement>(null)
+  const inputRef = useRef<HTMLInputElement>(null)
   const shadowElRef = useRef<HTMLElement>(null)
 
   const filteredOptions = useMemo<Option[]>(() => {
@@ -106,9 +109,9 @@ export const MultiSelect = <Option extends BaseOption>({
     )
   }, [inputValue, options])
 
-  const handleInputBlur = (e: FocusEvent<HTMLInputElement>): void => {
-    // don't blur if click on an option has happened
-    if (!e.relatedTarget) {
+  const handleBlur = (e: FocusEvent<HTMLInputElement>): void => {
+    // don't blur if click on an option etc. has happened
+    if (!e.relatedTarget || !outerWrapperRef.current?.contains(e.relatedTarget)) {
       handlers.close()
     }
   }
@@ -143,8 +146,8 @@ export const MultiSelect = <Option extends BaseOption>({
       current?.selectionStart === 0 &&
       current?.selectionEnd === 0
     ) {
-      const previousElement = current?.parentElement?.previousElementSibling as HTMLElement
-      previousElement?.focus()
+      const lastOption = optionWrapperRef.current?.lastElementChild as HTMLElement
+      lastOption?.focus()
     }
   }
 
@@ -239,6 +242,16 @@ export const MultiSelect = <Option extends BaseOption>({
     }
   }
 
+  /**
+   * Focus input field when clicking on component
+   * @param e
+   */
+  const handlePillClick = (e: MouseEvent<HTMLButtonElement>): void => {
+    if (!isOpen) {
+      e.preventDefault()
+    }
+  }
+
   const handlePillFocus = (e: FocusEvent<HTMLButtonElement>): void => {
     e.target.scrollIntoView({
       behavior: "smooth",
@@ -251,23 +264,38 @@ export const MultiSelect = <Option extends BaseOption>({
     setInputWidth(Math.max(shadowElRef.current?.offsetWidth || 0, (isOpen ? 3 : 1) * 16))
   }, [inputValue, isOpen])
 
+  useLayoutEffect(() => {
+    setContentWidth((optionWrapperRef.current?.clientWidth || 0) + inputWidth)
+  }, [inputWidth, isOpen, selectedOptions])
+
   return (
-    <OuterWrapper onKeyDown={handleKeyDown} onClick={handleClick}>
+    <OuterWrapper
+      onKeyDown={handleKeyDown}
+      onClick={handleClick}
+      onBlur={handleBlur}
+      ref={outerWrapperRef}
+    >
       <Wrapper>
-        <ScrollContent inlineSize={inputWidth}>
-          {selectedOptions.slice(0, MAX_ITEMS).map((option) => (
-            <Pill
-              onFocus={handlePillFocus}
-              onKeyDown={(e) => handlePillKeyDown(e, option)}
-              key={option.key ?? option.value}
-            >
-              {option.label}
-            </Pill>
-          ))}
-          {selectedOptions.length > MAX_ITEMS && (
-            <Pill group>+ {selectedOptions.length - MAX_ITEMS}</Pill>
-          )}
-          <InputWrapper inlineSize={inputWidth}>
+        <ScrollContent style={{ flex: `0 0 ${contentWidth}px` }}>
+          <OptionWrapper ref={optionWrapperRef}>
+            {selectedOptions
+              // .slice(0, MAX_ITEMS)
+              .map((option) => (
+                <Pill
+                  onFocus={handlePillFocus}
+                  onKeyDown={(e) => handlePillKeyDown(e, option)}
+                  onMouseDown={handlePillClick}
+                  key={option.key ?? option.value}
+                  tabIndex={isOpen ? 0 : -1}
+                >
+                  {option.label}
+                </Pill>
+              ))}
+            {/* {selectedOptions.length > MAX_ITEMS && (
+              <Pill group>+ {selectedOptions.length - MAX_ITEMS}</Pill>
+            )} */}
+          </OptionWrapper>
+          <InputWrapper style={{ minInlineSize: `${inputWidth}px` }}>
             <Input
               type="text"
               value={inputValue}
@@ -275,7 +303,6 @@ export const MultiSelect = <Option extends BaseOption>({
               onKeyDown={handleInputKeyDown}
               onChange={(e) => handleInputChange(e.target.value)}
               onFocus={handleInputFocus}
-              onBlur={handleInputBlur}
               // onClearInput={handleClearInput}
               ref={inputRef}
             />
@@ -305,10 +332,6 @@ export const MultiSelect = <Option extends BaseOption>({
       )}
     </OuterWrapper>
   )
-}
-
-interface InputProps extends HTMLAttributes<HTMLParagraphElement> {
-  inlineSize?: number
 }
 
 interface StyledInputProps {
@@ -363,21 +386,15 @@ const Wrapper = styled.div<StyledInputProps>`
   }
 `
 
-const ScrollContent = styled.div<InputProps>`
+const ScrollContent = styled.div`
   display: flex;
   min-inline-size: 100%;
   justify-content: flex-end;
-  // flex: 1 0 auto;
-  // display: grid;
-  // grid-auto-flow: row;
-  // grid-template-columns: 200px 200px ${({ inlineSize }) => `${inlineSize}px`};
-  // flex: 1 0 auto;
 `
 
-const InputWrapper = styled.div<InputProps>`
+const InputWrapper = styled.div`
   position: relative;
   flex: 1 1 auto;
-  min-inline-size: ${({ inlineSize }) => `${inlineSize}px`};
   inline-size: 100%;
   transition: all 0.1s;
 `
@@ -436,4 +453,9 @@ const OptionsWrapper = styled.div`
   flex-direction: column;
   gap: ${({ theme }) => theme.spacer}px;
   z-index: ${zIndex.dropdown};
+`
+
+const OptionWrapper = styled.div`
+  display: flex;
+  flex: 0 1 auto;
 `
