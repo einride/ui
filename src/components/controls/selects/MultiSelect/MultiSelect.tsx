@@ -14,13 +14,14 @@ import {
   useEffect,
 } from "react"
 import { Box, useTheme, zIndex } from "../../../../main"
-import { SearchSelectOption } from "../SearchSelect/SearchSelectOption"
+import { BoxProps } from "../../../layout/Box/Box"
 // TODO move types
+import { SearchSelectOption } from "../SearchSelect/SearchSelectOption"
 import { BaseOption } from "../SearchSelect/types"
 
-const MAX_ITEMS = 2
+// const MAX_ITEMS = 2
 
-interface MultiSelectBaseProps<Option> extends ComponentPropsWithoutRef<"input"> {
+interface MultiSelectBaseProps<Option> {
   /** Props passed to the clear button element. */
   clearButtonProps?: ComponentPropsWithoutRef<"button"> & { "data-testid": string }
 
@@ -53,14 +54,18 @@ interface MultiSelectBaseProps<Option> extends ComponentPropsWithoutRef<"input">
   /** Props passed to the individual options. */
   optionProps?: ComponentPropsWithoutRef<"div">
 
+  inputProps?: ComponentPropsWithoutRef<"input">
+
   /**  Default is `neutral`. */
   status?: Status
 
   /** Controlled input value. */
-  value: string
+  value: Option[]
 
   /** Props passed to root element. */
-  wrapperProps?: ComponentPropsWithoutRef<"div">
+  wrapperProps?: BoxProps
+
+  placeholder?: string
 }
 
 interface MultiSelectWithLabelProps {
@@ -88,17 +93,17 @@ export const MultiSelect = <Option extends BaseOption>({
   options,
   optionProps,
   placeholder = "Search...",
-  isFilterable = true,
+  // isFilterable = true,
   clearSearchAfterSelect,
   value,
   wrapperProps,
   label,
   labelProps,
-  ...props
+  inputProps,
 }: MultiSelectProps<Option> &
   (MultiSelectWithLabelProps | MultiSelectWithoutLabelProps)): JSX.Element => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
-  const [selectedOptions, setSelectedOptions] = useState<Option[]>([])
+  const [selectedOptions, setSelectedOptions] = useState<Option[]>(value || [])
   const { isOpen, handlers } = useDisclosure(false)
 
   const [inputValue, setInputValue] = useState("")
@@ -228,13 +233,15 @@ export const MultiSelect = <Option extends BaseOption>({
     const previousTarget = target.previousElementSibling as HTMLElement
     const nextTarget = target.nextElementSibling as HTMLElement
 
+    if (e.key !== "Tab") {
+      e.preventDefault()
+    }
+
     if (e.key === "ArrowLeft") {
       previousTarget?.focus()
-      previousTarget?.scrollIntoView()
     } else if (e.key === "ArrowRight") {
       if (nextTarget && nextTarget.tabIndex > -1) {
         nextTarget?.focus()
-        nextTarget?.scrollIntoView()
       } else {
         inputRef.current?.focus()
       }
@@ -250,7 +257,6 @@ export const MultiSelect = <Option extends BaseOption>({
     }
 
     if (e.key === "Enter") {
-      e.preventDefault()
       e.stopPropagation()
     }
   }
@@ -269,7 +275,7 @@ export const MultiSelect = <Option extends BaseOption>({
     e.target.scrollIntoView({
       behavior: "smooth",
       block: "nearest",
-      inline: "end",
+      inline: "nearest",
     })
   }
 
@@ -296,10 +302,13 @@ export const MultiSelect = <Option extends BaseOption>({
       onClick={handleClick}
       onBlur={handleBlur}
       ref={outerWrapperRef}
+      {...wrapperProps}
     >
-      <StyledLabel {...labelProps} htmlFor={id}>
-        {label}
-      </StyledLabel>
+      {label && (
+        <StyledLabel {...labelProps} htmlFor={id}>
+          {label}
+        </StyledLabel>
+      )}
       <Wrapper>
         <ScrollContent style={{ flex: `0 0 ${contentInlineSize}px` }}>
           <OptionWrapper ref={optionWrapperRef}>
@@ -331,6 +340,7 @@ export const MultiSelect = <Option extends BaseOption>({
               onFocus={handleInputFocus}
               // onClearInput={handleClearInput}
               ref={inputRef}
+              {...inputProps}
             />
             <Shadow ref={shadowElRef}>{inputValue}</Shadow>
           </InputWrapper>
