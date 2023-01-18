@@ -332,7 +332,7 @@ export const MultiSelect = <Option extends BaseOption>({
               onKeyDown={handleInputKeyDown}
               onChange={(e) => handleInputChange(e.target.value)}
               onFocus={handleInputFocus}
-              // onClearInput={handleClearInput}
+              autoComplete="off"
               ref={inputRef}
               {...inputProps}
             />
