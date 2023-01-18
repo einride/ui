@@ -448,6 +448,7 @@ const ScrollContent = styled.div`
   display: flex;
   min-inline-size: 100%;
   justify-content: flex-end;
+  align-items: center;
 `
 
 const InputWrapper = styled.div`
@@ -478,12 +479,12 @@ const Input = styled.input`
 `
 
 const Pill = styled.button<{ group?: boolean }>`
-  background-color: #ccc;
+  background-color: ${({ theme }) => theme.colors.background.tertiary};
   border-radius: 2rem;
   flex: ${({ group }) => (group ? "0 0 auto" : "1 0 auto")};
   // max-inline-size: 50%;
   min-inline-size: ${({ group }) => (group ? "none" : "10rem")};
-  padding: 0.125rem 1rem;
+  padding: 0 ${({ theme }) => 2 * theme.spacingBase}rem;
   margin: 0 ${({ theme }) => 0.5 * theme.spacingBase}rem;
   white-space: nowrap;
   overflow: hidden;
@@ -496,6 +497,7 @@ const Pill = styled.button<{ group?: boolean }>`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    margin: 0;
   }
 `
 
