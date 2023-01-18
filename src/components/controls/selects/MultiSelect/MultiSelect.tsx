@@ -99,9 +99,8 @@ export const MultiSelect = <Option extends BaseOption>({
   clearSearchAfterSelect,
   value,
   wrapperProps,
-  label,
-  labelProps,
   inputProps,
+  ...props
 }: MultiSelectProps<Option> &
   (MultiSelectWithLabelProps | MultiSelectWithoutLabelProps)): JSX.Element => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
@@ -307,9 +306,9 @@ export const MultiSelect = <Option extends BaseOption>({
       ref={outerWrapperRef}
       {...wrapperProps}
     >
-      {label && (
-        <StyledLabel {...labelProps} htmlFor={id}>
-          {label}
+      {"label" in props && (
+        <StyledLabel {...props.labelProps} htmlFor={id}>
+          {props.label}
         </StyledLabel>
       )}
       <Wrapper>
