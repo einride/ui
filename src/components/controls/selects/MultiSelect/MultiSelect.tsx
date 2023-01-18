@@ -1,5 +1,6 @@
 import { useDisclosure } from "@einride/hooks"
 import styled from "@emotion/styled"
+import { motion } from "framer-motion"
 import {
   ComponentPropsWithoutRef,
   FocusEvent,
@@ -13,7 +14,7 @@ import {
   useId,
   useEffect,
 } from "react"
-import { Box, useTheme, zIndex } from "../../../../main"
+import { Box, Icon, useTheme, zIndex } from "../../../../main"
 import { BoxProps } from "../../../layout/Box/Box"
 // TODO move types
 import { SearchSelectOption } from "../SearchSelect/SearchSelectOption"
@@ -87,6 +88,7 @@ type MultiSelectProps<Option> = MultiSelectBaseProps<Option> &
 export const MultiSelect = <Option extends BaseOption>({
   dropdownProps,
   // filter = defaultFilter,
+  clearButtonProps,
   onClearClick,
   onOptionSelect,
   onSearchChange,
@@ -178,10 +180,7 @@ export const MultiSelect = <Option extends BaseOption>({
   }
 
   const handleClearInput = (): void => {
-    onSearchChange?.("")
-    setSelectedIndex(null)
-    onClearClick?.()
-    inputRef?.current?.focus()
+    setInputValue("")
   }
 
   const handleClick = (e: MouseEvent<HTMLDivElement>): void => {
@@ -348,6 +347,13 @@ export const MultiSelect = <Option extends BaseOption>({
             />
             <Shadow ref={shadowElRef}>{inputValue}</Shadow>
           </InputWrapper>
+          {inputValue ? (
+            <ClearButton type="button" onClick={handleClearInput} {...clearButtonProps}>
+              <StyledIcon name="xMark" />
+            </ClearButton>
+          ) : (
+            <StyledIcon name="chevronRight" animate={{ rotate: isOpen ? 90 : 0 }} />
+          )}
         </ScrollContent>
       </Wrapper>
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
@@ -512,4 +518,17 @@ const OptionsWrapper = styled.div`
 const OptionWrapper = styled.div`
   display: flex;
   flex: 0 1 auto;
+`
+
+const ClearButton = styled.button``
+
+const StyledIcon = styled(motion(Icon))`
+  flex: 0 0 ${({ theme }) => 3 * theme.spacingBase}rem;
+  inset-block: ${({ theme }) => 1.5 * theme.spacingBase}rem;
+  block-size: ${({ theme }) => 3 * theme.spacingBase}rem;
+  inline-size: ${({ theme }) => 3 * theme.spacingBase}rem;
+  margin-inline-end: ${({ theme }) => -1 * theme.spacingBase}rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
