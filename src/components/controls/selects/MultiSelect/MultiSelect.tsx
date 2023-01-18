@@ -363,6 +363,7 @@ export const MultiSelect = <Option extends BaseOption>({
               }}
               onMouseOver={() => handleMouseOver(index)}
               onMouseLeave={handleMouseLeave}
+              tabIndex={-1}
               {...optionProps}
             >
               {option.label}
