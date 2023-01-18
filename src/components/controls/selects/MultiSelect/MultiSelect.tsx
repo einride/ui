@@ -180,6 +180,7 @@ export const MultiSelect = <Option extends BaseOption>({
 
   const handleClearInput = (): void => {
     setInputValue("")
+    onClearClick?.()
   }
 
   const handleClick = (e: MouseEvent<HTMLDivElement>): void => {
