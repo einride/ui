@@ -86,7 +86,7 @@ interface MultiSelectWithoutLabelProps {
 type MultiSelectProps<Option> = MultiSelectBaseProps<Option> &
   (MultiSelectWithLabelProps | MultiSelectWithoutLabelProps)
 
-type Direction = "up" | "down"
+type Direction = "start" | "end"
 
 export const MultiSelect = <Option extends BaseOption>({
   dropdownProps,
@@ -108,7 +108,7 @@ export const MultiSelect = <Option extends BaseOption>({
   (MultiSelectWithLabelProps | MultiSelectWithoutLabelProps)): JSX.Element => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
   const [selectedOptions, setSelectedOptions] = useState<Option[]>(value || [])
-  const [direction, setDirection] = useState<Direction>("down")
+  const [direction, setDirection] = useState<Direction>("end")
   const { isOpen, handlers } = useDisclosure(false)
 
   const [inputValue, setInputValue] = useState("")
@@ -203,7 +203,7 @@ export const MultiSelect = <Option extends BaseOption>({
   const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>): void => {
     if (e.key === "ArrowDown") {
       e.preventDefault()
-      setDirection("down")
+      setDirection("end")
       if (isOpen && filteredOptions) {
         if (selectedIndex === null) {
           setSelectedIndex(0)
@@ -217,7 +217,7 @@ export const MultiSelect = <Option extends BaseOption>({
 
     if (e.key === "ArrowUp") {
       e.preventDefault()
-      setDirection("up")
+      setDirection("start")
       if (isOpen) {
         if (selectedIndex !== null && selectedIndex > 0) {
           setSelectedIndex(selectedIndex - 1)
@@ -308,7 +308,7 @@ export const MultiSelect = <Option extends BaseOption>({
     if (typeof selectedIndex === "number") {
       const currentOption = filteredOptions[selectedIndex]
       targetRef.current = optionRefs.current[currentOption.key || currentOption.value]
-      scrollIntoView({ alignment: direction === "down" ? "end" : "start" })
+      scrollIntoView({ alignment: direction })
     }
   }, [selectedIndex, filteredOptions, optionRefs, targetRef, scrollIntoView, direction])
 
