@@ -1,5 +1,6 @@
 import { useDisclosure } from "@einride/hooks"
 import styled from "@emotion/styled"
+import { useScrollIntoView } from "@mantine/hooks"
 import { motion } from "framer-motion"
 import {
   ComponentPropsWithoutRef,
@@ -8,6 +9,7 @@ import {
   MouseEvent,
   ReactNode,
   useLayoutEffect,
+  useEffect,
   useMemo,
   useRef,
   useState,
@@ -84,6 +86,8 @@ interface MultiSelectWithoutLabelProps {
 type MultiSelectProps<Option> = MultiSelectBaseProps<Option> &
   (MultiSelectWithLabelProps | MultiSelectWithoutLabelProps)
 
+type Direction = "up" | "down"
+
 export const MultiSelect = <Option extends BaseOption>({
   dropdownProps,
   // filter = defaultFilter,
@@ -104,6 +108,7 @@ export const MultiSelect = <Option extends BaseOption>({
   (MultiSelectWithLabelProps | MultiSelectWithoutLabelProps)): JSX.Element => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
   const [selectedOptions, setSelectedOptions] = useState<Option[]>(value || [])
+  const [direction, setDirection] = useState<Direction>("down")
   const { isOpen, handlers } = useDisclosure(false)
 
   const [inputValue, setInputValue] = useState("")
@@ -114,9 +119,16 @@ export const MultiSelect = <Option extends BaseOption>({
   const optionWrapperRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const shadowElRef = useRef<HTMLElement>(null)
+  const optionRefs = useRef<Record<string, HTMLDivElement>>({})
 
   const id = useId()
   const theme = useTheme()
+  const { scrollIntoView, targetRef, scrollableRef } = useScrollIntoView({
+    duration: 0,
+    offset: 5,
+    cancelable: false,
+    isList: true,
+  })
 
   const filteredOptions = useMemo<Option[]>(() => {
     return (options || [])?.filter((option) =>
@@ -191,6 +203,7 @@ export const MultiSelect = <Option extends BaseOption>({
   const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>): void => {
     if (e.key === "ArrowDown") {
       e.preventDefault()
+      setDirection("down")
       if (isOpen && filteredOptions) {
         if (selectedIndex === null) {
           setSelectedIndex(0)
@@ -204,6 +217,7 @@ export const MultiSelect = <Option extends BaseOption>({
 
     if (e.key === "ArrowUp") {
       e.preventDefault()
+      setDirection("up")
       if (isOpen) {
         if (selectedIndex !== null && selectedIndex > 0) {
           setSelectedIndex(selectedIndex - 1)
@@ -290,6 +304,14 @@ export const MultiSelect = <Option extends BaseOption>({
     setContentInlineSize((optionWrapperRef.current?.clientWidth || 0) + inputInlineSize)
   }, [inputInlineSize, isOpen, selectedOptions])
 
+  useEffect(() => {
+    if (typeof selectedIndex === "number") {
+      const currentOption = filteredOptions[selectedIndex]
+      targetRef.current = optionRefs.current[currentOption.key || currentOption.value]
+      scrollIntoView({ alignment: direction === "down" ? "end" : "start" })
+    }
+  }, [selectedIndex, filteredOptions, optionRefs, targetRef, scrollIntoView, direction])
+
   return (
     <OuterWrapper
       onKeyDown={handleKeyDown}
@@ -348,7 +370,7 @@ export const MultiSelect = <Option extends BaseOption>({
         </ScrollContent>
       </Wrapper>
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
-        <OptionsWrapper {...dropdownProps}>
+        <OptionsWrapper {...dropdownProps} ref={scrollableRef}>
           {filteredOptions?.map((option, index) => (
             <SearchSelectOption
               key={option.key ?? option.value}
@@ -361,6 +383,9 @@ export const MultiSelect = <Option extends BaseOption>({
               onMouseOver={() => handleMouseOver(index)}
               onMouseLeave={handleMouseLeave}
               tabIndex={-1}
+              ref={(node: HTMLDivElement) => {
+                optionRefs.current[option.key ?? option.value] = node
+              }}
               {...optionProps}
             >
               {option.label}
