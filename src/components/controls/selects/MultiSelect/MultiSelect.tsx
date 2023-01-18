@@ -265,18 +265,22 @@ export const MultiSelect = <Option extends BaseOption>({
    * Focus input field when clicking on component
    * @param e
    */
-  const handlePillClick = (e: MouseEvent<HTMLButtonElement>): void => {
+  const handlePillMouseDown = (e: MouseEvent<HTMLButtonElement>): void => {
     if (!isOpen) {
       e.preventDefault()
     }
   }
 
-  const handlePillFocus = (e: FocusEvent<HTMLButtonElement>): void => {
+  const handlePillFocus = (e: FocusEvent<HTMLButtonElement>, option: Option): void => {
     e.target.scrollIntoView({
       behavior: "smooth",
       block: "nearest",
       inline: "nearest",
     })
+    const index = filteredOptions?.findIndex((o) => o === option)
+    if (index > -1) {
+      setSelectedIndex(index)
+    }
   }
 
   useLayoutEffect(() => {
@@ -316,9 +320,9 @@ export const MultiSelect = <Option extends BaseOption>({
               // .slice(0, MAX_ITEMS)
               .map((option) => (
                 <Pill
-                  onFocus={handlePillFocus}
+                  onFocus={(e) => handlePillFocus(e, option)}
                   onKeyDown={(e) => handlePillKeyDown(e, option)}
-                  onMouseDown={handlePillClick}
+                  onMouseDown={handlePillMouseDown}
                   key={option.key ?? option.value}
                   tabIndex={isOpen ? 0 : -1}
                 >
