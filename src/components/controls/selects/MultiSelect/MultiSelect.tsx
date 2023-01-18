@@ -12,7 +12,6 @@ import {
   useRef,
   useState,
   useId,
-  useEffect,
 } from "react"
 import { Box, Icon, useTheme, zIndex } from "../../../../main"
 import { BoxProps } from "../../../layout/Box/Box"
@@ -110,7 +109,6 @@ export const MultiSelect = <Option extends BaseOption>({
   const [inputValue, setInputValue] = useState("")
   const [inputInlineSize, setInputInlineSize] = useState(0)
   const [contentInlineSize, setContentInlineSize] = useState<number | undefined>()
-  const [dropdownMaxBlockSize, setDropdownMaxBlockSize] = useState<number | undefined>()
 
   const outerWrapperRef = useRef<HTMLInputElement>(null)
   const optionWrapperRef = useRef<HTMLInputElement>(null)
@@ -292,13 +290,6 @@ export const MultiSelect = <Option extends BaseOption>({
     setContentInlineSize((optionWrapperRef.current?.clientWidth || 0) + inputInlineSize)
   }, [inputInlineSize, isOpen, selectedOptions])
 
-  useEffect(() => {
-    const bottom = outerWrapperRef.current?.getBoundingClientRect().bottom || 0
-    setDropdownMaxBlockSize(
-      Math.max(window.innerHeight - bottom - 8 * theme.spacer, theme.spacer * 22),
-    )
-  }, [isOpen, theme.spacer])
-
   return (
     <OuterWrapper
       onKeyDown={handleKeyDown}
@@ -357,7 +348,7 @@ export const MultiSelect = <Option extends BaseOption>({
         </ScrollContent>
       </Wrapper>
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
-        <OptionsWrapper {...dropdownProps} style={{ maxBlockSize: `${dropdownMaxBlockSize}px` }}>
+        <OptionsWrapper {...dropdownProps}>
           {filteredOptions?.map((option, index) => (
             <SearchSelectOption
               key={option.key ?? option.value}
@@ -505,6 +496,7 @@ const OptionsWrapper = styled.div`
   position: absolute;
   inset-block-start: 100%;
   inset-inline: 0;
+  block-size: ${({ theme }) => 29 * theme.spacingBase}rem;
   background: ${({ theme }) => theme.colors.background.secondaryElevated};
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   margin-block-start: ${({ theme }) => theme.spacer}px;
