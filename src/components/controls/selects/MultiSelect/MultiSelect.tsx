@@ -21,8 +21,6 @@ import { BoxProps } from "../../../layout/Box/Box"
 import { SearchSelectOption } from "../SearchSelect/SearchSelectOption"
 import { BaseOption } from "../SearchSelect/types"
 
-// const MAX_ITEMS = 2
-
 interface MultiSelectBaseProps<Option> {
   /** Props passed to the clear button element. */
   clearButtonProps?: ComponentPropsWithoutRef<"button"> & { "data-testid": string }
@@ -293,11 +291,6 @@ export const MultiSelect = <Option extends BaseOption>({
   }
 
   const handlePillFocus = (e: FocusEvent<HTMLButtonElement>, option: Option): void => {
-    // e.target.scrollIntoView({
-    //   behavior: "smooth",
-    //   block: "nearest",
-    //   inline: "nearest",
-    // })
     pillScroller.targetRef.current = e.target
     pillScroller.scrollIntoView({ alignment: direction })
     const index = filteredOptions?.findIndex((o) => o === option)
@@ -349,22 +342,17 @@ export const MultiSelect = <Option extends BaseOption>({
       <Wrapper ref={pillScroller.scrollableRef}>
         <ScrollContent style={{ flex: `0 0 ${contentInlineSize}px` }}>
           <OptionWrapper ref={optionWrapperRef}>
-            {selectedOptions
-              // .slice(0, MAX_ITEMS)
-              .map((option) => (
-                <Pill
-                  onFocus={(e) => handlePillFocus(e, option)}
-                  onKeyDown={(e) => handlePillKeyDown(e, option)}
-                  onMouseDown={handlePillMouseDown}
-                  key={option.key ?? option.value}
-                  tabIndex={isOpen ? 0 : -1}
-                >
-                  {option.label}
-                </Pill>
-              ))}
-            {/* {selectedOptions.length > MAX_ITEMS && (
-              <Pill group>+ {selectedOptions.length - MAX_ITEMS}</Pill>
-            )} */}
+            {selectedOptions.map((option) => (
+              <Pill
+                onFocus={(e) => handlePillFocus(e, option)}
+                onKeyDown={(e) => handlePillKeyDown(e, option)}
+                onMouseDown={handlePillMouseDown}
+                key={option.key ?? option.value}
+                tabIndex={isOpen ? 0 : -1}
+              >
+                {option.label}
+              </Pill>
+            ))}
           </OptionWrapper>
           <InputWrapper style={{ minInlineSize: `${inputInlineSize}px` }}>
             <Input
@@ -515,12 +503,9 @@ const Input = styled.input`
   }
 `
 
-const Pill = styled.button<{ group?: boolean }>`
+const Pill = styled.button`
   background-color: ${({ theme }) => theme.colors.background.tertiary};
   border-radius: 2rem;
-  flex: ${({ group }) => (group ? "0 0 auto" : "1 0 auto")};
-  // max-inline-size: 50%;
-  min-inline-size: ${({ group }) => (group ? "none" : "10rem")};
   padding: 0 ${({ theme }) => 2 * theme.spacingBase}rem;
   margin: 0 ${({ theme }) => 0.5 * theme.spacingBase}rem;
   white-space: nowrap;
