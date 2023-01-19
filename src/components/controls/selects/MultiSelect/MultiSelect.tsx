@@ -371,7 +371,7 @@ export const MultiSelect = <Option extends BaseOption>({
               type="text"
               id={id}
               value={inputValue}
-              placeholder={placeholder}
+              placeholder={selectedOptions.length ? "" : placeholder}
               onKeyDown={handleInputKeyDown}
               onChange={(e) => handleInputChange(e.target.value)}
               onFocus={handleInputFocus}
