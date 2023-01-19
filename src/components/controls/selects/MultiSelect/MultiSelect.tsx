@@ -123,11 +123,18 @@ export const MultiSelect = <Option extends BaseOption>({
 
   const id = useId()
   const theme = useTheme()
-  const { scrollIntoView, targetRef, scrollableRef } = useScrollIntoView({
+  const dropdownScroller = useScrollIntoView({
     duration: 0,
     offset: 5,
     cancelable: false,
     isList: true,
+  })
+  const pillScroller = useScrollIntoView({
+    duration: 0,
+    offset: 5,
+    cancelable: false,
+    isList: true,
+    axis: "x",
   })
 
   const filteredOptions = useMemo<Option[]>(() => {
@@ -250,13 +257,16 @@ export const MultiSelect = <Option extends BaseOption>({
 
     if (e.key === "ArrowLeft") {
       previousTarget?.focus()
+      setDirection("start")
     } else if (e.key === "ArrowRight") {
+      setDirection("end")
       if (nextTarget && nextTarget.tabIndex > -1) {
         nextTarget?.focus()
       } else {
         inputRef.current?.focus()
       }
     } else if (e.key === "Backspace" || e.key === "Enter") {
+      setDirection("end")
       setSelectedOptions(selectedOptions.filter((selectedOption) => selectedOption !== option))
       if (previousTarget && previousTarget.tabIndex > -1) {
         previousTarget.focus()
@@ -283,11 +293,13 @@ export const MultiSelect = <Option extends BaseOption>({
   }
 
   const handlePillFocus = (e: FocusEvent<HTMLButtonElement>, option: Option): void => {
-    e.target.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "nearest",
-    })
+    // e.target.scrollIntoView({
+    //   behavior: "smooth",
+    //   block: "nearest",
+    //   inline: "nearest",
+    // })
+    pillScroller.targetRef.current = e.target
+    pillScroller.scrollIntoView({ alignment: direction })
     const index = filteredOptions?.findIndex((o) => o === option)
     if (index > -1) {
       setSelectedIndex(index)
@@ -302,15 +314,24 @@ export const MultiSelect = <Option extends BaseOption>({
 
   useLayoutEffect(() => {
     setContentInlineSize((optionWrapperRef.current?.clientWidth || 0) + inputInlineSize)
-  }, [inputInlineSize, isOpen, selectedOptions])
+  }, [inputInlineSize, isOpen, optionWrapperRef, selectedOptions])
 
   useEffect(() => {
-    if (typeof selectedIndex === "number") {
+    if (typeof selectedIndex === "number" && filteredOptions[selectedIndex]) {
       const currentOption = filteredOptions[selectedIndex]
-      targetRef.current = optionRefs.current[currentOption.key || currentOption.value]
-      scrollIntoView({ alignment: direction })
+      dropdownScroller.targetRef.current =
+        optionRefs.current[currentOption.key || currentOption.value]
+      dropdownScroller.scrollIntoView({ alignment: direction })
     }
-  }, [selectedIndex, filteredOptions, optionRefs, targetRef, scrollIntoView, direction])
+  }, [
+    selectedIndex,
+    filteredOptions,
+    optionRefs,
+    dropdownScroller.targetRef,
+    dropdownScroller.scrollIntoView,
+    direction,
+    dropdownScroller,
+  ])
 
   return (
     <OuterWrapper
@@ -325,7 +346,7 @@ export const MultiSelect = <Option extends BaseOption>({
           {props.label}
         </StyledLabel>
       )}
-      <Wrapper>
+      <Wrapper ref={pillScroller.scrollableRef}>
         <ScrollContent style={{ flex: `0 0 ${contentInlineSize}px` }}>
           <OptionWrapper ref={optionWrapperRef}>
             {selectedOptions
@@ -370,7 +391,7 @@ export const MultiSelect = <Option extends BaseOption>({
         </ScrollContent>
       </Wrapper>
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
-        <OptionsWrapper {...dropdownProps} ref={scrollableRef}>
+        <OptionsWrapper {...dropdownProps} ref={dropdownScroller.scrollableRef}>
           {filteredOptions?.map((option, index) => (
             <SearchSelectOption
               key={option.key ?? option.value}
