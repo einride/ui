@@ -104,7 +104,6 @@ export const MultiSelect = <Option extends BaseOption>({
   }
 
   const handleOptionSelect = (option: Option): void => {
-    onSearchChange?.(option.value)
     inputRef.current?.focus()
     if (selectedOptions.includes(option)) {
       const newOptions = selectedOptions.filter((selectedOption) => selectedOption !== option)
@@ -114,6 +113,7 @@ export const MultiSelect = <Option extends BaseOption>({
       setSelectedOptions(newOptions)
     }
     if (clearSearchAfterSelect) {
+      onSearchChange?.("")
       setInputValue("")
     }
   }
@@ -141,6 +141,7 @@ export const MultiSelect = <Option extends BaseOption>({
   const handleClearInput = (): void => {
     setSelectedOptions([])
     setInputValue("")
+    onSearchChange?.("")
     onClearClick?.()
   }
 

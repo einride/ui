@@ -6,6 +6,7 @@ import { MultiSelect } from "./MultiSelect"
 export default {
   title: "Controls/Selects/MultiSelect",
   component: MultiSelect,
+  argTypes: { onSelectionChange: { action: "onSelectionChange" } },
 } as ComponentMeta<typeof MultiSelect>
 const basicOptions = [
   {
