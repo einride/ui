@@ -76,7 +76,8 @@ export const MultiSelectInput = <Option extends BaseOption>({
     }
   }
 
-  const handleClearInput = (): void => {
+  const handleClearInput = (e: MouseEvent | KeyboardEvent): void => {
+    e.stopPropagation()
     onSelectionChange([])
     onSearchChange("")
     onSearchChange?.("")
@@ -204,7 +205,12 @@ export const MultiSelectInput = <Option extends BaseOption>({
           </ScrollContent>
         </Scroller>
         {inputValue || selectedOptions.length ? (
-          <ClearButton type="button" onClick={handleClearInput} {...clearButtonProps}>
+          <ClearButton
+            type="button"
+            onClick={handleClearInput}
+            onKeyDown={handleClearInput}
+            {...clearButtonProps}
+          >
             <StyledIcon name="xMark" />
           </ClearButton>
         ) : (
