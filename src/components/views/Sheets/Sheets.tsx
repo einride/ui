@@ -111,6 +111,7 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
               exit={{ opacity: 0 }}
               initial={{ opacity: 0 }}
               size={size}
+              onBlur={(e) => e.stopPropagation()} // to prevent weird focus bugs with interactive components such as <SearchSelect>, where focus is blurred and then immediately reapplied when clicking on an option in modal mode
               onEscapeKeyDown={closeHandler}
               onPointerDownOutside={() => {
                 if (closeOnClickOutside && modal) {
