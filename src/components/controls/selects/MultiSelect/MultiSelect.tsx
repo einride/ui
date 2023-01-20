@@ -194,6 +194,7 @@ export const MultiSelect = <Option extends BaseOption>({
   }
 
   const handleClearInput = (): void => {
+    setSelectedOptions([])
     setInputValue("")
     onClearClick?.()
   }
@@ -369,7 +370,7 @@ export const MultiSelect = <Option extends BaseOption>({
             />
             <Shadow ref={shadowElRef}>{inputValue}</Shadow>
           </InputWrapper>
-          {inputValue ? (
+          {inputValue || selectedOptions.length ? (
             <ClearButton type="button" onClick={handleClearInput} {...clearButtonProps}>
               <StyledIcon name="xMark" />
             </ClearButton>
