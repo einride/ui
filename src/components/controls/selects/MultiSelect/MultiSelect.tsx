@@ -342,7 +342,7 @@ export const MultiSelect = <Option extends BaseOption>({
       )}
       <Wrapper ref={pillScroller.scrollableRef}>
         <ScrollContent style={{ flex: `0 0 ${contentInlineSize}px` }}>
-          <OptionWrapper ref={optionWrapperRef}>
+          <SelectedOptionsWrapper ref={optionWrapperRef}>
             {selectedOptions.map((option) => (
               <Pill
                 onFocus={(e) => handlePillFocus(e, option)}
@@ -354,7 +354,7 @@ export const MultiSelect = <Option extends BaseOption>({
                 {option.label}
               </Pill>
             ))}
-          </OptionWrapper>
+          </SelectedOptionsWrapper>
           <InputWrapper style={{ minInlineSize: `${inputInlineSize}px` }}>
             <Input
               type="text"
@@ -542,7 +542,7 @@ const OptionsWrapper = styled.div`
   overscroll-behavior: contain;
 `
 
-const OptionWrapper = styled.div`
+const SelectedOptionsWrapper = styled.div`
   display: flex;
   flex: 0 1 auto;
 `
