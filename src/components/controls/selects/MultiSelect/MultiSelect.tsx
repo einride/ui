@@ -324,7 +324,14 @@ export const MultiSelect = <Option extends BaseOption>({
       const currentOption = filteredOptions[selectedIndex]
       dropdownScroller.targetRef.current =
         optionRefs.current[currentOption.key || currentOption.value]
-      dropdownScroller.scrollIntoView({ alignment: direction })
+
+      let alignment = direction
+      // if option is above scroll view
+      const { top } = dropdownScroller.targetRef.current?.getBoundingClientRect() || {}
+      if (top < 0) {
+        alignment = "start"
+      }
+      dropdownScroller.scrollIntoView({ alignment })
     }
   }, [
     selectedIndex,
