@@ -382,7 +382,7 @@ export const MultiSelect = <Option extends BaseOption>({
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
         <OptionsWrapper {...dropdownProps} ref={dropdownScroller.scrollableRef}>
           {filteredOptions?.map((option, index) => (
-            <SearchSelectOption
+            <StyledSearchSelectOption
               key={option.key ?? option.value}
               isSelected={index === selectedIndex}
               isActive={selectedOptions.includes(option)}
@@ -399,7 +399,8 @@ export const MultiSelect = <Option extends BaseOption>({
               {...optionProps}
             >
               {option.label}
-            </SearchSelectOption>
+              {selectedOptions.includes(option) && <StyledCheckIcon name="arrowRight" />}
+            </StyledSearchSelectOption>
           ))}
         </OptionsWrapper>
       )}
@@ -547,6 +548,18 @@ const SelectedOptionsWrapper = styled.div`
   flex: 0 1 auto;
 `
 
+const StyledSearchSelectOption = styled(SearchSelectOption)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  > * {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+`
+
 const ClearButton = styled.button``
 
 const StyledIcon = styled(motion(Icon))`
@@ -556,6 +569,17 @@ const StyledIcon = styled(motion(Icon))`
   inline-size: ${({ theme }) => 3 * theme.spacingBase}rem;
   margin-inline-end: ${({ theme }) => -1 * theme.spacingBase}rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const StyledCheckIcon = styled(motion(Icon))`
+  flex: 0 0 ${({ theme }) => 3 * theme.spacingBase}rem;
+  inset-block: ${({ theme }) => 1.5 * theme.spacingBase}rem;
+  block-size: ${({ theme }) => 3 * theme.spacingBase}rem;
+  inline-size: ${({ theme }) => 3 * theme.spacingBase}rem;
+  margin-inline-start: ${({ theme }) => 2 * theme.spacingBase}rem;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
 `
