@@ -252,6 +252,23 @@ LargeDataset.args = {
   clearSearchAfterSelect: false,
 }
 
+const ControlledTemplate: ComponentStory<typeof MultiSelect<(typeof basicOptions)[0]>> = (args) => {
+  const [selectedOption, setSelectedOption] = useState([basicOptions[0]])
+  return (
+    <MultiSelect
+      {...args}
+      onSelectionChange={(options) => setSelectedOption(options)}
+      value={selectedOption}
+    />
+  )
+}
+
+export const Controlled = ControlledTemplate.bind({})
+Controlled.args = {
+  ...Basic.args,
+  options: basicOptions,
+}
+
 export const Message = Template.bind({})
 Message.args = {
   ...Basic.args,

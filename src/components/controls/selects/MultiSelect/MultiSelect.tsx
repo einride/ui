@@ -17,6 +17,7 @@ import { Box, Caption, ContentColor, Icon, useTheme, zIndex } from "../../../../
 // TODO move types
 import { SearchSelectOption } from "../SearchSelect/SearchSelectOption"
 import { BaseOption } from "../SearchSelect/types"
+import { useSelectedOptions } from "./MultiSelect.hook"
 
 import {
   MultiSelectWithLabelProps,
@@ -31,7 +32,7 @@ export const MultiSelect = <Option extends BaseOption>({
   // filter = defaultFilter,
   clearButtonProps,
   onClearClick,
-  onOptionSelect,
+  onSelectionChange,
   onSearchChange,
   options,
   optionProps,
@@ -106,10 +107,11 @@ export const MultiSelect = <Option extends BaseOption>({
     onSearchChange?.(option.value)
     inputRef.current?.focus()
     if (selectedOptions.includes(option)) {
-      setSelectedOptions(selectedOptions.filter((selectedOption) => selectedOption !== option))
+      const newOptions = selectedOptions.filter((selectedOption) => selectedOption !== option)
+      setSelectedOptions(newOptions)
     } else {
-      onOptionSelect?.(option)
-      setSelectedOptions([...(selectedOptions || []), option])
+      const newOptions = [...(selectedOptions || []), option]
+      setSelectedOptions(newOptions)
     }
     if (clearSearchAfterSelect) {
       setInputValue("")
@@ -209,7 +211,8 @@ export const MultiSelect = <Option extends BaseOption>({
       }
     } else if (e.key === "Backspace" || e.key === "Enter") {
       setDirection("end")
-      setSelectedOptions(selectedOptions.filter((selectedOption) => selectedOption !== option))
+      const newOptions = selectedOptions.filter((selectedOption) => selectedOption !== option)
+      setSelectedOptions(newOptions)
       if (previousTarget && previousTarget.tabIndex > -1) {
         previousTarget.focus()
       } else if (nextTarget && nextTarget.tabIndex > -1) {
