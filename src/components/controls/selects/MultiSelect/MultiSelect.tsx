@@ -290,6 +290,15 @@ export const MultiSelect = <Option extends BaseOption>({
       e.preventDefault()
     }
   }
+  /**
+   * Don't blur input field on label click
+   * @param e
+   */
+  const handleLabelMouseDown = (e: MouseEvent<HTMLLabelElement>): void => {
+    if (isOpen) {
+      e.preventDefault()
+    }
+  }
 
   const handlePillFocus = (e: FocusEvent<HTMLButtonElement>, option: Option): void => {
     pillScroller.targetRef.current = e.target
@@ -336,7 +345,7 @@ export const MultiSelect = <Option extends BaseOption>({
       {...wrapperProps}
     >
       {"label" in props && (
-        <StyledLabel {...props.labelProps} htmlFor={id}>
+        <StyledLabel {...props.labelProps} htmlFor={id} onMouseDown={handleLabelMouseDown}>
           {props.label}
         </StyledLabel>
       )}
