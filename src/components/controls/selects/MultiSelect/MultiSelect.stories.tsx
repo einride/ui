@@ -251,3 +251,16 @@ LargeDataset.args = {
   options: largeDataset,
   clearSearchAfterSelect: false,
 }
+
+export const Message = Template.bind({})
+Message.args = {
+  ...Basic.args,
+  message: "Message.",
+}
+
+export const ErrorMessage = Template.bind({})
+ErrorMessage.args = {
+  ...Basic.args,
+  message: "Error Message.",
+  status: "fail",
+}

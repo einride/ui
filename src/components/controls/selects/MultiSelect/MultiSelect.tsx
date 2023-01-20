@@ -15,7 +15,7 @@ import {
   useState,
   useId,
 } from "react"
-import { Box, Icon, useTheme, zIndex } from "../../../../main"
+import { Box, Caption, ContentColor, Icon, useTheme, zIndex } from "../../../../main"
 import { BoxProps } from "../../../layout/Box/Box"
 // TODO move types
 import { SearchSelectOption } from "../SearchSelect/SearchSelectOption"
@@ -101,6 +101,8 @@ export const MultiSelect = <Option extends BaseOption>({
   value,
   wrapperProps,
   inputProps,
+  message,
+  status,
   ...props
 }: MultiSelectProps<Option> &
   (MultiSelectWithLabelProps | MultiSelectWithoutLabelProps)): JSX.Element => {
@@ -120,6 +122,7 @@ export const MultiSelect = <Option extends BaseOption>({
   const optionRefs = useRef<Record<string, HTMLDivElement>>({})
 
   const id = useId()
+  const messageId = useId()
   const theme = useTheme()
   const dropdownScroller = useScrollIntoView({
     duration: 0,
@@ -384,6 +387,9 @@ export const MultiSelect = <Option extends BaseOption>({
               onFocus={handleInputFocus}
               autoComplete="off"
               ref={inputRef}
+              aria-errormessage={status === "fail" && message ? messageId : undefined}
+              aria-describedby={status !== "fail" && message ? messageId : undefined}
+              aria-invalid={status === "fail"}
               {...inputProps}
             />
             <Shadow ref={shadowElRef}>{inputValue}</Shadow>
@@ -397,6 +403,11 @@ export const MultiSelect = <Option extends BaseOption>({
           )}
         </ScrollContent>
       </Wrapper>
+      {message && (
+        <Caption color={getMessageColor(status)} id={messageId}>
+          {message}
+        </Caption>
+      )}
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
         <OptionsWrapper {...dropdownProps} ref={dropdownScroller.scrollableRef}>
           {filteredOptions?.map((option, index) => (
@@ -601,3 +612,14 @@ const StyledCheckIcon = styled(motion(Icon))`
   justify-content: center;
   align-items: center;
 `
+
+const getMessageColor = (status: Status | undefined): ContentColor => {
+  switch (status) {
+    case "success":
+      return "positive"
+    case "fail":
+      return "negative"
+    default:
+      return "secondary"
+  }
+}
