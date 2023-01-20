@@ -4,7 +4,7 @@ import { BaseOption } from "../SearchSelect/types"
 type SelectedOptionsReturnType<Option> = [Option[], (options: Option[]) => void]
 
 export const useSelectedOptions = <Option extends BaseOption>(
-  value: Option[],
+  value: Option[] | undefined,
   onSelectionChange?: (options: Option[]) => void,
 ): SelectedOptionsReturnType<Option> => {
   const isControlled = value !== undefined

@@ -1,10 +1,45 @@
 import { ComponentPropsWithoutRef, ReactNode } from "react"
 import { BoxProps } from "../../../layout/Box/Box"
 
-export interface MultiSelectBaseProps<Option> {
+export interface MultiSelectInputBaseProps<Option> {
+  isOpen: boolean
+
+  onFocusToggle: (isOpen: boolean) => void
+
+  onIndexSelect: (index: number) => void
+
+  filteredOptions: Option[]
+
+  selectedOptions: Option[]
+
+  inputValue: string
+}
+
+export interface MultiSelectInputSharedProps<Option> {
+  placeholder?: string
+
+  /**  Default is `neutral`. */
+  status?: Status
+
+  /** Message shown below input field. Can be used together with `status` to show a success or error message. */
+  message?: ReactNode
+
+  inputProps?: ComponentPropsWithoutRef<"input"> & { "data-testid": string }
+
   /** Props passed to the clear button element. */
   clearButtonProps?: ComponentPropsWithoutRef<"button"> & { "data-testid": string }
 
+  /** Callback called when the input field is updated. */
+  onSearchChange: (value: string) => void
+
+  /** Callback called when the selection changes. */
+  onSelectionChange: (options: Option[]) => void
+
+  /** Callback called when the clear button is clicked. */
+  onClearClick?: () => void
+}
+
+export interface MultiSelectBaseProps<Option> {
   /** Props passed to dropdown element. */
   dropdownProps?: ComponentPropsWithoutRef<"div"> & { "data-testid": string }
 
@@ -16,36 +51,17 @@ export interface MultiSelectBaseProps<Option> {
 
   clearSearchAfterSelect?: boolean
 
-  /** Message shown below input field. Can be used together with `status` to show a success or error message. */
-  message?: ReactNode
-
-  /** Callback called when the clear button is clicked. */
-  onClearClick?: () => void
-
-  /** Callback called when the selection changes. */
-  onSelectionChange?: (options: Option[]) => void
-
-  /** Callback called when the input field is updated. */
-  onSearchChange?: (value: string) => void
-
   /** Options to render in dropdown. */
   options: Option[] | undefined
 
   /** Props passed to the individual options. */
   optionProps?: ComponentPropsWithoutRef<"div">
 
-  inputProps?: ComponentPropsWithoutRef<"input">
-
-  /**  Default is `neutral`. */
-  status?: Status
-
   /** Controlled input value. */
-  value: Option[]
+  value?: Option[]
 
   /** Props passed to root element. */
   wrapperProps?: BoxProps
-
-  placeholder?: string
 }
 
 export interface MultiSelectWithLabelProps {
@@ -61,7 +77,12 @@ export interface MultiSelectWithoutLabelProps {
   "aria-label": string
 }
 
-export type MultiSelectProps<Option> = MultiSelectBaseProps<Option> &
+export type MultiSelectInputProps<Option> = MultiSelectInputBaseProps<Option> &
+  MultiSelectInputSharedProps<Option> &
+  (MultiSelectWithLabelProps | MultiSelectWithoutLabelProps)
+
+export type MultiSelectProps<Option> = Partial<MultiSelectInputSharedProps<Option>> &
+  MultiSelectBaseProps<Option> &
   (MultiSelectWithLabelProps | MultiSelectWithoutLabelProps)
 
 export type Direction = "start" | "end"
