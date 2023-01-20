@@ -97,7 +97,7 @@ export const MultiSelect = <Option extends BaseOption>({
   optionProps,
   placeholder = "Search...",
   // isFilterable = true,
-  clearSearchAfterSelect,
+  clearSearchAfterSelect = true,
   value,
   wrapperProps,
   inputProps,
@@ -530,7 +530,7 @@ const OptionsWrapper = styled.div`
   position: absolute;
   inset-block-start: 100%;
   inset-inline: 0;
-  max-block-size: ${({ theme }) => 29 * theme.spacingBase}rem;
+  max-block-size: ${({ theme }) => 25 * theme.spacingBase}rem;
   background: ${({ theme }) => theme.colors.background.secondaryElevated};
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   margin-block-start: ${({ theme }) => theme.spacer}px;
