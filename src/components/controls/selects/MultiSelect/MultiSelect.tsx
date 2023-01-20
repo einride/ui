@@ -123,13 +123,13 @@ export const MultiSelect = <Option extends BaseOption>({
   const theme = useTheme()
   const dropdownScroller = useScrollIntoView({
     duration: 0,
-    offset: 5,
+    offset: theme.spacer,
     cancelable: false,
     isList: true,
   })
   const pillScroller = useScrollIntoView({
     duration: 0,
-    offset: 5,
+    offset: theme.spacer,
     cancelable: false,
     isList: true,
     axis: "x",
@@ -541,7 +541,7 @@ const OptionsWrapper = styled.div`
   position: absolute;
   inset-block-start: 100%;
   inset-inline: 0;
-  max-block-size: ${({ theme }) => 25 * theme.spacingBase}rem;
+  max-block-size: ${({ theme }) => 26 * theme.spacingBase}rem;
   background: ${({ theme }) => theme.colors.background.secondaryElevated};
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   margin-block-start: ${({ theme }) => theme.spacer}px;
