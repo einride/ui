@@ -441,7 +441,7 @@ const Wrapper = styled.div<StyledInputProps>`
   background: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.content.primary};
   inline-size: 100%;
-  padding-block: ${({ theme }) => 1.5 * theme.spacingBase}rem;
+  padding-block: ${({ theme }) => theme.spacingBase}rem;
   padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem;
   border-radius: ${({ theme }) => theme.borderRadii.sm};
 
@@ -481,10 +481,13 @@ const InputWrapper = styled.div`
   flex: 1 1 auto;
   inline-size: 100%;
   transition: min-inline-size 0.1s;
+  block-size: ${({ theme }) => 4 * theme.spacingBase}rem;
+  line-height: ${({ theme }) => 4 * theme.spacingBase}rem;
 `
 
 const Shadow = styled.span`
-  padding-inline: 10px;
+  // add some error margin
+  padding-inline: ${({ theme }) => 1 * theme.spacingBase}rem;
   white-space: pre;
   opacity: 0;
   visibility: hidden;
@@ -494,7 +497,6 @@ const Shadow = styled.span`
 
 const Input = styled.input`
   background: transparent;
-  padding-inline: 10px;
   position: absolute;
   inset: 0;
 
@@ -506,7 +508,7 @@ const Input = styled.input`
 const Pill = styled.button`
   background-color: ${({ theme }) => theme.colors.background.tertiary};
   border-radius: 2rem;
-  padding: 0 ${({ theme }) => 2 * theme.spacingBase}rem;
+  padding: ${({ theme }) => 0.5 * theme.spacingBase}rem ${({ theme }) => 2 * theme.spacingBase}rem;
   margin: 0 ${({ theme }) => 0.5 * theme.spacingBase}rem;
   white-space: nowrap;
   overflow: hidden;
@@ -527,14 +529,13 @@ const OptionsWrapper = styled.div`
   position: absolute;
   inset-block-start: 100%;
   inset-inline: 0;
-  block-size: ${({ theme }) => 29 * theme.spacingBase}rem;
+  max-block-size: ${({ theme }) => 29 * theme.spacingBase}rem;
   background: ${({ theme }) => theme.colors.background.secondaryElevated};
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   margin-block-start: ${({ theme }) => theme.spacer}px;
   padding: ${({ theme }) => theme.spacer}px;
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacer}px;
   z-index: ${zIndex.dropdown};
   overflow: auto;
   overscroll-behavior: contain;
