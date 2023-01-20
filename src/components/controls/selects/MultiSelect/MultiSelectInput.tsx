@@ -279,7 +279,7 @@ const Scroller = styled.div`
   flex: 1 1 auto;
   padding-inline-start: ${({ theme }) => 2 * theme.spacingBase}rem;
   display: flex;
-  flex-direction: row-reverse;
+  justify-content: flex-end;
 
   &::-webkit-scrollbar {
     display: none;
