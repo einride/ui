@@ -5,7 +5,6 @@ import { MenuItem } from "../../../menus/MenuItem/MenuItem"
 export interface SearchSelectOptionProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode
   isSelected: boolean
-  isActive?: boolean
 }
 
 export const SearchSelectOption = forwardRef<HTMLDivElement, SearchSelectOptionProps>(

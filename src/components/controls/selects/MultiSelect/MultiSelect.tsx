@@ -385,7 +385,6 @@ export const MultiSelect = <Option extends BaseOption>({
             <StyledSearchSelectOption
               key={option.key ?? option.value}
               isSelected={index === selectedIndex}
-              isActive={selectedOptions.includes(option)}
               onClick={(e) => {
                 e.stopPropagation()
                 handleOptionSelect(option)
