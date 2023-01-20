@@ -351,19 +351,21 @@ export const MultiSelect = <Option extends BaseOption>({
       )}
       <Wrapper ref={pillScroller.scrollableRef}>
         <ScrollContent style={{ flex: `0 0 ${contentInlineSize}px` }}>
-          <SelectedOptionsWrapper ref={optionWrapperRef}>
-            {selectedOptions.map((option) => (
-              <Pill
-                onFocus={(e) => handlePillFocus(e, option)}
-                onKeyDown={(e) => handlePillKeyDown(e, option)}
-                onMouseDown={handlePillMouseDown}
-                key={option.key ?? option.value}
-                tabIndex={isOpen ? 0 : -1}
-              >
-                {option.label}
-              </Pill>
-            ))}
-          </SelectedOptionsWrapper>
+          {selectedOptions.length ? (
+            <SelectedOptionsWrapper ref={optionWrapperRef}>
+              {selectedOptions.map((option) => (
+                <Pill
+                  onFocus={(e) => handlePillFocus(e, option)}
+                  onKeyDown={(e) => handlePillKeyDown(e, option)}
+                  onMouseDown={handlePillMouseDown}
+                  key={option.key ?? option.value}
+                  tabIndex={isOpen ? 0 : -1}
+                >
+                  {option.label}
+                </Pill>
+              ))}
+            </SelectedOptionsWrapper>
+          ) : null}
           <InputWrapper style={{ minInlineSize: `${inputInlineSize}px` }}>
             <Input
               type="text"
@@ -484,6 +486,7 @@ const ScrollContent = styled.div`
   min-inline-size: 100%;
   justify-content: flex-end;
   align-items: center;
+  gap: ${({ theme }) => theme.spacingBase}rem;
 `
 
 const InputWrapper = styled.div`
@@ -517,9 +520,8 @@ const Input = styled.input`
 
 const Pill = styled.button`
   background-color: ${({ theme }) => theme.colors.background.tertiary};
-  border-radius: 2rem;
-  padding: ${({ theme }) => 0.5 * theme.spacingBase}rem ${({ theme }) => 2 * theme.spacingBase}rem;
-  margin: 0 ${({ theme }) => 0.5 * theme.spacingBase}rem;
+  border-radius: ${({ theme }) => theme.borderRadii.sm};
+  padding: ${({ theme }) => 0.5 * theme.spacingBase}rem ${({ theme }) => theme.spacingBase}rem;
   white-space: nowrap;
   overflow: hidden;
 
@@ -554,6 +556,7 @@ const OptionsWrapper = styled.div`
 const SelectedOptionsWrapper = styled.div`
   display: flex;
   flex: 0 1 auto;
+  gap: ${({ theme }) => theme.spacingBase}rem;
 `
 
 const StyledSearchSelectOption = styled(SearchSelectOption)`
