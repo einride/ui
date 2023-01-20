@@ -39,7 +39,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
   const theme = useTheme()
 
   const [inputInlineSize, setInputInlineSize] = useState(0)
-  const [contentInlineSize, setContentInlineSize] = useState<number | undefined>()
+  const [contentInlineSize, setContentInlineSize] = useState(0)
   const [direction, setDirection] = useState<Direction>("start")
 
   const optionWrapperRef = useRef<HTMLInputElement>(null)
@@ -165,49 +165,53 @@ export const MultiSelectInput = <Option extends BaseOption>({
           {props.label}
         </StyledLabel>
       )}
-      <Wrapper ref={pillScroller.scrollableRef}>
-        <ScrollContent style={{ flex: `0 0 ${contentInlineSize}px` }}>
-          {selectedOptions.length ? (
-            <SelectedOptionsWrapper ref={optionWrapperRef}>
-              {selectedOptions.map((option) => (
-                <Pill
-                  onFocus={(e) => handlePillFocus(e, option)}
-                  onKeyDown={(e) => handlePillKeyDown(e, option)}
-                  onMouseDown={handlePillMouseDown}
-                  key={option.key ?? option.value}
-                  tabIndex={isOpen ? 0 : -1}
-                >
-                  {option.label}
-                </Pill>
-              ))}
-            </SelectedOptionsWrapper>
-          ) : null}
-          <InputWrapper style={{ minInlineSize: `${inputInlineSize}px` }}>
-            <Input
-              type="text"
-              id={id}
-              value={inputValue}
-              placeholder={selectedOptions.length ? "" : placeholder}
-              onKeyDown={handleInputKeyDown}
-              onChange={(e) => handleInputChange(e.target.value)}
-              onFocus={handleInputFocus}
-              autoComplete="off"
-              ref={inputRef}
-              aria-errormessage={status === "fail" && message ? messageId : undefined}
-              aria-describedby={status !== "fail" && message ? messageId : undefined}
-              aria-invalid={status === "fail"}
-              {...inputProps}
-            />
-            <Shadow ref={shadowElRef}>{inputValue}</Shadow>
-          </InputWrapper>
-          {inputValue || selectedOptions.length ? (
-            <ClearButton type="button" onClick={handleClearInput} {...clearButtonProps}>
-              <StyledIcon name="xMark" />
-            </ClearButton>
-          ) : (
+      <Wrapper>
+        <Scroller ref={pillScroller.scrollableRef}>
+          <ScrollContent style={{ flex: `0 0 ${contentInlineSize}px` }}>
+            {selectedOptions.length ? (
+              <SelectedOptionsWrapper ref={optionWrapperRef}>
+                {selectedOptions.map((option) => (
+                  <Pill
+                    onFocus={(e) => handlePillFocus(e, option)}
+                    onKeyDown={(e) => handlePillKeyDown(e, option)}
+                    onMouseDown={handlePillMouseDown}
+                    key={option.key ?? option.value}
+                    tabIndex={isOpen ? 0 : -1}
+                  >
+                    {option.label}
+                  </Pill>
+                ))}
+              </SelectedOptionsWrapper>
+            ) : null}
+            <InputWrapper style={{ minInlineSize: `${inputInlineSize}px` }}>
+              <Input
+                type="text"
+                id={id}
+                value={inputValue}
+                placeholder={selectedOptions.length ? "" : placeholder}
+                onKeyDown={handleInputKeyDown}
+                onChange={(e) => handleInputChange(e.target.value)}
+                onFocus={handleInputFocus}
+                autoComplete="off"
+                ref={inputRef}
+                aria-errormessage={status === "fail" && message ? messageId : undefined}
+                aria-describedby={status !== "fail" && message ? messageId : undefined}
+                aria-invalid={status === "fail"}
+                {...inputProps}
+              />
+              <Shadow ref={shadowElRef}>{inputValue}</Shadow>
+            </InputWrapper>
+          </ScrollContent>
+        </Scroller>
+        {inputValue || selectedOptions.length ? (
+          <ClearButton type="button" onClick={handleClearInput} {...clearButtonProps}>
+            <StyledIcon name="xMark" />
+          </ClearButton>
+        ) : (
+          <ClearButton>
             <StyledIcon name="chevronRight" animate={{ rotate: isOpen ? 90 : 0 }} />
-          )}
-        </ScrollContent>
+          </ClearButton>
+        )}
       </Wrapper>
       {message && (
         <Caption color={getMessageColor(status)} id={messageId}>
@@ -234,11 +238,9 @@ interface StyledInputProps {
 }
 
 const Wrapper = styled.div<StyledInputProps>`
+  position: relative;
   display: flex;
-  flex-direction: row-reverse;
   align-items: center;
-  overflow: auto;
-  scrollbar-width: none;
 
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
@@ -248,7 +250,7 @@ const Wrapper = styled.div<StyledInputProps>`
   color: ${({ theme }) => theme.colors.content.primary};
   inline-size: 100%;
   padding-block: ${({ theme }) => theme.spacingBase}rem;
-  padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem;
+  padding-inline-end: ${({ theme }) => theme.spacingBase}rem;
   border-radius: ${({ theme }) => theme.borderRadii.sm};
 
   &:focus {
@@ -269,6 +271,15 @@ const Wrapper = styled.div<StyledInputProps>`
     color: ${({ theme }) => theme.colors.content.tertiary};
     cursor: not-allowed;
   }
+`
+
+const Scroller = styled.div`
+  overflow: auto;
+  scrollbar-width: none;
+  flex: 1 1 auto;
+  padding-inline-start: ${({ theme }) => 2 * theme.spacingBase}rem;
+  display: flex;
+  flex-direction: row-reverse;
 
   &::-webkit-scrollbar {
     display: none;
@@ -294,7 +305,7 @@ const InputWrapper = styled.div`
 
 const Shadow = styled.span`
   // add some error margin
-  padding-inline: ${({ theme }) => 1 * theme.spacingBase}rem;
+  padding-inline-end: ${({ theme }) => theme.spacingBase}rem;
   white-space: pre;
   opacity: 0;
   visibility: hidden;
@@ -337,14 +348,19 @@ const SelectedOptionsWrapper = styled.div`
   gap: ${({ theme }) => theme.spacingBase}rem;
 `
 
-const ClearButton = styled.button``
+const ClearButton = styled.button`
+  block-size: ${({ theme }) => 3 * theme.spacingBase}rem;
+  inline-size: ${({ theme }) => 3 * theme.spacingBase}rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
 const StyledIcon = styled(motion(Icon))`
   flex: 0 0 ${({ theme }) => 3 * theme.spacingBase}rem;
   inset-block: ${({ theme }) => 1.5 * theme.spacingBase}rem;
   block-size: ${({ theme }) => 3 * theme.spacingBase}rem;
   inline-size: ${({ theme }) => 3 * theme.spacingBase}rem;
-  margin-inline-end: ${({ theme }) => -1 * theme.spacingBase}rem;
   display: flex;
   justify-content: center;
   align-items: center;
