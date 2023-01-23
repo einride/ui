@@ -92,12 +92,12 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/cjs/main.js",
-  "module": "./dist/esm/main.js",
+  "main": "./dist/main.js",
+  "module": "./dist/main.mjs",
   "exports": {
     ".": {
-      "import": "./dist/esm/main.js",
-      "require": "./dist/cjs/main.js"
+      "import": "./dist/main.mjs",
+      "require": "./dist/main.js"
     }
   },
   "engines": {
