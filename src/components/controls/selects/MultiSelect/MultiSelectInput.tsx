@@ -128,9 +128,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
    * @param e
    */
   const handlePillMouseDown = (e: MouseEvent<HTMLButtonElement>): void => {
-    if (!isOpen) {
-      e.preventDefault()
-    }
+    e.preventDefault()
   }
 
   const handlePillClick = (e: MouseEvent<HTMLButtonElement>, index: number): void => {
@@ -218,6 +216,8 @@ export const MultiSelectInput = <Option extends BaseOption>({
                 onChange={(e) => handleInputChange(e.target.value)}
                 onFocus={handleInputFocus}
                 onClick={handleInputClick}
+                // ios doesn't trigger click on focuced input element
+                onTouchEnd={handleInputClick}
                 autoComplete="off"
                 ref={inputRef}
                 aria-errormessage={status === "fail" && message ? messageId : undefined}
