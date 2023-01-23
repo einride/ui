@@ -2985,10 +2985,10 @@
   dependencies:
     "@babel/runtime" "^7.13.10"
 
-"@rollup/plugin-image@3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@rollup/plugin-image/-/plugin-image-3.0.1.tgz#2beb720d1ac3e85e73c4dc5b261ae3c43f59bde3"
-  integrity sha512-F50Sko4Xcc576x7HG9f3MvJKKnBfSmqfVFWJkJgyIEkI8YxZxux28lDbuy0+GsAK6BFl9Gn+TRXOUgHHJbFh3w==
+"@rollup/plugin-image@3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-image/-/plugin-image-3.0.2.tgz#8a66389510517495c5d10d392140cdefa43b27c2"
+  integrity sha512-eGVrD6lummWH5ENo9LWX3JY62uBb9okUNQ2htXkugrG6WjACrMUVhWvss+0wW3fwJWmFYpoEny3yL4spEdh15g==
   dependencies:
     "@rollup/pluginutils" "^5.0.1"
     mini-svg-data-uri "^1.4.4"
