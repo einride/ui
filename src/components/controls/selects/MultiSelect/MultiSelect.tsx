@@ -183,7 +183,7 @@ export const MultiSelect = <Option extends BaseOption>({
           {filteredOptions?.map((option, index) => (
             <StyledSearchSelectOption
               key={option.key ?? option.value}
-              isSelected={index === selectedIndex}
+              isSelected={index === selectedIndex || selectedOptions.includes(option)}
               onClick={(e) => {
                 e.stopPropagation()
                 handleOptionSelect(option)
