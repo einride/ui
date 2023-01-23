@@ -29,6 +29,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
   onSelectionChange,
   placeholder = "Search...",
   selectedOptions,
+  selectedIndex,
   status,
   ...props
 }: MultiSelectInputProps<Option> & { inputRef: RefObject<HTMLInputElement> }): JSX.Element => {
@@ -37,7 +38,6 @@ export const MultiSelectInput = <Option extends BaseOption>({
 
   const theme = useTheme()
 
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
   const [inputInlineSize, setInputInlineSize] = useState(0)
   const [contentInlineSize, setContentInlineSize] = useState(0)
   const [direction, setDirection] = useState<Direction>("start")
@@ -57,10 +57,9 @@ export const MultiSelectInput = <Option extends BaseOption>({
 
   const handleInputChange = (text: string): void => {
     onSearchChange?.(text)
-    onIndexSelect(0)
     onSearchChange(text)
     onFocusToggle(true)
-    setSelectedIndex(null)
+    onIndexSelect(null)
   }
 
   const handleInputFocus = (): void => {
@@ -68,7 +67,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
   }
 
   const handleInputClick = (): void => {
-    setSelectedIndex(null)
+    onIndexSelect(null)
   }
 
   const handleInputKeyDown = (e: KeyboardEvent<HTMLInputElement>): void => {
@@ -80,9 +79,9 @@ export const MultiSelectInput = <Option extends BaseOption>({
     ) {
       e.preventDefault()
       if (selectedIndex === null) {
-        setSelectedIndex(selectedOptions.length - 1)
+        onIndexSelect(selectedOptions.length - 1)
       } else if (selectedIndex > 0) {
-        setSelectedIndex(selectedIndex - 1)
+        onIndexSelect(selectedIndex - 1)
       }
       setDirection("start")
     }
@@ -90,14 +89,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
     if (e.key === "Backspace" && selectedIndex !== null) {
       const newOptions = selectedOptions.filter((selectedOption, index) => index !== selectedIndex)
       onSelectionChange(newOptions)
-      if (selectedIndex > 0) {
-        e.preventDefault()
-        setSelectedIndex(selectedIndex - 1)
-      } else if (newOptions.length > 0) {
-        setSelectedIndex(0)
-      } else {
-        setSelectedIndex(null)
-      }
+      onIndexSelect(null)
     }
 
     if (
@@ -106,13 +98,13 @@ export const MultiSelectInput = <Option extends BaseOption>({
       selectedIndex < selectedOptions.length - 1
     ) {
       e.preventDefault()
-      setSelectedIndex(selectedIndex + 1)
+      onIndexSelect(selectedIndex + 1)
       setDirection("end")
     } else if (e.key === "ArrowRight") {
       if (selectedIndex === selectedOptions.length - 1) {
         e.preventDefault()
       }
-      setSelectedIndex(null)
+      onIndexSelect(null)
     }
   }
 
@@ -143,7 +135,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
 
   const handlePillClick = (index: number): void => {
     if (isOpen) {
-      setSelectedIndex(index)
+      onIndexSelect(index)
     }
   }
 
@@ -181,12 +173,6 @@ export const MultiSelectInput = <Option extends BaseOption>({
       scrollIntoView({ alignment: direction })
     }
   }, [selectedIndex, direction, targetRef, scrollIntoView, scrollableRef, contentInlineSize])
-
-  useEffect(() => {
-    if (!isOpen) {
-      setSelectedIndex(null)
-    }
-  }, [isOpen])
 
   return (
     <>

@@ -8,8 +8,11 @@ export interface MultiSelectInputBaseProps<Option> {
   /** Callback for onFocus/onBlur. */
   onFocusToggle: (isOpen: boolean) => void
 
-  /** Set selected index within the dropdown. */
-  onIndexSelect: (index: number) => void
+  /** Set selected (highlighted) index within selected options. */
+  onIndexSelect: (index: number | null) => void
+
+  /** Selected (highlighted) index within selected options. */
+  selectedIndex: number | null
 
   /** Options filtered by search term. */
   filteredOptions: Option[]

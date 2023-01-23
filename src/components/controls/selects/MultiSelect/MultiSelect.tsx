@@ -29,7 +29,8 @@ export const MultiSelect = <Option extends BaseOption>({
   ...props
 }: MultiSelectProps<Option> &
   (MultiSelectWithLabelProps | MultiSelectWithoutLabelProps)): JSX.Element => {
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
+  const [selectedDropdownIndex, setSelectedDropdownIndex] = useState<number | null>(null)
+  const [selectedInputIndex, setSelectedInputIndex] = useState<number | null>(null)
   const [selectedOptions, setSelectedOptions] = useSelectedOptions<Option>(value, onSelectionChange)
   const [direction, setDirection] = useState<Direction>("end")
   const { isOpen, handlers } = useDisclosure(false)
@@ -85,11 +86,11 @@ export const MultiSelect = <Option extends BaseOption>({
   }
 
   const handleMouseOver = (index: number): void => {
-    setSelectedIndex(index)
+    setSelectedDropdownIndex(index)
   }
 
   const handleMouseLeave = (): void => {
-    setSelectedIndex(null)
+    setSelectedDropdownIndex(null)
   }
 
   const handleClick = (e: MouseEvent<HTMLDivElement>): void => {
@@ -111,10 +112,10 @@ export const MultiSelect = <Option extends BaseOption>({
         e.preventDefault()
         setDirection("end")
         if (isOpen && filteredOptions) {
-          if (selectedIndex === null) {
-            setSelectedIndex(0)
-          } else if (selectedIndex < filteredOptions.length - 1) {
-            setSelectedIndex(selectedIndex + 1)
+          if (selectedDropdownIndex === null) {
+            setSelectedDropdownIndex(0)
+          } else if (selectedDropdownIndex < filteredOptions.length - 1) {
+            setSelectedDropdownIndex(selectedDropdownIndex + 1)
           }
         } else {
           handlers.open()
@@ -123,20 +124,20 @@ export const MultiSelect = <Option extends BaseOption>({
       case "ArrowUp":
         e.preventDefault()
         setDirection("start")
-        if (isOpen && selectedIndex !== null && selectedIndex > 0) {
-          setSelectedIndex(selectedIndex - 1)
+        if (isOpen && selectedDropdownIndex !== null && selectedDropdownIndex > 0) {
+          setSelectedDropdownIndex(selectedDropdownIndex - 1)
         }
         break
       case "Enter":
         e.preventDefault()
-        if (typeof selectedIndex === "number" && filteredOptions.length > 0) {
-          handleOptionSelect(filteredOptions[selectedIndex])
+        if (typeof selectedDropdownIndex === "number" && filteredOptions.length > 0) {
+          handleOptionSelect(filteredOptions[selectedDropdownIndex])
         }
         break
       case "Escape":
         e.preventDefault()
         handlers.close()
-        setSelectedIndex(null)
+        setSelectedDropdownIndex(null)
         inputRef.current?.blur()
         break
       default:
@@ -145,8 +146,8 @@ export const MultiSelect = <Option extends BaseOption>({
   }
 
   useEffect(() => {
-    if (typeof selectedIndex === "number" && filteredOptions[selectedIndex]) {
-      const currentOption = filteredOptions[selectedIndex]
+    if (typeof selectedDropdownIndex === "number" && filteredOptions[selectedDropdownIndex]) {
+      const currentOption = filteredOptions[selectedDropdownIndex]
       targetRef.current = optionRefs.current[currentOption.key || currentOption.value]
 
       let alignment = direction
@@ -157,7 +158,25 @@ export const MultiSelect = <Option extends BaseOption>({
       }
       scrollIntoView({ alignment })
     }
-  }, [selectedIndex, filteredOptions, optionRefs, targetRef, scrollIntoView, direction])
+  }, [selectedDropdownIndex, filteredOptions, optionRefs, targetRef, scrollIntoView, direction])
+
+  useEffect(() => {
+    if (selectedInputIndex !== null) {
+      setSelectedDropdownIndex(null)
+    }
+  }, [selectedInputIndex])
+
+  useEffect(() => {
+    if (selectedDropdownIndex !== null) {
+      setSelectedInputIndex(null)
+    }
+  }, [selectedDropdownIndex])
+
+  useEffect(() => {
+    if (!isOpen) {
+      setSelectedInputIndex(null)
+    }
+  }, [isOpen])
 
   return (
     <OuterWrapper
@@ -173,10 +192,11 @@ export const MultiSelect = <Option extends BaseOption>({
         inputValue={inputValue}
         isOpen={isOpen}
         onFocusToggle={handleFocusChange}
-        onIndexSelect={setSelectedIndex}
+        onIndexSelect={setSelectedInputIndex}
         onSearchChange={setInputValue}
         onSelectionChange={setSelectedOptions}
         selectedOptions={selectedOptions}
+        selectedIndex={selectedInputIndex}
         {...props}
       />
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
@@ -184,7 +204,7 @@ export const MultiSelect = <Option extends BaseOption>({
           {filteredOptions?.map((option, index) => (
             <StyledSearchSelectOption
               key={option.key ?? option.value}
-              isSelected={index === selectedIndex || selectedOptions.includes(option)}
+              isSelected={index === selectedDropdownIndex || selectedOptions.includes(option)}
               onClick={(e) => {
                 e.stopPropagation()
                 handleOptionSelect(option)
