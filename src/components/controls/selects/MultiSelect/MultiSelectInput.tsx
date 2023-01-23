@@ -3,10 +3,10 @@ import { useScrollIntoView } from "@mantine/hooks"
 import { motion } from "framer-motion"
 import {
   useId,
+  useEffect,
   useState,
   useRef,
   useLayoutEffect,
-  FocusEvent,
   KeyboardEvent,
   MouseEvent,
   RefObject,
@@ -18,7 +18,6 @@ import { Direction, MultiSelectInputProps, Status } from "./MultiSelect.types"
 
 export const MultiSelectInput = <Option extends BaseOption>({
   clearButtonProps,
-  filteredOptions,
   inputProps,
   inputRef,
   inputValue,
@@ -39,6 +38,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
 
   const theme = useTheme()
 
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
   const [inputInlineSize, setInputInlineSize] = useState(0)
   const [contentInlineSize, setContentInlineSize] = useState(0)
   const [direction, setDirection] = useState<Direction>("start")
@@ -46,6 +46,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
   const optionWrapperRef = useRef<HTMLInputElement>(null)
   const shadowElRef = useRef<HTMLElement>(null)
   const previousContentInlineSize = useRef(0)
+  const pillRefs = useRef<HTMLButtonElement[]>([])
 
   const { targetRef, scrollIntoView, scrollableRef } = useScrollIntoView({
     duration: 0,
@@ -60,10 +61,15 @@ export const MultiSelectInput = <Option extends BaseOption>({
     onIndexSelect(0)
     onSearchChange(text)
     onFocusToggle(true)
+    setSelectedIndex(null)
   }
 
   const handleInputFocus = (): void => {
     onFocusToggle(true)
+  }
+
+  const handleInputClick = (): void => {
+    setSelectedIndex(null)
   }
 
   const handleInputKeyDown = (e: KeyboardEvent<HTMLInputElement>): void => {
@@ -73,8 +79,39 @@ export const MultiSelectInput = <Option extends BaseOption>({
       current?.selectionStart === 0 &&
       current?.selectionEnd === 0
     ) {
-      const lastOption = optionWrapperRef.current?.lastElementChild as HTMLElement
-      lastOption?.focus()
+      e.preventDefault()
+      if (selectedIndex === null) {
+        setSelectedIndex(selectedOptions.length - 1)
+      } else if (selectedIndex > 0) {
+        setSelectedIndex(selectedIndex - 1)
+      }
+      setDirection("start")
+    }
+
+    if (e.key === "Backspace" && selectedIndex !== null) {
+      const newOptions = selectedOptions.filter((selectedOption, index) => index !== selectedIndex)
+      onSelectionChange(newOptions)
+      if (selectedIndex > 0) {
+        e.preventDefault()
+        setSelectedIndex(selectedIndex - 1)
+      } else {
+        setSelectedIndex(null)
+      }
+    }
+
+    if (
+      e.key === "ArrowRight" &&
+      selectedIndex !== null &&
+      selectedIndex < selectedOptions.length - 1
+    ) {
+      e.preventDefault()
+      setSelectedIndex(selectedIndex + 1)
+      setDirection("end")
+    } else if (e.key === "ArrowRight") {
+      if (selectedIndex === selectedOptions.length - 1) {
+        e.preventDefault()
+      }
+      setSelectedIndex(null)
     }
   }
 
@@ -95,6 +132,13 @@ export const MultiSelectInput = <Option extends BaseOption>({
       e.preventDefault()
     }
   }
+
+  const handlePillClick = (e: MouseEvent<HTMLButtonElement>, index: number): void => {
+    if (isOpen) {
+      setSelectedIndex(index)
+    }
+  }
+
   /**
    * Don't blur input field on label click
    * @param e
@@ -102,52 +146,6 @@ export const MultiSelectInput = <Option extends BaseOption>({
   const handleLabelMouseDown = (e: MouseEvent<HTMLLabelElement>): void => {
     if (isOpen) {
       e.preventDefault()
-    }
-  }
-
-  const handlePillFocus = (e: FocusEvent<HTMLButtonElement>, option: Option): void => {
-    targetRef.current = e.target
-    scrollIntoView({ alignment: direction })
-    const index = filteredOptions?.findIndex((o) => o === option)
-    if (index > -1) {
-      onIndexSelect(index)
-    }
-  }
-
-  const handlePillKeyDown = (e: KeyboardEvent<HTMLButtonElement>, option: Option): void => {
-    const target = e.target as HTMLButtonElement
-    const previousTarget = target.previousElementSibling as HTMLElement
-    const nextTarget = target.nextElementSibling as HTMLElement
-
-    if (e.key !== "Tab") {
-      e.preventDefault()
-    }
-
-    if (e.key === "ArrowLeft") {
-      previousTarget?.focus()
-      setDirection("start")
-    } else if (e.key === "ArrowRight") {
-      setDirection("end")
-      if (nextTarget && nextTarget.tabIndex > -1) {
-        nextTarget?.focus()
-      } else {
-        inputRef?.current?.focus()
-      }
-    } else if (e.key === "Backspace" || e.key === "Enter") {
-      setDirection("end")
-      const newOptions = selectedOptions.filter((selectedOption) => selectedOption !== option)
-      onSelectionChange(newOptions)
-      if (previousTarget && previousTarget.tabIndex > -1) {
-        previousTarget.focus()
-      } else if (nextTarget && nextTarget.tabIndex > -1) {
-        nextTarget.focus()
-      } else {
-        inputRef?.current?.focus()
-      }
-    }
-
-    if (e.key === "Enter") {
-      e.stopPropagation()
     }
   }
 
@@ -162,12 +160,25 @@ export const MultiSelectInput = <Option extends BaseOption>({
   }, [inputInlineSize, isOpen, optionWrapperRef, selectedOptions])
 
   useLayoutEffect(() => {
-    if (previousContentInlineSize.current < contentInlineSize) {
+    if (previousContentInlineSize.current < contentInlineSize || selectedIndex === null) {
       const ref = scrollableRef as MutableRefObject<HTMLDivElement | null>
       ref.current?.scrollTo(contentInlineSize, 0)
     }
     previousContentInlineSize.current = contentInlineSize
-  }, [contentInlineSize, scrollableRef])
+  }, [contentInlineSize, scrollableRef, selectedIndex])
+
+  useEffect(() => {
+    if (selectedIndex !== null && pillRefs.current[selectedIndex]) {
+      targetRef.current = pillRefs.current[selectedIndex]
+      scrollIntoView({ alignment: direction })
+    }
+  }, [selectedIndex, direction, targetRef, scrollIntoView, scrollableRef, contentInlineSize])
+
+  useEffect(() => {
+    if (!isOpen) {
+      setSelectedIndex(null)
+    }
+  }, [isOpen])
 
   return (
     <>
@@ -181,13 +192,16 @@ export const MultiSelectInput = <Option extends BaseOption>({
           <ScrollContent style={{ flex: `0 0 ${contentInlineSize}px` }}>
             {selectedOptions.length ? (
               <SelectedOptionsWrapper ref={optionWrapperRef}>
-                {selectedOptions.map((option) => (
+                {selectedOptions.map((option, index) => (
                   <Pill
-                    onFocus={(e) => handlePillFocus(e, option)}
-                    onKeyDown={(e) => handlePillKeyDown(e, option)}
                     onMouseDown={handlePillMouseDown}
+                    onClick={(e) => handlePillClick(e, index)}
                     key={option.key ?? option.value}
-                    tabIndex={isOpen ? 0 : -1}
+                    isSelected={index === selectedIndex}
+                    tabIndex={-1}
+                    ref={(node: HTMLButtonElement) => {
+                      pillRefs.current[index] = node
+                    }}
                   >
                     {option.label}
                   </Pill>
@@ -203,11 +217,13 @@ export const MultiSelectInput = <Option extends BaseOption>({
                 onKeyDown={handleInputKeyDown}
                 onChange={(e) => handleInputChange(e.target.value)}
                 onFocus={handleInputFocus}
+                onClick={handleInputClick}
                 autoComplete="off"
                 ref={inputRef}
                 aria-errormessage={status === "fail" && message ? messageId : undefined}
                 aria-describedby={status !== "fail" && message ? messageId : undefined}
                 aria-invalid={status === "fail"}
+                isSelected={selectedIndex === null}
                 {...inputProps}
               />
               <Shadow ref={shadowElRef}>{inputValue}</Shadow>
@@ -269,7 +285,7 @@ const Wrapper = styled.div<StyledInputProps>`
   padding-inline-end: ${({ theme }) => theme.spacingBase}rem;
   border-radius: ${({ theme }) => theme.borderRadii.sm};
 
-  &:focus {
+  &:focus-within {
     box-shadow: 0px 0px 0px 1px ${({ theme }) => theme.colors.border.selected} inset;
     outline: none;
   }
@@ -327,28 +343,27 @@ const Shadow = styled.span`
   z-index: -1;
 `
 
-const Input = styled.input`
+const Input = styled.input<{ isSelected: boolean }>`
   background: transparent;
   position: absolute;
   inset: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  ${({ isSelected }) => (!isSelected ? "caret-color: transparent;" : "")};
 
   &:focus {
     outline: 0;
   }
 `
 
-const Pill = styled.button`
-  background-color: ${({ theme }) => theme.colors.background.tertiary};
+const Pill = styled.button<{ isSelected: boolean }>`
+  background-color: ${({ theme, isSelected }) =>
+    isSelected ? theme.colors.background.primaryInverted : theme.colors.background.tertiary};
+  ${({ theme, isSelected }) =>
+    isSelected ? `color: ${theme.colors.content.primaryInverted}` : ""};
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   padding: ${({ theme }) => 0.5 * theme.spacingBase}rem ${({ theme }) => theme.spacingBase}rem;
   white-space: nowrap;
   overflow: hidden;
-
-  &:focus {
-    background-color: ${({ theme }) => theme.colors.background.primaryInverted};
-    color: ${({ theme }) => theme.colors.content.primaryInverted};
-    outline: 0;
-  }
 
   p {
     overflow: hidden;
