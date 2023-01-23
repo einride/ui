@@ -6,12 +6,14 @@ export default {
   input: "src/main.ts",
   output: [
     {
-      file: "dist/main.js",
+      file: pkg.main,
       format: "cjs",
+      interop: "compat",
     },
     {
-      file: "dist/main.mjs",
+      file: pkg.module,
       format: "esm",
+      interop: "compat",
     },
   ],
   external: [
