@@ -1,5 +1,6 @@
 /// <reference types="vitest" />
 import { resolve } from "path"
+import image from "@rollup/plugin-image"
 import typescript from "@rollup/plugin-typescript"
 import { defineConfig } from "vite"
 import pkg from "./package.json"
@@ -16,7 +17,7 @@ export default defineConfig({
         ...Object.keys(pkg.peerDependencies ?? {}),
         "react/jsx-runtime",
       ],
-      plugins: [typescript({ tsconfig: resolve(__dirname, "tsconfig.build.json") })],
+      plugins: [image(), typescript({ tsconfig: resolve(__dirname, "tsconfig.build.json") })],
     },
   },
   test: {
