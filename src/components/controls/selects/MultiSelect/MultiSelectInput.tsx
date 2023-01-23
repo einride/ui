@@ -17,6 +17,7 @@ import { Direction, MultiSelectInputProps, Status } from "./MultiSelect.types"
 
 export const MultiSelectInput = <Option extends BaseOption>({
   clearButtonProps,
+  highlightedIndex,
   inputProps,
   inputRef,
   inputValue,
@@ -24,12 +25,11 @@ export const MultiSelectInput = <Option extends BaseOption>({
   message,
   onClearClick,
   onFocusToggle,
-  onIndexSelect,
+  onIndexHighlight,
   onSearchChange,
   onSelectionChange,
   placeholder = "Search...",
   selectedOptions,
-  selectedIndex,
   status,
   ...props
 }: MultiSelectInputProps<Option> & { inputRef: RefObject<HTMLInputElement> }): JSX.Element => {
@@ -59,7 +59,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
     onSearchChange?.(text)
     onSearchChange(text)
     onFocusToggle(true)
-    onIndexSelect(null)
+    onIndexHighlight(null)
   }
 
   const handleInputFocus = (): void => {
@@ -67,7 +67,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
   }
 
   const handleInputClick = (): void => {
-    onIndexSelect(null)
+    onIndexHighlight(null)
   }
 
   const handleInputKeyDown = (e: KeyboardEvent<HTMLInputElement>): void => {
@@ -78,33 +78,33 @@ export const MultiSelectInput = <Option extends BaseOption>({
       current?.selectionEnd === 0
     ) {
       e.preventDefault()
-      if (selectedIndex === null) {
-        onIndexSelect(selectedOptions.length - 1)
-      } else if (selectedIndex > 0) {
-        onIndexSelect(selectedIndex - 1)
+      if (highlightedIndex === null) {
+        onIndexHighlight(selectedOptions.length - 1)
+      } else if (highlightedIndex > 0) {
+        onIndexHighlight(highlightedIndex - 1)
       }
       setDirection("start")
     }
 
-    if (e.key === "Backspace" && selectedIndex !== null) {
-      const newOptions = selectedOptions.filter((selectedOption, index) => index !== selectedIndex)
+    if (e.key === "Backspace" && highlightedIndex !== null) {
+      const newOptions = selectedOptions.filter((_, index) => index !== highlightedIndex)
       onSelectionChange(newOptions)
-      onIndexSelect(null)
+      onIndexHighlight(null)
     }
 
     if (
       e.key === "ArrowRight" &&
-      selectedIndex !== null &&
-      selectedIndex < selectedOptions.length - 1
+      highlightedIndex !== null &&
+      highlightedIndex < selectedOptions.length - 1
     ) {
       e.preventDefault()
-      onIndexSelect(selectedIndex + 1)
+      onIndexHighlight(highlightedIndex + 1)
       setDirection("end")
     } else if (e.key === "ArrowRight") {
-      if (selectedIndex === selectedOptions.length - 1) {
+      if (highlightedIndex === selectedOptions.length - 1) {
         e.preventDefault()
       }
-      onIndexSelect(null)
+      onIndexHighlight(null)
     }
   }
 
@@ -135,7 +135,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
 
   const handlePillClick = (index: number): void => {
     if (isOpen) {
-      onIndexSelect(index)
+      onIndexHighlight(index)
     }
   }
 
@@ -160,19 +160,19 @@ export const MultiSelectInput = <Option extends BaseOption>({
   }, [inputInlineSize, isOpen, optionWrapperRef, selectedOptions])
 
   useLayoutEffect(() => {
-    if (previousContentInlineSize.current < contentInlineSize || selectedIndex === null) {
+    if (previousContentInlineSize.current < contentInlineSize || highlightedIndex === null) {
       const ref = scrollableRef as MutableRefObject<HTMLDivElement | null>
       ref.current?.scrollTo(contentInlineSize, 0)
     }
     previousContentInlineSize.current = contentInlineSize
-  }, [contentInlineSize, scrollableRef, selectedIndex])
+  }, [contentInlineSize, scrollableRef, highlightedIndex])
 
   useEffect(() => {
-    if (selectedIndex !== null && pillRefs.current[selectedIndex]) {
-      targetRef.current = pillRefs.current[selectedIndex]
+    if (highlightedIndex !== null && pillRefs.current[highlightedIndex]) {
+      targetRef.current = pillRefs.current[highlightedIndex]
       scrollIntoView({ alignment: direction })
     }
-  }, [selectedIndex, direction, targetRef, scrollIntoView, scrollableRef, contentInlineSize])
+  }, [highlightedIndex, direction, targetRef, scrollIntoView, scrollableRef, contentInlineSize])
 
   return (
     <>
@@ -191,7 +191,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
                     onMouseDown={handlePillMouseDown}
                     onClick={() => handlePillClick(index)}
                     key={option.key ?? option.value}
-                    isSelected={index === selectedIndex}
+                    isSelected={index === highlightedIndex}
                     tabIndex={-1}
                     ref={(node: HTMLButtonElement) => {
                       pillRefs.current[index] = node
@@ -219,7 +219,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
                 aria-errormessage={status === "fail" && message ? messageId : undefined}
                 aria-describedby={status !== "fail" && message ? messageId : undefined}
                 aria-invalid={status === "fail"}
-                isSelected={selectedIndex === null}
+                isSelected={highlightedIndex === null}
                 {...inputProps}
               />
               <Shadow ref={shadowElRef}>{inputValue}</Shadow>

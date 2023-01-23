@@ -29,8 +29,8 @@ export const MultiSelect = <Option extends BaseOption>({
   ...props
 }: MultiSelectProps<Option> &
   (MultiSelectWithLabelProps | MultiSelectWithoutLabelProps)): JSX.Element => {
-  const [selectedDropdownIndex, setSelectedDropdownIndex] = useState<number | null>(null)
-  const [selectedInputIndex, setSelectedInputIndex] = useState<number | null>(null)
+  const [highlightedDropdownIndex, setHighlightedDropdownIndex] = useState<number | null>(null)
+  const [highlightedInputIndex, setHighlightedInputIndex] = useState<number | null>(null)
   const [selectedOptions, setSelectedOptions] = useSelectedOptions<Option>(value, onSelectionChange)
   const [direction, setDirection] = useState<Direction>("end")
   const { isOpen, handlers } = useDisclosure(false)
@@ -86,11 +86,11 @@ export const MultiSelect = <Option extends BaseOption>({
   }
 
   const handleMouseOver = (index: number): void => {
-    setSelectedDropdownIndex(index)
+    setHighlightedDropdownIndex(index)
   }
 
   const handleMouseLeave = (): void => {
-    setSelectedDropdownIndex(null)
+    setHighlightedDropdownIndex(null)
   }
 
   const handleClick = (e: MouseEvent<HTMLDivElement>): void => {
@@ -112,10 +112,10 @@ export const MultiSelect = <Option extends BaseOption>({
         e.preventDefault()
         setDirection("end")
         if (isOpen && filteredOptions) {
-          if (selectedDropdownIndex === null) {
-            setSelectedDropdownIndex(0)
-          } else if (selectedDropdownIndex < filteredOptions.length - 1) {
-            setSelectedDropdownIndex(selectedDropdownIndex + 1)
+          if (highlightedDropdownIndex === null) {
+            setHighlightedDropdownIndex(0)
+          } else if (highlightedDropdownIndex < filteredOptions.length - 1) {
+            setHighlightedDropdownIndex(highlightedDropdownIndex + 1)
           }
         } else {
           handlers.open()
@@ -124,20 +124,20 @@ export const MultiSelect = <Option extends BaseOption>({
       case "ArrowUp":
         e.preventDefault()
         setDirection("start")
-        if (isOpen && selectedDropdownIndex !== null && selectedDropdownIndex > 0) {
-          setSelectedDropdownIndex(selectedDropdownIndex - 1)
+        if (isOpen && highlightedDropdownIndex !== null && highlightedDropdownIndex > 0) {
+          setHighlightedDropdownIndex(highlightedDropdownIndex - 1)
         }
         break
       case "Enter":
         e.preventDefault()
-        if (typeof selectedDropdownIndex === "number" && filteredOptions.length > 0) {
-          handleOptionSelect(filteredOptions[selectedDropdownIndex])
+        if (typeof highlightedDropdownIndex === "number" && filteredOptions.length > 0) {
+          handleOptionSelect(filteredOptions[highlightedDropdownIndex])
         }
         break
       case "Escape":
         e.preventDefault()
         handlers.close()
-        setSelectedDropdownIndex(null)
+        setHighlightedDropdownIndex(null)
         inputRef.current?.blur()
         break
       default:
@@ -146,8 +146,8 @@ export const MultiSelect = <Option extends BaseOption>({
   }
 
   useEffect(() => {
-    if (typeof selectedDropdownIndex === "number" && filteredOptions[selectedDropdownIndex]) {
-      const currentOption = filteredOptions[selectedDropdownIndex]
+    if (typeof highlightedDropdownIndex === "number" && filteredOptions[highlightedDropdownIndex]) {
+      const currentOption = filteredOptions[highlightedDropdownIndex]
       targetRef.current = optionRefs.current[currentOption.key || currentOption.value]
 
       let alignment = direction
@@ -158,23 +158,23 @@ export const MultiSelect = <Option extends BaseOption>({
       }
       scrollIntoView({ alignment })
     }
-  }, [selectedDropdownIndex, filteredOptions, optionRefs, targetRef, scrollIntoView, direction])
+  }, [highlightedDropdownIndex, filteredOptions, optionRefs, targetRef, scrollIntoView, direction])
 
   useEffect(() => {
-    if (selectedInputIndex !== null) {
-      setSelectedDropdownIndex(null)
+    if (highlightedInputIndex !== null) {
+      setHighlightedDropdownIndex(null)
     }
-  }, [selectedInputIndex])
+  }, [highlightedInputIndex])
 
   useEffect(() => {
-    if (selectedDropdownIndex !== null) {
-      setSelectedInputIndex(null)
+    if (highlightedDropdownIndex !== null) {
+      setHighlightedInputIndex(null)
     }
-  }, [selectedDropdownIndex])
+  }, [highlightedDropdownIndex])
 
   useEffect(() => {
     if (!isOpen) {
-      setSelectedInputIndex(null)
+      setHighlightedInputIndex(null)
     }
   }, [isOpen])
 
@@ -192,11 +192,11 @@ export const MultiSelect = <Option extends BaseOption>({
         inputValue={inputValue}
         isOpen={isOpen}
         onFocusToggle={handleFocusChange}
-        onIndexSelect={setSelectedInputIndex}
+        onIndexHighlight={setHighlightedInputIndex}
         onSearchChange={setInputValue}
         onSelectionChange={setSelectedOptions}
         selectedOptions={selectedOptions}
-        selectedIndex={selectedInputIndex}
+        highlightedIndex={highlightedInputIndex}
         {...props}
       />
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
@@ -204,7 +204,7 @@ export const MultiSelect = <Option extends BaseOption>({
           {filteredOptions?.map((option, index) => (
             <StyledSearchSelectOption
               key={option.key ?? option.value}
-              isSelected={index === selectedDropdownIndex || selectedOptions.includes(option)}
+              isSelected={index === highlightedDropdownIndex || selectedOptions.includes(option)}
               onClick={(e) => {
                 e.stopPropagation()
                 handleOptionSelect(option)
