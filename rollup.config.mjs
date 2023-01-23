@@ -6,11 +6,11 @@ export default {
   input: "src/main.ts",
   output: [
     {
-      file: "dist/ui.js",
+      file: "dist/cjs/main.js",
       format: "cjs",
     },
     {
-      file: "dist/ui.mjs",
+      file: "dist/esm/main.js",
       format: "esm",
     },
   ],
