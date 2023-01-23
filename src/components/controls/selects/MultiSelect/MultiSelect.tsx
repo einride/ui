@@ -2,7 +2,16 @@ import { useDisclosure } from "@einride/hooks"
 import styled from "@emotion/styled"
 import { useScrollIntoView } from "@mantine/hooks"
 import { motion } from "framer-motion"
-import { FocusEvent, KeyboardEvent, MouseEvent, useEffect, useMemo, useRef, useState } from "react"
+import {
+  FocusEvent,
+  KeyboardEvent,
+  MouseEvent,
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+} from "react"
 import { Box, Icon, useTheme, zIndex } from "../../../../main"
 // TODO move SearchSelect imports
 import { SearchSelectOption } from "../SearchSelect/SearchSelectOption"
@@ -41,6 +50,7 @@ export const MultiSelect = <Option extends BaseOption>({
   const inputRef = useRef<HTMLInputElement>(null)
   const optionRefs = useRef<Record<string, HTMLDivElement>>({})
 
+  const id = useId()
   const theme = useTheme()
   const { targetRef, scrollIntoView, scrollableRef } = useScrollIntoView({
     duration: 0,
@@ -191,6 +201,7 @@ export const MultiSelect = <Option extends BaseOption>({
         inputRef={inputRef}
         inputValue={inputValue}
         isOpen={isOpen}
+        id={id}
         onFocusToggle={handleFocusChange}
         onIndexHighlight={setHighlightedInputIndex}
         onSearchChange={setInputValue}
@@ -200,7 +211,7 @@ export const MultiSelect = <Option extends BaseOption>({
         {...props}
       />
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
-        <OptionsWrapper {...dropdownProps} ref={scrollableRef}>
+        <OptionsWrapper {...dropdownProps} ref={scrollableRef} id={`options-${id}`}>
           {filteredOptions?.map((option, index) => (
             <StyledSearchSelectOption
               key={option.key ?? option.value}
@@ -215,6 +226,7 @@ export const MultiSelect = <Option extends BaseOption>({
               ref={(node: HTMLDivElement) => {
                 optionRefs.current[option.key ?? option.value] = node
               }}
+              aria-selected={selectedOptions.includes(option)}
               {...optionProps}
             >
               {option.label}

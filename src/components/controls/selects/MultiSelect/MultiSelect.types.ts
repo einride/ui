@@ -2,6 +2,9 @@ import { ComponentPropsWithoutRef, ReactNode } from "react"
 import { BoxProps } from "../../../layout/Box/Box"
 
 export interface MultiSelectInputBaseProps<Option> {
+  /** Unique ID. */
+  id: string
+
   /** Reflects state of the dropdown. */
   isOpen: boolean
 

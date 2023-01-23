@@ -22,6 +22,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
   inputRef,
   inputValue,
   isOpen,
+  id,
   message,
   onClearClick,
   onFocusToggle,
@@ -33,7 +34,6 @@ export const MultiSelectInput = <Option extends BaseOption>({
   status,
   ...props
 }: MultiSelectInputProps<Option> & { inputRef: RefObject<HTMLInputElement> }): JSX.Element => {
-  const id = useId()
   const messageId = useId()
 
   const theme = useTheme()
@@ -181,7 +181,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
           {props.label}
         </StyledLabel>
       )}
-      <Wrapper>
+      <Wrapper role="combobox" aria-haspopup aria-expanded={isOpen} aria-controls={`options-${id}`}>
         <Scroller ref={scrollableRef}>
           <ScrollContent style={{ flex: `0 0 ${contentInlineSize}px` }}>
             {selectedOptions.length ? (
@@ -192,6 +192,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
                     onClick={() => handlePillClick(index)}
                     key={option.key ?? option.value}
                     isSelected={index === highlightedIndex}
+                    aria-selected
                     tabIndex={-1}
                     ref={(node: HTMLButtonElement) => {
                       pillRefs.current[index] = node
@@ -215,6 +216,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
                 // ios doesn't trigger click on focused input element
                 onTouchEnd={handleInputClick}
                 autoComplete="off"
+                autoCorrect="off"
                 ref={inputRef}
                 aria-errormessage={status === "fail" && message ? messageId : undefined}
                 aria-describedby={status !== "fail" && message ? messageId : undefined}
@@ -232,6 +234,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
             onClick={handleClearInput}
             onKeyDown={handleClearInput}
             tabIndex={isOpen ? 0 : -1}
+            aria-controls={id}
             {...clearButtonProps}
           >
             <StyledIcon name="xMark" />
