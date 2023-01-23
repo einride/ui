@@ -2,28 +2,36 @@ import { ComponentPropsWithoutRef, ReactNode } from "react"
 import { BoxProps } from "../../../layout/Box/Box"
 
 export interface MultiSelectInputBaseProps<Option> {
+  /** Reflects state of the dropdown. */
   isOpen: boolean
 
+  /** Callback for onFocus/onBlur. */
   onFocusToggle: (isOpen: boolean) => void
 
+  /** Set selected index within the dropdown. */
   onIndexSelect: (index: number) => void
 
+  /** Options filtered by search term. */
   filteredOptions: Option[]
 
+  /** Options selected by user. */
   selectedOptions: Option[]
 
+  /** Search term (controlled). */
   inputValue: string
 }
 
 export interface MultiSelectInputSharedProps<Option> {
+  /** Input placeholder. */
   placeholder?: string
 
-  /**  Default is `neutral`. */
+  /** Default is `neutral`. */
   status?: Status
 
   /** Message shown below input field. Can be used together with `status` to show a success or error message. */
   message?: ReactNode
 
+  /** Props passed to the input element. */
   inputProps?: ComponentPropsWithoutRef<"input"> & { "data-testid": string }
 
   /** Props passed to the clear button element. */
