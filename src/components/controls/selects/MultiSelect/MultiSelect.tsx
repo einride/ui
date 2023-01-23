@@ -197,7 +197,7 @@ export const MultiSelect = <Option extends BaseOption>({
               {...optionProps}
             >
               {option.label}
-              {selectedOptions.includes(option) && <StyledCheckIcon name="arrowRight" />}
+              {selectedOptions.includes(option) && <StyledCheckIcon name="checkmark" />}
             </StyledSearchSelectOption>
           ))}
         </OptionsWrapper>

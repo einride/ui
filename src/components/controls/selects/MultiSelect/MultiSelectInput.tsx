@@ -225,7 +225,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
           </ClearButton>
         ) : (
           <ClearButton>
-            <StyledIcon name="chevronRight" animate={{ rotate: isOpen ? 90 : 0 }} />
+            <StyledIcon name="plus" />
           </ClearButton>
         )}
       </Wrapper>
