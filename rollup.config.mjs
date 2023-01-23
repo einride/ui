@@ -8,12 +8,10 @@ export default {
     {
       file: pkg.main,
       format: "cjs",
-      interop: "auto",
     },
     {
       file: pkg.module,
       format: "esm",
-      interop: "auto",
     },
   ],
   external: [
