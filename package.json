@@ -3,7 +3,7 @@
   "version": "0.0.0-development",
   "description": "Einride's UI framework with reusable components",
   "scripts": {
-    "build": "vite build",
+    "build": "rollup --config",
     "build-storybook": "build-storybook",
     "commitlint": "commitlint --from origin/main --to HEAD",
     "develop": "yarn storybook",
@@ -88,6 +88,9 @@
     "framer-motion": "^6.2.8 || ^7.0.0 || ^8.0.0",
     "react": "^18.0.0"
   },
+  "files": [
+    "dist"
+  ],
   "main": "./dist/ui.js",
   "module": "./dist/ui.mjs",
   "types": "./dist/main.d.ts",
@@ -97,9 +100,6 @@
       "require": "./dist/ui.js"
     }
   },
-  "files": [
-    "dist"
-  ],
   "engines": {
     "node": "16 || 18"
   },
