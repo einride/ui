@@ -137,6 +137,7 @@ export const MultiSelect = <Option extends BaseOption>({
         e.preventDefault()
         handlers.close()
         setSelectedIndex(null)
+        inputRef.current?.blur()
         break
       default:
         break

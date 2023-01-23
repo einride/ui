@@ -235,12 +235,13 @@ export const MultiSelectInput = <Option extends BaseOption>({
             type="button"
             onClick={handleClearInput}
             onKeyDown={handleClearInput}
+            tabIndex={isOpen ? 0 : -1}
             {...clearButtonProps}
           >
             <StyledIcon name="xMark" />
           </ClearButton>
         ) : (
-          <ClearButton>
+          <ClearButton tabIndex={-1}>
             <StyledIcon name="plus" />
           </ClearButton>
         )}
