@@ -93,6 +93,8 @@ export const MultiSelectInput = <Option extends BaseOption>({
       if (selectedIndex > 0) {
         e.preventDefault()
         setSelectedIndex(selectedIndex - 1)
+      } else if (newOptions.length > 0) {
+        setSelectedIndex(0)
       } else {
         setSelectedIndex(null)
       }
