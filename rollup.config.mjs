@@ -8,12 +8,12 @@ export default {
     {
       file: pkg.main,
       format: "cjs",
-      interop: "compat",
+      interop: "auto",
     },
     {
       file: pkg.module,
       format: "esm",
-      interop: "compat",
+      interop: "auto",
     },
   ],
   external: [
