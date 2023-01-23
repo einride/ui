@@ -69,7 +69,7 @@ export interface MultiSelectBaseProps<Option> {
   options: Option[] | undefined
 
   /** Props passed to the individual options. */
-  optionProps?: ComponentPropsWithoutRef<"div">
+  optionProps?: ComponentPropsWithoutRef<"div"> & { "data-testid": string }
 
   /** Controlled input value. */
   value?: Option[]
