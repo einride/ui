@@ -88,18 +88,19 @@
     "framer-motion": "^6.2.8 || ^7.0.0 || ^8.0.0",
     "react": "^18.0.0"
   },
-  "main": "./dist/ui.js",
-  "module": "./dist/ui.mjs",
-  "types": "./dist/main.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/ui.mjs",
-      "require": "./dist/ui.js"
-    }
-  },
+  "type": "module",
   "files": [
     "dist"
   ],
+  "main": "./dist/ui.umd.cjs",
+  "module": "./dist/ui.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/ui.js",
+      "require": "./dist/ui.umd.cjs"
+    }
+  },
   "engines": {
     "node": "16 || 18"
   },

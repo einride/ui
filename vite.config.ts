@@ -7,8 +7,8 @@ import pkg from "./package.json"
 export default defineConfig({
   build: {
     lib: {
+      name: "ui",
       entry: resolve(__dirname, "src/main.ts"),
-      formats: ["es", "cjs"],
     },
     rollupOptions: {
       external: [
