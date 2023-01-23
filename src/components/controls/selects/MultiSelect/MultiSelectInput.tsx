@@ -345,7 +345,9 @@ const Pill = styled.button`
   overflow: hidden;
 
   &:focus {
-    background-color: lightblue;
+    background-color: ${({ theme }) => theme.colors.background.primaryInverted};
+    color: ${({ theme }) => theme.colors.content.primaryInverted};
+    outline: 0;
   }
 
   p {
