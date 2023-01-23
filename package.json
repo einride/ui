@@ -93,7 +93,6 @@
   ],
   "main": "./dist/ui.js",
   "module": "./dist/ui.mjs",
-  "types": "./dist/main.d.ts",
   "exports": {
     ".": {
       "import": "./dist/ui.mjs",
