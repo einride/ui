@@ -116,6 +116,15 @@ export const MultiSelectInput = <Option extends BaseOption>({
 
   const handleClearInput = (e: MouseEvent | KeyboardEvent): void => {
     e.stopPropagation()
+    e.preventDefault()
+    if (!selectedOptions.length && !inputValue) {
+      inputRef.current?.blur()
+      onFocusToggle(false)
+      const button = e.currentTarget as HTMLButtonElement
+      button.blur()
+    } else {
+      inputRef.current?.focus()
+    }
     onSelectionChange([])
     onSearchChange("")
     onSearchChange?.("")
@@ -215,7 +224,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
                 onChange={(e) => handleInputChange(e.target.value)}
                 onFocus={handleInputFocus}
                 onClick={handleInputClick}
-                // ios doesn't trigger click on focuced input element
+                // ios doesn't trigger click on focused input element
                 onTouchEnd={handleInputClick}
                 autoComplete="off"
                 ref={inputRef}
@@ -229,7 +238,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
             </InputWrapper>
           </ScrollContent>
         </Scroller>
-        {inputValue || selectedOptions.length ? (
+        {inputValue || selectedOptions.length || isOpen ? (
           <ClearButton
             type="button"
             onClick={handleClearInput}
