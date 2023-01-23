@@ -386,6 +386,7 @@ const SelectedOptionsWrapper = styled.div`
   display: flex;
   flex: 0 1 auto;
   gap: ${({ theme }) => theme.spacingBase}rem;
+  margin-inline-start: ${({ theme }) => -1 * theme.spacingBase}rem;
 `
 
 const ClearButton = styled.button`
