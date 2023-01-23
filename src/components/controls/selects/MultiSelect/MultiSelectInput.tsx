@@ -1,6 +1,5 @@
 import styled from "@emotion/styled"
 import { useScrollIntoView } from "@mantine/hooks"
-import { motion } from "framer-motion"
 import {
   useId,
   useEffect,
@@ -242,7 +241,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
           </ClearButton>
         ) : (
           <ClearButton tabIndex={-1}>
-            <StyledIcon name="plus" />
+            <StyledPlusIcon name="plus" />
           </ClearButton>
         )}
       </Wrapper>
@@ -388,7 +387,7 @@ const ClearButton = styled.button`
   align-items: center;
 `
 
-const StyledIcon = styled(motion(Icon))`
+const StyledIcon = styled(Icon)`
   flex: 0 0 ${({ theme }) => 3 * theme.spacingBase}rem;
   inset-block: ${({ theme }) => 1.5 * theme.spacingBase}rem;
   block-size: ${({ theme }) => 3 * theme.spacingBase}rem;
@@ -396,6 +395,13 @@ const StyledIcon = styled(motion(Icon))`
   display: flex;
   justify-content: center;
   align-items: center;
+`
+const StyledPlusIcon = styled(Icon)`
+  flex: 0 0 ${({ theme }) => 3 * theme.spacingBase}rem;
+  inset-block: ${({ theme }) => 1.5 * theme.spacingBase}rem;
+  block-size: ${({ theme }) => 3 * theme.spacingBase}rem;
+  inline-size: ${({ theme }) => 3 * theme.spacingBase}rem;
+  line-height: 1.2em;
 `
 
 const getMessageColor = (status: Status | undefined): ContentColor => {
