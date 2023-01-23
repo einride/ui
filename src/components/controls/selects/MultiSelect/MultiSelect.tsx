@@ -41,7 +41,7 @@ export const MultiSelect = <Option extends BaseOption>({
   const optionRefs = useRef<Record<string, HTMLDivElement>>({})
 
   const theme = useTheme()
-  const dropdownScroller = useScrollIntoView({
+  const { targetRef, scrollIntoView, scrollableRef } = useScrollIntoView({
     duration: 0,
     offset: theme.spacer,
     cancelable: false,
@@ -100,67 +100,63 @@ export const MultiSelect = <Option extends BaseOption>({
   }
 
   const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>): void => {
-    if (e.key === "ArrowDown") {
-      e.preventDefault()
-      setDirection("end")
-      if (isOpen && filteredOptions) {
-        if (selectedIndex === null) {
-          setSelectedIndex(0)
-        } else if (selectedIndex < filteredOptions.length - 1) {
-          setSelectedIndex(selectedIndex + 1)
+    switch (e.key) {
+      case "ArrowLeft":
+        setDirection("start")
+        break
+      case "ArrowRight":
+        setDirection("end")
+        break
+      case "ArrowDown":
+        e.preventDefault()
+        setDirection("end")
+        if (isOpen && filteredOptions) {
+          if (selectedIndex === null) {
+            setSelectedIndex(0)
+          } else if (selectedIndex < filteredOptions.length - 1) {
+            setSelectedIndex(selectedIndex + 1)
+          }
+        } else {
+          handlers.open()
         }
-      } else {
-        handlers.open()
-      }
-    }
-
-    if (e.key === "ArrowUp") {
-      e.preventDefault()
-      setDirection("start")
-      if (isOpen) {
-        if (selectedIndex !== null && selectedIndex > 0) {
+        break
+      case "ArrowUp":
+        e.preventDefault()
+        setDirection("start")
+        if (isOpen && selectedIndex !== null && selectedIndex > 0) {
           setSelectedIndex(selectedIndex - 1)
         }
-      }
-    }
-
-    if (e.key === "Enter") {
-      e.preventDefault()
-      if (typeof selectedIndex === "number" && filteredOptions.length > 0) {
-        handleOptionSelect(filteredOptions[selectedIndex])
-      }
-    }
-
-    if (e.key === "Escape") {
-      e.preventDefault()
-      handlers.close()
-      setSelectedIndex(null)
+        break
+      case "Enter":
+        e.preventDefault()
+        if (typeof selectedIndex === "number" && filteredOptions.length > 0) {
+          handleOptionSelect(filteredOptions[selectedIndex])
+        }
+        break
+      case "Escape":
+        e.preventDefault()
+        handlers.close()
+        setSelectedIndex(null)
+        break
+      default:
+        break
     }
   }
 
   useEffect(() => {
     if (typeof selectedIndex === "number" && filteredOptions[selectedIndex]) {
       const currentOption = filteredOptions[selectedIndex]
-      dropdownScroller.targetRef.current =
-        optionRefs.current[currentOption.key || currentOption.value]
+      targetRef.current = optionRefs.current[currentOption.key || currentOption.value]
 
       let alignment = direction
       // if option is above scroll view
-      const { top } = dropdownScroller.targetRef.current?.getBoundingClientRect() || {}
+      const { top } = targetRef.current?.getBoundingClientRect() || {}
       if (top < 0) {
         alignment = "start"
       }
-      dropdownScroller.scrollIntoView({ alignment })
+      scrollIntoView({ alignment })
     }
-  }, [
-    selectedIndex,
-    filteredOptions,
-    optionRefs,
-    dropdownScroller.targetRef,
-    dropdownScroller.scrollIntoView,
-    direction,
-    dropdownScroller,
-  ])
+  }, [selectedIndex, filteredOptions, optionRefs, targetRef, scrollIntoView, direction])
 
   return (
     <OuterWrapper
@@ -183,7 +179,7 @@ export const MultiSelect = <Option extends BaseOption>({
         {...props}
       />
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
-        <OptionsWrapper {...dropdownProps} ref={dropdownScroller.scrollableRef}>
+        <OptionsWrapper {...dropdownProps} ref={scrollableRef}>
           {filteredOptions?.map((option, index) => (
             <StyledSearchSelectOption
               key={option.key ?? option.value}
