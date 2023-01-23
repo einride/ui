@@ -131,7 +131,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
     e.preventDefault()
   }
 
-  const handlePillClick = (e: MouseEvent<HTMLButtonElement>, index: number): void => {
+  const handlePillClick = (index: number): void => {
     if (isOpen) {
       setSelectedIndex(index)
     }
@@ -193,7 +193,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
                 {selectedOptions.map((option, index) => (
                   <Pill
                     onMouseDown={handlePillMouseDown}
-                    onClick={(e) => handlePillClick(e, index)}
+                    onClick={() => handlePillClick(index)}
                     key={option.key ?? option.value}
                     isSelected={index === selectedIndex}
                     tabIndex={-1}
