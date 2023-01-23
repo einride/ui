@@ -10,6 +10,7 @@ import {
   KeyboardEvent,
   MouseEvent,
   RefObject,
+  MutableRefObject,
 } from "react"
 import { Caption, ContentColor, Icon, useTheme } from "../../../../main"
 import { BaseOption } from "../SearchSelect/types"
@@ -44,8 +45,9 @@ export const MultiSelectInput = <Option extends BaseOption>({
 
   const optionWrapperRef = useRef<HTMLInputElement>(null)
   const shadowElRef = useRef<HTMLElement>(null)
+  const previousContentInlineSize = useRef(0)
 
-  const pillScroller = useScrollIntoView({
+  const { targetRef, scrollIntoView, scrollableRef } = useScrollIntoView({
     duration: 0,
     offset: theme.spacer,
     cancelable: false,
@@ -104,8 +106,8 @@ export const MultiSelectInput = <Option extends BaseOption>({
   }
 
   const handlePillFocus = (e: FocusEvent<HTMLButtonElement>, option: Option): void => {
-    pillScroller.targetRef.current = e.target
-    pillScroller.scrollIntoView({ alignment: direction })
+    targetRef.current = e.target
+    scrollIntoView({ alignment: direction })
     const index = filteredOptions?.findIndex((o) => o === option)
     if (index > -1) {
       onIndexSelect(index)
@@ -159,6 +161,14 @@ export const MultiSelectInput = <Option extends BaseOption>({
     setContentInlineSize((optionWrapperRef.current?.clientWidth || 0) + inputInlineSize)
   }, [inputInlineSize, isOpen, optionWrapperRef, selectedOptions])
 
+  useLayoutEffect(() => {
+    if (previousContentInlineSize.current < contentInlineSize) {
+      const ref = scrollableRef as MutableRefObject<HTMLDivElement | null>
+      ref.current?.scrollTo(contentInlineSize, 0)
+    }
+    previousContentInlineSize.current = contentInlineSize
+  }, [contentInlineSize, scrollableRef])
+
   return (
     <>
       {"label" in props && (
@@ -167,7 +177,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
         </StyledLabel>
       )}
       <Wrapper>
-        <Scroller ref={pillScroller.scrollableRef}>
+        <Scroller ref={scrollableRef}>
           <ScrollContent style={{ flex: `0 0 ${contentInlineSize}px` }}>
             {selectedOptions.length ? (
               <SelectedOptionsWrapper ref={optionWrapperRef}>
@@ -285,7 +295,6 @@ const Scroller = styled.div`
   flex: 1 1 auto;
   padding-inline-start: ${({ theme }) => 2 * theme.spacingBase}rem;
   display: flex;
-  justify-content: flex-end;
 
   &::-webkit-scrollbar {
     display: none;
@@ -295,7 +304,6 @@ const Scroller = styled.div`
 const ScrollContent = styled.div`
   display: flex;
   min-inline-size: 100%;
-  justify-content: flex-end;
   align-items: center;
   gap: ${({ theme }) => theme.spacingBase}rem;
 `
