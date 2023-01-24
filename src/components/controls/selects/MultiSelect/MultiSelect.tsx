@@ -11,20 +11,46 @@ import {
   useMemo,
   useRef,
   useState,
+  ComponentPropsWithoutRef,
 } from "react"
 import { Box, Icon, useTheme, zIndex } from "../../../../main"
+import { BoxProps } from "../../../layout/Box/Box"
 // TODO move SearchSelect imports
 import { SearchSelectOption } from "../SearchSelect/SearchSelectOption"
 import { BaseOption } from "../SearchSelect/types"
 import { useSelectedOptions } from "./MultiSelect.hook"
 
-import {
-  MultiSelectWithLabelProps,
-  MultiSelectWithoutLabelProps,
-  MultiSelectProps,
-  Direction,
-} from "./MultiSelect.types"
-import { MultiSelectInput } from "./MultiSelectInput"
+import { MultiSelectInput, MultiSelectInputSharedProps } from "./MultiSelectInput"
+import { MultiSelectWithLabelProps, MultiSelectWithoutLabelProps, Direction } from "./types"
+
+interface MultiSelectBaseProps<Option> {
+  /** Props passed to dropdown element. */
+  dropdownProps?: ComponentPropsWithoutRef<"div"> & { "data-testid": string }
+
+  /** Filtering function to be used to populate dropdown. Filters on `option.value` by default. */
+  filter?: (value: string, option: Option) => boolean
+
+  /** If `false`, consumer have control over which options to pass to dropdown. Defaults to `true`. */
+  isFilterable?: boolean
+
+  clearSearchAfterSelect?: boolean
+
+  /** Options to render in dropdown. */
+  options: Option[] | undefined
+
+  /** Props passed to the individual options. */
+  optionProps?: ComponentPropsWithoutRef<"div"> & { "data-testid": string }
+
+  /** Controlled input value. */
+  value?: Option[]
+
+  /** Props passed to root element. */
+  wrapperProps?: BoxProps
+}
+
+type MultiSelectProps<Option> = Partial<MultiSelectInputSharedProps<Option>> &
+  MultiSelectBaseProps<Option> &
+  (MultiSelectWithLabelProps | MultiSelectWithoutLabelProps)
 
 export const MultiSelect = <Option extends BaseOption>({
   dropdownProps,

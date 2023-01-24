@@ -1,18 +1,76 @@
 import styled from "@emotion/styled"
 import { useScrollIntoView } from "@mantine/hooks"
 import {
-  useId,
-  useEffect,
-  useState,
-  useRef,
-  useLayoutEffect,
+  ComponentPropsWithoutRef,
   KeyboardEvent,
   MouseEvent,
+  ReactNode,
   RefObject,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState,
 } from "react"
 import { Caption, ContentColor, Icon, useTheme } from "../../../../main"
 import { BaseOption } from "../SearchSelect/types"
-import { Direction, MultiSelectInputProps, Status } from "./MultiSelect.types"
+import { Direction, MultiSelectWithLabelProps, MultiSelectWithoutLabelProps, Status } from "./types"
+
+interface MultiSelectInputBaseProps<Option> {
+  /** Unique ID. */
+  id: string
+
+  /** Reflects state of the dropdown. */
+  isOpen: boolean
+
+  /** Callback for onFocus/onBlur. */
+  onFocusToggle: (isOpen: boolean) => void
+
+  /** Set highlighted index within selected options. */
+  onIndexHighlight: (index: number | null) => void
+
+  /** Highlighted index within selected options. */
+  highlightedIndex: number | null
+
+  /** Options filtered by search term. */
+  filteredOptions: Option[]
+
+  /** Options selected by user. */
+  selectedOptions: Option[]
+
+  /** Search term (controlled). */
+  inputValue: string
+}
+
+export interface MultiSelectInputSharedProps<Option> {
+  /** Input placeholder. */
+  placeholder?: string
+
+  /** Default is `neutral`. */
+  status?: Status
+
+  /** Message shown below input field. Can be used together with `status` to show a success or error message. */
+  message?: ReactNode
+
+  /** Props passed to the input element. */
+  inputProps?: ComponentPropsWithoutRef<"input"> & { "data-testid": string }
+
+  /** Props passed to the clear button element. */
+  clearButtonProps?: ComponentPropsWithoutRef<"button"> & { "data-testid": string }
+
+  /** Callback called when the input field is updated. */
+  onSearchChange: (value: string) => void
+
+  /** Callback called when the selection changes. */
+  onSelectionChange: (options: Option[]) => void
+
+  /** Callback called when the clear button is clicked. */
+  onClearClick?: () => void
+}
+
+type MultiSelectInputProps<Option> = MultiSelectInputBaseProps<Option> &
+  MultiSelectInputSharedProps<Option> &
+  (MultiSelectWithLabelProps | MultiSelectWithoutLabelProps)
 
 export const MultiSelectInput = <Option extends BaseOption>({
   clearButtonProps,
