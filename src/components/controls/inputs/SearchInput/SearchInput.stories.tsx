@@ -29,7 +29,7 @@ WithLabel.play = async ({ canvasElement }) => {
 export const WithoutLabel = Template.bind({})
 WithoutLabel.args = {
   "aria-label": "Search for something fun",
-  placeholder: "Search...",
+  placeholder: "Search",
 }
 WithoutLabel.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)

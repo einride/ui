@@ -33,7 +33,7 @@ WithoutLabel.args = {
 export const Placeholder = Template.bind({})
 Placeholder.args = {
   "aria-label": "A dropdown select with a placeholder",
-  placeholder: "Placeholder...",
+  placeholder: "Placeholder",
 }
 
 export const DefaultValue = Template.bind({})
