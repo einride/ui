@@ -52,6 +52,10 @@ type MultiSelectProps<Option> = Partial<MultiSelectInputSharedProps<Option>> &
   MultiSelectBaseProps<Option> &
   (MultiSelectWithLabelProps | MultiSelectWithoutLabelProps)
 
+function defaultFilter<Option extends BaseOption>(value: string, option: Option): boolean {
+  return option.value.toLowerCase().trim().includes(value.toLowerCase().trim())
+}
+
 export const MultiSelect = <Option extends BaseOption>({
   dropdownProps,
   onSelectionChange,
@@ -61,6 +65,7 @@ export const MultiSelect = <Option extends BaseOption>({
   clearSearchAfterSelect = true,
   value,
   wrapperProps,
+  filter = defaultFilter,
   ...props
 }: MultiSelectProps<Option> &
   (MultiSelectWithLabelProps | MultiSelectWithoutLabelProps)): JSX.Element => {
@@ -79,10 +84,8 @@ export const MultiSelect = <Option extends BaseOption>({
   const id = useId()
 
   const filteredOptions = useMemo<Option[]>(() => {
-    return (options || [])?.filter((option) =>
-      option.value.toLowerCase().trim().includes(inputValue.toLowerCase().trim()),
-    )
-  }, [inputValue, options])
+    return (options || [])?.filter((option) => filter(inputValue, option))
+  }, [filter, inputValue, options])
 
   const targetRef = useMemo((): HTMLDivElement | null => {
     if (typeof highlightedDropdownIndex === "number" && filteredOptions[highlightedDropdownIndex]) {
