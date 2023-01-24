@@ -221,11 +221,17 @@ export const MultiSelectInput = <Option extends BaseOption>({
           {props.label}
         </StyledLabel>
       )}
-      <Wrapper role="combobox" aria-haspopup aria-expanded={isOpen} aria-controls={`options-${id}`}>
+      <Wrapper
+        role="combobox"
+        aria-haspopup
+        aria-expanded={isOpen}
+        aria-controls={`options-${id}`}
+        hasLabel={"label" in props}
+      >
         <Scroller ref={scrollableRef}>
           <ScrollContent style={{ flex: `0 0 ${contentInlineSize}px` }}>
             {selectedOptions.length ? (
-              <SelectedOptionsWrapper ref={optionsWrapperRef}>
+              <SelectedOptionsWrapper ref={optionsWrapperRef} hasLabel={"label" in props}>
                 {selectedOptions.map((option, index) => (
                   <Pill
                     onMouseDown={handlePillMouseDown}
@@ -305,11 +311,15 @@ const StyledLabel = styled.label`
   color: ${({ theme }) => theme.colors.content.secondary};
 `
 
-interface StyledInputProps {
+interface WrapperProps {
   hasLabel?: boolean
 }
 
-const Wrapper = styled.div<StyledInputProps>`
+interface SelectionProps {
+  isSelected?: boolean
+}
+
+const Wrapper = styled.div<WrapperProps>`
   position: relative;
   display: flex;
   align-items: center;
@@ -323,7 +333,8 @@ const Wrapper = styled.div<StyledInputProps>`
   inline-size: 100%;
   padding-block: ${({ theme }) => theme.spacingBase}rem;
   padding-inline-end: ${({ theme }) => theme.spacingBase}rem;
-  border-radius: ${({ theme }) => theme.borderRadii.sm};
+  border-radius: ${({ hasLabel, theme }) =>
+    hasLabel ? theme.borderRadii.sm : theme.borderRadii.xl};
 
   &:focus-within {
     box-shadow: 0px 0px 0px 1px ${({ theme }) => theme.colors.border.selected} inset;
@@ -383,7 +394,7 @@ const Shadow = styled.span`
   z-index: -1;
 `
 
-const Input = styled.input<{ isSelected: boolean }>`
+const Input = styled.input<SelectionProps>`
   background: transparent;
   position: absolute;
   inset: 0;
@@ -395,7 +406,7 @@ const Input = styled.input<{ isSelected: boolean }>`
   }
 `
 
-const Pill = styled.button<{ isSelected: boolean }>`
+const Pill = styled.button<SelectionProps>`
   background-color: ${({ theme, isSelected }) =>
     isSelected ? theme.colors.background.primaryInverted : theme.colors.background.tertiary};
   ${({ theme, isSelected }) =>
@@ -413,11 +424,11 @@ const Pill = styled.button<{ isSelected: boolean }>`
   }
 `
 
-const SelectedOptionsWrapper = styled.div`
+const SelectedOptionsWrapper = styled.div<WrapperProps>`
   display: flex;
   flex: 0 1 auto;
   gap: ${({ theme }) => theme.spacingBase}rem;
-  margin-inline-start: ${({ theme }) => -1 * theme.spacingBase}rem;
+  margin-inline-start: ${({ theme, hasLabel }) => (hasLabel ? -1 * theme.spacingBase : 0)}rem;
 `
 
 const ClearButton = styled.button`

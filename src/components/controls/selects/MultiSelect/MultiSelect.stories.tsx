@@ -248,6 +248,12 @@ DontClearAfterSelect.args = {
   clearSearchAfterSelect: false,
 }
 
+export const WithoutLabel = Template.bind({})
+WithoutLabel.args = {
+  options: basicOptions,
+  "aria-label": "Label",
+}
+
 export const LargeDataset = Template.bind({})
 LargeDataset.args = {
   ...Basic.args,
