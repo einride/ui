@@ -21,11 +21,17 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version-file: .nvmrc
           cache: yarn
 
       - name: Review
         run: yarn review
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18 # semantic-release requires v18
+          cache: yarn
 
       - name: Run semantic-release
         run: yarn semantic-release
