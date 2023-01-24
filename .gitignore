@@ -3,3 +3,5 @@ node_modules
 
 build-storybook.log
 storybook-static
+.nyc_output
+coverage
