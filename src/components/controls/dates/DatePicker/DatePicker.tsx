@@ -71,6 +71,7 @@ export const DatePicker = ({
       <StyledDatePicker
         allowLevelChange={false}
         clearable={false}
+        clickOutsideEvents={["pointerdown"]} // to ensure dropdown is closed when clicking on a menu trigger
         dayStyle={() => ({
           fontFamily: theme.fonts.body,
           fontSize: theme.fontSizes.md,
