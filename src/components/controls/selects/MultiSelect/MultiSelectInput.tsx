@@ -9,7 +9,6 @@ import {
   KeyboardEvent,
   MouseEvent,
   RefObject,
-  MutableRefObject,
 } from "react"
 import { Caption, ContentColor, Icon, useTheme } from "../../../../main"
 import { BaseOption } from "../SearchSelect/types"
@@ -47,7 +46,10 @@ export const MultiSelectInput = <Option extends BaseOption>({
   const previousContentInlineSize = useRef(0)
   const pillRefs = useRef<HTMLButtonElement[]>([])
 
-  const { targetRef, scrollIntoView, scrollableRef } = useScrollIntoView({
+  const { targetRef, scrollIntoView, scrollableRef } = useScrollIntoView<
+    HTMLButtonElement,
+    HTMLDivElement
+  >({
     duration: 0,
     offset: theme.spacer,
     cancelable: false,
@@ -108,13 +110,15 @@ export const MultiSelectInput = <Option extends BaseOption>({
     }
   }
 
-  const handleClearInput = (e: MouseEvent | KeyboardEvent): void => {
+  const handleClearInput = (
+    e: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>,
+  ): void => {
     e.stopPropagation()
     e.preventDefault()
     if (!selectedOptions.length && !inputValue) {
       inputRef.current?.blur()
       onFocusToggle(false)
-      const button = e.currentTarget as HTMLButtonElement
+      const button = e.currentTarget
       button.blur()
     } else {
       inputRef.current?.focus()
@@ -161,7 +165,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
 
   useLayoutEffect(() => {
     if (previousContentInlineSize.current < contentInlineSize || highlightedIndex === null) {
-      const ref = scrollableRef as MutableRefObject<HTMLDivElement | null>
+      const ref = scrollableRef
       ref.current?.scrollTo(contentInlineSize, 0)
     }
     previousContentInlineSize.current = contentInlineSize
