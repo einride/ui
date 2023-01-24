@@ -1,6 +1,5 @@
 import { useDisclosure } from "@einride/hooks"
 import styled from "@emotion/styled"
-import { useScrollIntoView } from "@mantine/hooks"
 import { motion } from "framer-motion"
 import {
   FocusEvent,
@@ -13,12 +12,13 @@ import {
   useState,
   ComponentPropsWithoutRef,
 } from "react"
-import { Box, Icon, useTheme, zIndex } from "../../../../main"
+import { Box, Icon, zIndex } from "../../../../main"
 import { BoxProps } from "../../../layout/Box/Box"
 // TODO move SearchSelect imports
 import { SearchSelectOption } from "../SearchSelect/SearchSelectOption"
 import { BaseOption } from "../SearchSelect/types"
-import { useSelectedOptions } from "./MultiSelect.hook"
+import { useScrollIntoView } from "./hooks/useScrollIntoView"
+import { useSelectedOptions } from "./hooks/useSelectedOptions"
 
 import { MultiSelectInput, MultiSelectInputSharedProps } from "./MultiSelectInput"
 import { MultiSelectWithLabelProps, MultiSelectWithoutLabelProps, Direction } from "./types"
@@ -77,19 +77,26 @@ export const MultiSelect = <Option extends BaseOption>({
   const optionRefs = useRef<Record<string, HTMLDivElement>>({})
 
   const id = useId()
-  const theme = useTheme()
-  const { targetRef, scrollIntoView, scrollableRef } = useScrollIntoView({
-    duration: 0,
-    offset: theme.spacer,
-    cancelable: false,
-    isList: true,
-  })
 
   const filteredOptions = useMemo<Option[]>(() => {
     return (options || [])?.filter((option) =>
       option.value.toLowerCase().trim().includes(inputValue.toLowerCase().trim()),
     )
   }, [inputValue, options])
+
+  const targetRef = useMemo((): HTMLDivElement | null => {
+    if (typeof highlightedDropdownIndex === "number" && filteredOptions[highlightedDropdownIndex]) {
+      const currentOption = filteredOptions[highlightedDropdownIndex]
+      return optionRefs.current[currentOption.key || currentOption.value]
+    }
+    return null
+  }, [filteredOptions, highlightedDropdownIndex])
+
+  const { scrollableRef } = useScrollIntoView<HTMLDivElement, HTMLDivElement>({
+    axis: "y",
+    direction,
+    targetRef,
+  })
 
   const handleFocusChange = (open: boolean): void => {
     if (open) {
@@ -180,21 +187,6 @@ export const MultiSelect = <Option extends BaseOption>({
         break
     }
   }
-
-  useEffect(() => {
-    if (typeof highlightedDropdownIndex === "number" && filteredOptions[highlightedDropdownIndex]) {
-      const currentOption = filteredOptions[highlightedDropdownIndex]
-      targetRef.current = optionRefs.current[currentOption.key || currentOption.value]
-
-      let alignment = direction
-      // if option is above scroll view
-      const { top } = targetRef.current?.getBoundingClientRect() || {}
-      if (top < 0) {
-        alignment = "start"
-      }
-      scrollIntoView({ alignment })
-    }
-  }, [highlightedDropdownIndex, filteredOptions, optionRefs, targetRef, scrollIntoView, direction])
 
   useEffect(() => {
     if (highlightedInputIndex !== null) {

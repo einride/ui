@@ -1,19 +1,19 @@
 import styled from "@emotion/styled"
-import { useScrollIntoView } from "@mantine/hooks"
 import {
   ComponentPropsWithoutRef,
   KeyboardEvent,
   MouseEvent,
   ReactNode,
   RefObject,
-  useEffect,
   useId,
-  useLayoutEffect,
+  useMemo,
   useRef,
   useState,
 } from "react"
-import { Caption, ContentColor, Icon, useTheme } from "../../../../main"
+import { Caption, ContentColor, Icon } from "../../../../main"
 import { BaseOption } from "../SearchSelect/types"
+import { useScrollIntoView } from "./hooks/useScrollIntoView"
+import { useUpdateInputSize } from "./hooks/useUpdateInputSize"
 import { Direction, MultiSelectWithLabelProps, MultiSelectWithoutLabelProps, Status } from "./types"
 
 interface MultiSelectInputBaseProps<Option> {
@@ -92,28 +92,31 @@ export const MultiSelectInput = <Option extends BaseOption>({
   ...props
 }: MultiSelectInputProps<Option> & { inputRef: RefObject<HTMLInputElement> }): JSX.Element => {
   const messageId = useId()
-
-  const theme = useTheme()
-
-  const [inputInlineSize, setInputInlineSize] = useState(0)
-  const [contentInlineSize, setContentInlineSize] = useState(0)
   const [direction, setDirection] = useState<Direction>("start")
-
-  const optionWrapperRef = useRef<HTMLInputElement>(null)
-  const shadowElRef = useRef<HTMLElement>(null)
-  const previousContentInlineSize = useRef(0)
   const pillRefs = useRef<HTMLButtonElement[]>([])
 
-  const { targetRef, scrollIntoView, scrollableRef } = useScrollIntoView<
-    HTMLButtonElement,
-    HTMLDivElement
-  >({
-    duration: 0,
-    offset: theme.spacer,
-    cancelable: false,
-    isList: true,
+  const targetRef = useMemo((): HTMLButtonElement | null => {
+    if (highlightedIndex !== null && pillRefs.current[highlightedIndex]) {
+      return pillRefs.current[highlightedIndex]
+    }
+    return null
+  }, [highlightedIndex])
+
+  const { scrollableRef } = useScrollIntoView<HTMLButtonElement, HTMLDivElement>({
     axis: "x",
+    direction,
+    targetRef,
   })
+
+  const { inputInlineSize, contentInlineSize, optionsWrapperRef, shadowElRef } = useUpdateInputSize(
+    {
+      scrollableRef,
+      isOpen,
+      inputValue,
+      selectedOptions,
+      highlightedIndex,
+    },
+  )
 
   const handleInputChange = (text: string): void => {
     onSearchChange?.(text)
@@ -211,31 +214,6 @@ export const MultiSelectInput = <Option extends BaseOption>({
     }
   }
 
-  useLayoutEffect(() => {
-    setInputInlineSize(
-      Math.max(shadowElRef.current?.offsetWidth || 0, (isOpen ? 8 : 4) * theme.spacer),
-    )
-  }, [inputValue, isOpen, theme.spacer])
-
-  useLayoutEffect(() => {
-    setContentInlineSize((optionWrapperRef.current?.clientWidth || 0) + inputInlineSize)
-  }, [inputInlineSize, isOpen, optionWrapperRef, selectedOptions])
-
-  useLayoutEffect(() => {
-    if (previousContentInlineSize.current < contentInlineSize || highlightedIndex === null) {
-      const ref = scrollableRef
-      ref.current?.scrollTo(contentInlineSize, 0)
-    }
-    previousContentInlineSize.current = contentInlineSize
-  }, [contentInlineSize, scrollableRef, highlightedIndex])
-
-  useEffect(() => {
-    if (highlightedIndex !== null && pillRefs.current[highlightedIndex]) {
-      targetRef.current = pillRefs.current[highlightedIndex]
-      scrollIntoView({ alignment: direction })
-    }
-  }, [highlightedIndex, direction, targetRef, scrollIntoView, scrollableRef, contentInlineSize])
-
   return (
     <>
       {"label" in props && (
@@ -247,7 +225,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
         <Scroller ref={scrollableRef}>
           <ScrollContent style={{ flex: `0 0 ${contentInlineSize}px` }}>
             {selectedOptions.length ? (
-              <SelectedOptionsWrapper ref={optionWrapperRef}>
+              <SelectedOptionsWrapper ref={optionsWrapperRef}>
                 {selectedOptions.map((option, index) => (
                   <Pill
                     onMouseDown={handlePillMouseDown}

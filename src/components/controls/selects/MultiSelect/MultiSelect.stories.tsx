@@ -252,7 +252,6 @@ export const LargeDataset = Template.bind({})
 LargeDataset.args = {
   ...Basic.args,
   options: largeDataset,
-  clearSearchAfterSelect: false,
 }
 
 const ControlledTemplate: ComponentStory<typeof MultiSelect<(typeof basicOptions)[0]>> = (args) => {
