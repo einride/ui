@@ -72,7 +72,7 @@ export const SearchSelect = <Option extends BaseOption>({
   onSearchChange,
   options,
   optionProps,
-  placeholder = "Search...",
+  placeholder,
   isFilterable = true,
   value,
   wrapperProps,
