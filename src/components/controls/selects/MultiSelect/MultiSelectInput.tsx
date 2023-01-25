@@ -246,7 +246,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
                       pillRefs.current[index] = node
                     }}
                   >
-                    {option.label}
+                    {option.value}
                   </Pill>
                 ))}
               </SelectedOptionsWrapper>
@@ -417,14 +417,6 @@ const Pill = styled.button<SelectionProps>`
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   padding: ${({ theme }) => 0.5 * theme.spacingBase}rem ${({ theme }) => theme.spacingBase}rem;
   white-space: nowrap;
-  overflow: hidden;
-
-  p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin: 0;
-  }
 `
 
 const SelectedOptionsWrapper = styled.div<WrapperProps>`
