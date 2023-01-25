@@ -12,8 +12,9 @@ import {
   useState,
   ComponentPropsWithoutRef,
 } from "react"
-import { Box, Icon, zIndex } from "../../../../main"
-import { BoxProps } from "../../../layout/Box/Box"
+import { zIndex } from "../../../../lib/zIndex"
+import { Icon } from "../../../content/Icon/Icon"
+import { BoxProps, Box } from "../../../layout/Box/Box"
 // TODO move SearchSelect imports
 import { SearchSelectOption } from "../SearchSelect/SearchSelectOption"
 import { BaseOption } from "../SearchSelect/types"

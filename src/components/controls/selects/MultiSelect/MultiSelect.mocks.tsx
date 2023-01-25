@@ -1,4 +1,4 @@
-import { Paragraph } from "../../../../main"
+import { Paragraph } from "../../../typography/Paragraph/Paragraph"
 import { BaseOption } from "../SearchSelect/types"
 
 const contents = [

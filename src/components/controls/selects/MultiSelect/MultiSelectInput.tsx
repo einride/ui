@@ -10,7 +10,9 @@ import {
   useRef,
   useState,
 } from "react"
-import { Caption, ContentColor, Icon } from "../../../../main"
+import { ContentColor } from "../../../../lib/theme/types"
+import { Icon } from "../../../content/Icon/Icon"
+import { Caption } from "../../../typography/Caption/Caption"
 import { BaseOption } from "../SearchSelect/types"
 import { useScrollIntoView } from "./hooks/useScrollIntoView"
 import { useUpdateInputSize } from "./hooks/useUpdateInputSize"
