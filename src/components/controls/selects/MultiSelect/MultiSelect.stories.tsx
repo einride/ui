@@ -75,22 +75,16 @@ ErrorMessage.args = {
 export const Mouse = Template.bind({})
 Mouse.args = {
   ...Basic.args,
-  inputProps: {
-    "data-testid": "input-1",
-  },
   optionProps: {
     "data-testid": "options",
-  },
-  clearButtonProps: {
-    "data-testid": "clear-button",
   },
 }
 Mouse.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const inputField = canvas.getByTestId("input-1")
+  const inputField = canvas.getByRole("textbox")
   await userEvent.click(inputField)
   await expect(inputField).toHaveFocus()
-  const options = canvas.getAllByTestId("options")
+  const options = await canvas.getAllByTestId("options")
   await expect(options.length).toBe(3)
   await userEvent.click(options[1])
   await expect(options[1].getAttribute("aria-selected")).toBe("true")
@@ -100,7 +94,7 @@ Mouse.play = async ({ canvasElement }) => {
   await userEvent.click(options[1])
   await expect(options[1].getAttribute("aria-selected")).toBe("false")
   await expect(options[2].getAttribute("aria-selected")).toBe("true")
-  const clearButton = canvas.getByTestId("clear-button")
+  const clearButton = canvas.getByRole("button", { name: "Clear input" })
   await userEvent.click(clearButton)
   await expect(inputField).toHaveFocus()
   await expect(options[2].getAttribute("aria-selected")).toBe("false")
@@ -111,21 +105,18 @@ Mouse.play = async ({ canvasElement }) => {
 export const Keyboard = Template.bind({})
 Keyboard.args = {
   ...Mouse.args,
-  inputProps: {
-    "data-testid": "input-1",
-  },
   optionProps: {
     "data-testid": "options",
   },
 }
 Keyboard.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const inputField = canvas.getByTestId("input-1")
+  const inputField = canvas.getByRole("textbox")
   inputField.focus()
   await userEvent.type(inputField, "dazzl", { delay: 10 })
   await userEvent.keyboard("[ArrowDown]")
   await userEvent.keyboard("[Enter]")
-  const options = canvas.getAllByTestId("options")
+  const options = await canvas.getAllByTestId("options")
   await expect(options[2].getAttribute("aria-selected")).toBe("true")
   // hit clear button
   await userEvent.keyboard("[Tab]")

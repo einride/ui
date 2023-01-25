@@ -281,6 +281,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
             onKeyDown={handleClearInput}
             tabIndex={isOpen ? 0 : -1}
             aria-controls={id}
+            aria-label="Clear input"
             {...clearButtonProps}
           >
             <StyledIcon name="xMark" />
