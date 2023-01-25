@@ -231,7 +231,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
         hasLabel={"label" in props}
       >
         <Scroller ref={scrollableRef}>
-          <ScrollContent style={{ flex: `0 0 ${contentInlineSize}px` }}>
+          <ScrollContent style={{ flexBasis: `${contentInlineSize}px` }}>
             {selectedOptions.length ? (
               <SelectedOptionsWrapper ref={optionsWrapperRef} hasLabel={"label" in props}>
                 {selectedOptions.map((option, index) => (
@@ -375,6 +375,8 @@ const ScrollContent = styled.div`
   display: flex;
   min-inline-size: 100%;
   align-items: center;
+  flex-grow: 0;
+  flex-shrink: 0;
   gap: ${({ theme }) => theme.spacingBase}rem;
 `
 
