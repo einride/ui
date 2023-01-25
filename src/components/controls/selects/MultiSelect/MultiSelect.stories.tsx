@@ -93,11 +93,25 @@ Controlled.args = {
   ...Basic.args,
   options: basicOptions,
 }
+Controlled.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const selectedOption = canvas.getByRole("button", { name: "Snowfall guzzler drapery" })
+
+  await expect(selectedOption).toBeTruthy()
+}
 
 export const Message = Template.bind({})
 Message.args = {
   ...Basic.args,
   message: "Message.",
+}
+Message.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const inputField = canvas.getByRole("textbox")
+  const errorMessage = canvas.getByText("Message.")
+
+  await expect(inputField).toBeTruthy()
+  await expect(errorMessage).toBeTruthy()
 }
 
 export const ErrorMessage = Template.bind({})
@@ -105,6 +119,14 @@ ErrorMessage.args = {
   ...Basic.args,
   message: "Error Message.",
   status: "fail",
+}
+ErrorMessage.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const inputField = canvas.getByRole("textbox")
+  const errorMessage = canvas.getByText("Error Message.")
+
+  await expect(inputField).toBeTruthy()
+  await expect(errorMessage).toBeTruthy()
 }
 
 export const Mouse = Template.bind({})
