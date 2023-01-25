@@ -25,6 +25,7 @@ export const RangeCalendar = ({ wrapperProps, ...props }: RangeCalendarProps): J
     <Box {...wrapperProps}>
       <StyledRangeCalendar
         allowLevelChange={false}
+        allowSingleDateInRange
         dayStyle={() => ({
           fontFamily: theme.fonts.body,
           fontSize: theme.fontSizes.md,
