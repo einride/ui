@@ -425,7 +425,7 @@ const SelectedOptionsWrapper = styled.div<WrapperProps>`
   display: flex;
   flex: 0 1 auto;
   gap: ${({ theme }) => theme.spacingBase}rem;
-  margin-inline-start: ${({ theme, hasLabel }) => (hasLabel ? -1 * theme.spacingBase : 0)}rem;
+  margin-inline-start: ${({ theme, hasLabel }) => hasLabel && `${-1 * theme.spacingBase}rem`};
 `
 
 const ClearButton = styled.button`
