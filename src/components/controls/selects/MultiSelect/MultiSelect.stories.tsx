@@ -23,11 +23,32 @@ Basic.args = {
   label: "Label",
   options: basicOptions,
 }
+Basic.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const label = canvas.getByText("Label")
+  const inputField = canvas.getByRole("textbox")
+  await userEvent.click(label)
+  await expect(inputField).toHaveFocus()
+}
 
 export const DontClearAfterSelect = Template.bind({})
 DontClearAfterSelect.args = {
   ...Basic.args,
   clearSearchAfterSelect: false,
+}
+DontClearAfterSelect.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const inputField = canvas.getByRole("textbox") as HTMLInputElement
+  inputField.focus()
+  await userEvent.type(inputField, "SNOW", { delay: 10 })
+  await userEvent.keyboard("[ArrowDown]")
+  await userEvent.keyboard("[Enter]")
+  await expect(inputField.value).toBe("SNOW")
+  const selectedOption = canvas.getByRole("option", {
+    selected: true,
+    name: "Snowfall guzzler drapery",
+  })
+  await expect(selectedOption).toBeTruthy()
 }
 
 export const WithoutLabel = Template.bind({})
@@ -35,11 +56,25 @@ WithoutLabel.args = {
   options: basicOptions,
   "aria-label": "Label",
 }
+WithoutLabel.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const inputField = canvas.getByRole("textbox") as HTMLInputElement
+  await inputField.focus()
+  const combobox = await canvas.getByRole("combobox", { expanded: true })
+  await expect(combobox).toBeTruthy()
+}
 
 export const LargeDataset = Template.bind({})
 LargeDataset.args = {
   ...Basic.args,
   options: largeDataset,
+}
+LargeDataset.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const inputField = canvas.getByRole("textbox") as HTMLInputElement
+  await inputField.focus()
+  const combobox = await canvas.getByRole("combobox", { expanded: true })
+  await expect(combobox).toBeTruthy()
 }
 
 const ControlledTemplate: ComponentStory<typeof MultiSelect<(typeof basicOptions)[0]>> = (args) => {
@@ -75,29 +110,26 @@ ErrorMessage.args = {
 export const Mouse = Template.bind({})
 Mouse.args = {
   ...Basic.args,
-  optionProps: {
-    "data-testid": "options",
-  },
 }
 Mouse.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const inputField = canvas.getByRole("textbox")
   await userEvent.click(inputField)
   await expect(inputField).toHaveFocus()
-  const options = await canvas.getAllByTestId("options")
+  const options = await canvas.getAllByRole("option")
   await expect(options.length).toBe(3)
   await userEvent.click(options[1])
-  await expect(options[1].getAttribute("aria-selected")).toBe("true")
+  await expect(options[1].ariaSelected).toBe("true")
   await userEvent.click(options[2])
-  await expect(options[1].getAttribute("aria-selected")).toBe("true")
-  await expect(options[2].getAttribute("aria-selected")).toBe("true")
+  await expect(options[1].ariaSelected).toBe("true")
+  await expect(options[2].ariaSelected).toBe("true")
   await userEvent.click(options[1])
-  await expect(options[1].getAttribute("aria-selected")).toBe("false")
-  await expect(options[2].getAttribute("aria-selected")).toBe("true")
+  await expect(options[1].ariaSelected).toBe("false")
+  await expect(options[2].ariaSelected).toBe("true")
   const clearButton = canvas.getByRole("button", { name: "Clear input" })
   await userEvent.click(clearButton)
   await expect(inputField).toHaveFocus()
-  await expect(options[2].getAttribute("aria-selected")).toBe("false")
+  await expect(options[2].ariaSelected).toBe("false")
   await userEvent.click(clearButton)
   await expect(inputField).not.toHaveFocus()
 }
@@ -105,9 +137,6 @@ Mouse.play = async ({ canvasElement }) => {
 export const Keyboard = Template.bind({})
 Keyboard.args = {
   ...Mouse.args,
-  optionProps: {
-    "data-testid": "options",
-  },
 }
 Keyboard.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
@@ -116,36 +145,36 @@ Keyboard.play = async ({ canvasElement }) => {
   await userEvent.type(inputField, "dazzl", { delay: 10 })
   await userEvent.keyboard("[ArrowDown]")
   await userEvent.keyboard("[Enter]")
-  const options = await canvas.getAllByTestId("options")
-  await expect(options[2].getAttribute("aria-selected")).toBe("true")
+  const options = await canvas.getAllByRole("option")
+  await expect(options[2].ariaSelected).toBe("true")
   // hit clear button
   await userEvent.keyboard("[Tab]")
   await userEvent.keyboard("[Enter]")
-  await expect(options[2].getAttribute("aria-selected")).toBe("false")
+  await expect(options[2].ariaSelected).toBe("false")
 
   await userEvent.keyboard("[ArrowDown]")
   await userEvent.keyboard("[Enter]")
-  await expect(options[1].getAttribute("aria-selected")).toBe("true")
+  await expect(options[1].ariaSelected).toBe("true")
   await userEvent.keyboard("[ArrowDown]")
   await userEvent.keyboard("[Enter]")
-  await expect(options[1].getAttribute("aria-selected")).toBe("true")
-  await expect(options[2].getAttribute("aria-selected")).toBe("true")
+  await expect(options[1].ariaSelected).toBe("true")
+  await expect(options[2].ariaSelected).toBe("true")
   await userEvent.keyboard("[Backspace]")
   await userEvent.keyboard("[Backspace]")
-  await expect(options[1].getAttribute("aria-selected")).toBe("true")
-  await expect(options[2].getAttribute("aria-selected")).toBe("false")
+  await expect(options[1].ariaSelected).toBe("true")
+  await expect(options[2].ariaSelected).toBe("false")
   await userEvent.keyboard("[ArrowDown]")
   await userEvent.keyboard("[Enter]")
-  await expect(options[0].getAttribute("aria-selected")).toBe("true")
-  await expect(options[1].getAttribute("aria-selected")).toBe("true")
+  await expect(options[0].ariaSelected).toBe("true")
+  await expect(options[1].ariaSelected).toBe("true")
   await userEvent.keyboard("[ArrowLeft]")
   await userEvent.keyboard("[ArrowLeft]")
   await userEvent.keyboard("[Backspace]")
-  await expect(options[0].getAttribute("aria-selected")).toBe("true")
-  await expect(options[1].getAttribute("aria-selected")).toBe("false")
+  await expect(options[0].ariaSelected).toBe("true")
+  await expect(options[1].ariaSelected).toBe("false")
   await userEvent.keyboard("[Backspace]")
   await userEvent.keyboard("[Backspace]")
-  await expect(options[0].getAttribute("aria-selected")).toBe("false")
+  await expect(options[0].ariaSelected).toBe("false")
   await userEvent.keyboard("[Escape]")
   await expect(inputField).not.toHaveFocus()
 }

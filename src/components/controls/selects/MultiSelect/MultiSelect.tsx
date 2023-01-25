@@ -34,6 +34,7 @@ interface MultiSelectBaseProps<Option> {
   /** If `false`, consumer have control over which options to pass to dropdown. Defaults to `true`. */
   isFilterable?: boolean
 
+  /** Set if search term should be cleared after selecting an option. */
   clearSearchAfterSelect?: boolean
 
   /** Options to render in dropdown. */
@@ -249,6 +250,7 @@ export const MultiSelect = <Option extends BaseOption>({
                 optionRefs.current[option.key ?? option.value] = node
               }}
               aria-selected={selectedOptions.includes(option)}
+              role="option"
               {...optionProps}
             >
               {option.label}
