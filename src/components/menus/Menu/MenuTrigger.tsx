@@ -1,22 +1,11 @@
-import styled from "@emotion/styled"
-import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
-import { ComponentPropsWithoutRef, forwardRef, ReactNode } from "react"
-
-interface MenuTriggerProps extends ComponentPropsWithoutRef<"button"> {
-  /** Menu trigger. For example an `<IconButton>`. */
-  children: ReactNode
-}
-
-export const MenuTrigger = forwardRef<HTMLButtonElement, MenuTriggerProps>(
-  ({ children, ...props }, forwardedRef): JSX.Element => {
-    return (
-      <StyledTrigger asChild {...props} ref={forwardedRef}>
-        {children}
-      </StyledTrigger>
-    )
-  },
-)
-
-const StyledTrigger = styled(DropdownMenu.Trigger)`
-  display: inline-flex;
-`
+import { Trigger } from "./Trigger"
+/**
+ * @deprecated since v7.14.0. Import as `import * as Menu from "@einride/ui` and use `<Menu.Trigger>` instead.
+ * ```
+ * import * as Menu from "@einride/ui"
+ * [...]
+ * <Menu.Trigger />
+ * ```
+ */
+const MenuTrigger = Trigger
+export { MenuTrigger }
