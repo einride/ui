@@ -1,7 +1,10 @@
+import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { within, userEvent } from "@storybook/testing-library"
 import { useState } from "react"
 import { Paragraph } from "../../../typography/Paragraph/Paragraph"
 import { SearchSelect } from "./SearchSelect"
+import { getMockData } from "./SearchSelect.mocks"
 
 export default {
   title: "Controls/Selects/SearchSelect",
@@ -13,26 +16,9 @@ export default {
   },
 } as ComponentMeta<typeof SearchSelect>
 
-const basicOptions = [
-  {
-    key: "option-1",
-    label: <Paragraph>Snowfall guzzler drapery</Paragraph>,
-    value: "Snowfall guzzler drapery",
-    description: "description one",
-  },
-  {
-    key: "option-2",
-    label: <Paragraph>Remorse strike tartly</Paragraph>,
-    value: "Remorse strike tartly",
-    description: "description two",
-  },
-  {
-    key: "option-3",
-    label: <Paragraph>Operator dazzling breeding</Paragraph>,
-    value: "Operator dazzling breeding",
-    description: "description three",
-  },
-]
+const basicOptions = getMockData(3)
+
+const largeDataset = getMockData(32)
 
 const Template: ComponentStory<typeof SearchSelect<(typeof basicOptions)[0]>> = (args) => {
   const [searchTerm, setSearchTerm] = useState("")
@@ -46,13 +32,51 @@ Basic.args = {
   label: "Label",
   options: basicOptions,
 }
+Basic.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const label = canvas.getByText("Label")
+  const inputField = canvas.getByRole("textbox")
+  await userEvent.click(label)
+  await expect(inputField).toHaveFocus()
+}
+
+export const LargeDataset = Template.bind({})
+LargeDataset.args = {
+  label: "Label",
+  options: largeDataset,
+}
 
 export const WithoutLabel = Template.bind({})
 WithoutLabel.args = {
   options: basicOptions,
 }
 
-const inputValueOptions = [
+const inputValueOptions = getMockData(3, false)
+
+const InputValueTemplate: ComponentStory<typeof SearchSelect<(typeof inputValueOptions)[0]>> = (
+  args,
+) => {
+  const [searchTerm, setSearchTerm] = useState("")
+  return (
+    <SearchSelect {...args} onSearchChange={(text) => setSearchTerm(text)} value={searchTerm} />
+  )
+}
+
+export const WithoutInputValue = InputValueTemplate.bind({})
+WithoutInputValue.args = {
+  label: "Label",
+  options: inputValueOptions,
+}
+WithoutInputValue.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const inputField = canvas.getByRole("textbox") as HTMLInputElement
+  inputField.focus()
+  await userEvent.keyboard("[ArrowDown]")
+  await userEvent.keyboard("[Enter]")
+  await expect(inputField.value).toBe("snowfall-guzzler-drapery_0")
+}
+
+const descriptionOptions = [
   {
     label: <Paragraph>Snowfall guzzler drapery</Paragraph>,
     inputValue: "Snowfall guzzler drapery",
@@ -73,7 +97,7 @@ const inputValueOptions = [
   },
 ]
 
-const InputValueTemplate: ComponentStory<typeof SearchSelect<(typeof inputValueOptions)[0]>> = (
+const DescriptionTemplate: ComponentStory<typeof SearchSelect<(typeof descriptionOptions)[0]>> = (
   args,
 ) => {
   const [searchTerm, setSearchTerm] = useState("")
@@ -82,16 +106,20 @@ const InputValueTemplate: ComponentStory<typeof SearchSelect<(typeof inputValueO
   )
 }
 
-export const InputValue = InputValueTemplate.bind({})
-InputValue.args = {
-  label: "Label",
-  options: inputValueOptions,
-}
-
-export const CustomFilter = Template.bind({})
+export const CustomFilter = DescriptionTemplate.bind({})
 CustomFilter.args = {
   ...Basic.args,
+  options: descriptionOptions,
   filter: (value, option) =>
     option.value.toLowerCase().trim().includes(value.toLowerCase().trim()) ||
     option.description.toLowerCase().trim().includes(value.toLowerCase().trim()),
+}
+CustomFilter.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const inputField = canvas.getByRole("textbox") as HTMLInputElement
+  inputField.focus()
+  await userEvent.type(inputField, "DeScRiptiOn tHrEe", { delay: 10 })
+  await userEvent.keyboard("[ArrowDown]")
+  await userEvent.keyboard("[Enter]")
+  await expect(inputField.value).toBe("Operator dazzling breeding")
 }
