@@ -1,6 +1,14 @@
 import { useDisclosure } from "@einride/hooks"
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, KeyboardEvent, ReactNode, useRef, useState } from "react"
+import {
+  ComponentPropsWithoutRef,
+  KeyboardEvent,
+  ReactNode,
+  useMemo,
+  useRef,
+  useState,
+} from "react"
+import { Alignment, useScrollIntoView } from "../../../../hooks/useScrollIntoView"
 import { zIndex } from "../../../../lib/zIndex"
 import { defaultFilter, filterOptions } from "./filterOptions"
 import { SearchSelectInput } from "./SearchSelectInput"
@@ -80,8 +88,21 @@ export const SearchSelect = <Option extends BaseOption>({
 }: SearchSelectProps<Option> &
   (SearchSelectWithLabelProps | SearchSelectWithoutLabelProps)): JSX.Element => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
+  const [alignment, setAlignment] = useState<Alignment>("end")
   const { isOpen, handlers } = useDisclosure(false)
   const inputRef = useRef<HTMLInputElement>(null)
+  const optionRefs = useRef<HTMLDivElement[]>([])
+  const targetRef = useMemo((): HTMLDivElement | null => {
+    if (typeof selectedIndex === "number") {
+      return optionRefs.current[selectedIndex]
+    }
+    return null
+  }, [selectedIndex])
+
+  const { scrollableRef } = useScrollIntoView<HTMLDivElement, HTMLDivElement>({
+    targetRef,
+    alignment,
+  })
 
   const filteredOptions = filterOptions({ options, value, filter, isFilterable })
 
@@ -119,6 +140,7 @@ export const SearchSelect = <Option extends BaseOption>({
   const handleInputKeyDown = (e: KeyboardEvent<HTMLInputElement>): void => {
     if (e.key === "ArrowDown") {
       e.preventDefault()
+      setAlignment("end")
       if (isOpen && filteredOptions) {
         if (selectedIndex === null) {
           setSelectedIndex(0)
@@ -132,6 +154,7 @@ export const SearchSelect = <Option extends BaseOption>({
 
     if (e.key === "ArrowUp") {
       e.preventDefault()
+      setAlignment("start")
       if (isOpen) {
         if (selectedIndex !== null && selectedIndex > 0) {
           setSelectedIndex(selectedIndex - 1)
@@ -185,7 +208,7 @@ export const SearchSelect = <Option extends BaseOption>({
         ref={inputRef}
       />
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
-        <OptionsWrapper {...dropdownProps}>
+        <OptionsWrapper {...dropdownProps} ref={scrollableRef}>
           {filteredOptions?.map((option, index) => (
             <SearchSelectOption
               key={option.key ?? option.value}
@@ -196,6 +219,9 @@ export const SearchSelect = <Option extends BaseOption>({
               }}
               onMouseOver={() => handleMouseOver(index)}
               onMouseLeave={handleMouseLeave}
+              ref={(node: HTMLDivElement) => {
+                optionRefs.current[index] = node
+              }}
               {...optionProps}
             >
               {option.label}
@@ -220,9 +246,11 @@ const OptionsWrapper = styled.div`
   background: ${({ theme }) => theme.colors.background.secondaryElevated};
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   margin-block-start: ${({ theme }) => theme.spacer}px;
+  max-block-size: ${({ theme }) => 26 * theme.spacingBase}rem;
   padding: ${({ theme }) => theme.spacer}px;
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacer}px;
   z-index: ${zIndex.dropdown};
+  overflow: auto;
+  overscroll-behavior: contain;
 `
