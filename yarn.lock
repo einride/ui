@@ -2908,10 +2908,10 @@
     lodash "^4.17.21"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-coverage@0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-coverage/-/addon-coverage-0.0.6.tgz#6dec0ef628016bb8ca22cc365768a9dc9c7bcc61"
-  integrity sha512-n61k5CsOtJ+FCclSzIkTq9oiJ+Bw2I+zMDMWYK46u4enK4r/bwE2FLJWtjyzqNtoeWbZt/avpVTtkcb3Q8DpFA==
+"@storybook/addon-coverage@0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-coverage/-/addon-coverage-0.0.7.tgz#3e71f3f02d4366aa94e977ec669bb52db8133ae1"
+  integrity sha512-pe9qI09kDAMXFACYBNOaYqsqb8Zpm9/O9WQqbFoPXLw1XNVvMa2mFJRI2D761l+52TkdfSeu/l19Bgo5h5qlGQ==
   dependencies:
     "@types/babel__core" "^7.1.19"
     "@types/istanbul-lib-coverage" "^2.0.4"
@@ -3981,18 +3981,7 @@
   resolved "https://registry.yarnpkg.com/@types/aria-query/-/aria-query-4.2.2.tgz#ed4e0ad92306a704f9fb132a0cfcf77486dbe2bc"
   integrity sha512-HnYpAE1Y6kRyKM/XkEuiRQhTHvkzMBurTHnpFLYLBGPIylZNPs9jJcuOOYWxPLJCSEtmZT0Y8rHDokKN7rRTig==
 
-"@types/babel__core@^7.1.14":
-  version "7.1.20"
-  resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.20.tgz#e168cdd612c92a2d335029ed62ac94c95b362359"
-  integrity sha512-PVb6Bg2QuscZ30FvOU7z4guG6c926D9YRvOxEaelzndpMsvP+YM74Q/dAFASpg2l6+XLalxSGxcq/lrgYWZtyQ==
-  dependencies:
-    "@babel/parser" "^7.1.0"
-    "@babel/types" "^7.0.0"
-    "@types/babel__generator" "*"
-    "@types/babel__template" "*"
-    "@types/babel__traverse" "*"
-
-"@types/babel__core@^7.1.19":
+"@types/babel__core@^7.1.14", "@types/babel__core@^7.1.19":
   version "7.20.0"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.20.0.tgz#61bc5a4cae505ce98e1e36c5445e4bee060d8891"
   integrity sha512-+n8dL/9GWblDO0iU6eZAwEIJVr5DWigtle+Q6HLOrh/pdbXOhOtqzq8VPPE2zvNJzSKY4vH/z3iT3tn0A3ypiQ==
