@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
 
 export interface BaseOption {
-  /** @deprecated since 7.12 */
+  /** @deprecated since v7.12.0. `key` is not needed when using `value`, since `value` has to be unique. Use `value` instead! */
   key?: string
   /** Formatted, human readable value */
   label: ReactNode
