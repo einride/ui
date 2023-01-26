@@ -1,6 +1,7 @@
 import { useDisclosure } from "@einride/hooks"
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, KeyboardEvent, ReactNode, useRef, useState } from "react"
+import { ComponentPropsWithoutRef, KeyboardEvent, ReactNode, useId, useRef, useState } from "react"
+import { useScrollIntoView } from "../../../../hooks/useScrollIntoView"
 import { zIndex } from "../../../../lib/zIndex"
 import { defaultFilter, filterOptions } from "./filterOptions"
 import { SearchSelectInput } from "./SearchSelectInput"
@@ -82,6 +83,20 @@ export const SearchSelect = <Option extends BaseOption>({
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
   const { isOpen, handlers } = useDisclosure(false)
   const inputRef = useRef<HTMLInputElement>(null)
+  const optionRefs = useRef<HTMLDivElement[]>([])
+  const id = useId()
+
+  const getTargetRef = (index: number | null): HTMLDivElement | null => {
+    if (typeof index === "number") {
+      return optionRefs.current[index]
+    }
+    return null
+  }
+
+  const { scrollableRef, scrollIntoView, targetRef } = useScrollIntoView<
+    HTMLDivElement,
+    HTMLDivElement
+  >()
 
   const filteredOptions = filterOptions({ options, value, filter, isFilterable })
 
@@ -119,15 +134,20 @@ export const SearchSelect = <Option extends BaseOption>({
   const handleInputKeyDown = (e: KeyboardEvent<HTMLInputElement>): void => {
     if (e.key === "ArrowDown") {
       e.preventDefault()
+      let nextIndex = null
       if (isOpen && filteredOptions) {
         if (selectedIndex === null) {
-          setSelectedIndex(0)
+          nextIndex = 0
+          setSelectedIndex(nextIndex)
         } else if (selectedIndex < filteredOptions.length - 1) {
-          setSelectedIndex(selectedIndex + 1)
+          nextIndex = selectedIndex + 1
+          setSelectedIndex(nextIndex)
         }
       } else {
         handlers.open()
       }
+      targetRef.current = getTargetRef(nextIndex)
+      scrollIntoView({ alignment: "end" })
     }
 
     if (e.key === "ArrowUp") {
@@ -135,6 +155,8 @@ export const SearchSelect = <Option extends BaseOption>({
       if (isOpen) {
         if (selectedIndex !== null && selectedIndex > 0) {
           setSelectedIndex(selectedIndex - 1)
+          targetRef.current = getTargetRef(selectedIndex - 1)
+          scrollIntoView({ alignment: "start" })
         }
       }
     }
@@ -169,7 +191,7 @@ export const SearchSelect = <Option extends BaseOption>({
   }
 
   return (
-    <Wrapper {...wrapperProps}>
+    <Wrapper role="combobox" aria-haspopup="listbox" {...wrapperProps} aria-expanded={isOpen}>
       <SearchSelectInput
         {...props}
         autoComplete="off"
@@ -183,19 +205,27 @@ export const SearchSelect = <Option extends BaseOption>({
         placeholder={placeholder}
         value={options?.find((option) => option?.value === value)?.inputValue ?? value}
         ref={inputRef}
+        labelProps={{
+          id,
+        }}
       />
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
-        <OptionsWrapper {...dropdownProps}>
+        <OptionsWrapper role="listbox" aria-labelledby={id} {...dropdownProps} ref={scrollableRef}>
           {filteredOptions?.map((option, index) => (
             <SearchSelectOption
               key={option.key ?? option.value}
               isSelected={index === selectedIndex}
+              aria-selected={index === selectedIndex}
               onClick={(e) => {
                 e.stopPropagation()
                 handleOptionSelect(option)
               }}
               onMouseOver={() => handleMouseOver(index)}
               onMouseLeave={handleMouseLeave}
+              role="option"
+              ref={(node: HTMLDivElement) => {
+                optionRefs.current[index] = node
+              }}
               {...optionProps}
             >
               {option.label}
@@ -220,9 +250,11 @@ const OptionsWrapper = styled.div`
   background: ${({ theme }) => theme.colors.background.secondaryElevated};
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   margin-block-start: ${({ theme }) => theme.spacer}px;
+  max-block-size: ${({ theme }) => 27 * theme.spacingBase}rem;
   padding: ${({ theme }) => theme.spacer}px;
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacer}px;
   z-index: ${zIndex.dropdown};
+  overflow: auto;
+  overscroll-behavior: contain;
 `
