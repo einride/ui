@@ -17,12 +17,16 @@ import { Icon } from "../../../content/Icon/Icon"
 import { BoxProps, Box } from "../../../layout/Box/Box"
 // TODO move SearchSelect imports
 import { SearchSelectOption } from "../SearchSelect/SearchSelectOption"
-import { BaseOption } from "../SearchSelect/types"
 import { useScrollIntoView } from "./hooks/useScrollIntoView"
 import { useSelectedOptions } from "./hooks/useSelectedOptions"
 
 import { MultiSelectInput, MultiSelectInputSharedProps } from "./MultiSelectInput"
-import { MultiSelectWithLabelProps, MultiSelectWithoutLabelProps, Direction } from "./types"
+import {
+  BaseOption,
+  MultiSelectWithLabelProps,
+  MultiSelectWithoutLabelProps,
+  Direction,
+} from "./types"
 
 interface MultiSelectBaseProps<Option> {
   /** Props passed to dropdown element. */
@@ -92,7 +96,7 @@ export const MultiSelect = <Option extends BaseOption>({
   const targetRef = useMemo((): HTMLDivElement | null => {
     if (typeof highlightedDropdownIndex === "number" && filteredOptions[highlightedDropdownIndex]) {
       const currentOption = filteredOptions[highlightedDropdownIndex]
-      return optionRefs.current[currentOption.key || currentOption.value]
+      return optionRefs.current[currentOption.value]
     }
     return null
   }, [filteredOptions, highlightedDropdownIndex])
@@ -237,7 +241,7 @@ export const MultiSelect = <Option extends BaseOption>({
         <OptionsWrapper {...dropdownProps} ref={scrollableRef} id={`options-${id}`}>
           {filteredOptions?.map((option, index) => (
             <StyledSearchSelectOption
-              key={option.key ?? option.value}
+              key={option.value}
               isSelected={index === highlightedDropdownIndex || selectedOptions.includes(option)}
               onClick={(e) => {
                 e.stopPropagation()
@@ -247,7 +251,7 @@ export const MultiSelect = <Option extends BaseOption>({
               onMouseLeave={handleMouseLeave}
               tabIndex={-1}
               ref={(node: HTMLDivElement) => {
-                optionRefs.current[option.key ?? option.value] = node
+                optionRefs.current[option.value] = node
               }}
               aria-selected={selectedOptions.includes(option)}
               role="option"

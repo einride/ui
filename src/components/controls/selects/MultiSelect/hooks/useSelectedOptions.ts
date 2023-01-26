@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react"
-import { BaseOption } from "../../SearchSelect/types"
+import { BaseOption } from "../types"
 
 type SelectedOptionsReturnType<Option> = [Option[], (options: Option[]) => void]
 

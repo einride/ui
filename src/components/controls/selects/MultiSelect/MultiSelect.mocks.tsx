@@ -1,5 +1,5 @@
 import { Paragraph } from "../../../typography/Paragraph/Paragraph"
-import { BaseOption } from "../SearchSelect/types"
+import { BaseOption } from "./types"
 
 const contents = [
   "Snowfall guzzler drapery",
@@ -27,10 +27,9 @@ export const getMockData = (count: number): BaseOption[] => {
   return [...Array(count)].map((_, index) => {
     const content = contents[index % contents.length]
     return {
-      key: `${index}`,
       label: <Paragraph>{content}</Paragraph>,
-      value: content,
-      description: `description ${count}`,
+      value: content.toLowerCase().replace(/\s/g, "-"),
+      inputValue: content,
     }
   })
 }

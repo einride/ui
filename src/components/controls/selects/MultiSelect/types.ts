@@ -1,5 +1,14 @@
 import { ComponentPropsWithoutRef, ReactNode } from "react"
 
+export interface BaseOption {
+  /** Formatted, human readable value */
+  label: ReactNode
+  /** Human readable value */
+  inputValue: string
+  /** Unique identifier */
+  value: string
+}
+
 export interface MultiSelectWithLabelProps {
   /** Input label, displayed before input. */
   label: ReactNode

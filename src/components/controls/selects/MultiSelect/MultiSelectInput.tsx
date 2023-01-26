@@ -13,10 +13,15 @@ import {
 import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Caption } from "../../../typography/Caption/Caption"
-import { BaseOption } from "../SearchSelect/types"
 import { useScrollIntoView } from "./hooks/useScrollIntoView"
 import { useUpdateInputSize } from "./hooks/useUpdateInputSize"
-import { Direction, MultiSelectWithLabelProps, MultiSelectWithoutLabelProps, Status } from "./types"
+import {
+  BaseOption,
+  Direction,
+  MultiSelectWithLabelProps,
+  MultiSelectWithoutLabelProps,
+  Status,
+} from "./types"
 
 interface MultiSelectInputBaseProps<Option> {
   /** Unique ID. */
@@ -238,7 +243,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
                   <Pill
                     onMouseDown={handlePillMouseDown}
                     onClick={() => handlePillClick(index)}
-                    key={option.key ?? option.value}
+                    key={option.value}
                     isSelected={index === highlightedIndex}
                     aria-selected
                     tabIndex={-1}
@@ -246,7 +251,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
                       pillRefs.current[index] = node
                     }}
                   >
-                    {option.value}
+                    {option.inputValue}
                   </Pill>
                 ))}
               </SelectedOptionsWrapper>
