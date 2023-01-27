@@ -124,7 +124,6 @@ CustomFilter.play = async ({ canvasElement }) => {
   const inputField = canvas.getByRole("textbox") as HTMLInputElement
   inputField.focus()
   await userEvent.type(inputField, "DeScRiptiOn tHrEe", { delay: 10 })
-  await userEvent.keyboard("[ArrowDown]")
   await userEvent.keyboard("[Enter]")
   await expect(inputField.value).toBe("Operator dazzling breeding")
 }
@@ -160,7 +159,6 @@ Keyboard.play = async ({ canvasElement }) => {
   await userEvent.click(inputField)
   await expect(inputField).toHaveFocus()
   await userEvent.type(inputField, "operator", { delay: 10 })
-  await userEvent.keyboard("[ArrowDown]")
   await userEvent.keyboard("[Enter]")
   await expect(inputField.value).toBe("Operator dazzling breeding")
   await userEvent.keyboard("[Tab]")
