@@ -34,7 +34,6 @@ const StyledItem = styled.div`
   color: ${({ theme }) => theme.colors.content.primary};
   background: ${({ theme }) => theme.colors.background.secondaryElevated};
   border-radius: ${({ theme }) => theme.borderRadii.sm};
-  pointer-events: auto;
   transition-duration: ${({ theme }) => theme.transitions.easeIn.duration};
   transition-timing-function: ${({ theme }) => theme.transitions.easeIn.timingFunction};
   min-block-size: ${({ theme }) => 6 * theme.spacingBase}rem;

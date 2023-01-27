@@ -1,6 +1,6 @@
 import { Trigger } from "./Trigger"
 /**
- * @deprecated since v7.14.0 use Menu.Trigger instead:
+ * @deprecated since v7.14.0. Import as `import * as Menu from "@einride/ui` and use `<Menu.Trigger>` instead.
  * ```
  * import * as Menu from "./index"
  * [...]
