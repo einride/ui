@@ -36,8 +36,8 @@ Basic.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const label = canvas.getByText("Label")
   const inputField = canvas.getByRole("textbox")
-  await userEvent.click(label)
-  await expect(inputField).toHaveFocus()
+  await expect(label).toBeTruthy()
+  await expect(inputField).toBeTruthy()
 }
 
 export const LargeDataset = Template.bind({})
@@ -45,14 +45,23 @@ LargeDataset.args = {
   label: "Label",
   options: largeDataset,
 }
+LargeDataset.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const inputField = canvas.getByRole("textbox") as HTMLInputElement
+  await expect(inputField).toBeTruthy()
+}
 
 export const WithoutLabel = Template.bind({})
 WithoutLabel.args = {
   options: basicOptions,
 }
+WithoutLabel.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const inputField = canvas.getByRole("textbox") as HTMLInputElement
+  await expect(inputField).toBeTruthy()
+}
 
 const inputValueOptions = getMockData(3, true)
-
 const InputValueTemplate: ComponentStory<typeof SearchSelect<(typeof inputValueOptions)[0]>> = (
   args,
 ) => {
@@ -70,10 +79,7 @@ WithInputValue.args = {
 WithInputValue.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const inputField = canvas.getByRole("textbox") as HTMLInputElement
-  inputField.focus()
-  await userEvent.keyboard("[ArrowDown]")
-  await userEvent.keyboard("[Enter]")
-  await expect(inputField.value).toBe("Snowfall guzzler drapery")
+  await expect(inputField).toBeTruthy()
 }
 
 const descriptionOptions = [
@@ -122,4 +128,44 @@ CustomFilter.play = async ({ canvasElement }) => {
   await userEvent.keyboard("[ArrowDown]")
   await userEvent.keyboard("[Enter]")
   await expect(inputField.value).toBe("Operator dazzling breeding")
+}
+
+export const Mouse = Template.bind({})
+Mouse.args = {
+  label: "Label",
+  options: basicOptions,
+}
+Mouse.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const label = canvas.getByText("Label")
+  const inputField = canvas.getByRole("textbox") as HTMLInputElement
+  await userEvent.click(label)
+  await expect(inputField).toHaveFocus()
+  const option = canvas.getByText("Remorse strike tartly")
+  await userEvent.click(option)
+  await expect(inputField.value).toBe("Remorse strike tartly")
+  const clearButton = canvas.getByRole("button")
+  await userEvent.click(clearButton)
+  await expect(inputField.value).toBe("")
+  await expect(inputField).toHaveFocus()
+}
+
+export const Keyboard = Template.bind({})
+Keyboard.args = {
+  label: "Label",
+  options: basicOptions,
+}
+Keyboard.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const inputField = canvas.getByRole("textbox") as HTMLInputElement
+  await userEvent.click(inputField)
+  await expect(inputField).toHaveFocus()
+  await userEvent.type(inputField, "operator", { delay: 10 })
+  await userEvent.keyboard("[ArrowDown]")
+  await userEvent.keyboard("[Enter]")
+  await expect(inputField.value).toBe("Operator dazzling breeding")
+  await userEvent.keyboard("[Tab]")
+  await userEvent.keyboard("[Enter]")
+  await expect(inputField.value).toBe("")
+  await expect(inputField).toHaveFocus()
 }
