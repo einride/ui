@@ -284,12 +284,6 @@ const StyledSearchSelectOption = styled(SearchSelectOption)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  > * {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
 `
 
 const StyledCheckIcon = styled(motion(Icon))`
