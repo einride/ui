@@ -13,7 +13,7 @@ const contents = [
 
 export const getMockData = (count: number, withInputValue?: boolean): BaseOption[] => {
   return [...Array(count)].map((_, index) => {
-    const content = contents[index] ?? faker.random.words(4)
+    const content = contents[index] ?? faker.random.words(faker.datatype.number({ min: 1, max: 6 }))
     return {
       label: <Paragraph>{content}</Paragraph>,
       value: withInputValue ? faker.datatype.uuid() : content,
