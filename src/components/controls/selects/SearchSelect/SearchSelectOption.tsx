@@ -1,5 +1,6 @@
 import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes, ReactNode } from "react"
+import { MenuItem } from "../../../menus/MenuItem/MenuItem"
 
 export interface SearchSelectOptionProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode
@@ -16,10 +17,7 @@ export const SearchSelectOption = forwardRef<HTMLDivElement, SearchSelectOptionP
   },
 )
 
-const Wrapper = styled.div<{ isSelected: boolean }>`
-  cursor: pointer;
-  border-radius: ${({ theme }) => theme.borderRadii.sm};
-  padding: ${({ theme }) => theme.spacer}px;
+const Wrapper = styled(MenuItem)<{ isSelected: boolean }>`
   background: ${({ isSelected, theme }) =>
     isSelected ? theme.colors.background.tertiary : theme.colors.background.secondaryElevated};
 `

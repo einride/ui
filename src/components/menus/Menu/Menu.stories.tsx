@@ -10,28 +10,25 @@ import { Td } from "../../table/Td/Td"
 import { Th } from "../../table/Th/Th"
 import { Thead } from "../../table/Thead/Thead"
 import { Tr } from "../../table/Tr/Tr"
-import { Menu } from "./Menu"
-import { MenuContent } from "./MenuContent"
-import { MenuItem } from "./MenuItem"
-import { MenuTrigger } from "./MenuTrigger"
+import * as Menu from "./index"
 
 export default {
   title: "Menus/Menu",
-  component: Menu,
-} as ComponentMeta<typeof Menu>
+  component: Menu.Root,
+} as ComponentMeta<typeof Menu.Root>
 
-const Template: ComponentStory<typeof Menu> = (args) => (
-  <Menu {...args}>
-    <MenuTrigger>
+const Template: ComponentStory<typeof Menu.Root> = (args) => (
+  <Menu.Root {...args}>
+    <Menu.Trigger>
       <IconButton aria-label="See options" icon="ellipsis" />
-    </MenuTrigger>
-    <MenuContent>
-      <MenuItem icon={<Icon name="arrowDownCircle" />}>Option 1</MenuItem>
-      <MenuItem icon={<Icon name="arrowDownCircle" />}>Option 2</MenuItem>
-      <MenuItem>Option 3</MenuItem>
-      <MenuItem>Option 4</MenuItem>
-    </MenuContent>
-  </Menu>
+    </Menu.Trigger>
+    <Menu.Content>
+      <Menu.Item icon={<Icon name="arrowDownCircle" />}>Option 1</Menu.Item>
+      <Menu.Item icon={<Icon name="arrowDownCircle" />}>Option 2</Menu.Item>
+      <Menu.Item>Option 3</Menu.Item>
+      <Menu.Item>Option 4</Menu.Item>
+    </Menu.Content>
+  </Menu.Root>
 )
 
 export const Basic = Template.bind({})
@@ -52,20 +49,20 @@ DefaultOpen.play = async ({ canvasElement }) => {
   await expect(menu).toBeInTheDocument()
 }
 
-const ControlledTemplate: ComponentStory<typeof Menu> = (args) => {
+const ControlledTemplate: ComponentStory<typeof Menu.Root> = (args) => {
   const [open, setOpen] = useState(false)
   return (
-    <Menu {...args} isOpen={open} onOpenChange={setOpen}>
-      <MenuTrigger>
+    <Menu.Root {...args} isOpen={open} onOpenChange={setOpen}>
+      <Menu.Trigger>
         <IconButton aria-label="See options" icon="ellipsis" />
-      </MenuTrigger>
-      <MenuContent>
-        <MenuItem icon={<Icon name="arrowDownCircle" />}>Option 1</MenuItem>
-        <MenuItem icon={<Icon name="arrowDownCircle" />}>Option 2</MenuItem>
-        <MenuItem>Option 3</MenuItem>
-        <MenuItem>Option 4</MenuItem>
-      </MenuContent>
-    </Menu>
+      </Menu.Trigger>
+      <Menu.Content>
+        <Menu.Item icon={<Icon name="arrowDownCircle" />}>Option 1</Menu.Item>
+        <Menu.Item icon={<Icon name="arrowDownCircle" />}>Option 2</Menu.Item>
+        <Menu.Item>Option 3</Menu.Item>
+        <Menu.Item>Option 4</Menu.Item>
+      </Menu.Content>
+    </Menu.Root>
   )
 }
 
@@ -83,7 +80,7 @@ const founders = [
   { key: "filip", firstName: "Filip", lastName: "Lilja" },
 ]
 
-const InTableTemlate: ComponentStory<typeof Menu> = (args) => (
+const InTableTemlate: ComponentStory<typeof Menu.Root> = (args) => (
   <Table>
     <Thead>
       <Tr>
@@ -98,17 +95,17 @@ const InTableTemlate: ComponentStory<typeof Menu> = (args) => (
           <Td>{founder.firstName}</Td>
           <Td>{founder.lastName}</Td>
           <Td textAlign="end">
-            <Menu {...args}>
-              <MenuTrigger>
+            <Menu.Root {...args}>
+              <Menu.Trigger>
                 <IconButton aria-label="See options" icon="ellipsis" />
-              </MenuTrigger>
-              <MenuContent>
-                <MenuItem icon={<Icon name="arrowDownCircle" />}>Option 1</MenuItem>
-                <MenuItem icon={<Icon name="arrowDownCircle" />}>Option 2</MenuItem>
-                <MenuItem>Option 3</MenuItem>
-                <MenuItem>Option 4</MenuItem>
-              </MenuContent>
-            </Menu>
+              </Menu.Trigger>
+              <Menu.Content>
+                <Menu.Item icon={<Icon name="arrowDownCircle" />}>Option 1</Menu.Item>
+                <Menu.Item icon={<Icon name="arrowDownCircle" />}>Option 2</Menu.Item>
+                <Menu.Item>Option 3</Menu.Item>
+                <Menu.Item>Option 4</Menu.Item>
+              </Menu.Content>
+            </Menu.Root>
           </Td>
         </Tr>
       ))}
