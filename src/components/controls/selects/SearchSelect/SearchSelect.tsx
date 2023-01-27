@@ -1,14 +1,7 @@
 import { useDisclosure } from "@einride/hooks"
 import styled from "@emotion/styled"
-import {
-  ComponentPropsWithoutRef,
-  KeyboardEvent,
-  ReactNode,
-  useMemo,
-  useRef,
-  useState,
-} from "react"
-import { Alignment, useScrollIntoView } from "../../../../hooks/useScrollIntoView"
+import { ComponentPropsWithoutRef, KeyboardEvent, ReactNode, useRef, useState } from "react"
+import { useScrollIntoView } from "../../../../hooks/useScrollIntoView"
 import { zIndex } from "../../../../lib/zIndex"
 import { defaultFilter, filterOptions } from "./filterOptions"
 import { SearchSelectInput } from "./SearchSelectInput"
@@ -88,21 +81,21 @@ export const SearchSelect = <Option extends BaseOption>({
 }: SearchSelectProps<Option> &
   (SearchSelectWithLabelProps | SearchSelectWithoutLabelProps)): JSX.Element => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
-  const [alignment, setAlignment] = useState<Alignment>("end")
   const { isOpen, handlers } = useDisclosure(false)
   const inputRef = useRef<HTMLInputElement>(null)
   const optionRefs = useRef<HTMLDivElement[]>([])
-  const targetRef = useMemo((): HTMLDivElement | null => {
-    if (typeof selectedIndex === "number") {
-      return optionRefs.current[selectedIndex]
+
+  const getTargetRef = (index: number | null): HTMLDivElement | null => {
+    if (typeof index === "number") {
+      return optionRefs.current[index]
     }
     return null
-  }, [selectedIndex])
+  }
 
-  const { scrollableRef } = useScrollIntoView<HTMLDivElement, HTMLDivElement>({
-    targetRef,
-    alignment,
-  })
+  const { scrollableRef, scrollIntoView, targetRef } = useScrollIntoView<
+    HTMLDivElement,
+    HTMLDivElement
+  >()
 
   const filteredOptions = filterOptions({ options, value, filter, isFilterable })
 
@@ -140,24 +133,28 @@ export const SearchSelect = <Option extends BaseOption>({
   const handleInputKeyDown = (e: KeyboardEvent<HTMLInputElement>): void => {
     if (e.key === "ArrowDown") {
       e.preventDefault()
-      setAlignment("end")
+      let nextIndex = null
       if (isOpen && filteredOptions) {
         if (selectedIndex === null) {
-          setSelectedIndex(0)
+          nextIndex = 0
         } else if (selectedIndex < filteredOptions.length - 1) {
-          setSelectedIndex(selectedIndex + 1)
+          nextIndex = selectedIndex + 1
         }
       } else {
         handlers.open()
       }
+      setSelectedIndex(nextIndex)
+      targetRef.current = getTargetRef(nextIndex)
+      scrollIntoView({ alignment: "end" })
     }
 
     if (e.key === "ArrowUp") {
       e.preventDefault()
-      setAlignment("start")
       if (isOpen) {
         if (selectedIndex !== null && selectedIndex > 0) {
           setSelectedIndex(selectedIndex - 1)
+          targetRef.current = getTargetRef(selectedIndex - 1)
+          scrollIntoView({ alignment: "start" })
         }
       }
     }

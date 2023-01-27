@@ -17,7 +17,6 @@ export default {
 } as ComponentMeta<typeof SearchSelect>
 
 const basicOptions = getMockData(3)
-
 const largeDataset = getMockData(32)
 
 const Template: ComponentStory<typeof SearchSelect<(typeof basicOptions)[0]>> = (args) => {
