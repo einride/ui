@@ -51,7 +51,7 @@ WithoutLabel.args = {
   options: basicOptions,
 }
 
-const inputValueOptions = getMockData(3, false)
+const inputValueOptions = getMockData(3, true)
 
 const InputValueTemplate: ComponentStory<typeof SearchSelect<(typeof inputValueOptions)[0]>> = (
   args,
@@ -62,18 +62,18 @@ const InputValueTemplate: ComponentStory<typeof SearchSelect<(typeof inputValueO
   )
 }
 
-export const WithoutInputValue = InputValueTemplate.bind({})
-WithoutInputValue.args = {
+export const WithInputValue = InputValueTemplate.bind({})
+WithInputValue.args = {
   label: "Label",
   options: inputValueOptions,
 }
-WithoutInputValue.play = async ({ canvasElement }) => {
+WithInputValue.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const inputField = canvas.getByRole("textbox") as HTMLInputElement
   inputField.focus()
   await userEvent.keyboard("[ArrowDown]")
   await userEvent.keyboard("[Enter]")
-  await expect(inputField.value).toBe("snowfall-guzzler-drapery_0")
+  await expect(inputField.value).toBe("Snowfall guzzler drapery")
 }
 
 const descriptionOptions = [
