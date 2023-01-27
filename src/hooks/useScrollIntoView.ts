@@ -1,17 +1,14 @@
 import { useScrollIntoView as useMantineScroll } from "@mantine/hooks"
-import { RefObject, useEffect } from "react"
+import { RefObject, useCallback } from "react"
 import { useTheme } from "./useTheme"
 
 export type Alignment = "start" | "end" | "center"
+type ScrollIntoViewArgs = { alignment: Alignment }
 
-interface ScrollIntoViewProps<Target> {
-  options?: Partial<ScrollIntoOptions>
-  alignment: Alignment
-  targetRef: Target | null
-}
-
-interface ScrollIntoViewReturnType<Parent> {
+interface ScrollIntoViewReturnType<Target, Parent> {
   scrollableRef: RefObject<Parent>
+  targetRef: React.MutableRefObject<Target | null>
+  scrollIntoView: ({ alignment }: ScrollIntoViewArgs) => void
 }
 
 interface ScrollIntoOptions {
@@ -25,11 +22,9 @@ interface ScrollIntoOptions {
 /**
  * Use mantine scroll-hook to scroll elements into viewport without scrolling body.
  */
-export const useScrollIntoView = <Target extends HTMLElement, Parent extends HTMLElement>({
-  options = {},
-  alignment,
-  targetRef,
-}: ScrollIntoViewProps<Target>): ScrollIntoViewReturnType<Parent> => {
+export const useScrollIntoView = <Target extends HTMLElement, Parent extends HTMLElement>(
+  options: Partial<ScrollIntoOptions> = {},
+): ScrollIntoViewReturnType<Target, Parent> => {
   const theme = useTheme()
   const defaultOptions: ScrollIntoOptions = {
     duration: 0,
@@ -42,34 +37,41 @@ export const useScrollIntoView = <Target extends HTMLElement, Parent extends HTM
     ...defaultOptions,
     ...options,
   }
-  const { targetRef: ref, scrollIntoView, scrollableRef } = useMantineScroll<Target, Parent>(opts)
+  const {
+    scrollIntoView: mantineScrollIntoView,
+    scrollableRef,
+    targetRef,
+  } = useMantineScroll<Target, Parent>(opts)
 
-  useEffect(() => {
-    if (targetRef && scrollableRef.current) {
-      ref.current = targetRef
+  const scrollIntoView = useCallback(
+    ({ alignment }: ScrollIntoViewArgs) => {
+      if (targetRef.current && scrollableRef.current) {
+        let align = alignment
+        // if targetRef is outside of viewport we have to revert the alignment
+        const targetRect = targetRef.current.getBoundingClientRect()
+        const parentRect = scrollableRef.current.getBoundingClientRect()
+        const start = opts.axis === "x" ? "left" : "top"
+        const end = opts.axis === "x" ? "right" : "bottom"
 
-      let align = alignment
-      // if targetRef is outside of viewport we have to revert the alignment
-      const targetRect = ref.current.getBoundingClientRect()
-      const parentRect = scrollableRef.current.getBoundingClientRect()
-      const start = opts.axis === "x" ? "left" : "top"
-      const end = opts.axis === "x" ? "right" : "bottom"
+        const outsideAbove = targetRect[start] < parentRect[start]
+        const outsideBelow = targetRect[end] > parentRect[end]
 
-      const outsideAbove = targetRect[start] < parentRect[start]
-      const outsideBelow = targetRect[end] > parentRect[end]
-
-      if (alignment === "end" && outsideAbove) {
-        // targetRef is above viewport
-        align = "start"
-      } else if (alignment === "start" && outsideBelow) {
-        // targetRef is below viewport
-        align = "end"
+        if (alignment === "end" && outsideAbove) {
+          // targetRef is above viewport
+          align = "start"
+        } else if (alignment === "start" && outsideBelow) {
+          // targetRef is below viewport
+          align = "end"
+        }
+        mantineScrollIntoView({ alignment: align })
       }
-      scrollIntoView({ alignment: align })
-    }
-  }, [ref, scrollIntoView, alignment, targetRef, opts.axis, scrollableRef])
+    },
+    [scrollableRef, targetRef, opts.axis, mantineScrollIntoView],
+  )
 
   return {
+    targetRef,
     scrollableRef,
+    scrollIntoView,
   }
 }
