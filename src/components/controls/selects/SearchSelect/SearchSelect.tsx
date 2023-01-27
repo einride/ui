@@ -189,7 +189,7 @@ export const SearchSelect = <Option extends BaseOption>({
   }
 
   return (
-    <Wrapper {...wrapperProps}>
+    <Wrapper role="combobox" aria-haspopup="listbox" {...wrapperProps} aria-expanded={isOpen}>
       <SearchSelectInput
         {...props}
         autoComplete="off"
@@ -205,17 +205,24 @@ export const SearchSelect = <Option extends BaseOption>({
         ref={inputRef}
       />
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
-        <OptionsWrapper {...dropdownProps} ref={scrollableRef}>
+        <OptionsWrapper
+          role="listbox"
+          aria-labelledby={`label_${inputRef.current?.id}`}
+          {...dropdownProps}
+          ref={scrollableRef}
+        >
           {filteredOptions?.map((option, index) => (
             <SearchSelectOption
               key={option.key ?? option.value}
               isSelected={index === selectedIndex}
+              aria-selected={index === selectedIndex}
               onClick={(e) => {
                 e.stopPropagation()
                 handleOptionSelect(option)
               }}
               onMouseOver={() => handleMouseOver(index)}
               onMouseLeave={handleMouseLeave}
+              role="option"
               ref={(node: HTMLDivElement) => {
                 optionRefs.current[index] = node
               }}

@@ -41,7 +41,7 @@ export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
     return (
       <Box {...wrapperProps}>
         {label && (
-          <StyledLabel {...labelProps} htmlFor={id}>
+          <StyledLabel {...labelProps} htmlFor={id} id={`label_${id}`}>
             {label}
           </StyledLabel>
         )}
