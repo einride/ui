@@ -20,7 +20,10 @@ interface ScrollIntoOptions {
 }
 
 /**
- * Use mantine scroll-hook to scroll elements into viewport without scrolling body.
+ * This hook functions as a proxy to solve alignment problems with mantine-hook.
+ *
+ * Mantine scroll-hook enables scrolling elements without scrolling the body.
+ * However the alignment must be calculated as elements outside of the scroll area are not handled well.
  */
 export const useScrollIntoView = <Target extends HTMLElement, Parent extends HTMLElement>(
   options: Partial<ScrollIntoOptions> = {},

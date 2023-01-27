@@ -1,6 +1,6 @@
 import { useDisclosure } from "@einride/hooks"
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, KeyboardEvent, ReactNode, useRef, useState } from "react"
+import { ComponentPropsWithoutRef, KeyboardEvent, ReactNode, useId, useRef, useState } from "react"
 import { useScrollIntoView } from "../../../../hooks/useScrollIntoView"
 import { zIndex } from "../../../../lib/zIndex"
 import { defaultFilter, filterOptions } from "./filterOptions"
@@ -84,6 +84,7 @@ export const SearchSelect = <Option extends BaseOption>({
   const { isOpen, handlers } = useDisclosure(false)
   const inputRef = useRef<HTMLInputElement>(null)
   const optionRefs = useRef<HTMLDivElement[]>([])
+  const id = useId()
 
   const getTargetRef = (index: number | null): HTMLDivElement | null => {
     if (typeof index === "number") {
@@ -137,13 +138,14 @@ export const SearchSelect = <Option extends BaseOption>({
       if (isOpen && filteredOptions) {
         if (selectedIndex === null) {
           nextIndex = 0
+          setSelectedIndex(nextIndex)
         } else if (selectedIndex < filteredOptions.length - 1) {
           nextIndex = selectedIndex + 1
+          setSelectedIndex(nextIndex)
         }
       } else {
         handlers.open()
       }
-      setSelectedIndex(nextIndex)
       targetRef.current = getTargetRef(nextIndex)
       scrollIntoView({ alignment: "end" })
     }
@@ -203,14 +205,12 @@ export const SearchSelect = <Option extends BaseOption>({
         placeholder={placeholder}
         value={options?.find((option) => option?.value === value)?.inputValue ?? value}
         ref={inputRef}
+        labelProps={{
+          id,
+        }}
       />
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
-        <OptionsWrapper
-          role="listbox"
-          aria-labelledby={`label_${inputRef.current?.id}`}
-          {...dropdownProps}
-          ref={scrollableRef}
-        >
+        <OptionsWrapper role="listbox" aria-labelledby={id} {...dropdownProps} ref={scrollableRef}>
           {filteredOptions?.map((option, index) => (
             <SearchSelectOption
               key={option.key ?? option.value}
@@ -250,7 +250,7 @@ const OptionsWrapper = styled.div`
   background: ${({ theme }) => theme.colors.background.secondaryElevated};
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   margin-block-start: ${({ theme }) => theme.spacer}px;
-  max-block-size: ${({ theme }) => 26 * theme.spacingBase}rem;
+  max-block-size: ${({ theme }) => 27 * theme.spacingBase}rem;
   padding: ${({ theme }) => theme.spacer}px;
   display: flex;
   flex-direction: column;
