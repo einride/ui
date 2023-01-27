@@ -1,6 +1,6 @@
 import { useDisclosure } from "@einride/hooks"
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, KeyboardEvent, ReactNode, useRef, useState } from "react"
+import { ComponentPropsWithoutRef, KeyboardEvent, ReactNode, useId, useRef, useState } from "react"
 import { useScrollIntoView } from "../../../../hooks/useScrollIntoView"
 import { zIndex } from "../../../../lib/zIndex"
 import { defaultFilter, filterOptions } from "./filterOptions"
@@ -84,6 +84,7 @@ export const SearchSelect = <Option extends BaseOption>({
   const { isOpen, handlers } = useDisclosure(false)
   const inputRef = useRef<HTMLInputElement>(null)
   const optionRefs = useRef<HTMLDivElement[]>([])
+  const id = useId()
 
   const getTargetRef = (index: number | null): HTMLDivElement | null => {
     if (typeof index === "number") {
@@ -203,14 +204,12 @@ export const SearchSelect = <Option extends BaseOption>({
         placeholder={placeholder}
         value={options?.find((option) => option?.value === value)?.inputValue ?? value}
         ref={inputRef}
+        labelProps={{
+          id,
+        }}
       />
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
-        <OptionsWrapper
-          role="listbox"
-          aria-labelledby={`label_${inputRef.current?.id}`}
-          {...dropdownProps}
-          ref={scrollableRef}
-        >
+        <OptionsWrapper role="listbox" aria-labelledby={id} {...dropdownProps} ref={scrollableRef}>
           {filteredOptions?.map((option, index) => (
             <SearchSelectOption
               key={option.key ?? option.value}
