@@ -250,7 +250,7 @@ const OptionsWrapper = styled.div`
   background: ${({ theme }) => theme.colors.background.secondaryElevated};
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   margin-block-start: ${({ theme }) => theme.spacer}px;
-  max-block-size: ${({ theme }) => 27 * theme.spacingBase}rem;
+  max-block-size: ${({ theme }) => 30 * theme.spacingBase}rem;
   padding: ${({ theme }) => theme.spacer}px;
   display: flex;
   flex-direction: column;

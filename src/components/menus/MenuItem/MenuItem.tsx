@@ -29,7 +29,7 @@ const StyledItem = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-block: ${({ theme }) => 1.5 * theme.spacer}px;
+  padding-block: ${({ theme }) => 1.25 * theme.spacer}px;
   padding-inline: ${({ theme }) => 1 * theme.spacer}px;
   color: ${({ theme }) => theme.colors.content.primary};
   background: ${({ theme }) => theme.colors.background.secondaryElevated};
@@ -37,6 +37,8 @@ const StyledItem = styled.div`
   pointer-events: auto;
   transition-duration: ${({ theme }) => theme.transitions.easeIn.duration};
   transition-timing-function: ${({ theme }) => theme.transitions.easeIn.timingFunction};
+  min-block-size: ${({ theme }) => 6 * theme.spacingBase}rem;
+  column-gap: ${({ theme }) => 2 * theme.spacingBase}rem;
 
   &:focus-visible {
     outline: none;
