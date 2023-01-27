@@ -252,8 +252,6 @@ const OptionsWrapper = styled.div`
   margin-block-start: ${({ theme }) => theme.spacer}px;
   max-block-size: ${({ theme }) => 30 * theme.spacingBase}rem;
   padding: ${({ theme }) => theme.spacer}px;
-  display: flex;
-  flex-direction: column;
   z-index: ${zIndex.dropdown};
   overflow: auto;
   overscroll-behavior: contain;
