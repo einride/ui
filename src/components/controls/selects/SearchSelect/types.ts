@@ -5,7 +5,7 @@ export interface BaseOption {
   key?: string
   /** Formatted, human readable value */
   label: ReactNode
-  /** Human readable value */
+  /** Human readable value – fallback if `value` is not human readable */
   inputValue?: string
   /** Unique identifier */
   value: string
