@@ -6,18 +6,15 @@ import {
   ReactNode,
   RefObject,
   useId,
-  useMemo,
   useRef,
-  useState,
 } from "react"
+import { useScrollIntoView } from "../../../../hooks/useScrollIntoView"
 import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Caption } from "../../../typography/Caption/Caption"
-import { useScrollIntoView } from "./hooks/useScrollIntoView"
 import { useUpdateInputSize } from "./hooks/useUpdateInputSize"
 import {
   BaseOption,
-  Direction,
   MultiSelectWithLabelProps,
   MultiSelectWithoutLabelProps,
   Status,
@@ -99,20 +96,20 @@ export const MultiSelectInput = <Option extends BaseOption>({
   ...props
 }: MultiSelectInputProps<Option> & { inputRef: RefObject<HTMLInputElement> }): JSX.Element => {
   const messageId = useId()
-  const [direction, setDirection] = useState<Direction>("start")
   const pillRefs = useRef<HTMLButtonElement[]>([])
 
-  const targetRef = useMemo((): HTMLButtonElement | null => {
-    if (highlightedIndex !== null && pillRefs.current[highlightedIndex]) {
-      return pillRefs.current[highlightedIndex]
+  const getTargetRef = (index: number | null): HTMLButtonElement | null => {
+    if (index !== null && pillRefs.current[index]) {
+      return pillRefs.current[index]
     }
     return null
-  }, [highlightedIndex])
+  }
 
-  const { scrollableRef } = useScrollIntoView<HTMLButtonElement, HTMLDivElement>({
+  const { scrollableRef, scrollIntoView, targetRef } = useScrollIntoView<
+    HTMLButtonElement,
+    HTMLDivElement
+  >({
     axis: "x",
-    direction,
-    targetRef,
   })
 
   const { inputInlineSize, contentInlineSize, optionsWrapperRef, shadowElRef } = useUpdateInputSize(
@@ -148,12 +145,16 @@ export const MultiSelectInput = <Option extends BaseOption>({
       current?.selectionEnd === 0
     ) {
       e.preventDefault()
+      let newIndex = null
       if (highlightedIndex === null) {
-        onIndexHighlight(selectedOptions.length - 1)
+        newIndex = selectedOptions.length - 1
+        onIndexHighlight(newIndex)
       } else if (highlightedIndex > 0) {
-        onIndexHighlight(highlightedIndex - 1)
+        newIndex = highlightedIndex - 1
+        onIndexHighlight(newIndex)
       }
-      setDirection("start")
+      targetRef.current = getTargetRef(newIndex)
+      scrollIntoView({ alignment: "start" })
     }
 
     if (e.key === "Backspace" && highlightedIndex !== null) {
@@ -168,8 +169,10 @@ export const MultiSelectInput = <Option extends BaseOption>({
       highlightedIndex < selectedOptions.length - 1
     ) {
       e.preventDefault()
-      onIndexHighlight(highlightedIndex + 1)
-      setDirection("end")
+      const newIndex = highlightedIndex + 1
+      onIndexHighlight(newIndex)
+      targetRef.current = getTargetRef(newIndex)
+      scrollIntoView({ alignment: "end" })
     } else if (e.key === "ArrowRight") {
       if (highlightedIndex === selectedOptions.length - 1) {
         e.preventDefault()
@@ -251,7 +254,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
                       pillRefs.current[index] = node
                     }}
                   >
-                    {option.inputValue}
+                    {option.inputValue ?? option.value}
                   </Pill>
                 ))}
               </SelectedOptionsWrapper>

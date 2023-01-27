@@ -12,21 +12,16 @@ import {
   useState,
   ComponentPropsWithoutRef,
 } from "react"
+import { useScrollIntoView } from "../../../../hooks/useScrollIntoView"
 import { zIndex } from "../../../../lib/zIndex"
 import { Icon } from "../../../content/Icon/Icon"
 import { BoxProps, Box } from "../../../layout/Box/Box"
-// TODO move SearchSelect imports
+// TODO move SearchSelect import
 import { SearchSelectOption } from "../SearchSelect/SearchSelectOption"
-import { useScrollIntoView } from "./hooks/useScrollIntoView"
 import { useSelectedOptions } from "./hooks/useSelectedOptions"
 
 import { MultiSelectInput, MultiSelectInputSharedProps } from "./MultiSelectInput"
-import {
-  BaseOption,
-  MultiSelectWithLabelProps,
-  MultiSelectWithoutLabelProps,
-  Direction,
-} from "./types"
+import { BaseOption, MultiSelectWithLabelProps, MultiSelectWithoutLabelProps } from "./types"
 
 interface MultiSelectBaseProps<Option> {
   /** Props passed to dropdown element. */
@@ -78,7 +73,6 @@ export const MultiSelect = <Option extends BaseOption>({
   const [highlightedDropdownIndex, setHighlightedDropdownIndex] = useState<number | null>(null)
   const [highlightedInputIndex, setHighlightedInputIndex] = useState<number | null>(null)
   const [selectedOptions, setSelectedOptions] = useSelectedOptions<Option>(value, onSelectionChange)
-  const [direction, setDirection] = useState<Direction>("end")
   const { isOpen, handlers } = useDisclosure(false)
 
   const [inputValue, setInputValue] = useState("")
@@ -93,19 +87,18 @@ export const MultiSelect = <Option extends BaseOption>({
     return (options || [])?.filter((option) => filter(inputValue, option))
   }, [filter, inputValue, options])
 
-  const targetRef = useMemo((): HTMLDivElement | null => {
-    if (typeof highlightedDropdownIndex === "number" && filteredOptions[highlightedDropdownIndex]) {
-      const currentOption = filteredOptions[highlightedDropdownIndex]
+  const getTargetRef = (index: number | null): HTMLDivElement | null => {
+    if (typeof index === "number" && filteredOptions[index]) {
+      const currentOption = filteredOptions[index]
       return optionRefs.current[currentOption.value]
     }
     return null
-  }, [filteredOptions, highlightedDropdownIndex])
+  }
 
-  const { scrollableRef } = useScrollIntoView<HTMLDivElement, HTMLDivElement>({
-    axis: "y",
-    direction,
-    targetRef,
-  })
+  const { scrollableRef, scrollIntoView, targetRef } = useScrollIntoView<
+    HTMLDivElement,
+    HTMLDivElement
+  >()
 
   const handleFocusChange = (open: boolean): void => {
     if (open) {
@@ -154,30 +147,30 @@ export const MultiSelect = <Option extends BaseOption>({
 
   const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>): void => {
     switch (e.key) {
-      case "ArrowLeft":
-        setDirection("start")
-        break
-      case "ArrowRight":
-        setDirection("end")
-        break
       case "ArrowDown":
         e.preventDefault()
-        setDirection("end")
         if (isOpen && filteredOptions) {
+          let nextIndex = null
           if (highlightedDropdownIndex === null) {
-            setHighlightedDropdownIndex(0)
+            nextIndex = 0
+            setHighlightedDropdownIndex(nextIndex)
           } else if (highlightedDropdownIndex < filteredOptions.length - 1) {
-            setHighlightedDropdownIndex(highlightedDropdownIndex + 1)
+            nextIndex = highlightedDropdownIndex + 1
+            setHighlightedDropdownIndex(nextIndex)
           }
+          targetRef.current = getTargetRef(nextIndex)
+          scrollIntoView({ alignment: "end" })
         } else {
           handlers.open()
         }
         break
       case "ArrowUp":
         e.preventDefault()
-        setDirection("start")
         if (isOpen && highlightedDropdownIndex !== null && highlightedDropdownIndex > 0) {
-          setHighlightedDropdownIndex(highlightedDropdownIndex - 1)
+          const nextIndex = highlightedDropdownIndex - 1
+          setHighlightedDropdownIndex(nextIndex)
+          targetRef.current = getTargetRef(nextIndex)
+          scrollIntoView({ alignment: "start" })
         }
         break
       case "Enter":
@@ -275,7 +268,7 @@ const OptionsWrapper = styled.div`
   position: absolute;
   inset-block-start: 100%;
   inset-inline: 0;
-  max-block-size: ${({ theme }) => 26 * theme.spacingBase}rem;
+  max-block-size: ${({ theme }) => 27 * theme.spacingBase}rem;
   background: ${({ theme }) => theme.colors.background.secondaryElevated};
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   margin-block-start: ${({ theme }) => theme.spacer}px;

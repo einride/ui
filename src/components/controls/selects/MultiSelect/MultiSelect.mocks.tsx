@@ -1,4 +1,4 @@
-import { Paragraph } from "../../../typography/Paragraph/Paragraph"
+import { Box } from "../../../layout/Box/Box"
 import { BaseOption } from "./types"
 
 const contents = [
@@ -27,7 +27,7 @@ export const getMockData = (count: number): BaseOption[] => {
   return [...Array(count)].map((_, index) => {
     const content = contents[index % contents.length]
     return {
-      label: <Paragraph>{content}</Paragraph>,
+      label: <Box>{content}</Box>,
       value: content.toLowerCase().replace(/\s/g, "-"),
       inputValue: content,
     }

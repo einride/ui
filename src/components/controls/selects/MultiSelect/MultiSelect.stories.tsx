@@ -1,9 +1,32 @@
+import { faker } from "@faker-js/faker"
 import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { useState } from "react"
+import { Box } from "../../../layout/Box/Box"
 import { MultiSelect } from "./MultiSelect"
-import { getMockData } from "./MultiSelect.mocks"
+import { BaseOption } from "./types"
+
+const mockContents = [
+  "Snowfall guzzler drapery",
+  "Remorse strike tartly",
+  "Operator dazzling breeding",
+  "Egestas Lorem Ullamcorper",
+  "Ornare Egestas Ridiculus",
+  "Ridiculus Elit Inceptos",
+]
+
+function getMockData(count: number, withInputValue?: boolean): BaseOption[] {
+  return [...Array(count)].map((_, index) => {
+    const content =
+      mockContents[index] ?? faker.random.words(faker.datatype.number({ min: 1, max: 6 }))
+    return {
+      label: <Box>{content}</Box>,
+      value: withInputValue ? faker.datatype.uuid() : content,
+      ...(withInputValue ? { inputValue: content } : {}),
+    }
+  })
+}
 
 export default {
   title: "Controls/Selects/MultiSelect",
