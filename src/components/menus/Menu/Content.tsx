@@ -9,7 +9,7 @@ interface MenuContentProps extends ComponentPropsWithoutRef<"div"> {
   align?: "start" | "center" | "end"
 }
 
-export const MenuContent = forwardRef<HTMLDivElement, MenuContentProps>(
+export const Content = forwardRef<HTMLDivElement, MenuContentProps>(
   ({ children, ...props }, forwardedRef): JSX.Element | null => {
     const theme = useTheme()
 

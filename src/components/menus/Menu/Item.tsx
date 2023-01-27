@@ -13,7 +13,7 @@ interface MenuItemProps extends ComponentPropsWithoutRef<"div"> {
   onSelect?: () => void
 }
 
-export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
+export const Item = forwardRef<HTMLDivElement, MenuItemProps>(
   ({ children, icon, ...props }, forwardedRef) => {
     return (
       <StyledItem {...props} ref={forwardedRef}>
