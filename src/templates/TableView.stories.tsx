@@ -30,11 +30,18 @@ export default {
   ],
 }
 
-function createRandomUser(): { id: string; name: string; email: string; role: string } {
+function createRandomUser(): {
+  id: string
+  name: string
+  email: string
+  number: number
+  role: string
+} {
   return {
     id: faker.datatype.uuid(),
     name: faker.name.fullName(),
     email: faker.internet.email(),
+    number: faker.datatype.float(),
     role: faker.helpers.arrayElement(["Owner", "Admin", "Editor", "Viewer"]),
   }
 }
@@ -54,10 +61,13 @@ export const TableView = (): JSX.Element => (
     <VerticalSpacing size="lg" />
     <Table>
       <Thead>
-        <Tr>
+        <Tr color="secondary">
           <Th scope="row">User</Th>
           <Th scope="row">Email</Th>
           <Th scope="row">Role</Th>
+          <Th scope="row" textAlign="end">
+            Number
+          </Th>
         </Tr>
       </Thead>
       <Tbody>
@@ -66,7 +76,8 @@ export const TableView = (): JSX.Element => (
             <Td>{user.name}</Td>
             <Td>{user.email}</Td>
             <Td>{user.role}</Td>
-            <Td textAlign="right">
+            <Td textAlign="end">{user.number}</Td>
+            <Td textAlign="end">
               <Menu>
                 <MenuTrigger>
                   <IconButton aria-label={`${user.name} options`} icon="ellipsis" />
