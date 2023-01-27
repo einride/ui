@@ -53,7 +53,7 @@
     "@storybook/addon-essentials": "6.5.15",
     "@storybook/addon-interactions": "6.5.15",
     "@storybook/addon-links": "6.5.15",
-    "@storybook/addons": "6.5.15",
+    "@storybook/addons": "6.5.16",
     "@storybook/builder-vite": "0.3.0",
     "@storybook/jest": "0.0.10",
     "@storybook/node-logger": "6.5.15",
