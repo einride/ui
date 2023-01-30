@@ -43,6 +43,9 @@ interface DatePickerBaseProps {
 
   /** Props passed to root element. */
   wrapperProps?: BoxProps
+
+  /** `dayjs` input format. Default is `YYYY-MM-DD`. */
+  inputFormat?: string
 }
 
 interface DatePickerWithLabelProps {
@@ -63,6 +66,7 @@ export const DatePicker = ({
   messageProps,
   status,
   wrapperProps,
+  inputFormat = "YYYY-MM-DD",
   ...props
 }: DatePickerProps): JSX.Element => {
   const theme = useTheme()
@@ -79,7 +83,7 @@ export const DatePicker = ({
         })}
         dayClassName={(date) => (date.toDateString() === new Date().toDateString() ? "today" : "")}
         hasLabel={"label" in props}
-        inputFormat="YYYY-MM-DD"
+        inputFormat={inputFormat}
         withAsterisk={false}
         {...props}
       />
