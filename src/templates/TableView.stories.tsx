@@ -2,9 +2,7 @@ import { faker } from "@faker-js/faker"
 import { Story as StoryType } from "@storybook/react"
 import { Icon } from "../components/content/Icon/Icon"
 import { IconButton } from "../components/controls/buttons/IconButton/IconButton"
-import { PrimaryButton } from "../components/controls/buttons/PrimaryButton/PrimaryButton"
 import { Box } from "../components/layout/Box/Box"
-import { Group } from "../components/layout/Group/Group"
 import { VerticalSpacing } from "../components/layout/VerticalSpacing/VerticalSpacing"
 import { Menu } from "../components/menus/Menu/Menu"
 import { MenuContent } from "../components/menus/Menu/MenuContent"
@@ -17,6 +15,7 @@ import { Th } from "../components/table/Th/Th"
 import { Thead } from "../components/table/Thead/Thead"
 import { Tr } from "../components/table/Tr/Tr"
 import { Text } from "../components/typography/Text/Text"
+import { Navbar } from "./components/Navbar"
 
 export default {
   title: "Templates",
@@ -94,18 +93,3 @@ export const TableView = (): JSX.Element => (
     </Table>
   </Box>
 )
-
-// Todo: Make reusable template component?
-const Navbar = (): JSX.Element => {
-  return (
-    <Group as="nav" justifyContent="space-between" paddingBlock={3}>
-      <Group alignItems="center" gap="sm">
-        <IconButton aria-label="Navigate back" icon="arrowLeft" />
-        Page
-      </Group>
-      <Group>
-        <PrimaryButton>Invite</PrimaryButton>
-      </Group>
-    </Group>
-  )
-}
