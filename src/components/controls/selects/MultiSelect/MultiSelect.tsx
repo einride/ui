@@ -234,7 +234,7 @@ export const MultiSelect = <Option extends BaseOption>({
           {filteredOptions?.map((option, index) => (
             <StyledMenuItem
               key={option.value}
-              isSelected={index === highlightedDropdownIndex || selectedOptions.includes(option)}
+              isSelected={index === highlightedDropdownIndex}
               onClick={(e) => {
                 e.stopPropagation()
                 handleOptionSelect(option)
