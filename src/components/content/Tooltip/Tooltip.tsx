@@ -1,4 +1,4 @@
-import { css } from "@emotion/react"
+import { css, keyframes } from "@emotion/react"
 import styled from "@emotion/styled"
 import * as RadixTooltip from "@radix-ui/react-tooltip"
 import { ReactNode } from "react"
@@ -26,6 +26,9 @@ interface TooltipProps {
   /** The duration from when the mouse enters a tooltip trigger until the tooltip opens. Default is `0`. */
   openDelayDuration?: number
 
+  /** The duration from when the mouse leaves a tooltip trigger until the tooltip closes. Default is `0`. */
+  closeDelayDuration?: number
+
   /** Merges the original component props with the props of the supplied component and change the underlying DOM node. */
   triggerAsChild?: boolean
 
@@ -39,6 +42,7 @@ export const Tooltip = ({
   disabled,
   hint,
   openDelayDuration = 0,
+  closeDelayDuration = 0,
   triggerAsChild,
   ...props
 }: TooltipProps): JSX.Element => {
@@ -51,7 +55,11 @@ export const Tooltip = ({
           {children}
         </StyledTooltipTrigger>
         <RadixTooltip.Portal>
-          <StyledTooltipContent collisionPadding={2 * theme.spacer} sideOffset={5}>
+          <StyledTooltipContent
+            collisionPadding={2 * theme.spacer}
+            sideOffset={5}
+            closeDelayDuration={closeDelayDuration}
+          >
             <Box {...props}>{content}</Box>
           </StyledTooltipContent>
         </RadixTooltip.Portal>
@@ -86,11 +94,59 @@ const StyledTooltipTrigger = styled(RadixTooltip.Trigger, {
   }
 `
 
-const StyledTooltipContent = styled(RadixTooltip.Content)`
+const fadeIn = keyframes({
+  from: {
+    opacity: 0,
+  },
+  to: {
+    opacity: 1,
+  },
+})
+
+const fadeOut = keyframes({
+  from: {
+    opacity: 1,
+  },
+  to: {
+    opacity: 0,
+  },
+})
+
+const StyledTooltipContent = styled(RadixTooltip.Content, {
+  shouldForwardProp: (prop) => prop !== "closeDelayDuration",
+})<{ closeDelayDuration: boolean }>`
   color: ${({ theme }) => theme.colors.content.primaryInverted};
   background: ${({ theme }) => theme.colors.background.primaryInverted};
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   padding-block: ${({ theme }) => 0.5 * theme.spacingBase}rem;
   padding-inline: ${({ theme }) => theme.spacingBase}rem;
   z-index: ${zIndex.tooltip};
+  ${({ theme }) =>
+    css`
+      animation: ${fadeIn} ${theme.transitions.morph.duration} ease-in;
+    `};
+
+  &[data-state="closed"] {
+    ${({ theme, closeDelayDuration }) =>
+      css`
+        animation: ${fadeOut} ${theme.transitions.morph.duration} ${closeDelayDuration}ms ease-in;
+      `};
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
 `
