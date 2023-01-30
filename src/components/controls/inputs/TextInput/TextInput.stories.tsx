@@ -41,6 +41,18 @@ WithoutLabel.play = async ({ canvasElement }) => {
   await expect(input).not.toHaveErrorMessage()
 }
 
+export const ReadOnly = Template.bind({})
+ReadOnly.args = {
+  label: "Label",
+  value: "Readonly value",
+  readOnly: true,
+}
+ReadOnly.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("textbox", { name: "Label" })
+  await expect(input).toHaveAttribute("readonly")
+}
+
 export const DefaultValue = Template.bind({})
 DefaultValue.args = {
   ...WithLabel.args,

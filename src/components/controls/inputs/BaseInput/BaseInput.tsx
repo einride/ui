@@ -126,12 +126,21 @@ const StyledInput = styled.input<StyledInputProps>`
   ${({ leftIcon, theme }) => leftIcon && `padding-inline-start: ${4.5 * theme.spacingBase}rem`};
   ${({ rightIcon, theme }) => rightIcon && `padding-inline-end: ${6 * theme.spacingBase}rem`};
 
+  &:read-only {
+    padding-inline-start: 0;
+    background: none;
+  }
+
   &:focus {
     box-shadow: 0px 0px 0px 1px ${({ theme }) => theme.colors.border.selected} inset;
     outline: none;
   }
 
-  &:hover:not(:disabled) {
+  &:focus:read-only {
+    box-shadow: none;
+  }
+
+  &:hover:not(:disabled, :read-only) {
     background: ${({ theme }) => theme.colors.background.tertiary};
   }
 
