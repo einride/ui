@@ -57,6 +57,12 @@ DefaultValue.play = async ({ canvasElement }) => {
   )
 }
 
+export const USFormat = Template.bind({})
+USFormat.args = {
+  ...WithLabel.args,
+  inputFormat: "MM/DD/YYYY",
+}
+
 const ControlledTemplate: ComponentStory<typeof DateRangePicker> = (args) => {
   const [value, setValue] = useState<DateRangePickerValue>([null, null])
   return <DateRangePicker {...args} value={value} onChange={setValue} />
