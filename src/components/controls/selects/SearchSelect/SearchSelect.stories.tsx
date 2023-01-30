@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker"
 import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
-import { within, userEvent } from "@storybook/testing-library"
+import { userEvent, within } from "@storybook/testing-library"
 import { useState } from "react"
 import { Box } from "../../../layout/Box/Box"
 import { SearchSelect } from "./SearchSelect"
@@ -72,6 +72,7 @@ LargeDataset.play = async ({ canvasElement }) => {
 export const WithoutLabel = Template.bind({})
 WithoutLabel.args = {
   options: basicOptions,
+  placeholder: "Placeholder",
 }
 WithoutLabel.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
