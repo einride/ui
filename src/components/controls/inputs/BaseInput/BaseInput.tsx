@@ -137,6 +137,7 @@ const StyledInput = styled.input<StyledInputProps>`
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.content.secondary};
+    opacity: 1; // To overwrite the default opacity some browsers (e.g. Firefox) set on placeholders
   }
 
   &:disabled,
