@@ -85,6 +85,7 @@ export const DatePicker = ({
         hasLabel={"label" in props}
         inputFormat={inputFormat}
         withAsterisk={false}
+        transitionDuration={100}
         {...props}
       />
       {message && (
