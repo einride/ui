@@ -48,30 +48,8 @@ Basic.args = {
 }
 Basic.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const label = canvas.getByText("Label")
-  const inputField = canvas.getByRole("textbox")
-  await userEvent.click(label)
-  await expect(inputField).toHaveFocus()
-}
-
-export const DontClearAfterSelect = Template.bind({})
-DontClearAfterSelect.args = {
-  ...Basic.args,
-  clearSearchAfterSelect: false,
-}
-DontClearAfterSelect.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const inputField = canvas.getByRole("textbox") as HTMLInputElement
-  inputField.focus()
-  await userEvent.type(inputField, "SNOW", { delay: 10 })
-  await userEvent.keyboard("[ArrowDown]")
-  await userEvent.keyboard("[Enter]")
-  await expect(inputField.value).toBe("SNOW")
-  const selectedOption = canvas.getByRole("option", {
-    selected: true,
-    name: "Snowfall guzzler drapery",
-  })
-  await expect(selectedOption).toBeTruthy()
+  expect(canvas.getByText("Label")).toBeInTheDocument()
+  expect(canvas.getByRole("textbox")).toBeInTheDocument()
 }
 
 export const WithoutLabel = Template.bind({})
@@ -81,10 +59,7 @@ WithoutLabel.args = {
 }
 WithoutLabel.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const inputField = canvas.getByRole("textbox") as HTMLInputElement
-  await inputField.focus()
-  const combobox = await canvas.getByRole("combobox", { expanded: true })
-  await expect(combobox).toBeTruthy()
+  expect(canvas.getByRole("textbox")).toBeInTheDocument()
 }
 
 export const LargeDataset = Template.bind({})
@@ -94,10 +69,7 @@ LargeDataset.args = {
 }
 LargeDataset.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
-  const inputField = canvas.getByRole("textbox") as HTMLInputElement
-  await inputField.focus()
-  const combobox = await canvas.getByRole("combobox", { expanded: true })
-  await expect(combobox).toBeTruthy()
+  expect(canvas.getByRole("textbox")).toBeInTheDocument()
 }
 
 const ControlledTemplate: ComponentStory<typeof MultiSelect<(typeof basicOptions)[0]>> = (args) => {
@@ -120,7 +92,7 @@ Controlled.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const selectedOption = canvas.getByRole("button", { name: "Snowfall guzzler drapery" })
 
-  await expect(selectedOption).toBeTruthy()
+  await expect(selectedOption).toBeInTheDocument()
 }
 
 export const Message = Template.bind({})
@@ -131,10 +103,10 @@ Message.args = {
 Message.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const inputField = canvas.getByRole("textbox")
-  const errorMessage = canvas.getByText("Message.")
+  const message = canvas.getByText("Message.")
 
-  await expect(inputField).toBeTruthy()
-  await expect(errorMessage).toBeTruthy()
+  await expect(inputField).toBeInTheDocument()
+  await expect(message).toBeInTheDocument()
 }
 
 export const ErrorMessage = Template.bind({})
@@ -148,8 +120,28 @@ ErrorMessage.play = async ({ canvasElement }) => {
   const inputField = canvas.getByRole("textbox")
   const errorMessage = canvas.getByText("Error Message.")
 
-  await expect(inputField).toBeTruthy()
-  await expect(errorMessage).toBeTruthy()
+  await expect(inputField).toBeInTheDocument()
+  await expect(errorMessage).toBeInTheDocument()
+}
+
+export const DontClearAfterSelect = Template.bind({})
+DontClearAfterSelect.args = {
+  ...Basic.args,
+  clearSearchAfterSelect: false,
+}
+DontClearAfterSelect.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const inputField = canvas.getByRole("textbox") as HTMLInputElement
+  inputField.focus()
+  await userEvent.type(inputField, "SNOW", { delay: 10 })
+  await userEvent.keyboard("[ArrowDown]")
+  await userEvent.keyboard("[Enter]")
+  await expect(inputField.value).toBe("SNOW")
+  const selectedOption = canvas.getByRole("option", {
+    selected: true,
+    name: "Snowfall guzzler drapery",
+  })
+  await expect(selectedOption).toBeTruthy()
 }
 
 export const Mouse = Template.bind({})
@@ -159,8 +151,11 @@ Mouse.args = {
 Mouse.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const inputField = canvas.getByRole("textbox")
-  await userEvent.click(inputField)
+  const label = canvas.getByText("Label")
+  await userEvent.click(label)
   await expect(inputField).toHaveFocus()
+  const combobox = await canvas.getByRole("combobox", { expanded: true })
+  await expect(combobox).toBeInTheDocument()
   const options = await canvas.getAllByRole("option")
   await expect(options.length).toBe(3)
   await userEvent.click(options[1])
@@ -186,7 +181,9 @@ Keyboard.args = {
 Keyboard.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const inputField = canvas.getByRole("textbox")
-  inputField.focus()
+  await inputField.focus()
+  const combobox = await canvas.getByRole("combobox", { expanded: true })
+  await expect(combobox).toBeInTheDocument()
   await userEvent.type(inputField, "dazzl", { delay: 10 })
   await userEvent.keyboard("[ArrowDown]")
   await userEvent.keyboard("[Enter]")

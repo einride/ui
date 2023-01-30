@@ -32,7 +32,7 @@ interface MultiSelectBaseProps<Option> {
   /** If `false`, consumer have control over which options to pass to dropdown. Defaults to `true`. */
   isFilterable?: boolean
 
-  /** Set if search term should be cleared after selecting an option. */
+  /** If true, search term will be cleared after selecting an option. Default is `true`. */
   clearSearchAfterSelect?: boolean
 
   /** Options to render in dropdown. */
