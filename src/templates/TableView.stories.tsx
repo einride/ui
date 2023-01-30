@@ -4,10 +4,7 @@ import { Icon } from "../components/content/Icon/Icon"
 import { IconButton } from "../components/controls/buttons/IconButton/IconButton"
 import { Box } from "../components/layout/Box/Box"
 import { VerticalSpacing } from "../components/layout/VerticalSpacing/VerticalSpacing"
-import { Menu } from "../components/menus/Menu/Menu"
-import { MenuContent } from "../components/menus/Menu/MenuContent"
-import { MenuItem } from "../components/menus/Menu/MenuItem"
-import { MenuTrigger } from "../components/menus/Menu/MenuTrigger"
+import * as Menu from "../components/menus/Menu"
 import { Table } from "../components/table/Table/Table"
 import { Tbody } from "../components/table/Tbody/Tbody"
 import { Td } from "../components/table/Td/Td"
@@ -15,7 +12,7 @@ import { Th } from "../components/table/Th/Th"
 import { Thead } from "../components/table/Thead/Thead"
 import { Tr } from "../components/table/Tr/Tr"
 import { Text } from "../components/typography/Text/Text"
-import { Navbar } from "./components/Navbar"
+import { Navbar } from "./components/Navbar/Navbar"
 
 export default {
   title: "Templates",
@@ -77,15 +74,15 @@ export const TableView = (): JSX.Element => (
             <Td>{user.role}</Td>
             <Td textAlign="end">{user.number}</Td>
             <Td textAlign="end">
-              <Menu>
-                <MenuTrigger>
+              <Menu.Root>
+                <Menu.Trigger>
                   <IconButton aria-label={`${user.name} options`} icon="ellipsis" />
-                </MenuTrigger>
-                <MenuContent>
-                  <MenuItem icon={<Icon name="arrowRight" />}>Label</MenuItem>
-                  <MenuItem icon={<Icon name="arrowRight" />}>Label</MenuItem>
-                </MenuContent>
-              </Menu>
+                </Menu.Trigger>
+                <Menu.Content>
+                  <Menu.Item icon={<Icon name="arrowRight" />}>Label</Menu.Item>
+                  <Menu.Item icon={<Icon name="arrowRight" />}>Label</Menu.Item>
+                </Menu.Content>
+              </Menu.Root>
             </Td>
           </Tr>
         ))}
