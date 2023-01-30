@@ -16,8 +16,7 @@ import { useScrollIntoView } from "../../../../hooks/useScrollIntoView"
 import { zIndex } from "../../../../lib/zIndex"
 import { Icon } from "../../../content/Icon/Icon"
 import { BoxProps, Box } from "../../../layout/Box/Box"
-// TODO move SearchSelect import
-import { SearchSelectOption } from "../SearchSelect/SearchSelectOption"
+import { MenuItem } from "../../../menus/MenuItem/MenuItem"
 import { useSelectedOptions } from "./hooks/useSelectedOptions"
 
 import { MultiSelectInput, MultiSelectInputSharedProps } from "./MultiSelectInput"
@@ -233,7 +232,7 @@ export const MultiSelect = <Option extends BaseOption>({
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
         <OptionsWrapper {...dropdownProps} ref={scrollableRef} id={`options-${id}`}>
           {filteredOptions?.map((option, index) => (
-            <StyledSearchSelectOption
+            <StyledMenuItem
               key={option.value}
               isSelected={index === highlightedDropdownIndex || selectedOptions.includes(option)}
               onClick={(e) => {
@@ -252,7 +251,7 @@ export const MultiSelect = <Option extends BaseOption>({
             >
               {option.label}
               {selectedOptions.includes(option) && <StyledCheckIcon name="checkmark" />}
-            </StyledSearchSelectOption>
+            </StyledMenuItem>
           ))}
         </OptionsWrapper>
       )}
@@ -268,7 +267,7 @@ const OptionsWrapper = styled.div`
   position: absolute;
   inset-block-start: 100%;
   inset-inline: 0;
-  max-block-size: ${({ theme }) => 27 * theme.spacingBase}rem;
+  max-block-size: ${({ theme }) => 30 * theme.spacingBase}rem;
   background: ${({ theme }) => theme.colors.background.secondaryElevated};
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   margin-block-start: ${({ theme }) => theme.spacer}px;
@@ -280,10 +279,12 @@ const OptionsWrapper = styled.div`
   overscroll-behavior: contain;
 `
 
-const StyledSearchSelectOption = styled(SearchSelectOption)`
+const StyledMenuItem = styled(MenuItem)<{ isSelected: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: ${({ isSelected, theme }) =>
+    isSelected ? theme.colors.background.tertiary : theme.colors.background.secondaryElevated};
 `
 
 const StyledCheckIcon = styled(motion(Icon))`
