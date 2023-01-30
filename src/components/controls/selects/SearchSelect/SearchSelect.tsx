@@ -1,6 +1,14 @@
 import { useDisclosure } from "@einride/hooks"
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, KeyboardEvent, ReactNode, useId, useRef, useState } from "react"
+import {
+  ComponentPropsWithoutRef,
+  KeyboardEvent,
+  MouseEvent,
+  ReactNode,
+  useId,
+  useRef,
+  useState,
+} from "react"
 import { useScrollIntoView } from "../../../../hooks/useScrollIntoView"
 import { zIndex } from "../../../../lib/zIndex"
 import { defaultFilter, filterOptions } from "./filterOptions"
@@ -188,6 +196,12 @@ export const SearchSelect = <Option extends BaseOption>({
     setSelectedIndex(null)
     onClearClick?.()
     inputRef?.current?.focus()
+    handlers.close()
+  }
+
+  /** Prevent losing focus of input field */
+  const preventInputBlur = (e: MouseEvent): void => {
+    e.preventDefault()
   }
 
   return (
@@ -208,6 +222,9 @@ export const SearchSelect = <Option extends BaseOption>({
         labelProps={{
           id,
         }}
+        clearButtonProps={{
+          onMouseDown: preventInputBlur,
+        }}
       />
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
         <OptionsWrapper role="listbox" aria-labelledby={id} {...dropdownProps} ref={scrollableRef}>
@@ -222,6 +239,7 @@ export const SearchSelect = <Option extends BaseOption>({
               }}
               onMouseOver={() => handleMouseOver(index)}
               onMouseLeave={handleMouseLeave}
+              onMouseDown={preventInputBlur}
               role="option"
               ref={(node: HTMLDivElement) => {
                 optionRefs.current[index] = node

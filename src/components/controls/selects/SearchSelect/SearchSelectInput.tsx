@@ -6,6 +6,7 @@ import {
   ElementType,
   forwardRef,
   LabelHTMLAttributes,
+  MouseEvent,
   ReactNode,
 } from "react"
 import { Icon } from "../../../content/Icon/Icon"
@@ -19,7 +20,7 @@ interface SearchSelectInputBaseProps extends ComponentPropsWithoutRef<"input"> {
 
   isOpen?: boolean
   message?: ReactNode
-  onClearInput: () => void
+  onClearInput: (e: MouseEvent<HTMLButtonElement>) => void
   status?: Status
   value: string | undefined
 }
