@@ -1,5 +1,4 @@
 import { faker } from "@faker-js/faker"
-import { Story as StoryType } from "@storybook/react"
 import { Icon } from "../components/content/Icon/Icon"
 import { IconButton } from "../components/controls/buttons/IconButton/IconButton"
 import { Box } from "../components/layout/Box/Box"
@@ -16,14 +15,7 @@ import { Navbar } from "./components/Navbar/Navbar"
 
 export default {
   title: "Templates",
-  decorators: [
-    (Story: StoryType) => (
-      // Resetting margin from global decorator. Should be remove the global decorator, or can it be used conditionally?
-      <Box marginBlockStart={-3}>
-        <Story />
-      </Box>
-    ),
-  ],
+  args: { style: { paddingBlockStart: 0 } },
 }
 
 function createRandomUser(): {

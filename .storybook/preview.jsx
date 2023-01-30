@@ -60,12 +60,12 @@ export const parameters = {
 }
 
 export const decorators = [
-  (Story) => {
+  (Story, options) => {
     const colorMode = useDarkMode() ? "dark" : "light"
     return (
       <EinrideProvider theme={einrideTheme} colorMode={colorMode}>
         <SetupColorScheme colorScheme={colorMode}>
-          <Wrapper>
+          <Wrapper style={options.args.style}>
             <Story />
           </Wrapper>
         </SetupColorScheme>
