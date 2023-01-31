@@ -53,7 +53,12 @@ type MultiSelectProps<Option> = Partial<MultiSelectInputSharedProps<Option>> &
   (MultiSelectWithLabelProps | MultiSelectWithoutLabelProps)
 
 function defaultFilter<Option extends BaseOption>(value: string, option: Option): boolean {
-  return option.value.toLowerCase().trim().includes(value.toLowerCase().trim())
+  return (
+    option.value.toLowerCase().trim().includes(value.toLowerCase().trim()) ||
+    (option.inputValue
+      ? option.inputValue.toLowerCase().trim().includes(value.toLowerCase().trim())
+      : false)
+  )
 }
 
 export const MultiSelect = <Option extends BaseOption>({
