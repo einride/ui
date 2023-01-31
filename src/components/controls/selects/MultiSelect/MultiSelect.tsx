@@ -272,8 +272,6 @@ const OptionsWrapper = styled.div`
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   margin-block-start: ${({ theme }) => theme.spacer}px;
   padding: ${({ theme }) => theme.spacer}px;
-  display: flex;
-  flex-direction: column;
   z-index: ${zIndex.dropdown};
   overflow: auto;
   overscroll-behavior: contain;
