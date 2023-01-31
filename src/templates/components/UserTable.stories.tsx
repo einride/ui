@@ -2,7 +2,10 @@ import { faker } from "@faker-js/faker"
 import { ComponentMeta } from "@storybook/react"
 import { Icon } from "../../components/content/Icon/Icon"
 import { IconButton } from "../../components/controls/buttons/IconButton/IconButton"
-import * as Menu from "../../components/menus/Menu"
+import { Menu } from "../../components/menus/Menu/Menu"
+import { MenuContent } from "../../components/menus/Menu/MenuContent"
+import { MenuItem } from "../../components/menus/Menu/MenuItem"
+import { MenuTrigger } from "../../components/menus/Menu/MenuTrigger"
 import { Table } from "../../components/table/Table/Table"
 import { Tbody } from "../../components/table/Tbody/Tbody"
 import { Td } from "../../components/table/Td/Td"
@@ -53,15 +56,15 @@ export const UserTable = (): JSX.Element => (
           <Td>{user.role}</Td>
           <Td textAlign="end">{user.number}</Td>
           <Td textAlign="end">
-            <Menu.Root>
-              <Menu.Trigger>
+            <Menu>
+              <MenuTrigger>
                 <IconButton aria-label={`${user.name} options`} icon="ellipsis" />
-              </Menu.Trigger>
-              <Menu.Content>
-                <Menu.Item icon={<Icon name="arrowRight" />}>Label</Menu.Item>
-                <Menu.Item icon={<Icon name="arrowRight" />}>Label</Menu.Item>
-              </Menu.Content>
-            </Menu.Root>
+              </MenuTrigger>
+              <MenuContent>
+                <MenuItem icon={<Icon name="arrowRight" />}>Label</MenuItem>
+                <MenuItem icon={<Icon name="arrowRight" />}>Label</MenuItem>
+              </MenuContent>
+            </Menu>
           </Td>
         </Tr>
       ))}
