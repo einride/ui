@@ -4,7 +4,10 @@ import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { IconButton } from "../../controls/buttons/IconButton/IconButton"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
-import * as Menu from "../../menus/Menu"
+import { Menu } from "../../menus/Menu/Menu"
+import { MenuContent } from "../../menus/Menu/MenuContent"
+import { MenuItem } from "../../menus/Menu/MenuItem"
+import { MenuTrigger } from "../../menus/Menu/MenuTrigger"
 import { Text } from "../../typography/Text/Text"
 import { Sheets } from "./Sheets"
 
@@ -112,15 +115,15 @@ const ContextMenuTemplate: ComponentStory<typeof Sheets> = (args) => {
   const { isOpen, handlers } = useDisclosure(true)
   return (
     <>
-      <Menu.Root>
-        <Menu.Trigger>
+      <Menu>
+        <MenuTrigger>
           <IconButton aria-label="See options" icon="ellipsis" />
-        </Menu.Trigger>
-        <Menu.Content>
-          <Menu.Item onClick={handlers.open}>Option 1</Menu.Item>
-          <Menu.Item onClick={handlers.open}>Option 2</Menu.Item>
-        </Menu.Content>
-      </Menu.Root>
+        </MenuTrigger>
+        <MenuContent>
+          <MenuItem onClick={handlers.open}>Option 1</MenuItem>
+          <MenuItem onClick={handlers.open}>Option 2</MenuItem>
+        </MenuContent>
+      </Menu>
       <Sheets
         {...args}
         closeHandler={handlers.close}

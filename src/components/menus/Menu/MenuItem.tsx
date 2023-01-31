@@ -1,11 +1,25 @@
-import { Item } from "./Item"
-/**
- * @deprecated since v7.14.0. Import as `import * as Menu from "@einride/ui` and use `<Menu.Item>` instead.
- * ```
- * import * as Menu from "@einride/ui"
- * [...]
- * <Menu.Item />
- * ```
- */
-const MenuItem = Item
-export { MenuItem }
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
+import { ComponentPropsWithoutRef, forwardRef, ReactNode } from "react"
+import { MenuItem as MenuItemComponent } from "../MenuItem/MenuItem"
+
+interface MenuItemProps extends ComponentPropsWithoutRef<"div"> {
+  /** Menu item content. */
+  children: ReactNode
+
+  /** Icon shown at the end of the menu item row. */
+  icon?: ReactNode
+
+  /** Event handler called when the user selects an item. */
+  onSelect?: () => void
+}
+
+export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
+  ({ children, icon, ...props }, forwardedRef) => {
+    return (
+      <MenuItemComponent as={DropdownMenu.Item} {...props} ref={forwardedRef}>
+        {children}
+        {icon}
+      </MenuItemComponent>
+    )
+  },
+)
