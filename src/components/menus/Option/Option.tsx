@@ -1,5 +1,6 @@
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
+import { Icon } from "../../content/Icon/Icon"
 
 interface OptionProps extends ComponentPropsWithoutRef<"div"> {
   /** Effective element used. */
@@ -14,23 +15,26 @@ interface OptionProps extends ComponentPropsWithoutRef<"div"> {
   /** Whether the option is selected or not. */
   selected?: boolean
 
+  /** Whether the option is focused (e.g. via arrow keys) or not. */
+  focused?: boolean
+
   /** Variant of the option. Default is `primary`. */
   variant?: Variant
 }
 
 export const Option = forwardRef<HTMLDivElement, OptionProps>(
-  ({ children, icon, selected, variant = "primary", ...props }, forwardedRef) => {
+  ({ children, icon, selected, focused, variant = "primary", ...props }, forwardedRef) => {
     return (
       <Wrapper
         aria-selected={selected}
-        data-selected={selected}
+        data-focused={focused}
         variant={variant}
         tabIndex={0}
         {...props}
         ref={forwardedRef}
       >
         {children}
-        {icon}
+        {selected ? <Icon name="checkmark" /> : icon}
       </Wrapper>
     )
   },
@@ -59,14 +63,9 @@ const Wrapper = styled.div<WrapperProps>`
   inline-size: 100%;
 
   background: ${({ variant, theme }) =>
-    variant === "secondary" ? theme.colors.background.secondary : theme.colors.background.primary};
-
-  &[data-selected="true"] {
-    background: ${({ variant, theme }) =>
-      variant === "secondary"
-        ? theme.colors.background.tertiary
-        : theme.colors.background.secondary};
-  }
+    variant === "secondary"
+      ? theme.colors.background.secondaryElevated
+      : theme.colors.background.primary};
 
   &:focus-visible {
     outline: none;
@@ -74,11 +73,12 @@ const Wrapper = styled.div<WrapperProps>`
     box-shadow: inset 0 0 0 1px ${({ theme }) => theme.colors.border.selected};
   }
 
-  &:hover {
+  &:hover,
+  &[data-focused="true"] {
     background: ${({ variant, theme }) =>
       variant === "secondary"
         ? theme.colors.background.tertiary
-        : theme.colors.background.secondary};
+        : theme.colors.background.secondaryElevated};
     box-shadow: none;
   }
 `
