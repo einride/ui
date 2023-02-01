@@ -51,7 +51,6 @@ const Wrapper = styled.div<WrapperProps>`
   padding-block: ${({ theme }) => 1.25 * theme.spacer}px;
   padding-inline: ${({ theme }) => 1 * theme.spacer}px;
   color: ${({ theme }) => theme.colors.content.primary};
-  background: ${({ theme }) => theme.colors.background.secondaryElevated};
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   transition-duration: ${({ theme }) => theme.transitions.easeIn.duration};
   transition-timing-function: ${({ theme }) => theme.transitions.easeIn.timingFunction};
@@ -60,15 +59,13 @@ const Wrapper = styled.div<WrapperProps>`
   inline-size: 100%;
 
   background: ${({ variant, theme }) =>
-    variant === "secondary"
-      ? theme.colors.background.secondaryElevated
-      : theme.colors.background.primaryElevated};
+    variant === "secondary" ? theme.colors.background.secondary : theme.colors.background.primary};
 
   &[data-selected="true"] {
     background: ${({ variant, theme }) =>
       variant === "secondary"
         ? theme.colors.background.tertiary
-        : theme.colors.background.secondaryElevated};
+        : theme.colors.background.secondary};
   }
 
   &:focus-visible {
@@ -81,7 +78,7 @@ const Wrapper = styled.div<WrapperProps>`
     background: ${({ variant, theme }) =>
       variant === "secondary"
         ? theme.colors.background.tertiary
-        : theme.colors.background.secondaryElevated};
+        : theme.colors.background.secondary};
     box-shadow: none;
   }
 `
