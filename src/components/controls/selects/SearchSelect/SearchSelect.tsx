@@ -11,9 +11,9 @@ import {
 } from "react"
 import { useScrollIntoView } from "../../../../hooks/useScrollIntoView"
 import { zIndex } from "../../../../lib/zIndex"
+import { Option } from "../../../menus/Option/Option"
 import { defaultFilter, filterOptions } from "./filterOptions"
 import { SearchSelectInput } from "./SearchSelectInput"
-import { SearchSelectOption } from "./SearchSelectOption"
 import { BaseOption } from "./types"
 
 interface SearchSelectBaseProps<Option> extends ComponentPropsWithoutRef<"input"> {
@@ -229,9 +229,10 @@ export const SearchSelect = <Option extends BaseOption>({
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
         <OptionsWrapper role="listbox" aria-labelledby={id} {...dropdownProps} ref={scrollableRef}>
           {filteredOptions?.map((option, index) => (
-            <SearchSelectOption
+            <Option
               key={option.key ?? option.value}
-              isSelected={index === selectedIndex}
+              variant="secondary"
+              selected={index === selectedIndex}
               aria-selected={index === selectedIndex}
               onClick={(e) => {
                 e.stopPropagation()
@@ -247,7 +248,7 @@ export const SearchSelect = <Option extends BaseOption>({
               {...optionProps}
             >
               {option.label}
-            </SearchSelectOption>
+            </Option>
           ))}
         </OptionsWrapper>
       )}
