@@ -1,5 +1,13 @@
-import { useUncontrolled } from "@mantine/hooks"
-import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
+import styled from "@emotion/styled"
+import { useUncontrolled, useMergedRef } from "@mantine/hooks"
+import {
+  ButtonHTMLAttributes,
+  ComponentPropsWithoutRef,
+  ElementType,
+  forwardRef,
+  ReactNode,
+  useRef,
+} from "react"
 import { Icon } from "../../../content/Icon/Icon"
 import { BoxProps } from "../../../layout/Box/Box"
 import { BaseInput, Status } from "../BaseInput/BaseInput"
@@ -13,6 +21,9 @@ interface SearchInputBaseProps extends ComponentPropsWithoutRef<"input"> {
 
   /** Props passed to message element. */
   messageProps?: ComponentPropsWithoutRef<"span"> & { "data-testid"?: string }
+
+  /** Props passed to the clear button element. */
+  clearButtonProps?: ButtonHTMLAttributes<HTMLButtonElement> | undefined
 
   /** `onChange` handler. */
   onInputChange?: (input: string) => void
@@ -40,12 +51,20 @@ type SearchInputProps = SearchInputBaseProps &
   (SearchInputWithLabelProps | SearchInputWithoutLabelProps)
 
 export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
-  ({ value, defaultValue, onInputChange, ...props }, ref) => {
-    const [_value, handleChange] = useUncontrolled({
+  ({ value, defaultValue, onInputChange, clearButtonProps, ...props }, ref) => {
+    const innerRef = useRef<HTMLInputElement>(null)
+    const combinedRef = useMergedRef(ref, innerRef)
+
+    const [_value = "", handleChange] = useUncontrolled({
       value,
       defaultValue,
       onChange: onInputChange,
     })
+
+    const onClearInput = (): void => {
+      handleChange("")
+      innerRef.current?.focus()
+    }
 
     return (
       <BaseInput
@@ -54,19 +73,30 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
         onChange={(e) => handleChange?.(e.target.value)}
         rightIcon={
           _value?.toString()?.length ? (
-            <button
+            <ClearButton
               type="button"
-              onClick={() => handleChange("")}
-              tabIndex={-1}
+              onClick={onClearInput}
+              {...clearButtonProps}
               aria-label="Clear input"
             >
               <Icon name="xMark" />
-            </button>
+            </ClearButton>
           ) : null
         }
         value={_value}
-        ref={ref}
+        ref={combinedRef}
       />
     )
   },
 )
+
+const ClearButton = styled.button`
+  inline-size: 100%;
+  block-size: 100%;
+  border-radius: ${({ theme }) => theme.borderRadii.sm};
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 0.0625rem ${({ theme }) => theme.colors.border.selected};
+  }
+`
