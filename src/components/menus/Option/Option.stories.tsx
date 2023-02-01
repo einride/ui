@@ -27,6 +27,12 @@ Secondary.args = {
   variant: "secondary",
 }
 
+export const SecondarySelected = Template.bind({})
+SecondarySelected.args = {
+  ...Secondary.args,
+  selected: true,
+}
+
 export const AsButton = Template.bind({})
 AsButton.args = {
   ...Basic.args,
