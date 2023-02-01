@@ -50,7 +50,7 @@ export const SearchSelectInput = forwardRef<HTMLInputElement, SearchSelectInputP
           rightIcon={
             value?.length ? (
               <ClearButton type="button" onClick={onClearInput} {...clearButtonProps}>
-                <StyledIcon name="xMark" />
+                <Icon name="xMark" />
               </ClearButton>
             ) : (
               <StyledIcon name="chevronRight" animate={{ rotate: isOpen ? 90 : 0 }} />
@@ -72,6 +72,15 @@ const Wrapper = styled.div`
 
 const StyledBaseInput = styled(BaseInput)``
 
-const ClearButton = styled.button``
+const ClearButton = styled.button`
+  inline-size: 100%;
+  block-size: 100%;
+  border-radius: ${({ theme }) => theme.borderRadii.sm};
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 0.0625rem ${({ theme }) => theme.colors.border.selected};
+  }
+`
 
 const StyledIcon = styled(motion(Icon))``
