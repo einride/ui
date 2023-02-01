@@ -1,6 +1,6 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
 import { ComponentPropsWithoutRef, forwardRef, ReactNode } from "react"
-import { MenuItem as MenuItemComponent } from "../MenuItem/MenuItem"
+import { Option } from "../Option/Option"
 
 interface MenuItemProps extends ComponentPropsWithoutRef<"div"> {
   /** Menu item content. */
@@ -16,10 +16,10 @@ interface MenuItemProps extends ComponentPropsWithoutRef<"div"> {
 export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
   ({ children, icon, ...props }, forwardedRef) => {
     return (
-      <MenuItemComponent as={DropdownMenu.Item} {...props} ref={forwardedRef}>
+      <Option as={DropdownMenu.Item} variant="secondary" {...props} ref={forwardedRef}>
         {children}
         {icon}
-      </MenuItemComponent>
+      </Option>
     )
   },
 )
