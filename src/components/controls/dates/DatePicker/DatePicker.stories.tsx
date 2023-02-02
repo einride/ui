@@ -92,6 +92,19 @@ ErrorMessage.args = {
   status: "fail",
 }
 
+export const AllowFreeInput = Template.bind({})
+AllowFreeInput.args = {
+  ...WithLabel.args,
+  allowFreeInput: true,
+}
+AllowFreeInput.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const input = canvas.getByRole("textbox", { name: "Label" })
+  await userEvent.type(input, "2023-03-06", { delay: 10 })
+  await userEvent.keyboard("[Enter]")
+  await expect(input).toHaveValue("2023-03-06")
+}
+
 export const Mouse = Template.bind({})
 Mouse.args = {
   ...WithLabel.args,

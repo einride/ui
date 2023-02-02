@@ -158,8 +158,9 @@ const StyledDateRangePicker = styled(MantineDateRangePicker, {
       color: ${({ theme }) => theme.colors.content.secondary};
     }
     &:focus {
-      outline: ${({ theme }) => theme.spacingBase / 8}rem solid
-        ${({ theme }) => theme.colors.border.selected};
+      outline: none;
+      box-shadow: 0px 0px 0px ${({ theme }) => theme.spacingBase / 8}rem
+        ${({ theme }) => theme.colors.border.selected} inset;
     }
     &:disabled {
       background: ${({ theme }) => theme.colors.background.secondary};
