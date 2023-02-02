@@ -46,6 +46,9 @@ interface DatePickerBaseProps {
 
   /** `dayjs` input format. Default is `YYYY-MM-DD`. */
   inputFormat?: string
+
+  /** Whether to allow free input. Default is `false`. */
+  allowFreeInput?: boolean
 }
 
 interface DatePickerWithLabelProps {
@@ -153,8 +156,9 @@ const StyledDatePicker = styled(MantineDatePicker, {
       color: ${({ theme }) => theme.colors.content.secondary};
     }
     &:focus {
-      outline: ${({ theme }) => theme.spacingBase / 8}rem solid
-        ${({ theme }) => theme.colors.border.selected};
+      outline: none;
+      box-shadow: 0px 0px 0px ${({ theme }) => theme.spacingBase / 8}rem
+        ${({ theme }) => theme.colors.border.selected} inset;
     }
     &:disabled {
       background: ${({ theme }) => theme.colors.background.secondary};
