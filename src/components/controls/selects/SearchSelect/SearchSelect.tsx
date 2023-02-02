@@ -109,12 +109,8 @@ export const SearchSelect = <Option extends BaseOption>({
   const filteredOptions = filterOptions({ options, value, filter, isFilterable })
 
   const handleInputBlur = (): void => {
-    if (typeof selectedIndex === "number" && filteredOptions?.[selectedIndex]) {
-      const selected = filteredOptions[selectedIndex]
-      onSearchChange?.(selected.value)
-      onOptionSelect?.(selected)
-    }
     handlers.close()
+    setSelectedIndex(null)
   }
 
   const handleInputChange = (text: string): void => {
@@ -134,7 +130,7 @@ export const SearchSelect = <Option extends BaseOption>({
   const handleOptionSelect = (option: Option): void => {
     onSearchChange?.(option.value)
     onOptionSelect?.(option)
-    setSelectedIndex(0)
+    setSelectedIndex(null)
     inputRef?.current?.focus()
     handlers.close()
   }
@@ -153,6 +149,7 @@ export const SearchSelect = <Option extends BaseOption>({
         }
       } else {
         handlers.open()
+        setSelectedIndex(0)
       }
       targetRef.current = getTargetRef(nextIndex)
       scrollIntoView({ alignment: "end" })
