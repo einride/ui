@@ -57,6 +57,12 @@ USFormat.args = {
   inputFormat: "MM/DD/YYYY",
 }
 
+export const FreeInput = Template.bind({})
+FreeInput.args = {
+  ...WithLabel.args,
+  allowFreeInput: true,
+}
+
 const ControlledTemplate: ComponentStory<typeof DatePicker> = (args) => {
   const [value, setValue] = useState<Date | null>(null)
   return <DatePicker {...args} value={value} onChange={setValue} />

@@ -8,6 +8,9 @@ import { Caption } from "../../../typography/Caption/Caption"
 import { Status } from "../../inputs/BaseInput/BaseInput"
 
 interface DatePickerBaseProps {
+  /** Whether to allow free input. Default is `false`. */
+  allowFreeInput?: boolean
+
   /** Whether to allow clearing value or not. Default is `false`. */
   clearable?: boolean
 
@@ -62,6 +65,7 @@ export type DatePickerProps = DatePickerBaseProps &
   (DatePickerWithLabelProps | DatePickerWithoutLabelProps)
 
 export const DatePicker = ({
+  allowFreeInput = false,
   message,
   messageProps,
   status,
@@ -73,6 +77,7 @@ export const DatePicker = ({
   return (
     <Box {...wrapperProps}>
       <StyledDatePicker
+        allowFreeInput={allowFreeInput}
         allowLevelChange={false}
         clearable={false}
         clickOutsideEvents={["pointerdown"]} // to ensure dropdown is closed when clicking on a menu trigger
