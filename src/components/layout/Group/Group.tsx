@@ -13,6 +13,7 @@ interface GroupProps extends Omit<ComponentPropsWithoutRef<"div">, "color">, Box
   justifyContent?: JustifyContent
 }
 
+/** Compose components in a horizontal flex container. */
 export const Group = forwardRef<HTMLDivElement, GroupProps>(
   ({ flexWrap = "wrap", gap = "md", justifyContent = "start", ...props }, ref) => {
     return (
