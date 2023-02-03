@@ -13,6 +13,7 @@ interface StackProps extends Omit<ComponentPropsWithoutRef<"div">, "color">, Box
   justifyContent?: JustifyContent
 }
 
+/** Compose components in a vertical flex container. */
 export const Stack = forwardRef<HTMLDivElement, StackProps>(
   ({ alignItems = "stretch", gap = "md", justifyContent = "center", ...props }, ref) => {
     return (
