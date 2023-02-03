@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker"
-import { expect } from "@storybook/jest"
+import { expect, jest } from "@storybook/jest"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { useState } from "react"
@@ -147,41 +147,63 @@ CustomFilter.play = async ({ canvasElement }) => {
   await expect(inputField).toHaveValue("Operator dazzling breeding")
 }
 
+const onOptionSelect = jest.fn()
+const onClearClick = jest.fn()
 export const Mouse = Template.bind({})
 Mouse.args = {
   label: "Label",
   options: basicOptions,
+  onOptionSelect,
+  onClearClick,
 }
 Mouse.play = async ({ canvasElement }) => {
+  onOptionSelect.mockClear()
+  onClearClick.mockClear()
   const canvas = within(canvasElement)
   const label = canvas.getByText("Label")
   const inputField = canvas.getByRole("textbox")
   await userEvent.click(label)
   await expect(inputField).toHaveFocus()
+  await expect(onOptionSelect).toHaveBeenCalledTimes(0)
   const option = canvas.getByText("Remorse strike tartly")
   await userEvent.click(option)
   await expect(inputField).toHaveValue("Remorse strike tartly")
   const clearButton = canvas.getByRole("button")
+  await expect(onOptionSelect).toHaveBeenCalledTimes(1)
+  await expect(onClearClick).toHaveBeenCalledTimes(0)
   await userEvent.click(clearButton)
   await expect(inputField).toHaveValue("")
   await expect(inputField).toHaveFocus()
+  await expect(onClearClick).toHaveBeenCalledTimes(1)
+  inputField.blur()
+  await expect(onOptionSelect).toHaveBeenCalledTimes(1)
 }
 
 export const Keyboard = Template.bind({})
 Keyboard.args = {
   label: "Label",
   options: basicOptions,
+  onOptionSelect,
+  onClearClick,
 }
 Keyboard.play = async ({ canvasElement }) => {
+  onOptionSelect.mockClear()
+  onClearClick.mockClear()
   const canvas = within(canvasElement)
   const inputField = canvas.getByRole("textbox")
   await userEvent.click(inputField)
   await expect(inputField).toHaveFocus()
   await userEvent.type(inputField, "operator", { delay: 10 })
+  await expect(onOptionSelect).toHaveBeenCalledTimes(0)
   await userEvent.keyboard("[Enter]")
   await expect(inputField).toHaveValue("Operator dazzling breeding")
+  await expect(onClearClick).toHaveBeenCalledTimes(0)
   await userEvent.keyboard("[Tab]")
   await userEvent.keyboard("[Enter]")
+  await expect(onOptionSelect).toHaveBeenCalledTimes(1)
   await expect(inputField).toHaveValue("")
   await expect(inputField).toHaveFocus()
+  await expect(onClearClick).toHaveBeenCalledTimes(1)
+  await userEvent.keyboard("[Tab]")
+  await expect(onOptionSelect).toHaveBeenCalledTimes(1)
 }
