@@ -1,6 +1,7 @@
 import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { within } from "@storybook/testing-library"
+import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { IconButton } from "./IconButton"
 
 export default {
@@ -47,6 +48,17 @@ Primary.play = async ({ canvasElement }) => {
   await expect(button).not.toBeDisabled()
 }
 
+export const Tertiary = Template.bind({})
+Tertiary.args = {
+  ...Basic.args,
+  variant: "tertiary",
+}
+Tertiary.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const button = canvas.getByRole("button", { name: "Label" })
+  await expect(button).not.toBeDisabled()
+}
+
 export const Disabled = Template.bind({})
 Disabled.args = {
   ...Basic.args,
@@ -56,4 +68,16 @@ Disabled.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const button = canvas.getByRole("button", { name: "Label" })
   await expect(button).toBeDisabled()
+}
+
+export const Snapshot = (): JSX.Element => (
+  <SnapshotWrapper>
+    {[Basic, EllipsisButton, Primary, Tertiary, Disabled].map((Story, index) => (
+      // eslint-disable-next-line react/no-array-index-key
+      <Story key={index} aria-label={Story.args?.["aria-label"] ?? ""} {...Story.args} />
+    ))}
+  </SnapshotWrapper>
+)
+Snapshot.parameters = {
+  chromatic: { disableSnapshot: false },
 }
