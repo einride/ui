@@ -74,7 +74,7 @@
     "eslint": "8.33.0",
     "eslint-plugin-storybook": "0.6.10",
     "framer-motion": "9.0.1",
-    "happy-dom": "8.2.3",
+    "happy-dom": "8.2.6",
     "luxon": "3.2.1",
     "prettier": "2.8.3",
     "react": "18.2.0",
