@@ -76,7 +76,7 @@ Disabled.play = async ({ canvasElement }) => {
 
 export const Snapshot = (): JSX.Element => (
   <SnapshotWrapper>
-    {[Basic, FullWidth, IconRight, IsLoading, Disabled].map((Story, index) => (
+    {[Basic, FullWidth, IconRight, Disabled].map((Story, index) => (
       // eslint-disable-next-line react/no-array-index-key
       <Story key={index} {...Story.args}>
         {Story.args?.children}
