@@ -2908,10 +2908,10 @@
     lodash "^4.17.21"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-coverage@0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-coverage/-/addon-coverage-0.0.6.tgz#6dec0ef628016bb8ca22cc365768a9dc9c7bcc61"
-  integrity sha512-n61k5CsOtJ+FCclSzIkTq9oiJ+Bw2I+zMDMWYK46u4enK4r/bwE2FLJWtjyzqNtoeWbZt/avpVTtkcb3Q8DpFA==
+"@storybook/addon-coverage@0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-coverage/-/addon-coverage-0.0.8.tgz#6da3edf8c50038c6fe13b0575320632ae5bab41d"
+  integrity sha512-SVcDZhBybHDxFYjMzPqHPypboRJjSn2xJKxIOTIFONfb//Jg2/3uATyyamBPjvoxWRkNIqBpANGm+BpJlWZtog==
   dependencies:
     "@types/babel__core" "^7.1.19"
     "@types/istanbul-lib-coverage" "^2.0.4"
