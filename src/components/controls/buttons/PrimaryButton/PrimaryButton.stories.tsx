@@ -1,6 +1,7 @@
 import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { within } from "@storybook/testing-library"
+import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { Icon } from "../../../content/Icon/Icon"
 import { PrimaryButton } from "./PrimaryButton"
 
@@ -71,4 +72,18 @@ Disabled.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const button = canvas.getByRole("button", { name: "Button" })
   await expect(button).toBeDisabled()
+}
+
+export const Snapshot = (): JSX.Element => (
+  <SnapshotWrapper>
+    {[Basic, FullWidth, IconRight, IsLoading, Disabled].map((Story, index) => (
+      // eslint-disable-next-line react/no-array-index-key
+      <Story key={index} {...Story.args}>
+        {Story.args?.children}
+      </Story>
+    ))}
+  </SnapshotWrapper>
+)
+Snapshot.parameters = {
+  chromatic: { disableSnapshot: false },
 }
