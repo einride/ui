@@ -98,6 +98,7 @@
   "module": "./dist/main.esm.js",
   "exports": {
     ".": {
+      "types": "./dist/main.d.ts",
       "import": "./dist/main.esm.js",
       "require": "./dist/main.cjs.js"
     }
