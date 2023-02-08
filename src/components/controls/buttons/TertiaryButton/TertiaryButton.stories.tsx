@@ -1,6 +1,7 @@
 import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { within } from "@storybook/testing-library"
+import { ComponentProps } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { Icon } from "../../../content/Icon/Icon"
 import { TertiaryButton } from "./TertiaryButton"
@@ -78,9 +79,7 @@ export const Snapshot = (): JSX.Element => (
   <SnapshotWrapper>
     {[Basic, FullWidth, IconRight, Disabled].map((Story, index) => (
       // eslint-disable-next-line react/no-array-index-key
-      <Story key={index} {...Story.args}>
-        {Story.args?.children}
-      </Story>
+      <Story key={index} {...(Story.args as ComponentProps<typeof TertiaryButton>)} />
     ))}
   </SnapshotWrapper>
 )
