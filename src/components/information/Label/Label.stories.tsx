@@ -1,6 +1,7 @@
 import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { within } from "@storybook/testing-library"
+import { ComponentProps } from "react"
 import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { Group } from "../../layout/Group/Group"
 import { Label } from "./Label"
@@ -90,9 +91,7 @@ export const Snapshot = (): JSX.Element => (
     {[Primary, Secondary, Tertiary, Positive, Warning, Negative, Accent1, Accent2, Accent3].map(
       (Story, index) => (
         // eslint-disable-next-line react/no-array-index-key
-        <Story key={index} {...Story.args}>
-          {Story.args?.children}
-        </Story>
+        <Story key={index} {...(Story.args as ComponentProps<typeof Label>)} />
       ),
     )}
   </SnapshotWrapper>
