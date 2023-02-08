@@ -1,7 +1,8 @@
 import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
-import { useState } from "react"
+import { ComponentProps, useState } from "react"
+import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { Calendar } from "./Calendar"
 
 export default {
@@ -80,4 +81,16 @@ Keyboard.play = async ({ canvasElement, args }) => {
   await userEvent.keyboard("[Enter]")
   await expect(firstDayInLastMonthButton.getAttribute("data-selected")).not.toBe("true")
   await expect(eighthDayInLastMonthButton.getAttribute("data-selected")).toBe("true")
+}
+
+export const Snapshot = (): JSX.Element => (
+  <SnapshotWrapper>
+    {[Default, DefaultValue].map((Story, index) => (
+      // eslint-disable-next-line react/no-array-index-key
+      <Story key={index} {...(Story.args as ComponentProps<typeof Calendar>)} />
+    ))}
+  </SnapshotWrapper>
+)
+Snapshot.parameters = {
+  chromatic: { disableSnapshot: false },
 }

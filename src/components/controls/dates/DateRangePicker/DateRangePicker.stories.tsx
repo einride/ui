@@ -2,7 +2,8 @@ import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { DateTime } from "luxon"
-import { useState } from "react"
+import { ComponentProps, useState } from "react"
+import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { DateRangePicker, DateRangePickerValue } from "./DateRangePicker"
 
 const DATE_FORMAT = "yyyy-MM-dd"
@@ -61,6 +62,7 @@ export const USFormat = Template.bind({})
 USFormat.args = {
   ...WithLabel.args,
   inputFormat: "MM/DD/YYYY",
+  defaultValue: [new Date(), new Date()],
 }
 
 const ControlledTemplate: ComponentStory<typeof DateRangePicker> = (args) => {
@@ -166,4 +168,18 @@ Keyboard.play = async ({ canvasElement }) => {
   await expect(input).toHaveValue(
     `${firstDayInLastMonth.toFormat(DATE_FORMAT)} – ${eighthDayInLastMonth.toFormat(DATE_FORMAT)}`,
   )
+}
+
+export const Snapshot = (): JSX.Element => (
+  <SnapshotWrapper>
+    {[WithLabel, WithoutLabel, DefaultValue, USFormat, Message, SuccessMessage, ErrorMessage].map(
+      (Story, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <Story key={index} {...(Story.args as ComponentProps<typeof DateRangePicker>)} />
+      ),
+    )}
+  </SnapshotWrapper>
+)
+Snapshot.parameters = {
+  chromatic: { disableSnapshot: false },
 }
