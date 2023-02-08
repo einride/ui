@@ -55,9 +55,6 @@ IsLoading.args = {
   ...Basic.args,
   isLoading: true,
 }
-IsLoading.parameters = {
-  chromatic: { disableSnapshot: true },
-}
 IsLoading.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const button = canvas.getByRole("button", { name: "Button" })
