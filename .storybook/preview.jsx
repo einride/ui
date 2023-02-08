@@ -65,6 +65,9 @@ export const parameters = {
 export const decorators = [
   (Story, options) => {
     const colorMode = useDarkMode() ? "dark" : "light"
+    if (options.name === "Snapshot") {
+      return <Story />
+    }
     return (
       <EinrideProvider theme={einrideTheme} colorMode={colorMode}>
         <SetupColorScheme colorScheme={colorMode}>
