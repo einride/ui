@@ -4155,6 +4155,11 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
+"@types/geojson@*":
+  version "7946.0.10"
+  resolved "https://registry.yarnpkg.com/@types/geojson/-/geojson-7946.0.10.tgz#6dfbf5ea17142f7f9a043809f1cd4c448cb68249"
+  integrity sha512-Nmh0K3iWQJzniTuPRcJn5hxXkfB1T1pgB89SBig5PlJQU5yocazeu4jATJlaA0GYFKWMqDdvYemoSnF2pXgLVA==
+
 "@types/glob@*", "@types/glob@^8.0.0":
   version "8.0.1"
   resolved "https://registry.yarnpkg.com/@types/glob/-/glob-8.0.1.tgz#6e3041640148b7764adf21ce5c7138ad454725b0"
@@ -4260,6 +4265,13 @@
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@types/luxon/-/luxon-3.2.0.tgz#99901b4ab29a5fdffc88fff59b3b47fbfbe0557b"
   integrity sha512-lGmaGFoaXHuOLXFvuju2bfvZRqxAqkHPx9Y9IQdQABrinJJshJwfNCKV+u7rR3kJbiqfTF/NhOkcxxAFrObyaA==
+
+"@types/mapbox-gl@^2.6.0":
+  version "2.7.10"
+  resolved "https://registry.yarnpkg.com/@types/mapbox-gl/-/mapbox-gl-2.7.10.tgz#a3a32a366bad8966c0a40b78209ed430ba018ce1"
+  integrity sha512-nMVEcu9bAcenvx6oPWubQSPevsekByjOfKjlkr+8P91vawtkxTnopDoXXq1Qn/f4cg3zt0Z2W9DVsVsKRNXJTw==
+  dependencies:
+    "@types/geojson" "*"
 
 "@types/mdast@^3.0.0":
   version "3.0.10"
@@ -12912,6 +12924,13 @@ react-is@^18.0.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.2.0.tgz#199431eeaaa2e09f86427efbb4f1473edb47609b"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
+
+react-map-gl@7.0.21:
+  version "7.0.21"
+  resolved "https://registry.yarnpkg.com/react-map-gl/-/react-map-gl-7.0.21.tgz#264b89b31dbd8f020dbddf49f89f282dfcedcc8b"
+  integrity sha512-Cmokphv6VHfRJsHVjCtn7nw5mf8rl89CHdvPSaif0OWZZqe+pxM2/5hEr4EvPWeTokRPCo1XTrBpGbShkEuktQ==
+  dependencies:
+    "@types/mapbox-gl" "^2.6.0"
 
 react-merge-refs@^1.0.0:
   version "1.1.0"
