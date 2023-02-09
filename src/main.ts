@@ -1,14 +1,3 @@
-import ChargerIcon from "./components/mapping/charger.svg"
-import ChargerSmallIcon from "./components/mapping/chargerSmall.svg"
-import ConventionalTruckIcon from "./components/mapping/conventionalTruck.svg"
-import PodIcon from "./components/mapping/pod.svg"
-import SiteIcon from "./components/mapping/site.svg"
-import SiteHoveredIcon from "./components/mapping/siteHovered.svg"
-import SiteSelectedIcon from "./components/mapping/siteSelected.svg"
-import SiteSmallIcon from "./components/mapping/siteSmall.svg"
-import SiteWithChargerIcon from "./components/mapping/siteWithCharger.svg"
-import SiteWithChargerSmall from "./components/mapping/siteWithChargerSmall.svg"
-
 export { Card } from "./components/cards/Card/Card"
 export { LinearGauge } from "./components/charts/LinearGauge/LinearGauge"
 export { LinearProgress } from "./components/charts/LinearProgress/LinearProgress"
@@ -95,15 +84,4 @@ export type {
 } from "./lib/theme/types"
 export { zIndex } from "./lib/zIndex"
 export { primitives } from "./primitives/primitives"
-export {
-  ChargerIcon,
-  ChargerSmallIcon,
-  ConventionalTruckIcon,
-  PodIcon,
-  SiteIcon,
-  SiteHoveredIcon,
-  SiteSelectedIcon,
-  SiteSmallIcon,
-  SiteWithChargerIcon,
-  SiteWithChargerSmall,
-}
+export * from "./components/mapping"
