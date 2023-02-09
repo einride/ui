@@ -1,5 +1,5 @@
 import { expect } from "@storybook/jest"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { useState } from "react"
 import { Icon } from "../../content/Icon/Icon"
@@ -18,10 +18,16 @@ import { MenuTrigger } from "./MenuTrigger"
 export default {
   title: "Menus/Menu",
   component: Menu,
-} as ComponentMeta<typeof Menu>
+} satisfies ComponentMeta<typeof Menu>
 
-const Template: ComponentStory<typeof Menu> = (args) => (
-  <Menu {...args}>
+type Story = ComponentStoryObj<typeof Menu>
+
+interface TemplateProps {
+  defaultOpen?: boolean
+}
+
+const Template = ({ defaultOpen = false }: TemplateProps): JSX.Element => (
+  <Menu defaultOpen={defaultOpen}>
     <MenuTrigger>
       <IconButton aria-label="See options" icon="ellipsis" />
     </MenuTrigger>
@@ -34,28 +40,28 @@ const Template: ComponentStory<typeof Menu> = (args) => (
   </Menu>
 )
 
-export const Basic = Template.bind({})
-Basic.args = {}
-Basic.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement.parentElement ?? canvasElement)
-  const button = canvas.getByRole("button", { name: "See options" })
-  await expect(button).toBeInTheDocument()
-}
+export const Basic = {
+  render: () => <Template />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.parentElement ?? canvasElement)
+    const button = canvas.getByRole("button", { name: "See options" })
+    await expect(button).toBeInTheDocument()
+  },
+} satisfies Story
 
-export const DefaultOpen = Template.bind({})
-DefaultOpen.args = {
-  defaultOpen: true,
-}
-DefaultOpen.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement.parentElement ?? canvasElement)
-  const menu = canvas.getByRole("menu", { name: "See options" })
-  await expect(menu).toBeInTheDocument()
-}
+export const DefaultOpen = {
+  render: () => <Template defaultOpen />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.parentElement ?? canvasElement)
+    const menu = canvas.getByRole("menu", { name: "See options" })
+    await expect(menu).toBeInTheDocument()
+  },
+} satisfies Story
 
-const ControlledTemplate: ComponentStory<typeof Menu> = (args) => {
+const ControlledTemplate = (): JSX.Element => {
   const [open, setOpen] = useState(false)
   return (
-    <Menu {...args} isOpen={open} onOpenChange={setOpen}>
+    <Menu isOpen={open} onOpenChange={setOpen}>
       <MenuTrigger>
         <IconButton aria-label="See options" icon="ellipsis" />
       </MenuTrigger>
@@ -69,13 +75,14 @@ const ControlledTemplate: ComponentStory<typeof Menu> = (args) => {
   )
 }
 
-export const Controlled = ControlledTemplate.bind({})
-Controlled.args = {}
-Controlled.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement.parentElement ?? canvasElement)
-  const button = canvas.getByRole("button", { name: "See options" })
-  await expect(button).toBeInTheDocument()
-}
+export const Controlled = {
+  render: () => <ControlledTemplate />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.parentElement ?? canvasElement)
+    const button = canvas.getByRole("button", { name: "See options" })
+    await expect(button).toBeInTheDocument()
+  },
+} satisfies Story
 
 const founders = [
   { key: "robert", firstName: "Robert", lastName: "Falck" },
@@ -83,7 +90,7 @@ const founders = [
   { key: "filip", firstName: "Filip", lastName: "Lilja" },
 ]
 
-const InTableTemlate: ComponentStory<typeof Menu> = (args) => (
+const InTableTemlate = (): JSX.Element => (
   <Table>
     <Thead>
       <Tr>
@@ -98,7 +105,7 @@ const InTableTemlate: ComponentStory<typeof Menu> = (args) => (
           <Td>{founder.firstName}</Td>
           <Td>{founder.lastName}</Td>
           <Td textAlign="end">
-            <Menu {...args}>
+            <Menu>
               <MenuTrigger>
                 <IconButton aria-label="See options" icon="ellipsis" />
               </MenuTrigger>
@@ -116,49 +123,52 @@ const InTableTemlate: ComponentStory<typeof Menu> = (args) => (
   </Table>
 )
 
-export const InTable = InTableTemlate.bind({})
-InTable.args = {}
-InTable.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement.parentElement ?? canvasElement)
-  const buttons = canvas.getAllByRole("button", { name: "See options" })
-  expect(buttons).toHaveLength(3)
-}
+export const InTable = {
+  render: () => <InTableTemlate />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.parentElement ?? canvasElement)
+    const buttons = canvas.getAllByRole("button", { name: "See options" })
+    expect(buttons).toHaveLength(3)
+  },
+} satisfies Story
 
-export const Mouse = Template.bind({})
-Mouse.args = {}
-Mouse.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement.parentElement ?? canvasElement)
-  const button = canvas.getByRole("button", { name: "See options" })
-  await userEvent.click(button)
-  const menu = canvas.getByRole("menu", { name: "See options" })
-  await expect(menu).toBeInTheDocument()
-  const firstItem = canvas.getByRole("menuitem", { name: "Option 1" })
-  await expect(firstItem).toBeInTheDocument()
-  await userEvent.click(firstItem)
-  await expect(menu).not.toBeInTheDocument()
-}
+export const Mouse = {
+  render: () => <Template />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.parentElement ?? canvasElement)
+    const button = canvas.getByRole("button", { name: "See options" })
+    await userEvent.click(button)
+    const menu = canvas.getByRole("menu", { name: "See options" })
+    await expect(menu).toBeInTheDocument()
+    const firstItem = canvas.getByRole("menuitem", { name: "Option 1" })
+    await expect(firstItem).toBeInTheDocument()
+    await userEvent.click(firstItem)
+    await expect(menu).not.toBeInTheDocument()
+  },
+} satisfies Story
 
-export const Keyboard = ControlledTemplate.bind({})
-Keyboard.args = {}
-Keyboard.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement.parentElement ?? canvasElement)
-  const button = canvas.getByRole("button", { name: "See options" })
-  await expect(button).not.toHaveFocus()
-  await userEvent.tab()
-  await expect(button).toHaveFocus()
-  await userEvent.keyboard("[Enter]")
-  const firstItem = canvas.getByRole("menuitem", { name: "Option 1" })
-  await expect(firstItem).toHaveFocus()
-  await userEvent.keyboard("[ArrowDown]")
-  const secondItem = canvas.getByRole("menuitem", { name: "Option 2" })
-  await expect(secondItem).toHaveFocus()
-  await userEvent.keyboard("[Enter]")
-  await expect(button).toHaveFocus()
-  await userEvent.keyboard("[Enter]")
-  const thirdItem = canvas.getByRole("menuitem", { name: "Option 3" })
-  await userEvent.keyboard("[ArrowDown]")
-  await userEvent.keyboard("[ArrowDown]")
-  await expect(thirdItem).toHaveFocus()
-  await userEvent.keyboard("[Escape]")
-  await expect(button).toHaveFocus()
-}
+export const Keyboard = {
+  render: () => <ControlledTemplate />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.parentElement ?? canvasElement)
+    const button = canvas.getByRole("button", { name: "See options" })
+    await expect(button).not.toHaveFocus()
+    await userEvent.tab()
+    await expect(button).toHaveFocus()
+    await userEvent.keyboard("[Enter]")
+    const firstItem = canvas.getByRole("menuitem", { name: "Option 1" })
+    await expect(firstItem).toHaveFocus()
+    await userEvent.keyboard("[ArrowDown]")
+    const secondItem = canvas.getByRole("menuitem", { name: "Option 2" })
+    await expect(secondItem).toHaveFocus()
+    await userEvent.keyboard("[Enter]")
+    await expect(button).toHaveFocus()
+    await userEvent.keyboard("[Enter]")
+    const thirdItem = canvas.getByRole("menuitem", { name: "Option 3" })
+    await userEvent.keyboard("[ArrowDown]")
+    await userEvent.keyboard("[ArrowDown]")
+    await expect(thirdItem).toHaveFocus()
+    await userEvent.keyboard("[Escape]")
+    await expect(button).toHaveFocus()
+  },
+} satisfies Story
