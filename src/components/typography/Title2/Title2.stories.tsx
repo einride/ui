@@ -1,15 +1,16 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentStoryObj, Meta } from "@storybook/react"
 import { Title2 } from "./Title2"
 
 export default {
   title: "Typography/Title2",
   component: Title2,
-} as ComponentMeta<typeof Title2>
+} satisfies Meta<typeof Title2>
 
-const Template: ComponentStory<typeof Title2> = (args) => <Title2 {...args} />
+type Story = ComponentStoryObj<typeof Title2>
 
-export const Default = Template.bind({})
-Default.args = {
-  children:
-    "A whole new way to ship. Designed for the majority of freight applications, starting today.",
-}
+export const Default = {
+  args: {
+    children:
+      "A whole new way to ship. Designed for the majority of freight applications, starting today.",
+  },
+} satisfies Story
