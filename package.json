@@ -75,7 +75,7 @@
     "framer-motion": "9.0.2",
     "happy-dom": "8.2.6",
     "luxon": "3.2.1",
-    "prettier": "2.8.3",
+    "prettier": "2.8.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "storybook-dark-mode": "2.0.5",
