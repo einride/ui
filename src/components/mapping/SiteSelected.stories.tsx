@@ -1,17 +1,21 @@
 import { expect } from "@storybook/jest"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentStoryObj, Meta } from "@storybook/react"
 import { within } from "@storybook/testing-library"
-import siteIcon from "./siteSelected.svg"
+import siteSelected from "./siteSelected.svg"
+
+const SiteSelected = (): JSX.Element => <img src={siteSelected} alt="Site" />
 
 export default {
   title: "Mapping/SiteSelected",
-} as ComponentMeta<never>
+  component: SiteSelected,
+} satisfies Meta<typeof SiteSelected>
 
-const Template: ComponentStory<never> = () => <img src={siteIcon} alt="Site" />
+type Story = ComponentStoryObj<typeof SiteSelected>
 
-export const Default = Template.bind({})
-Default.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const img = canvas.getByRole("img")
-  await expect(img).toHaveAccessibleName(/site/i)
-}
+export const Default = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const img = canvas.getByRole("img")
+    await expect(img).toHaveAccessibleName(/site/i)
+  },
+} satisfies Story
