@@ -1,19 +1,23 @@
 import { expect } from "@storybook/jest"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentStoryObj, Meta } from "@storybook/react"
 import { within } from "@storybook/testing-library"
-import siteWithChargerSmallIcon from "./siteWithChargerSmall.svg"
+import siteWithChargerSmall from "./siteWithChargerSmall.svg"
+
+const SiteWithChargerSmall = (): JSX.Element => (
+  <img src={siteWithChargerSmall} alt="Site with charger" />
+)
 
 export default {
   title: "Mapping/SiteWithChargerSmall",
-} as ComponentMeta<never>
+  component: SiteWithChargerSmall,
+} satisfies Meta<typeof SiteWithChargerSmall>
 
-const Template: ComponentStory<never> = () => (
-  <img src={siteWithChargerSmallIcon} alt="Small site with charger" />
-)
+type Story = ComponentStoryObj<typeof SiteWithChargerSmall>
 
-export const Default = Template.bind({})
-Default.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const img = canvas.getByRole("img")
-  await expect(img).toHaveAccessibleName(/small site with charger/i)
-}
+export const Default = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const img = canvas.getByRole("img")
+    await expect(img).toHaveAccessibleName(/site with charger/i)
+  },
+} satisfies Story

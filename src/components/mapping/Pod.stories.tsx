@@ -1,17 +1,21 @@
 import { expect } from "@storybook/jest"
-import { Story } from "@storybook/react/types-6-0"
+import { ComponentStoryObj, Meta } from "@storybook/react"
 import { within } from "@storybook/testing-library"
-import podIcon from "./pod.svg"
+import pod from "./pod.svg"
+
+const Pod = (): JSX.Element => <img src={pod} alt="Pod" />
 
 export default {
   title: "Mapping/Pod",
-}
+  component: Pod,
+} satisfies Meta<typeof Pod>
 
-const Template: Story = () => <img src={podIcon} alt="Pod" />
+type Story = ComponentStoryObj<typeof Pod>
 
-export const Default = Template.bind({})
-Default.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const img = canvas.getByRole("img")
-  await expect(img).toHaveAccessibleName(/pod/i)
-}
+export const Default = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const img = canvas.getByRole("img")
+    await expect(img).toHaveAccessibleName(/pod/i)
+  },
+} satisfies Story
