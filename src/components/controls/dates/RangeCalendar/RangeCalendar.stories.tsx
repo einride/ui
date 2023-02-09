@@ -1,3 +1,4 @@
+import styled from "@emotion/styled"
 import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
@@ -100,10 +101,21 @@ export const Snapshot = (): JSX.Element => (
   <SnapshotWrapper>
     {[Default, DefaultValue].map((Story, index) => (
       // eslint-disable-next-line react/no-array-index-key
-      <Story key={index} {...(Story.args as ComponentProps<typeof RangeCalendar>)} />
+      <TestStyle key={index}>
+        <Story {...(Story.args as ComponentProps<typeof RangeCalendar>)} />
+      </TestStyle>
     ))}
   </SnapshotWrapper>
 )
 Snapshot.parameters = {
   chromatic: { disableSnapshot: false },
 }
+
+// override highlight of today to have consistent snapshots
+const TestStyle = styled.div`
+  .mantine-RangeCalendar-day {
+    &.today {
+      color: ${({ theme }) => theme.colors.content.primary} !important;
+    }
+  }
+`
