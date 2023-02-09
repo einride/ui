@@ -1,5 +1,5 @@
 import { expect } from "@storybook/jest"
-import { ComponentStoryObj, Meta } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { within } from "@storybook/testing-library"
 import charger from "./charger.svg"
 
@@ -8,7 +8,7 @@ const Charger = (): JSX.Element => <img src={charger} alt="Charger" />
 export default {
   title: "Mapping/Charger",
   component: Charger,
-} satisfies Meta<typeof Charger>
+} satisfies ComponentMeta<typeof Charger>
 
 type Story = ComponentStoryObj<typeof Charger>
 

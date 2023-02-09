@@ -1,10 +1,10 @@
-import { ComponentStoryObj, Meta } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { Paragraph } from "./Paragraph"
 
 export default {
   title: "Typography/Paragraph",
   component: Paragraph,
-} satisfies Meta<typeof Paragraph>
+} satisfies ComponentMeta<typeof Paragraph>
 
 type Story = ComponentStoryObj<typeof Paragraph>
 

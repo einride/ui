@@ -1,5 +1,5 @@
 import { expect } from "@storybook/jest"
-import { ComponentStoryObj, Meta } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { within } from "@storybook/testing-library"
 import { PrimaryButton } from "../controls/buttons/PrimaryButton/PrimaryButton"
 import { VisuallyHidden } from "./VisuallyHidden"
@@ -7,7 +7,7 @@ import { VisuallyHidden } from "./VisuallyHidden"
 export default {
   title: "VisuallyHidden/VisuallyHidden",
   component: VisuallyHidden,
-} satisfies Meta<typeof VisuallyHidden>
+} satisfies ComponentMeta<typeof VisuallyHidden>
 
 type Story = ComponentStoryObj<typeof VisuallyHidden>
 

@@ -1,12 +1,12 @@
 import { expect } from "@storybook/jest"
-import { ComponentStoryObj, Meta } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { within } from "@storybook/testing-library"
 import { Text } from "./Text"
 
 export default {
   title: "Typography/Text",
   component: Text,
-} satisfies Meta<typeof Text>
+} satisfies ComponentMeta<typeof Text>
 
 type Story = ComponentStoryObj<typeof Text>
 
