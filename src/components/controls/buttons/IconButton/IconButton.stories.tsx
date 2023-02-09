@@ -75,14 +75,19 @@ export const Disabled = {
   },
 } satisfies Story
 
-export const Snapshot = (): JSX.Element => (
-  <SnapshotWrapper>
-    {[Basic, EllipsisButton, Primary, Tertiary, Disabled].map((Story, index) => (
-      // eslint-disable-next-line react/no-array-index-key
-      <IconButton key={index} {...Story.args} />
-    ))}
-  </SnapshotWrapper>
-)
-Snapshot.parameters = {
-  chromatic: { disableSnapshot: false },
-}
+export const Snapshot = {
+  argTypes: {
+    disabled: {
+      control: false,
+    },
+  },
+  render: () => (
+    <SnapshotWrapper>
+      {[Basic, EllipsisButton, Primary, Tertiary, Disabled].map((Story, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <IconButton key={index} {...Story.args} />
+      ))}
+    </SnapshotWrapper>
+  ),
+  parameters: { chromatic: { disableSnapshot: false } },
+} satisfies Story
