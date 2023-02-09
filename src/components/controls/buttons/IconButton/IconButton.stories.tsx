@@ -1,7 +1,6 @@
 import { expect } from "@storybook/jest"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { within } from "@storybook/testing-library"
-import { ComponentProps } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { IconButton } from "./IconButton"
 
@@ -13,69 +12,74 @@ export default {
       control: "boolean",
     },
   },
-} as ComponentMeta<typeof IconButton>
+} satisfies ComponentMeta<typeof IconButton>
 
-const Template: ComponentStory<typeof IconButton> = (args) => <IconButton {...args} />
+type Story = ComponentStoryObj<typeof IconButton>
 
-export const Basic = Template.bind({})
-Basic.args = {
-  "aria-label": "Label",
-}
-Basic.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const button = canvas.getByRole("button", { name: "Label" })
-  await expect(button).not.toBeDisabled()
-}
+export const Basic = {
+  args: {
+    "aria-label": "Label",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const button = canvas.getByRole("button", { name: "Label" })
+    await expect(button).not.toBeDisabled()
+  },
+} satisfies Story
 
-export const EllipsisButton = Template.bind({})
-EllipsisButton.args = {
-  "aria-label": "Open menu",
-  icon: "ellipsis",
-}
-EllipsisButton.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const button = canvas.getByRole("button", { name: "Open menu" })
-  await expect(button).not.toBeDisabled()
-}
+export const EllipsisButton = {
+  args: {
+    "aria-label": "Open menu",
+    icon: "ellipsis",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const button = canvas.getByRole("button", { name: "Open menu" })
+    await expect(button).not.toBeDisabled()
+  },
+} satisfies Story
 
-export const Primary = Template.bind({})
-Primary.args = {
-  ...Basic.args,
-  variant: "primary",
-}
-Primary.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const button = canvas.getByRole("button", { name: "Label" })
-  await expect(button).not.toBeDisabled()
-}
+export const Primary = {
+  args: {
+    ...Basic.args,
+    variant: "primary",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const button = canvas.getByRole("button", { name: "Label" })
+    await expect(button).not.toBeDisabled()
+  },
+} satisfies Story
 
-export const Tertiary = Template.bind({})
-Tertiary.args = {
-  ...Basic.args,
-  variant: "tertiary",
-}
-Tertiary.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const button = canvas.getByRole("button", { name: "Label" })
-  await expect(button).not.toBeDisabled()
-}
+export const Tertiary = {
+  args: {
+    ...Basic.args,
+    variant: "tertiary",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const button = canvas.getByRole("button", { name: "Label" })
+    await expect(button).not.toBeDisabled()
+  },
+} satisfies Story
 
-export const Disabled = Template.bind({})
-Disabled.args = {
-  ...Basic.args,
-  disabled: true,
-}
-Disabled.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const button = canvas.getByRole("button", { name: "Label" })
-  await expect(button).toBeDisabled()
-}
+export const Disabled = {
+  args: {
+    ...Basic.args,
+    disabled: true,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const button = canvas.getByRole("button", { name: "Label" })
+    await expect(button).toBeDisabled()
+  },
+} satisfies Story
 
 export const Snapshot = (): JSX.Element => (
   <SnapshotWrapper>
     {[Basic, EllipsisButton, Primary, Tertiary, Disabled].map((Story, index) => (
       // eslint-disable-next-line react/no-array-index-key
-      <Story key={index} {...(Story.args as ComponentProps<typeof IconButton>)} />
+      <IconButton key={index} {...Story.args} />
     ))}
   </SnapshotWrapper>
 )
