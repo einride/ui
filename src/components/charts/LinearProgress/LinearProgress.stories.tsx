@@ -1,15 +1,16 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { LinearProgress } from "./LinearProgress"
 
 export default {
   title: "Charts/LinearProgress",
   component: LinearProgress,
-} as ComponentMeta<typeof LinearProgress>
+} satisfies ComponentMeta<typeof LinearProgress>
 
-const Template: ComponentStory<typeof LinearProgress> = (args) => <LinearProgress {...args} />
+type Story = ComponentStoryObj<typeof LinearProgress>
 
-export const Default = Template.bind({})
-Default.args = {
-  "aria-label": "Progress",
-  value: 50,
-}
+export const Default = {
+  args: {
+    "aria-label": "Progress",
+    value: 50,
+  },
+} satisfies Story
