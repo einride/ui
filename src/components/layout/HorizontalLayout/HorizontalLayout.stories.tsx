@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { Paragraph } from "../../typography/Paragraph/Paragraph"
 import { HorizontalLayout } from "./HorizontalLayout"
@@ -6,30 +6,37 @@ import { HorizontalLayout } from "./HorizontalLayout"
 export default {
   title: "Layout/HorizontalLayout",
   component: HorizontalLayout,
-} as ComponentMeta<typeof HorizontalLayout>
+} satisfies ComponentMeta<typeof HorizontalLayout>
 
-const Template: ComponentStory<typeof HorizontalLayout> = (args) => (
-  <HorizontalLayout {...args}>
-    <Paragraph>Row 1</Paragraph>
-    <Paragraph>Row 2</Paragraph>
-    <PrimaryButton>Row 3</PrimaryButton>
-  </HorizontalLayout>
-)
+type Story = ComponentStoryObj<typeof HorizontalLayout>
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = {
+  render: (args) => (
+    <HorizontalLayout {...args}>
+      <Paragraph>Row 1</Paragraph>
+      <Paragraph>Row 2</Paragraph>
+      <PrimaryButton>Row 3</PrimaryButton>
+    </HorizontalLayout>
+  ),
+} satisfies Story
 
-export const None = Template.bind({})
-None.args = {
-  gap: "none",
-}
+export const None = {
+  ...Default,
+  args: {
+    gap: "none",
+  },
+} satisfies Story
 
-export const Small = Template.bind({})
-Small.args = {
-  gap: "sm",
-}
+export const Small = {
+  ...Default,
+  args: {
+    gap: "sm",
+  },
+} satisfies Story
 
-export const Large = Template.bind({})
-Large.args = {
-  gap: "lg",
-}
+export const Large = {
+  ...Default,
+  args: {
+    gap: "lg",
+  },
+} satisfies Story

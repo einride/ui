@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { IconButton } from "../../controls/buttons/IconButton/IconButton"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { SecondaryButton } from "../../controls/buttons/SecondaryButton/SecondaryButton"
@@ -7,21 +7,23 @@ import { Stack } from "./Stack"
 export default {
   title: "Layout/Stack",
   component: Stack,
-} as ComponentMeta<typeof Stack>
+} satisfies ComponentMeta<typeof Stack>
 
-const Template: ComponentStory<typeof Stack> = (args) => (
-  <Stack {...args}>
-    <PrimaryButton>Button</PrimaryButton>
-    <SecondaryButton>Button</SecondaryButton>
-    <IconButton aria-label="Button" icon="bolt" />
-  </Stack>
-)
+type Story = ComponentStoryObj<typeof Stack>
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = {
+  render: (args) => (
+    <Stack {...args}>
+      <PrimaryButton>Button</PrimaryButton>
+      <SecondaryButton>Button</SecondaryButton>
+      <IconButton aria-label="Button" icon="bolt" />
+    </Stack>
+  ),
+} satisfies Story
 
-export const AlignStart = Template.bind({})
-AlignStart.args = {
-  ...Default.args,
-  alignItems: "start",
-}
+export const AlignStart = {
+  ...Default,
+  args: {
+    alignItems: "start",
+  },
+} satisfies Story

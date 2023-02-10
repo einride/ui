@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { Paragraph } from "../../typography/Paragraph/Paragraph"
 import { VerticalLayout } from "./VerticalLayout"
@@ -6,45 +6,58 @@ import { VerticalLayout } from "./VerticalLayout"
 export default {
   title: "Layout/VerticalLayout",
   component: VerticalLayout,
-} as ComponentMeta<typeof VerticalLayout>
+} satisfies ComponentMeta<typeof VerticalLayout>
 
-const Template: ComponentStory<typeof VerticalLayout> = (args) => (
-  <VerticalLayout {...args}>
-    <Paragraph>Row 1</Paragraph>
-    <Paragraph>Row 2</Paragraph>
-    <PrimaryButton>Row 3</PrimaryButton>
-  </VerticalLayout>
-)
+type Story = ComponentStoryObj<typeof VerticalLayout>
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = {
+  render: (args) => (
+    <VerticalLayout {...args}>
+      <Paragraph>Row 1</Paragraph>
+      <Paragraph>Row 2</Paragraph>
+      <PrimaryButton>Row 3</PrimaryButton>
+    </VerticalLayout>
+  ),
+} satisfies Story
 
-export const None = Template.bind({})
-None.args = {
-  gap: "none",
-}
+export const None = {
+  ...Default,
+  args: {
+    gap: "none",
+  },
+} satisfies Story
 
-export const ExtraSmall = Template.bind({})
-ExtraSmall.args = {
-  gap: "xs",
-}
+export const ExtraSmall = {
+  ...Default,
+  args: {
+    gap: "xs",
+  },
+} satisfies Story
 
-export const Small = Template.bind({})
-Small.args = {
-  gap: "sm",
-}
+export const Small = {
+  ...Default,
+  args: {
+    gap: "sm",
+  },
+} satisfies Story
 
-export const Medium = Template.bind({})
-Medium.args = {
-  gap: "md",
-}
+export const Medium = {
+  ...Default,
+  args: {
+    gap: "md",
+  },
+} satisfies Story
 
-export const Large = Template.bind({})
-Large.args = {
-  gap: "lg",
-}
+export const Large = {
+  ...Default,
+  args: {
+    gap: "lg",
+  },
+} satisfies Story
 
-export const ExtraLarge = Template.bind({})
-ExtraLarge.args = {
-  gap: "xl",
-}
+export const ExtraLarge = {
+  ...Default,
+  args: {
+    gap: "xl",
+  },
+} satisfies Story

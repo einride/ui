@@ -1,26 +1,28 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { Box } from "./Box"
 
 export default {
   title: "Layout/Box",
   component: Box,
-} as ComponentMeta<typeof Box>
+} satisfies ComponentMeta<typeof Box>
 
-const Template: ComponentStory<typeof Box> = (args) => <Box {...args} />
+type Story = ComponentStoryObj<typeof Box>
 
-export const Background = Template.bind({})
-Background.args = {
-  background: "tertiary",
-  borderRadius: "lg",
-  height: 10,
-  width: 10,
-}
+export const Background = {
+  args: {
+    background: "tertiary",
+    borderRadius: "lg",
+    height: 10,
+    width: 10,
+  },
+} satisfies Story
 
-export const WithContent = Template.bind({})
-WithContent.args = {
-  background: "positive",
-  color: "primaryInverted",
-  borderRadius: "lg",
-  children: "Content",
-  padding: 2,
-}
+export const WithContent = {
+  args: {
+    background: "positive",
+    color: "primaryInverted",
+    borderRadius: "lg",
+    children: "Content",
+    padding: 2,
+  },
+} satisfies Story
