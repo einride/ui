@@ -1,15 +1,16 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { StepProgress } from "./StepProgress"
 
 export default {
   title: "Charts/StepProgress",
   component: StepProgress,
-} as ComponentMeta<typeof StepProgress>
+} satisfies ComponentMeta<typeof StepProgress>
 
-const Template: ComponentStory<typeof StepProgress> = (args) => <StepProgress {...args} />
+type Story = ComponentStoryObj<typeof StepProgress>
 
-export const Default = Template.bind({})
-Default.args = {
-  completedSteps: 2,
-  title: "Electrification potential",
-}
+export const Default = {
+  args: {
+    completedSteps: 2,
+    title: "Electrification potential",
+  },
+} satisfies Story
