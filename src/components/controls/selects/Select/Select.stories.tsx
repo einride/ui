@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
 import { ChangeEvent, useState } from "react"
 import { Select } from "./Select"
 
@@ -10,7 +10,10 @@ export default {
       control: "boolean",
     },
   },
-} as ComponentMeta<typeof Select>
+  render: (args) => <Template {...args} />,
+} satisfies ComponentMeta<typeof Select>
+
+type Story = ComponentStoryObj<typeof Select>
 
 const Template: ComponentStory<typeof Select> = (args) => (
   <Select {...args}>
@@ -20,27 +23,31 @@ const Template: ComponentStory<typeof Select> = (args) => (
   </Select>
 )
 
-export const Basic = Template.bind({})
-Basic.args = {
-  label: "Label",
-}
+export const Basic = {
+  args: {
+    label: "Label",
+  },
+} satisfies Story
 
-export const WithoutLabel = Template.bind({})
-WithoutLabel.args = {
-  "aria-label": "A dropdown select",
-}
+export const WithoutLabel = {
+  args: {
+    "aria-label": "A dropdown select",
+  },
+} satisfies Story
 
-export const Placeholder = Template.bind({})
-Placeholder.args = {
-  "aria-label": "A dropdown select with a placeholder",
-  placeholder: "Placeholder",
-}
+export const Placeholder = {
+  args: {
+    "aria-label": "A dropdown select with a placeholder",
+    placeholder: "Placeholder",
+  },
+} satisfies Story
 
-export const DefaultValue = Template.bind({})
-DefaultValue.args = {
-  "aria-label": "A dropdown select with a default value",
-  defaultValue: "option2",
-}
+export const DefaultValue = {
+  args: {
+    "aria-label": "A dropdown select with a default value",
+    defaultValue: "option2",
+  },
+} satisfies Story
 
 const ControlledTemplate: ComponentStory<typeof Select> = (args) => {
   const [value, setValue] = useState("")
@@ -58,13 +65,16 @@ const ControlledTemplate: ComponentStory<typeof Select> = (args) => {
   )
 }
 
-export const Controlled = ControlledTemplate.bind({})
-Controlled.args = {
-  value: "option2",
-}
+export const Controlled = {
+  render: (args) => <ControlledTemplate {...args} />,
+  args: {
+    value: "option2",
+  },
+} satisfies Story
 
-export const Prefix = Template.bind({})
-Prefix.args = {
-  ...Basic.args,
-  prefix: <>Prefix:</>,
-}
+export const Prefix = {
+  args: {
+    ...Basic.args,
+    prefix: <>Prefix:</>,
+  },
+} satisfies Story
