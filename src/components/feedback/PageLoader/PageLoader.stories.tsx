@@ -1,12 +1,11 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { PageLoader } from "./PageLoader"
 
 export default {
   title: "Feedback/PageLoader",
   component: PageLoader,
-} as ComponentMeta<typeof PageLoader>
+} satisfies ComponentMeta<typeof PageLoader>
 
-const Template: ComponentStory<typeof PageLoader> = (args) => <PageLoader {...args} />
+type Story = ComponentStoryObj<typeof PageLoader>
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = {} satisfies Story
