@@ -16,7 +16,7 @@ import { Tr } from "../../components/table/Tr/Tr"
 export default {
   title: "Templates/Wireframes/UserTable",
   args: { style: { paddingBlockStart: 0 } },
-} as ComponentMeta<typeof UserTable>
+} satisfies ComponentMeta<typeof UserTable>
 
 function createRandomUser(): {
   id: string
