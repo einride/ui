@@ -90,7 +90,7 @@ const founders = [
   { key: "filip", firstName: "Filip", lastName: "Lilja" },
 ]
 
-const InTableTemlate = (): JSX.Element => (
+const InTableTemplate = (): JSX.Element => (
   <Table>
     <Thead>
       <Tr>
@@ -124,7 +124,7 @@ const InTableTemlate = (): JSX.Element => (
 )
 
 export const InTable = {
-  render: () => <InTableTemlate />,
+  render: () => <InTableTemplate />,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement.parentElement ?? canvasElement)
     const buttons = canvas.getAllByRole("button", { name: "See options" })

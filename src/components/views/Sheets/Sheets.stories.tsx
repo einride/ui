@@ -20,9 +20,10 @@ type Story = ComponentStoryObj<typeof Sheets>
 
 interface TemplateProps {
   defaultOpen?: boolean
+  modal?: boolean
 }
 
-const Template = ({ defaultOpen = false }: TemplateProps): JSX.Element => {
+const Template = ({ defaultOpen = false, modal = true }: TemplateProps): JSX.Element => {
   const { isOpen, handlers } = useDisclosure(defaultOpen)
   return (
     <>
@@ -35,6 +36,7 @@ const Template = ({ defaultOpen = false }: TemplateProps): JSX.Element => {
           icon: "xMark",
           onClick: handlers.close,
         }}
+        modal={modal}
         navigationTitle="Page name"
         primaryAction={{ children: "Primary" }}
       >
@@ -54,10 +56,7 @@ export const Basic = {
 } satisfies Story
 
 export const NonModal = {
-  render: () => <Template defaultOpen />,
-  args: {
-    modal: false,
-  },
+  render: () => <Template modal={false} defaultOpen />,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement.parentElement ?? canvasElement)
     const alert = canvas.getByRole("dialog")
