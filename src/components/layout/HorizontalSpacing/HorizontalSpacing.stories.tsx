@@ -1,22 +1,23 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { HorizontalSpacing } from "./HorizontalSpacing"
 
 export default {
   title: "Layout/HorizontalSpacing",
   component: HorizontalSpacing,
-} as ComponentMeta<typeof HorizontalSpacing>
+} satisfies ComponentMeta<typeof HorizontalSpacing>
 
-const Template: ComponentStory<typeof HorizontalSpacing> = (args) => <HorizontalSpacing {...args} />
+type Story = ComponentStoryObj<typeof HorizontalSpacing>
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = {} satisfies Story
 
-export const Small = Template.bind({})
-Small.args = {
-  size: "sm",
-}
+export const Small = {
+  args: {
+    size: "sm",
+  },
+} satisfies Story
 
-export const Large = Template.bind({})
-Large.args = {
-  size: "lg",
-}
+export const Large = {
+  args: {
+    size: "lg",
+  },
+} satisfies Story
