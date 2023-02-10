@@ -2,6 +2,7 @@ import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { useState } from "react"
+import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { Radio } from "./Radio"
 
 export default {
@@ -156,4 +157,16 @@ export const GroupKeyboard = {
     await expect(radio2).not.toBeChecked()
     await expect(radio3).not.toBeChecked()
   },
+} satisfies Story
+
+export const Snapshot = {
+  render: () => (
+    <SnapshotWrapper>
+      {[WithLabel, DefaultChecked].map((Story, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <Radio key={index} {...Story.args} />
+      ))}
+    </SnapshotWrapper>
+  ),
+  parameters: { chromatic: { disableSnapshot: false } },
 } satisfies Story

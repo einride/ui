@@ -1,6 +1,7 @@
 import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { within } from "@storybook/testing-library"
+import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { Avatar } from "./Avatar"
 
 export default {
@@ -55,4 +56,16 @@ export const Initials = {
     const initials = canvas.getByText("FT")
     expect(initials).toBeInTheDocument()
   },
+} satisfies Story
+
+export const Snapshot = {
+  render: () => (
+    <SnapshotWrapper>
+      {[Default, Circle, Square, Initials].map((Story, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <Avatar key={index} {...Story.args} />
+      ))}
+    </SnapshotWrapper>
+  ),
+  parameters: { chromatic: { disableSnapshot: false } },
 } satisfies Story

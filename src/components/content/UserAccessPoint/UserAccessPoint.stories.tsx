@@ -1,6 +1,7 @@
 import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { within } from "@storybook/testing-library"
+import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { UserAccessPoint } from "./UserAccessPoint"
 
 export default {
@@ -55,4 +56,16 @@ export const Initials = {
     const button = canvas.getByRole("button", { name: "Filip Tammergård" })
     await expect(button).toBeInTheDocument()
   },
+} satisfies Story
+
+export const Snapshot = {
+  render: () => (
+    <SnapshotWrapper>
+      {[User, NoUser, Notification, Initials].map((Story, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <UserAccessPoint key={index} {...Story.args} />
+      ))}
+    </SnapshotWrapper>
+  ),
+  parameters: { chromatic: { disableSnapshot: false } },
 } satisfies Story

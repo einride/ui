@@ -2,6 +2,7 @@ import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { useState } from "react"
+import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { Checkbox } from "./Checkbox"
 
 export default {
@@ -181,4 +182,16 @@ export const GroupKeyboard = {
     await expect(checkbox2).not.toBeChecked()
     await expect(checkbox3).toBeChecked()
   },
+} satisfies Story
+
+export const Snapshot = {
+  render: () => (
+    <SnapshotWrapper>
+      {[WithLabel, DefaultChecked].map((Story, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <Checkbox key={index} {...Story.args} />
+      ))}
+    </SnapshotWrapper>
+  ),
+  parameters: { chromatic: { disableSnapshot: false } },
 } satisfies Story

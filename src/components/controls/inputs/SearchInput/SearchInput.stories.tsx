@@ -2,6 +2,7 @@ import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { useState } from "react"
+import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { SearchInput } from "./SearchInput"
 
 export default {
@@ -141,4 +142,18 @@ export const Keyboard = {
     await userEvent.type(input, "I'm searching for something fun! 🤓", { delay: 10 })
     await expect(input).toHaveValue("I'm searching for something fun! 🤓")
   },
+} satisfies Story
+
+export const Snapshot = {
+  render: () => (
+    <SnapshotWrapper>
+      {[WithLabel, WithoutLabel, DefaultValue, Message, SuccessMessage, ErrorMessage].map(
+        (Story, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <SearchInput key={index} {...Story.args} />
+        ),
+      )}
+    </SnapshotWrapper>
+  ),
+  parameters: { chromatic: { disableSnapshot: false } },
 } satisfies Story
