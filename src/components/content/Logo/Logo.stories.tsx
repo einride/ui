@@ -1,22 +1,25 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { Logo } from "./Logo"
 
 export default {
   title: "Content/Logo",
   component: Logo,
-} as ComponentMeta<typeof Logo>
+} satisfies ComponentMeta<typeof Logo>
 
-const Template: ComponentStory<typeof Logo> = (args) => <Logo {...args} />
+type Story = ComponentStoryObj<typeof Logo>
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = {
+  args: {},
+} satisfies Story
 
-export const Small = Template.bind({})
-Small.args = {
-  size: "sm",
-}
+export const Small = {
+  args: {
+    size: "sm",
+  },
+} satisfies Story
 
-export const Large = Template.bind({})
-Large.args = {
-  size: "lg",
-}
+export const Large = {
+  args: {
+    size: "lg",
+  },
+} satisfies Story
