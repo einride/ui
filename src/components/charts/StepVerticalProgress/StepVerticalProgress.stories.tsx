@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
+import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { StepVerticalProgress } from "./StepVerticalProgress"
 
 export default {
@@ -13,4 +14,16 @@ export const Default = {
     "aria-label": "Deliveries completed",
     completedSteps: 2,
   },
+} satisfies Story
+
+export const Snapshot = {
+  render: () => (
+    <SnapshotWrapper>
+      {[Default].map((Story, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <StepVerticalProgress key={index} {...Story.args} />
+      ))}
+    </SnapshotWrapper>
+  ),
+  parameters: { chromatic: { disableSnapshot: false } },
 } satisfies Story

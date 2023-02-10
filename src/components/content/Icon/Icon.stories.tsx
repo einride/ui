@@ -1,5 +1,7 @@
 import styled from "@emotion/styled"
-import { ComponentMeta, ComponentStoryObj, ComponentStory } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
+import { HTMLAttributes } from "react"
+import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { Card } from "../../cards/Card/Card"
 import { Caption } from "../../typography/Caption/Caption"
 import { Paragraph } from "../../typography/Paragraph/Paragraph"
@@ -12,8 +14,12 @@ export default {
 
 type Story = ComponentStoryObj<typeof Icon>
 
-const AllTemplate: ComponentStory<typeof Icon> = () => (
-  <Wrapper>
+const AllTemplate = ({
+  wrapperProps,
+}: {
+  wrapperProps?: HTMLAttributes<HTMLDivElement>
+}): JSX.Element => (
+  <Wrapper {...wrapperProps}>
     {iconNames.map((iconName) => (
       <StyledCard key={iconName} background="secondary">
         <Paragraph>
@@ -27,7 +33,7 @@ const AllTemplate: ComponentStory<typeof Icon> = () => (
 
 export const All = {
   args: {},
-  render: ({ name }) => <AllTemplate name={name} />,
+  render: () => <AllTemplate />,
 } satisfies Story
 
 const Wrapper = styled.div`
@@ -44,4 +50,13 @@ export const One = {
   args: {
     name: "checkmark",
   },
+} satisfies Story
+
+export const Snapshot = {
+  render: () => (
+    <SnapshotWrapper style={{ display: "block" }}>
+      <AllTemplate />
+    </SnapshotWrapper>
+  ),
+  parameters: { chromatic: { disableSnapshot: false } },
 } satisfies Story
