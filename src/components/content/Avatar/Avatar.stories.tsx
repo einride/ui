@@ -1,54 +1,58 @@
 import { expect } from "@storybook/jest"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { within } from "@storybook/testing-library"
 import { Avatar } from "./Avatar"
 
 export default {
   title: "Content/Avatar",
   component: Avatar,
-} as ComponentMeta<typeof Avatar>
+} satisfies ComponentMeta<typeof Avatar>
 
-const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />
+type Story = ComponentStoryObj<typeof Avatar>
 
-export const Default = Template.bind({})
-Default.args = {
-  alt: "Profile picture",
-  src: "https://source.unsplash.com/e5eDHbmHprg/250x250",
-}
-Default.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const avatar = canvas.getByAltText("Profile picture")
-  expect(avatar).toBeInTheDocument()
-}
+export const Default = {
+  args: {
+    alt: "Profile picture",
+    src: "https://source.unsplash.com/e5eDHbmHprg/250x250",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const avatar = canvas.getByAltText("Profile picture")
+    expect(avatar).toBeInTheDocument()
+  },
+} satisfies Story
 
-export const Circle = Template.bind({})
-Circle.args = {
-  ...Default.args,
-  radius: "full",
-}
-Circle.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const avatar = canvas.getByAltText("Profile picture")
-  expect(avatar).toBeInTheDocument()
-}
+export const Circle = {
+  args: {
+    ...Default.args,
+    radius: "full",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const avatar = canvas.getByAltText("Profile picture")
+    expect(avatar).toBeInTheDocument()
+  },
+} satisfies Story
 
-export const Square = Template.bind({})
-Square.args = {
-  ...Default.args,
-  radius: "sm",
-}
-Square.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const avatar = canvas.getByAltText("Profile picture")
-  expect(avatar).toBeInTheDocument()
-}
+export const Square = {
+  args: {
+    ...Default.args,
+    radius: "sm",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const avatar = canvas.getByAltText("Profile picture")
+    expect(avatar).toBeInTheDocument()
+  },
+} satisfies Story
 
-export const Initials = Template.bind({})
-Initials.args = {
-  name: "Filip Tammergård",
-}
-Initials.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const initials = canvas.getByText("FT")
-  expect(initials).toBeInTheDocument()
-}
+export const Initials = {
+  args: {
+    name: "Filip Tammergård",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const initials = canvas.getByText("FT")
+    expect(initials).toBeInTheDocument()
+  },
+} satisfies Story
