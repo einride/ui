@@ -25,7 +25,7 @@ Default.play = async ({ args }) => {
 
 export const DefaultValue = Template.bind({})
 DefaultValue.args = {
-  value: new Date(new Date().setDate(10)),
+  value: new Date(2023, 1, 10),
 }
 DefaultValue.play = async ({ canvasElement, args }) => {
   const canvas = within(canvasElement)
@@ -37,7 +37,7 @@ DefaultValue.play = async ({ canvasElement, args }) => {
 
 export const Mouse = Template.bind({})
 Mouse.args = {
-  value: new Date(new Date().setDate(10)),
+  value: new Date(2023, 1, 10),
 }
 Mouse.play = async ({ canvasElement, args }) => {
   const canvas = within(canvasElement)
@@ -103,6 +103,9 @@ const TestStyle = styled.div`
   .mantine-Calendar-day {
     &.today {
       color: ${({ theme }) => theme.colors.content.primary} !important;
+    }
+    &[data-selected].today {
+      color: ${({ theme }) => theme.colors.content.primaryInverted} !important;
     }
   }
 `

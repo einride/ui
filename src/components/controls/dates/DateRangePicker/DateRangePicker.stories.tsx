@@ -44,7 +44,7 @@ WithoutLabel.play = async ({ canvasElement }) => {
 export const DefaultValue = Template.bind({})
 DefaultValue.args = {
   ...WithLabel.args,
-  defaultValue: [new Date(new Date().setDate(1)), new Date(new Date().setDate(10))],
+  defaultValue: [new Date(2023, 1, 1), new Date(2023, 1, 10)],
 }
 DefaultValue.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
@@ -62,7 +62,7 @@ export const USFormat = Template.bind({})
 USFormat.args = {
   ...WithLabel.args,
   inputFormat: "MM/DD/YYYY",
-  defaultValue: [new Date(), new Date()],
+  defaultValue: [new Date(2023, 1, 9), new Date(2023, 1, 9)],
 }
 
 const ControlledTemplate: ComponentStory<typeof DateRangePicker> = (args) => {
