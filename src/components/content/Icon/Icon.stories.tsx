@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj, ComponentStory } from "@storybook/react"
 import { Card } from "../../cards/Card/Card"
 import { Caption } from "../../typography/Caption/Caption"
 import { Paragraph } from "../../typography/Paragraph/Paragraph"
@@ -8,7 +8,9 @@ import { Icon, iconNames } from "./Icon"
 export default {
   title: "Content/Icon",
   component: Icon,
-} as ComponentMeta<typeof Icon>
+} satisfies ComponentMeta<typeof Icon>
+
+type Story = ComponentStoryObj<typeof Icon>
 
 const AllTemplate: ComponentStory<typeof Icon> = () => (
   <Wrapper>
@@ -23,8 +25,10 @@ const AllTemplate: ComponentStory<typeof Icon> = () => (
   </Wrapper>
 )
 
-export const All = AllTemplate.bind({})
-All.args = {}
+export const All = {
+  args: {},
+  render: ({ name }) => <AllTemplate name={name} />,
+} satisfies Story
 
 const Wrapper = styled.div`
   display: grid;
@@ -36,9 +40,8 @@ const StyledCard = styled(Card)`
   text-align: center;
 `
 
-const OneTemplate: ComponentStory<typeof Icon> = (args) => <Icon {...args} />
-
-export const One = OneTemplate.bind({})
-One.args = {
-  name: "checkmark",
-}
+export const One = {
+  args: {
+    name: "checkmark",
+  },
+} satisfies Story

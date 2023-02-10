@@ -1,5 +1,5 @@
 import { expect } from "@storybook/jest"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { useState } from "react"
 import { Radio } from "./Radio"
@@ -12,74 +12,80 @@ export default {
       control: "boolean",
     },
   },
-} as ComponentMeta<typeof Radio>
+} satisfies ComponentMeta<typeof Radio>
 
-const Template: ComponentStory<typeof Radio> = (args) => <Radio {...args} />
+type Story = ComponentStoryObj<typeof Radio>
 
-export const WithLabel = Template.bind({})
-WithLabel.args = {
-  children: "Label",
-}
-WithLabel.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const radio = canvas.getByRole("radio", { name: "Label" })
-  await expect(radio).not.toBeChecked()
-}
+export const WithLabel = {
+  args: {
+    children: "Label",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const radio = canvas.getByRole("radio", { name: "Label" })
+    await expect(radio).not.toBeChecked()
+  },
+} satisfies Story
 
-export const DefaultChecked = Template.bind({})
-DefaultChecked.args = {
-  ...WithLabel.args,
-  defaultChecked: true,
-}
-DefaultChecked.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const radio = canvas.getByRole("radio", { name: "Label" })
-  await expect(radio).toBeChecked()
-}
+export const DefaultChecked = {
+  args: {
+    ...WithLabel.args,
+    defaultChecked: true,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const radio = canvas.getByRole("radio", { name: "Label" })
+    await expect(radio).toBeChecked()
+  },
+} satisfies Story
 
 const ControlledTemplate: ComponentStory<typeof Radio> = (args) => {
   const [checked, setChecked] = useState(false)
   return <Radio {...args} checked={checked} onCheckedChange={setChecked} />
 }
 
-export const Controlled = ControlledTemplate.bind({})
-Controlled.args = {
-  ...WithLabel.args,
-}
-Controlled.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const radio = canvas.getByRole("radio", { name: "Label" })
-  await expect(radio).not.toBeChecked()
-}
+export const Controlled = {
+  render: (args) => <ControlledTemplate {...args} />,
+  args: {
+    ...WithLabel.args,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const radio = canvas.getByRole("radio", { name: "Label" })
+    await expect(radio).not.toBeChecked()
+  },
+} satisfies Story
 
-export const Mouse = Template.bind({})
-Mouse.args = {
-  ...WithLabel.args,
-}
-Mouse.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const radio = canvas.getByRole("radio", { name: "Label" })
-  await expect(radio).not.toHaveFocus()
-  await expect(radio).not.toBeChecked()
-  await userEvent.click(radio)
-  await expect(radio).toHaveFocus()
-  await expect(radio).toBeChecked()
-}
+export const Mouse = {
+  args: {
+    ...WithLabel.args,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const radio = canvas.getByRole("radio", { name: "Label" })
+    await expect(radio).not.toHaveFocus()
+    await expect(radio).not.toBeChecked()
+    await userEvent.click(radio)
+    await expect(radio).toHaveFocus()
+    await expect(radio).toBeChecked()
+  },
+} satisfies Story
 
-export const Keyboard = Template.bind({})
-Keyboard.args = {
-  ...WithLabel.args,
-}
-Keyboard.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const radio = canvas.getByRole("radio", { name: "Label" })
-  await expect(radio).not.toHaveFocus()
-  await expect(radio).not.toBeChecked()
-  await userEvent.tab()
-  await expect(radio).toHaveFocus()
-  await userEvent.keyboard("[Space]")
-  await expect(radio).toBeChecked()
-}
+export const Keyboard = {
+  args: {
+    ...WithLabel.args,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const radio = canvas.getByRole("radio", { name: "Label" })
+    await expect(radio).not.toHaveFocus()
+    await expect(radio).not.toBeChecked()
+    await userEvent.tab()
+    await expect(radio).toHaveFocus()
+    await userEvent.keyboard("[Space]")
+    await expect(radio).toBeChecked()
+  },
+} satisfies Story
 
 const GroupTemplate: ComponentStory<typeof Radio> = () => {
   return (
@@ -91,59 +97,63 @@ const GroupTemplate: ComponentStory<typeof Radio> = () => {
   )
 }
 
-export const GroupMouse = GroupTemplate.bind({})
-GroupMouse.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const radio1 = canvas.getByRole("radio", { name: "Label 1" })
-  const radio2 = canvas.getByRole("radio", { name: "Label 2" })
-  const radio3 = canvas.getByRole("radio", { name: "Label 3" })
-  await expect(radio1).not.toBeChecked()
-  await expect(radio2).not.toBeChecked()
-  await expect(radio3).not.toBeChecked()
-  await userEvent.click(radio1)
-  await expect(radio1).toBeChecked()
-  await expect(radio2).not.toBeChecked()
-  await expect(radio3).not.toBeChecked()
-  await userEvent.click(radio2)
-  await expect(radio1).not.toBeChecked()
-  await expect(radio2).toBeChecked()
-  await expect(radio3).not.toBeChecked()
-  await userEvent.click(radio3)
-  await expect(radio1).not.toBeChecked()
-  await expect(radio2).not.toBeChecked()
-  await expect(radio3).toBeChecked()
-  await userEvent.click(radio3) // ensure you can't uncheck radio button by clicking again
-  await expect(radio1).not.toBeChecked()
-  await expect(radio2).not.toBeChecked()
-  await expect(radio3).toBeChecked()
-}
+export const GroupMouse = {
+  render: (args) => <GroupTemplate {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const radio1 = canvas.getByRole("radio", { name: "Label 1" })
+    const radio2 = canvas.getByRole("radio", { name: "Label 2" })
+    const radio3 = canvas.getByRole("radio", { name: "Label 3" })
+    await expect(radio1).not.toBeChecked()
+    await expect(radio2).not.toBeChecked()
+    await expect(radio3).not.toBeChecked()
+    await userEvent.click(radio1)
+    await expect(radio1).toBeChecked()
+    await expect(radio2).not.toBeChecked()
+    await expect(radio3).not.toBeChecked()
+    await userEvent.click(radio2)
+    await expect(radio1).not.toBeChecked()
+    await expect(radio2).toBeChecked()
+    await expect(radio3).not.toBeChecked()
+    await userEvent.click(radio3)
+    await expect(radio1).not.toBeChecked()
+    await expect(radio2).not.toBeChecked()
+    await expect(radio3).toBeChecked()
+    await userEvent.click(radio3) // ensure you can't uncheck radio button by clicking again
+    await expect(radio1).not.toBeChecked()
+    await expect(radio2).not.toBeChecked()
+    await expect(radio3).toBeChecked()
+  },
+} satisfies Story
 
-export const GroupKeyboard = GroupTemplate.bind({})
-GroupKeyboard.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const radio1 = canvas.getByRole("radio", { name: "Label 1" })
-  const radio2 = canvas.getByRole("radio", { name: "Label 2" })
-  const radio3 = canvas.getByRole("radio", { name: "Label 3" })
-  await userEvent.tab()
-  await expect(radio1).toHaveFocus()
-  await expect(radio1).not.toBeChecked()
-  await expect(radio2).not.toBeChecked()
-  await expect(radio3).not.toBeChecked()
-  await userEvent.keyboard("[Space]")
-  await expect(radio1).toBeChecked()
-  await expect(radio2).not.toBeChecked()
-  await expect(radio3).not.toBeChecked()
-  await userEvent.keyboard("[ArrowDown]")
-  await expect(radio1).not.toBeChecked()
-  await expect(radio2).toBeChecked()
-  await expect(radio3).not.toBeChecked()
-  await userEvent.keyboard("[ArrowUp]")
-  await userEvent.keyboard("[ArrowUp]") // ensure radio focus loops
-  await expect(radio1).not.toBeChecked()
-  await expect(radio2).not.toBeChecked()
-  await expect(radio3).toBeChecked()
-  await userEvent.keyboard("[ArrowDown]")
-  await expect(radio1).toBeChecked()
-  await expect(radio2).not.toBeChecked()
-  await expect(radio3).not.toBeChecked()
-}
+export const GroupKeyboard = {
+  render: (args) => <GroupTemplate {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const radio1 = canvas.getByRole("radio", { name: "Label 1" })
+    const radio2 = canvas.getByRole("radio", { name: "Label 2" })
+    const radio3 = canvas.getByRole("radio", { name: "Label 3" })
+    await userEvent.tab()
+    await expect(radio1).toHaveFocus()
+    await expect(radio1).not.toBeChecked()
+    await expect(radio2).not.toBeChecked()
+    await expect(radio3).not.toBeChecked()
+    await userEvent.keyboard("[Space]")
+    await expect(radio1).toBeChecked()
+    await expect(radio2).not.toBeChecked()
+    await expect(radio3).not.toBeChecked()
+    await userEvent.keyboard("[ArrowDown]")
+    await expect(radio1).not.toBeChecked()
+    await expect(radio2).toBeChecked()
+    await expect(radio3).not.toBeChecked()
+    await userEvent.keyboard("[ArrowUp]")
+    await userEvent.keyboard("[ArrowUp]") // ensure radio focus loops
+    await expect(radio1).not.toBeChecked()
+    await expect(radio2).not.toBeChecked()
+    await expect(radio3).toBeChecked()
+    await userEvent.keyboard("[ArrowDown]")
+    await expect(radio1).toBeChecked()
+    await expect(radio2).not.toBeChecked()
+    await expect(radio3).not.toBeChecked()
+  },
+} satisfies Story

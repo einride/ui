@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import { expect } from "@storybook/jest"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
 import { userEvent, waitFor, within } from "@storybook/testing-library"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { Table as TableComponent } from "../../table/Table/Table"
@@ -15,32 +15,34 @@ import { Tooltip } from "./Tooltip"
 export default {
   title: "Content/Tooltip",
   component: Tooltip,
-} as ComponentMeta<typeof Tooltip>
+} satisfies ComponentMeta<typeof Tooltip>
 
-const Template: ComponentStory<typeof Tooltip> = (args) => <Tooltip {...args} />
+type Story = ComponentStoryObj<typeof Tooltip>
 
-export const Basic = Template.bind({})
-Basic.args = {
-  children: "Tooltip trigger",
-  content: "Tooltip content",
-}
-Basic.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const tooltipTrigger = canvas.getByRole("button", { name: "Tooltip trigger" })
-  await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
-}
+export const Basic = {
+  args: {
+    children: "Tooltip trigger",
+    content: "Tooltip content",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const tooltipTrigger = canvas.getByRole("button", { name: "Tooltip trigger" })
+    await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
+  },
+} satisfies Story
 
-export const ButtonTrigger = Template.bind({})
-ButtonTrigger.args = {
-  children: <PrimaryButton>Hover me</PrimaryButton>,
-  content: "Here's some more context on what the button does",
-  triggerAsChild: true,
-}
-ButtonTrigger.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const tooltipTrigger = canvas.getByRole("button", { name: "Hover me" })
-  await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
-}
+export const ButtonTrigger = {
+  args: {
+    children: <PrimaryButton>Hover me</PrimaryButton>,
+    content: "Here's some more context on what the button does",
+    triggerAsChild: true,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const tooltipTrigger = canvas.getByRole("button", { name: "Hover me" })
+    await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
+  },
+} satisfies Story
 
 const TableTemplate: ComponentStory<typeof Tooltip> = () => (
   <TableComponent>
@@ -93,72 +95,78 @@ const TruncatedText = styled(Text)`
   max-inline-size: ${({ theme }) => 30 * theme.spacingBase}rem;
 `
 
-export const Table = TableTemplate.bind({})
-Table.args = {}
-Table.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const tooltipTrigger = canvas.getByRole("button", { name: "CO2e" })
-  await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
-}
+export const Table = {
+  args: {},
+  render: (args) => <TableTemplate {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const tooltipTrigger = canvas.getByRole("button", { name: "CO2e" })
+    await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
+  },
+} satisfies Story
 
-export const OpenDelay = Template.bind({})
-OpenDelay.args = {
-  children: "Text with tooltip that opens with a delay",
-  content: "Here's the tooltip!",
-  openDelayDuration: 700,
-}
-OpenDelay.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const tooltipTrigger = canvas.getByRole("button", {
-    name: "Text with tooltip that opens with a delay",
-  })
-  await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
-}
+export const OpenDelay = {
+  args: {
+    children: "Text with tooltip that opens with a delay",
+    content: "Here's the tooltip!",
+    openDelayDuration: 700,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const tooltipTrigger = canvas.getByRole("button", {
+      name: "Text with tooltip that opens with a delay",
+    })
+    await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
+  },
+} satisfies Story
 
-export const Multiline = Template.bind({})
-Multiline.args = {
-  children: "Tooltip trigger",
-  content:
-    "Some really really really really really really really really really really really really really really really really really really really really really really really long tooltip content.",
-  width: 50,
-}
-Multiline.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const tooltipTrigger = canvas.getByRole("button", { name: "Tooltip trigger" })
-  await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
-}
+export const Multiline = {
+  args: {
+    children: "Tooltip trigger",
+    content:
+      "Some really really really really really really really really really really really really really really really really really really really really really really really long tooltip content.",
+    width: 50,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const tooltipTrigger = canvas.getByRole("button", { name: "Tooltip trigger" })
+    await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
+  },
+} satisfies Story
 
-export const Mouse = Template.bind({})
-Mouse.args = {
-  ...Basic.args,
-}
-Mouse.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const tooltipTrigger = canvas.getByRole("button", { name: "Tooltip trigger" })
-  await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
-  await expect(tooltipTrigger).toHaveAccessibleDescription("")
-  await userEvent.hover(tooltipTrigger)
-  waitFor(() => {
-    expect(tooltipTrigger).toHaveAttribute("data-state", "delayed-open")
-    expect(tooltipTrigger).toHaveAccessibleDescription("Tooltip content")
-  })
-}
+export const Mouse = {
+  args: {
+    ...Basic.args,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const tooltipTrigger = canvas.getByRole("button", { name: "Tooltip trigger" })
+    await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
+    await expect(tooltipTrigger).toHaveAccessibleDescription("")
+    await userEvent.hover(tooltipTrigger)
+    waitFor(() => {
+      expect(tooltipTrigger).toHaveAttribute("data-state", "delayed-open")
+      expect(tooltipTrigger).toHaveAccessibleDescription("Tooltip content")
+    })
+  },
+} satisfies Story
 
-export const Keyboard = Template.bind({})
-Keyboard.args = {
-  ...Basic.args,
-}
-Keyboard.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const tooltipTrigger = canvas.getByRole("button", { name: "Tooltip trigger" })
-  await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
-  await expect(tooltipTrigger).toHaveAccessibleDescription("")
-  await userEvent.tab()
-  waitFor(() => {
-    expect(tooltipTrigger).toHaveAttribute("data-state", "instant-open")
-    expect(tooltipTrigger).toHaveAccessibleDescription("Tooltip content")
-  })
-  await userEvent.tab()
-  await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
-  await expect(tooltipTrigger).toHaveAccessibleDescription("")
-}
+export const Keyboard = {
+  args: {
+    ...Basic.args,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const tooltipTrigger = canvas.getByRole("button", { name: "Tooltip trigger" })
+    await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
+    await expect(tooltipTrigger).toHaveAccessibleDescription("")
+    await userEvent.tab()
+    waitFor(() => {
+      expect(tooltipTrigger).toHaveAttribute("data-state", "instant-open")
+      expect(tooltipTrigger).toHaveAccessibleDescription("Tooltip content")
+    })
+    await userEvent.tab()
+    await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
+    await expect(tooltipTrigger).toHaveAccessibleDescription("")
+  },
+} satisfies Story
