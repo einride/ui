@@ -44,19 +44,19 @@ WithoutLabel.play = async ({ canvasElement }) => {
 export const DefaultValue = Template.bind({})
 DefaultValue.args = {
   ...WithLabel.args,
-  defaultValue: new Date(),
+  defaultValue: new Date(2023, 1, 9),
 }
 DefaultValue.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
   const input = canvas.getByRole("textbox", { name: "Label" })
-  await expect(input).toHaveValue(DateTime.now().toFormat(DATE_FORMAT))
+  await expect(input).toHaveValue(DateTime.local(2023, 2, 9).toFormat(DATE_FORMAT))
 }
 
 export const USFormat = Template.bind({})
 USFormat.args = {
   ...WithLabel.args,
   inputFormat: "MM/DD/YYYY",
-  defaultValue: new Date(),
+  defaultValue: new Date(2023, 1, 9),
 }
 
 const ControlledTemplate: ComponentStory<typeof DatePicker> = (args) => {

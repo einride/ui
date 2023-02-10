@@ -27,7 +27,7 @@ Default.play = async ({ args }) => {
 
 export const DefaultValue = Template.bind({})
 DefaultValue.args = {
-  value: [new Date(new Date().setDate(1)), new Date(new Date().setDate(4))],
+  value: [new Date(2023, 1, 1), new Date(2023, 1, 4)],
 }
 DefaultValue.play = async ({ canvasElement, args }) => {
   const canvas = within(canvasElement)
@@ -116,6 +116,9 @@ const TestStyle = styled.div`
   .mantine-RangeCalendar-day {
     &.today {
       color: ${({ theme }) => theme.colors.content.primary} !important;
+    }
+    &[data-selected].today {
+      color: ${({ theme }) => theme.colors.content.primaryInverted} !important;
     }
   }
 `
