@@ -1,5 +1,5 @@
 import { expect } from "@storybook/jest"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { useState } from "react"
 import { Tabs } from "./Tabs"
@@ -10,7 +10,10 @@ import { TabsTrigger } from "./TabsTrigger"
 export default {
   title: "Controls/Tabs/Tabs",
   component: Tabs,
-} as ComponentMeta<typeof Tabs>
+  render: (args) => <Template {...args} />,
+} satisfies ComponentMeta<typeof Tabs>
+
+type Story = ComponentStoryObj<typeof Tabs>
 
 const Template: ComponentStory<typeof Tabs> = (args) => (
   <Tabs {...args}>
@@ -25,21 +28,22 @@ const Template: ComponentStory<typeof Tabs> = (args) => (
   </Tabs>
 )
 
-export const DefaultValue = Template.bind({})
-DefaultValue.args = {
-  defaultValue: "tab1",
-}
-DefaultValue.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const tab1 = canvas.getByRole("tab", { name: /first tab/i })
-  const tab2 = canvas.getByRole("tab", { name: /second tab/i })
-  const tab3 = canvas.getByRole("tab", { name: /third tab/i })
-  await expect(tab1).toHaveAttribute("aria-selected", "true")
-  await expect(tab2).not.toHaveAttribute("aria-selected", "true")
-  await expect(tab3).not.toHaveAttribute("aria-selected", "true")
-  const tabpanel = canvas.getByRole("tabpanel", { name: /first tab/i })
-  await expect(tabpanel).toHaveTextContent(/first tab content/i)
-}
+export const DefaultValue = {
+  args: {
+    defaultValue: "tab1",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const tab1 = canvas.getByRole("tab", { name: /first tab/i })
+    const tab2 = canvas.getByRole("tab", { name: /second tab/i })
+    const tab3 = canvas.getByRole("tab", { name: /third tab/i })
+    await expect(tab1).toHaveAttribute("aria-selected", "true")
+    await expect(tab2).not.toHaveAttribute("aria-selected", "true")
+    await expect(tab3).not.toHaveAttribute("aria-selected", "true")
+    const tabpanel = canvas.getByRole("tabpanel", { name: /first tab/i })
+    await expect(tabpanel).toHaveTextContent(/first tab content/i)
+  },
+} satisfies Story
 
 const DisabledTemplate: ComponentStory<typeof Tabs> = (args) => (
   <Tabs {...args}>
@@ -56,19 +60,21 @@ const DisabledTemplate: ComponentStory<typeof Tabs> = (args) => (
   </Tabs>
 )
 
-export const Disabled = DisabledTemplate.bind({})
-Disabled.args = {
-  defaultValue: "tab1",
-}
-Disabled.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const tab1 = canvas.getByRole("tab", { name: /first tab/i })
-  const tab2 = canvas.getByRole("tab", { name: /second tab/i })
-  const tab3 = canvas.getByRole("tab", { name: /third tab/i })
-  await expect(tab1).not.toBeDisabled()
-  await expect(tab2).not.toBeDisabled()
-  await expect(tab3).toBeDisabled()
-}
+export const Disabled = {
+  render: (args) => <DisabledTemplate {...args} />,
+  args: {
+    defaultValue: "tab1",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const tab1 = canvas.getByRole("tab", { name: /first tab/i })
+    const tab2 = canvas.getByRole("tab", { name: /second tab/i })
+    const tab3 = canvas.getByRole("tab", { name: /third tab/i })
+    await expect(tab1).not.toBeDisabled()
+    await expect(tab2).not.toBeDisabled()
+    await expect(tab3).toBeDisabled()
+  },
+} satisfies Story
 
 const GrowTemplate: ComponentStory<typeof Tabs> = (args) => (
   <Tabs {...args}>
@@ -85,21 +91,23 @@ const GrowTemplate: ComponentStory<typeof Tabs> = (args) => (
   </Tabs>
 )
 
-export const Grow = GrowTemplate.bind({})
-Grow.args = {
-  defaultValue: "tab1",
-}
-Grow.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const tab1 = canvas.getByRole("tab", { name: /first tab/i })
-  const tab2 = canvas.getByRole("tab", { name: /second tab/i })
-  const tab3 = canvas.getByRole("tab", { name: /third tab/i })
-  await expect(tab1).toHaveAttribute("aria-selected", "true")
-  await expect(tab2).not.toHaveAttribute("aria-selected", "true")
-  await expect(tab3).not.toHaveAttribute("aria-selected", "true")
-  const tabpanel = canvas.getByRole("tabpanel", { name: /first tab/i })
-  await expect(tabpanel).toHaveTextContent(/first tab content/i)
-}
+export const Grow = {
+  render: (args) => <GrowTemplate {...args} />,
+  args: {
+    defaultValue: "tab1",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const tab1 = canvas.getByRole("tab", { name: /first tab/i })
+    const tab2 = canvas.getByRole("tab", { name: /second tab/i })
+    const tab3 = canvas.getByRole("tab", { name: /third tab/i })
+    await expect(tab1).toHaveAttribute("aria-selected", "true")
+    await expect(tab2).not.toHaveAttribute("aria-selected", "true")
+    await expect(tab3).not.toHaveAttribute("aria-selected", "true")
+    const tabpanel = canvas.getByRole("tabpanel", { name: /first tab/i })
+    await expect(tabpanel).toHaveTextContent(/first tab content/i)
+  },
+} satisfies Story
 
 const ControlledTemplate: ComponentStory<typeof Tabs> = (args) => {
   const [value, setValue] = useState("tab1")
@@ -117,78 +125,83 @@ const ControlledTemplate: ComponentStory<typeof Tabs> = (args) => {
   )
 }
 
-export const Controlled = ControlledTemplate.bind({})
-Controlled.args = {}
-Controlled.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const tab1 = canvas.getByRole("tab", { name: /first tab/i })
-  const tab2 = canvas.getByRole("tab", { name: /second tab/i })
-  const tab3 = canvas.getByRole("tab", { name: /third tab/i })
-  await expect(tab1).toHaveAttribute("aria-selected", "true")
-  await expect(tab2).not.toHaveAttribute("aria-selected", "true")
-  await expect(tab3).not.toHaveAttribute("aria-selected", "true")
-  const tabpanel = canvas.getByRole("tabpanel", { name: /first tab/i })
-  await expect(tabpanel).toHaveTextContent(/first tab content/i)
-}
+export const Controlled = {
+  render: (args) => <ControlledTemplate {...args} />,
+  args: {},
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const tab1 = canvas.getByRole("tab", { name: /first tab/i })
+    const tab2 = canvas.getByRole("tab", { name: /second tab/i })
+    const tab3 = canvas.getByRole("tab", { name: /third tab/i })
+    await expect(tab1).toHaveAttribute("aria-selected", "true")
+    await expect(tab2).not.toHaveAttribute("aria-selected", "true")
+    await expect(tab3).not.toHaveAttribute("aria-selected", "true")
+    const tabpanel = canvas.getByRole("tabpanel", { name: /first tab/i })
+    await expect(tabpanel).toHaveTextContent(/first tab content/i)
+  },
+} satisfies Story
 
-export const Mouse = Template.bind({})
-Mouse.args = {
-  defaultValue: "tab1",
-}
-Mouse.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const tab1 = canvas.getByRole("tab", { name: /first tab/i })
-  const tab2 = canvas.getByRole("tab", { name: /second tab/i })
-  const tab3 = canvas.getByRole("tab", { name: /third tab/i })
-  await expect(tab1).toHaveAttribute("aria-selected", "true")
-  await expect(tab2).not.toHaveAttribute("aria-selected", "true")
-  await expect(tab3).not.toHaveAttribute("aria-selected", "true")
-  const tab1panel = canvas.getByRole("tabpanel", { name: /first tab/i })
-  await expect(tab1panel).toHaveTextContent(/first tab content/i)
-  await userEvent.click(tab2)
-  await expect(tab1).not.toHaveAttribute("aria-selected", "true")
-  await expect(tab2).toHaveAttribute("aria-selected", "true")
-  const tab2panel = canvas.getByRole("tabpanel", { name: /second tab/i })
-  await expect(tab2panel).toHaveTextContent(/second tab content/i)
-  await userEvent.click(tab3)
-  await expect(tab1).not.toHaveAttribute("aria-selected", "true")
-  await expect(tab2).not.toHaveAttribute("aria-selected", "true")
-  await expect(tab3).toHaveAttribute("aria-selected", "true")
-  const tab3panel = canvas.getByRole("tabpanel", { name: /third tab/i })
-  await expect(tab3panel).toHaveTextContent(/third tab content/i)
-}
+export const Mouse = {
+  args: {
+    defaultValue: "tab1",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const tab1 = canvas.getByRole("tab", { name: /first tab/i })
+    const tab2 = canvas.getByRole("tab", { name: /second tab/i })
+    const tab3 = canvas.getByRole("tab", { name: /third tab/i })
+    await expect(tab1).toHaveAttribute("aria-selected", "true")
+    await expect(tab2).not.toHaveAttribute("aria-selected", "true")
+    await expect(tab3).not.toHaveAttribute("aria-selected", "true")
+    const tab1panel = canvas.getByRole("tabpanel", { name: /first tab/i })
+    await expect(tab1panel).toHaveTextContent(/first tab content/i)
+    await userEvent.click(tab2)
+    await expect(tab1).not.toHaveAttribute("aria-selected", "true")
+    await expect(tab2).toHaveAttribute("aria-selected", "true")
+    const tab2panel = canvas.getByRole("tabpanel", { name: /second tab/i })
+    await expect(tab2panel).toHaveTextContent(/second tab content/i)
+    await userEvent.click(tab3)
+    await expect(tab1).not.toHaveAttribute("aria-selected", "true")
+    await expect(tab2).not.toHaveAttribute("aria-selected", "true")
+    await expect(tab3).toHaveAttribute("aria-selected", "true")
+    const tab3panel = canvas.getByRole("tabpanel", { name: /third tab/i })
+    await expect(tab3panel).toHaveTextContent(/third tab content/i)
+  },
+} satisfies Story
 
-export const Keyboard = ControlledTemplate.bind({})
-Keyboard.args = {
-  defaultValue: "tab1",
-}
-Keyboard.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const tab1 = canvas.getByRole("tab", { name: /first tab/i })
-  const tab2 = canvas.getByRole("tab", { name: /second tab/i })
-  const tab3 = canvas.getByRole("tab", { name: /third tab/i })
-  await expect(tab1).toHaveAttribute("aria-selected", "true")
-  await expect(tab2).not.toHaveAttribute("aria-selected", "true")
-  await expect(tab3).not.toHaveAttribute("aria-selected", "true")
-  await expect(tab1).not.toHaveFocus()
-  await userEvent.click(tab1)
-  await expect(tab1).toHaveFocus()
-  const tab1panel = canvas.getByRole("tabpanel", { name: /first tab/i })
-  await expect(tab1panel).toHaveTextContent(/first tab content/i)
-  await userEvent.keyboard("[ArrowRight]")
-  await expect(tab1).not.toHaveAttribute("aria-selected", "true")
-  await expect(tab2).toHaveAttribute("aria-selected", "true")
-  const tab2panel = canvas.getByRole("tabpanel", { name: /second tab/i })
-  await expect(tab2panel).toHaveTextContent(/second tab content/i)
-  await userEvent.keyboard("[ArrowRight]")
-  await expect(tab1).not.toHaveAttribute("aria-selected", "true")
-  await expect(tab2).not.toHaveAttribute("aria-selected", "true")
-  await expect(tab3).toHaveAttribute("aria-selected", "true")
-  const tab3panel = canvas.getByRole("tabpanel", { name: /third tab/i })
-  await expect(tab3panel).toHaveTextContent(/third tab content/i)
-  await userEvent.keyboard("[ArrowRight]")
-  await expect(tab1).toHaveAttribute("aria-selected", "true")
-  await expect(tab2).not.toHaveAttribute("aria-selected", "true")
-  await expect(tab3).not.toHaveAttribute("aria-selected", "true")
-  await expect(tab1panel).toHaveTextContent(/first tab content/i)
-}
+export const Keyboard = {
+  render: (args) => <ControlledTemplate {...args} />,
+  args: {
+    defaultValue: "tab1",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const tab1 = canvas.getByRole("tab", { name: /first tab/i })
+    const tab2 = canvas.getByRole("tab", { name: /second tab/i })
+    const tab3 = canvas.getByRole("tab", { name: /third tab/i })
+    await expect(tab1).toHaveAttribute("aria-selected", "true")
+    await expect(tab2).not.toHaveAttribute("aria-selected", "true")
+    await expect(tab3).not.toHaveAttribute("aria-selected", "true")
+    await expect(tab1).not.toHaveFocus()
+    await userEvent.click(tab1)
+    await expect(tab1).toHaveFocus()
+    const tab1panel = canvas.getByRole("tabpanel", { name: /first tab/i })
+    await expect(tab1panel).toHaveTextContent(/first tab content/i)
+    await userEvent.keyboard("[ArrowRight]")
+    await expect(tab1).not.toHaveAttribute("aria-selected", "true")
+    await expect(tab2).toHaveAttribute("aria-selected", "true")
+    const tab2panel = canvas.getByRole("tabpanel", { name: /second tab/i })
+    await expect(tab2panel).toHaveTextContent(/second tab content/i)
+    await userEvent.keyboard("[ArrowRight]")
+    await expect(tab1).not.toHaveAttribute("aria-selected", "true")
+    await expect(tab2).not.toHaveAttribute("aria-selected", "true")
+    await expect(tab3).toHaveAttribute("aria-selected", "true")
+    const tab3panel = canvas.getByRole("tabpanel", { name: /third tab/i })
+    await expect(tab3panel).toHaveTextContent(/third tab content/i)
+    await userEvent.keyboard("[ArrowRight]")
+    await expect(tab1).toHaveAttribute("aria-selected", "true")
+    await expect(tab2).not.toHaveAttribute("aria-selected", "true")
+    await expect(tab3).not.toHaveAttribute("aria-selected", "true")
+    await expect(tab1panel).toHaveTextContent(/first tab content/i)
+  },
+} satisfies Story
