@@ -17,6 +17,9 @@ interface DatePickerBaseProps {
   /** Controls disabled state. */
   disabled?: boolean
 
+  /** Minimum possible date. */
+  minDate?: Date
+
   /** Maximum possible date. */
   maxDate?: Date
 

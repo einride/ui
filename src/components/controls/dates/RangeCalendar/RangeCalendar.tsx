@@ -4,6 +4,9 @@ import { useTheme } from "../../../../hooks/useTheme"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 
 interface RangeCalendarBaseProps {
+  /** Minimum possible date. */
+  minDate?: Date
+
   /** Maximum possible date. */
   maxDate?: Date
 
