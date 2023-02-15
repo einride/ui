@@ -26,6 +26,7 @@ export {
 export { RangeCalendar } from "./components/controls/dates/RangeCalendar/RangeCalendar"
 export { SearchInput } from "./components/controls/inputs/SearchInput/SearchInput"
 export { TextInput } from "./components/controls/inputs/TextInput/TextInput"
+export { TimeInput } from "./components/controls/inputs/TimeInput/TimeInput"
 export { Radio } from "./components/controls/radios/Radio/Radio"
 export { SearchSelect } from "./components/controls/selects/SearchSelect/SearchSelect"
 export { Select } from "./components/controls/selects/Select/Select"
