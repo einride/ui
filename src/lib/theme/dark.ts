@@ -16,11 +16,11 @@ export const dark: ColorTheme = {
     secondaryInverted: color.grey[10],
     tertiary: `${color.grey[10]}1A`, // 1A is HEX for ~10% opacity
     positive: color.green[20],
-    warning: color.yellow[40],
+    warning: color.orange[40],
     negative: color.red[40],
     accent1: color.blue[40],
     accent2: color.violet[40],
-    accent3: color.orange[40],
+    accent3: color.yellow[40],
     focus: `${color.black}B8`, // B8 is HEX for ~72% opacity
   },
   content: {
@@ -30,7 +30,7 @@ export const dark: ColorTheme = {
     tertiary: `${color.grey[10]}66`, // 66 is HEX for ~40% opacity
     positive: color.green[20],
     positiveInverted: color.green[60],
-    warning: color.yellow[40],
+    warning: color.orange[40],
     negative: color.red[40],
   },
   border: {
