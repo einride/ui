@@ -1,3 +1,6 @@
+const turbosnap = require("vite-plugin-turbosnap")
+const { mergeConfig } = require("vite")
+
 module.exports = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
@@ -16,4 +19,10 @@ module.exports = {
     interactionsDebugger: true,
   },
   staticDirs: ["../public"],
+  async viteFinal(config, { configType }) {
+    return mergeConfig(config, {
+      plugins:
+        configType === "PRODUCTION" ? [turbosnap({ rootDir: config.root ?? process.cwd() })] : [],
+    })
+  },
 }
