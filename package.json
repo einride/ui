@@ -41,7 +41,7 @@
     "@einride/eslint-plugin": "6.21.0",
     "@einride/prettier-config": "2.0.0",
     "@einride/tsconfig": "1.0.1",
-    "@emotion/react": "11.10.5",
+    "@emotion/react": "11.10.6",
     "@emotion/styled": "11.10.5",
     "@faker-js/faker": "7.6.0",
     "@rollup/plugin-image": "3.0.2",
