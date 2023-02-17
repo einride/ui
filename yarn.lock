@@ -3941,10 +3941,10 @@
     read-pkg-up "^7.0.1"
     regenerator-runtime "^0.13.7"
 
-"@storybook/test-runner@0.10.0-next.4":
-  version "0.10.0-next.4"
-  resolved "https://registry.yarnpkg.com/@storybook/test-runner/-/test-runner-0.10.0-next.4.tgz#0dd4cd2c9772de599e425a0e193e8b58ba1e0a52"
-  integrity sha512-cX9wsJQJ5ES7SknxbZwZoZZVenbkMmWD5fO4dI0ndPpxU1MIudxIKrds1rj+cRCAXvk9HG42TGVq2UVXFl1OTQ==
+"@storybook/test-runner@0.10.0-next.8":
+  version "0.10.0-next.8"
+  resolved "https://registry.yarnpkg.com/@storybook/test-runner/-/test-runner-0.10.0-next.8.tgz#f95ef13ca7f66f0508fd93d435cf8e1ecea89156"
+  integrity sha512-sPKTOw3997pMGY6I24PqVCI4WzC9P+sITTRyilNfmAaPVmEw/ONeN/TkONJ3DnCfAY2zVF2tguY6jRHpq3f9RQ==
   dependencies:
     "@babel/core" "^7.20.7"
     "@babel/generator" "^7.20.7"
@@ -3960,6 +3960,7 @@
     can-bind-to-host "^1.1.1"
     commander "^9.0.0"
     expect-playwright "^0.8.0"
+    glob "^8.1.0"
     jest "^28.0.0"
     jest-circus "^28.0.0"
     jest-environment-node "^28.0.0"
