@@ -1,0 +1,102 @@
+{
+  "Paragraph": {
+    "instances": 35,
+    "props": {}
+  },
+  "Radio": {
+    "instances": 16,
+    "props": {
+      "checked": 16,
+      "name": 16,
+      "onCheckedChange": 16
+    }
+  },
+  "Icon": {
+    "instances": 12,
+    "props": {
+      "name": 12
+    }
+  },
+  "VerticalSpacing": {
+    "instances": 8,
+    "props": {
+      "size": 7
+    }
+  },
+  "PageLoader": {
+    "instances": 7,
+    "props": {
+      "text": 6
+    }
+  },
+  "PrimaryButton": {
+    "instances": 7,
+    "props": {}
+  },
+  "SecondaryButton": {
+    "instances": 7,
+    "props": {}
+  },
+  "IconButton": {
+    "instances": 3,
+    "props": {
+      "aria-label": 3,
+      "icon": 3,
+      "onClick": 3
+    }
+  },
+  "Link": {
+    "instances": 2,
+    "props": {
+      "href": 2
+    }
+  },
+  "Title2": {
+    "instances": 2,
+    "props": {}
+  },
+  "Caption": {
+    "instances": 1,
+    "props": {}
+  },
+  "Card": {
+    "instances": 1,
+    "props": {
+      "key": 1
+    }
+  },
+  "EinrideProvider": {
+    "instances": 1,
+    "props": {
+      "colorMode": 1,
+      "theme": 1
+    }
+  },
+  "Title3": {
+    "instances": 1,
+    "props": {}
+  },
+  "UserAccessPoint": {
+    "instances": 1,
+    "props": {
+      "name": 1,
+      "onClick": 1,
+      "status": 1
+    }
+  },
+  "Weight": {
+    "instances": 1,
+    "props": {
+      "kilograms": 1,
+      "locales": 1,
+      "unit": 1
+    }
+  },
+  "WeightUnit": {
+    "instances": 1,
+    "props": {
+      "locales": 1,
+      "unitSystem": 1
+    }
+  }
+}
