@@ -1,0 +1,290 @@
+{
+  "VerticalSpacing": {
+    "instances": 60,
+    "props": {
+      "size": 44
+    }
+  },
+  "Paragraph": {
+    "instances": 31,
+    "props": {
+      "color": 5
+    }
+  },
+  "Td": {
+    "instances": 27,
+    "props": {
+      "textAlign": 6,
+      "color": 2,
+      "tabIndex": 2,
+      "key": 1
+    }
+  },
+  "TextInput": {
+    "instances": 20,
+    "props": {
+      "label": 20,
+      "value": 19,
+      "onChange": 15,
+      "message": 14,
+      "status": 14,
+      "disabled": 8,
+      "type": 8,
+      "data-cy": 2,
+      "onBlur": 2
+    }
+  },
+  "Th": {
+    "instances": 20,
+    "props": {
+      "color": 20,
+      "scope": 20,
+      "colSpan": 3
+    }
+  },
+  "Icon": {
+    "instances": 17,
+    "props": {
+      "name": 17,
+      "color": 2
+    }
+  },
+  "PrimaryButton": {
+    "instances": 17,
+    "props": {
+      "onClick": 17,
+      "disabled": 11,
+      "isFullWidth": 6,
+      "isLoading": 3
+    }
+  },
+  "Sheets": {
+    "instances": 16,
+    "props": {
+      "closeHandler": 16,
+      "isOpen": 16,
+      "size": 16,
+      "navigationTitle": 15,
+      "primaryAction": 12,
+      "secondaryAction": 11,
+      "navigationAction": 5
+    }
+  },
+  "Title1": {
+    "instances": 15,
+    "props": {
+      "as": 2,
+      "color": 2
+    }
+  },
+  "Tr": {
+    "instances": 15,
+    "props": {
+      "key": 8
+    }
+  },
+  "MenuItem": {
+    "instances": 12,
+    "props": {
+      "onClick": 12
+    }
+  },
+  "Title3": {
+    "instances": 12,
+    "props": {
+      "color": 1
+    }
+  },
+  "PageLoader": {
+    "instances": 10,
+    "props": {}
+  },
+  "SearchSelect": {
+    "instances": 8,
+    "props": {
+      "label": 8,
+      "onOptionSelect": 8,
+      "onSearchChange": 8,
+      "options": 8,
+      "value": 8,
+      "placeholder": 7,
+      "onClearClick": 6,
+      "aria-label": 1,
+      "disabled": 1,
+      "isFilterable": 1,
+      "message": 1,
+      "status": 1
+    }
+  },
+  "Table": {
+    "instances": 8,
+    "props": {}
+  },
+  "Tbody": {
+    "instances": 8,
+    "props": {}
+  },
+  "Thead": {
+    "instances": 7,
+    "props": {}
+  },
+  "IconButton": {
+    "instances": 6,
+    "props": {
+      "aria-label": 6,
+      "icon": 6
+    }
+  },
+  "Loader": {
+    "instances": 6,
+    "props": {}
+  },
+  "Menu": {
+    "instances": 6,
+    "props": {}
+  },
+  "MenuContent": {
+    "instances": 6,
+    "props": {}
+  },
+  "MenuTrigger": {
+    "instances": 6,
+    "props": {}
+  },
+  "TabsContent": {
+    "instances": 6,
+    "props": {
+      "value": 6
+    }
+  },
+  "TabsTrigger": {
+    "instances": 6,
+    "props": {
+      "value": 6
+    }
+  },
+  "Caption": {
+    "instances": 5,
+    "props": {
+      "color": 5,
+      "font": 1
+    }
+  },
+  "Text": {
+    "instances": 5,
+    "props": {
+      "color": 3,
+      "as": 1,
+      "variant": 1
+    }
+  },
+  "Alert": {
+    "instances": 4,
+    "props": {
+      "closeHandler": 4,
+      "description": 4,
+      "isOpen": 4,
+      "primaryAction": 4,
+      "secondaryAction": 4,
+      "title": 4
+    }
+  },
+  "Label": {
+    "instances": 4,
+    "props": {
+      "variant": 2,
+      "key": 1
+    }
+  },
+  "SearchInput": {
+    "instances": 4,
+    "props": {
+      "aria-label": 4,
+      "onInputChange": 4,
+      "value": 4
+    }
+  },
+  "Select": {
+    "instances": 4,
+    "props": {
+      "onChange": 4,
+      "placeholder": 4,
+      "value": 4,
+      "label": 3,
+      "message": 3,
+      "status": 3,
+      "aria-label": 1,
+      "disabled": 1
+    }
+  },
+  "SecondaryButton": {
+    "instances": 3,
+    "props": {
+      "onClick": 3
+    }
+  },
+  "Group": {
+    "instances": 2,
+    "props": {
+      "justifyContent": 2
+    }
+  },
+  "Radio": {
+    "instances": 2,
+    "props": {
+      "checked": 2,
+      "onClick": 2,
+      "readOnly": 2
+    }
+  },
+  "Stack": {
+    "instances": 2,
+    "props": {}
+  },
+  "Tabs": {
+    "instances": 2,
+    "props": {
+      "defaultValue": 2,
+      "onValueChange": 1
+    }
+  },
+  "TabsList": {
+    "instances": 2,
+    "props": {}
+  },
+  "Title2": {
+    "instances": 2,
+    "props": {}
+  },
+  "Avatar": {
+    "instances": 1,
+    "props": {
+      "background": 1,
+      "color": 1,
+      "name": 1
+    }
+  },
+  "HorizontalLayout": {
+    "instances": 1,
+    "props": {}
+  },
+  "Link": {
+    "instances": 1,
+    "props": {
+      "href": 1
+    }
+  },
+  "Skeleton": {
+    "instances": 1,
+    "props": {
+      "height": 1
+    }
+  },
+  "Switch": {
+    "instances": 1,
+    "props": {
+      "aria-label": 1,
+      "checked": 1
+    }
+  }
+}

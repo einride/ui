@@ -1,0 +1,284 @@
+{
+  "Paragraph": {
+    "instances": 82,
+    "props": {
+      "color": 50,
+      "font": 10,
+      "key": 6,
+      "data-testid": 5
+    }
+  },
+  "VerticalSpacing": {
+    "instances": 53,
+    "props": {
+      "size": 21
+    }
+  },
+  "Stack": {
+    "instances": 21,
+    "props": {
+      "gap": 11,
+      "flexDirection": 4,
+      "alignItems": 3,
+      "justifyContent": 3,
+      "display": 1,
+      "width": 1
+    }
+  },
+  "Loader": {
+    "instances": 19,
+    "props": {}
+  },
+  "Group": {
+    "instances": 13,
+    "props": {
+      "justifyContent": 12,
+      "gap": 3,
+      "alignItems": 2,
+      "flexDirection": 2,
+      "data-testid": 1,
+      "flexWrap": 1
+    }
+  },
+  "Icon": {
+    "instances": 13,
+    "props": {
+      "name": 13,
+      "color": 3,
+      "style": 3
+    }
+  },
+  "Td": {
+    "instances": 13,
+    "props": {
+      "color": 4,
+      "data-testid": 2
+    }
+  },
+  "Th": {
+    "instances": 11,
+    "props": {
+      "scope": 11
+    }
+  },
+  "Title3": {
+    "instances": 10,
+    "props": {
+      "data-testid": 2
+    }
+  },
+  "Caption": {
+    "instances": 9,
+    "props": {
+      "color": 7
+    }
+  },
+  "IconButton": {
+    "instances": 9,
+    "props": {
+      "aria-label": 9,
+      "icon": 9,
+      "onClick": 7,
+      "data-testid": 6,
+      "variant": 3,
+      "disabled": 2
+    }
+  },
+  "HorizontalSpacing": {
+    "instances": 6,
+    "props": {
+      "size": 2
+    }
+  },
+  "TextInput": {
+    "instances": 6,
+    "props": {
+      "label": 6,
+      "message": 6,
+      "onChange": 6,
+      "status": 6,
+      "type": 6,
+      "name": 5,
+      "value": 4,
+      "width": 4,
+      "data-testid": 3,
+      "readOnly": 3,
+      "defaultValue": 2,
+      "max": 2,
+      "min": 2,
+      "placeholder": 1
+    }
+  },
+  "Title2": {
+    "instances": 6,
+    "props": {
+      "color": 2
+    }
+  },
+  "PrimaryButton": {
+    "instances": 5,
+    "props": {
+      "onClick": 5,
+      "isFullWidth": 3,
+      "disabled": 2,
+      "data-testid": 1,
+      "rightIcon": 1
+    }
+  },
+  "Select": {
+    "instances": 5,
+    "props": {
+      "onChange": 5,
+      "label": 3,
+      "value": 3,
+      "aria-label": 2,
+      "defaultValue": 2,
+      "disabled": 2,
+      "data-testid": 1
+    }
+  },
+  "Title1": {
+    "instances": 5,
+    "props": {
+      "data-testid": 1
+    }
+  },
+  "Tr": {
+    "instances": 5,
+    "props": {
+      "key": 2,
+      "data-testid": 1
+    }
+  },
+  "Card": {
+    "instances": 4,
+    "props": {
+      "background": 2,
+      "paddingBlockEnd": 1
+    }
+  },
+  "PageLoader": {
+    "instances": 2,
+    "props": {
+      "data-testid": 1
+    }
+  },
+  "SearchSelect": {
+    "instances": 2,
+    "props": {
+      "data-testid": 2,
+      "filter": 2,
+      "label": 2,
+      "name": 2,
+      "onClearClick": 2,
+      "onOptionSelect": 2,
+      "onSearchChange": 2,
+      "options": 2,
+      "placeholder": 2,
+      "value": 2
+    }
+  },
+  "Table": {
+    "instances": 2,
+    "props": {}
+  },
+  "Tbody": {
+    "instances": 2,
+    "props": {
+      "style": 1
+    }
+  },
+  "Thead": {
+    "instances": 2,
+    "props": {}
+  },
+  "Alert": {
+    "instances": 1,
+    "props": {
+      "closeHandler": 1,
+      "data-testid": 1,
+      "description": 1,
+      "isOpen": 1,
+      "primaryAction": 1,
+      "secondaryAction": 1,
+      "title": 1
+    }
+  },
+  "Link": {
+    "instances": 1,
+    "props": {
+      "color": 1,
+      "font": 1,
+      "href": 1,
+      "target": 1
+    }
+  },
+  "Menu": {
+    "instances": 1,
+    "props": {}
+  },
+  "MenuContent": {
+    "instances": 1,
+    "props": {}
+  },
+  "MenuItem": {
+    "instances": 1,
+    "props": {
+      "data-testid": 1,
+      "icon": 1,
+      "key": 1,
+      "onClick": 1
+    }
+  },
+  "MenuTrigger": {
+    "instances": 1,
+    "props": {
+      "disabled": 1
+    }
+  },
+  "Radio": {
+    "instances": 1,
+    "props": {
+      "aria-label": 1,
+      "checked": 1,
+      "onCheckedChange": 1
+    }
+  },
+  "SearchInput": {
+    "instances": 1,
+    "props": {
+      "aria-label": 1,
+      "autoFocus": 1,
+      "data-testid": 1,
+      "onInputChange": 1,
+      "placeholder": 1,
+      "value": 1
+    }
+  },
+  "SecondaryButton": {
+    "instances": 1,
+    "props": {
+      "data-testid": 1,
+      "onClick": 1
+    }
+  },
+  "Sheets": {
+    "instances": 1,
+    "props": {
+      "closeHandler": 1,
+      "isOpen": 1,
+      "modal": 1,
+      "navigationAction": 1,
+      "size": 1
+    }
+  },
+  "Switch": {
+    "instances": 1,
+    "props": {
+      "aria-label": 1,
+      "checked": 1,
+      "data-testid": 1,
+      "onCheckedChange": 1
+    }
+  }
+}

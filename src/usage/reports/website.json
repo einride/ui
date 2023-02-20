@@ -1,0 +1,151 @@
+{
+  "VerticalSpacing": {
+    "instances": 107,
+    "props": {
+      "size": 84
+    }
+  },
+  "Icon": {
+    "instances": 17,
+    "props": {
+      "name": 17
+    }
+  },
+  "TextInput": {
+    "instances": 17,
+    "props": {
+      "label": 17,
+      "onChange": 17,
+      "type": 17,
+      "value": 17,
+      "placeholder": 14,
+      "message": 13,
+      "status": 13,
+      "name": 1,
+      "required": 1
+    }
+  },
+  "PrimaryButton": {
+    "instances": 9,
+    "props": {
+      "rightIcon": 9,
+      "isFullWidth": 1,
+      "type": 1
+    }
+  },
+  "Paragraph": {
+    "instances": 6,
+    "props": {
+      "as": 1
+    }
+  },
+  "Td": {
+    "instances": 6,
+    "props": {}
+  },
+  "IconButton": {
+    "instances": 5,
+    "props": {
+      "aria-label": 5,
+      "icon": 4,
+      "onClick": 4,
+      "variant": 4
+    }
+  },
+  "Select": {
+    "instances": 4,
+    "props": {
+      "label": 4,
+      "onChange": 4,
+      "defaultValue": 3,
+      "placeholder": 1
+    }
+  },
+  "Tr": {
+    "instances": 4,
+    "props": {
+      "key": 1,
+      "onClick": 1
+    }
+  },
+  "Table": {
+    "instances": 3,
+    "props": {}
+  },
+  "Tbody": {
+    "instances": 3,
+    "props": {}
+  },
+  "Th": {
+    "instances": 3,
+    "props": {
+      "scope": 3
+    }
+  },
+  "Textarea": {
+    "instances": 2,
+    "props": {
+      "aria-invalid": 2,
+      "label": 2,
+      "labelProps": 2,
+      "message": 2,
+      "onChange": 2,
+      "status": 2,
+      "value": 2,
+      "wrapperProps": 2
+    }
+  },
+  "Thead": {
+    "instances": 2,
+    "props": {}
+  },
+  "Caption": {
+    "instances": 1,
+    "props": {
+      "color": 1
+    }
+  },
+  "EinrideProvider": {
+    "instances": 1,
+    "props": {
+      "colorMode": 1,
+      "theme": 1
+    }
+  },
+  "HorizontalSpacing": {
+    "instances": 1,
+    "props": {
+      "size": 1
+    }
+  },
+  "Tabs": {
+    "instances": 1,
+    "props": {
+      "defaultValue": 1
+    }
+  },
+  "TabsContent": {
+    "instances": 1,
+    "props": {
+      "key": 1,
+      "value": 1
+    }
+  },
+  "TabsList": {
+    "instances": 1,
+    "props": {
+      "grow": 1
+    }
+  },
+  "TabsTrigger": {
+    "instances": 1,
+    "props": {
+      "key": 1,
+      "value": 1
+    }
+  },
+  "Title3": {
+    "instances": 1,
+    "props": {}
+  }
+}

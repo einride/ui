@@ -1,0 +1,30 @@
+{
+  "Paragraph": {
+    "instances": 8,
+    "props": {
+      "color": 6
+    }
+  },
+  "Icon": {
+    "instances": 3,
+    "props": {
+      "name": 3
+    }
+  },
+  "Group": {
+    "instances": 1,
+    "props": {
+      "justifyContent": 1
+    }
+  },
+  "Text": {
+    "instances": 1,
+    "props": {
+      "color": 1
+    }
+  },
+  "Title3": {
+    "instances": 1,
+    "props": {}
+  }
+}
