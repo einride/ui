@@ -3,7 +3,9 @@ import { expect, jest } from "@storybook/jest"
 import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { useState } from "react"
+import { Icon } from "../../../content/Icon/Icon"
 import { Box } from "../../../layout/Box/Box"
+import { Option } from "../../../menus/Option/Option"
 import { SearchSelect } from "./SearchSelect"
 import { BaseOption } from "./types"
 
@@ -67,6 +69,29 @@ export const LargeDataset = {
   args: {
     label: "Label",
     options: largeDataset,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByRole("textbox")).toBeInTheDocument()
+  },
+} satisfies Story
+
+export const WithHeaderAndFooter = {
+  args: {
+    label: "Label",
+    options: largeDataset,
+    optionsFooter: (
+      <div
+        style={{
+          borderTop: "1px solid",
+        }}
+      >
+        <Option variant="secondary">
+          Add address manually
+          <Icon name="arrowRight" />
+        </Option>
+      </div>
+    ),
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)

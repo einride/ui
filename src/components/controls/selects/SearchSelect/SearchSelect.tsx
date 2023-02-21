@@ -47,6 +47,8 @@ interface SearchSelectBaseProps<Option> extends ComponentPropsWithoutRef<"input"
   /** Props passed to the individual options. */
   optionProps?: ComponentPropsWithoutRef<"div">
 
+  optionsFooter?: ReactNode
+
   /**  Default is `neutral`. */
   status?: Status
 
@@ -81,6 +83,7 @@ export const SearchSelect = <Option extends BaseOption>({
   onSearchChange,
   options,
   optionProps,
+  optionsFooter,
   placeholder,
   isFilterable = true,
   value,
@@ -223,7 +226,7 @@ export const SearchSelect = <Option extends BaseOption>({
           onMouseDown: preventInputBlur,
         }}
       />
-      {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
+      {(isOpen && !!filteredOptions && filteredOptions.length > 0) || (isOpen && optionsFooter) ? (
         <OptionsWrapper role="listbox" aria-labelledby={id} {...dropdownProps} ref={scrollableRef}>
           {filteredOptions?.map((option, index) => (
             <Option
@@ -246,8 +249,9 @@ export const SearchSelect = <Option extends BaseOption>({
               {option.label}
             </Option>
           ))}
+          {optionsFooter}
         </OptionsWrapper>
-      )}
+      ) : null}
     </Wrapper>
   )
 }
