@@ -17,6 +17,7 @@ export { StepGauge } from "./components/charts/StepGauge/StepGauge"
 export { StepProgress } from "./components/charts/StepProgress/StepProgress"
 export { StepVerticalProgress } from "./components/charts/StepVerticalProgress/StepVerticalProgress"
 export { Avatar } from "./components/content/Avatar/Avatar"
+export { Banner } from "./components/content/Banner/Banner"
 export { Icon } from "./components/content/Icon/Icon"
 export { Logo } from "./components/content/Logo/Logo"
 export { Tooltip } from "./components/content/Tooltip/Tooltip"
@@ -27,11 +28,13 @@ export { PrimaryButton } from "./components/controls/buttons/PrimaryButton/Prima
 export { SecondaryButton } from "./components/controls/buttons/SecondaryButton/SecondaryButton"
 export { TertiaryButton } from "./components/controls/buttons/TertiaryButton/TertiaryButton"
 export { Checkbox } from "./components/controls/checkboxes/Checkbox/Checkbox"
+export { Calendar } from "./components/controls/dates/Calendar/Calendar"
 export { DatePicker } from "./components/controls/dates/DatePicker/DatePicker"
 export {
   DateRangePicker,
   type DateRangePickerValue,
 } from "./components/controls/dates/DateRangePicker/DateRangePicker"
+export { RangeCalendar } from "./components/controls/dates/RangeCalendar/RangeCalendar"
 export { SearchInput } from "./components/controls/inputs/SearchInput/SearchInput"
 export { TextInput } from "./components/controls/inputs/TextInput/TextInput"
 export { Radio } from "./components/controls/radios/Radio/Radio"
