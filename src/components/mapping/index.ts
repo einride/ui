@@ -25,24 +25,6 @@ export const mapboxStyleDarkOrchestrate = "mapbox://styles/einride-portal/cl9pfi
 
 export { useStyleLoad } from "./hooks/useStyleLoad"
 
-export const layerNames = [
-  "land",
-  "waterway-shadow",
-  "water-shadow",
-  "waterway",
-  "water",
-  "water-depth",
-  "hillshade",
-  "land-structure-polygon",
-  "land-structure-line",
-  "aeroway-polygon",
-  "aeroway-line",
-  "tunnel-simple",
-  "cliff",
-  // TODO add layer names
-  "...",
-]
-
 export {
   ChargerIcon,
   ChargerSmallIcon,
