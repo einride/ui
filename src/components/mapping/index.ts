@@ -23,6 +23,8 @@ export const mapboxStyleLightOrchestrate =
   "mapbox://styles/einride-portal/cl9pffnl8003r14vqtdvg5val"
 export const mapboxStyleDarkOrchestrate = "mapbox://styles/einride-portal/cl9pfirmr000u14molltrlf3y"
 
+export { useStyleLoad } from "./hooks/useStyleLoad"
+
 export const layerNames = [
   "land",
   "waterway-shadow",
@@ -95,7 +97,7 @@ export const selectIconMask: IconMask = {
 
 export const siteWithChargerIconMask: IconMask = {
   url: SiteWithChargerIcon,
-  height: 96,
+  height: 80,
   width: 128,
   mask: false,
 }
@@ -123,7 +125,7 @@ export const selectIconMaskDark: IconMask = {
 
 export const siteWithChargerIconMaskDark: IconMask = {
   url: SiteWithChargerIconDark,
-  height: 96,
+  height: 80,
   width: 128,
   mask: false,
 }
