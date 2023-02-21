@@ -1,9 +1,9 @@
 import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
-import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
+import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
 import { ContentColor, Font } from "../../../lib/theme/types"
 
-interface CaptionProps extends HTMLAttributes<HTMLParagraphElement> {
+export interface CaptionProps extends Omit<ComponentPropsWithoutRef<"p">, "color"> {
   /** Effective element used. */
   as?: ElementType
 

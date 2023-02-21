@@ -10,7 +10,7 @@ import {
   ReactNode,
 } from "react"
 import { Icon } from "../../../content/Icon/Icon"
-import { BaseInput } from "../../inputs/BaseInput/BaseInput"
+import { BaseInput, MessageProps } from "../../inputs/BaseInput/BaseInput"
 
 interface SearchSelectInputBaseProps extends ComponentPropsWithoutRef<"input"> {
   as?: ElementType
@@ -20,6 +20,10 @@ interface SearchSelectInputBaseProps extends ComponentPropsWithoutRef<"input"> {
 
   isOpen?: boolean
   message?: ReactNode
+
+  /** Props passed to message element. */
+  messageProps?: MessageProps
+
   onClearInput: (e: MouseEvent<HTMLButtonElement>) => void
   status?: Status
   value: string | undefined

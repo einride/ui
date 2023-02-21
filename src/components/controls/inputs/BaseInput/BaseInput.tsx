@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef, useId } from "react"
 import { ContentColor } from "../../../../lib/theme/types"
 import { Box, BoxProps } from "../../../layout/Box/Box"
-import { Caption } from "../../../typography/Caption/Caption"
+import { Caption, CaptionProps } from "../../../typography/Caption/Caption"
 
 export interface BaseInputProps extends ComponentPropsWithoutRef<"input"> {
   /** Effective element used. */
@@ -21,7 +21,7 @@ export interface BaseInputProps extends ComponentPropsWithoutRef<"input"> {
   message?: ReactNode
 
   /** Props passed to message element. */
-  messageProps?: Omit<ComponentPropsWithoutRef<"span"> & { "data-testid"?: string }, "color">
+  messageProps?: MessageProps
 
   /** Icon shown on the right side. */
   rightIcon?: ReactNode
@@ -69,6 +69,10 @@ export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
     )
   },
 )
+
+export interface MessageProps extends Omit<CaptionProps, "children"> {
+  "data-testid"?: string
+}
 
 const StyledLabel = styled.label`
   display: inline-block;

@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
 import { Icon } from "../../../content/Icon/Icon"
 import { BoxProps } from "../../../layout/Box/Box"
-import { BaseInput, Status } from "../BaseInput/BaseInput"
+import { BaseInput, MessageProps, Status } from "../BaseInput/BaseInput"
 
 interface TextInputBaseProps extends ComponentPropsWithoutRef<"input"> {
   /** Effective element used. */
@@ -12,7 +12,7 @@ interface TextInputBaseProps extends ComponentPropsWithoutRef<"input"> {
   message?: ReactNode
 
   /** Props passed to message element. */
-  messageProps?: ComponentPropsWithoutRef<"span"> & { "data-testid"?: string }
+  messageProps?: MessageProps
 
   /** Status of the input, controlling color and icon. */
   status?: Status | undefined

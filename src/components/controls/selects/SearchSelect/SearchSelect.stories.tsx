@@ -192,6 +192,19 @@ export const Mouse = {
   },
 } satisfies Story
 
+export const Message = {
+  args: {
+    ...Basic.args,
+    message: "Message.",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const input = canvas.getByRole("textbox", { name: "Label" })
+    await expect(input).toHaveAccessibleDescription("Message.")
+    await expect(input).not.toHaveErrorMessage()
+  },
+} satisfies Story
+
 export const Keyboard = {
   args: {
     label: "Label",

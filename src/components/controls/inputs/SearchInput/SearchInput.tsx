@@ -1,16 +1,16 @@
 import styled from "@emotion/styled"
-import { useUncontrolled, useMergedRef } from "@mantine/hooks"
+import { useMergedRef, useUncontrolled } from "@mantine/hooks"
 import {
   ButtonHTMLAttributes,
   ComponentPropsWithoutRef,
   ElementType,
-  forwardRef,
   ReactNode,
+  forwardRef,
   useRef,
 } from "react"
 import { Icon } from "../../../content/Icon/Icon"
 import { BoxProps } from "../../../layout/Box/Box"
-import { BaseInput, Status } from "../BaseInput/BaseInput"
+import { BaseInput, MessageProps, Status } from "../BaseInput/BaseInput"
 
 interface SearchInputBaseProps extends ComponentPropsWithoutRef<"input"> {
   /** Effective element used. */
@@ -20,7 +20,7 @@ interface SearchInputBaseProps extends ComponentPropsWithoutRef<"input"> {
   message?: ReactNode
 
   /** Props passed to message element. */
-  messageProps?: ComponentPropsWithoutRef<"span"> & { "data-testid"?: string }
+  messageProps?: MessageProps
 
   /** Props passed to the clear button element. */
   clearButtonProps?: ButtonHTMLAttributes<HTMLButtonElement> | undefined

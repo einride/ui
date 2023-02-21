@@ -12,6 +12,7 @@ import {
 import { useScrollIntoView } from "../../../../hooks/useScrollIntoView"
 import { zIndex } from "../../../../lib/zIndex"
 import { Option } from "../../../menus/Option/Option"
+import { MessageProps } from "../../inputs/BaseInput/BaseInput"
 import { defaultFilter, filterOptions } from "./filterOptions"
 import { SearchSelectInput } from "./SearchSelectInput"
 import { BaseOption } from "./types"
@@ -31,6 +32,9 @@ interface SearchSelectBaseProps<Option> extends ComponentPropsWithoutRef<"input"
 
   /** Message shown below input field. Can be used together with `status` to show a success or error message. */
   message?: ReactNode
+
+  /** Props passed to message element. */
+  messageProps?: MessageProps
 
   /** Callback called when the clear button is clicked. */
   onClearClick?: () => void
