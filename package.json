@@ -35,7 +35,7 @@
     "lodash.merge": "4.6.2"
   },
   "devDependencies": {
-    "@babel/core": "7.20.12",
+    "@babel/core": "7.21.0",
     "@commitlint/cli": "17.4.4",
     "@commitlint/config-conventional": "17.4.3",
     "@einride/eslint-plugin": "6.21.0",
