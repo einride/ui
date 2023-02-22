@@ -71,7 +71,7 @@
     "chromatic": "6.17.0",
     "concurrently": "7.6.0",
     "eslint": "8.34.0",
-    "eslint-plugin-storybook": "0.6.10",
+    "eslint-plugin-storybook": "0.6.11",
     "framer-motion": "9.0.7",
     "happy-dom": "8.7.0",
     "luxon": "3.2.1",
