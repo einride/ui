@@ -24,14 +24,15 @@ type Story = ComponentStoryObj<typeof Menu>
 
 interface TemplateProps {
   defaultOpen?: boolean
+  withOverlay?: boolean
 }
 
-const Template = ({ defaultOpen = false }: TemplateProps): JSX.Element => (
+const Template = ({ defaultOpen = false, withOverlay = false }: TemplateProps): JSX.Element => (
   <Menu defaultOpen={defaultOpen}>
     <MenuTrigger>
       <IconButton aria-label="See options" icon="ellipsis" />
     </MenuTrigger>
-    <MenuContent>
+    <MenuContent withOverlay={withOverlay}>
       <MenuItem icon={<Icon name="arrowDownCircle" />}>Option 1</MenuItem>
       <MenuItem icon={<Icon name="arrowDownCircle" />}>Option 2</MenuItem>
       <MenuItem>Option 3</MenuItem>
@@ -51,6 +52,15 @@ export const Basic = {
 
 export const DefaultOpen = {
   render: () => <Template defaultOpen />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.parentElement ?? canvasElement)
+    const menu = canvas.getByRole("menu", { name: "See options" })
+    await expect(menu).toBeInTheDocument()
+  },
+} satisfies Story
+
+export const WithOverlay = {
+  render: () => <Template defaultOpen withOverlay />,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement.parentElement ?? canvasElement)
     const menu = canvas.getByRole("menu", { name: "See options" })
