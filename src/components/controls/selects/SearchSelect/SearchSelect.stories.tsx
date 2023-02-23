@@ -205,6 +205,19 @@ export const Message = {
   },
 } satisfies Story
 
+export const ClearButtonProps = {
+  render: (args) => <SearchSelect {...args} />,
+  args: {
+    value: "Value",
+    clearButtonProps: { "data-testid": "testid" },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const clearButton = canvas.getByRole("button")
+    await expect(clearButton).toHaveAttribute("data-testid", "testid")
+  },
+} satisfies Story
+
 export const Keyboard = {
   args: {
     label: "Label",

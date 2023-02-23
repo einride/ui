@@ -225,6 +225,7 @@ export const SearchSelect = <Option extends BaseOption>({
         }}
         clearButtonProps={{
           onMouseDown: preventInputBlur,
+          ...props.clearButtonProps,
         }}
       />
       {isOpen && !!filteredOptions && filteredOptions.length > 0 && (
