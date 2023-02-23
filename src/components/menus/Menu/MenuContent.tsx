@@ -7,15 +7,19 @@ import { zIndex } from "../../../lib/zIndex"
 interface MenuContentProps extends ComponentPropsWithoutRef<"div"> {
   /** The preferred alignment against the trigger. May change when collisions occur. Default is `center`. */
   align?: "start" | "center" | "end"
+
+  /** Whether or not to show an overlay. Default is `false`. */
+  withOverlay?: boolean
 }
 
 export const MenuContent = forwardRef<HTMLDivElement, MenuContentProps>(
-  ({ children, ...props }, forwardedRef): JSX.Element | null => {
+  ({ children, withOverlay, ...props }, forwardedRef): JSX.Element | null => {
     const theme = useTheme()
 
     return (
       <DropdownMenu.Portal>
         <Wrapper>
+          {withOverlay && <MenuOverlay />}
           <StyledContent
             collisionPadding={2 * theme.spacer}
             sideOffset={theme.spacer}
@@ -29,6 +33,13 @@ export const MenuContent = forwardRef<HTMLDivElement, MenuContentProps>(
     )
   },
 )
+
+const MenuOverlay = styled.div`
+  position: fixed;
+  inset: 0;
+  background: ${({ theme }) => theme.colors.background.focus};
+  z-index: ${zIndex.dropdown - 10}; // below but close to dropdown
+`
 
 const Wrapper = styled.div`
   @media ${({ theme }) => theme.mediaQueries.belowMd} {
