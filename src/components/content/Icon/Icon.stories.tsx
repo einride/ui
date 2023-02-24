@@ -5,6 +5,7 @@ import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { Card } from "../../cards/Card/Card"
 import { Caption } from "../../typography/Caption/Caption"
 import { Paragraph } from "../../typography/Paragraph/Paragraph"
+import { Title1 } from "../../typography/Title1/Title1"
 import { Icon, iconNames } from "./Icon"
 
 export default {
@@ -48,6 +49,18 @@ const StyledCard = styled(Card)`
 
 export const One = {
   args: {
+    name: "checkmark",
+  },
+} satisfies Story
+
+export const WithLargeText = {
+  render: (args) => (
+    <Title1>
+      <Icon {...args} /> Title1
+    </Title1>
+  ),
+  args: {
+    color: "secondary",
     name: "checkmark",
   },
 } satisfies Story
