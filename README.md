@@ -4,7 +4,7 @@
 [![npm version](https://img.shields.io/npm/v/@einride/ui.svg)](https://www.npmjs.com/package/@einride/ui)
 [![total npm downloads](https://img.shields.io/npm/dt/@einride/ui.svg)](https://www.npmjs.com/package/@einride/ui)
 
-Reusable React components that adhere to Einride's design system
+Reusable React components that adhere to Einride's design system.
 
 ## Installation
 
@@ -16,14 +16,14 @@ yarn add @einride/ui @emotion/react @emotion/styled framer-motion
 
 ## Setup
 
-For @einride/ui to work, `EinrideProvider` needs to wrap all other components. Add it in the root
-component in your app like this:
+`<EinrideProvider>` needs to wrap all @einride/ui components. The provider sets up the theme and
+color schemes. It's common to put it in the `<App>` component in the top of the component tree.
 
 ```tsx
 import { EinrideProvider } from "@einride/ui"
 
-export const App = () => {
-  return <EinrideProvider>{/* All other components go here! */}</EinrideProvider>
+export const App = (): JSX.Element => {
+  return <EinrideProvider>{/* All @einride/ui components go here! */}</EinrideProvider>
 }
 ```
 
