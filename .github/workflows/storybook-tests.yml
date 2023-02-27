@@ -1,4 +1,4 @@
-name: Storybook Tests
+name: Storybook tests
 
 on:
   pull_request:
@@ -6,7 +6,8 @@ on:
       - main
 
 jobs:
-  test:
+  storybook-tests:
+    name: Storybook tests
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:

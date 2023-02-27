@@ -1,4 +1,4 @@
-name: Semantic Release
+name: Semantic release
 
 on:
   push:
@@ -11,6 +11,7 @@ on:
 
 jobs:
   semantic-release:
+    name: Semantic release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
