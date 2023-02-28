@@ -2,10 +2,10 @@ import styled from "@emotion/styled"
 import { themes } from "@storybook/theming"
 import { useEffect } from "react"
 import { useDarkMode } from "storybook-dark-mode"
-import { useColorScheme } from "../src/contexts/ColorSchemeProvider"
-import { EinrideProvider } from "../src/contexts/EinrideProvider"
-import { einrideTheme } from "../src/lib/theme/einride"
-import { color } from "../src/primitives/color"
+import { useColorScheme } from "../workspaces/ui/src/contexts/ColorSchemeProvider"
+import { EinrideProvider } from "../workspaces/ui/src/contexts/EinrideProvider"
+import { einrideTheme } from "../workspaces/ui/src/lib/theme/einride"
+import { color } from "../workspaces/ui/src/primitives/color"
 
 const customViewports = {
   small: {

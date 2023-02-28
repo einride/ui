@@ -2,7 +2,7 @@ const turbosnap = require("vite-plugin-turbosnap")
 const { mergeConfig } = require("vite")
 
 module.exports = {
-  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: ["../workspaces/**/src/**/*.stories.mdx", "../workspaces/**/src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",

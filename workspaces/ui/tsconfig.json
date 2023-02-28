@@ -1,0 +1,3 @@
+{
+  "extends": "@einride/tsconfig/tsconfig.json"
+}

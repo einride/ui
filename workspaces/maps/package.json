@@ -1,0 +1,48 @@
+{
+  "name": "@einride/maps",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup --config",
+    "build-storybook": "build-storybook",
+    "commitlint": "commitlint --from origin/main --to HEAD",
+    "develop": "yarn storybook",
+    "format": "prettier --write .",
+    "format-check": "prettier --check .",
+    "lint": "eslint --ext ts,tsx src/",
+    "review": "yarn install --frozen-lockfile && concurrently --kill-others-on-fail 'yarn commitlint' 'yarn format-check' 'yarn lint' 'yarn test' 'yarn typecheck' 'yarn build'",
+    "storybook": "start-storybook -p 6006",
+    "test": "vitest run",
+    "test-storybook": "test-storybook",
+    "test-storybook-coverage": "test-storybook --coverage",
+    "test-watch": "vitest",
+    "typecheck": "tsc"
+  },
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/main.d.ts",
+  "main": "./dist/main.cjs.js",
+  "module": "./dist/main.esm.js",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.esm.js",
+      "require": "./dist/main.cjs.js"
+    }
+  },
+  "engines": {
+    "node": "16 || 18"
+  },
+  "devDependencies": {
+    "react-map-gl": "^7.0.21"
+  },
+  "peerDependencies": {
+    "react-map-gl": "^7.0.21"
+  },
+  "peerDependenciesMeta": {
+    "react-map-gl": {
+      "optional": true
+    }
+  }
+}
