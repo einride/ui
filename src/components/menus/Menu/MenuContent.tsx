@@ -41,13 +41,7 @@ const MenuOverlay = styled.div`
   z-index: ${zIndex.dropdown - 10}; // below but close to dropdown
 `
 
-const Wrapper = styled.div`
-  @media ${({ theme }) => theme.mediaQueries.belowMd} {
-    [data-radix-popper-content-wrapper] {
-      transform: none !important; // take control over dropdown position on sm viewport
-    }
-  }
-`
+const Wrapper = styled.div``
 
 const StyledContent = styled(DropdownMenu.Content)`
   padding: ${({ theme }) => theme.spacing.xs};
@@ -56,14 +50,9 @@ const StyledContent = styled(DropdownMenu.Content)`
   display: flex;
   flex-direction: column;
   z-index: ${zIndex.dropdown};
+  inline-size: ${({ theme }) => 28 * theme.spacingBase}rem;
 
   @media ${({ theme }) => theme.mediaQueries.belowMd} {
-    position: fixed;
-    inset-block-end: ${({ theme }) => 2 * theme.spacer}px;
-    inset-inline: ${({ theme }) => 2 * theme.spacer}px;
-  }
-
-  @media ${({ theme }) => theme.mediaQueries.md} {
-    width: ${({ theme }) => 28 * theme.spacingBase}rem;
+    inline-size: calc(100vi - 4 * ${({ theme }) => theme.spacingBase}rem);
   }
 `
