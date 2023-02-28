@@ -1,11 +1,20 @@
 import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { within } from "@storybook/testing-library"
+import { contentColors, fonts } from "../../../lib/theme/types"
 import { Text } from "./Text"
 
 export default {
   title: "Typography/Text",
   component: Text,
+  argTypes: {
+    color: {
+      options: contentColors,
+    },
+    font: {
+      options: fonts,
+    },
+  },
 } satisfies ComponentMeta<typeof Text>
 
 type Story = ComponentStoryObj<typeof Text>
