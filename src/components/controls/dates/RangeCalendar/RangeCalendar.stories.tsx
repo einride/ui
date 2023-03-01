@@ -14,6 +14,9 @@ export default {
 
 type Story = ComponentStoryObj<typeof RangeCalendar>
 
+// set fixed date so snapshots won't change
+const february = new Date(2023, 1, 1)
+
 const Template: ComponentStory<typeof RangeCalendar> = (args) => {
   const { value: defaultValue } = args
   const [value, setValue] = useState(defaultValue)
@@ -23,6 +26,7 @@ const Template: ComponentStory<typeof RangeCalendar> = (args) => {
 export const Default = {
   args: {
     value: [null, null],
+    initialMonth: february,
   },
   play: async ({ args }) => {
     await expect(args.value).toEqual([null, null])
@@ -32,6 +36,7 @@ export const Default = {
 export const DefaultValue = {
   args: {
     value: [new Date(2023, 1, 1), new Date(2023, 1, 4)],
+    initialMonth: february,
   },
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement)

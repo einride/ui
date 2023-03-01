@@ -2,6 +2,7 @@ import styled from "@emotion/styled"
 import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
+import { DateTime } from "luxon"
 import { ComponentProps, useState } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { Calendar } from "./Calendar"
@@ -14,14 +15,20 @@ export default {
 
 type Story = ComponentStoryObj<typeof Calendar>
 
+// set fixed date so snapshots won't change
+const february = new Date(2023, 1, 1)
+
 const Template: ComponentStory<typeof Calendar> = (args) => {
   const { value: defaultValue } = args
   const [value, setValue] = useState(defaultValue)
+
   return <Calendar {...args} value={value} onChange={setValue} />
 }
 
 export const Default = {
-  args: {},
+  args: {
+    initialMonth: february,
+  },
   play: async ({ args }) => {
     await expect(args.value).toBeFalsy()
   },
@@ -30,6 +37,7 @@ export const Default = {
 export const DefaultValue = {
   args: {
     value: new Date(2023, 1, 10),
+    initialMonth: february,
   },
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement)
@@ -42,7 +50,7 @@ export const DefaultValue = {
 
 export const Mouse = {
   args: {
-    value: new Date(2023, 1, 10),
+    value: DateTime.now().set({ day: 10 }).toJSDate(),
   },
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement)
