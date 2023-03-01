@@ -18,6 +18,9 @@ interface CalendarBaseProps {
 
   /** Props passed to root element. */
   wrapperProps?: BoxProps
+
+  /** Initial month displayed. */
+  initialMonth?: Date
 }
 
 export type CalendarProps = CalendarBaseProps
