@@ -32,7 +32,8 @@
     "@radix-ui/react-tabs": "1.0.2",
     "@radix-ui/react-tooltip": "1.0.4",
     "dayjs": "1.11.7",
-    "lodash.merge": "4.6.2"
+    "lodash.merge": "4.6.2",
+    "mapbox-gl": "2.13.0"
   },
   "devDependencies": {
     "@babel/core": "7.21.0",
