@@ -10,7 +10,7 @@
     "format": "prettier --write .",
     "format-check": "prettier --check .",
     "lint": "eslint --ext ts,tsx src/",
-    "review": "yarn install --frozen-lockfile && concurrently --kill-others-on-fail 'yarn commitlint' 'yarn format-check' 'yarn lint' 'yarn test' 'yarn typecheck' 'yarn build'",
+    "review": "yarn install --immutable && concurrently --kill-others-on-fail 'yarn commitlint' 'yarn format-check' 'yarn lint' 'yarn test' 'yarn typecheck' 'yarn build'",
     "storybook": "start-storybook -p 6006",
     "test": "vitest run",
     "test-storybook": "test-storybook",
@@ -79,6 +79,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-map-gl": "^7.0.21",
+    "rollup": "3.18.0",
     "storybook-dark-mode": "2.1.1",
     "typescript": "4.9.5",
     "vite": "4.1.4",
@@ -138,5 +139,6 @@
   "bugs": {
     "email": "open-source@einride.tech",
     "url": "https://github.com/einride/ui/issues"
-  }
+  },
+  "packageManager": "yarn@3.4.1"
 }
