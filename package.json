@@ -10,7 +10,7 @@
     "format": "prettier --write .",
     "format-check": "prettier --check .",
     "lint": "eslint --ext ts,tsx src/",
-    "review": "yarn install --immutable && concurrently --kill-others-on-fail 'yarn commitlint' 'yarn format-check' 'yarn lint' 'yarn test' 'yarn typecheck' 'yarn build'",
+    "review": "concurrently --kill-others-on-fail 'yarn commitlint' 'yarn format-check' 'yarn lint' 'yarn test' 'yarn typecheck' 'yarn build'",
     "storybook": "start-storybook -p 6006",
     "test": "vitest run",
     "test-storybook": "test-storybook",
