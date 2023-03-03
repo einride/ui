@@ -25,6 +25,9 @@ jobs:
           node-version-file: .nvmrc
           cache: yarn
 
+      - name: Install dependencies
+        run: yarn install --immutable
+
       - name: Review
         run: yarn review
 
