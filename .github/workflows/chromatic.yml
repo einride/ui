@@ -36,6 +36,7 @@ jobs:
           onlyChanged: true
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
+          VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
 
       - name: Publish Summary
         run: |

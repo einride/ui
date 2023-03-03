@@ -17,6 +17,10 @@ import SiteWithChargerIconDark from "./siteWithChargerDark.svg"
 import SiteWithChargerSmall from "./siteWithChargerSmall.svg"
 import SiteWithChargerSmallDark from "./siteWithChargerSmallDark.svg"
 
+import { Coordinate, IconMask } from "./types/types"
+
+export { MapTooltip } from "./MapTooltip/MapTooltip"
+
 export const mapboxStyleLight = "mapbox://styles/einride-portal/cldsp1a9q004c01mg4mmwtbi8"
 export const mapboxStyleDark = "mapbox://styles/einride-portal/cldu093rd000a01mz5sg5cye3"
 export const mapboxStyleLightOrchestrate =
@@ -42,12 +46,7 @@ export {
   SiteWithChargerSmallDark,
 }
 
-export type IconMask = {
-  url: string
-  height: number
-  width: number
-  mask: boolean
-}
+export type { IconMask, Coordinate }
 
 export const coloredIconMask: IconMask = {
   url: SiteIcon,

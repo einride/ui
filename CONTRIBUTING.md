@@ -26,6 +26,8 @@ a PR following the [Pull Request Guidelines](#pull-request-guidelines).
 Follow these steps to start development server:
 
 - Install dependencies by running `yarn`
+- Create .env file `cp .env.example .env.local`
+- add `VITE_MAPBOX_TOKEN`
 - Start Storybook by running `yarn storybook`
 
 ## Pull Request Guidelines
