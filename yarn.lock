@@ -2002,7 +2002,7 @@ __metadata:
     "@emotion/react": 11.10.6
     "@emotion/styled": 11.10.6
     "@faker-js/faker": 7.6.0
-    "@mantine/core": 5.10.5
+    "@mantine/core": 6.0.0
     "@mantine/dates": 5.10.5
     "@mantine/hooks": 5.10.5
     "@radix-ui/react-alert-dialog": 1.0.2
@@ -3009,20 +3009,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/core@npm:5.10.5":
-  version: 5.10.5
-  resolution: "@mantine/core@npm:5.10.5"
+"@mantine/core@npm:6.0.0":
+  version: 6.0.0
+  resolution: "@mantine/core@npm:6.0.0"
   dependencies:
     "@floating-ui/react": ^0.19.1
-    "@mantine/styles": 5.10.5
-    "@mantine/utils": 5.10.5
+    "@mantine/styles": 6.0.0
+    "@mantine/utils": 6.0.0
     "@radix-ui/react-scroll-area": 1.0.2
+    react-remove-scroll: ^2.5.5
     react-textarea-autosize: 8.3.4
   peerDependencies:
-    "@mantine/hooks": 5.10.5
+    "@mantine/hooks": 6.0.0
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 8456db8518e8f743f21f96765e7c97b7693dcdfd942ce6ffe76fbfce21ba5eb24f0f4c69969eb73cc57b50fc6a90ec2f2b4a35d89b44e86d76a6df211cd34b41
+  checksum: 7a93ea2879b46dbead97599639d7ef922869ce9b2721d88874a2d625bbe702479618e7ab54ddeb30cdd576bfe5897e204c2af017f8e84d21617e976f016dff74
   languageName: node
   linkType: hard
 
@@ -3049,9 +3050,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/styles@npm:5.10.5":
-  version: 5.10.5
-  resolution: "@mantine/styles@npm:5.10.5"
+"@mantine/styles@npm:6.0.0":
+  version: 6.0.0
+  resolution: "@mantine/styles@npm:6.0.0"
   dependencies:
     clsx: 1.1.1
     csstype: 3.0.9
@@ -3059,7 +3060,7 @@ __metadata:
     "@emotion/react": ">=11.9.0"
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 7c7322779e21681a58c80dddfb30a9ce5cfecfa0854bc35921533ebe8fb101199f9626cd38bfa2dea31e9d7ffc5a25e2005c62a5feaf3cb766b540c480a449da
+  checksum: c369d10719bab36b03cdfa6b46a495b767dcf76ea4f1f5d5f9e5596b52ef0f1b0c295c8cc854d12e9bb7778c9ff80f810a44a929dd9646638da783589fedbf73
   languageName: node
   linkType: hard
 
@@ -3069,6 +3070,15 @@ __metadata:
   peerDependencies:
     react: ">=16.8.0"
   checksum: fe8975a2cffb0493e9c226f2dd7d56473250806e56bdc7843c8f6cd1c8ce90d42daf3d33a31a91ec71bca3a584d8adb3fb5b805639c0f242d1d2f8887e9dd56d
+  languageName: node
+  linkType: hard
+
+"@mantine/utils@npm:6.0.0":
+  version: 6.0.0
+  resolution: "@mantine/utils@npm:6.0.0"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: a0f876ebb910ccebc6bbeedb093c14fe22c319d08d8504be6e6085f2e935f3aad8fc9cb1e0ede182c762a03a35e02618cf304ba3ba556a4ba3951945cf8cfc56
   languageName: node
   linkType: hard
 
@@ -17568,7 +17578,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-remove-scroll@npm:2.5.5":
+"react-remove-scroll@npm:2.5.5, react-remove-scroll@npm:^2.5.5":
   version: 2.5.5
   resolution: "react-remove-scroll@npm:2.5.5"
   dependencies:
