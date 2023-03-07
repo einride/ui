@@ -5,7 +5,7 @@ import { useColorScheme } from "../../../contexts/ColorSchemeProvider"
 import { Text } from "../../typography/Text/Text"
 import { MapTooltip as Tooltip } from "./Tooltip"
 
-const reactAppMapboxAccessToken = import.meta.env.VITE_MAPBOX_TOKEN
+const mapboxAccessToken = import.meta.env.VITE_MAPBOX_TOKEN
 
 export default {
   title: "Mapping/Tooltip",
@@ -23,7 +23,7 @@ const Template: ComponentStory<typeof Tooltip> = (args): JSX.Element => {
         height: "80vh",
       }}
       id="uiMap"
-      mapboxAccessToken={reactAppMapboxAccessToken}
+      mapboxAccessToken={mapboxAccessToken}
       mapStyle={colorScheme === "light" ? mapboxStyleLight : mapboxStyleDark}
       initialViewState={{
         latitude: 51.1657,
