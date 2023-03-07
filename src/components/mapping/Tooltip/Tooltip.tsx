@@ -27,19 +27,23 @@ const StyledPopup = styled(Popup)`
     background-color: ${({ theme }) => theme.colors.background.primary};
   }
 
-  &.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
-    border-top-color: ${({ theme }) => theme.colors.background.primary};
-  }
-
-  &.mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
-    border-bottom-color: ${({ theme }) => theme.colors.background.primary};
-  }
-
   &.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
     border-left-color: ${({ theme }) => theme.colors.background.primary};
   }
 
   &.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
     border-right-color: ${({ theme }) => theme.colors.background.primary};
+  }
+
+  &.mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+  &.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
+  &.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+    border-bottom-color: ${({ theme }) => theme.colors.background.primary};
+  }
+
+  &.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
+  &.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip,
+  &.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip {
+    border-top-color: ${({ theme }) => theme.colors.background.primary};
   }
 `
