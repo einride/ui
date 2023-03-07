@@ -26,3 +26,5 @@ jobs:
 
       - name: Review
         run: yarn review
+        env:
+          VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}

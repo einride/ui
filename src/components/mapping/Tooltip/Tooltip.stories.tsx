@@ -4,7 +4,7 @@ import { mapboxStyleLight } from ".."
 import { Text } from "../../typography/Text/Text"
 import { MapTooltip as Tooltip } from "./Tooltip"
 
-const reactAppMapboxAccessToken = "API_KEY"
+const reactAppMapboxAccessToken = import.meta.env.VITE_MAPBOX_TOKEN
 
 export default {
   title: "Mapping/Tooltip",

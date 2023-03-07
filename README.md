@@ -27,6 +27,14 @@ export const App = (): JSX.Element => {
 }
 ```
 
+## Run Storybook locally
+
+Config a mapbox api key and start storybook:
+
+* `cp .env.example .env`
+* add `VITE_MAPBOX_TOKEN`
+* `yarn run storybook`
+
 ## Contribute
 
 See [Contributing Guide](https://github.com/einride/ui/blob/main/CONTRIBUTING.md).
