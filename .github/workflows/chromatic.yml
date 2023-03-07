@@ -10,6 +10,7 @@ on:
 
 jobs:
   chromatic-deployment:
+    if: ${{ github.actor != 'dependabot[bot]' }}
     name: Chromatic deployment
     runs-on: ubuntu-latest
     steps:
