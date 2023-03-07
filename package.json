@@ -96,10 +96,10 @@
     "react-map-gl": "^7.0.21"
   },
   "peerDependenciesMeta": {
-    "react-map-gl": {
+    "mapbox-gl": {
       "optional": true
     },
-    "mapbox-gl": {
+    "react-map-gl": {
       "optional": true
     }
   },

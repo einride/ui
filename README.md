@@ -31,9 +31,9 @@ export const App = (): JSX.Element => {
 
 Config a mapbox api key and start storybook:
 
-* `cp .env.example .env`
-* add `VITE_MAPBOX_TOKEN`
-* `yarn run storybook`
+- `cp .env.example .env`
+- add `VITE_MAPBOX_TOKEN`
+- `yarn run storybook`
 
 ## Contribute
 
