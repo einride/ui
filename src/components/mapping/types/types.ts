@@ -3,7 +3,7 @@ export interface Coordinate {
   lng: number
 }
 
-export type IconMask = {
+export interface IconMask {
   url: string
   height: number
   width: number

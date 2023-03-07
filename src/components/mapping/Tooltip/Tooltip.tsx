@@ -32,23 +32,23 @@ export const MapTooltip = ({ label, position }: TooltipProps): JSX.Element | nul
 }
 
 const StyledPopup = styled(Popup)`
-  &.dark-popup .mapboxgl-popup-content {
+  .mapboxgl-popup-content {
     background-color: ${({ theme }) => theme.colors.background.primary};
   }
 
-  &.dark-popup.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+  &.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
     border-top-color: ${({ theme }) => theme.colors.background.primary};
   }
 
-  &.dark-popup.mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+  &.mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
     border-bottom-color: ${({ theme }) => theme.colors.background.primary};
   }
 
-  &.dark-popup.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+  &.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
     border-left-color: ${({ theme }) => theme.colors.background.primary};
   }
 
-  &.dark-popup.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+  &.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
     border-right-color: ${({ theme }) => theme.colors.background.primary};
   }
 `
