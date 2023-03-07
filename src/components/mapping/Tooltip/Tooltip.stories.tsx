@@ -38,7 +38,7 @@ const Template: ComponentStory<typeof Tooltip> = (args): JSX.Element => {
 
 export const Default = {
   args: {
-    label: <Text>Lorem Ipsum</Text>,
+    label: <Text variant="bodyMd">Lorem Ipsum</Text>,
     position: {
       lat: 51.1657,
       lng: 10.4515,
