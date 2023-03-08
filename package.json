@@ -72,7 +72,7 @@
     "concurrently": "7.6.0",
     "eslint": "8.35.0",
     "eslint-plugin-storybook": "0.6.11",
-    "framer-motion": "10.1.0",
+    "framer-motion": "10.2.3",
     "happy-dom": "8.9.0",
     "luxon": "3.3.0",
     "prettier": "2.8.4",
