@@ -1,23 +1,11 @@
-import ChargerIcon from "./charger.svg"
-import ChargerIconDark from "./chargerDark.svg"
-import ChargerSmallIcon from "./chargerSmall.svg"
-import ChargerSmallIconDark from "./chargerSmallDark.svg"
-import ConventionalTruckIcon from "./conventionalTruck.svg"
-import PodIcon from "./pod.svg"
-import SiteIcon from "./site.svg"
-import SiteIconDark from "./siteDark.svg"
-import SiteHoveredIcon from "./siteHovered.svg"
-import SiteHoveredIconDark from "./siteHoveredDark.svg"
-import SiteSelectedIcon from "./siteSelected.svg"
-import SiteSelectedIconDark from "./siteSelectedDark.svg"
-import SiteSmallIcon from "./siteSmall.svg"
-import SiteSmallIconDark from "./siteSmallDark.svg"
-import SiteWithChargerIcon from "./siteWithCharger.svg"
-import SiteWithChargerIconDark from "./siteWithChargerDark.svg"
-import SiteWithChargerSmall from "./siteWithChargerSmall.svg"
-import SiteWithChargerSmallDark from "./siteWithChargerSmallDark.svg"
-
-import { Coordinate, IconMask } from "./types/types"
+export type {
+  Coordinate,
+  MarkerMask,
+  MarkerName,
+  VehicleMarkerName,
+  MarkerState,
+  VehicleState,
+} from "./types"
 
 export { MapTooltip } from "./MapTooltip/MapTooltip"
 
@@ -29,84 +17,6 @@ export const mapboxStyleDarkOrchestrate = "mapbox://styles/einride-portal/cl9pfi
 
 export { useStyleLoad } from "./hooks/useStyleLoad"
 
-export {
-  ChargerIcon,
-  ChargerSmallIcon,
-  ConventionalTruckIcon,
-  PodIcon,
-  SiteIcon,
-  SiteHoveredIcon,
-  SiteSelectedIcon,
-  SiteSmallIcon,
-  SiteWithChargerIcon,
-  SiteWithChargerSmall,
-  ChargerIconDark,
-  ChargerSmallIconDark,
-  SiteSmallIconDark,
-  SiteWithChargerSmallDark,
-}
+export { useMapMarker, useVehicleMarker } from "./markers/useMapMarker"
 
-export type { IconMask, Coordinate }
-
-export const coloredIconMask: IconMask = {
-  url: SiteIcon,
-  height: 96,
-  width: 96,
-  mask: true,
-}
-
-export const iconMask: IconMask = {
-  url: SiteIcon,
-  height: 96,
-  width: 96,
-  mask: false,
-}
-
-export const hoverIconMask: IconMask = {
-  url: SiteHoveredIcon,
-  height: 96,
-  width: 96,
-  mask: false,
-}
-
-export const selectIconMask: IconMask = {
-  url: SiteSelectedIcon,
-  height: 96,
-  width: 96,
-  mask: false,
-}
-
-export const siteWithChargerIconMask: IconMask = {
-  url: SiteWithChargerIcon,
-  height: 80,
-  width: 128,
-  mask: false,
-}
-
-export const iconMaskDark: IconMask = {
-  url: SiteIconDark,
-  height: 96,
-  width: 96,
-  mask: false,
-}
-
-export const hoverIconMaskDark: IconMask = {
-  url: SiteHoveredIconDark,
-  height: 96,
-  width: 96,
-  mask: false,
-}
-
-export const selectIconMaskDark: IconMask = {
-  url: SiteSelectedIconDark,
-  height: 96,
-  width: 96,
-  mask: false,
-}
-
-export const siteWithChargerIconMaskDark: IconMask = {
-  url: SiteWithChargerIconDark,
-  height: 80,
-  width: 128,
-  mask: false,
-}
+export * from "./markers/markers.deprecated"
