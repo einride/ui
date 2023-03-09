@@ -1,7 +1,6 @@
 import styled from "@emotion/styled"
-import { DatePicker as MantineDatePicker } from "@mantine/dates"
+import { DatePickerInput } from "@mantine/dates"
 import { ComponentPropsWithoutRef, ReactNode } from "react"
-import { useTheme } from "../../../../hooks/useTheme"
 import { ContentColor } from "../../../../lib/theme/types"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 import { Caption } from "../../../typography/Caption/Caption"
@@ -49,9 +48,6 @@ interface DatePickerBaseProps {
 
   /** `dayjs` input format. Default is `YYYY-MM-DD`. */
   inputFormat?: string
-
-  /** Whether to allow free input. Default is `false`. */
-  allowFreeInput?: boolean
 }
 
 interface DatePickerWithLabelProps {
@@ -75,23 +71,16 @@ export const DatePicker = ({
   inputFormat = "YYYY-MM-DD",
   ...props
 }: DatePickerProps): JSX.Element => {
-  const theme = useTheme()
   return (
     <Box {...wrapperProps}>
-      <StyledDatePicker
-        allowLevelChange={false}
-        clearable={false}
-        clickOutsideEvents={["pointerdown"]} // to ensure dropdown is closed when clicking on a menu trigger
-        dayStyle={() => ({
-          fontFamily: theme.fonts.body,
-          fontSize: theme.fontSizes.md,
-          fontWeight: theme.fontWeights.book,
-        })}
-        dayClassName={(date) => (date.toDateString() === new Date().toDateString() ? "today" : "")}
+      <StyledDatePickerInput
+        ariaLabels={{ previousMonth: "Previous month", nextMonth: "Next month" }}
         hasLabel={"label" in props}
-        inputFormat={inputFormat}
+        maxLevel="month"
+        popoverProps={{ clickOutsideEvents: ["pointerdown"] }} // to ensure popover is closed when clicking on a menu trigger
+        valueFormat={inputFormat}
         withAsterisk={false}
-        transitionDuration={100}
+        withCellSpacing={false}
         {...props}
       />
       {message && (
@@ -120,13 +109,14 @@ interface StyledDatePickerProps {
   /** Whether to allow clearing value or not. Default is `false`. */
   clearable?: boolean
 
+  /** Whether the date picker has a label or not. */
   hasLabel: boolean
 }
 
-const StyledDatePicker = styled(MantineDatePicker, {
+const StyledDatePickerInput = styled(DatePickerInput, {
   shouldForwardProp: (prop) => prop !== "hasLabel", // avoid passing `hasLabel` attribute to HTML element
 })<StyledDatePickerProps>`
-  .mantine-DatePicker-label {
+  .mantine-DatePickerInput-label {
     font-family: ${({ theme }) => theme.fonts.body};
     font-size: ${({ theme }) => theme.fontSizes.md};
     font-weight: ${({ theme }) => theme.fontWeights.book};
@@ -135,7 +125,7 @@ const StyledDatePicker = styled(MantineDatePicker, {
     padding-block-start: 5px;
     padding-block-end: 3px;
   }
-  .mantine-DatePicker-input {
+  .mantine-DatePickerInput-input {
     font-family: ${({ theme }) => theme.fonts.body};
     font-size: ${({ theme }) => theme.fontSizes.md};
     font-weight: ${({ theme }) => theme.fontWeights.book};
@@ -144,18 +134,18 @@ const StyledDatePicker = styled(MantineDatePicker, {
     color: ${({ theme }) => theme.colors.content.primary};
     border: none;
     inline-size: 100%;
+    min-inline-size: ${({ theme }) => 29 * theme.spacingBase}rem;
     display: block;
-    padding-block: ${({ theme }) => 1.5 * theme.spacingBase}rem;
+    block-size: ${({ theme }) => 6 * theme.spacingBase}rem;
     padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem
       ${({ theme, clearable }) => (clearable ? 6 : 2) * theme.spacingBase}rem;
-    block-size: unset;
     border-radius: ${({ hasLabel, theme }) =>
       hasLabel ? theme.borderRadii.sm : theme.borderRadii.xl};
 
     &:hover {
       background: ${({ theme }) => theme.colors.background.tertiary};
     }
-    &::placeholder {
+    .mantine-DatePickerInput-placeholder {
       color: ${({ theme }) => theme.colors.content.secondary};
     }
     &:focus {
@@ -169,11 +159,11 @@ const StyledDatePicker = styled(MantineDatePicker, {
       cursor: not-allowed;
       opacity: 1;
     }
-    &:disabled::placeholder {
+    &:disabled .mantine-DatePickerInput-placeholder {
       color: ${({ theme }) => theme.colors.content.tertiary};
     }
   }
-  .mantine-DatePicker-rightSection {
+  .mantine-DatePickerInput-rightSection {
     inset-inline-end: ${({ theme }) => 1 * theme.spacingBase}rem;
     inline-size: ${({ theme }) => 3 * theme.spacingBase}rem;
 
@@ -192,37 +182,35 @@ const StyledDatePicker = styled(MantineDatePicker, {
       }
     }
   }
-  .mantine-DatePicker-dropdown {
+  .mantine-Popover-dropdown {
     background: ${({ theme }) => theme.colors.background.secondaryElevated};
     border: none;
     border-radius: ${({ theme }) => theme.borderRadii.lg};
     padding: ${({ theme }) => 2 * theme.spacingBase}rem;
-    box-shadow: none;
 
-    .mantine-DatePicker-calendarHeader {
+    .mantine-DatePickerInput-calendarHeader {
       display: grid;
       align-items: center;
       gap: ${({ theme }) => theme.spacingBase}rem;
       grid-template-areas: "text previous-month next-month";
-      grid-template-columns: ${({ theme }) => 18.75 * theme.spacingBase}rem auto auto;
+      grid-template-columns: auto min-content min-content;
+      max-width: none;
       white-space: nowrap;
 
-      .mantine-DatePicker-calendarHeaderLevel {
+      .mantine-DatePickerInput-calendarHeaderLevel {
         grid-area: text;
         font-size: ${({ theme }) => theme.fontSizes.md};
         color: ${({ theme }) => theme.colors.content.primary};
-        padding: 0;
         justify-content: start;
       }
     }
 
-    .mantine-DatePicker-calendarHeaderControl {
+    .mantine-DatePickerInput-calendarHeaderControl {
       background: ${({ theme }) => theme.colors.buttons.background.tertiary};
       color: ${({ theme }) => theme.colors.content.primary};
       border-radius: ${({ theme }) => theme.borderRadii.full};
       block-size: ${({ theme }) => 6 * theme.spacingBase}rem;
       inline-size: ${({ theme }) => 6 * theme.spacingBase}rem;
-      transform: none;
       &:hover {
         background: ${({ theme }) => theme.colors.buttons.background.hover.tertiary};
       }
@@ -247,7 +235,7 @@ const StyledDatePicker = styled(MantineDatePicker, {
         }
       }
       &:last-of-type {
-        gria-area: next-month;
+        grid-area: next-month;
         &::before {
           font-family: ${({ theme }) => theme.fonts.body};
           font-size: ${({ theme }) => theme.fontSizes.md};
@@ -255,12 +243,21 @@ const StyledDatePicker = styled(MantineDatePicker, {
         }
       }
     }
-    .mantine-DatePicker-weekday {
+    .mantine-DatePickerInput-weekday {
       color: ${({ theme }) => theme.colors.content.secondary};
       font-size: ${({ theme }) => theme.fontSizes.md};
       font-weight: ${({ theme }) => theme.fontWeights.book};
+      padding: 0;
     }
-    .mantine-DatePicker-day {
+    .mantine-DatePickerInput-monthCell {
+      padding: 0; // until withCellSpacing prop works
+    }
+    .mantine-DatePickerInput-day {
+      font-family: ${({ theme }) => theme.fonts.body};
+      font-size: ${({ theme }) => theme.fontSizes.md};
+      block-size: ${({ theme }) => 5 * theme.spacingBase}rem;
+      inline-size: ${({ theme }) => 4.5 * theme.spacingBase}rem;
+      line-height: ${({ theme }) => 5 * theme.spacingBase}rem;
       border-radius: ${({ theme }) => theme.borderRadii.sm};
       color: ${({ theme }) => theme.colors.content.primary};
       margin-block-start: ${({ theme }) => theme.spacingBase}rem;
@@ -268,11 +265,16 @@ const StyledDatePicker = styled(MantineDatePicker, {
       align-items: center;
       justify-content: center;
 
-      &.today {
+      &[data-today] {
         color: ${({ theme }) => theme.colors.content.positive};
       }
       &[data-outside] {
         display: none;
+      }
+      &[data-in-range]:not([data-selected]) {
+        background: ${({ theme }) => theme.colors.background.tertiary};
+        color: ${({ theme }) => theme.colors.content.primary};
+        border-radius: unset;
       }
       &:hover {
         background: ${({ theme }) => theme.colors.background.tertiary};
@@ -281,11 +283,31 @@ const StyledDatePicker = styled(MantineDatePicker, {
       &[data-selected] {
         background: ${({ theme }) => theme.colors.background.primaryInverted};
         color: ${({ theme }) => theme.colors.content.primaryInverted};
+        position: relative;
 
         &:focus-visible {
           background: ${({ theme }) => theme.colors.background.primaryInverted};
           color: ${({ theme }) => theme.colors.content.primaryInverted};
           text-decoration: underline;
+        }
+        &[data-first-in-range]::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-start-start-radius: ${({ theme }) => theme.borderRadii.sm};
+          border-end-start-radius: ${({ theme }) => theme.borderRadii.sm};
+          background: ${({ theme }) => theme.colors.background.tertiary};
+        }
+        &[data-last-in-range]::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-start-end-radius: ${({ theme }) => theme.borderRadii.sm};
+          border-end-end-radius: ${({ theme }) => theme.borderRadii.sm};
+          background: ${({ theme }) => theme.colors.background.tertiary};
+        }
+        &[data-first-in-range][data-last-in-range] {
+          border-radius: ${({ theme }) => theme.borderRadii.sm};
         }
       }
       &:disabled {

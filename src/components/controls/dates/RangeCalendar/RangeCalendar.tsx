@@ -1,9 +1,14 @@
 import styled from "@emotion/styled"
-import { RangeCalendar as MantineRangeCalendar } from "@mantine/dates"
-import { useTheme } from "../../../../hooks/useTheme"
+import { DatePicker } from "@mantine/dates"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 
 interface RangeCalendarBaseProps {
+  /** Initial date displayed, used for uncontrolled component. */
+  defaultDate?: Date
+
+  /** Default value for uncontrolled component. */
+  defaultValue?: Date | [Date, Date]
+
   /** Minimum possible date. */
   minDate?: Date
 
@@ -18,26 +23,20 @@ interface RangeCalendarBaseProps {
 
   /** Props passed to root element. */
   wrapperProps?: BoxProps
-
-  /** Initial month displayed. */
-  initialMonth?: Date
 }
 
 export type RangeCalendarProps = RangeCalendarBaseProps
 
 export const RangeCalendar = ({ wrapperProps, ...props }: RangeCalendarProps): JSX.Element => {
-  const theme = useTheme()
   return (
     <Box {...wrapperProps}>
-      <StyledRangeCalendar
-        allowLevelChange={false}
+      <StyledDatePicker
         allowSingleDateInRange
-        dayStyle={() => ({
-          fontFamily: theme.fonts.body,
-          fontSize: theme.fontSizes.md,
-          fontWeight: theme.fontWeights.book,
-        })}
-        dayClassName={(date) => (date.toDateString() === new Date().toDateString() ? "today" : "")}
+        ariaLabels={{ previousMonth: "Previous month", nextMonth: "Next month" }}
+        hideOutsideDates
+        maxLevel="month"
+        withCellSpacing={false}
+        type="range"
         {...props}
       />
     </Box>
@@ -46,40 +45,34 @@ export const RangeCalendar = ({ wrapperProps, ...props }: RangeCalendarProps): J
 
 type RangeCalendarValue = [Date | null, Date | null]
 
-const StyledRangeCalendar = styled(MantineRangeCalendar)`
-  &.mantine-RangeCalendar-calendarBase {
+const StyledDatePicker = styled(DatePicker)`
+  &.mantine-DatePicker-calendar {
     background: ${({ theme }) => theme.colors.background.secondaryElevated};
-    border: none;
     border-radius: ${({ theme }) => theme.borderRadii.lg};
     padding: ${({ theme }) => 2 * theme.spacingBase}rem;
-    box-shadow: none;
-    max-width: none;
     display: inline-flex;
 
-    .mantine-RangeCalendar-calendarHeader {
+    .mantine-DatePicker-calendarHeader {
       display: grid;
       align-items: center;
       gap: ${({ theme }) => theme.spacingBase}rem;
       grid-template-areas: "text previous-month next-month";
-      grid-template-columns: ${({ theme }) => 18.75 * theme.spacingBase}rem auto auto;
-      white-space: nowrap;
+      grid-template-columns: auto min-content min-content;
+      max-width: none;
 
-      .mantine-RangeCalendar-calendarHeaderLevel {
+      .mantine-DatePicker-calendarHeaderLevel {
         grid-area: text;
         font-size: ${({ theme }) => theme.fontSizes.md};
         color: ${({ theme }) => theme.colors.content.primary};
-        padding: 0;
         justify-content: start;
       }
     }
-
-    .mantine-RangeCalendar-calendarHeaderControl {
+    .mantine-DatePicker-calendarHeaderControl {
       background: ${({ theme }) => theme.colors.buttons.background.tertiary};
       color: ${({ theme }) => theme.colors.content.primary};
       border-radius: ${({ theme }) => theme.borderRadii.full};
       block-size: ${({ theme }) => 6 * theme.spacingBase}rem;
       inline-size: ${({ theme }) => 6 * theme.spacingBase}rem;
-      transform: none;
       &:hover {
         background: ${({ theme }) => theme.colors.buttons.background.hover.tertiary};
       }
@@ -104,7 +97,7 @@ const StyledRangeCalendar = styled(MantineRangeCalendar)`
         }
       }
       &:last-of-type {
-        gria-area: next-month;
+        grid-area: next-month;
         &::before {
           font-family: ${({ theme }) => theme.fonts.body};
           font-size: ${({ theme }) => theme.fontSizes.md};
@@ -112,29 +105,24 @@ const StyledRangeCalendar = styled(MantineRangeCalendar)`
         }
       }
     }
-    .mantine-RangeCalendar-weekday {
+    .mantine-DatePicker-weekday {
       color: ${({ theme }) => theme.colors.content.secondary};
       font-size: ${({ theme }) => theme.fontSizes.md};
       font-weight: ${({ theme }) => theme.fontWeights.book};
+      padding: 0;
     }
-    .mantine-RangeCalendar-day {
+    .mantine-DatePicker-day {
+      font-family: ${({ theme }) => theme.fonts.body};
+      font-size: ${({ theme }) => theme.fontSizes.md};
+      block-size: ${({ theme }) => 5 * theme.spacingBase}rem;
+      inline-size: ${({ theme }) => 4.5 * theme.spacingBase}rem;
+      line-height: ${({ theme }) => 5 * theme.spacingBase}rem;
       border-radius: ${({ theme }) => theme.borderRadii.sm};
       color: ${({ theme }) => theme.colors.content.primary};
       margin-block-start: ${({ theme }) => theme.spacingBase}rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
 
-      &.today {
+      &[data-today] {
         color: ${({ theme }) => theme.colors.content.positive};
-      }
-      &[data-outside] {
-        display: none;
-      }
-      &[data-in-range]:not([data-selected]) {
-        background: ${({ theme }) => theme.colors.background.tertiary};
-        color: ${({ theme }) => theme.colors.content.primary};
-        border-radius: unset;
       }
       &:hover {
         background: ${({ theme }) => theme.colors.background.tertiary};
@@ -143,31 +131,37 @@ const StyledRangeCalendar = styled(MantineRangeCalendar)`
       &[data-selected] {
         background: ${({ theme }) => theme.colors.background.primaryInverted};
         color: ${({ theme }) => theme.colors.content.primaryInverted};
+        position: relative;
 
         &:focus-visible {
           background: ${({ theme }) => theme.colors.background.primaryInverted};
           color: ${({ theme }) => theme.colors.content.primaryInverted};
           text-decoration: underline;
         }
-        &[data-first-in-range]::before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          border-start-start-radius: ${({ theme }) => theme.borderRadii.sm};
-          border-end-start-radius: ${({ theme }) => theme.borderRadii.sm};
-          background: ${({ theme }) => theme.colors.background.tertiary};
-        }
-        &[data-last-in-range]::before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          border-start-end-radius: ${({ theme }) => theme.borderRadii.sm};
-          border-end-end-radius: ${({ theme }) => theme.borderRadii.sm};
-          background: ${({ theme }) => theme.colors.background.tertiary};
-        }
-        &[data-first-in-range][data-last-in-range] {
-          border-radius: ${({ theme }) => theme.borderRadii.sm};
-        }
+      }
+      &[data-in-range]:not([data-selected]) {
+        background: ${({ theme }) => theme.colors.background.tertiary};
+        color: ${({ theme }) => theme.colors.content.primary};
+        border-radius: unset;
+      }
+      &[data-first-in-range]::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-start-start-radius: ${({ theme }) => theme.borderRadii.sm};
+        border-end-start-radius: ${({ theme }) => theme.borderRadii.sm};
+        background: ${({ theme }) => theme.colors.background.tertiary};
+      }
+      &[data-last-in-range]::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-start-end-radius: ${({ theme }) => theme.borderRadii.sm};
+        border-end-end-radius: ${({ theme }) => theme.borderRadii.sm};
+        background: ${({ theme }) => theme.colors.background.tertiary};
+      }
+      &[data-first-in-range][data-last-in-range] {
+        border-radius: ${({ theme }) => theme.borderRadii.sm};
       }
       &:disabled {
         color: ${({ theme }) => theme.colors.content.tertiary};

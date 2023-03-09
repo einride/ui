@@ -1,7 +1,6 @@
 import styled from "@emotion/styled"
-import { DateRangePicker as MantineDateRangePicker } from "@mantine/dates"
+import { DatePickerInput } from "@mantine/dates"
 import { ComponentPropsWithoutRef, ReactNode } from "react"
-import { useTheme } from "../../../../hooks/useTheme"
 import { ContentColor } from "../../../../lib/theme/types"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 import { Caption } from "../../../typography/Caption/Caption"
@@ -72,24 +71,18 @@ export const DateRangePicker = ({
   inputFormat = "YYYY-MM-DD",
   ...props
 }: DateRangePickerProps): JSX.Element => {
-  const theme = useTheme()
   return (
     <Box {...wrapperProps}>
-      <StyledDateRangePicker
-        allowLevelChange={false}
+      <StyledDatePickerInput
         allowSingleDateInRange
-        clearable={false}
-        clickOutsideEvents={["pointerdown"]} // to ensure dropdown is closed when clicking on a menu trigger
-        dayStyle={() => ({
-          fontFamily: theme.fonts.body,
-          fontSize: theme.fontSizes.md,
-          fontWeight: theme.fontWeights.book,
-        })}
-        dayClassName={(date) => (date.toDateString() === new Date().toDateString() ? "today" : "")}
+        ariaLabels={{ previousMonth: "Previous month", nextMonth: "Next month" }}
         hasLabel={"label" in props}
-        inputFormat={inputFormat}
+        maxLevel="month"
+        popoverProps={{ clickOutsideEvents: ["pointerdown"] }} // to ensure popover is closed when clicking on a menu trigger
+        type="range"
+        valueFormat={inputFormat}
         withAsterisk={false}
-        transitionDuration={100}
+        withCellSpacing={false}
         {...props}
       />
       {message && (
@@ -121,10 +114,10 @@ interface StyledDateRangePickerProps {
   hasLabel: boolean
 }
 
-const StyledDateRangePicker = styled(MantineDateRangePicker, {
+const StyledDatePickerInput = styled(DatePickerInput, {
   shouldForwardProp: (prop) => prop !== "hasLabel", // avoid passing `hasLabel` attribute to HTML element
 })<StyledDateRangePickerProps>`
-  .mantine-DateRangePicker-label {
+  .mantine-DatePickerInput-label {
     font-family: ${({ theme }) => theme.fonts.body};
     font-size: ${({ theme }) => theme.fontSizes.md};
     font-weight: ${({ theme }) => theme.fontWeights.book};
@@ -133,11 +126,7 @@ const StyledDateRangePicker = styled(MantineDateRangePicker, {
     padding-block-start: 5px;
     padding-block-end: 3px;
   }
-  .mantine-DateRangePicker-wrapper {
-    min-inline-size: ${({ theme, clearable }) =>
-      (clearable ? 39 : 35) * theme.spacingBase}rem; // make sure range fits in input field
-  }
-  .mantine-DateRangePicker-input {
+  .mantine-DatePickerInput-input {
     font-family: ${({ theme }) => theme.fonts.body};
     font-size: ${({ theme }) => theme.fontSizes.md};
     font-weight: ${({ theme }) => theme.fontWeights.book};
@@ -146,8 +135,9 @@ const StyledDateRangePicker = styled(MantineDateRangePicker, {
     color: ${({ theme }) => theme.colors.content.primary};
     border: none;
     inline-size: 100%;
+    min-inline-size: ${({ theme }) => 29 * theme.spacingBase}rem;
     display: block;
-    padding-block: ${({ theme }) => 1.5 * theme.spacingBase}rem;
+    min-height: ${({ theme }) => 6 * theme.spacingBase}rem;
     padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem
       ${({ theme, clearable }) => (clearable ? 6 : 2) * theme.spacingBase}rem;
     block-size: unset;
@@ -157,7 +147,7 @@ const StyledDateRangePicker = styled(MantineDateRangePicker, {
     &:hover {
       background: ${({ theme }) => theme.colors.background.tertiary};
     }
-    &::placeholder {
+    .mantine-DatePickerInput-placeholder {
       color: ${({ theme }) => theme.colors.content.secondary};
     }
     &:focus {
@@ -171,11 +161,11 @@ const StyledDateRangePicker = styled(MantineDateRangePicker, {
       cursor: not-allowed;
       opacity: 1;
     }
-    &:disabled::placeholder {
+    &:disabled .mantine-DatePickerInput-placeholder {
       color: ${({ theme }) => theme.colors.content.tertiary};
     }
   }
-  .mantine-DateRangePicker-rightSection {
+  .mantine-DatePickerInput-rightSection {
     inset-inline-end: ${({ theme }) => 1 * theme.spacingBase}rem;
     inline-size: ${({ theme }) => 3 * theme.spacingBase}rem;
 
@@ -194,75 +184,82 @@ const StyledDateRangePicker = styled(MantineDateRangePicker, {
       }
     }
   }
-  .mantine-DateRangePicker-dropdown {
+  .mantine-Popover-dropdown {
     background: ${({ theme }) => theme.colors.background.secondaryElevated};
     border: none;
     border-radius: ${({ theme }) => theme.borderRadii.lg};
     padding: ${({ theme }) => 2 * theme.spacingBase}rem;
-    box-shadow: none;
 
-    .mantine-DateRangePicker-calendarHeader {
+    .mantine-DatePickerInput-calendarHeader {
       display: grid;
       align-items: center;
       gap: ${({ theme }) => theme.spacingBase}rem;
       grid-template-areas: "text previous-month next-month";
-      grid-template-columns: ${({ theme }) => 18.75 * theme.spacingBase}rem auto auto;
+      grid-template-columns: auto min-content min-content;
+      max-width: none;
       white-space: nowrap;
 
-      .mantine-DateRangePicker-calendarHeaderLevel {
+      .mantine-DatePickerInput-calendarHeaderLevel {
         grid-area: text;
         font-size: ${({ theme }) => theme.fontSizes.md};
         color: ${({ theme }) => theme.colors.content.primary};
-        padding: 0;
         justify-content: start;
       }
+    }
 
-      .mantine-DateRangePicker-calendarHeaderControl {
-        background: ${({ theme }) => theme.colors.background.primary};
-        color: ${({ theme }) => theme.colors.content.primary};
-        border-radius: ${({ theme }) => theme.borderRadii.full};
-        block-size: ${({ theme }) => 6 * theme.spacingBase}rem;
-        inline-size: ${({ theme }) => 6 * theme.spacingBase}rem;
-        transform: none;
-        &:hover {
-          background: ${({ theme }) => theme.colors.buttons.background.hover.tertiary};
+    .mantine-DatePickerInput-calendarHeaderControl {
+      background: ${({ theme }) => theme.colors.buttons.background.tertiary};
+      color: ${({ theme }) => theme.colors.content.primary};
+      border-radius: ${({ theme }) => theme.borderRadii.full};
+      block-size: ${({ theme }) => 6 * theme.spacingBase}rem;
+      inline-size: ${({ theme }) => 6 * theme.spacingBase}rem;
+      &:hover {
+        background: ${({ theme }) => theme.colors.buttons.background.hover.tertiary};
+      }
+      &:active {
+        background: ${({ theme }) => theme.colors.buttons.background.active.tertiary};
+      }
+      &:focus-visible {
+        outline: none;
+        background: ${({ theme }) => theme.colors.buttons.background.focused.tertiary};
+        border: ${({ theme }) => theme.spacingBase / 8}rem solid
+          ${({ theme }) => theme.colors.border.selected};
+      }
+      svg {
+        display: none;
+      }
+      &:first-of-type {
+        grid-area: previous-month;
+        &::before {
+          font-family: ${({ theme }) => theme.fonts.body};
+          font-size: ${({ theme }) => theme.fontSizes.md};
+          content: "←";
         }
-        &:active {
-          background: ${({ theme }) => theme.colors.buttons.background.active.tertiary};
-        }
-        &:focus-visible {
-          outline: none;
-          background: ${({ theme }) => theme.colors.buttons.background.focused.tertiary};
-          border: ${({ theme }) => theme.spacingBase / 8}rem solid
-            ${({ theme }) => theme.colors.border.selected};
-        }
-        svg {
-          display: none;
-        }
-        &:first-of-type {
-          grid-area: previous-month;
-          &::before {
-            font-family: ${({ theme }) => theme.fonts.body};
-            font-size: ${({ theme }) => theme.fontSizes.md};
-            content: "←";
-          }
-        }
-        &:last-of-type {
-          gria-area: next-month;
-          &::before {
-            font-family: ${({ theme }) => theme.fonts.body};
-            font-size: ${({ theme }) => theme.fontSizes.md};
-            content: "→";
-          }
+      }
+      &:last-of-type {
+        grid-area: next-month;
+        &::before {
+          font-family: ${({ theme }) => theme.fonts.body};
+          font-size: ${({ theme }) => theme.fontSizes.md};
+          content: "→";
         }
       }
     }
-    .mantine-DateRangePicker-weekday {
+    .mantine-DatePickerInput-weekday {
       color: ${({ theme }) => theme.colors.content.secondary};
       font-size: ${({ theme }) => theme.fontSizes.md};
       font-weight: ${({ theme }) => theme.fontWeights.book};
+      padding: 0;
     }
-    .mantine-DateRangePicker-day {
+    .mantine-DatePickerInput-monthCell {
+      padding: 0; // until withCellSpacing prop works
+    }
+    .mantine-DatePickerInput-day {
+      font-family: ${({ theme }) => theme.fonts.body};
+      font-size: ${({ theme }) => theme.fontSizes.md};
+      block-size: ${({ theme }) => 5 * theme.spacingBase}rem;
+      inline-size: ${({ theme }) => 4.5 * theme.spacingBase}rem;
+      line-height: ${({ theme }) => 5 * theme.spacingBase}rem;
       border-radius: ${({ theme }) => theme.borderRadii.sm};
       color: ${({ theme }) => theme.colors.content.primary};
       margin-block-start: ${({ theme }) => theme.spacingBase}rem;
@@ -270,7 +267,7 @@ const StyledDateRangePicker = styled(MantineDateRangePicker, {
       align-items: center;
       justify-content: center;
 
-      &.today {
+      &[data-today] {
         color: ${({ theme }) => theme.colors.content.positive};
       }
       &[data-outside] {
@@ -288,6 +285,7 @@ const StyledDateRangePicker = styled(MantineDateRangePicker, {
       &[data-selected] {
         background: ${({ theme }) => theme.colors.background.primaryInverted};
         color: ${({ theme }) => theme.colors.content.primaryInverted};
+        position: relative;
 
         &:focus-visible {
           background: ${({ theme }) => theme.colors.background.primaryInverted};
