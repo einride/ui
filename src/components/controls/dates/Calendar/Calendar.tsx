@@ -1,9 +1,14 @@
 import styled from "@emotion/styled"
-import { Calendar as MantineCalendar } from "@mantine/dates"
-import { useTheme } from "../../../../hooks/useTheme"
+import { DatePicker } from "@mantine/dates"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 
 interface CalendarBaseProps {
+  /** Initial date displayed, used for uncontrolled component. */
+  defaultDate?: Date
+
+  /** Default value for uncontrolled component. */
+  defaultValue?: Date
+
   /** Minimum possible date. */
   minDate?: Date
 
@@ -18,25 +23,18 @@ interface CalendarBaseProps {
 
   /** Props passed to root element. */
   wrapperProps?: BoxProps
-
-  /** Initial month displayed. */
-  initialMonth?: Date
 }
 
 export type CalendarProps = CalendarBaseProps
 
 export const Calendar = ({ wrapperProps, ...props }: CalendarProps): JSX.Element => {
-  const theme = useTheme()
   return (
     <Box {...wrapperProps}>
       <StyledCalendar
-        allowLevelChange={false}
-        dayStyle={() => ({
-          fontFamily: theme.fonts.body,
-          fontSize: theme.fontSizes.md,
-          fontWeight: theme.fontWeights.book,
-        })}
-        dayClassName={(date) => (date.toDateString() === new Date().toDateString() ? "today" : "")}
+        ariaLabels={{ previousMonth: "Previous month", nextMonth: "Next month" }}
+        hideOutsideDates
+        maxLevel="month"
+        withCellSpacing={false}
         {...props}
       />
     </Box>
@@ -45,40 +43,35 @@ export const Calendar = ({ wrapperProps, ...props }: CalendarProps): JSX.Element
 
 type CalendarValue = Date | null
 
-const StyledCalendar = styled(MantineCalendar)`
-  &.mantine-Calendar-calendarBase {
+const StyledCalendar = styled(DatePicker)`
+  &.mantine-DatePicker-calendar {
     background: ${({ theme }) => theme.colors.background.secondaryElevated};
-    border: none;
     border-radius: ${({ theme }) => theme.borderRadii.lg};
     padding: ${({ theme }) => 2 * theme.spacingBase}rem;
-    box-shadow: none;
-    max-width: none;
     display: inline-flex;
 
-    .mantine-Calendar-calendarHeader {
+    .mantine-DatePicker-calendarHeader {
       display: grid;
       align-items: center;
       gap: ${({ theme }) => theme.spacingBase}rem;
       grid-template-areas: "text previous-month next-month";
-      grid-template-columns: ${({ theme }) => 18.75 * theme.spacingBase}rem auto auto;
-      white-space: nowrap;
+      grid-template-columns: auto min-content min-content;
+      max-width: none;
 
-      .mantine-Calendar-calendarHeaderLevel {
+      .mantine-DatePicker-calendarHeaderLevel {
         grid-area: text;
         font-size: ${({ theme }) => theme.fontSizes.md};
         color: ${({ theme }) => theme.colors.content.primary};
-        padding: 0;
         justify-content: start;
       }
     }
 
-    .mantine-Calendar-calendarHeaderControl {
+    .mantine-DatePicker-calendarHeaderControl {
       background: ${({ theme }) => theme.colors.buttons.background.tertiary};
       color: ${({ theme }) => theme.colors.content.primary};
       border-radius: ${({ theme }) => theme.borderRadii.full};
       block-size: ${({ theme }) => 6 * theme.spacingBase}rem;
       inline-size: ${({ theme }) => 6 * theme.spacingBase}rem;
-      transform: none;
       &:hover {
         background: ${({ theme }) => theme.colors.buttons.background.hover.tertiary};
       }
@@ -103,7 +96,7 @@ const StyledCalendar = styled(MantineCalendar)`
         }
       }
       &:last-of-type {
-        gria-area: next-month;
+        grid-area: next-month;
         &::before {
           font-family: ${({ theme }) => theme.fonts.body};
           font-size: ${({ theme }) => theme.fontSizes.md};
@@ -111,24 +104,24 @@ const StyledCalendar = styled(MantineCalendar)`
         }
       }
     }
-    .mantine-Calendar-weekday {
+    .mantine-DatePicker-weekday {
       color: ${({ theme }) => theme.colors.content.secondary};
       font-size: ${({ theme }) => theme.fontSizes.md};
       font-weight: ${({ theme }) => theme.fontWeights.book};
+      padding: 0;
     }
-    .mantine-Calendar-day {
+    .mantine-DatePicker-day {
+      font-family: ${({ theme }) => theme.fonts.body};
+      font-size: ${({ theme }) => theme.fontSizes.md};
+      block-size: ${({ theme }) => 5 * theme.spacingBase}rem;
+      inline-size: ${({ theme }) => 4.5 * theme.spacingBase}rem;
+      line-height: ${({ theme }) => 5 * theme.spacingBase}rem;
       border-radius: ${({ theme }) => theme.borderRadii.sm};
       color: ${({ theme }) => theme.colors.content.primary};
       margin-block-start: ${({ theme }) => theme.spacingBase}rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
 
-      &.today {
+      &[data-today] {
         color: ${({ theme }) => theme.colors.content.positive};
-      }
-      &[data-outside] {
-        display: none;
       }
       &:hover {
         background: ${({ theme }) => theme.colors.background.tertiary};

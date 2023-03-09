@@ -1,4 +1,3 @@
-import styled from "@emotion/styled"
 import { expect } from "@storybook/jest"
 import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
@@ -10,103 +9,110 @@ import { Calendar } from "./Calendar"
 export default {
   title: "Controls/Dates/Calendar",
   component: Calendar,
-  render: (args) => <Template {...args} />,
 } satisfies ComponentMeta<typeof Calendar>
 
 type Story = ComponentStoryObj<typeof Calendar>
 
-// set fixed date so snapshots won't change
-const february = new Date(2023, 1, 1)
+const defaultDate = DateTime.local(2023, 1, 1)
+const today = DateTime.now()
+const defaultDateFormat = "MMMM yyyy"
+const mantineDateFormat = "d MMMM yyyy"
 
-const Template: ComponentStory<typeof Calendar> = (args) => {
-  const { value: defaultValue } = args
-  const [value, setValue] = useState(defaultValue)
-
-  return <Calendar {...args} value={value} onChange={setValue} />
-}
-
-export const Default = {
+export const DefaultDate = {
   args: {
-    initialMonth: february,
+    defaultDate: defaultDate.toJSDate(),
   },
-  play: async ({ args }) => {
-    await expect(args.value).toBeFalsy()
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const month = canvas.getByText(defaultDate.toFormat(defaultDateFormat))
+    expect(month).toBeInTheDocument()
   },
 } satisfies Story
 
 export const DefaultValue = {
   args: {
-    value: new Date(2023, 1, 10),
-    initialMonth: february,
+    defaultValue: defaultDate.toJSDate(),
+    defaultDate: defaultDate.toJSDate(),
   },
-  play: async ({ canvasElement, args }) => {
+  play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(args.value).toBeTruthy()
+    const selectedDate = canvas.getByRole("button", {
+      name: defaultDate.toFormat(mantineDateFormat),
+    })
+    expect(selectedDate).toHaveAttribute("data-selected", "true")
+  },
+} satisfies Story
 
-    const currentDayButton = canvas.getByRole("button", { name: "10" })
-    await expect(currentDayButton.getAttribute("data-selected")).toBe("true")
+const ControlledTemplate: ComponentStory<typeof Calendar> = (args) => {
+  const { value: argsValue } = args
+  const [value, setValue] = useState<Date | null>(argsValue)
+  return <Calendar {...args} value={value} onChange={setValue} />
+}
+
+export const Controlled = {
+  render: (args) => <ControlledTemplate {...args} />,
+  args: {
+    defaultDate: defaultDate.toJSDate(),
+    value: defaultDate.toJSDate(),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const selectedDate = canvas.getByRole("button", {
+      name: defaultDate.toFormat(mantineDateFormat),
+    })
+    expect(selectedDate).toHaveAttribute("data-selected", "true")
   },
 } satisfies Story
 
 export const Mouse = {
   args: {
-    value: DateTime.now().set({ day: 10 }).toJSDate(),
+    defaultValue: today.toJSDate(),
   },
-  play: async ({ canvasElement, args }) => {
+  play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(args.value).toBeTruthy()
-    const currentDayButton = canvas.getByRole("button", { name: "10" })
-    await expect(currentDayButton.getAttribute("data-selected")).toBe("true")
-    const previousMonthButton = canvas.getAllByRole("button")[0]
+    const currentDateButton = canvas.getByRole("button", {
+      name: today.toFormat(mantineDateFormat),
+    })
+    await expect(currentDateButton.getAttribute("data-selected")).toBe("true")
+    const previousMonthButton = canvas.getByRole("button", { name: "Previous month" })
     await userEvent.click(previousMonthButton)
-    const fourthDayInLastMonthButton = canvas.getByRole("button", { name: "4" })
-    await userEvent.click(fourthDayInLastMonthButton)
-    await expect(fourthDayInLastMonthButton.getAttribute("data-selected")).toBe("true")
+    const fourthDateInPreviousMonthButton = canvas.getByRole("button", {
+      name: today.minus({ month: 1 }).set({ day: 4 }).toFormat(mantineDateFormat),
+    })
+    await userEvent.click(fourthDateInPreviousMonthButton)
+    await expect(fourthDateInPreviousMonthButton.getAttribute("data-selected")).toBe("true")
   },
 } satisfies Story
 
 export const Keyboard = {
-  args: {},
-  play: async ({ canvasElement, args }) => {
+  play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(args.value).toBeFalsy()
     await userEvent.tab()
     await userEvent.tab()
     await userEvent.tab()
-    const firstDayInCurrentMonthButton = canvas.getByRole("button", { name: "1" })
+    const firstDayInCurrentMonthButton = canvas.getByRole("button", {
+      name: today.set({ day: 1 }).toFormat(mantineDateFormat),
+    })
     await expect(firstDayInCurrentMonthButton).toHaveFocus()
     await userEvent.keyboard("[Enter]")
     await expect(firstDayInCurrentMonthButton.getAttribute("data-selected")).toBe("true")
     await userEvent.keyboard("[ArrowDown]")
-    const eighthDayInCurrentMonthButton = canvas.getByRole("button", { name: "8" })
+    const eighthDayInCurrentMonthButton = canvas.getByRole("button", {
+      name: today.set({ day: 8 }).toFormat(mantineDateFormat),
+    })
     await expect(eighthDayInCurrentMonthButton).toHaveFocus()
     await userEvent.keyboard("[Enter]")
     await expect(eighthDayInCurrentMonthButton.getAttribute("data-selected")).toBe("true")
     await expect(firstDayInCurrentMonthButton.getAttribute("data-selected")).not.toBe("true")
-    await userEvent.tab({ shift: true })
-    await userEvent.tab({ shift: true })
-    const previousMonthButton = canvas.getAllByRole("button")[0]
-    await expect(previousMonthButton).toHaveFocus()
-    await userEvent.keyboard("[Enter]")
-    const firstDayInLastMonthButton = canvas.getByRole("button", { name: "1" })
-    await userEvent.click(firstDayInLastMonthButton) // until keyboard navigation is fixed in Mantine component
-    await expect(firstDayInLastMonthButton.getAttribute("data-selected")).toBe("true")
-    const eighthDayInLastMonthButton = canvas.getByRole("button", { name: "8" })
-    await userEvent.keyboard("[ArrowDown]")
-    await userEvent.keyboard("[Enter]")
-    await expect(firstDayInLastMonthButton.getAttribute("data-selected")).not.toBe("true")
-    await expect(eighthDayInLastMonthButton.getAttribute("data-selected")).toBe("true")
   },
 } satisfies Story
 
 export const Snapshot = {
   render: () => (
     <SnapshotWrapper>
-      {[Default, DefaultValue].map((Story, index) => (
+      {[DefaultDate, DefaultValue, Controlled].map((Story, index) => (
         // eslint-disable-next-line react/no-array-index-key
-        <TestStyle key={index}>
-          <Calendar {...(Story.args as ComponentProps<typeof Calendar>)} />
-        </TestStyle>
+        <Calendar key={index} {...(Story.args as ComponentProps<typeof Calendar>)} />
       ))}
     </SnapshotWrapper>
   ),
@@ -114,15 +120,3 @@ export const Snapshot = {
     chromatic: { disableSnapshot: false },
   },
 } satisfies Story
-
-// override highlight of today to have consistent snapshots
-const TestStyle = styled.div`
-  .mantine-Calendar-day {
-    &.today {
-      color: ${({ theme }) => theme.colors.content.primary} !important;
-    }
-    &[data-selected].today {
-      color: ${({ theme }) => theme.colors.content.primaryInverted} !important;
-    }
-  }
-`

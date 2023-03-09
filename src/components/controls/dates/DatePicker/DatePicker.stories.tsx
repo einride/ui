@@ -6,19 +6,17 @@ import { useState } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { DatePicker } from "./DatePicker"
 
-const DATE_FORMAT = "yyyy-MM-dd"
-
 export default {
   title: "Controls/Dates/DatePicker",
   component: DatePicker,
-  argTypes: {
-    disabled: {
-      control: "boolean",
-    },
-  },
 } satisfies ComponentMeta<typeof DatePicker>
 
 type Story = ComponentStoryObj<typeof DatePicker>
+
+const defaultDate = DateTime.local(2023, 1, 1)
+const today = DateTime.now()
+const defaultDateFormat = "yyyy-MM-dd"
+const mantineDateFormat = "d MMMM yyyy"
 
 export const WithLabel = {
   args: {
@@ -26,8 +24,10 @@ export const WithLabel = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByRole("textbox", { name: "Label" })
-    await expect(input).toHaveValue("")
+    const input = canvas.getByRole("button", { name: "" })
+    await expect(input).toBeInTheDocument()
+    const label = canvas.getByText(WithLabel.args.label)
+    await expect(label).toBeInTheDocument()
   },
 } satisfies Story
 
@@ -38,20 +38,20 @@ export const WithoutLabel = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByRole("textbox", { name: "Label" })
-    await expect(input).toHaveValue("")
+    const input = canvas.getByRole("button", { name: WithoutLabel.args["aria-label"] })
+    await expect(input).toBeInTheDocument()
   },
 } satisfies Story
 
 export const DefaultValue = {
   args: {
     ...WithLabel.args,
-    defaultValue: new Date(2023, 1, 9),
+    defaultValue: defaultDate.toJSDate(),
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByRole("textbox", { name: "Label" })
-    await expect(input).toHaveValue(DateTime.local(2023, 2, 9).toFormat(DATE_FORMAT))
+    const input = canvas.getByRole("button", { name: defaultDate.toFormat(defaultDateFormat) })
+    expect(input).toBeInTheDocument()
   },
 } satisfies Story
 
@@ -59,7 +59,14 @@ export const USFormat = {
   args: {
     ...WithLabel.args,
     inputFormat: "MM/DD/YYYY",
-    defaultValue: new Date(2023, 1, 9),
+    defaultValue: defaultDate.toJSDate(),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const input = canvas.getByRole("button", {
+      name: defaultDate.toFormat("MM/dd/yyyy"),
+    })
+    expect(input).toBeInTheDocument()
   },
 } satisfies Story
 
@@ -75,8 +82,8 @@ export const Controlled = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByRole("textbox", { name: "Label" })
-    await expect(input).toHaveValue("")
+    const input = canvas.getByRole("button", { name: "" })
+    await expect(input).toBeInTheDocument()
   },
 } satisfies Story
 
@@ -84,6 +91,11 @@ export const Message = {
   args: {
     ...WithLabel.args,
     message: "Message",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const message = canvas.getByText(Message.args.message)
+    await expect(message).toBeInTheDocument()
   },
 } satisfies Story
 
@@ -93,6 +105,11 @@ export const SuccessMessage = {
     message: "Success message",
     status: "success",
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const message = canvas.getByText(SuccessMessage.args.message)
+    await expect(message).toBeInTheDocument()
+  },
 } satisfies Story
 
 export const ErrorMessage = {
@@ -101,19 +118,10 @@ export const ErrorMessage = {
     message: "Error message",
     status: "fail",
   },
-} satisfies Story
-
-export const AllowFreeInput = {
-  args: {
-    ...WithLabel.args,
-    allowFreeInput: true,
-  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByRole("textbox", { name: "Label" })
-    await userEvent.type(input, "2023-03-06", { delay: 10 })
-    await userEvent.keyboard("[Enter]")
-    await expect(input).toHaveValue("2023-03-06")
+    const message = canvas.getByText(ErrorMessage.args.message)
+    await expect(message).toBeInTheDocument()
   },
 } satisfies Story
 
@@ -123,20 +131,23 @@ export const Mouse = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByRole("textbox", { name: "Label" })
-    await expect(input).toHaveValue("")
+    const input = canvas.getByRole("button", { name: "" })
     await userEvent.click(input)
-    const firstDayInCurrentMonthButton = canvas.getByRole("button", { name: "1" })
+    const firstDateInCurrentMonth = today.set({ day: 1 })
+    const firstDayInCurrentMonthButton = canvas.getByRole("button", {
+      name: firstDateInCurrentMonth.toFormat(mantineDateFormat),
+    })
     await userEvent.click(firstDayInCurrentMonthButton)
-    const firstDayInCurrentMonth = DateTime.now().set({ day: 1 })
-    await expect(input).toHaveValue(firstDayInCurrentMonth.toFormat(DATE_FORMAT))
+    await expect(input).toHaveAccessibleName(firstDateInCurrentMonth.toFormat(defaultDateFormat))
     await userEvent.click(input)
-    const previousMonthButton = canvas.getAllByRole("button")[0]
+    const previousMonthButton = canvas.getByRole("button", { name: "Previous month" })
     await userEvent.click(previousMonthButton)
-    const firstDayInLastMonthButton = canvas.getByRole("button", { name: "1" })
-    await userEvent.click(firstDayInLastMonthButton)
-    const firstDayInLastMonth = DateTime.now().set({ day: 1 }).minus({ month: 1 })
-    await expect(input).toHaveValue(firstDayInLastMonth.toFormat(DATE_FORMAT))
+    const firstDateInPreviousMonth = today.minus({ month: 1 }).set({ day: 1 })
+    const firstDateInPreviousMonthButton = canvas.getByRole("button", {
+      name: firstDateInPreviousMonth.toFormat(mantineDateFormat),
+    })
+    await userEvent.click(firstDateInPreviousMonthButton)
+    await expect(input).toHaveAccessibleName(firstDateInPreviousMonth.toFormat(defaultDateFormat))
   },
 } satisfies Story
 
@@ -147,28 +158,31 @@ export const Keyboard = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByRole("textbox", { name: "Label" })
-    await expect(input).toHaveValue("")
+    const input = canvas.getByRole("button", { name: "" })
     await expect(input).not.toHaveFocus()
     await userEvent.tab()
     await expect(input).toHaveFocus()
     await userEvent.keyboard("[Enter]")
-    await userEvent.keyboard("[Enter]")
-    const firstDayInCurrentMonth = DateTime.now().set({ day: 1 })
-    await expect(input).toHaveValue(firstDayInCurrentMonth.toFormat(DATE_FORMAT))
-    await userEvent.keyboard("[Enter]")
+    await userEvent.tab()
     await userEvent.tab()
     await userEvent.keyboard("[Enter]")
-    const firstDayInLastMonthButton = canvas.getByRole("button", { name: "1" })
-    await userEvent.click(firstDayInLastMonthButton) // until keyboard navigation is fixed in Mantine component
-    const firstDayInLastMonth = DateTime.now().set({ day: 1 }).minus({ month: 1 })
-    await expect(input).toHaveValue(firstDayInLastMonth.toFormat(DATE_FORMAT))
+    const firstDateInCurrentMonth = today.set({ day: 1 })
+    await expect(input).toHaveAccessibleName(firstDateInCurrentMonth.toFormat(defaultDateFormat))
+    await userEvent.keyboard("[Enter]")
+    await userEvent.tab() // this doesn't match behavior when navigating with keyboard
+    await userEvent.tab({ shift: true })
+    await userEvent.keyboard("[Enter]")
+    await userEvent.tab()
+    await userEvent.tab()
+    await userEvent.keyboard("[Enter]")
+    const firstDateInPreviousMonth = today.minus({ month: 1 }).set({ day: 1 })
+    await expect(input).toHaveAccessibleName(firstDateInPreviousMonth.toFormat(defaultDateFormat))
   },
 } satisfies Story
 
 export const Snapshot = {
   render: () => (
-    <SnapshotWrapper>
+    <SnapshotWrapper alignItems="stretch">
       {[WithLabel, WithoutLabel, DefaultValue, USFormat, Message, SuccessMessage, ErrorMessage].map(
         (Story, index) => (
           // eslint-disable-next-line react/no-array-index-key

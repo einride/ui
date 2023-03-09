@@ -2002,9 +2002,9 @@ __metadata:
     "@emotion/react": 11.10.6
     "@emotion/styled": 11.10.6
     "@faker-js/faker": 7.6.0
-    "@mantine/core": 5.10.5
-    "@mantine/dates": 5.10.5
-    "@mantine/hooks": 5.10.5
+    "@mantine/core": 6.0.1
+    "@mantine/dates": 6.0.1
+    "@mantine/hooks": 6.0.1
     "@radix-ui/react-alert-dialog": 1.0.3
     "@radix-ui/react-dialog": 1.0.3
     "@radix-ui/react-dropdown-menu": 2.0.4
@@ -3009,49 +3009,50 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/core@npm:5.10.5":
-  version: 5.10.5
-  resolution: "@mantine/core@npm:5.10.5"
+"@mantine/core@npm:6.0.1":
+  version: 6.0.1
+  resolution: "@mantine/core@npm:6.0.1"
   dependencies:
     "@floating-ui/react": ^0.19.1
-    "@mantine/styles": 5.10.5
-    "@mantine/utils": 5.10.5
+    "@mantine/styles": 6.0.1
+    "@mantine/utils": 6.0.1
     "@radix-ui/react-scroll-area": 1.0.2
+    react-remove-scroll: ^2.5.5
     react-textarea-autosize: 8.3.4
   peerDependencies:
-    "@mantine/hooks": 5.10.5
+    "@mantine/hooks": 6.0.1
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 8456db8518e8f743f21f96765e7c97b7693dcdfd942ce6ffe76fbfce21ba5eb24f0f4c69969eb73cc57b50fc6a90ec2f2b4a35d89b44e86d76a6df211cd34b41
+  checksum: a6eae9c00971d6f04e509e512f5663498a31d656abadfcff8786595fffa206d8741f244a66c06bd53d59d45d93158229b14bad204fd9505b72bf699be2fe1033
   languageName: node
   linkType: hard
 
-"@mantine/dates@npm:5.10.5":
-  version: 5.10.5
-  resolution: "@mantine/dates@npm:5.10.5"
+"@mantine/dates@npm:6.0.1":
+  version: 6.0.1
+  resolution: "@mantine/dates@npm:6.0.1"
   dependencies:
-    "@mantine/utils": 5.10.5
+    "@mantine/utils": 6.0.1
   peerDependencies:
-    "@mantine/core": 5.10.5
-    "@mantine/hooks": 5.10.5
+    "@mantine/core": 6.0.1
+    "@mantine/hooks": 6.0.1
     dayjs: ">=1.0.0"
     react: ">=16.8.0"
-  checksum: 7c50000388a671f687850ede28ab91c9c9d1f6881eb432e2fc348ce7287c3938e830447925eaf3b5065da9751823be7004c6fa97e9e8e2c6f727c1df98ee524b
+  checksum: 89ff656635d2f7e47ccb44544ba5166e9d78878f631b3338a0eebe14df3f0b86dbab6b3135ac7a013abd859813858692237eb83172f6ec5d61f3efcdaaa94fd9
   languageName: node
   linkType: hard
 
-"@mantine/hooks@npm:5.10.5":
-  version: 5.10.5
-  resolution: "@mantine/hooks@npm:5.10.5"
+"@mantine/hooks@npm:6.0.1":
+  version: 6.0.1
+  resolution: "@mantine/hooks@npm:6.0.1"
   peerDependencies:
     react: ">=16.8.0"
-  checksum: 5af61db880d2ae4146282771ee627b258fe1c001819f12365028a3686bbf7e1a0cd672757b27f2f828579f0741e0470b0f5fac61fcb7f304b6810b829f9f3974
+  checksum: 94c7563be35ec36a45d62ef183bdbc2e1e65364b011a7b055606546c10a1e988bc421ec36678554a04a79987a7ed9da9a6058e20bfd5632ec7adfe45bf671f74
   languageName: node
   linkType: hard
 
-"@mantine/styles@npm:5.10.5":
-  version: 5.10.5
-  resolution: "@mantine/styles@npm:5.10.5"
+"@mantine/styles@npm:6.0.1":
+  version: 6.0.1
+  resolution: "@mantine/styles@npm:6.0.1"
   dependencies:
     clsx: 1.1.1
     csstype: 3.0.9
@@ -3059,16 +3060,16 @@ __metadata:
     "@emotion/react": ">=11.9.0"
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 7c7322779e21681a58c80dddfb30a9ce5cfecfa0854bc35921533ebe8fb101199f9626cd38bfa2dea31e9d7ffc5a25e2005c62a5feaf3cb766b540c480a449da
+  checksum: fb06f6099331652fcc568d4de815642c77e12ba94a4f1bb5cdcb690288bf51761aa8b682829efe432dfa41eb1c6e7a94fee5eb3b8b80a341e29c6497ea4389c1
   languageName: node
   linkType: hard
 
-"@mantine/utils@npm:5.10.5":
-  version: 5.10.5
-  resolution: "@mantine/utils@npm:5.10.5"
+"@mantine/utils@npm:6.0.1":
+  version: 6.0.1
+  resolution: "@mantine/utils@npm:6.0.1"
   peerDependencies:
     react: ">=16.8.0"
-  checksum: fe8975a2cffb0493e9c226f2dd7d56473250806e56bdc7843c8f6cd1c8ce90d42daf3d33a31a91ec71bca3a584d8adb3fb5b805639c0f242d1d2f8887e9dd56d
+  checksum: 5ad728689c675f0d6e1046e7e7a42f0c3c432cf1a4069c4a1f92879b6b95c6d3c1fc92e72a333fe214435281c7702e9a47629da8dd973a24bfe0538a40a6ad23
   languageName: node
   linkType: hard
 
@@ -17651,7 +17652,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-remove-scroll@npm:2.5.5":
+"react-remove-scroll@npm:2.5.5, react-remove-scroll@npm:^2.5.5":
   version: 2.5.5
   resolution: "react-remove-scroll@npm:2.5.5"
   dependencies:
