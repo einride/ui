@@ -2005,7 +2005,7 @@ __metadata:
     "@mantine/core": 5.10.5
     "@mantine/dates": 5.10.5
     "@mantine/hooks": 5.10.5
-    "@radix-ui/react-alert-dialog": 1.0.2
+    "@radix-ui/react-alert-dialog": 1.0.3
     "@radix-ui/react-dialog": 1.0.3
     "@radix-ui/react-dropdown-menu": 2.0.3
     "@radix-ui/react-slider": 1.1.0
@@ -3256,21 +3256,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-alert-dialog@npm:1.0.2":
-  version: 1.0.2
-  resolution: "@radix-ui/react-alert-dialog@npm:1.0.2"
+"@radix-ui/react-alert-dialog@npm:1.0.3":
+  version: 1.0.3
+  resolution: "@radix-ui/react-alert-dialog@npm:1.0.3"
   dependencies:
     "@babel/runtime": ^7.13.10
     "@radix-ui/primitive": 1.0.0
     "@radix-ui/react-compose-refs": 1.0.0
     "@radix-ui/react-context": 1.0.0
-    "@radix-ui/react-dialog": 1.0.2
-    "@radix-ui/react-primitive": 1.0.1
+    "@radix-ui/react-dialog": 1.0.3
+    "@radix-ui/react-primitive": 1.0.2
     "@radix-ui/react-slot": 1.0.1
   peerDependencies:
     react: ^16.8 || ^17.0 || ^18.0
     react-dom: ^16.8 || ^17.0 || ^18.0
-  checksum: 6f44674f37996d1c7810111766a33283bccd95ee0586b5e2fde580ae4d401078bc5c3476c163984de815ebd42782b030ee78f4625e64c17851c31c2a61d1f871
+  checksum: 2c53d1265650ad3a2d556cefef6cfbf86131c51c774f29f26c98145db491fbbff6020fc63e83cef318ee4ec47ad601f6c33747d2815e446560930058168de670
   languageName: node
   linkType: hard
 
@@ -3322,32 +3322,6 @@ __metadata:
   peerDependencies:
     react: ^16.8 || ^17.0 || ^18.0
   checksum: 43c6b6f2183398161fe6b109e83fff240a6b7babbb27092b815932342a89d5ca42aa9806bfae5927970eed5ff90feed04c67aa29c6721f84ae826f17fcf34ce0
-  languageName: node
-  linkType: hard
-
-"@radix-ui/react-dialog@npm:1.0.2":
-  version: 1.0.2
-  resolution: "@radix-ui/react-dialog@npm:1.0.2"
-  dependencies:
-    "@babel/runtime": ^7.13.10
-    "@radix-ui/primitive": 1.0.0
-    "@radix-ui/react-compose-refs": 1.0.0
-    "@radix-ui/react-context": 1.0.0
-    "@radix-ui/react-dismissable-layer": 1.0.2
-    "@radix-ui/react-focus-guards": 1.0.0
-    "@radix-ui/react-focus-scope": 1.0.1
-    "@radix-ui/react-id": 1.0.0
-    "@radix-ui/react-portal": 1.0.1
-    "@radix-ui/react-presence": 1.0.0
-    "@radix-ui/react-primitive": 1.0.1
-    "@radix-ui/react-slot": 1.0.1
-    "@radix-ui/react-use-controllable-state": 1.0.0
-    aria-hidden: ^1.1.1
-    react-remove-scroll: 2.5.5
-  peerDependencies:
-    react: ^16.8 || ^17.0 || ^18.0
-    react-dom: ^16.8 || ^17.0 || ^18.0
-  checksum: 5cc0dd6599c91064aab8ab3ec6d4fff1b53cf45607b219449e8984ad57ad6492a9e3fd00bacd612e447920d7da387eb5e1356a70da8a0485ea989b696315f0bb
   languageName: node
   linkType: hard
 
