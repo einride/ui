@@ -2009,7 +2009,7 @@ __metadata:
     "@radix-ui/react-dialog": 1.0.2
     "@radix-ui/react-dropdown-menu": 2.0.3
     "@radix-ui/react-slider": 1.1.0
-    "@radix-ui/react-switch": 1.0.1
+    "@radix-ui/react-switch": 1.0.2
     "@radix-ui/react-tabs": 1.0.2
     "@radix-ui/react-tooltip": 1.0.4
     "@rollup/plugin-image": 3.0.2
@@ -3528,6 +3528,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@radix-ui/react-primitive@npm:1.0.2":
+  version: 1.0.2
+  resolution: "@radix-ui/react-primitive@npm:1.0.2"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/react-slot": 1.0.1
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: 070b1770749eb629425ef959c4cdbd86957b83c5286ae4423e55ab1a89fa286a51f5aeee44e3a13eb6ca44771415ac1acbaeb0ba03013b49ecb5253e1a5a8996
+  languageName: node
+  linkType: hard
+
 "@radix-ui/react-roving-focus@npm:1.0.2":
   version: 1.0.2
   resolution: "@radix-ui/react-roving-focus@npm:1.0.2"
@@ -3605,22 +3618,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-switch@npm:1.0.1":
-  version: 1.0.1
-  resolution: "@radix-ui/react-switch@npm:1.0.1"
+"@radix-ui/react-switch@npm:1.0.2":
+  version: 1.0.2
+  resolution: "@radix-ui/react-switch@npm:1.0.2"
   dependencies:
     "@babel/runtime": ^7.13.10
     "@radix-ui/primitive": 1.0.0
     "@radix-ui/react-compose-refs": 1.0.0
     "@radix-ui/react-context": 1.0.0
-    "@radix-ui/react-primitive": 1.0.1
+    "@radix-ui/react-primitive": 1.0.2
     "@radix-ui/react-use-controllable-state": 1.0.0
     "@radix-ui/react-use-previous": 1.0.0
     "@radix-ui/react-use-size": 1.0.0
   peerDependencies:
     react: ^16.8 || ^17.0 || ^18.0
     react-dom: ^16.8 || ^17.0 || ^18.0
-  checksum: daaa44c90a05e4828211cd8db37a6036151b51a35783a3c8d138630d4d69a4b337ca9e3b719b13a0520f6067c384ee995b4ed9a357018ab2e888f0c3dcdacb75
+  checksum: 51dda47620938504e540383435a1b8f038fa8ce1e0179a0ce32be500fa39e7a40ac518d9a2f223f7cac4d5fac1c1b8a1a8c5f75104c54bea1431dfdfa76cb1e5
   languageName: node
   linkType: hard
 
