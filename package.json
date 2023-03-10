@@ -21,7 +21,7 @@
   "dependencies": {
     "@einride/hooks": "1.7.5",
     "@emotion/is-prop-valid": "1.2.0",
-    "@mantine/core": "5.10.5",
+    "@mantine/core": "6.0.1",
     "@mantine/dates": "5.10.5",
     "@mantine/hooks": "5.10.5",
     "@radix-ui/react-alert-dialog": "1.0.3",
