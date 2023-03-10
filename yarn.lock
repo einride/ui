@@ -2008,7 +2008,7 @@ __metadata:
     "@radix-ui/react-alert-dialog": 1.0.3
     "@radix-ui/react-dialog": 1.0.3
     "@radix-ui/react-dropdown-menu": 2.0.4
-    "@radix-ui/react-slider": 1.1.0
+    "@radix-ui/react-slider": 1.1.1
     "@radix-ui/react-switch": 1.0.2
     "@radix-ui/react-tabs": 1.0.3
     "@radix-ui/react-tooltip": 1.0.4
@@ -3300,22 +3300,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-collection@npm:1.0.1":
-  version: 1.0.1
-  resolution: "@radix-ui/react-collection@npm:1.0.1"
-  dependencies:
-    "@babel/runtime": ^7.13.10
-    "@radix-ui/react-compose-refs": 1.0.0
-    "@radix-ui/react-context": 1.0.0
-    "@radix-ui/react-primitive": 1.0.1
-    "@radix-ui/react-slot": 1.0.1
-  peerDependencies:
-    react: ^16.8 || ^17.0 || ^18.0
-    react-dom: ^16.8 || ^17.0 || ^18.0
-  checksum: 4922b358baf54aa343da5235fd061a289bedef9488254696bb4eb09b320da9da91bf55e148d89f07df80afa5429804f8a203159978cddeea423e58fdea703cd0
-  languageName: node
-  linkType: hard
-
 "@radix-ui/react-collection@npm:1.0.2":
   version: 1.0.2
   resolution: "@radix-ui/react-collection@npm:1.0.2"
@@ -3664,18 +3648,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-slider@npm:1.1.0":
-  version: 1.1.0
-  resolution: "@radix-ui/react-slider@npm:1.1.0"
+"@radix-ui/react-slider@npm:1.1.1":
+  version: 1.1.1
+  resolution: "@radix-ui/react-slider@npm:1.1.1"
   dependencies:
     "@babel/runtime": ^7.13.10
     "@radix-ui/number": 1.0.0
     "@radix-ui/primitive": 1.0.0
-    "@radix-ui/react-collection": 1.0.1
+    "@radix-ui/react-collection": 1.0.2
     "@radix-ui/react-compose-refs": 1.0.0
     "@radix-ui/react-context": 1.0.0
     "@radix-ui/react-direction": 1.0.0
-    "@radix-ui/react-primitive": 1.0.1
+    "@radix-ui/react-primitive": 1.0.2
     "@radix-ui/react-use-controllable-state": 1.0.0
     "@radix-ui/react-use-layout-effect": 1.0.0
     "@radix-ui/react-use-previous": 1.0.0
@@ -3683,7 +3667,7 @@ __metadata:
   peerDependencies:
     react: ^16.8 || ^17.0 || ^18.0
     react-dom: ^16.8 || ^17.0 || ^18.0
-  checksum: 71923be5c7f2499e5035bb8c6824151ca1b3d9eda73f332df55df01ffa6fb47cb43e438da20ec1c80f32175687531f7a20875e1563cd3d258fa9e5e5bb01bf21
+  checksum: fbe95278fce9eda92ac91af604909e16d526ebc67ad2327988690ae8dcf557d70bc30602d085976d71d00f14f4d5c38896c88a92611c281f9ad3211eb8a668ac
   languageName: node
   linkType: hard
 
