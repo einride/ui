@@ -2049,7 +2049,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     react-map-gl: ^7.0.21
-    rollup: 3.18.0
+    rollup: 3.19.0
     storybook-dark-mode: 2.1.1
     typescript: 4.9.5
     vite: 4.1.4
@@ -18273,9 +18273,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:3.18.0":
-  version: 3.18.0
-  resolution: "rollup@npm:3.18.0"
+"rollup@npm:3.19.0":
+  version: 3.19.0
+  resolution: "rollup@npm:3.19.0"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -18283,7 +18283,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 0bcd1abb1cc383abdd09b5594de862ecb2f946e950954bb472a370289bdc4499aea8d04477be55ce205450d973d38ad255f0dc6926162500a251d73bf0e60e6f
+  checksum: 720810cc0fb6daf785c45a5d19a480fcc2eddbc37e8272c7fdca4dd45b3ce20230953915b4934e117624e2e803501637283ede7fca4e780486bf8b9e4ef364a3
   languageName: node
   linkType: hard
 
