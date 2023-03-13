@@ -1,25 +1,29 @@
 import { useTheme } from "@emotion/react"
 import styled from "@emotion/styled"
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
-import { ComponentPropsWithoutRef, forwardRef } from "react"
+import { ComponentPropsWithoutRef, forwardRef, Fragment } from "react"
 import { zIndex } from "../../../lib/zIndex"
 
 interface MenuContentProps extends ComponentPropsWithoutRef<"div"> {
   /** The preferred alignment against the trigger. May change when collisions occur. Default is `center`. */
   align?: "start" | "center" | "end"
 
-  /** Whether or not to show an overlay. Default is `false`. */
+  /** Whether or not to show an overlay. Default is `false`. Doesn't work with `inPortal={false}`. */
   withOverlay?: boolean
+
+  /** Render content within a portal. Default is `true`. */
+  inPortal?: boolean
 }
 
 export const MenuContent = forwardRef<HTMLDivElement, MenuContentProps>(
-  ({ children, withOverlay, ...props }, forwardedRef): JSX.Element | null => {
+  ({ children, withOverlay, inPortal = true, ...props }, forwardedRef): JSX.Element | null => {
     const theme = useTheme()
+    const ConditionalPortal = inPortal ? DropdownMenu.Portal : Fragment
 
     return (
-      <DropdownMenu.Portal>
+      <ConditionalPortal>
         <Wrapper>
-          {withOverlay && <MenuOverlay />}
+          {withOverlay && inPortal && <MenuOverlay />}
           <StyledContent
             collisionPadding={2 * theme.spacer}
             sideOffset={theme.spacer}
@@ -29,7 +33,7 @@ export const MenuContent = forwardRef<HTMLDivElement, MenuContentProps>(
             {children}
           </StyledContent>
         </Wrapper>
-      </DropdownMenu.Portal>
+      </ConditionalPortal>
     )
   },
 )
