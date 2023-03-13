@@ -25,14 +25,19 @@ type Story = ComponentStoryObj<typeof Menu>
 interface TemplateProps {
   defaultOpen?: boolean
   withOverlay?: boolean
+  inPortal?: boolean
 }
 
-const Template = ({ defaultOpen = false, withOverlay = false }: TemplateProps): JSX.Element => (
+const Template = ({
+  defaultOpen = false,
+  withOverlay = false,
+  inPortal = true,
+}: TemplateProps): JSX.Element => (
   <Menu defaultOpen={defaultOpen}>
     <MenuTrigger>
       <IconButton aria-label="See options" icon="ellipsis" />
     </MenuTrigger>
-    <MenuContent withOverlay={withOverlay}>
+    <MenuContent withOverlay={withOverlay} inPortal={inPortal}>
       <MenuItem icon={<Icon name="arrowDownCircle" />}>Option 1</MenuItem>
       <MenuItem icon={<Icon name="arrowDownCircle" />}>Option 2</MenuItem>
       <MenuItem>Option 3</MenuItem>
@@ -61,6 +66,15 @@ export const DefaultOpen = {
 
 export const WithOverlay = {
   render: () => <Template defaultOpen withOverlay />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.parentElement ?? canvasElement)
+    const menu = canvas.getByRole("menu", { name: "See options" })
+    await expect(menu).toBeInTheDocument()
+  },
+} satisfies Story
+
+export const WithoutPortal = {
+  render: () => <Template defaultOpen inPortal={false} />,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement.parentElement ?? canvasElement)
     const menu = canvas.getByRole("menu", { name: "See options" })
