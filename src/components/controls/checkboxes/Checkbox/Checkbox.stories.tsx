@@ -1,7 +1,7 @@
 import { expect } from "@storybook/jest"
-import { ComponentStory, Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
-import { useState } from "react"
+import { ComponentProps, useState } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { Checkbox } from "./Checkbox"
 
@@ -41,7 +41,7 @@ export const DefaultChecked = {
   },
 } satisfies Story
 
-const ControlledTemplate: ComponentStory<typeof Checkbox> = (args) => {
+const ControlledTemplate = (args: ComponentProps<typeof Checkbox>): JSX.Element => {
   const [checked, setChecked] = useState(false)
   return <Checkbox {...args} checked={checked} onCheckedChange={setChecked} />
 }
@@ -56,7 +56,7 @@ export const Controlled = {
     const checkbox = canvas.getByRole("checkbox", { name: "Label" })
     await expect(checkbox).not.toBeChecked()
   },
-} satisfies Story
+} satisfies StoryObj
 
 export const Mouse = {
   args: {
@@ -93,7 +93,7 @@ export const Keyboard = {
   },
 } satisfies Story
 
-const GroupTemplate: ComponentStory<typeof Checkbox> = () => {
+const GroupTemplate = (): JSX.Element => {
   return (
     <>
       <Checkbox name="name">Label 1</Checkbox>
@@ -102,11 +102,9 @@ const GroupTemplate: ComponentStory<typeof Checkbox> = () => {
     </>
   )
 }
+
 export const GroupMouse = {
-  render: (args) => <GroupTemplate {...args} />,
-  args: {
-    ...WithLabel.args,
-  },
+  render: () => <GroupTemplate />,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const checkbox1 = canvas.getByRole("checkbox", { name: "Label 1" })
@@ -132,7 +130,7 @@ export const GroupMouse = {
     await expect(checkbox2).not.toBeChecked()
     await expect(checkbox3).toBeChecked()
   },
-} satisfies Story
+} satisfies StoryObj
 
 export const GroupKeyboard = {
   render: (args) => <GroupTemplate {...args} />,
