@@ -1,19 +1,19 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
+import { ComponentProps } from "react"
 import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { StepProgress } from "./StepProgress"
 
-const meta = {
+export default {
   title: "Charts/StepProgress",
   component: StepProgress,
-} satisfies Meta<typeof StepProgress>
+} satisfies ComponentMeta<typeof StepProgress>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof StepProgress>
 
 export const Default = {
   args: {
-    "aria-label": "Electrification potential", // TODO: Require only aria-label?
     completedSteps: 2,
+    title: "Electrification potential",
   },
 } satisfies Story
 
@@ -22,9 +22,9 @@ export const Snapshot = {
     <SnapshotWrapper>
       {[Default].map((Story, index) => (
         // eslint-disable-next-line react/no-array-index-key
-        <StepProgress key={index} {...Story.args} />
+        <StepProgress key={index} {...(Story.args as ComponentProps<typeof StepProgress>)} />
       ))}
     </SnapshotWrapper>
   ),
   parameters: { chromatic: { disableSnapshot: false } },
-} satisfies StoryObj
+} satisfies Story

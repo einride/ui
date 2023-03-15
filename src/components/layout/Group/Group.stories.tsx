@@ -1,16 +1,15 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { IconButton } from "../../controls/buttons/IconButton/IconButton"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { SecondaryButton } from "../../controls/buttons/SecondaryButton/SecondaryButton"
 import { Group } from "./Group"
 
-const meta = {
+export default {
   title: "Layout/Group",
   component: Group,
-} satisfies Meta<typeof Group>
+} satisfies ComponentMeta<typeof Group>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof Group>
 
 export const Default = {
   render: (args) => (

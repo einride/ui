@@ -1,5 +1,6 @@
 import styled from "@emotion/styled"
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
+import { HTMLAttributes } from "react"
 import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { Card } from "../../cards/Card/Card"
 import { Caption } from "../../typography/Caption/Caption"
@@ -7,32 +8,34 @@ import { Paragraph } from "../../typography/Paragraph/Paragraph"
 import { Title1 } from "../../typography/Title1/Title1"
 import { Icon, iconNames } from "./Icon"
 
-const meta = {
+export default {
   title: "Content/Icon",
   component: Icon,
-} satisfies Meta<typeof Icon>
+} satisfies ComponentMeta<typeof Icon>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof Icon>
 
-const AllIcons = (): JSX.Element => {
-  return (
-    <Wrapper>
-      {iconNames.map((iconName) => (
-        <StyledCard key={iconName} background="secondary">
-          <Paragraph>
-            <Icon name={iconName} />
-          </Paragraph>
-          <Caption font="mono">{iconName}</Caption>
-        </StyledCard>
-      ))}
-    </Wrapper>
-  )
-}
+const AllTemplate = ({
+  wrapperProps,
+}: {
+  wrapperProps?: HTMLAttributes<HTMLDivElement>
+}): JSX.Element => (
+  <Wrapper {...wrapperProps}>
+    {iconNames.map((iconName) => (
+      <StyledCard key={iconName} background="secondary">
+        <Paragraph>
+          <Icon name={iconName} />
+        </Paragraph>
+        <Caption font="mono">{iconName}</Caption>
+      </StyledCard>
+    ))}
+  </Wrapper>
+)
 
 export const All = {
-  render: () => <AllIcons />,
-} satisfies StoryObj
+  args: {},
+  render: () => <AllTemplate />,
+} satisfies Story
 
 const Wrapper = styled.div`
   display: grid;
@@ -65,8 +68,8 @@ export const WithLargeText = {
 export const Snapshot = {
   render: () => (
     <SnapshotWrapper style={{ display: "block" }}>
-      <AllIcons />
+      <AllTemplate />
     </SnapshotWrapper>
   ),
   parameters: { chromatic: { disableSnapshot: false } },
-} satisfies StoryObj
+} satisfies Story

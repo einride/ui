@@ -1,17 +1,16 @@
 import { expect } from "@storybook/jest"
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { within } from "@storybook/testing-library"
 import siteHovered from "./siteHovered.svg"
 
 const SiteHovered = (): JSX.Element => <img src={siteHovered} alt="Site" />
 
-const meta = {
+export default {
   title: "Mapping/SiteHovered",
   component: SiteHovered,
-} satisfies Meta<typeof SiteHovered>
+} satisfies ComponentMeta<typeof SiteHovered>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof SiteHovered>
 
 export const Default = {
   play: async ({ canvasElement }) => {

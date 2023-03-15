@@ -1,11 +1,11 @@
 import { expect } from "@storybook/jest"
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
-import { ComponentProps, useState } from "react"
+import { useState } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { TextInput } from "./TextInput"
 
-const meta = {
+export default {
   title: "Controls/Inputs/TextInput",
   component: TextInput,
   argTypes: {
@@ -13,10 +13,9 @@ const meta = {
       control: "boolean",
     },
   },
-} satisfies Meta<typeof TextInput>
+} satisfies ComponentMeta<typeof TextInput>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof TextInput>
 
 export const WithLabel = {
   args: {
@@ -72,7 +71,7 @@ export const DefaultValue = {
   },
 } satisfies Story
 
-const ControlledTemplate = (args: ComponentProps<typeof TextInput>): JSX.Element => {
+const ControlledTemplate: ComponentStory<typeof TextInput> = (args) => {
   const [value, setValue] = useState("")
   return <TextInput {...args} value={value} onChange={(e) => setValue(e.target.value)} />
 }
@@ -160,4 +159,4 @@ export const Snapshot = {
     </SnapshotWrapper>
   ),
   parameters: { chromatic: { disableSnapshot: false } },
-} satisfies StoryObj
+} satisfies Story

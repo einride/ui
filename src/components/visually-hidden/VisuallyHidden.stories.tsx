@@ -1,27 +1,23 @@
 import { expect } from "@storybook/jest"
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { within } from "@storybook/testing-library"
 import { PrimaryButton } from "../controls/buttons/PrimaryButton/PrimaryButton"
 import { VisuallyHidden } from "./VisuallyHidden"
 
-const meta = {
+export default {
   title: "VisuallyHidden/VisuallyHidden",
   component: VisuallyHidden,
-} satisfies Meta<typeof VisuallyHidden>
+} satisfies ComponentMeta<typeof VisuallyHidden>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof VisuallyHidden>
 
 export const Basic = {
-  render: (args) => (
+  render: () => (
     <PrimaryButton>
       Update
-      <VisuallyHidden {...args} />
+      <VisuallyHidden>user with name Filip</VisuallyHidden>
     </PrimaryButton>
   ),
-  args: {
-    children: <>user with name Filip</>,
-  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const button = canvas.getByRole("button")

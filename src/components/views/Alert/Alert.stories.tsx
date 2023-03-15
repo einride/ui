@@ -1,16 +1,16 @@
 import { useDisclosure } from "@einride/hooks"
 import { expect } from "@storybook/jest"
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { Alert } from "./Alert"
 
-const meta = {
+export default {
   title: "Views/Alert",
   component: Alert,
-} satisfies Meta<typeof Alert>
+} satisfies ComponentMeta<typeof Alert>
 
-export default meta // TODO: Make possible to you uncontrolled
+type Story = ComponentStoryObj<typeof Alert>
 
 interface TemplateProps {
   defaultOpen?: boolean
@@ -42,7 +42,7 @@ export const Basic = {
       "Secondary, supporting text that should span to a maximum of 2-3 lines and no more than that.",
     )
   },
-} satisfies StoryObj
+} satisfies Story
 
 export const Mouse = {
   render: () => <Template />,
@@ -59,7 +59,7 @@ export const Mouse = {
     await userEvent.click(secondaryButton)
     await expect(alert).not.toBeInTheDocument()
   },
-} satisfies StoryObj
+} satisfies Story
 
 export const Keyboard = {
   render: () => <Template />,
@@ -79,4 +79,4 @@ export const Keyboard = {
     await userEvent.keyboard("[Enter]")
     await expect(alert).not.toBeInTheDocument()
   },
-} satisfies StoryObj
+} satisfies Story

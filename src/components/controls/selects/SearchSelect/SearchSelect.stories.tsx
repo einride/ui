@@ -1,8 +1,8 @@
 import { faker } from "@faker-js/faker"
 import { expect, jest } from "@storybook/jest"
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
-import { ComponentProps, useState } from "react"
+import { useState } from "react"
 import { Box } from "../../../layout/Box/Box"
 import { SearchSelect } from "./SearchSelect"
 import { BaseOption } from "./types"
@@ -28,7 +28,7 @@ function getMockData(count: number, withInputValue?: boolean): BaseOption[] {
   })
 }
 
-const meta = {
+export default {
   title: "Controls/Selects/SearchSelect",
   component: SearchSelect,
   argTypes: {
@@ -37,17 +37,14 @@ const meta = {
     },
   },
   render: (args) => <Template {...args} />,
-} satisfies Meta<typeof SearchSelect>
+} satisfies ComponentMeta<typeof SearchSelect>
 
-export default meta
-type Story = StoryObj<typeof SearchSelect>
+type Story = ComponentStoryObj<typeof SearchSelect>
 
 const basicOptions = getMockData(3)
 const largeDataset = getMockData(32)
 
-const Template = (
-  args: ComponentProps<typeof SearchSelect<(typeof basicOptions)[0]>>,
-): JSX.Element => {
+const Template: ComponentStory<typeof SearchSelect<(typeof basicOptions)[0]>> = (args) => {
   const [searchTerm, setSearchTerm] = useState("")
   return (
     <SearchSelect {...args} onSearchChange={(text) => setSearchTerm(text)} value={searchTerm} />
@@ -89,9 +86,9 @@ export const WithoutLabel = {
 } satisfies Story
 
 const inputValueOptions = getMockData(3, true)
-const InputValueTemplate = (
-  args: ComponentProps<typeof SearchSelect<(typeof inputValueOptions)[0]>>,
-): JSX.Element => {
+const InputValueTemplate: ComponentStory<typeof SearchSelect<(typeof inputValueOptions)[0]>> = (
+  args,
+) => {
   const [searchTerm, setSearchTerm] = useState("")
   return (
     <SearchSelect {...args} onSearchChange={(text) => setSearchTerm(text)} value={searchTerm} />
@@ -131,14 +128,16 @@ const descriptionOptions = [
   },
 ]
 
-const DescriptionTemplate = (
-  args: ComponentProps<typeof SearchSelect<(typeof descriptionOptions)[0]>>,
-): JSX.Element => {
+const DescriptionTemplate: ComponentStory<typeof SearchSelect<(typeof descriptionOptions)[0]>> = (
+  args,
+) => {
   const [searchTerm, setSearchTerm] = useState("")
   return (
     <SearchSelect {...args} onSearchChange={(text) => setSearchTerm(text)} value={searchTerm} />
   )
 }
+
+type DescriptionStory = ComponentStoryObj<typeof SearchSelect<(typeof descriptionOptions)[0]>>
 
 export const CustomFilter = {
   render: (args) => <DescriptionTemplate {...args} />,
@@ -158,7 +157,7 @@ export const CustomFilter = {
     await userEvent.keyboard("[Enter]")
     await expect(inputField).toHaveValue("Operator dazzling breeding")
   },
-} satisfies StoryObj<typeof SearchSelect<(typeof descriptionOptions)[0]>>
+} satisfies DescriptionStory
 
 const onOptionSelect = jest.fn()
 const onClearClick = jest.fn()

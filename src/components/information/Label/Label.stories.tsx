@@ -1,20 +1,19 @@
 import { expect } from "@storybook/jest"
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { within } from "@storybook/testing-library"
 import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { Group } from "../../layout/Group/Group"
 import { Label } from "./Label"
 
-const meta = {
+export default {
   title: "Information/Label",
   component: Label,
   args: {
     children: "Label",
   },
-} satisfies Meta<typeof Label>
+} satisfies ComponentMeta<typeof Label>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof Label>
 
 export const AllVariants = {
   render: () => (

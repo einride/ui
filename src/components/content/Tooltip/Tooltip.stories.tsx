@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import { expect } from "@storybook/jest"
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
 import { userEvent, waitFor, within } from "@storybook/testing-library"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { Table as TableComponent } from "../../table/Table/Table"
@@ -12,13 +12,12 @@ import { Tr } from "../../table/Tr/Tr"
 import { Text } from "../../typography/Text/Text"
 import { Tooltip } from "./Tooltip"
 
-const meta = {
+export default {
   title: "Content/Tooltip",
   component: Tooltip,
-} satisfies Meta<typeof Tooltip>
+} satisfies ComponentMeta<typeof Tooltip>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof Tooltip>
 
 export const Basic = {
   args: {
@@ -45,7 +44,7 @@ export const ButtonTrigger = {
   },
 } satisfies Story
 
-const TableTemplate = (): JSX.Element => (
+const TableTemplate: ComponentStory<typeof Tooltip> = () => (
   <TableComponent>
     <Thead>
       <Tr color="secondary">
@@ -97,13 +96,14 @@ const TruncatedText = styled(Text)`
 `
 
 export const Table = {
+  args: {},
   render: (args) => <TableTemplate {...args} />,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const tooltipTrigger = canvas.getByRole("button", { name: "CO2e" })
     await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
   },
-} satisfies StoryObj
+} satisfies Story
 
 export const OpenDelay = {
   args: {

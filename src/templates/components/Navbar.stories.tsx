@@ -1,15 +1,12 @@
-import { Meta } from "@storybook/react"
 import { ReactNode } from "react"
 import { IconButton } from "../../components/controls/buttons/IconButton/IconButton"
 import { PrimaryButton } from "../../components/controls/buttons/PrimaryButton/PrimaryButton"
 import { Group } from "../../components/layout/Group/Group"
 
-const meta = {
+export default {
   title: "Templates/Wireframes/Navbar",
   args: { style: { paddingBlockStart: 0 } },
-} satisfies Meta
-
-export default meta
+}
 
 interface NavbarProps {
   actions?: ReactNode

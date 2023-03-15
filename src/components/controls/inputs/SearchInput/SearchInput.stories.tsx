@@ -1,11 +1,11 @@
 import { expect } from "@storybook/jest"
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
-import { ComponentProps, useState } from "react"
+import { useState } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { SearchInput } from "./SearchInput"
 
-const meta = {
+export default {
   title: "Controls/Inputs/SearchInput",
   component: SearchInput,
   argTypes: {
@@ -13,10 +13,9 @@ const meta = {
       control: "boolean",
     },
   },
-} satisfies Meta<typeof SearchInput>
+} satisfies ComponentMeta<typeof SearchInput>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof SearchInput>
 
 export const WithLabel = {
   args: {
@@ -53,7 +52,7 @@ export const DefaultValue = {
   },
 } satisfies Story
 
-const ControlledTemplate = (args: ComponentProps<typeof SearchInput>): JSX.Element => {
+const ControlledTemplate: ComponentStory<typeof SearchInput> = (args) => {
   const [value, setValue] = useState("")
   return <SearchInput {...args} value={value} onInputChange={setValue} />
 }
@@ -157,4 +156,4 @@ export const Snapshot = {
     </SnapshotWrapper>
   ),
   parameters: { chromatic: { disableSnapshot: false } },
-}
+} satisfies Story

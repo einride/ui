@@ -1,16 +1,15 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { Th } from "../../table/Th/Th"
 import { Thead } from "../../table/Thead/Thead"
 import { Tr } from "../../table/Tr/Tr"
 import { TableSkeleton } from "./TableSkeleton"
 
-const meta = {
+export default {
   title: "Feedback/TableSkeleton",
   component: TableSkeleton,
-} satisfies Meta<typeof TableSkeleton>
+} satisfies ComponentMeta<typeof TableSkeleton>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof TableSkeleton>
 
 export const Basic = {
   args: {

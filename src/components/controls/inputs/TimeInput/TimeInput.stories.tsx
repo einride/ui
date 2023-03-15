@@ -1,5 +1,5 @@
 import { expect } from "@storybook/jest"
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { ComponentProps, useState } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
@@ -7,7 +7,7 @@ import { HorizontalLayout } from "../../../../main"
 import { TimeInput } from "./TimeInput"
 import { useRangeTimeInput } from "./useRangeTimeInput"
 
-const meta = {
+export default {
   title: "Controls/Inputs/TimeInput",
   component: TimeInput,
   argTypes: {
@@ -15,10 +15,9 @@ const meta = {
       control: "boolean",
     },
   },
-} satisfies Meta<typeof TimeInput>
+} satisfies ComponentMeta<typeof TimeInput>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof TimeInput>
 
 export const WithLabel = {
   args: {
@@ -76,7 +75,7 @@ export const DefaultValue = {
   },
 } satisfies Story
 
-const ControlledTemplate = (args: ComponentProps<typeof TimeInput>): JSX.Element => {
+const ControlledTemplate: ComponentStory<typeof TimeInput> = (args) => {
   const [value, setValue] = useState("")
   return <TimeInput {...args} value={value} onChange={(e) => setValue(e.target.value)} />
 }
@@ -134,7 +133,7 @@ export const Range = {
     await expect(inputTo).not.toHaveAccessibleDescription()
     await expect(inputTo).not.toHaveErrorMessage()
   },
-} satisfies StoryObj
+} satisfies Story
 
 export const Message = {
   args: {
@@ -204,10 +203,10 @@ export const Snapshot = {
       {[WithLabel, WithoutLabel, ReadOnly, DefaultValue, Message, SuccessMessage, ErrorMessage].map(
         (Story, index) => (
           // eslint-disable-next-line react/no-array-index-key
-          <TimeInput key={index} {...Story.args} />
+          <TimeInput key={index} {...(Story.args as ComponentProps<typeof TimeInput>)} />
         ),
       )}
     </SnapshotWrapper>
   ),
   parameters: { chromatic: { disableSnapshot: false } },
-} satisfies StoryObj
+} satisfies Story

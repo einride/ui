@@ -1,10 +1,10 @@
 import { expect } from "@storybook/jest"
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { within } from "@storybook/testing-library"
 import { contentColors, fonts } from "../../../lib/theme/types"
 import { Text } from "./Text"
 
-const meta = {
+export default {
   title: "Typography/Text",
   component: Text,
   argTypes: {
@@ -15,10 +15,9 @@ const meta = {
       options: fonts,
     },
   },
-} satisfies Meta<typeof Text>
+} satisfies ComponentMeta<typeof Text>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof Text>
 
 export const Basic = {
   args: {

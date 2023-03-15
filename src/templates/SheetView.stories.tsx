@@ -1,5 +1,4 @@
 import { useDisclosure } from "@einride/hooks"
-import { Meta } from "@storybook/react"
 import { PrimaryButton } from "../components/controls/buttons/PrimaryButton/PrimaryButton"
 import { TextInput } from "../components/controls/inputs/TextInput/TextInput"
 import { Select } from "../components/controls/selects/Select/Select"
@@ -11,12 +10,10 @@ import { Sheets } from "../components/views/Sheets/Sheets"
 import { Navbar } from "./components/Navbar.stories"
 import { UserTable } from "./components/UserTable.stories"
 
-const meta = {
+export default {
   title: "Templates",
   args: { style: { paddingBlockStart: 0 } },
-} satisfies Meta
-
-export default meta
+}
 
 export const SheetView = (): JSX.Element => {
   const { isOpen, handlers } = useDisclosure(true)

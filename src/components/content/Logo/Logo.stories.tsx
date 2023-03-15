@@ -1,14 +1,13 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { Logo } from "./Logo"
 
-const meta = {
+export default {
   title: "Content/Logo",
   component: Logo,
-} satisfies Meta<typeof Logo>
+} satisfies ComponentMeta<typeof Logo>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof Logo>
 
 export const Default = {
   args: {},
@@ -36,4 +35,4 @@ export const Snapshot = {
     </SnapshotWrapper>
   ),
   parameters: { chromatic: { disableSnapshot: false } },
-} satisfies StoryObj
+} satisfies Story
