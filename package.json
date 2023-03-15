@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.21.3",
+    "@babel/preset-typescript": "7.21.0",
     "@commitlint/cli": "17.4.4",
     "@commitlint/config-conventional": "17.4.4",
     "@einride/eslint-plugin": "6.22.1",
