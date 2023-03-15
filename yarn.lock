@@ -2041,7 +2041,7 @@ __metadata:
     dayjs: 1.11.7
     eslint: 8.36.0
     eslint-plugin-storybook: 0.6.11
-    framer-motion: 10.2.5
+    framer-motion: 10.3.1
     happy-dom: 8.9.0
     lodash.merge: 4.6.2
     luxon: 3.3.0
@@ -11759,9 +11759,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:10.2.5":
-  version: 10.2.5
-  resolution: "framer-motion@npm:10.2.5"
+"framer-motion@npm:10.3.1":
+  version: 10.3.1
+  resolution: "framer-motion@npm:10.3.1"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
     tslib: ^2.4.0
@@ -11776,7 +11776,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 05c82a4e25c2f52e1d27dbab333c49026e4020a8556efa8def2a3f355fdb1bd37d8d4668dc42271f7d09a094189d64707a0c57d076f98b1133f0e9cc4a37be3f
+  checksum: e34fafd71ff90dcf03cd234b9fd286db43910f96ecc409622a0a5f3e40dd5b10fdfaea9ad8d0eec83b800c7e5c0a712aa57617df2c762baa96086218e7f19ae2
   languageName: node
   linkType: hard
 
