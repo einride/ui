@@ -2004,7 +2004,7 @@ __metadata:
     "@faker-js/faker": 7.6.0
     "@mantine/core": 6.0.2
     "@mantine/dates": 6.0.1
-    "@mantine/hooks": 6.0.1
+    "@mantine/hooks": 6.0.2
     "@radix-ui/react-alert-dialog": 1.0.3
     "@radix-ui/react-dialog": 1.0.3
     "@radix-ui/react-dropdown-menu": 2.0.4
@@ -3063,12 +3063,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/hooks@npm:6.0.1":
-  version: 6.0.1
-  resolution: "@mantine/hooks@npm:6.0.1"
+"@mantine/hooks@npm:6.0.2":
+  version: 6.0.2
+  resolution: "@mantine/hooks@npm:6.0.2"
   peerDependencies:
     react: ">=16.8.0"
-  checksum: 94c7563be35ec36a45d62ef183bdbc2e1e65364b011a7b055606546c10a1e988bc421ec36678554a04a79987a7ed9da9a6058e20bfd5632ec7adfe45bf671f74
+  checksum: dd3ac58ce8b24c9956e8bcbf7374e64165e8251fa099e453f21a70a74009f7fa2a8d0a58498c4667e1e9bf1e7fa57c266ca1e1981f68c7ea18999232ad04fc60
   languageName: node
   linkType: hard
 
