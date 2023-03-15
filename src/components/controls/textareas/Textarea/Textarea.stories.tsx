@@ -1,10 +1,10 @@
 import { expect } from "@storybook/jest"
-import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
-import { useState } from "react"
+import { ComponentProps, useState } from "react"
 import { Textarea } from "./Textarea"
 
-export default {
+const meta = {
   title: "Controls/Textareas/Textarea",
   component: Textarea,
   argTypes: {
@@ -12,9 +12,10 @@ export default {
       control: "boolean",
     },
   },
-} satisfies ComponentMeta<typeof Textarea>
+} satisfies Meta<typeof Textarea>
 
-type Story = ComponentStoryObj<typeof Textarea>
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const WithLabel = {
   args: {
@@ -92,7 +93,7 @@ export const Positive = {
   },
 } satisfies Story
 
-const ControlledTemplate: ComponentStory<typeof Textarea> = (args) => {
+const ControlledTemplate = (args: ComponentProps<typeof Textarea>): JSX.Element => {
   const [value, setValue] = useState("")
   return <Textarea {...args} value={value} onChange={(e) => setValue(e.target.value)} />
 }

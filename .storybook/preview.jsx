@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import { themes } from "@storybook/theming"
 import { useEffect } from "react"
-import { useDarkMode } from "storybook-dark-mode"
+import { useDarkMode } from "storybook-dark-mode-v7"
 import { useColorScheme } from "../src/contexts/ColorSchemeProvider"
 import { EinrideProvider } from "../src/contexts/EinrideProvider"
 import { einrideTheme } from "../src/lib/theme/einride"

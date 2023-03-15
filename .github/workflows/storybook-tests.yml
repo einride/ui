@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version-file: .nvmrc
+          node-version: 16 # test-storybook requires node 16
           cache: yarn
 
       - name: Install dependencies

@@ -1,15 +1,16 @@
 import { expect } from "@storybook/jest"
-import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
-import { useState } from "react"
+import { ComponentProps, useState } from "react"
 import { Switch } from "./Switch"
 
-export default {
+const meta = {
   title: "Controls/Switches/Switch",
   component: Switch,
-} satisfies ComponentMeta<typeof Switch>
+} satisfies Meta<typeof Switch>
 
-type Story = ComponentStoryObj<typeof Switch>
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Default = {
   args: {
@@ -45,7 +46,7 @@ export const DefaultChecked = {
   },
 } satisfies Story
 
-const ControlledTemplate: ComponentStory<typeof Switch> = (args) => {
+const ControlledTemplate = (args: ComponentProps<typeof Switch>): JSX.Element => {
   const [checked, setChecked] = useState(false)
   return <Switch {...args} checked={checked} onCheckedChange={setChecked} />
 }

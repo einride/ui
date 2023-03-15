@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker"
-import { ComponentMeta } from "@storybook/react"
+import { Meta } from "@storybook/react"
 import { Icon } from "../../components/content/Icon/Icon"
 import { IconButton } from "../../components/controls/buttons/IconButton/IconButton"
 import { Menu } from "../../components/menus/Menu/Menu"
@@ -13,10 +13,12 @@ import { Th } from "../../components/table/Th/Th"
 import { Thead } from "../../components/table/Thead/Thead"
 import { Tr } from "../../components/table/Tr/Tr"
 
-export default {
+const meta = {
   title: "Templates/Wireframes/UserTable",
   args: { style: { paddingBlockStart: 0 } },
-} satisfies ComponentMeta<typeof UserTable>
+} satisfies Meta
+
+export default meta
 
 function createRandomUser(): {
   id: string

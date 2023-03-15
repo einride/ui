@@ -1,11 +1,11 @@
 import { expect } from "@storybook/jest"
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { within } from "@storybook/testing-library"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { Icon } from "../../../content/Icon/Icon"
 import { SecondaryButton } from "./SecondaryButton"
 
-export default {
+const meta = {
   title: "Controls/Buttons/SecondaryButton",
   component: SecondaryButton,
   argTypes: {
@@ -13,9 +13,10 @@ export default {
       control: "boolean",
     },
   },
-} satisfies ComponentMeta<typeof SecondaryButton>
+} satisfies Meta<typeof SecondaryButton>
 
-type Story = ComponentStoryObj<typeof SecondaryButton>
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Basic = {
   args: {
@@ -88,4 +89,4 @@ export const Snapshot = {
   parameters: {
     chromatic: { disableSnapshot: false },
   },
-} satisfies Story
+} satisfies StoryObj

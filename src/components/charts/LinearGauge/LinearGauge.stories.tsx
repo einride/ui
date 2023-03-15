@@ -1,13 +1,14 @@
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { LinearGauge } from "./LinearGauge"
 
-export default {
+const meta = {
   title: "Charts/LinearGauge",
   component: LinearGauge,
-} satisfies ComponentMeta<typeof LinearGauge>
+} satisfies Meta<typeof LinearGauge>
 
-type Story = ComponentStoryObj<typeof LinearGauge>
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Default = {
   args: {
@@ -26,4 +27,4 @@ export const Snapshot = {
     </SnapshotWrapper>
   ),
   parameters: { chromatic: { disableSnapshot: false } },
-} satisfies Story
+} satisfies StoryObj

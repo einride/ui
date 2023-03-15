@@ -1,21 +1,22 @@
-import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
+import { ComponentProps } from "react"
 import { Map } from "react-map-gl"
-import { mapboxStyleLight, mapboxStyleDark } from ".."
+import { mapboxStyleDark, mapboxStyleLight } from ".."
 import { useColorScheme } from "../../../contexts/ColorSchemeProvider"
 import { Text } from "../../typography/Text/Text"
 import { MapTooltip } from "./MapTooltip"
 
 const mapboxAccessToken = import.meta.env.VITE_MAPBOX_TOKEN
 
-export default {
+const meta = {
   title: "Mapping/MapTooltip",
   component: MapTooltip,
   render: (args) => <Template {...args} />,
-} satisfies ComponentMeta<typeof MapTooltip>
+} satisfies Meta<typeof MapTooltip>
 
-type Story = ComponentStoryObj<typeof MapTooltip>
+export default meta
 
-const Template: ComponentStory<typeof MapTooltip> = (args): JSX.Element => {
+const Template = (args: ComponentProps<typeof MapTooltip>): JSX.Element => {
   const { colorScheme } = useColorScheme()
   return (
     <Map
@@ -43,4 +44,4 @@ export const Default = {
       lng: 10.4515,
     },
   },
-} satisfies Story
+} satisfies StoryObj

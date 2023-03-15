@@ -1,11 +1,11 @@
 import { expect } from "@storybook/jest"
-import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
-import { useState } from "react"
+import { ComponentProps, useState } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { Radio } from "./Radio"
 
-export default {
+const meta = {
   title: "Controls/Radios/Radio",
   component: Radio,
   argTypes: {
@@ -13,9 +13,10 @@ export default {
       control: "boolean",
     },
   },
-} satisfies ComponentMeta<typeof Radio>
+} satisfies Meta<typeof Radio>
 
-type Story = ComponentStoryObj<typeof Radio>
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const WithLabel = {
   args: {
@@ -40,7 +41,7 @@ export const DefaultChecked = {
   },
 } satisfies Story
 
-const ControlledTemplate: ComponentStory<typeof Radio> = (args) => {
+const ControlledTemplate = (args: ComponentProps<typeof Radio>): JSX.Element => {
   const [checked, setChecked] = useState(false)
   return <Radio {...args} checked={checked} onCheckedChange={setChecked} />
 }
@@ -88,7 +89,7 @@ export const Keyboard = {
   },
 } satisfies Story
 
-const GroupTemplate: ComponentStory<typeof Radio> = () => {
+const GroupTemplate = (): JSX.Element => {
   return (
     <>
       <Radio name="name">Label 1</Radio>
