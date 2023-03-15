@@ -16,10 +16,10 @@ interface RangeCalendarBaseProps {
   maxDate?: Date
 
   /** Called when date changes. */
-  onChange?: (value: RangeCalendarValue) => void
+  onChange: (value: RangeCalendarValue) => void
 
   /** Selected date, required with controlled input. */
-  value?: RangeCalendarValue
+  value: RangeCalendarValue
 
   /** Props passed to root element. */
   wrapperProps?: BoxProps
