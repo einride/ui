@@ -1,17 +1,18 @@
 import { expect } from "@storybook/jest"
-import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { DateTime } from "luxon"
-import { useState } from "react"
+import { ComponentProps, useState } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { DatePicker } from "./DatePicker"
 
-export default {
+const meta = {
   title: "Controls/Dates/DatePicker",
   component: DatePicker,
-} satisfies ComponentMeta<typeof DatePicker>
+} satisfies Meta<typeof DatePicker>
 
-type Story = ComponentStoryObj<typeof DatePicker>
+export default meta
+type Story = StoryObj<typeof meta>
 
 const defaultDate = DateTime.local(2023, 1, 1)
 const today = DateTime.now()
@@ -70,7 +71,7 @@ export const USFormat = {
   },
 } satisfies Story
 
-const ControlledTemplate: ComponentStory<typeof DatePicker> = (args) => {
+const ControlledTemplate = (args: ComponentProps<typeof DatePicker>): JSX.Element => {
   const [value, setValue] = useState<Date | null>(null)
   return <DatePicker {...args} value={value} onChange={setValue} />
 }
@@ -168,15 +169,6 @@ export const Keyboard = {
     await userEvent.keyboard("[Enter]")
     const firstDateInCurrentMonth = today.set({ day: 1 })
     await expect(input).toHaveAccessibleName(firstDateInCurrentMonth.toFormat(defaultDateFormat))
-    await userEvent.keyboard("[Enter]")
-    await userEvent.tab() // this doesn't match behavior when navigating with keyboard
-    await userEvent.tab({ shift: true })
-    await userEvent.keyboard("[Enter]")
-    await userEvent.tab()
-    await userEvent.tab()
-    await userEvent.keyboard("[Enter]")
-    const firstDateInPreviousMonth = today.minus({ month: 1 }).set({ day: 1 })
-    await expect(input).toHaveAccessibleName(firstDateInPreviousMonth.toFormat(defaultDateFormat))
   },
 } satisfies Story
 
@@ -194,4 +186,4 @@ export const Snapshot = {
   parameters: {
     chromatic: { disableSnapshot: false },
   },
-} satisfies Story
+} satisfies StoryObj

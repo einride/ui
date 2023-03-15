@@ -1,16 +1,17 @@
 import { expect } from "@storybook/jest"
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { within } from "@storybook/testing-library"
 import charger from "./charger.svg"
 
 const Charger = (): JSX.Element => <img src={charger} alt="Charger" />
 
-export default {
+const meta = {
   title: "Mapping/Charger",
   component: Charger,
-} satisfies ComponentMeta<typeof Charger>
+} satisfies Meta<typeof Charger>
 
-type Story = ComponentStoryObj<typeof Charger>
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Default = {
   play: async ({ canvasElement }) => {

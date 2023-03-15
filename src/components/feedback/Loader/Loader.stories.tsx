@@ -1,11 +1,12 @@
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { Loader } from "./Loader"
 
-export default {
+const meta = {
   title: "Feedback/Loader",
   component: Loader,
-} satisfies ComponentMeta<typeof Loader>
+} satisfies Meta<typeof Loader>
 
-type Story = ComponentStoryObj<typeof Loader>
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Default = {} satisfies Story

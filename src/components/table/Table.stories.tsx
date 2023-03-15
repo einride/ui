@@ -1,5 +1,5 @@
 import { expect } from "@storybook/jest"
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { within } from "@storybook/testing-library"
 import { Table } from "./Table/Table"
 import { Tbody } from "./Tbody/Tbody"
@@ -8,12 +8,13 @@ import { Th } from "./Th/Th"
 import { Thead } from "./Thead/Thead"
 import { Tr } from "./Tr/Tr"
 
-export default {
+const meta = {
   title: "Table/Table",
   component: Table,
-} satisfies ComponentMeta<typeof Table>
+} satisfies Meta<typeof Table>
 
-type Story = ComponentStoryObj<typeof Table>
+export default meta
+type Story = StoryObj<typeof meta>
 
 const Template = (): JSX.Element => {
   return (

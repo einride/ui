@@ -1,8 +1,8 @@
 import { faker } from "@faker-js/faker"
 import { expect } from "@storybook/jest"
-import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
-import { useState } from "react"
+import { ComponentProps, useState } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { Box } from "../../../layout/Box/Box"
 import { MultiSelect } from "./MultiSelect"
@@ -29,16 +29,17 @@ function getMockData(count: number, withInputValue?: boolean): BaseOption[] {
   })
 }
 
-export default {
+const meta = {
   title: "Controls/Selects/MultiSelect",
   component: MultiSelect,
   argTypes: { onSelectionChange: { action: "onSelectionChange" } },
-} satisfies ComponentMeta<typeof MultiSelect>
+} satisfies Meta<typeof MultiSelect>
 
 const basicOptions = getMockData(3)
 const largeDataset = getMockData(32)
 
-type Story = ComponentStoryObj<typeof MultiSelect>
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Basic = {
   args: {
@@ -74,7 +75,7 @@ export const LargeDataset = {
   },
 } satisfies Story
 
-const ControlledTemplate: ComponentStory<typeof MultiSelect<(typeof basicOptions)[0]>> = (args) => {
+const ControlledTemplate = (args: ComponentProps<typeof MultiSelect>): JSX.Element => {
   const [selectedOption, setSelectedOption] = useState([basicOptions[0]])
   return (
     <MultiSelect
@@ -256,4 +257,4 @@ export const Snapshot = {
     </SnapshotWrapper>
   ),
   parameters: { chromatic: { disableSnapshot: false } },
-} satisfies Story
+} satisfies StoryObj
