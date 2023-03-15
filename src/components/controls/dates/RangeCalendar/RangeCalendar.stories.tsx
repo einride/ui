@@ -1,18 +1,19 @@
 import { DatesRangeValue } from "@mantine/dates"
 import { expect } from "@storybook/jest"
-import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { DateTime } from "luxon"
 import { ComponentProps, useState } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { RangeCalendar } from "./RangeCalendar"
 
-export default {
+const meta = {
   title: "Controls/Dates/RangeCalendar",
   component: RangeCalendar,
-} satisfies ComponentMeta<typeof RangeCalendar>
+} satisfies Meta<typeof RangeCalendar>
 
-type Story = ComponentStoryObj<typeof RangeCalendar>
+export default meta
+type Story = StoryObj<typeof meta>
 
 const defaultDate = DateTime.local(2023, 1, 1)
 const defaultEndDate = DateTime.local(2023, 1, 5)
@@ -49,9 +50,9 @@ export const DefaultValue = {
   },
 } satisfies Story
 
-const ControlledTemplate: ComponentStory<typeof RangeCalendar> = (args) => {
+const ControlledTemplate = (args: ComponentProps<typeof RangeCalendar>): JSX.Element => {
   const { value: argsValue } = args
-  const [value, setValue] = useState<DatesRangeValue>(argsValue)
+  const [value, setValue] = useState<DatesRangeValue>(argsValue ?? [null, null])
   return <RangeCalendar {...args} value={value} onChange={setValue} />
 }
 
@@ -154,11 +155,11 @@ export const Snapshot = {
     <SnapshotWrapper>
       {[DefaultDate, DefaultValue].map((Story, index) => (
         // eslint-disable-next-line react/no-array-index-key
-        <RangeCalendar key={index} {...(Story.args as ComponentProps<typeof RangeCalendar>)} />
+        <RangeCalendar key={index} {...Story.args} />
       ))}
     </SnapshotWrapper>
   ),
   parameters: {
     chromatic: { disableSnapshot: false },
   },
-} satisfies Story
+} satisfies StoryObj

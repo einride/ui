@@ -1,12 +1,13 @@
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { Box } from "./Box"
 
-export default {
+const meta = {
   title: "Layout/Box",
   component: Box,
-} satisfies ComponentMeta<typeof Box>
+} satisfies Meta<typeof Box>
 
-type Story = ComponentStoryObj<typeof Box>
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Background = {
   args: {

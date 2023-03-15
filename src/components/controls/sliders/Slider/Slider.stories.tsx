@@ -1,15 +1,16 @@
 import { expect } from "@storybook/jest"
-import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
-import { useState } from "react"
+import { ComponentProps, useState } from "react"
 import { Slider } from "./Slider"
 
-export default {
+const meta = {
   title: "Controls/Sliders/Slider",
   component: Slider,
-} satisfies ComponentMeta<typeof Slider>
+} satisfies Meta<typeof Slider>
 
-type Story = ComponentStoryObj<typeof Slider>
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const WithLabel = {
   args: {
@@ -45,7 +46,7 @@ export const DefaultValue = {
   },
 } satisfies Story
 
-const ControlledTemplate: ComponentStory<typeof Slider> = (args) => {
+const ControlledTemplate = (args: ComponentProps<typeof Slider>): JSX.Element => {
   const [value, setValue] = useState([0])
   return <Slider {...args} value={value} onValueChange={setValue} />
 }

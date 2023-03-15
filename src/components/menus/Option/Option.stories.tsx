@@ -1,13 +1,14 @@
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { Icon } from "../../content/Icon/Icon"
 import { Option } from "./Option"
 
-export default {
+const meta = {
   title: "Menus/Option",
   component: Option,
-} satisfies ComponentMeta<typeof Option>
+} satisfies Meta<typeof Option>
 
-type Story = ComponentStoryObj<typeof Option>
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Basic = {
   args: {

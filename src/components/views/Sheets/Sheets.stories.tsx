@@ -1,6 +1,6 @@
 import { useDisclosure } from "@einride/hooks"
 import { expect } from "@storybook/jest"
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { IconButton } from "../../controls/buttons/IconButton/IconButton"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
@@ -11,12 +11,12 @@ import { MenuTrigger } from "../../menus/Menu/MenuTrigger"
 import { Text } from "../../typography/Text/Text"
 import { Sheets } from "./Sheets"
 
-export default {
+const meta = {
   title: "Views/Sheets",
   component: Sheets,
-} satisfies ComponentMeta<typeof Sheets>
+} satisfies Meta<typeof Sheets>
 
-type Story = ComponentStoryObj<typeof Sheets>
+export default meta // TODO: Make possible to use uncontrolled
 
 interface TemplateProps {
   defaultOpen?: boolean
@@ -53,7 +53,7 @@ export const Basic = {
     const alert = canvas.getByRole("dialog")
     await expect(alert).toBeInTheDocument()
   },
-} satisfies Story
+} satisfies StoryObj
 
 export const NonModal = {
   render: () => <Template modal={false} defaultOpen />,
@@ -62,7 +62,7 @@ export const NonModal = {
     const alert = canvas.getByRole("dialog")
     await expect(alert).toBeInTheDocument()
   },
-} satisfies Story
+} satisfies StoryObj
 
 export const Mouse = {
   render: () => <Template />,
@@ -77,7 +77,7 @@ export const Mouse = {
     await userEvent.click(closeButton)
     await expect(dialog).not.toBeInTheDocument()
   },
-} satisfies Story
+} satisfies StoryObj
 
 export const Keyboard = {
   render: () => <Template />,
@@ -95,7 +95,7 @@ export const Keyboard = {
     await userEvent.keyboard("[Enter]")
     await expect(dialog).not.toBeInTheDocument()
   },
-} satisfies Story
+} satisfies StoryObj
 
 const ContextMenuTemplate = (): JSX.Element => {
   const { isOpen, handlers } = useDisclosure(true)
@@ -129,4 +129,4 @@ const ContextMenuTemplate = (): JSX.Element => {
 
 export const ContextMenu = {
   render: () => <ContextMenuTemplate />,
-} satisfies Story
+} satisfies StoryObj

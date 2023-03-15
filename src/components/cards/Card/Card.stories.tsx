@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { StepGauge } from "../../charts/StepGauge/StepGauge"
 import { StepProgress } from "../../charts/StepProgress/StepProgress"
@@ -9,12 +9,13 @@ import { Stack } from "../../layout/Stack/Stack"
 import { Text } from "../../typography/Text/Text"
 import { Card } from "./Card"
 
-export default {
+const meta = {
   title: "Cards/Card",
   component: Card,
-} satisfies ComponentMeta<typeof Card>
+} satisfies Meta<typeof Card>
 
-type Story = ComponentStoryObj<typeof Card>
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Gauge = {
   args: {
@@ -115,4 +116,4 @@ export const Snapshot = {
     </SnapshotWrapper>
   ),
   parameters: { chromatic: { disableSnapshot: false } },
-} satisfies Story
+} satisfies StoryObj

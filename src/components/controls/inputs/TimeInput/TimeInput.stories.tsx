@@ -1,5 +1,5 @@
 import { expect } from "@storybook/jest"
-import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { ComponentProps, useState } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
@@ -7,7 +7,7 @@ import { HorizontalLayout } from "../../../../main"
 import { TimeInput } from "./TimeInput"
 import { useRangeTimeInput } from "./useRangeTimeInput"
 
-export default {
+const meta = {
   title: "Controls/Inputs/TimeInput",
   component: TimeInput,
   argTypes: {
@@ -15,9 +15,10 @@ export default {
       control: "boolean",
     },
   },
-} satisfies ComponentMeta<typeof TimeInput>
+} satisfies Meta<typeof TimeInput>
 
-type Story = ComponentStoryObj<typeof TimeInput>
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const WithLabel = {
   args: {
@@ -75,7 +76,7 @@ export const DefaultValue = {
   },
 } satisfies Story
 
-const ControlledTemplate: ComponentStory<typeof TimeInput> = (args) => {
+const ControlledTemplate = (args: ComponentProps<typeof TimeInput>): JSX.Element => {
   const [value, setValue] = useState("")
   return <TimeInput {...args} value={value} onChange={(e) => setValue(e.target.value)} />
 }
@@ -133,7 +134,7 @@ export const Range = {
     await expect(inputTo).not.toHaveAccessibleDescription()
     await expect(inputTo).not.toHaveErrorMessage()
   },
-} satisfies Story
+} satisfies StoryObj
 
 export const Message = {
   args: {
@@ -203,10 +204,10 @@ export const Snapshot = {
       {[WithLabel, WithoutLabel, ReadOnly, DefaultValue, Message, SuccessMessage, ErrorMessage].map(
         (Story, index) => (
           // eslint-disable-next-line react/no-array-index-key
-          <TimeInput key={index} {...(Story.args as ComponentProps<typeof TimeInput>)} />
+          <TimeInput key={index} {...Story.args} />
         ),
       )}
     </SnapshotWrapper>
   ),
   parameters: { chromatic: { disableSnapshot: false } },
-} satisfies Story
+} satisfies StoryObj

@@ -1,14 +1,15 @@
 import { expect } from "@storybook/jest"
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { within } from "@storybook/testing-library"
 import { WeightUnit } from "./WeightUnit"
 
-export default {
+const meta = {
   title: "Format/WeightUnit",
   component: WeightUnit,
-} satisfies ComponentMeta<typeof WeightUnit>
+} satisfies Meta<typeof WeightUnit>
 
-type Story = ComponentStoryObj<typeof WeightUnit>
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Metric = {
   args: {

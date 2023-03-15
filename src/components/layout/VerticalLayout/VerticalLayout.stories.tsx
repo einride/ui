@@ -1,63 +1,66 @@
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { Paragraph } from "../../typography/Paragraph/Paragraph"
 import { VerticalLayout } from "./VerticalLayout"
 
-export default {
+const meta = {
   title: "Layout/VerticalLayout",
   component: VerticalLayout,
-} satisfies ComponentMeta<typeof VerticalLayout>
+} satisfies Meta<typeof VerticalLayout>
 
-type Story = ComponentStoryObj<typeof VerticalLayout>
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Default = {
-  render: (args) => (
-    <VerticalLayout {...args}>
-      <Paragraph>Row 1</Paragraph>
-      <Paragraph>Row 2</Paragraph>
-      <PrimaryButton>Row 3</PrimaryButton>
-    </VerticalLayout>
-  ),
+  args: {
+    children: (
+      <>
+        <Paragraph>Row 1</Paragraph>
+        <Paragraph>Row 2</Paragraph>
+        <PrimaryButton>Row 3</PrimaryButton>
+      </>
+    ),
+  },
 } satisfies Story
 
 export const None = {
-  ...Default,
   args: {
+    ...Default.args,
     gap: "none",
   },
 } satisfies Story
 
 export const ExtraSmall = {
-  ...Default,
   args: {
+    ...Default.args,
     gap: "xs",
   },
 } satisfies Story
 
 export const Small = {
-  ...Default,
   args: {
+    ...Default.args,
     gap: "sm",
   },
 } satisfies Story
 
 export const Medium = {
-  ...Default,
   args: {
+    ...Default.args,
     gap: "md",
   },
 } satisfies Story
 
 export const Large = {
-  ...Default,
   args: {
+    ...Default.args,
     gap: "lg",
   },
 } satisfies Story
 
 export const ExtraLarge = {
-  ...Default,
   args: {
+    ...Default.args,
     gap: "xl",
   },
 } satisfies Story
