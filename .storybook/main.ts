@@ -1,7 +1,8 @@
-const turbosnap = require("vite-plugin-turbosnap")
-const { mergeConfig } = require("vite")
+import type { StorybookConfig } from "@storybook/react-vite"
+import { mergeConfig } from "vite"
+import turbosnap from "vite-plugin-turbosnap"
 
-module.exports = {
+export default {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
     "@storybook/addon-essentials",
@@ -15,9 +16,6 @@ module.exports = {
     name: "@storybook/react-vite",
     options: {},
   },
-  features: {
-    interactionsDebugger: true,
-  },
   staticDirs: ["../public"],
   async viteFinal(config, { configType }) {
     return mergeConfig(config, {
@@ -25,4 +23,4 @@ module.exports = {
         configType === "PRODUCTION" ? [turbosnap({ rootDir: config.root ?? process.cwd() })] : [],
     })
   },
-}
+} satisfies StorybookConfig
