@@ -2003,7 +2003,7 @@ __metadata:
     "@emotion/styled": 11.10.6
     "@faker-js/faker": 7.6.0
     "@mantine/core": 6.0.2
-    "@mantine/dates": 6.0.1
+    "@mantine/dates": 6.0.2
     "@mantine/hooks": 6.0.2
     "@radix-ui/react-alert-dialog": 1.0.3
     "@radix-ui/react-dialog": 1.0.3
@@ -3049,17 +3049,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/dates@npm:6.0.1":
-  version: 6.0.1
-  resolution: "@mantine/dates@npm:6.0.1"
+"@mantine/dates@npm:6.0.2":
+  version: 6.0.2
+  resolution: "@mantine/dates@npm:6.0.2"
   dependencies:
-    "@mantine/utils": 6.0.1
+    "@mantine/utils": 6.0.2
   peerDependencies:
-    "@mantine/core": 6.0.1
-    "@mantine/hooks": 6.0.1
+    "@mantine/core": 6.0.2
+    "@mantine/hooks": 6.0.2
     dayjs: ">=1.0.0"
     react: ">=16.8.0"
-  checksum: 89ff656635d2f7e47ccb44544ba5166e9d78878f631b3338a0eebe14df3f0b86dbab6b3135ac7a013abd859813858692237eb83172f6ec5d61f3efcdaaa94fd9
+  checksum: 33c8498b8f1bf3c0625e3f49fa0fe88a3d4a9fe57ce52f2d15bd7415eb7df6ac7a836d6e2417b1cefd072e78e7abcb56edf5b23473077471fe2a640fb659d02a
   languageName: node
   linkType: hard
 
@@ -3083,15 +3083,6 @@ __metadata:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
   checksum: 714e6fbff36bcf280f6cad22de5f14886ce7b5c104a3b1df4e94c7915bf1c81a2a8e7239b29ddd065105cfe5bf1c26b9b5342cec2c2fc72b3e6789996d99b28d
-  languageName: node
-  linkType: hard
-
-"@mantine/utils@npm:6.0.1":
-  version: 6.0.1
-  resolution: "@mantine/utils@npm:6.0.1"
-  peerDependencies:
-    react: ">=16.8.0"
-  checksum: 5ad728689c675f0d6e1046e7e7a42f0c3c432cf1a4069c4a1f92879b6b95c6d3c1fc92e72a333fe214435281c7702e9a47629da8dd973a24bfe0538a40a6ad23
   languageName: node
   linkType: hard
 
