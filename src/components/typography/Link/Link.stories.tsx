@@ -1,15 +1,14 @@
 import { expect } from "@storybook/jest"
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { within } from "@storybook/testing-library"
 import { Link } from "./Link"
 
-const meta = {
+export default {
   title: "Typography/Link",
   component: Link,
-} satisfies Meta<typeof Link>
+} satisfies ComponentMeta<typeof Link>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof Link>
 
 export const Basic = {
   args: {

@@ -1,11 +1,11 @@
 import { expect } from "@storybook/jest"
-import { ComponentStory, Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { useState } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { Checkbox } from "./Checkbox"
 
-const meta = {
+export default {
   title: "Controls/Checkboxes/Checkbox",
   component: Checkbox,
   argTypes: {
@@ -13,10 +13,9 @@ const meta = {
       control: "boolean",
     },
   },
-} satisfies Meta<typeof Checkbox>
+} satisfies ComponentMeta<typeof Checkbox>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof Checkbox>
 
 export const WithLabel = {
   args: {
@@ -195,4 +194,4 @@ export const Snapshot = {
     </SnapshotWrapper>
   ),
   parameters: { chromatic: { disableSnapshot: false } },
-} satisfies StoryObj
+} satisfies Story

@@ -1,14 +1,13 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { LinearVerticalProgress } from "./LinearVerticalProgress"
 
-const meta = {
+export default {
   title: "Charts/LinearVerticalProgress",
   component: LinearVerticalProgress,
-} satisfies Meta<typeof LinearVerticalProgress>
+} satisfies ComponentMeta<typeof LinearVerticalProgress>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof LinearVerticalProgress>
 
 export const Default = {
   args: {
@@ -27,4 +26,4 @@ export const Snapshot = {
     </SnapshotWrapper>
   ),
   parameters: { chromatic: { disableSnapshot: false } },
-} satisfies StoryObj
+} satisfies Story

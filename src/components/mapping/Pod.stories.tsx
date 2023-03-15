@@ -1,17 +1,16 @@
 import { expect } from "@storybook/jest"
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { within } from "@storybook/testing-library"
 import pod from "./pod.svg"
 
 const Pod = (): JSX.Element => <img src={pod} alt="Pod" />
 
-const meta = {
+export default {
   title: "Mapping/Pod",
   component: Pod,
-} satisfies Meta<typeof Pod>
+} satisfies ComponentMeta<typeof Pod>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof Pod>
 
 export const Default = {
   play: async ({ canvasElement }) => {

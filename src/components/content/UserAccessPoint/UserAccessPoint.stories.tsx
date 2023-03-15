@@ -1,16 +1,15 @@
 import { expect } from "@storybook/jest"
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { within } from "@storybook/testing-library"
 import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { UserAccessPoint } from "./UserAccessPoint"
 
-const meta = {
+export default {
   title: "Content/UserAccessPoint",
   component: UserAccessPoint,
-} satisfies Meta<typeof UserAccessPoint>
+} satisfies ComponentMeta<typeof UserAccessPoint>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof UserAccessPoint>
 
 export const User = {
   args: {
@@ -69,4 +68,4 @@ export const Snapshot = {
     </SnapshotWrapper>
   ),
   parameters: { chromatic: { disableSnapshot: false } },
-} satisfies StoryObj
+} satisfies Story

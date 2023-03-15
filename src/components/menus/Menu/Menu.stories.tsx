@@ -1,5 +1,5 @@
 import { expect } from "@storybook/jest"
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { useState } from "react"
 import { Icon } from "../../content/Icon/Icon"
@@ -15,12 +15,12 @@ import { MenuContent } from "./MenuContent"
 import { MenuItem } from "./MenuItem"
 import { MenuTrigger } from "./MenuTrigger"
 
-const meta = {
+export default {
   title: "Menus/Menu",
   component: Menu,
-} satisfies Meta<typeof Menu>
+} satisfies ComponentMeta<typeof Menu>
 
-export default meta
+type Story = ComponentStoryObj<typeof Menu>
 
 interface TemplateProps {
   defaultOpen?: boolean
@@ -53,7 +53,7 @@ export const Basic = {
     const button = canvas.getByRole("button", { name: "See options" })
     await expect(button).toBeInTheDocument()
   },
-} satisfies StoryObj
+} satisfies Story
 
 export const DefaultOpen = {
   render: () => <Template defaultOpen />,
@@ -62,7 +62,7 @@ export const DefaultOpen = {
     const menu = canvas.getByRole("menu", { name: "See options" })
     await expect(menu).toBeInTheDocument()
   },
-} satisfies StoryObj
+} satisfies Story
 
 export const WithOverlay = {
   render: () => <Template defaultOpen withOverlay />,
@@ -71,7 +71,7 @@ export const WithOverlay = {
     const menu = canvas.getByRole("menu", { name: "See options" })
     await expect(menu).toBeInTheDocument()
   },
-} satisfies StoryObj
+} satisfies Story
 
 export const WithoutPortal = {
   render: () => <Template defaultOpen inPortal={false} />,
@@ -80,7 +80,7 @@ export const WithoutPortal = {
     const menu = canvas.getByRole("menu", { name: "See options" })
     await expect(menu).toBeInTheDocument()
   },
-} satisfies StoryObj
+} satisfies Story
 
 const ControlledTemplate = (): JSX.Element => {
   const [open, setOpen] = useState(false)
@@ -106,7 +106,7 @@ export const Controlled = {
     const button = canvas.getByRole("button", { name: "See options" })
     await expect(button).toBeInTheDocument()
   },
-} satisfies StoryObj
+} satisfies Story
 
 const founders = [
   { key: "robert", firstName: "Robert", lastName: "Falck" },
@@ -154,7 +154,7 @@ export const InTable = {
     const buttons = canvas.getAllByRole("button", { name: "See options" })
     expect(buttons).toHaveLength(3)
   },
-} satisfies StoryObj
+} satisfies Story
 
 export const Mouse = {
   render: () => <Template />,
@@ -169,7 +169,7 @@ export const Mouse = {
     await userEvent.click(firstItem)
     await expect(menu).not.toBeInTheDocument()
   },
-} satisfies StoryObj
+} satisfies Story
 
 export const Keyboard = {
   render: () => <ControlledTemplate />,
@@ -195,4 +195,4 @@ export const Keyboard = {
     await userEvent.keyboard("[Escape]")
     await expect(button).toHaveFocus()
   },
-} satisfies StoryObj
+} satisfies Story

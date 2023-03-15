@@ -1,20 +1,19 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
+import { ComponentProps } from "react"
 import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { StepGauge } from "./StepGauge"
 
-const meta = {
+export default {
   title: "Charts/StepGauge",
   component: StepGauge,
-} satisfies Meta<typeof StepGauge>
+} satisfies ComponentMeta<typeof StepGauge>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof StepGauge>
 
 export const Default = {
   args: {
     "aria-label": "Progress",
     completedSteps: 2,
-    steps: 3, // TODO: Make prop optional?
   },
 } satisfies Story
 
@@ -23,9 +22,9 @@ export const Snapshot = {
     <SnapshotWrapper>
       {[Default].map((Story, index) => (
         // eslint-disable-next-line react/no-array-index-key
-        <StepGauge key={index} {...Story.args} />
+        <StepGauge key={index} {...(Story.args as ComponentProps<typeof StepGauge>)} />
       ))}
     </SnapshotWrapper>
   ),
   parameters: { chromatic: { disableSnapshot: false } },
-} satisfies StoryObj
+} satisfies Story

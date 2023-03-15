@@ -1,13 +1,12 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { Title3 } from "./Title3"
 
-const meta = {
+export default {
   title: "Typography/Title3",
   component: Title3,
-} satisfies Meta<typeof Title3>
+} satisfies ComponentMeta<typeof Title3>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof Title3>
 
 export const Default = {
   args: {

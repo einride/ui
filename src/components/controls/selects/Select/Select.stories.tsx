@@ -1,28 +1,27 @@
-import { Meta, StoryObj } from "@storybook/react"
-import { ChangeEvent, ComponentProps, useState } from "react"
+import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
+import { ChangeEvent, useState } from "react"
 import { Select } from "./Select"
 
-const meta = {
+export default {
   title: "Controls/Selects/Select",
   component: Select,
-  args: {
-    children: (
-      <>
-        <option value="option1">Option 1</option>
-        <option value="option2">Option 2</option>
-        <option value="option3">Option 3</option>
-      </>
-    ),
-  },
   argTypes: {
     disabled: {
       control: "boolean",
     },
   },
-} satisfies Meta<typeof Select>
+  render: (args) => <Template {...args} />,
+} satisfies ComponentMeta<typeof Select>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof Select>
+
+const Template: ComponentStory<typeof Select> = (args) => (
+  <Select {...args}>
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+    <option value="option3">Option 3</option>
+  </Select>
+)
 
 export const Basic = {
   args: {
@@ -50,20 +49,25 @@ export const DefaultValue = {
   },
 } satisfies Story
 
-const ControlledTemplate = (args: ComponentProps<typeof Select>): JSX.Element => {
+const ControlledTemplate: ComponentStory<typeof Select> = (args) => {
   const [value, setValue] = useState("")
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>): void => {
     setValue(e.target.value)
   }
 
-  return <Select value={value} onChange={handleChange} {...args} />
+  return (
+    <Select value={value} onChange={handleChange} {...args}>
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <option value="option3">Option 3</option>
+    </Select>
+  )
 }
 
 export const Controlled = {
   render: (args) => <ControlledTemplate {...args} />,
   args: {
-    ...Basic.args,
     value: "option2",
   },
 } satisfies Story

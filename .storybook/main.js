@@ -2,18 +2,18 @@ const turbosnap = require("vite-plugin-turbosnap")
 const { mergeConfig } = require("vite")
 
 module.exports = {
-  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",
     "@storybook/addon-interactions",
     "@storybook/addon-links",
-    "storybook-dark-mode-v7", // TODO: switch back to storybook-dark-mode when support for Storybook v7 is released
+    "storybook-dark-mode",
     "@storybook/addon-coverage",
   ],
-  framework: {
-    name: "@storybook/react-vite",
-    options: {},
+  framework: "@storybook/react",
+  core: {
+    builder: "@storybook/builder-vite",
   },
   features: {
     interactionsDebugger: true,

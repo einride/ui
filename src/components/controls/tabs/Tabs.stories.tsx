@@ -1,33 +1,32 @@
 import { expect } from "@storybook/jest"
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
-import { ComponentProps, useState } from "react"
+import { useState } from "react"
 import { Tabs } from "./Tabs"
 import { TabsContent } from "./TabsContent"
 import { TabsList } from "./TabsList"
 import { TabsTrigger } from "./TabsTrigger"
 
-const meta = {
+export default {
   title: "Controls/Tabs/Tabs",
   component: Tabs,
-  args: {
-    children: (
-      <>
-        <TabsList>
-          <TabsTrigger value="tab1">First tab</TabsTrigger>
-          <TabsTrigger value="tab2">Second tab</TabsTrigger>
-          <TabsTrigger value="tab3">Third tab</TabsTrigger>
-        </TabsList>
-        <TabsContent value="tab1">First tab content</TabsContent>
-        <TabsContent value="tab2">Second tab content</TabsContent>
-        <TabsContent value="tab3">Third tab content</TabsContent>
-      </>
-    ),
-  },
-} satisfies Meta<typeof Tabs>
+  render: (args) => <Template {...args} />,
+} satisfies ComponentMeta<typeof Tabs>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof Tabs>
+
+const Template: ComponentStory<typeof Tabs> = (args) => (
+  <Tabs {...args}>
+    <TabsList>
+      <TabsTrigger value="tab1">First tab</TabsTrigger>
+      <TabsTrigger value="tab2">Second tab</TabsTrigger>
+      <TabsTrigger value="tab3">Third tab</TabsTrigger>
+    </TabsList>
+    <TabsContent value="tab1">First tab content</TabsContent>
+    <TabsContent value="tab2">Second tab content</TabsContent>
+    <TabsContent value="tab3">Third tab content</TabsContent>
+  </Tabs>
+)
 
 export const DefaultValue = {
   args: {
@@ -46,22 +45,24 @@ export const DefaultValue = {
   },
 } satisfies Story
 
+const DisabledTemplate: ComponentStory<typeof Tabs> = (args) => (
+  <Tabs {...args}>
+    <TabsList>
+      <TabsTrigger value="tab1">First tab</TabsTrigger>
+      <TabsTrigger value="tab2">Second tab</TabsTrigger>
+      <TabsTrigger value="tab3" disabled>
+        Third tab
+      </TabsTrigger>
+    </TabsList>
+    <TabsContent value="tab1">First tab content</TabsContent>
+    <TabsContent value="tab2">Second tab content</TabsContent>
+    <TabsContent value="tab3">Third tab content</TabsContent>
+  </Tabs>
+)
+
 export const Disabled = {
+  render: (args) => <DisabledTemplate {...args} />,
   args: {
-    children: (
-      <>
-        <TabsList>
-          <TabsTrigger value="tab1">First tab</TabsTrigger>
-          <TabsTrigger value="tab2">Second tab</TabsTrigger>
-          <TabsTrigger value="tab3" disabled>
-            Third tab
-          </TabsTrigger>
-        </TabsList>
-        <TabsContent value="tab1">First tab content</TabsContent>
-        <TabsContent value="tab2">Second tab content</TabsContent>
-        <TabsContent value="tab3">Third tab content</TabsContent>
-      </>
-    ),
     defaultValue: "tab1",
   },
   play: async ({ canvasElement }) => {
@@ -75,7 +76,23 @@ export const Disabled = {
   },
 } satisfies Story
 
+const GrowTemplate: ComponentStory<typeof Tabs> = (args) => (
+  <Tabs {...args}>
+    <TabsList grow>
+      <TabsTrigger value="tab1">First tab</TabsTrigger>
+      <TabsTrigger value="tab2">Second tab</TabsTrigger>
+      <TabsTrigger value="tab3" disabled>
+        Third tab
+      </TabsTrigger>
+    </TabsList>
+    <TabsContent value="tab1">First tab content</TabsContent>
+    <TabsContent value="tab2">Second tab content</TabsContent>
+    <TabsContent value="tab3">Third tab content</TabsContent>
+  </Tabs>
+)
+
 export const Grow = {
+  render: (args) => <GrowTemplate {...args} />,
   args: {
     defaultValue: "tab1",
   },
@@ -92,7 +109,7 @@ export const Grow = {
   },
 } satisfies Story
 
-const ControlledTemplate = (args: ComponentProps<typeof Tabs>): JSX.Element => {
+const ControlledTemplate: ComponentStory<typeof Tabs> = (args) => {
   const [value, setValue] = useState("tab1")
   return (
     <Tabs {...args} value={value} onValueChange={setValue}>
@@ -110,20 +127,7 @@ const ControlledTemplate = (args: ComponentProps<typeof Tabs>): JSX.Element => {
 
 export const Controlled = {
   render: (args) => <ControlledTemplate {...args} />,
-  args: {
-    children: (
-      <>
-        <TabsList>
-          <TabsTrigger value="tab1">First tab</TabsTrigger>
-          <TabsTrigger value="tab2">Second tab</TabsTrigger>
-          <TabsTrigger value="tab3">Third tab</TabsTrigger>
-        </TabsList>
-        <TabsContent value="tab1">First tab content</TabsContent>
-        <TabsContent value="tab2">Second tab content</TabsContent>
-        <TabsContent value="tab3">Third tab content</TabsContent>
-      </>
-    ),
-  },
+  args: {},
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const tab1 = canvas.getByRole("tab", { name: /first tab/i })

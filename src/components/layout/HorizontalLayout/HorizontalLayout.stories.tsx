@@ -1,45 +1,42 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { Paragraph } from "../../typography/Paragraph/Paragraph"
 import { HorizontalLayout } from "./HorizontalLayout"
 
-const meta = {
+export default {
   title: "Layout/HorizontalLayout",
   component: HorizontalLayout,
-} satisfies Meta<typeof HorizontalLayout>
+} satisfies ComponentMeta<typeof HorizontalLayout>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof HorizontalLayout>
 
 export const Default = {
-  args: {
-    children: (
-      <>
-        <Paragraph>Row 1</Paragraph>
-        <Paragraph>Row 2</Paragraph>
-        <PrimaryButton>Row 3</PrimaryButton>
-      </>
-    ),
-  },
+  render: (args) => (
+    <HorizontalLayout {...args}>
+      <Paragraph>Row 1</Paragraph>
+      <Paragraph>Row 2</Paragraph>
+      <PrimaryButton>Row 3</PrimaryButton>
+    </HorizontalLayout>
+  ),
 } satisfies Story
 
 export const None = {
+  ...Default,
   args: {
-    ...Default.args,
     gap: "none",
   },
 } satisfies Story
 
 export const Small = {
+  ...Default,
   args: {
-    ...Default.args,
     gap: "sm",
   },
 } satisfies Story
 
 export const Large = {
+  ...Default,
   args: {
-    ...Default.args,
     gap: "lg",
   },
 } satisfies Story

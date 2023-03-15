@@ -1,18 +1,17 @@
 import { expect } from "@storybook/jest"
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { DateTime } from "luxon"
 import { ComponentProps, useState } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { Calendar } from "./Calendar"
 
-const meta = {
+export default {
   title: "Controls/Dates/Calendar",
   component: Calendar,
-} satisfies Meta<typeof Calendar>
+} satisfies ComponentMeta<typeof Calendar>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof Calendar>
 
 const defaultDate = DateTime.local(2023, 1, 1)
 const today = DateTime.now()
@@ -44,9 +43,9 @@ export const DefaultValue = {
   },
 } satisfies Story
 
-const ControlledTemplate = (args: ComponentProps<typeof Calendar>): JSX.Element => {
+const ControlledTemplate: ComponentStory<typeof Calendar> = (args) => {
   const { value: argsValue } = args
-  const [value, setValue] = useState<Date | null>(argsValue ?? null)
+  const [value, setValue] = useState<Date | null>(argsValue)
   return <Calendar {...args} value={value} onChange={setValue} />
 }
 
@@ -113,11 +112,11 @@ export const Snapshot = {
     <SnapshotWrapper>
       {[DefaultDate, DefaultValue, Controlled].map((Story, index) => (
         // eslint-disable-next-line react/no-array-index-key
-        <Calendar key={index} {...Story.args} />
+        <Calendar key={index} {...(Story.args as ComponentProps<typeof Calendar>)} />
       ))}
     </SnapshotWrapper>
   ),
   parameters: {
     chromatic: { disableSnapshot: false },
   },
-} satisfies StoryObj
+} satisfies Story

@@ -1,12 +1,12 @@
 import { expect } from "@storybook/jest"
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStory, ComponentStoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { DateTime } from "luxon"
-import { ComponentProps, useState } from "react"
+import { useState } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { DateRangePicker, DateRangePickerValue } from "./DateRangePicker"
 
-const meta = {
+export default {
   title: "Controls/Dates/DateRangePicker",
   component: DateRangePicker,
   argTypes: {
@@ -14,10 +14,9 @@ const meta = {
       control: "boolean",
     },
   },
-} satisfies Meta<typeof DateRangePicker>
+} satisfies ComponentMeta<typeof DateRangePicker>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof DateRangePicker>
 
 const defaultDate = DateTime.local(2023, 1, 1)
 const defaultEndDate = defaultDate.set({ day: 5 })
@@ -81,7 +80,7 @@ export const USFormat = {
   },
 } satisfies Story
 
-const ControlledTemplate = (args: ComponentProps<typeof DateRangePicker>): JSX.Element => {
+const ControlledTemplate: ComponentStory<typeof DateRangePicker> = (args) => {
   const [value, setValue] = useState<DateRangePickerValue>([null, null])
   return <DateRangePicker {...args} value={value} onChange={setValue} />
 }
@@ -234,4 +233,4 @@ export const Snapshot = {
   parameters: {
     chromatic: { disableSnapshot: false },
   },
-} satisfies StoryObj
+} satisfies Story

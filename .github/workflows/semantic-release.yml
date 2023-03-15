@@ -33,6 +33,12 @@ jobs:
         env:
           VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
 
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18 # semantic-release requires v18
+          cache: yarn
+
       - name: Run semantic-release
         run: npx semantic-release
         env:

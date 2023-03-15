@@ -1,13 +1,12 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react"
 import { VerticalSpacing } from "./VerticalSpacing"
 
-const meta = {
+export default {
   title: "Layout/VerticalSpacing",
   component: VerticalSpacing,
-} satisfies Meta<typeof VerticalSpacing>
+} satisfies ComponentMeta<typeof VerticalSpacing>
 
-export default meta
-type Story = StoryObj<typeof meta>
+type Story = ComponentStoryObj<typeof VerticalSpacing>
 
 export const Default = {} satisfies Story
 
