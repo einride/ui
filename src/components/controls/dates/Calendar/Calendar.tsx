@@ -16,10 +16,10 @@ interface CalendarBaseProps {
   maxDate?: Date
 
   /** Called when date changes. */
-  onChange: (value: CalendarValue) => void
+  onChange?: (value: CalendarValue) => void
 
   /** Selected date, required with controlled input. */
-  value: CalendarValue
+  value?: CalendarValue
 
   /** Props passed to root element. */
   wrapperProps?: BoxProps
