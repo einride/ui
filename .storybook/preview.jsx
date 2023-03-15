@@ -1,9 +1,8 @@
 import styled from "@emotion/styled"
-import { Preview, StoryContext, StoryFn } from "@storybook/react"
 import { themes } from "@storybook/theming"
-import React, { CSSProperties, ReactNode, useEffect } from "react"
+import { useEffect } from "react"
 import { useDarkMode } from "storybook-dark-mode-v7"
-import { ColorScheme, useColorScheme } from "../src/contexts/ColorSchemeProvider"
+import { useColorScheme } from "../src/contexts/ColorSchemeProvider"
 import { EinrideProvider } from "../src/contexts/EinrideProvider"
 import { einrideTheme } from "../src/lib/theme/einride"
 import { color } from "../src/primitives/color"
@@ -32,7 +31,7 @@ const customViewports = {
   },
 }
 
-const parameters = {
+export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   chromatic: {
     disableSnapshot: true,
@@ -63,8 +62,8 @@ const parameters = {
   },
 }
 
-const decorators = [
-  (Story: StoryFn, options: StoryContext) => {
+export const decorators = [
+  (Story, options) => {
     const colorMode = useDarkMode() ? "dark" : "light"
     if (options.name === "Snapshot") {
       return <Story />
@@ -72,7 +71,7 @@ const decorators = [
     return (
       <EinrideProvider theme={einrideTheme} colorMode={colorMode}>
         <SetupColorScheme colorScheme={colorMode}>
-          <Wrapper style={options.args.style as CSSProperties}>
+          <Wrapper style={options.args.style}>
             <Story />
           </Wrapper>
         </SetupColorScheme>
@@ -81,12 +80,7 @@ const decorators = [
   },
 ]
 
-interface SetupColorSchemeProps {
-  children: ReactNode
-  colorScheme: ColorScheme
-}
-
-const SetupColorScheme = ({ children, colorScheme }: SetupColorSchemeProps) => {
+const SetupColorScheme = ({ children, colorScheme }) => {
   const { setColorScheme } = useColorScheme()
 
   useEffect(() => {
@@ -95,12 +89,6 @@ const SetupColorScheme = ({ children, colorScheme }: SetupColorSchemeProps) => {
 
   return <>{children}</>
 }
-
 const Wrapper = styled.div`
-  padding: ${({ theme }) => 3 * (theme as any).spacingBase}rem;
+  padding: ${({ theme }) => 3 * theme.spacingBase}rem;
 `
-
-export default {
-  parameters,
-  decorators,
-} satisfies Preview
