@@ -1814,7 +1814,7 @@ __metadata:
     "@storybook/addon-interactions": 7.0.0-rc.3
     "@storybook/addon-links": 7.0.0-rc.3
     "@storybook/addons": 7.0.0-rc.3
-    "@storybook/jest": 0.0.11-next.0
+    "@storybook/jest": 0.0.11--canary.22.2783ae7.0
     "@storybook/node-logger": 7.0.0-rc.3
     "@storybook/react": 7.0.0-rc.3
     "@storybook/react-vite": 7.0.0-rc.3
@@ -4504,15 +4504,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/jest@npm:0.0.11-next.0":
-  version: 0.0.11-next.0
-  resolution: "@storybook/jest@npm:0.0.11-next.0"
+"@storybook/jest@npm:0.0.11--canary.22.2783ae7.0":
+  version: 0.0.11--canary.22.2783ae7.0
+  resolution: "@storybook/jest@npm:0.0.11--canary.22.2783ae7.0"
   dependencies:
     "@storybook/expect": storybook-jest
     "@storybook/instrumenter": next
     "@testing-library/jest-dom": ^5.16.2
     jest-mock: ^27.3.0
-  checksum: f250f06aceb1f1961799538fc774c8301350c802c370fce63088a0fa9611355728d7a2d6a4cd9188ea7a454018772fe3dbba2ccc5422caa0470f57614cde86ca
+  checksum: e1005dc6f6436111f8358989c2623087a9f7d9d863d383c7e05be960a5d390dab8110f683ca6dd4644a03549424dc6eeb2e39c944397554762c6080640cf53be
   languageName: node
   linkType: hard
 
