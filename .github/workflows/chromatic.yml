@@ -41,3 +41,10 @@ jobs:
       - name: Publish Summary
         run: |
           echo "Storybook Preview: ${{steps.chromatic.outputs.storybookUrl}}" >> $GITHUB_STEP_SUMMARY
+
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            Storybook Preview: ${{steps.chromatic.outputs.storybookUrl}}
+          comment_tag: storybookUrl
