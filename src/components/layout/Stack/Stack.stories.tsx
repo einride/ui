@@ -5,7 +5,6 @@ import { SecondaryButton } from "../../controls/buttons/SecondaryButton/Secondar
 import { Stack } from "./Stack"
 
 const meta = {
-  title: "Layout/Stack",
   component: Stack,
 } satisfies Meta<typeof Stack>
 

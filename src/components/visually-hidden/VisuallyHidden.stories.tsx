@@ -5,7 +5,6 @@ import { PrimaryButton } from "../controls/buttons/PrimaryButton/PrimaryButton"
 import { VisuallyHidden } from "./VisuallyHidden"
 
 const meta = {
-  title: "VisuallyHidden/VisuallyHidden",
   component: VisuallyHidden,
 } satisfies Meta<typeof VisuallyHidden>
 

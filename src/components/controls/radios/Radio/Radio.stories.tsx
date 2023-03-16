@@ -6,7 +6,6 @@ import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { Radio } from "./Radio"
 
 const meta = {
-  title: "Controls/Radios/Radio",
   component: Radio,
   argTypes: {
     disabled: {

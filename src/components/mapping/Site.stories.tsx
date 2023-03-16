@@ -6,7 +6,6 @@ import site from "./site.svg"
 const Site = (): JSX.Element => <img src={site} alt="Site" />
 
 const meta = {
-  title: "Mapping/Site",
   component: Site,
 } satisfies Meta<typeof Site>
 

@@ -7,7 +7,6 @@ import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { DatePicker } from "./DatePicker"
 
 const meta = {
-  title: "Controls/Dates/DatePicker",
   component: DatePicker,
 } satisfies Meta<typeof DatePicker>
 

@@ -30,7 +30,6 @@ function getMockData(count: number, withInputValue?: boolean): BaseOption[] {
 }
 
 const meta = {
-  title: "Controls/Selects/MultiSelect",
   component: MultiSelect,
   argTypes: { onSelectionChange: { action: "onSelectionChange" } },
 } satisfies Meta<typeof MultiSelect>

@@ -2,7 +2,6 @@ import { Meta, StoryObj } from "@storybook/react"
 import { Loader } from "./Loader"
 
 const meta = {
-  title: "Feedback/Loader",
   component: Loader,
 } satisfies Meta<typeof Loader>
 

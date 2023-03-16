@@ -8,7 +8,6 @@ const SiteWithChargerSmall = (): JSX.Element => (
 )
 
 const meta = {
-  title: "Mapping/SiteWithChargerSmall",
   component: SiteWithChargerSmall,
 } satisfies Meta<typeof SiteWithChargerSmall>
 

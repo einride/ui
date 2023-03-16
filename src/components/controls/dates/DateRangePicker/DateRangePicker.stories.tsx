@@ -7,7 +7,6 @@ import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { DateRangePicker, DateRangePickerValue } from "./DateRangePicker"
 
 const meta = {
-  title: "Controls/Dates/DateRangePicker",
   component: DateRangePicker,
   argTypes: {
     disabled: {

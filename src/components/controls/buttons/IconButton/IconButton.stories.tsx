@@ -5,7 +5,6 @@ import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { IconButton } from "./IconButton"
 
 const meta = {
-  title: "Controls/Buttons/IconButton",
   component: IconButton,
   argTypes: {
     disabled: {

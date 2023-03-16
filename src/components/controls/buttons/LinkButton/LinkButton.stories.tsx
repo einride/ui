@@ -5,7 +5,6 @@ import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { LinkButton } from "./LinkButton"
 
 const meta = {
-  title: "Controls/Buttons/LinkButton",
   component: LinkButton,
 } satisfies Meta<typeof LinkButton>
 

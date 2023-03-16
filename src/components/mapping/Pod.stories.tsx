@@ -6,7 +6,6 @@ import pod from "./pod.svg"
 const Pod = (): JSX.Element => <img src={pod} alt="Pod" />
 
 const meta = {
-  title: "Mapping/Pod",
   component: Pod,
 } satisfies Meta<typeof Pod>
 

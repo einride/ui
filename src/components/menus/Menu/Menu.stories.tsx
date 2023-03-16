@@ -16,7 +16,6 @@ import { MenuItem } from "./MenuItem"
 import { MenuTrigger } from "./MenuTrigger"
 
 const meta = {
-  title: "Menus/Menu",
   component: Menu,
 } satisfies Meta<typeof Menu>
 

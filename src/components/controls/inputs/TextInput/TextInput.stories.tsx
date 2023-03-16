@@ -6,7 +6,6 @@ import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { TextInput } from "./TextInput"
 
 const meta = {
-  title: "Controls/Inputs/TextInput",
   component: TextInput,
   argTypes: {
     disabled: {

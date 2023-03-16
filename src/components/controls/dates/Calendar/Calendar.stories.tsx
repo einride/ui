@@ -7,7 +7,6 @@ import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { Calendar } from "./Calendar"
 
 const meta = {
-  title: "Controls/Dates/Calendar",
   component: Calendar,
 } satisfies Meta<typeof Calendar>
 

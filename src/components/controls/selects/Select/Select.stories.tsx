@@ -3,7 +3,6 @@ import { ChangeEvent, ComponentProps, useState } from "react"
 import { Select } from "./Select"
 
 const meta = {
-  title: "Controls/Selects/Select",
   component: Select,
   args: {
     children: (

@@ -6,7 +6,6 @@ import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { SearchInput } from "./SearchInput"
 
 const meta = {
-  title: "Controls/Inputs/SearchInput",
   component: SearchInput,
   argTypes: {
     disabled: {

@@ -2,7 +2,6 @@ import { Meta, StoryObj } from "@storybook/react"
 import { Caption } from "./Caption"
 
 const meta = {
-  title: "Typography/Caption",
   component: Caption,
 } satisfies Meta<typeof Caption>
 

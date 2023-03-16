@@ -5,7 +5,6 @@ import { ComponentProps, useState } from "react"
 import { Switch } from "./Switch"
 
 const meta = {
-  title: "Controls/Switches/Switch",
   component: Switch,
 } satisfies Meta<typeof Switch>
 

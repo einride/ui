@@ -6,7 +6,6 @@ import siteHovered from "./siteHovered.svg"
 const SiteHovered = (): JSX.Element => <img src={siteHovered} alt="Site" />
 
 const meta = {
-  title: "Mapping/SiteHovered",
   component: SiteHovered,
 } satisfies Meta<typeof SiteHovered>
 

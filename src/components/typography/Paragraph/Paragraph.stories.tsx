@@ -2,7 +2,6 @@ import { Meta, StoryObj } from "@storybook/react"
 import { Paragraph } from "./Paragraph"
 
 const meta = {
-  title: "Typography/Paragraph",
   component: Paragraph,
 } satisfies Meta<typeof Paragraph>
 

@@ -9,7 +9,6 @@ import { Thead } from "./Thead/Thead"
 import { Tr } from "./Tr/Tr"
 
 const meta = {
-  title: "Table/Table",
   component: Table,
 } satisfies Meta<typeof Table>
 

@@ -4,7 +4,6 @@ import { within } from "@storybook/testing-library"
 import { WeightUnit } from "./WeightUnit"
 
 const meta = {
-  title: "Format/WeightUnit",
   component: WeightUnit,
 } satisfies Meta<typeof WeightUnit>
 

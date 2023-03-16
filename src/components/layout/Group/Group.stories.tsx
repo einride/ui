@@ -5,7 +5,6 @@ import { SecondaryButton } from "../../controls/buttons/SecondaryButton/Secondar
 import { Group } from "./Group"
 
 const meta = {
-  title: "Layout/Group",
   component: Group,
 } satisfies Meta<typeof Group>
 

@@ -5,7 +5,6 @@ import { contentColors, fonts } from "../../../lib/theme/types"
 import { Text } from "./Text"
 
 const meta = {
-  title: "Typography/Text",
   component: Text,
   argTypes: {
     color: {

@@ -8,7 +8,6 @@ const ConventionalTruck = (): JSX.Element => (
 )
 
 const meta = {
-  title: "Mapping/ConventionalTruck",
   component: ConventionalTruck,
 } satisfies Meta<typeof ConventionalTruck>
 

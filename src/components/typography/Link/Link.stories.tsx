@@ -4,7 +4,6 @@ import { within } from "@storybook/testing-library"
 import { Link } from "./Link"
 
 const meta = {
-  title: "Typography/Link",
   component: Link,
 } satisfies Meta<typeof Link>
 
