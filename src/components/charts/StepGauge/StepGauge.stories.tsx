@@ -3,7 +3,6 @@ import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { StepGauge } from "./StepGauge"
 
 const meta = {
-  title: "Charts/StepGauge",
   component: StepGauge,
 } satisfies Meta<typeof StepGauge>
 

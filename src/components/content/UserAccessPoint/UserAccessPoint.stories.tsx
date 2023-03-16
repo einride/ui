@@ -5,7 +5,6 @@ import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { UserAccessPoint } from "./UserAccessPoint"
 
 const meta = {
-  title: "Content/UserAccessPoint",
   component: UserAccessPoint,
 } satisfies Meta<typeof UserAccessPoint>
 

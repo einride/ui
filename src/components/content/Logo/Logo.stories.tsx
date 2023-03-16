@@ -3,7 +3,6 @@ import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { Logo } from "./Logo"
 
 const meta = {
-  title: "Content/Logo",
   component: Logo,
 } satisfies Meta<typeof Logo>
 

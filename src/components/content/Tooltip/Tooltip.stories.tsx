@@ -13,7 +13,6 @@ import { Text } from "../../typography/Text/Text"
 import { Tooltip } from "./Tooltip"
 
 const meta = {
-  title: "Content/Tooltip",
   component: Tooltip,
 } satisfies Meta<typeof Tooltip>
 

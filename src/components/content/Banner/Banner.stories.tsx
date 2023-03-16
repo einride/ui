@@ -5,7 +5,6 @@ import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { Banner } from "./Banner"
 
 const meta = {
-  title: "Content/Banner",
   component: Banner,
 } satisfies Meta<typeof Banner>
 
