@@ -2,8 +2,11 @@ import { color } from "../../primitives/color"
 import { ColorTheme } from "./types"
 
 export const light: ColorTheme = {
+  /** @deprecated since v7.38.0. Use `(background | content).positive` instead. */
   positive: color.green[40],
+  /** @deprecated since v7.38.0. Use `(background | content).negative` instead. */
   negative: color.red[60],
+  /** @deprecated since v7.38.0. Use `(background | content).warning` instead. */
   warning: color.yellow[60],
   background: {
     primary: color.white,
