@@ -9,7 +9,6 @@ import { MapTooltip } from "./MapTooltip"
 const mapboxAccessToken = import.meta.env.VITE_MAPBOX_TOKEN
 
 const meta = {
-  title: "Mapping/MapTooltip",
   component: MapTooltip,
   render: (args) => <Template {...args} />,
 } satisfies Meta<typeof MapTooltip>

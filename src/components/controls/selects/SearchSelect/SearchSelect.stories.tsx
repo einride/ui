@@ -29,7 +29,6 @@ function getMockData(count: number, withInputValue?: boolean): BaseOption[] {
 }
 
 const meta = {
-  title: "Controls/Selects/SearchSelect",
   component: SearchSelect,
   argTypes: {
     disabled: {

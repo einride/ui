@@ -5,7 +5,6 @@ import { Tr } from "../../table/Tr/Tr"
 import { TableSkeleton } from "./TableSkeleton"
 
 const meta = {
-  title: "Feedback/TableSkeleton",
   component: TableSkeleton,
 } satisfies Meta<typeof TableSkeleton>
 

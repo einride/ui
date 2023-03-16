@@ -2,7 +2,6 @@ import { Meta, StoryObj } from "@storybook/react"
 import { Title3 } from "./Title3"
 
 const meta = {
-  title: "Typography/Title3",
   component: Title3,
 } satisfies Meta<typeof Title3>
 

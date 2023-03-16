@@ -12,7 +12,6 @@ import { Text } from "../../typography/Text/Text"
 import { Sheets } from "./Sheets"
 
 const meta = {
-  title: "Views/Sheets",
   component: Sheets,
 } satisfies Meta<typeof Sheets>
 

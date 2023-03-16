@@ -6,7 +6,6 @@ import chargerSmall from "./chargerSmall.svg"
 const ChargerSmall = (): JSX.Element => <img src={chargerSmall} alt="Charger" />
 
 const meta = {
-  title: "Mapping/ChargerSmall",
   component: ChargerSmall,
 } satisfies Meta<typeof ChargerSmall>
 

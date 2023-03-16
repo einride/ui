@@ -3,7 +3,6 @@ import { Icon } from "../../content/Icon/Icon"
 import { Option } from "./Option"
 
 const meta = {
-  title: "Menus/Option",
   component: Option,
 } satisfies Meta<typeof Option>
 

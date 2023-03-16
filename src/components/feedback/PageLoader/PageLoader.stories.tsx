@@ -2,7 +2,6 @@ import { Meta, StoryObj } from "@storybook/react"
 import { PageLoader } from "./PageLoader"
 
 const meta = {
-  title: "Feedback/PageLoader",
   component: PageLoader,
 } satisfies Meta<typeof PageLoader>
 

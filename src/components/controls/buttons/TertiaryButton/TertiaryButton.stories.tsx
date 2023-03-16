@@ -6,7 +6,6 @@ import { Icon } from "../../../content/Icon/Icon"
 import { TertiaryButton } from "./TertiaryButton"
 
 const meta = {
-  title: "Controls/Buttons/TertiaryButton",
   component: TertiaryButton,
   argTypes: {
     disabled: {

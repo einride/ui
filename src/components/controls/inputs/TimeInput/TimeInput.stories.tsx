@@ -8,7 +8,6 @@ import { TimeInput } from "./TimeInput"
 import { useRangeTimeInput } from "./useRangeTimeInput"
 
 const meta = {
-  title: "Controls/Inputs/TimeInput",
   component: TimeInput,
   argTypes: {
     disabled: {

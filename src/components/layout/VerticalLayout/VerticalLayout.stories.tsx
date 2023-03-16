@@ -4,7 +4,6 @@ import { Paragraph } from "../../typography/Paragraph/Paragraph"
 import { VerticalLayout } from "./VerticalLayout"
 
 const meta = {
-  title: "Layout/VerticalLayout",
   component: VerticalLayout,
 } satisfies Meta<typeof VerticalLayout>
 

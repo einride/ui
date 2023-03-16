@@ -6,7 +6,6 @@ import { Icon } from "../../../content/Icon/Icon"
 import { PrimaryButton } from "./PrimaryButton"
 
 const meta = {
-  title: "Controls/Buttons/PrimaryButton",
   component: PrimaryButton,
   argTypes: {
     disabled: {

@@ -6,7 +6,6 @@ import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButto
 import { Alert } from "./Alert"
 
 const meta = {
-  title: "Views/Alert",
   component: Alert,
 } satisfies Meta<typeof Alert>
 

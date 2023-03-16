@@ -6,7 +6,6 @@ import siteSelected from "./siteSelected.svg"
 const SiteSelected = (): JSX.Element => <img src={siteSelected} alt="Site" />
 
 const meta = {
-  title: "Mapping/SiteSelected",
   component: SiteSelected,
 } satisfies Meta<typeof SiteSelected>
 

@@ -6,7 +6,6 @@ import { Group } from "../../layout/Group/Group"
 import { Label } from "./Label"
 
 const meta = {
-  title: "Information/Label",
   component: Label,
   args: {
     children: "Label",

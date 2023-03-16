@@ -5,7 +5,6 @@ import { ComponentProps, useState } from "react"
 import { Textarea } from "./Textarea"
 
 const meta = {
-  title: "Controls/Textareas/Textarea",
   component: Textarea,
   argTypes: {
     disabled: {

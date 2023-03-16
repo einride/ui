@@ -2,7 +2,6 @@ import { Meta, StoryObj } from "@storybook/react"
 import { HorizontalSpacing } from "./HorizontalSpacing"
 
 const meta = {
-  title: "Layout/HorizontalSpacing",
   component: HorizontalSpacing,
 } satisfies Meta<typeof HorizontalSpacing>
 

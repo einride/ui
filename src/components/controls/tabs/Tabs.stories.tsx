@@ -8,7 +8,6 @@ import { TabsList } from "./TabsList"
 import { TabsTrigger } from "./TabsTrigger"
 
 const meta = {
-  title: "Controls/Tabs/Tabs",
   component: Tabs,
   args: {
     children: (

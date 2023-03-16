@@ -6,7 +6,6 @@ import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { Checkbox } from "./Checkbox"
 
 const meta = {
-  title: "Controls/Checkboxes/Checkbox",
   component: Checkbox,
   argTypes: {
     disabled: {

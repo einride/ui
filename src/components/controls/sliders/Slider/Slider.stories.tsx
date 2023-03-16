@@ -5,7 +5,6 @@ import { ComponentProps, useState } from "react"
 import { Slider } from "./Slider"
 
 const meta = {
-  title: "Controls/Sliders/Slider",
   component: Slider,
 } satisfies Meta<typeof Slider>
 

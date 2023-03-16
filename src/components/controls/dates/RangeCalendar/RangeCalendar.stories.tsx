@@ -8,7 +8,6 @@ import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { RangeCalendar } from "./RangeCalendar"
 
 const meta = {
-  title: "Controls/Dates/RangeCalendar",
   component: RangeCalendar,
 } satisfies Meta<typeof RangeCalendar>
 
