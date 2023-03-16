@@ -38,13 +38,15 @@ jobs:
           NODE_OPTIONS: "--max_old_space_size=4096"
           VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
 
-      - name: Publish Summary
+      - name: Publish Storybook Preview in Chromatic check summary
+        if: ${{ github.event_name == 'pull_request' }}
         run: |
-          echo "Storybook Preview: ${{steps.chromatic.outputs.storybookUrl}}" >> $GITHUB_STEP_SUMMARY
+          echo "Storybook Preview: ${{ steps.chromatic.outputs.storybookUrl }}" >> $GITHUB_STEP_SUMMARY
 
-      - name: Comment PR
+      - name: Publish Storybook Preview in PR comment
+        if: ${{ github.event_name == 'pull_request' }}
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
-            Storybook Preview: ${{steps.chromatic.outputs.storybookUrl}}
+            Storybook Preview: ${{ steps.chromatic.outputs.storybookUrl }}
           comment_tag: storybookUrl
