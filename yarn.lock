@@ -1819,7 +1819,7 @@ __metadata:
     "@storybook/react": 7.0.0-rc.3
     "@storybook/react-vite": 7.0.0-rc.3
     "@storybook/test-runner": 0.10.0-next.10
-    "@storybook/testing-library": 0.0.14-next.1
+    "@storybook/testing-library": 0.0.14--canary.30.5f44d14.0
     "@storybook/theming": 7.0.0-rc.3
     "@testing-library/jest-dom": 5.16.5
     "@testing-library/react": 14.0.0
@@ -4742,16 +4742,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/testing-library@npm:0.0.14-next.1":
-  version: 0.0.14-next.1
-  resolution: "@storybook/testing-library@npm:0.0.14-next.1"
+"@storybook/testing-library@npm:0.0.14--canary.30.5f44d14.0":
+  version: 0.0.14--canary.30.5f44d14.0
+  resolution: "@storybook/testing-library@npm:0.0.14--canary.30.5f44d14.0"
   dependencies:
     "@storybook/client-logger": next
     "@storybook/instrumenter": next
     "@testing-library/dom": ^8.3.0
     "@testing-library/user-event": ^13.2.1
     ts-dedent: ^2.2.0
-  checksum: b61885f05ecfc6c6eae497ebb9adba2ccbb47db6c4d83fa86294985df16622d9eb6a1376fbe4db2c25e3c28a6f9d7a2f0b1b77de20cbe09961cd8ffdd071549c
+  checksum: 34f4341e797abdbfe6c7783ac61eeaa80f213a240ff191ea90b33591787deb5b59b193e0dda40a76b3eea6ffb9e8b3b81d9b23456bfbacd728aff0dbe8dc8ad6
   languageName: node
   linkType: hard
 
