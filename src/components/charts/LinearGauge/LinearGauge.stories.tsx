@@ -3,7 +3,6 @@ import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { LinearGauge } from "./LinearGauge"
 
 const meta = {
-  title: "Charts/LinearGauge",
   component: LinearGauge,
 } satisfies Meta<typeof LinearGauge>
 

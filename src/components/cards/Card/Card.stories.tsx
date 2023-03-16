@@ -10,7 +10,6 @@ import { Text } from "../../typography/Text/Text"
 import { Card } from "./Card"
 
 const meta = {
-  title: "Cards/Card",
   component: Card,
 } satisfies Meta<typeof Card>
 

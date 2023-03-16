@@ -8,7 +8,6 @@ import { Title1 } from "../../typography/Title1/Title1"
 import { Icon, iconNames } from "./Icon"
 
 const meta = {
-  title: "Content/Icon",
   component: Icon,
 } satisfies Meta<typeof Icon>
 

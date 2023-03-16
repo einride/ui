@@ -5,7 +5,6 @@ import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { Avatar } from "./Avatar"
 
 const meta = {
-  title: "Content/Avatar",
   component: Avatar,
 } satisfies Meta<typeof Avatar>
 

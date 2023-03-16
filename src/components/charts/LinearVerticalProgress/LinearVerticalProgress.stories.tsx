@@ -3,7 +3,6 @@ import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { LinearVerticalProgress } from "./LinearVerticalProgress"
 
 const meta = {
-  title: "Charts/LinearVerticalProgress",
   component: LinearVerticalProgress,
 } satisfies Meta<typeof LinearVerticalProgress>
 
