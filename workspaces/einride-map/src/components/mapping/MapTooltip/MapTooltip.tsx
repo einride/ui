@@ -1,7 +1,7 @@
+import { Card } from "../../../../../einride-ui/src/main"
 import styled from "@emotion/styled"
 import { ReactNode } from "react"
 import { Popup } from "react-map-gl"
-import { Card } from "../../cards/Card/Card"
 import { Coordinate } from "../types/types"
 
 // eslint-disable-next-line import/extensions

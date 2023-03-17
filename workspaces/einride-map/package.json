@@ -1,14 +1,9 @@
 {
-  "name": "@einride",
+  "name": "@einride/map",
   "version": "0.0.0-development",
   "description": "Einride's UI framework with reusable components",
-  "private": true,
-  "workspaces": [
-    "workspaces/*"
-  ],
-  "main": "index.js",
   "scripts": {
-    "__build": "rollup --config",
+    "build": "rollup --config",
     "build-storybook": "storybook build",
     "commitlint": "commitlint --from origin/main --to HEAD",
     "develop": "yarn storybook",
@@ -50,20 +45,20 @@
     "@faker-js/faker": "7.6.0",
     "@rollup/plugin-image": "3.0.2",
     "@rollup/plugin-typescript": "11.0.0",
-    "@storybook/addon-a11y": "7.0.0-rc.4",
-    "@storybook/addon-actions": "7.0.0-rc.4",
+    "@storybook/addon-a11y": "7.0.0-rc.3",
+    "@storybook/addon-actions": "7.0.0-rc.3",
     "@storybook/addon-coverage": "0.0.8",
-    "@storybook/addon-essentials": "7.0.0-rc.4",
-    "@storybook/addon-interactions": "7.0.0-rc.4",
-    "@storybook/addon-links": "7.0.0-rc.4",
-    "@storybook/addons": "7.0.0-rc.4",
+    "@storybook/addon-essentials": "7.0.0-rc.3",
+    "@storybook/addon-interactions": "7.0.0-rc.3",
+    "@storybook/addon-links": "7.0.0-rc.3",
+    "@storybook/addons": "7.0.0-rc.3",
     "@storybook/jest": "0.0.11-next.0",
-    "@storybook/node-logger": "7.0.0-rc.4",
-    "@storybook/react": "7.0.0-rc.4",
-    "@storybook/react-vite": "7.0.0-rc.4",
+    "@storybook/node-logger": "7.0.0-rc.3",
+    "@storybook/react": "7.0.0-rc.3",
+    "@storybook/react-vite": "7.0.0-rc.3",
     "@storybook/test-runner": "0.10.0-next.10",
     "@storybook/testing-library": "0.0.14-next.1",
-    "@storybook/theming": "7.0.0-rc.4",
+    "@storybook/theming": "7.0.0-rc.3",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "14.0.0",
     "@testing-library/user-event": "14.4.3",
@@ -76,7 +71,7 @@
     "concurrently": "7.6.0",
     "eslint": "8.36.0",
     "eslint-plugin-storybook": "0.6.11",
-    "framer-motion": "10.5.0",
+    "framer-motion": "10.3.2",
     "happy-dom": "8.9.0",
     "luxon": "3.3.0",
     "mapbox-gl": "2.13.0",
@@ -85,14 +80,15 @@
     "react-dom": "18.2.0",
     "react-map-gl": "^7.0.21",
     "rollup": "3.19.1",
-    "storybook": "7.0.0-rc.4",
+    "storybook": "7.0.0-rc.3",
     "storybook-dark-mode-v7": "3.0.0-alpha.0",
-    "typescript": "5.0.2",
+    "typescript": "4.9.5",
     "vite": "4.1.4",
     "vite-plugin-turbosnap": "1.0.1",
     "vitest": "0.29.3"
   },
   "peerDependencies": {
+    "@einride/ui": "7.38.0",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "framer-motion": ">=6.2.8",
@@ -106,6 +102,19 @@
     },
     "react-map-gl": {
       "optional": true
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/main.d.ts",
+  "main": "./dist/main.cjs.js",
+  "module": "./dist/main.esm.js",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.esm.js",
+      "require": "./dist/main.cjs.js"
     }
   },
   "engines": {

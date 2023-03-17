@@ -5,5 +5,5 @@
     "noEmit": false,
     "outDir": "dist"
   },
-  "include": ["src/**/*.ts"]
+  "include": ["./workspaces/**/*.ts", "./types", "./types/*.d.ts"]
 }

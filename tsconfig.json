@@ -1,3 +1,16 @@
 {
-  "extends": "@einride/tsconfig/tsconfig.json"
+  "extends": "./tsconfig.base.json",
+  "include": [
+    "workspaces/einride-*/src",
+    "./types"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "paths": {
+      "@einride/*": ["workspaces/einride-*/src"]
+    }
+  }
 }
