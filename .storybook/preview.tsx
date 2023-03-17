@@ -1,4 +1,5 @@
 import styled from "@emotion/styled"
+import { DocsContainer } from "@storybook/blocks"
 import { Preview, StoryContext, StoryFn } from "@storybook/react"
 import { themes } from "@storybook/theming"
 import React, { CSSProperties, ReactNode, useEffect } from "react"
@@ -42,6 +43,13 @@ const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  docs: {
+    container: (props) => (
+      <EinrideProvider colorMode="light">
+        <DocsContainer {...props} />
+      </EinrideProvider>
+    ),
   },
   viewport: { viewports: customViewports },
   backgrounds: {
