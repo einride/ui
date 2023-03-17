@@ -1,8 +1,8 @@
 import styled from "@emotion/styled"
-import { ColorScheme } from "../contexts/ColorSchemeProvider"
-import { EinrideProvider } from "../contexts/EinrideProvider"
-import { useTheme } from "../hooks/useTheme"
-import { ColorTheme } from "../lib/theme/types"
+import { ColorScheme } from "../../contexts/ColorSchemeProvider"
+import { EinrideProvider } from "../../contexts/EinrideProvider"
+import { useTheme } from "../../hooks/useTheme"
+import { ColorTheme } from "../../lib/theme/types"
 
 const ThemeColor = ({ color }: { color?: keyof ColorTheme }): JSX.Element => {
   const themes = useTheme()
