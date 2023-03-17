@@ -45,7 +45,7 @@
     "@faker-js/faker": "7.6.0",
     "@rollup/plugin-image": "3.0.2",
     "@rollup/plugin-typescript": "11.0.0",
-    "@storybook/addon-a11y": "7.0.0-rc.3",
+    "@storybook/addon-a11y": "7.0.0-rc.4",
     "@storybook/addon-actions": "7.0.0-rc.3",
     "@storybook/addon-coverage": "0.0.8",
     "@storybook/addon-essentials": "7.0.0-rc.3",
