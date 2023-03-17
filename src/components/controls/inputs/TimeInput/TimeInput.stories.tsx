@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { ComponentProps, useState } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
-import { HorizontalLayout } from "../../../../main"
+import { HorizontalLayout } from "../../../layout/HorizontalLayout/HorizontalLayout"
 import { TimeInput } from "./TimeInput"
 import { useRangeTimeInput } from "./useRangeTimeInput"
 
