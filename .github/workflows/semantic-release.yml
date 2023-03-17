@@ -30,11 +30,13 @@ jobs:
 
       - name: Review
         run: yarn review
+        working-directory: packages/einride-ui
         env:
           VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
 
       - name: Run semantic-release
         run: npx semantic-release
+        working-directory: packages/einride-ui
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

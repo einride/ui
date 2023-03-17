@@ -4,10 +4,13 @@ import { Preview, StoryContext, StoryFn } from "@storybook/react"
 import { themes } from "@storybook/theming"
 import React, { CSSProperties, ReactNode, useEffect } from "react"
 import { useDarkMode } from "storybook-dark-mode-v7"
-import { ColorScheme, useColorScheme } from "../src/contexts/ColorSchemeProvider"
-import { EinrideProvider } from "../src/contexts/EinrideProvider"
-import { einrideTheme } from "../src/lib/theme/einride"
-import { color } from "../src/primitives/color"
+import {
+  ColorScheme,
+  useColorScheme,
+} from "../packages/einride-ui/src/contexts/ColorSchemeProvider"
+import { EinrideProvider } from "../packages/einride-ui/src/contexts/EinrideProvider"
+import { einrideTheme } from "../packages/einride-ui/src/lib/theme/einride"
+import { color } from "../packages/einride-ui/src/primitives/color"
 
 const customViewports = {
   small: {
