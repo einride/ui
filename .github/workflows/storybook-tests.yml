@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 16 # test-storybook requires node 16
+          node-version-file: .nvmrc
           cache: yarn
 
       - name: Install dependencies
@@ -38,4 +38,4 @@ jobs:
         run: |
           npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
             "npx http-server storybook-static --port 6006 --silent" \
-            "npx wait-on tcp:6006 && yarn test-storybook"
+            "npx wait-on tcp:127.0.0.1:6006 && yarn test-storybook"

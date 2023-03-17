@@ -26,5 +26,6 @@ jobs:
 
       - name: Review
         run: yarn review
+        working-directory: packages/einride-ui
         env:
           VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
