@@ -1860,8 +1860,6 @@ __metadata:
   peerDependenciesMeta:
     mapbox-gl:
       optional: true
-    react-map-gl:
-      optional: true
   languageName: unknown
   linkType: soft
 
