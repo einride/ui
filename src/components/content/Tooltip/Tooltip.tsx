@@ -26,7 +26,7 @@ interface TooltipProps {
   /** Max width of the tooltip. */
   maxWidth?: MaxWidth
 
-  /** The duration from when the mouse enters a tooltip trigger until the tooltip opens. Default is `0`. */
+  /** The duration from when the pointer enters the tooltip trigger until the tooltip opens. Default is `0`. */
   openDelayDuration?: number
 
   /** Merges the original component props with the props of the supplied component and change the underlying DOM node. */
