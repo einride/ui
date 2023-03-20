@@ -1,3 +1,4 @@
+import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { DatePicker } from "@mantine/dates"
 import { Box, BoxProps } from "../../../layout/Box/Box"
@@ -45,7 +46,9 @@ export const RangeCalendar = ({ wrapperProps, ...props }: RangeCalendarProps): J
 
 type RangeCalendarValue = [Date | null, Date | null]
 
-const StyledDatePicker = styled(DatePicker)`
+const StyledDatePicker = styled(DatePicker, {
+  shouldForwardProp: (prop) => isPropValid(prop),
+})`
   &.mantine-DatePicker-calendar {
     background: ${({ theme }) => theme.colors.background.secondaryElevated};
     border-radius: ${({ theme }) => theme.borderRadii.lg};
