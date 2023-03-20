@@ -8,6 +8,9 @@ import { zIndex } from "../../../lib/zIndex"
 import { Box } from "../../layout/Box/Box"
 
 interface TooltipProps {
+  /* The preferred alignment against the trigger. May change when collisions occur. Default is `center`. */
+  align?: "start" | "center" | "end"
+
   /** Tooltip components. */
   children: ReactNode
 
@@ -34,6 +37,7 @@ interface TooltipProps {
 }
 
 export const Tooltip = ({
+  align = "center",
   children,
   content,
   disabled,
@@ -51,7 +55,7 @@ export const Tooltip = ({
           {children}
         </StyledTooltipTrigger>
         <RadixTooltip.Portal>
-          <StyledTooltipContent collisionPadding={2 * theme.spacer} sideOffset={5}>
+          <StyledTooltipContent align={align} collisionPadding={2 * theme.spacer} sideOffset={5}>
             <Box {...props}>{content}</Box>
           </StyledTooltipContent>
         </RadixTooltip.Portal>
