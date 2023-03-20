@@ -1,3 +1,4 @@
+import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { DatePickerInput } from "@mantine/dates"
 import { ComponentPropsWithoutRef, ReactNode } from "react"
@@ -114,7 +115,7 @@ interface StyledDatePickerProps {
 }
 
 const StyledDatePickerInput = styled(DatePickerInput, {
-  shouldForwardProp: (prop) => prop !== "hasLabel", // avoid passing `hasLabel` attribute to HTML element
+  shouldForwardProp: (prop) => isPropValid(prop),
 })<StyledDatePickerProps>`
   .mantine-DatePickerInput-label {
     font-family: ${({ theme }) => theme.fonts.body};
