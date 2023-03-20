@@ -33,8 +33,8 @@
     "@radix-ui/react-tooltip": "1.0.5",
     "dayjs": "1.11.7",
     "lodash.merge": "4.6.2",
-    "mapbox-gl": "2.13.0",
-    "react-map-gl": "7.0.21"
+    "mapbox-gl": "2.11.0",
+    "react-map-gl": "7.0.19"
   },
   "devDependencies": {
     "@commitlint/cli": "17.4.4",
