@@ -4,9 +4,6 @@ import { Popup } from "react-map-gl"
 import { Card } from "../../cards/Card/Card"
 import { Coordinate } from "../types/types"
 
-// eslint-disable-next-line import/extensions
-import "mapbox-gl/dist/mapbox-gl.css"
-
 interface TooltipProps {
   /** Tooltip content. Wrapped by `Card`. */
   children: ReactNode
