@@ -90,4 +90,3 @@ export type {
 } from "./lib/theme/types"
 export { zIndex } from "./lib/zIndex"
 export { primitives } from "./primitives/primitives"
-export * from "./components/mapping"
