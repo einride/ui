@@ -1842,7 +1842,7 @@ __metadata:
     prettier: 2.8.4
     react: 18.2.0
     react-dom: 18.2.0
-    react-map-gl: ^7.0.21
+    react-map-gl: 7.0.21
     rollup: 3.19.1
     storybook: 7.0.0-rc.4
     storybook-dark-mode-v7: 3.0.0-alpha.0
@@ -1856,11 +1856,8 @@ __metadata:
     framer-motion: ">=6.2.8"
     mapbox-gl: ^2.13.0
     react: ^18.0.0
-    react-map-gl: ^7.0.21
   peerDependenciesMeta:
     mapbox-gl:
-      optional: true
-    react-map-gl:
       optional: true
   languageName: unknown
   linkType: soft
@@ -13664,7 +13661,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-map-gl@npm:^7.0.21":
+"react-map-gl@npm:7.0.21":
   version: 7.0.21
   resolution: "react-map-gl@npm:7.0.21"
   dependencies:
