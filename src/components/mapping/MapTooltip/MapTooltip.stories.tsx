@@ -6,6 +6,9 @@ import { useColorScheme } from "../../../contexts/ColorSchemeProvider"
 import { Text } from "../../typography/Text/Text"
 import { MapTooltip } from "./MapTooltip"
 
+// NOTE: load css file to use `MapTooltip`
+import "mapbox-gl/dist/mapbox-gl.css"
+
 const mapboxAccessToken = import.meta.env.VITE_MAPBOX_TOKEN
 
 const meta = {
