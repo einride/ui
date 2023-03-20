@@ -1773,6 +1773,7 @@ __metadata:
     "@einride/hooks": 1.7.5
     "@einride/prettier-config": 2.0.0
     "@einride/tsconfig": 1.0.1
+    "@einride/ui": latest
     "@emotion/is-prop-valid": 1.2.0
     "@emotion/react": 11.10.6
     "@emotion/styled": 11.10.6
@@ -1853,6 +1854,35 @@ __metadata:
   peerDependencies:
     typescript: ">=4"
   checksum: a96501cc21553da89e9bcdf1728fb9523367b5591ed833dc5ba69d56d774f30d3ee8520d8a7141ac3b4e9234251c56f90bc8129218e5e1d50fa3a4aa596c3410
+  languageName: node
+  linkType: hard
+
+"@einride/ui@npm:latest":
+  version: 7.42.0
+  resolution: "@einride/ui@npm:7.42.0"
+  dependencies:
+    "@einride/hooks": 1.7.5
+    "@emotion/is-prop-valid": 1.2.0
+    "@mantine/core": 6.0.2
+    "@mantine/dates": 6.0.2
+    "@mantine/hooks": 6.0.2
+    "@radix-ui/react-alert-dialog": 1.0.3
+    "@radix-ui/react-dialog": 1.0.3
+    "@radix-ui/react-dropdown-menu": 2.0.4
+    "@radix-ui/react-slider": 1.1.1
+    "@radix-ui/react-switch": 1.0.2
+    "@radix-ui/react-tabs": 1.0.3
+    "@radix-ui/react-tooltip": 1.0.5
+    dayjs: 1.11.7
+    lodash.merge: 4.6.2
+    mapbox-gl: 2.13.0
+    react-map-gl: 7.0.21
+  peerDependencies:
+    "@emotion/react": ^11.4.1
+    "@emotion/styled": ^11.3.0
+    framer-motion: ">=6.2.8"
+    react: ^18.0.0
+  checksum: a98021177a3321e85a36102b82ad16ea9f707d95174fd3bc1bd9ddea5aabae275e31e890e18008acb08805ce25846ae630a8460d48c11e4b91089be2d5a961cc
   languageName: node
   linkType: hard
 

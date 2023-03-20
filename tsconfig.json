@@ -1,3 +1,6 @@
 {
-  "extends": "@einride/tsconfig/tsconfig.json"
+  "extends": "@einride/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "."
+  }
 }

@@ -1,9 +1,8 @@
+import { useColorScheme, Text } from "@einride/ui"
 import { Meta, StoryObj } from "@storybook/react"
 import { ComponentProps } from "react"
 import { Map } from "react-map-gl"
 import { mapboxStyleDark, mapboxStyleLight } from ".."
-import { useColorScheme } from "../../../contexts/ColorSchemeProvider"
-import { Text } from "../../typography/Text/Text"
 import { MapTooltip } from "./MapTooltip"
 
 // NOTE: load css file to use `MapTooltip`
