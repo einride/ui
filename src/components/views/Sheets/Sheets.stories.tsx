@@ -63,7 +63,7 @@ export const NonModal = {
   },
 } satisfies StoryObj
 
-export const Mouse = {
+export const Pointer = {
   render: () => <Template />,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement.parentElement ?? canvasElement)

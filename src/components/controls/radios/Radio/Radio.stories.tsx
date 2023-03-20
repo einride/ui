@@ -57,7 +57,7 @@ export const Controlled = {
   },
 } satisfies Story
 
-export const Mouse = {
+export const Pointer = {
   args: {
     ...WithLabel.args,
   },
@@ -98,7 +98,7 @@ const GroupTemplate = (): JSX.Element => {
   )
 }
 
-export const GroupMouse = {
+export const GroupPointer = {
   render: (args) => <GroupTemplate {...args} />,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)

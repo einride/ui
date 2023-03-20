@@ -136,7 +136,7 @@ export const Controlled = {
   },
 } satisfies Story
 
-export const Mouse = {
+export const Pointer = {
   args: {
     defaultValue: "tab1",
   },

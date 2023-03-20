@@ -167,7 +167,7 @@ export const DontClearAfterSelect = {
   },
 } satisfies Story
 
-export const Mouse = {
+export const Pointer = {
   args: {
     ...Basic.args,
   },
@@ -200,7 +200,7 @@ export const Mouse = {
 
 export const Keyboard = {
   args: {
-    ...Mouse.args,
+    ...Pointer.args,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)

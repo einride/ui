@@ -133,7 +133,7 @@ export const Multiline = {
   },
 } satisfies Story
 
-export const Mouse = {
+export const Pointer = {
   args: {
     ...Basic.args,
   },
