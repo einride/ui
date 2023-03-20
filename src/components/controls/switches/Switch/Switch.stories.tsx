@@ -66,7 +66,7 @@ export const Controlled = {
   },
 } satisfies Story
 
-export const Mouse = {
+export const Pointer = {
   args: {
     ...Default.args,
   },

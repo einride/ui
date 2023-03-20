@@ -135,7 +135,7 @@ export const ErrorMessage = {
   },
 } satisfies Story
 
-export const Mouse = {
+export const Pointer = {
   args: {
     ...WithLabel.args,
   },

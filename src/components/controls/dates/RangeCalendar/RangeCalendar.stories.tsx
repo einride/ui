@@ -70,7 +70,7 @@ export const Controlled = {
   },
 } satisfies Story
 
-export const Mouse = {
+export const Pointer = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const firstDateInCurrentMonth = today.set({ day: 1 })

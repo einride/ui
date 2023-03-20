@@ -161,7 +161,7 @@ export const CustomFilter = {
 
 const onOptionSelect = jest.fn()
 const onClearClick = jest.fn()
-export const Mouse = {
+export const Pointer = {
   args: {
     label: "Label",
     options: basicOptions,
