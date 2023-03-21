@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@einride/hooks": "1.7.5",
-    "@einride/ui": "latest",
+    "@einride/ui": "*",
     "@emotion/is-prop-valid": "1.2.0",
     "mapbox-gl": "2.11.0",
     "react-map-gl": "7.0.19"

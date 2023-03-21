@@ -1773,7 +1773,7 @@ __metadata:
     "@einride/hooks": 1.7.5
     "@einride/prettier-config": 2.0.0
     "@einride/tsconfig": 1.0.1
-    "@einride/ui": latest
+    "@einride/ui": "*"
     "@emotion/is-prop-valid": 1.2.0
     "@emotion/react": 11.10.6
     "@emotion/styled": 11.10.6
@@ -1857,9 +1857,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@einride/ui@npm:latest":
-  version: 7.42.0
-  resolution: "@einride/ui@npm:7.42.0"
+"@einride/ui@npm:*":
+  version: 7.43.1
+  resolution: "@einride/ui@npm:7.43.1"
   dependencies:
     "@einride/hooks": 1.7.5
     "@emotion/is-prop-valid": 1.2.0
@@ -1875,14 +1875,14 @@ __metadata:
     "@radix-ui/react-tooltip": 1.0.5
     dayjs: 1.11.7
     lodash.merge: 4.6.2
-    mapbox-gl: 2.13.0
-    react-map-gl: 7.0.21
+    mapbox-gl: 2.11.0
+    react-map-gl: 7.0.19
   peerDependencies:
     "@emotion/react": ^11.4.1
     "@emotion/styled": ^11.3.0
     framer-motion: ">=6.2.8"
     react: ^18.0.0
-  checksum: a98021177a3321e85a36102b82ad16ea9f707d95174fd3bc1bd9ddea5aabae275e31e890e18008acb08805ce25846ae630a8460d48c11e4b91089be2d5a961cc
+  checksum: ba10f57ee582f0bef1a96399301f393e57b45cf02f5e0b28f95f6848017afa092d6eaf20f3b936f752b9442940b90177d970b8c76b754a00176a9bd8d708c20c
   languageName: node
   linkType: hard
 
