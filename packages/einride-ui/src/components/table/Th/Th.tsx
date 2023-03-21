@@ -13,7 +13,7 @@ interface ThProps extends Omit<ComponentPropsWithoutRef<"th">, "color"> {
   /** Indicates what cells the table header element relates to. */
   scope: "col" | "row"
 
-  /** `text-align` CSS property. Set to `end` to end-align content in table header. Default is `start`.  */
+  /** `text-align` CSS property. Set to `end` to end-align content in table header. Default is `start`. */
   textAlign?: TextAlign
 }
 

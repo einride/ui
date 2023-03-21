@@ -11,7 +11,7 @@ export interface WeightProps {
   /** Full `Intl` number format options that makes it possible to override defaults. */
   numberFormatOptions?: Intl.NumberFormatOptions
 
-  /** Unit system used to format weight. Default is `metric`.  */
+  /** Unit system used to format weight. Default is `metric`. */
   unit: "metric" | "imperial"
 }
 

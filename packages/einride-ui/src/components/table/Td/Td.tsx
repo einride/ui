@@ -10,7 +10,7 @@ interface TdProps extends Omit<ComponentPropsWithoutRef<"td">, "color"> {
   /** Font set on the table data cell. */
   font?: FontFamily
 
-  /** `text-align` CSS property. Set to `end` to end-align content in table cell.  */
+  /** `text-align` CSS property. Set to `end` to end-align content in table cell. */
   textAlign?: TextAlign
 }
 

@@ -8,7 +8,7 @@ interface AvatarBaseProps {
   /** Effective element used. */
   as?: ElementType
 
-  /** Color of the avatar.  */
+  /** Color of the avatar. */
   color?: ContentColor
 
   /** Background color of the avatar. */
