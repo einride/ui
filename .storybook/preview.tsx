@@ -5,12 +5,12 @@ import { themes } from "@storybook/theming"
 import React, { CSSProperties, ReactNode, useEffect } from "react"
 import { useDarkMode } from "storybook-dark-mode-v7"
 import {
-  ColorScheme,
   useColorScheme,
-} from "../packages/einride-ui/src/contexts/ColorSchemeProvider"
-import { EinrideProvider } from "../packages/einride-ui/src/contexts/EinrideProvider"
-import { einrideTheme } from "../packages/einride-ui/src/lib/theme/einride"
-import { color } from "../packages/einride-ui/src/primitives/color"
+  EinrideProvider,
+  einrideTheme,
+} from "@einride/ui"
+import { ColorScheme } from "@einride/ui/dist/contexts/ColorSchemeProvider"
+import { color } from "@einride/ui/dist/primitives/color"
 
 const customViewports = {
   small: {
