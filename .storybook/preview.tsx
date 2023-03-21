@@ -5,12 +5,12 @@ import { themes } from "@storybook/theming"
 import React, { CSSProperties, ReactNode, useEffect } from "react"
 import { useDarkMode } from "storybook-dark-mode-v7"
 import {
+  ColorScheme,
   useColorScheme,
   EinrideProvider,
   einrideTheme,
+  primitives,
 } from "@einride/ui"
-import { ColorScheme } from "@einride/ui/dist/contexts/ColorSchemeProvider"
-import { color } from "@einride/ui/dist/primitives/color"
 
 const customViewports = {
   small: {
@@ -57,19 +57,19 @@ const parameters = {
   viewport: { viewports: customViewports },
   backgrounds: {
     values: [
-      { name: "light", value: color.white },
-      { name: "dark", value: color.black },
+      { name: "light", value: primitives.color.white },
+      { name: "dark", value: primitives.color.black },
     ],
   },
   layout: "fullscreen",
   darkMode: {
     dark: {
       ...themes.dark,
-      appBg: color.grey[90],
-      appContentBg: color.black,
-      appBorderColor: color.grey[60],
-      barBg: color.grey[90],
-      inputBg: color.grey[90],
+      appBg: primitives.color.grey[90],
+      appContentBg: primitives.color.black,
+      appBorderColor: primitives.color.grey[60],
+      barBg: primitives.color.grey[90],
+      inputBg: primitives.color.grey[90],
     },
   },
 }
