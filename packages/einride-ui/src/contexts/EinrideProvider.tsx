@@ -12,7 +12,7 @@ interface EinrideProviderProps {
   /** Color mode used. Default is `light`. */
   colorMode?: ColorMode
 
-  /** Resets CSS to sensible defaults. Default is `true`.  */
+  /** Resets CSS to sensible defaults. Default is `true`. */
   resetCSS?: boolean
 
   /** Overrides the default theme. Can be used to set a font as an example. */
