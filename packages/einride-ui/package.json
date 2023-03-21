@@ -7,17 +7,12 @@
   ],
   "scripts": {
     "build": "rollup --config",
-    "build-storybook": "storybook build",
     "commitlint": "commitlint --from origin/main --to HEAD",
-    "develop": "yarn storybook",
     "format": "prettier --write .",
     "format-check": "prettier --check .",
     "lint": "eslint --ext ts,tsx src/",
     "review": "concurrently --kill-others-on-fail 'yarn commitlint' 'yarn format-check' 'yarn lint' 'yarn test' 'yarn typecheck' 'yarn build'",
-    "storybook": "storybook dev -p 6006",
     "test": "vitest run",
-    "test-storybook": "test-storybook",
-    "test-storybook-coverage": "test-storybook --coverage",
     "test-watch": "vitest",
     "typecheck": "tsc"
   },

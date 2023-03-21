@@ -8,7 +8,10 @@
     "build-storybook": "storybook build",
     "storybook": "storybook dev -p 6006",
     "test-storybook": "test-storybook",
-    "test-storybook-coverage": "test-storybook --coverage"
+    "test-storybook-coverage": "test-storybook --coverage",
+    "build": "yarn workspaces foreach run build",
+    "review": "yarn workspaces foreach run review",
+    "format": "yarn workspaces foreach run format"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "7.0.0-rc.5",
