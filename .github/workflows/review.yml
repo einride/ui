@@ -8,6 +8,9 @@ on:
 jobs:
   review:
     name: Review
+    strategy:
+      matrix:
+        package: [einride-ui]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -24,8 +27,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Review
+      - name: Review ${{ matrix.package }}
         run: yarn review
-        working-directory: packages/einride-ui
+        working-directory: packages/${{ matrix.package }}
         env:
           VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
