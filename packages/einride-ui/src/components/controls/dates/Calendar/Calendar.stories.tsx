@@ -13,7 +13,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const defaultDate = DateTime.local(2023, 1, 1)
+const defaultDate = DateTime.local(2022, 8, 1)
 const today = DateTime.now()
 const defaultDateFormat = "MMMM yyyy"
 const mantineDateFormat = "d MMMM yyyy"
@@ -85,25 +85,30 @@ export const Pointer = {
 } satisfies Story
 
 export const Keyboard = {
+  args: {
+    defaultDate: defaultDate.toJSDate(),
+  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await userEvent.tab()
+    await expect(canvas.getByRole("button", { name: "Previous month" })).toHaveFocus()
     await userEvent.tab()
+    await expect(canvas.getByRole("button", { name: "Next month" })).toHaveFocus()
     await userEvent.tab()
-    const firstDayInCurrentMonthButton = canvas.getByRole("button", {
-      name: today.set({ day: 1 }).toFormat(mantineDateFormat),
+    const defaultDateButton = canvas.getByRole("button", {
+      name: defaultDate.toFormat(mantineDateFormat),
     })
-    await expect(firstDayInCurrentMonthButton).toHaveFocus()
+    await expect(defaultDateButton).toHaveFocus()
     await userEvent.keyboard("[Enter]")
-    await expect(firstDayInCurrentMonthButton.getAttribute("data-selected")).toBe("true")
+    await expect(defaultDateButton.getAttribute("data-selected")).toBe("true")
     await userEvent.keyboard("[ArrowDown]")
-    const eighthDayInCurrentMonthButton = canvas.getByRole("button", {
-      name: today.set({ day: 8 }).toFormat(mantineDateFormat),
+    const eighthDateButton = canvas.getByRole("button", {
+      name: defaultDate.set({ day: 8 }).toFormat(mantineDateFormat),
     })
-    await expect(eighthDayInCurrentMonthButton).toHaveFocus()
+    await expect(eighthDateButton).toHaveFocus()
     await userEvent.keyboard("[Enter]")
-    await expect(eighthDayInCurrentMonthButton.getAttribute("data-selected")).toBe("true")
-    await expect(firstDayInCurrentMonthButton.getAttribute("data-selected")).not.toBe("true")
+    await expect(eighthDateButton.getAttribute("data-selected")).toBe("true")
+    await expect(defaultDateButton.getAttribute("data-selected")).not.toBe("true")
   },
 } satisfies Story
 

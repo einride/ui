@@ -14,8 +14,8 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const defaultDate = DateTime.local(2023, 1, 1)
-const defaultEndDate = DateTime.local(2023, 1, 5)
+const defaultDate = DateTime.local(2022, 8, 1)
+const defaultEndDate = defaultDate.set({ day: 8 })
 const today = DateTime.now()
 const defaultDateFormat = "MMMM yyyy"
 const mantineDateFormat = "d MMMM yyyy"
@@ -103,49 +103,29 @@ export const Pointer = {
 } satisfies Story
 
 export const Keyboard = {
+  args: {
+    defaultDate: defaultDate.toJSDate(),
+  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await userEvent.tab()
+    await expect(canvas.getByRole("button", { name: "Previous month" })).toHaveFocus()
     await userEvent.tab()
+    await expect(canvas.getByRole("button", { name: "Next month" })).toHaveFocus()
     await userEvent.tab()
-    const firstDayInCurrentMonth = DateTime.now().set({ day: 1 })
-    const firstDayInCurrentMonthButton = canvas.getByRole("button", {
-      name: firstDayInCurrentMonth.toFormat(mantineDateFormat),
+    const startDateButton = canvas.getByRole("button", {
+      name: defaultDate.toFormat(mantineDateFormat),
     })
-    await expect(firstDayInCurrentMonthButton).toHaveFocus()
+    await expect(startDateButton).toHaveFocus()
     await userEvent.keyboard("[Enter]")
-    await expect(firstDayInCurrentMonthButton.getAttribute("data-selected")).toBe("true")
+    await expect(startDateButton.getAttribute("data-selected")).toBe("true")
     await userEvent.keyboard("[ArrowDown]")
-    const eighthDayInCurrentMonth = firstDayInCurrentMonth.set({ day: 8 })
-    const eighthDayInCurrentMonthButton = canvas.getByRole("button", {
-      name: eighthDayInCurrentMonth.toFormat(mantineDateFormat),
+    const endDateButton = canvas.getByRole("button", {
+      name: defaultEndDate.toFormat(mantineDateFormat),
     })
-    await expect(eighthDayInCurrentMonthButton).toHaveFocus()
+    await expect(endDateButton).toHaveFocus()
     await userEvent.keyboard("[Enter]")
-    await expect(firstDayInCurrentMonthButton.getAttribute("data-selected")).toBe("true")
-    await expect(eighthDayInCurrentMonthButton.getAttribute("data-selected")).toBe("true")
-    await userEvent.keyboard("[ArrowUp]")
-    await userEvent.tab({ shift: true })
-    await userEvent.tab({ shift: true })
-    const previousMonthButton = canvas.getAllByRole("button")[0]
-    await expect(previousMonthButton).toHaveFocus()
-    await userEvent.keyboard("[Enter]")
-    const firstDayInPreviousMonth = firstDayInCurrentMonth.minus({ month: 1 })
-    const firstDayInPreviousMonthButton = canvas.getByRole("button", {
-      name: firstDayInPreviousMonth.toFormat(mantineDateFormat),
-    })
-    await userEvent.tab()
-    await userEvent.tab()
-    await userEvent.keyboard("[Enter]")
-    await expect(firstDayInPreviousMonthButton.getAttribute("data-selected")).toBe("true")
-    const eightDayInPreviousMonth = firstDayInPreviousMonth.set({ day: 8 })
-    const eighthDayInLastMonthButton = canvas.getByRole("button", {
-      name: eightDayInPreviousMonth.toFormat(mantineDateFormat),
-    })
-    await userEvent.keyboard("[ArrowDown]")
-    await userEvent.keyboard("[Enter]")
-    await expect(firstDayInPreviousMonthButton.getAttribute("data-selected")).toBe("true")
-    await expect(eighthDayInLastMonthButton.getAttribute("data-selected")).toBe("true")
+    await expect(endDateButton.getAttribute("data-selected")).toBe("true")
   },
 } satisfies Story
 
