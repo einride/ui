@@ -12,6 +12,9 @@ on:
 jobs:
   semantic-release:
     name: Semantic release
+    strategy:
+      matrix:
+        package: [einride-ui]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,15 +31,15 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Review
+      - name: Review ${{ matrix.package }}
         run: yarn review
-        working-directory: packages/einride-ui
+        working-directory: packages/${{ matrix.package }}
         env:
           VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
 
-      - name: Run semantic-release
+      - name: Run semantic-release for ${{ matrix.package }}
         run: npx semantic-release
-        working-directory: packages/einride-ui
+        working-directory: packages/${{ matrix.package }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
