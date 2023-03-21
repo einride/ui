@@ -6,7 +6,7 @@ export interface UserAccessPointBaseProps extends Omit<ComponentPropsWithoutRef<
   /** Effective element used. */
   as?: ElementType
 
-  /** Status of the user access point. Default is `default`.  */
+  /** Status of the user access point. Default is `default`. */
   status?: Status
 }
 

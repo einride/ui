@@ -3,7 +3,7 @@ import { ComponentPropsWithoutRef, forwardRef } from "react"
 import { ContentColor } from "../../../lib/theme/types"
 
 interface StepGaugeStepProps extends ComponentPropsWithoutRef<"svg"> {
-  /** Color of the completed gauge stroke.  */
+  /** Color of the completed gauge stroke. */
   color: ContentColor
 
   /** Number of completed steps. */

@@ -8,7 +8,7 @@ interface WeightUnitProps {
   /** Full `Intl` number format options that makes it possible to override defaults. */
   numberFormatOptions?: Intl.NumberFormatOptions
 
-  /** Unit system used to format weight unit. Default is `metric`.  */
+  /** Unit system used to format weight unit. Default is `metric`. */
   unitSystem: UnitSystem
 }
 
