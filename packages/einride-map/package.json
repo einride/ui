@@ -18,7 +18,6 @@
   },
   "dependencies": {
     "@einride/hooks": "1.7.5",
-    "@einride/ui": "*",
     "@emotion/is-prop-valid": "1.2.0",
     "mapbox-gl": "2.11.0",
     "react-map-gl": "7.0.19"
@@ -58,6 +57,7 @@
     "vitest": "0.29.3"
   },
   "peerDependencies": {
+    "@einride/ui": "7.43.1",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "framer-motion": ">=6.2.8",
