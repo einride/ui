@@ -13,7 +13,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const defaultDate = DateTime.local(2023, 1, 1)
+const defaultDate = DateTime.local(2022, 8, 1)
 const today = DateTime.now()
 const defaultDateFormat = "yyyy-MM-dd"
 const mantineDateFormat = "d MMMM yyyy"
@@ -126,6 +126,7 @@ export const ErrorMessage = {
 } satisfies Story
 
 export const Pointer = {
+  render: (args) => <ControlledTemplate {...args} />,
   args: {
     ...WithLabel.args,
   },
@@ -152,22 +153,34 @@ export const Pointer = {
 } satisfies Story
 
 export const Keyboard = {
-  render: (args) => <ControlledTemplate {...args} />,
   args: {
     ...WithLabel.args,
+    defaultValue: defaultDate.toJSDate(),
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByRole("button", { name: "" })
+    const input = canvas.getByRole("button", { name: defaultDate.toFormat(defaultDateFormat) })
     await expect(input).not.toHaveFocus()
     await userEvent.tab()
     await expect(input).toHaveFocus()
     await userEvent.keyboard("[Enter]")
     await userEvent.tab()
+    await expect(canvas.getByRole("button", { name: "Previous month" })).toHaveFocus()
     await userEvent.tab()
+    await expect(canvas.getByRole("button", { name: "Next month" })).toHaveFocus()
+    await userEvent.tab()
+    const defaultDateButton = canvas.getByRole("button", {
+      name: defaultDate.toFormat(mantineDateFormat),
+    })
+    await expect(defaultDateButton).toHaveFocus()
+    await userEvent.keyboard("[ArrowDown]")
+    const eighthDate = defaultDate.set({ day: 8 })
+    const eighthDateButton = canvas.getByRole("button", {
+      name: eighthDate.toFormat(mantineDateFormat),
+    })
+    await expect(eighthDateButton).toHaveFocus()
     await userEvent.keyboard("[Enter]")
-    const firstDateInCurrentMonth = today.set({ day: 1 })
-    await expect(input).toHaveAccessibleName(firstDateInCurrentMonth.toFormat(defaultDateFormat))
+    await expect(input).toHaveAccessibleName(eighthDate.toFormat(defaultDateFormat))
   },
 } satisfies Story
 
