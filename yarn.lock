@@ -1856,7 +1856,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     react-map-gl: 7.0.19
-    rollup: 3.19.1
+    rollup: 3.20.0
     typescript: 5.0.2
     vite: 4.1.4
     vitest: 0.29.3
@@ -14359,7 +14359,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:3.19.1, rollup@npm:^2.25.0 || ^3.3.0, rollup@npm:^3.10.0":
+"rollup@npm:3.20.0":
+  version: 3.20.0
+  resolution: "rollup@npm:3.20.0"
+  dependencies:
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: ebf75f48eb81234f8233b4ed145b00841cefba26802d4f069f161247ffba085ca5bb165cc3cd662d9c36cfc135a67660dfff9088d3da2d2c6a70addc15f3233a
+  languageName: node
+  linkType: hard
+
+"rollup@npm:^2.25.0 || ^3.3.0, rollup@npm:^3.10.0":
   version: 3.19.1
   resolution: "rollup@npm:3.19.1"
   dependencies:
