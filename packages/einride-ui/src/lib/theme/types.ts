@@ -8,6 +8,8 @@ export const backgroundColors = [
   "secondaryElevatedInverted",
   "secondaryInverted",
   "tertiary",
+  "tertiaryElevated",
+  "tertiaryElevatedInverted",
   "positive",
   "warning",
   "negative",

@@ -18,6 +18,8 @@ export const light: ColorTheme = {
     secondaryElevatedInverted: color.black,
     secondaryInverted: color.grey[90],
     tertiary: `${color.grey[90]}17`, // 17 is HEX for ~9% opacity
+    tertiaryElevated: color.grey[20],
+    tertiaryElevatedInverted: color.grey[90],
     positive: color.green[60],
     warning: color.orange[60],
     negative: color.red[60],
