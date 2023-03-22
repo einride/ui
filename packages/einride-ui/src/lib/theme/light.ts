@@ -32,6 +32,7 @@ export const light: ColorTheme = {
     primary: color.grey[90],
     primaryInverted: color.white,
     secondary: `${color.grey[90]}99`, // 99 is HEX for ~60% opacity
+    secondaryInverted: `${color.grey[10]}B3`, // B3 is HEX for ~70% opacity
     tertiary: `${color.grey[90]}66`, // 66 is HEX for ~40% opacity
     positive: color.green[60],
     positiveInverted: color.green[20],

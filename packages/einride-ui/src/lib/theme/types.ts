@@ -52,6 +52,7 @@ export const contentColors = [
   "primary",
   "primaryInverted",
   "secondary",
+  "secondaryInverted",
   "tertiary",
   "positive",
   "positiveInverted",
