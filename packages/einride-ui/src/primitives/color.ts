@@ -41,6 +41,7 @@ export const color = {
     30: "#DADADA",
     50: "#ABABAB",
     60: "#7A7A7A",
+    70: "#535354",
     80: "#2D2D2E",
     90: "#1E1E1F",
   },
