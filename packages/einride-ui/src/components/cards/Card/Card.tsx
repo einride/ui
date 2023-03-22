@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, ElementType, forwardRef } from "react"
-import { getBackground, getBorderRadius, getSpacing } from "../../../lib/theme/prop-system"
-import { Background, BorderRadius, PaddingBlockEnd } from "../../../lib/theme/props"
+import { getBackground, getBorderRadius, getSpacing } from "@einride/core"
+import { Background, BorderRadius, PaddingBlockEnd } from "@einride/core"
 
 interface CardProps extends ComponentPropsWithoutRef<"div"> {
   /** Effective element used. */

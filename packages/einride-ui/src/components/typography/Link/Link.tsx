@@ -1,8 +1,8 @@
 import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, ElementType, ReactNode } from "react"
-import { getColor, getFont } from "../../../lib/theme/prop-system"
-import { ContentColor, Font, Theme } from "../../../lib/theme/types"
+import { getColor, getFont } from "@einride/core"
+import { ContentColor, Font, Theme } from "@einride/core"
 
 type LinkProps<C extends ElementType> = {
   /** Effective element used. */

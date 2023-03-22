@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import * as AlertDialog from "@radix-ui/react-alert-dialog"
 import { AnimatePresence, motion } from "framer-motion"
 import { CSSProperties, ComponentPropsWithoutRef, ReactNode, forwardRef } from "react"
-import { zIndex } from "../../../lib/zIndex"
+import { zIndex } from "@einride/core"
 import {
   PrimaryButton,
   PrimaryButtonProps,

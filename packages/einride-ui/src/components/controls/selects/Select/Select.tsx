@@ -7,7 +7,7 @@ import {
   useId,
   useState,
 } from "react"
-import { ContentColor } from "../../../../lib/theme/types"
+import { ContentColor } from "@einride/core"
 import { Icon } from "../../../content/Icon/Icon"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 import { Caption } from "../../../typography/Caption/Caption"

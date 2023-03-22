@@ -67,6 +67,7 @@
     "vitest": "0.29.7"
   },
   "peerDependencies": {
+    "@einride/core": "7.43.1",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "framer-motion": ">=6.2.8",

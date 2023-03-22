@@ -6,8 +6,7 @@ import { Td } from "../../components/table/Td/Td"
 import { Th } from "../../components/table/Th/Th"
 import { Thead } from "../../components/table/Thead/Thead"
 import { Tr } from "../../components/table/Tr/Tr"
-import { getSpacing } from "../../lib/theme/prop-system"
-import { spacings } from "../../lib/theme/types"
+import { getSpacing, spacings } from "@einride/core"
 
 export const Spacing = (): JSX.Element => {
   const theme = useTheme()

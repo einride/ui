@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, forwardRef } from "react"
-import { getColor, getFont } from "../../../lib/theme/prop-system"
-import { Color, FontFamily, TextAlign } from "../../../lib/theme/props"
+import { getColor, getFont } from "@einride/core"
+import { Color, FontFamily, TextAlign } from "@einride/core"
 
 interface TdProps extends Omit<ComponentPropsWithoutRef<"td">, "color"> {
   /** Text color set on the table cell. */

@@ -1,3 +1,4 @@
+import { useScrollIntoView, zIndex } from "@einride/core"
 import { useDisclosure } from "@einride/hooks"
 import styled from "@emotion/styled"
 import { useUncontrolled } from "@mantine/hooks"
@@ -12,8 +13,6 @@ import {
   useState,
   ComponentPropsWithoutRef,
 } from "react"
-import { useScrollIntoView } from "../../../../hooks/useScrollIntoView"
-import { zIndex } from "../../../../lib/zIndex"
 import { BoxProps, Box } from "../../../layout/Box/Box"
 import { Option } from "../../../menus/Option/Option"
 

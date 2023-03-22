@@ -1,7 +1,7 @@
 import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
-import { ContentColor, Font } from "../../../lib/theme/types"
+import { ContentColor, Font } from "@einride/core"
 
 interface Title3Props extends HTMLAttributes<HTMLHeadingElement> {
   /** Effective element used. */

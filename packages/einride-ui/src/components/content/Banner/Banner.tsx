@@ -1,7 +1,6 @@
+import { ColorScheme, useColorScheme, BackgroundColor, ContentColor } from "@einride/core"
 import styled from "@emotion/styled"
 import { forwardRef, ReactNode } from "react"
-import { ColorScheme, useColorScheme } from "../../../contexts/ColorSchemeProvider"
-import { BackgroundColor, ContentColor } from "../../../lib/theme/types"
 import { Box } from "../../layout/Box/Box"
 import { Text } from "../../typography/Text/Text"
 

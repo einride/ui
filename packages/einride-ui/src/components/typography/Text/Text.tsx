@@ -1,8 +1,8 @@
 import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes } from "react"
-import { getColor, getFont } from "../../../lib/theme/prop-system"
-import { As, Color, FontFamily, FontWeight } from "../../../lib/theme/props"
-import { Theme } from "../../../lib/theme/types"
+import { getColor, getFont } from "@einride/core"
+import { As, Color, FontFamily, FontWeight } from "@einride/core"
+import { Theme } from "@einride/core"
 
 interface TextProps extends Omit<HTMLAttributes<HTMLParagraphElement>, "color"> {
   /** Effective element used. */

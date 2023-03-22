@@ -5,8 +5,8 @@ import turbosnap from "vite-plugin-turbosnap"
 export default {
   stories: [
     "../packages/einride-ui/src/docs",
-    "../packages/einride-ui/src/components",
-    "../packages/einride-map/src/components",
+    "../packages/einride-ui/src/components/**/*.stories.*",
+    "../packages/einride-map/src/components/**/*.stories.*",
   ],
   addons: [
     "@storybook/addon-essentials",

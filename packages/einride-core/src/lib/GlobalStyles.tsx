@@ -12,11 +12,11 @@ export const GlobalStyles = (): JSX.Element => {
         * {
           font-variant-numeric: ${theme.fontVariants.numeric};
         }
-        
+
         :root {
           color-scheme: ${colorScheme};
         }
-        
+
         body {
           background: ${theme.colors.background.primary};
           color: ${theme.colors.content.primary};

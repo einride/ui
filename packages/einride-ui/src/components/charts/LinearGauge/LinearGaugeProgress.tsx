@@ -1,7 +1,7 @@
 import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { SVGAttributes } from "react"
-import { ContentColor } from "../../../lib/theme/types"
+import { ContentColor } from "@einride/core"
 
 interface LinearGaugeProgressProps extends SVGAttributes<SVGSVGElement> {
   /** Stroke color. */

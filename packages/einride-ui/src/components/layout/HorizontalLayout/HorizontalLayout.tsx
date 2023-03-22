@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
-import { Theme } from "../../../lib/theme/types"
+import { Theme } from "@einride/core"
 
 interface HorizontalLayoutProps extends HTMLAttributes<HTMLDivElement> {
   /** Effective element used. */

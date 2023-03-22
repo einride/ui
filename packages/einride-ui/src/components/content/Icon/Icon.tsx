@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
-import { getColor } from "../../../lib/theme/prop-system"
-import { ContentColor } from "../../../lib/theme/types"
+import { getColor } from "@einride/core"
+import { ContentColor } from "@einride/core"
 
 interface IconProps extends HTMLAttributes<HTMLSpanElement> {
   /** Effective element used. */

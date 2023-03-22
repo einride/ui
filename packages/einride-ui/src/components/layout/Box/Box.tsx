@@ -7,7 +7,7 @@ import {
   getColor,
   getFont,
   getSpacing,
-} from "../../../lib/theme/prop-system"
+} from "@einride/core"
 import {
   AlignItems,
   As,
@@ -48,7 +48,7 @@ import {
   PointerEvents,
   Position,
   Width,
-} from "../../../lib/theme/props"
+} from "@einride/core"
 
 export interface BoxProps extends Omit<ComponentPropsWithoutRef<"div">, "color"> {
   /** `align-items` CSS property. */

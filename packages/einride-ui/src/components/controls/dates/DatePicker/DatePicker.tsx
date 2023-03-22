@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import { DatePickerInput } from "@mantine/dates"
 import { ComponentPropsWithoutRef, ReactNode } from "react"
-import { ContentColor } from "../../../../lib/theme/types"
+import { ContentColor } from "@einride/core"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 import { Caption } from "../../../typography/Caption/Caption"
 import { Status } from "../../inputs/BaseInput/BaseInput"

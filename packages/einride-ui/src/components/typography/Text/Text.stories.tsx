@@ -1,7 +1,7 @@
 import { expect } from "@storybook/jest"
 import { Meta, StoryObj } from "@storybook/react"
 import { within } from "@storybook/testing-library"
-import { contentColors, fonts } from "../../../lib/theme/types"
+import { contentColors, fonts } from "@einride/core"
 import { Text } from "./Text"
 
 const meta = {

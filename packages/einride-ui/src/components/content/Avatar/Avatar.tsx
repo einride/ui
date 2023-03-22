@@ -1,7 +1,7 @@
+import { BackgroundColor, BorderRadius, ContentColor, Theme } from "@einride/core"
 import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes, ImgHTMLAttributes, useState } from "react"
-import { BackgroundColor, BorderRadius, ContentColor, Theme } from "../../../lib/theme/types"
 import { getInitials } from "./getInitials"
 
 interface AvatarBaseProps {

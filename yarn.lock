@@ -1733,6 +1733,64 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@einride/core@workspace:packages/einride-core":
+  version: 0.0.0-use.local
+  resolution: "@einride/core@workspace:packages/einride-core"
+  dependencies:
+    "@commitlint/cli": 17.4.4
+    "@commitlint/config-conventional": 17.4.4
+    "@einride/eslint-plugin": 6.23.0
+    "@einride/hooks": 1.7.5
+    "@einride/prettier-config": 2.0.0
+    "@einride/tsconfig": 1.0.1
+    "@emotion/is-prop-valid": 1.2.0
+    "@emotion/react": 11.10.6
+    "@emotion/styled": 11.10.6
+    "@faker-js/faker": 7.6.0
+    "@mantine/core": 6.0.4
+    "@mantine/dates": 6.0.4
+    "@mantine/hooks": 6.0.4
+    "@radix-ui/react-alert-dialog": 1.0.3
+    "@radix-ui/react-dialog": 1.0.3
+    "@radix-ui/react-dropdown-menu": 2.0.4
+    "@radix-ui/react-slider": 1.1.1
+    "@radix-ui/react-switch": 1.0.2
+    "@radix-ui/react-tabs": 1.0.3
+    "@radix-ui/react-tooltip": 1.0.5
+    "@rollup/plugin-image": 3.0.2
+    "@rollup/plugin-typescript": 11.0.0
+    "@storybook/jest": 0.0.11-next.0
+    "@storybook/react": 7.0.0-rc.5
+    "@storybook/testing-library": 0.0.14-next.1
+    "@types/lodash.merge": 4.6.7
+    "@types/luxon": 3.2.0
+    "@types/react": 18.0.28
+    "@types/react-dom": 18.0.11
+    "@vitejs/plugin-react": 3.1.0
+    chromatic: 6.17.2
+    concurrently: 7.6.0
+    dayjs: 1.11.7
+    eslint: 8.36.0
+    eslint-plugin-storybook: 0.6.11
+    framer-motion: 10.6.1
+    happy-dom: 8.9.0
+    lodash.merge: 4.6.2
+    luxon: 3.3.0
+    prettier: 2.8.5
+    react: 18.2.0
+    react-dom: 18.2.0
+    rollup: 3.20.0
+    typescript: 5.0.2
+    vite: 4.2.1
+    vitest: 0.29.7
+  peerDependencies:
+    "@emotion/react": ^11.4.1
+    "@emotion/styled": ^11.3.0
+    framer-motion: ">=6.2.8"
+    react: ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@einride/eslint-plugin@npm:6.23.0":
   version: 6.23.0
   resolution: "@einride/eslint-plugin@npm:6.23.0"
@@ -1804,6 +1862,7 @@ __metadata:
     vite: 4.1.4
     vitest: 0.29.3
   peerDependencies:
+    "@einride/core": 7.43.1
     "@einride/ui": 7.43.1
     "@emotion/react": ^11.4.1
     "@emotion/styled": ^11.3.0
@@ -1847,6 +1906,66 @@ __metadata:
   checksum: 11770b2e5f2fca05c7caf8fe15ac9323c04d6f403aa8991e266a18d08cf37460868be7e04773a6324e93a56ca4c138938395deb67d8e1e7b4901fde7157dfd5b
   languageName: node
   linkType: hard
+
+"@einride/storybook@workspace:packages/einride-storybook":
+  version: 0.0.0-use.local
+  resolution: "@einride/storybook@workspace:packages/einride-storybook"
+  dependencies:
+    "@commitlint/cli": 17.4.4
+    "@commitlint/config-conventional": 17.4.4
+    "@einride/eslint-plugin": 6.23.0
+    "@einride/hooks": 1.7.5
+    "@einride/prettier-config": 2.0.0
+    "@einride/tsconfig": 1.0.1
+    "@emotion/is-prop-valid": 1.2.0
+    "@emotion/react": 11.10.6
+    "@emotion/styled": 11.10.6
+    "@faker-js/faker": 7.6.0
+    "@mantine/core": 6.0.4
+    "@mantine/dates": 6.0.4
+    "@mantine/hooks": 6.0.4
+    "@radix-ui/react-alert-dialog": 1.0.3
+    "@radix-ui/react-dialog": 1.0.3
+    "@radix-ui/react-dropdown-menu": 2.0.4
+    "@radix-ui/react-slider": 1.1.1
+    "@radix-ui/react-switch": 1.0.2
+    "@radix-ui/react-tabs": 1.0.3
+    "@radix-ui/react-tooltip": 1.0.5
+    "@rollup/plugin-image": 3.0.2
+    "@rollup/plugin-typescript": 11.0.0
+    "@storybook/jest": 0.0.11-next.0
+    "@storybook/react": 7.0.0-rc.5
+    "@storybook/testing-library": 0.0.14-next.1
+    "@types/lodash.merge": 4.6.7
+    "@types/luxon": 3.2.0
+    "@types/react": 18.0.28
+    "@types/react-dom": 18.0.11
+    "@vitejs/plugin-react": 3.1.0
+    chromatic: 6.17.2
+    concurrently: 7.6.0
+    dayjs: 1.11.7
+    eslint: 8.36.0
+    eslint-plugin-storybook: 0.6.11
+    framer-motion: 10.6.1
+    happy-dom: 8.9.0
+    lodash.merge: 4.6.2
+    luxon: 3.3.0
+    prettier: 2.8.5
+    react: 18.2.0
+    react-dom: 18.2.0
+    rollup: 3.20.0
+    typescript: 5.0.2
+    vite: 4.2.1
+    vitest: 0.29.7
+  peerDependencies:
+    "@einride/core": 7.43.1
+    "@einride/ui": 7.43.1
+    "@emotion/react": ^11.4.1
+    "@emotion/styled": ^11.3.0
+    framer-motion: ">=6.2.8"
+    react: ^18.0.0
+  languageName: unknown
+  linkType: soft
 
 "@einride/tsconfig@npm:1.0.1":
   version: 1.0.1
@@ -1908,6 +2027,7 @@ __metadata:
     vite: 4.2.1
     vitest: 0.29.7
   peerDependencies:
+    "@einride/core": 7.43.1
     "@emotion/react": ^11.4.1
     "@emotion/styled": ^11.3.0
     framer-motion: ">=6.2.8"

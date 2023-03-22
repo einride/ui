@@ -2,7 +2,7 @@ import { useTheme } from "@emotion/react"
 import styled from "@emotion/styled"
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
 import { ComponentPropsWithoutRef, forwardRef, Fragment } from "react"
-import { zIndex } from "../../../lib/zIndex"
+import { zIndex } from "@einride/core"
 
 interface MenuContentProps extends ComponentPropsWithoutRef<"div"> {
   /** The preferred alignment against the trigger. May change when collisions occur. Default is `center`. */

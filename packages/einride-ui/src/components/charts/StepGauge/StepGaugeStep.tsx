@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, forwardRef } from "react"
-import { ContentColor } from "../../../lib/theme/types"
+import { ContentColor } from "@einride/core"
 
 interface StepGaugeStepProps extends ComponentPropsWithoutRef<"svg"> {
   /** Color of the completed gauge stroke. */

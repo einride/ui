@@ -1,7 +1,7 @@
 import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, forwardRef, useCallback, useState } from "react"
-import { ContentColor } from "../../../lib/theme/types"
+import { ContentColor } from "@einride/core"
 import { PointerIcon } from "./PointerIcon"
 import { StepGaugeStep } from "./StepGaugeStep"
 

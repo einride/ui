@@ -1,8 +1,9 @@
 import { forwardRef, SVGAttributes } from "react"
-import { useColorScheme } from "../../../../contexts/ColorSchemeProvider"
-import { color } from "../../../../primitives/color"
+import { useColorScheme, primitives } from "@einride/core"
 
 type LogoLargeProps = SVGAttributes<SVGSVGElement>
+
+const { color } = primitives
 
 export const LogoLarge = forwardRef<SVGSVGElement, LogoLargeProps>((props, ref) => {
   const { colorScheme } = useColorScheme()

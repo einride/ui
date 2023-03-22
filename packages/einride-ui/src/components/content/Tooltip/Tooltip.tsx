@@ -1,10 +1,8 @@
+import { MaxWidth, Width, useTheme, zIndex } from "@einride/core"
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import * as RadixTooltip from "@radix-ui/react-tooltip"
 import { ReactNode } from "react"
-import { useTheme } from "../../../hooks/useTheme"
-import { MaxWidth, Width } from "../../../lib/theme/props"
-import { zIndex } from "../../../lib/zIndex"
 import { Box } from "../../layout/Box/Box"
 
 interface TooltipProps {

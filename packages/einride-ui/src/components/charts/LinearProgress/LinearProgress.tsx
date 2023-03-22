@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
-import { ContentColor } from "../../../lib/theme/types"
+import { ContentColor } from "@einride/core"
 
 interface LinearProgressBaseProps extends HTMLAttributes<HTMLDivElement> {
   /** Color of the completed progress line. Default is `positive`. */

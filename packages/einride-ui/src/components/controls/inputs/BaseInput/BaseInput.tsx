@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef, useId } from "react"
-import { ContentColor } from "../../../../lib/theme/types"
+import { ContentColor } from "@einride/core"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 import { Caption, CaptionProps } from "../../../typography/Caption/Caption"
 

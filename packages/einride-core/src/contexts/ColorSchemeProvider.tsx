@@ -31,6 +31,7 @@ const Context = createContext<ColorSchemeContext | null>(null)
 
 export const useColorScheme = (): ColorSchemeContext => {
   const context = useContext(Context)
+
   if (!context) {
     throw new Error("useColorScheme must be used within <ColorSchemeProvider>")
   }

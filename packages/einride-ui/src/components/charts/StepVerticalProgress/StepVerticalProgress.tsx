@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
-import { ContentColor } from "../../../lib/theme/types"
+import { ContentColor } from "@einride/core"
 
 interface StepVerticalProgressBaseProps extends HTMLAttributes<HTMLDivElement> {
   /** Color of the completed steps. Default is `positive`. */

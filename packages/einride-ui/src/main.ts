@@ -76,18 +76,3 @@ export { Title3 } from "./components/typography/Title3/Title3"
 export { Alert } from "./components/views/Alert/Alert"
 export { Sheets, type SheetsProps } from "./components/views/Sheets/Sheets"
 export { VisuallyHidden } from "./components/visually-hidden/VisuallyHidden"
-export { useColorScheme } from "./contexts/ColorSchemeProvider"
-export type { ColorScheme } from "./contexts/ColorSchemeProvider"
-export { EinrideProvider } from "./contexts/EinrideProvider"
-export { useTheme } from "./hooks/useTheme"
-export { einrideTheme } from "./lib/theme/einride"
-export type {
-  BackgroundColor,
-  BorderColor,
-  ContentColor,
-  Font,
-  BorderRadius as Radius,
-  Theme,
-} from "./lib/theme/types"
-export { zIndex } from "./lib/zIndex"
-export { primitives } from "./primitives/primitives"

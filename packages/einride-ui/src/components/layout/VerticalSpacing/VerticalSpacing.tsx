@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes } from "react"
-import { Theme } from "../../../lib/theme/types"
+import { Theme } from "@einride/core"
 
 interface VerticalSpacingProps extends HTMLAttributes<HTMLDivElement> {
   /** Effective element used. */

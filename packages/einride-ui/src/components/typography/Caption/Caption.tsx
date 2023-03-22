@@ -1,7 +1,7 @@
 import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
-import { ContentColor, Font } from "../../../lib/theme/types"
+import { ContentColor, Font } from "@einride/core"
 
 export interface CaptionProps extends Omit<ComponentPropsWithoutRef<"p">, "color"> {
   /** Effective element used. */

@@ -1,9 +1,9 @@
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
-import { ColorScheme, useColorScheme } from "../../../contexts/ColorSchemeProvider"
-import { getBackground, getColor } from "../../../lib/theme/prop-system"
-import { Background, Color } from "../../../lib/theme/props"
-import { Theme } from "../../../lib/theme/types"
+import { ColorScheme, useColorScheme } from "@einride/core"
+import { getBackground, getColor } from "@einride/core"
+import { Background, Color } from "@einride/core"
+import { Theme } from "@einride/core"
 
 interface LabelProps extends Omit<ComponentPropsWithoutRef<"span">, "color"> {
   /** Effective element used. */

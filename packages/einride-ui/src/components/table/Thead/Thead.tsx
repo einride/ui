@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, forwardRef } from "react"
-import { getColor, getFont } from "../../../lib/theme/prop-system"
-import { Color, FontFamily } from "../../../lib/theme/props"
+import { getColor, getFont } from "@einride/core"
+import { Color, FontFamily } from "@einride/core"
 
 export interface TheadProps extends Omit<ComponentPropsWithoutRef<"thead">, "color"> {
   /** Text color set on the table head. */

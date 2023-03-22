@@ -14,7 +14,7 @@ jobs:
     name: Semantic release
     strategy:
       matrix:
-        package: [einride-ui, einride-map]
+        package: [einride-core, einride-ui, einride-map]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

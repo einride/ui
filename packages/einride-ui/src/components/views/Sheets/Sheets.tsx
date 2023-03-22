@@ -3,8 +3,7 @@ import styled from "@emotion/styled"
 import * as Dialog from "@radix-ui/react-dialog"
 import { AnimatePresence, motion } from "framer-motion"
 import { CSSProperties, ComponentPropsWithoutRef, ReactNode, forwardRef } from "react"
-import { useTheme } from "../../../hooks/useTheme"
-import { zIndex } from "../../../lib/zIndex"
+import { useTheme, zIndex } from "@einride/core"
 import { IconButton, IconButtonProps } from "../../controls/buttons/IconButton/IconButton"
 import {
   PrimaryButton,

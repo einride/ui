@@ -1,7 +1,7 @@
 import { css, keyframes } from "@emotion/react"
 import styled from "@emotion/styled"
 import { forwardRef } from "react"
-import { SpacingInput } from "../../../lib/theme/props"
+import { SpacingInput } from "@einride/core"
 import { Box, BoxProps } from "../../layout/Box/Box"
 
 interface SkeletonProps extends BoxProps {

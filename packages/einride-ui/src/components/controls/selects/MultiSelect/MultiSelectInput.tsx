@@ -1,3 +1,4 @@
+import { ContentColor, useScrollIntoView } from "@einride/core"
 import styled from "@emotion/styled"
 import {
   ComponentPropsWithoutRef,
@@ -10,8 +11,6 @@ import {
   useState,
   useLayoutEffect,
 } from "react"
-import { useScrollIntoView } from "../../../../hooks/useScrollIntoView"
-import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Caption } from "../../../typography/Caption/Caption"
 import { MessageProps } from "../../inputs/BaseInput/BaseInput"

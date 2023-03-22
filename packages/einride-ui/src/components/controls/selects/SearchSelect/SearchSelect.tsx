@@ -9,8 +9,7 @@ import {
   useRef,
   useState,
 } from "react"
-import { useScrollIntoView } from "../../../../hooks/useScrollIntoView"
-import { zIndex } from "../../../../lib/zIndex"
+import { useScrollIntoView, zIndex } from "@einride/core"
 import { Option } from "../../../menus/Option/Option"
 import { MessageProps } from "../../inputs/BaseInput/BaseInput"
 import { defaultFilter, filterOptions } from "./filterOptions"

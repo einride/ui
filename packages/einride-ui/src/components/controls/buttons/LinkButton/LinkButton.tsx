@@ -1,5 +1,5 @@
 import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
-import { ContentColor, Font } from "../../../../lib/theme/types"
+import { ContentColor, Font } from "@einride/core"
 import { Link } from "../../../typography/Link/Link"
 
 interface LinkButtonProps extends ComponentPropsWithoutRef<"button"> {

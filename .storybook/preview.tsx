@@ -4,13 +4,7 @@ import { Preview, StoryContext, StoryFn } from "@storybook/react"
 import { themes } from "@storybook/theming"
 import React, { CSSProperties, ReactNode, useEffect } from "react"
 import { useDarkMode } from "storybook-dark-mode-v7"
-import {
-  ColorScheme,
-  useColorScheme,
-  EinrideProvider,
-  einrideTheme,
-  primitives,
-} from "@einride/ui"
+import { ColorScheme, EinrideProvider, einrideTheme, primitives, useColorScheme } from "@einride/core"
 
 const customViewports = {
   small: {

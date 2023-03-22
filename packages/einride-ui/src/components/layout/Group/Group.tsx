@@ -1,5 +1,5 @@
 import { ComponentPropsWithoutRef, forwardRef } from "react"
-import { FlexWrap, Gap, JustifyContent } from "../../../lib/theme/props"
+import { FlexWrap, Gap, JustifyContent } from "@einride/core"
 import { Box, BoxProps } from "../Box/Box"
 
 interface GroupProps extends Omit<ComponentPropsWithoutRef<"div">, "color">, BoxProps {
