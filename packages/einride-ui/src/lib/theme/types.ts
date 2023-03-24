@@ -54,10 +54,13 @@ export const contentColors = [
   "secondary",
   "secondaryInverted",
   "tertiary",
+  "tertiaryInverted",
   "positive",
   "positiveInverted",
   "warning",
+  "warningInverted",
   "negative",
+  "negativeInverted",
 ] as const
 export type ContentColor = (typeof contentColors)[number]
 
