@@ -21,7 +21,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ background = "primary", borderRadius = "lg", children, ...props }, ref) => {
     return (
       <Wrapper background={background} borderRadius={borderRadius} {...props} ref={ref}>
-        {children}
+        {children}asddd
       </Wrapper>
     )
   },

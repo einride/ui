@@ -1,0 +1,72 @@
+{
+  "name": "@einride/ui-maps",
+  "version": "0.0.0-development",
+  "description": "Einride's UI framework with reusable components",
+  "scripts": {
+    "build": "rollup --config",
+    "build-storybook": "storybook build",
+    "commitlint": "commitlint --from origin/main --to HEAD",
+    "develop": "yarn storybook",
+    "format": "prettier --write .",
+    "format-check": "prettier --check .",
+    "lint": "eslint --ext ts,tsx src/",
+    "review": "concurrently --kill-others-on-fail 'yarn commitlint' 'yarn format-check' 'yarn lint' 'yarn test' 'yarn typecheck' 'yarn build'",
+    "storybook": "storybook dev -p 6006",
+    "test": "vitest run",
+    "test-storybook": "test-storybook",
+    "test-storybook-coverage": "test-storybook --coverage",
+    "test-watch": "vitest",
+    "typecheck": "tsc"
+  },
+  "devDependencies": {
+    "@einride/ui": "workspace:*",
+    "@storybook/react": "7.0.0-rc.7"
+  },
+  "peerDependencies": {
+    "@einride/ui": "^7.44.0",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "framer-motion": ">=6.2.8",
+    "react": "^18.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/main.d.ts",
+  "main": "./dist/main.cjs.js",
+  "module": "./dist/main.esm.js",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.esm.js",
+      "require": "./dist/main.cjs.js"
+    }
+  },
+  "engines": {
+    "node": "16 || 18"
+  },
+  "author": "Filip Tammergård",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "design-system",
+    "component-library",
+    "ui",
+    "react",
+    "typescript",
+    "einride",
+    "styleguide"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/einride/ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/einride/ui.git"
+  },
+  "bugs": {
+    "email": "open-source@einride.tech",
+    "url": "https://github.com/einride/ui/issues"
+  },
+  "packageManager": "yarn@3.4.1"
+}
