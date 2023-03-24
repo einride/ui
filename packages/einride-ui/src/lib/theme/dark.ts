@@ -34,10 +34,13 @@ export const dark: ColorTheme = {
     secondary: `${color.grey[10]}B3`, // B3 is HEX for ~70% opacity
     secondaryInverted: `${color.grey[90]}99`, // 99 is HEX for ~60% opacity
     tertiary: `${color.grey[10]}66`, // 66 is HEX for ~40% opacity
+    tertiaryInverted: `${color.grey[90]}66`, // 66 is HEX for ~40% opacity
     positive: color.green[20],
     positiveInverted: color.green[60],
     warning: color.orange[40],
+    warningInverted: color.orange[60],
     negative: color.red[40],
+    negativeInverted: color.red[60],
   },
   border: {
     primary: color.grey[60],
