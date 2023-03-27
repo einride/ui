@@ -37,7 +37,7 @@
     "react-map-gl": "7.0.19"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.4.4",
+    "@commitlint/cli": "17.5.0",
     "@commitlint/config-conventional": "17.4.4",
     "@einride/eslint-plugin": "6.23.0",
     "@einride/prettier-config": "2.0.0",
