@@ -1,10 +1,10 @@
+import { Card } from "@einride/ui"
 import styled from "@emotion/styled"
 import { ReactNode } from "react"
 import { Popup } from "react-map-gl"
-import { Card } from "../../cards/Card/Card"
-import { Coordinate } from "../types/types"
+import { Coordinate } from "../../types/types"
 
-export interface TooltipProps {
+interface TooltipProps {
   /** Tooltip content. Wrapped by `Card`. */
   children: ReactNode
 

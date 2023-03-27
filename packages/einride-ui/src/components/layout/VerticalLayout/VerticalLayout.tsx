@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 import { Theme } from "../../../lib/theme/types"
 
-interface VerticalLayoutProps extends HTMLAttributes<HTMLDivElement> {
+export interface VerticalLayoutProps extends HTMLAttributes<HTMLDivElement> {
   /** Effective element used. */
   as?: ElementType
 

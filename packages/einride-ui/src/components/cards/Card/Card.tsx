@@ -3,7 +3,7 @@ import { ComponentPropsWithoutRef, ElementType, forwardRef } from "react"
 import { getBackground, getBorderRadius, getSpacing } from "../../../lib/theme/prop-system"
 import { Background, BorderRadius, PaddingBlockEnd } from "../../../lib/theme/props"
 
-interface CardProps extends ComponentPropsWithoutRef<"div"> {
+export interface CardProps extends ComponentPropsWithoutRef<"div"> {
   /** Effective element used. */
   as?: ElementType
 

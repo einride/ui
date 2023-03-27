@@ -2,7 +2,7 @@ import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "re
 import { ContentColor, Font } from "../../../../lib/theme/types"
 import { Link } from "../../../typography/Link/Link"
 
-interface LinkButtonProps extends ComponentPropsWithoutRef<"button"> {
+export interface LinkButtonProps extends ComponentPropsWithoutRef<"button"> {
   /** Effective element used. */
   as?: ElementType
 

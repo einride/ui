@@ -27,7 +27,7 @@ interface SwitchWithoutLabelProps {
   "aria-label": string
 }
 
-type SwitchProps = SwitchBaseProps & (SwitchWithLabelProps | SwitchWithoutLabelProps)
+export type SwitchProps = SwitchBaseProps & (SwitchWithLabelProps | SwitchWithoutLabelProps)
 
 export const Switch = ({ ...props }: SwitchProps): JSX.Element => {
   const id = useId()

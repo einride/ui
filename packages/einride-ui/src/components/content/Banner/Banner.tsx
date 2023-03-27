@@ -7,7 +7,7 @@ import { Text } from "../../typography/Text/Text"
 
 type Status = "success" | "warning" | "fail" | "neutral"
 
-interface BannerProps {
+export interface BannerProps {
   /** Status of the banner. */
   status?: Status
 

@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, forwardRef, ReactNode } from "react"
 import { Loader, LoaderProps } from "../Loader/Loader"
 
-interface PageLoaderProps extends ComponentPropsWithoutRef<"div"> {
+export interface PageLoaderProps extends ComponentPropsWithoutRef<"div"> {
   /** Props passed to loader element. */
   loaderProps?: LoaderProps
 

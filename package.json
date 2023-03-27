@@ -30,7 +30,9 @@
     "@testing-library/user-event": "14.4.3",
     "storybook": "7.0.0-rc.8",
     "storybook-dark-mode-v7": "3.0.0-alpha.0",
-    "vite-plugin-turbosnap": "1.0.1"
+    "vite": "4.2.1",
+    "vite-plugin-turbosnap": "1.0.1",
+    "vite-tsconfig-paths": "4.0.7"
   },
   "resolutions": {
     "@testing-library/user-event": "14.4.3"

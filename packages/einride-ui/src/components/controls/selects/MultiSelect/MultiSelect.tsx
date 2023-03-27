@@ -2,6 +2,7 @@ import { useDisclosure } from "@einride/hooks"
 import styled from "@emotion/styled"
 import { useUncontrolled } from "@mantine/hooks"
 import {
+  ComponentPropsWithoutRef,
   FocusEvent,
   KeyboardEvent,
   MouseEvent,
@@ -10,11 +11,10 @@ import {
   useMemo,
   useRef,
   useState,
-  ComponentPropsWithoutRef,
 } from "react"
 import { useScrollIntoView } from "../../../../hooks/useScrollIntoView"
 import { zIndex } from "../../../../lib/zIndex"
-import { BoxProps, Box } from "../../../layout/Box/Box"
+import { Box, BoxProps } from "../../../layout/Box/Box"
 import { Option } from "../../../menus/Option/Option"
 
 import { MultiSelectInput, MultiSelectInputSharedProps } from "./MultiSelectInput"
@@ -49,7 +49,7 @@ interface MultiSelectBaseProps<Option> {
   wrapperProps?: BoxProps
 }
 
-type MultiSelectProps<Option> = Partial<MultiSelectInputSharedProps<Option>> &
+export type MultiSelectProps<Option> = Partial<MultiSelectInputSharedProps<Option>> &
   MultiSelectBaseProps<Option> &
   (MultiSelectWithLabelProps | MultiSelectWithoutLabelProps)
 

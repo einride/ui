@@ -3,7 +3,14 @@ import { mergeConfig } from "vite"
 import turbosnap from "vite-plugin-turbosnap"
 
 export default {
-  stories: ["../packages/einride-ui/src/docs", "../packages/einride-ui/src/components"],
+  stories: [
+    "../packages/einride-ui/src/docs",
+    "../packages/einride-ui/src/components",
+    {
+      directory: "../packages/einride-ui-maps/src/components",
+      titlePrefix: "maps",
+    },
+  ],
   addons: [
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",

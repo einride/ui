@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { DatePicker } from "@mantine/dates"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 
-interface RangeCalendarBaseProps {
+export interface RangeCalendarProps {
   /** Initial date displayed, used for uncontrolled component. */
   defaultDate?: Date
 
@@ -24,8 +24,6 @@ interface RangeCalendarBaseProps {
   /** Props passed to root element. */
   wrapperProps?: BoxProps
 }
-
-export type RangeCalendarProps = RangeCalendarBaseProps
 
 export const RangeCalendar = ({ wrapperProps, ...props }: RangeCalendarProps): JSX.Element => {
   return (

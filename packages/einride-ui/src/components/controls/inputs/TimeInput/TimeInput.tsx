@@ -34,7 +34,8 @@ interface TimeInputWithoutLabelProps {
   "aria-label": string
 }
 
-type TimeInputProps = TimeInputBaseProps & (TimeInputWithLabelProps | TimeInputWithoutLabelProps)
+export type TimeInputProps = TimeInputBaseProps &
+  (TimeInputWithLabelProps | TimeInputWithoutLabelProps)
 
 export const TimeInput = forwardRef<HTMLInputElement, TimeInputProps>(
   ({ message, status, ...props }, ref) => {

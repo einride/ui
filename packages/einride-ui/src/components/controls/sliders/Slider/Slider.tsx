@@ -42,7 +42,7 @@ interface SliderWithoutLabelProps {
   "aria-label": string
 }
 
-type SliderProps = SliderBaseProps & (SliderWithLabelProps | SliderWithoutLabelProps)
+export type SliderProps = SliderBaseProps & (SliderWithLabelProps | SliderWithoutLabelProps)
 
 export const Slider = forwardRef<HTMLSpanElement, SliderProps>(
   ({ max = 100, min = 0, ...props }, ref) => {

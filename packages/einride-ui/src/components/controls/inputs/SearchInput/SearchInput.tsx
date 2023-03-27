@@ -47,7 +47,7 @@ interface SearchInputWithoutLabelProps {
   "aria-label": string
 }
 
-type SearchInputProps = SearchInputBaseProps &
+export type SearchInputProps = SearchInputBaseProps &
   (SearchInputWithLabelProps | SearchInputWithoutLabelProps)
 
 export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(

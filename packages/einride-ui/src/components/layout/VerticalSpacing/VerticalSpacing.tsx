@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes } from "react"
 import { Theme } from "../../../lib/theme/types"
 
-interface VerticalSpacingProps extends HTMLAttributes<HTMLDivElement> {
+export interface VerticalSpacingProps extends HTMLAttributes<HTMLDivElement> {
   /** Effective element used. */
   as?: ElementType
 

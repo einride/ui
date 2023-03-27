@@ -1786,7 +1786,9 @@ __metadata:
     "@testing-library/user-event": 14.4.3
     storybook: 7.0.0-rc.8
     storybook-dark-mode-v7: 3.0.0-alpha.0
+    vite: 4.2.1
     vite-plugin-turbosnap: 1.0.1
+    vite-tsconfig-paths: 4.0.7
   languageName: unknown
   linkType: soft
 
@@ -1807,6 +1809,18 @@ __metadata:
   checksum: a96501cc21553da89e9bcdf1728fb9523367b5591ed833dc5ba69d56d774f30d3ee8520d8a7141ac3b4e9234251c56f90bc8129218e5e1d50fa3a4aa596c3410
   languageName: node
   linkType: hard
+
+"@einride/ui-maps@workspace:packages/einride-ui-maps":
+  version: 0.0.0-use.local
+  resolution: "@einride/ui-maps@workspace:packages/einride-ui-maps"
+  dependencies:
+    "@storybook/react": 7.0.0-rc.8
+    mapbox-gl: 2.13.0
+    react-map-gl: 7.0.21
+  peerDependencies:
+    "@einride/ui": ^7.45.0
+  languageName: unknown
+  linkType: soft
 
 "@einride/ui@workspace:packages/einride-ui":
   version: 0.0.0-use.local
@@ -3042,7 +3056,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mapbox/tiny-sdf@npm:^2.0.5":
+"@mapbox/tiny-sdf@npm:^2.0.5, @mapbox/tiny-sdf@npm:^2.0.6":
   version: 2.0.6
   resolution: "@mapbox/tiny-sdf@npm:2.0.6"
   checksum: efff5b5a7599aaa995e3c2fd8f2acd071226096458eebb694ffd7258043c46c52b1d09bb3c7343d2126eb257b3cd7d34e6dc7ccaaad7619e6f3e7dd76229a3cd
@@ -10021,6 +10035,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"globrex@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "globrex@npm:0.1.2"
+  checksum: adca162494a176ce9ecf4dd232f7b802956bb1966b37f60c15e49d2e7d961b66c60826366dc2649093cad5a0d69970cfa8875bd1695b5a1a2f33dcd2aa88da3c
+  languageName: node
+  linkType: hard
+
 "gopd@npm:^1.0.1":
   version: 1.0.1
   resolution: "gopd@npm:1.0.1"
@@ -12393,6 +12414,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mapbox-gl@npm:2.13.0":
+  version: 2.13.0
+  resolution: "mapbox-gl@npm:2.13.0"
+  dependencies:
+    "@mapbox/geojson-rewind": ^0.5.2
+    "@mapbox/jsonlint-lines-primitives": ^2.0.2
+    "@mapbox/mapbox-gl-supported": ^2.0.1
+    "@mapbox/point-geometry": ^0.1.0
+    "@mapbox/tiny-sdf": ^2.0.6
+    "@mapbox/unitbezier": ^0.0.1
+    "@mapbox/vector-tile": ^1.3.1
+    "@mapbox/whoots-js": ^3.1.0
+    csscolorparser: ~1.0.3
+    earcut: ^2.2.4
+    geojson-vt: ^3.2.1
+    gl-matrix: ^3.4.3
+    grid-index: ^1.1.0
+    murmurhash-js: ^1.0.0
+    pbf: ^3.2.1
+    potpack: ^2.0.0
+    quickselect: ^2.0.0
+    rw: ^1.3.3
+    supercluster: ^7.1.5
+    tinyqueue: ^2.0.3
+    vt-pbf: ^3.1.3
+  checksum: de0de328f31ee207295e150d6f715a4f6da4afbda02905f64928aaca5736995f61def941623c8390aa29d5425ddd72e540487fdb2e00c3421e425090d59d4204
+  languageName: node
+  linkType: hard
+
 "markdown-to-jsx@npm:^7.1.8":
   version: 7.2.0
   resolution: "markdown-to-jsx@npm:7.2.0"
@@ -14002,6 +14052,18 @@ __metadata:
     mapbox-gl: "*"
     react: ">=16.3.0"
   checksum: 93a63cb55e86fe89b503ba3300faedcb7e389e5720d161cfd329591789053c26d6f6827c34a5098d2f7d776303b6c2e5cf09e4f894458042f0d9f2deb87d4015
+  languageName: node
+  linkType: hard
+
+"react-map-gl@npm:7.0.21":
+  version: 7.0.21
+  resolution: "react-map-gl@npm:7.0.21"
+  dependencies:
+    "@types/mapbox-gl": ^2.6.0
+  peerDependencies:
+    mapbox-gl: "*"
+    react: ">=16.3.0"
+  checksum: 9c182fc0ab612d965baf53da5a977f06a466634f65932527f1ee447b7eac880c4abfc6c87572a8193664aa3c2d854243e4e37a421d7b22bb4a5f1419b547b250
   languageName: node
   linkType: hard
 
@@ -15673,6 +15735,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tsconfck@npm:^2.0.1":
+  version: 2.1.1
+  resolution: "tsconfck@npm:2.1.1"
+  peerDependencies:
+    typescript: ^4.3.5 || ^5.0.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  bin:
+    tsconfck: bin/tsconfck.js
+  checksum: c531525f39763cbbd7e6dbf5e29f12a7ae67eb8712816c14d06a9db6cbdc9dda9ac3cd6db07ef645f8a4cdea906447ab44e2c8679e320871cf9dd598756e8c83
+  languageName: node
+  linkType: hard
+
 "tsconfig-paths@npm:^3.14.1":
   version: 3.14.2
   resolution: "tsconfig-paths@npm:3.14.2"
@@ -16220,6 +16296,22 @@ __metadata:
   version: 1.0.1
   resolution: "vite-plugin-turbosnap@npm:1.0.1"
   checksum: 1f182feb737bcb16822d067f6e0cab4b712ab6f3a60f2de0229f18217b86417c52315bb6c1868a6caedea9094c6e2a03c3fe6d949322796ac3cf947c2fd898c7
+  languageName: node
+  linkType: hard
+
+"vite-tsconfig-paths@npm:4.0.7":
+  version: 4.0.7
+  resolution: "vite-tsconfig-paths@npm:4.0.7"
+  dependencies:
+    debug: ^4.1.1
+    globrex: ^0.1.2
+    tsconfck: ^2.0.1
+  peerDependencies:
+    vite: "*"
+  peerDependenciesMeta:
+    vite:
+      optional: true
+  checksum: 490123daa28dcf0b1290c2374876041e0ed2964d5244f08ad2cb8354436eff110592d5ffec0960276552943b46361b6a98f2363406e89ae0988287769188f5e8
   languageName: node
   linkType: hard
 

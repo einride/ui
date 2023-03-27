@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, forwardRef, ReactNode } from "react"
 
-interface VisuallyHiddenProps extends ComponentPropsWithoutRef<"span"> {
+export interface VisuallyHiddenProps extends ComponentPropsWithoutRef<"span"> {
   /** Visually hidden content. */
   children: ReactNode
 }

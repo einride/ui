@@ -1,7 +1,7 @@
 import { formatImperial } from "./formatImperial"
 import { formatMetric } from "./formatMetric"
 
-interface WeightUnitProps {
+export interface WeightUnitProps {
   /** Locale used to format weight unit. Default is `en-US`. */
   locales: string | Array<string>
 

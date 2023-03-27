@@ -5,7 +5,7 @@ import { getBackground, getColor } from "../../../lib/theme/prop-system"
 import { Background, Color } from "../../../lib/theme/props"
 import { Theme } from "../../../lib/theme/types"
 
-interface LabelProps extends Omit<ComponentPropsWithoutRef<"span">, "color"> {
+export interface LabelProps extends Omit<ComponentPropsWithoutRef<"span">, "color"> {
   /** Effective element used. */
   as?: ElementType
 

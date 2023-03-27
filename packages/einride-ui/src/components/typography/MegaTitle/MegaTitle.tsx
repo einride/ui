@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 import { ContentColor, Font } from "../../../lib/theme/types"
 
-interface MegaTitleProps extends HTMLAttributes<HTMLHeadingElement> {
+export interface MegaTitleProps extends HTMLAttributes<HTMLHeadingElement> {
   /** Effective element used. */
   as?: ElementType
 

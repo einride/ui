@@ -7,7 +7,7 @@ import { MaxWidth, Width } from "../../../lib/theme/props"
 import { zIndex } from "../../../lib/zIndex"
 import { Box } from "../../layout/Box/Box"
 
-interface TooltipProps {
+export interface TooltipProps {
   /* The preferred alignment against the trigger. May change when collisions occur. Default is `center`. */
   align?: "start" | "center" | "end"
 

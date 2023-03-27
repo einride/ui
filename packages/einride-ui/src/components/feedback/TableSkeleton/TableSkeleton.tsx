@@ -6,7 +6,7 @@ import { Thead } from "../../table/Thead/Thead"
 import { Tr } from "../../table/Tr/Tr"
 import { Skeleton } from "../Skeleton/Skeleton"
 
-interface TableSkeletonProps {
+export interface TableSkeletonProps {
   /** Number of table columns for the generated table skeleton. */
   columns: number
 

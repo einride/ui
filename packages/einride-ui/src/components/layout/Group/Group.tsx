@@ -2,7 +2,7 @@ import { ComponentPropsWithoutRef, forwardRef } from "react"
 import { FlexWrap, Gap, JustifyContent } from "../../../lib/theme/props"
 import { Box, BoxProps } from "../Box/Box"
 
-interface GroupProps extends Omit<ComponentPropsWithoutRef<"div">, "color">, BoxProps {
+export interface GroupProps extends Omit<ComponentPropsWithoutRef<"div">, "color">, BoxProps {
   /** `flex-wrap` CSS property. Default is `wrap`. */
   flexWrap?: FlexWrap
 

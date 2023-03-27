@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, forwardRef, HTMLAttributes, ReactNode, useId } from "react"
 
-interface RadioProps extends Omit<ComponentPropsWithoutRef<"input">, "onChange"> {
+export interface RadioProps extends Omit<ComponentPropsWithoutRef<"input">, "onChange"> {
   /** Radio label. */
   children?: ReactNode
 
