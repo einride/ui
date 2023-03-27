@@ -7,10 +7,7 @@ on:
 
 jobs:
   review:
-    name: Review Matrix
-    strategy:
-      matrix:
-        package: [einride-ui]
+    name: Review
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -27,23 +24,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Review ${{ matrix.package }}
+      - name: Review
         run: yarn review
-        working-directory: packages/${{ matrix.package }}
         env:
           VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
-
-  # Branch protection: Wait for matrix jobs to succeed.
-  # @see: https://github.com/community/community/discussions/4324
-  review-result:
-    name: Review
-    runs-on: ubuntu-latest
-    needs: review
-    if: always()
-    steps:
-      - name: Review succeeded
-        if: ${{ !(contains(needs.*.result, 'failure')) }}
-        run: exit 0
-      - name: Review failed
-        if: ${{ contains(needs.*.result, 'failure') }}
-        run: exit 1

@@ -1,22 +1,9 @@
 {
   "name": "@einride/ui-maps",
   "version": "0.0.0-development",
-  "description": "Einride's UI framework with reusable components",
+  "description": "Reusable map components",
   "scripts": {
-    "build": "rollup --config",
-    "build-storybook": "storybook build",
-    "commitlint": "commitlint --from origin/main --to HEAD",
-    "develop": "yarn storybook",
-    "format": "prettier --write .",
-    "format-check": "prettier --check .",
-    "lint": "eslint --ext ts,tsx src/",
-    "review": "concurrently --kill-others-on-fail 'yarn commitlint' 'yarn format-check' 'yarn lint' 'yarn test' 'yarn typecheck' 'yarn build'",
-    "storybook": "storybook dev -p 6006",
-    "test": "vitest run",
-    "test-storybook": "test-storybook",
-    "test-storybook-coverage": "test-storybook --coverage",
-    "test-watch": "vitest",
-    "typecheck": "tsc"
+    "build": "rollup --config"
   },
   "dependencies": {
     "mapbox-gl": "2.13.0",
@@ -26,7 +13,10 @@
     "@storybook/react": "7.0.0-rc.8"
   },
   "peerDependencies": {
-    "@einride/ui": "^7.45.0"
+    "@einride/ui": "^7.45.0",
+    "@emotion/react": "11.10.6",
+    "@emotion/styled": "11.10.6",
+    "react": "^18.0.0"
   },
   "files": [
     "dist"
