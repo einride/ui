@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { forwardRef, HTMLAttributes } from "react"
 import { ContentColor } from "../../../lib/theme/types"
 
-interface StepProgressBaseProps extends HTMLAttributes<HTMLDivElement> {
+export interface StepProgressBaseProps extends HTMLAttributes<HTMLDivElement> {
   /** Color of the completed steps. Default is `positive`. */
   color?: ContentColor
 

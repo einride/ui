@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { DatePicker } from "@mantine/dates"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 
-interface CalendarBaseProps {
+export interface CalendarBaseProps {
   /** Initial date displayed, used for uncontrolled component. */
   defaultDate?: Date
 

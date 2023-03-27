@@ -15,7 +15,7 @@ import { Box } from "../../layout/Box/Box"
 import { VerticalSpacing } from "../../layout/VerticalSpacing/VerticalSpacing"
 import { Text } from "../../typography/Text/Text"
 
-interface AlertProps
+export interface AlertProps
   extends Omit<
       ComponentPropsWithoutRef<"div">,
       "onAnimationStart" | "onDrag" | "onDragEnd" | "onDragStart" | "style" | "title"

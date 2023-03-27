@@ -1,7 +1,7 @@
 import * as RadixTabs from "@radix-ui/react-tabs"
 import { ReactNode } from "react"
 
-interface TabsProps {
+export interface TabsProps {
   /** Tabs content. */
   children: ReactNode
 

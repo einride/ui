@@ -16,7 +16,7 @@ interface StepGaugeBaseProps extends ComponentPropsWithoutRef<"div"> {
   steps: number
 }
 
-type StepGaugeProps = (
+export type StepGaugeProps = (
   | {
       /** Accessible name. */
       "aria-label": string

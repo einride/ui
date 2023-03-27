@@ -4,7 +4,7 @@ import { getColor, getFont } from "../../../lib/theme/prop-system"
 import { As, Color, FontFamily, FontWeight } from "../../../lib/theme/props"
 import { Theme } from "../../../lib/theme/types"
 
-interface TextProps extends Omit<HTMLAttributes<HTMLParagraphElement>, "color"> {
+export interface TextProps extends Omit<HTMLAttributes<HTMLParagraphElement>, "color"> {
   /** Effective element used. */
   as?: As
 

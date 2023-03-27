@@ -3,7 +3,7 @@ import { ComponentPropsWithoutRef, forwardRef, useId } from "react"
 import { Icon } from "../../../content/Icon/Icon"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 
-interface CheckboxProps extends Omit<ComponentPropsWithoutRef<"input">, "onChange"> {
+export interface CheckboxProps extends Omit<ComponentPropsWithoutRef<"input">, "onChange"> {
   /** Props passed to the inner wrapper element. */
   innerWrapperProps?: BoxProps
 

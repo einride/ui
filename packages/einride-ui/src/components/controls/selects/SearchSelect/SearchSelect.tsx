@@ -17,7 +17,7 @@ import { defaultFilter, filterOptions } from "./filterOptions"
 import { SearchSelectInput } from "./SearchSelectInput"
 import { BaseOption } from "./types"
 
-interface SearchSelectBaseProps<Option> extends ComponentPropsWithoutRef<"input"> {
+export interface SearchSelectBaseProps<Option> extends ComponentPropsWithoutRef<"input"> {
   /** Props passed to the clear button element. */
   clearButtonProps?: ComponentPropsWithoutRef<"button"> & { "data-testid": string }
 
@@ -61,7 +61,7 @@ interface SearchSelectBaseProps<Option> extends ComponentPropsWithoutRef<"input"
   wrapperProps?: ComponentPropsWithoutRef<"div">
 }
 
-interface SearchSelectWithLabelProps {
+export interface SearchSelectWithLabelProps {
   /** Input label, displayed before input. */
   label: ReactNode
 
@@ -69,12 +69,12 @@ interface SearchSelectWithLabelProps {
   labelProps?: ComponentPropsWithoutRef<"label">
 }
 
-interface SearchSelectWithoutLabelProps {
+export interface SearchSelectWithoutLabelProps {
   /** Accessible name, required when `label` is not provided. */
   "aria-label": string
 }
 
-type SearchSelectProps<Option> = SearchSelectBaseProps<Option> &
+export type SearchSelectProps<Option> = SearchSelectBaseProps<Option> &
   (SearchSelectWithLabelProps | SearchSelectWithoutLabelProps)
 
 export const SearchSelect = <Option extends BaseOption>({

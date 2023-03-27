@@ -3,7 +3,8 @@
   "compilerOptions": {
     "declaration": true,
     "noEmit": false,
-    "outDir": "dist"
+    "outDir": "./dist"
   },
-  "include": ["src/**/*.ts"]
+  "include": ["./src"],
+  "exclude": ["**/*.stories.tsx", "**/*.test.ts"]
 }

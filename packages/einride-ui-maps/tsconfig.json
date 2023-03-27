@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@einride/ui": ["../einride-ui/src"]
+    }
+  },
+  "references": [{ "path": "../einride-ui" }]
+}

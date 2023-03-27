@@ -20,7 +20,7 @@ interface UserAccessPointWithInitialsProps {
   name: string | undefined
 }
 
-type UserAccessPointProps = UserAccessPointBaseProps &
+export type UserAccessPointProps = UserAccessPointBaseProps &
   (UserAccessPointWithImageProps | UserAccessPointWithInitialsProps)
 
 export const UserAccessPoint = forwardRef<HTMLButtonElement, UserAccessPointProps>(

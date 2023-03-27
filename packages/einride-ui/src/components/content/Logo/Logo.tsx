@@ -2,7 +2,7 @@ import { forwardRef, SVGAttributes } from "react"
 import { LogoLarge } from "./variants/LogoLarge"
 import { LogoSmall } from "./variants/LogoSmall"
 
-interface LogoProps extends SVGAttributes<SVGSVGElement> {
+export interface LogoProps extends SVGAttributes<SVGSVGElement> {
   /** Size of the logo. Default is `sm`. */
   size?: Size
 }

@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
 import { Icon } from "../../content/Icon/Icon"
 
-interface OptionProps extends ComponentPropsWithoutRef<"div"> {
+export interface OptionProps extends ComponentPropsWithoutRef<"div"> {
   /** Effective element used. */
   as?: ElementType
 

@@ -2,7 +2,7 @@ import { ComponentPropsWithoutRef, forwardRef } from "react"
 import { AlignItems, Gap, JustifyContent } from "../../../lib/theme/props"
 import { Box, BoxProps } from "../Box/Box"
 
-interface StackProps extends Omit<ComponentPropsWithoutRef<"div">, "color">, BoxProps {
+export interface StackProps extends Omit<ComponentPropsWithoutRef<"div">, "color">, BoxProps {
   /** `align-items` CSS property. Default is `stretch`. */
   alignItems?: AlignItems
 

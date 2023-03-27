@@ -4,7 +4,7 @@ import { forwardRef } from "react"
 import { SpacingInput } from "../../../lib/theme/props"
 import { Box, BoxProps } from "../../layout/Box/Box"
 
-interface SkeletonProps extends BoxProps {
+export interface SkeletonProps extends BoxProps {
   /** Whether or not to animate the skeleton. */
   animate?: boolean
 

@@ -6,7 +6,7 @@ import { Box, BoxProps } from "../../../layout/Box/Box"
 import { Caption } from "../../../typography/Caption/Caption"
 import { Status } from "../../inputs/BaseInput/BaseInput"
 
-interface DatePickerBaseProps {
+export interface DatePickerBaseProps {
   /** Whether to allow clearing value or not. Default is `false`. */
   clearable?: boolean
 

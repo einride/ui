@@ -3,7 +3,7 @@ import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "re
 import { BaseButton } from "../BaseButton/BaseButton"
 import { BaseButtonIcon } from "../BaseButton/BaseButtonIcon"
 
-interface TertiaryButtonProps extends ComponentPropsWithoutRef<"button"> {
+export interface TertiaryButtonProps extends ComponentPropsWithoutRef<"button"> {
   /** Effective element used. */
   as?: ElementType
 

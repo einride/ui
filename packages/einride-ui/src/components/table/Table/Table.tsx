@@ -3,7 +3,7 @@ import { ComponentPropsWithoutRef, forwardRef } from "react"
 import { getColor, getFont } from "../../../lib/theme/prop-system"
 import { Color, FontFamily } from "../../../lib/theme/props"
 
-interface TableProps extends Omit<ComponentPropsWithoutRef<"table">, "color"> {
+export interface TableProps extends Omit<ComponentPropsWithoutRef<"table">, "color"> {
   /** Text color set on the table. */
   color?: Color
 
