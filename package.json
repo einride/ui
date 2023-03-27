@@ -6,8 +6,8 @@
   ],
   "scripts": {
     "build": "yarn build:einride-ui",
-    "build:einride-ui": "cd packages/einride-ui && yarn build",
-    "build:einride-ui-maps": "cd packages/einride-ui-maps && yarn build",
+    "build:einride-ui": "yarn workspace @einride/ui build",
+    "build:einride-ui-maps": "yarn workspace @einride/ui-maps build",
     "build-storybook": "storybook build",
     "review": "concurrently --kill-others-on-fail 'yarn commitlint' 'yarn format-check' 'yarn lint' 'yarn test' 'yarn typecheck' 'yarn build'",
     "storybook": "storybook dev -p 6006",
