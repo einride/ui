@@ -1767,6 +1767,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@einride/monorepo@workspace:."
   dependencies:
+    "@commitlint/cli": 17.5.0
+    "@commitlint/config-conventional": 17.4.4
+    "@einride/eslint-plugin": 6.23.0
+    "@einride/prettier-config": 2.0.0
+    "@einride/tsconfig": 1.0.1
     "@storybook/addon-a11y": 7.0.0-rc.8
     "@storybook/addon-actions": 7.0.0-rc.8
     "@storybook/addon-coverage": 0.0.8
@@ -1784,11 +1789,18 @@ __metadata:
     "@testing-library/jest-dom": 5.16.5
     "@testing-library/react": 14.0.0
     "@testing-library/user-event": 14.4.3
+    concurrently: 7.6.0
+    eslint: 8.36.0
+    eslint-plugin-storybook: 0.6.11
+    prettier: 2.8.7
+    react: 18.2.0
     storybook: 7.0.0-rc.8
     storybook-dark-mode-v7: 3.0.0-alpha.0
+    typescript: 5.0.2
     vite: 4.2.1
     vite-plugin-turbosnap: 1.0.1
     vite-tsconfig-paths: 4.0.7
+    vitest: 0.29.7
   languageName: unknown
   linkType: soft
 
@@ -1819,6 +1831,9 @@ __metadata:
     react-map-gl: 7.0.21
   peerDependencies:
     "@einride/ui": ^7.45.0
+    "@emotion/react": 11.10.6
+    "@emotion/styled": 11.10.6
+    react: ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -1826,12 +1841,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@einride/ui@workspace:packages/einride-ui"
   dependencies:
-    "@commitlint/cli": 17.5.0
-    "@commitlint/config-conventional": 17.4.4
-    "@einride/eslint-plugin": 6.23.0
     "@einride/hooks": 1.7.5
-    "@einride/prettier-config": 2.0.0
-    "@einride/tsconfig": 1.0.1
     "@emotion/is-prop-valid": 1.2.0
     "@emotion/react": 11.10.6
     "@emotion/styled": 11.10.6
@@ -1859,21 +1869,16 @@ __metadata:
     chromatic: 6.17.2
     concurrently: 7.6.0
     dayjs: 1.11.7
-    eslint: 8.36.0
-    eslint-plugin-storybook: 0.6.11
     framer-motion: 10.9.1
-    happy-dom: 8.9.0
     lodash.merge: 4.6.2
     luxon: 3.3.0
     mapbox-gl: 2.11.0
-    prettier: 2.8.7
     react: 18.2.0
     react-dom: 18.2.0
     react-map-gl: 7.0.19
     rollup: 3.20.2
     typescript: 5.0.2
     vite: 4.2.1
-    vitest: 0.29.7
   peerDependencies:
     "@emotion/react": ^11.4.1
     "@emotion/styled": ^11.3.0
@@ -10125,21 +10130,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"happy-dom@npm:8.9.0":
-  version: 8.9.0
-  resolution: "happy-dom@npm:8.9.0"
-  dependencies:
-    css.escape: ^1.5.1
-    he: ^1.2.0
-    iconv-lite: ^0.6.3
-    node-fetch: ^2.x.x
-    webidl-conversions: ^7.0.0
-    whatwg-encoding: ^2.0.0
-    whatwg-mimetype: ^3.0.0
-  checksum: 2a9d853199e924e4445c11844a3d0fdd75b9831edab4c5dda52c4725c4f7889cd919814333162b70b3ae43884ec70ed50fbc22564eb94ba09408218922870a34
-  languageName: node
-  linkType: hard
-
 "hard-rejection@npm:^2.1.0":
   version: 2.1.0
   resolution: "hard-rejection@npm:2.1.0"
@@ -10223,15 +10213,6 @@ __metadata:
     is-stream: ^2.0.0
     type-fest: ^0.8.0
   checksum: 06cc474bed246761ff61c19d629977eb5f53fa817be4313a255a64ae0f433e831a29e83acb6555e3f4592b348497596f1d1653751008dda4f21c9c21ca60ac5a
-  languageName: node
-  linkType: hard
-
-"he@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "he@npm:1.2.0"
-  bin:
-    he: bin/he
-  checksum: 3d4d6babccccd79c5c5a3f929a68af33360d6445587d628087f39a965079d84f18ce9c3d3f917ee1e3978916fc833bb8b29377c3b403f919426f91bc6965e7a7
   languageName: node
   linkType: hard
 
@@ -10383,7 +10364,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"iconv-lite@npm:0.6.3, iconv-lite@npm:^0.6.2, iconv-lite@npm:^0.6.3":
+"iconv-lite@npm:^0.6.2":
   version: 0.6.3
   resolution: "iconv-lite@npm:0.6.3"
   dependencies:
@@ -12859,7 +12840,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:^2, node-fetch@npm:^2.6.1, node-fetch@npm:^2.6.7, node-fetch@npm:^2.x.x":
+"node-fetch@npm:^2, node-fetch@npm:^2.6.1, node-fetch@npm:^2.6.7":
   version: 2.6.9
   resolution: "node-fetch@npm:2.6.9"
   dependencies:
@@ -16473,13 +16454,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webidl-conversions@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "webidl-conversions@npm:7.0.0"
-  checksum: f05588567a2a76428515333eff87200fae6c83c3948a7482ebb109562971e77ef6dc49749afa58abb993391227c5697b3ecca52018793e0cb4620a48f10bd21b
-  languageName: node
-  linkType: hard
-
 "webpack-sources@npm:^3.2.3":
   version: 3.2.3
   resolution: "webpack-sources@npm:3.2.3"
@@ -16491,22 +16465,6 @@ __metadata:
   version: 0.4.6
   resolution: "webpack-virtual-modules@npm:0.4.6"
   checksum: cb056ba8c50b35436ae43149554b051b80065b0cf79f2d528ca692ddf344a422ac71c415adb9da83dc3acc6e7e58f518388cc1cd11cb4fa29dc04f2c4494afe3
-  languageName: node
-  linkType: hard
-
-"whatwg-encoding@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "whatwg-encoding@npm:2.0.0"
-  dependencies:
-    iconv-lite: 0.6.3
-  checksum: 7087810c410aa9b689cbd6af8773341a53cdc1f3aae2a882c163bd5522ec8ca4cdfc269aef417a5792f411807d5d77d50df4c24e3abb00bb60192858a40cc675
-  languageName: node
-  linkType: hard
-
-"whatwg-mimetype@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "whatwg-mimetype@npm:3.0.0"
-  checksum: ce08bbb36b6aaf64f3a84da89707e3e6a31e5ab1c1a2379fd68df79ba712a4ab090904f0b50e6693b0dafc8e6343a6157e40bf18fdffd26e513cf95ee2a59824
   languageName: node
   linkType: hard
 
