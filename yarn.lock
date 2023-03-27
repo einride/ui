@@ -1856,7 +1856,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     react-map-gl: 7.0.19
-    rollup: 3.20.0
+    rollup: 3.20.2
     typescript: 5.0.2
     vite: 4.2.1
     vitest: 0.29.7
@@ -14502,9 +14502,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:3.20.0, rollup@npm:^3.18.0":
-  version: 3.20.0
-  resolution: "rollup@npm:3.20.0"
+"rollup@npm:3.20.2":
+  version: 3.20.2
+  resolution: "rollup@npm:3.20.2"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -14512,7 +14512,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: ebf75f48eb81234f8233b4ed145b00841cefba26802d4f069f161247ffba085ca5bb165cc3cd662d9c36cfc135a67660dfff9088d3da2d2c6a70addc15f3233a
+  checksum: 34b0932839b7c2a5d1742fb21ce95a47e0b49a0849f4abee2dccf25833187aa7babb898ca90d4fc761cffa4102b9ed0ac6ad7f6f6b96c8b8e2d67305abc5da65
   languageName: node
   linkType: hard
 
@@ -14527,6 +14527,20 @@ __metadata:
   bin:
     rollup: dist/bin/rollup
   checksum: f78198c6de224b26650c70b16db156762d1fcceeb375d34fb2c76fc5b23a78f712c3c881d3248e6f277a511589e20d50c247bcf5c7920f1ddc0a43cadf9f0140
+  languageName: node
+  linkType: hard
+
+"rollup@npm:^3.18.0":
+  version: 3.20.0
+  resolution: "rollup@npm:3.20.0"
+  dependencies:
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: ebf75f48eb81234f8233b4ed145b00841cefba26802d4f069f161247ffba085ca5bb165cc3cd662d9c36cfc135a67660dfff9088d3da2d2c6a70addc15f3233a
   languageName: node
   linkType: hard
 
