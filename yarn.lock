@@ -1794,6 +1794,7 @@ __metadata:
     eslint-plugin-storybook: 0.6.11
     prettier: 2.8.7
     react: 18.2.0
+    react-dom: 18.2.0
     storybook: 7.0.0-rc.8
     storybook-dark-mode-v7: 3.0.0-alpha.0
     typescript: 5.0.2
@@ -1826,13 +1827,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@einride/ui-maps@workspace:packages/einride-ui-maps"
   dependencies:
+    "@rollup/plugin-image": 3.0.2
+    "@rollup/plugin-typescript": 11.0.0
     "@storybook/react": 7.0.0-rc.8
     mapbox-gl: 2.13.0
     react-map-gl: 7.0.21
+    rollup: 3.20.2
+    typescript: 5.0.2
   peerDependencies:
     "@einride/ui": ^7.45.0
-    "@emotion/react": 11.10.6
-    "@emotion/styled": 11.10.6
+    "@emotion/react": ^11.10.6
+    "@emotion/styled": ^11.10.6
     react: ^18.0.0
   languageName: unknown
   linkType: soft

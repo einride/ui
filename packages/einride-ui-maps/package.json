@@ -10,7 +10,11 @@
     "react-map-gl": "7.0.21"
   },
   "devDependencies": {
-    "@storybook/react": "7.0.0-rc.8"
+    "@rollup/plugin-image": "3.0.2",
+    "@rollup/plugin-typescript": "11.0.0",
+    "@storybook/react": "7.0.0-rc.8",
+    "rollup": "3.20.2",
+    "typescript": "5.0.2"
   },
   "peerDependencies": {
     "@einride/ui": "^7.45.0",
