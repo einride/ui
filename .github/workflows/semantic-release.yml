@@ -34,8 +34,7 @@ jobs:
           VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
 
       - name: Run semantic-release
-        run: npx semantic-release
-        working-directory: packages/einride-ui
+        run: yarn workspace @einride/ui semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

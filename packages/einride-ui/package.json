@@ -3,7 +3,8 @@
   "version": "0.0.0-development",
   "description": "Einride's UI framework with reusable components",
   "scripts": {
-    "build": "rollup --config"
+    "build": "rollup --config",
+    "semantic-release": "npx semantic-release"
   },
   "dependencies": {
     "@einride/hooks": "1.7.5",
