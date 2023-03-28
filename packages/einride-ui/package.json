@@ -4,7 +4,7 @@
   "description": "Core components that adhere to Einride's design system",
   "scripts": {
     "build": "rollup --config",
-    "semantic-release": "npx semantic-release"
+    "release": "npx semantic-release"
   },
   "dependencies": {
     "@einride/hooks": "1.7.5",

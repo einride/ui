@@ -1,4 +1,4 @@
-name: Semantic release
+name: Release
 
 on:
   push:
@@ -10,8 +10,8 @@ on:
       - next-major
 
 jobs:
-  semantic-release:
-    name: Semantic release
+  release:
+    name: Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -33,8 +33,14 @@ jobs:
         env:
           VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
 
-      - name: Run semantic-release
-        run: yarn workspace @einride/ui semantic-release
+      - name: Release @einride/ui
+        run: yarn workspace @einride/ui release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Release @einride/ui-maps
+        run: yarn workspace @einride/ui-maps release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

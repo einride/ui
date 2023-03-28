@@ -3,7 +3,8 @@
   "version": "0.0.0-development",
   "description": "Map components that adhere to Einride's design system",
   "scripts": {
-    "build": "rollup --config"
+    "build": "rollup --config",
+    "release": "npx semantic-release --dry-run"
   },
   "dependencies": {
     "mapbox-gl": "2.13.0",
