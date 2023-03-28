@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Create release  or Publish to npm
+      - name: Create release PR or publish to npm
         id: changesets
         uses: changesets/action@v1
         with:
