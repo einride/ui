@@ -1,6 +1,8 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "composite": true,
+    "rootDir": "./src",
     "paths": {
       "@einride/ui": ["../einride-ui/src"]
     }

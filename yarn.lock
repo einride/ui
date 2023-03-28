@@ -1763,9 +1763,46 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@einride/monorepo@workspace:.":
+"@einride/prettier-config@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@einride/prettier-config@npm:2.0.0"
+  peerDependencies:
+    prettier: ^2.4.0
+  checksum: 11770b2e5f2fca05c7caf8fe15ac9323c04d6f403aa8991e266a18d08cf37460868be7e04773a6324e93a56ca4c138938395deb67d8e1e7b4901fde7157dfd5b
+  languageName: node
+  linkType: hard
+
+"@einride/tsconfig@npm:1.0.1":
+  version: 1.0.1
+  resolution: "@einride/tsconfig@npm:1.0.1"
+  peerDependencies:
+    typescript: ">=4"
+  checksum: a96501cc21553da89e9bcdf1728fb9523367b5591ed833dc5ba69d56d774f30d3ee8520d8a7141ac3b4e9234251c56f90bc8129218e5e1d50fa3a4aa596c3410
+  languageName: node
+  linkType: hard
+
+"@einride/ui-maps@workspace:packages/einride-ui-maps":
   version: 0.0.0-use.local
-  resolution: "@einride/monorepo@workspace:."
+  resolution: "@einride/ui-maps@workspace:packages/einride-ui-maps"
+  dependencies:
+    "@rollup/plugin-image": 3.0.2
+    "@rollup/plugin-typescript": 11.0.0
+    "@storybook/react": 7.0.0-rc.8
+    mapbox-gl: 2.13.0
+    react-map-gl: 7.0.21
+    rollup: 3.20.2
+    typescript: 5.0.2
+  peerDependencies:
+    "@einride/ui": ^7.45.0
+    "@emotion/react": ^11.10.6
+    "@emotion/styled": ^11.10.6
+    react: ^18.0.0
+  languageName: unknown
+  linkType: soft
+
+"@einride/ui-monorepo@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@einride/ui-monorepo@workspace:."
   dependencies:
     "@commitlint/cli": 17.5.0
     "@commitlint/config-conventional": 17.4.4
@@ -1802,43 +1839,6 @@ __metadata:
     vite-plugin-turbosnap: 1.0.1
     vite-tsconfig-paths: 4.0.7
     vitest: 0.29.7
-  languageName: unknown
-  linkType: soft
-
-"@einride/prettier-config@npm:2.0.0":
-  version: 2.0.0
-  resolution: "@einride/prettier-config@npm:2.0.0"
-  peerDependencies:
-    prettier: ^2.4.0
-  checksum: 11770b2e5f2fca05c7caf8fe15ac9323c04d6f403aa8991e266a18d08cf37460868be7e04773a6324e93a56ca4c138938395deb67d8e1e7b4901fde7157dfd5b
-  languageName: node
-  linkType: hard
-
-"@einride/tsconfig@npm:1.0.1":
-  version: 1.0.1
-  resolution: "@einride/tsconfig@npm:1.0.1"
-  peerDependencies:
-    typescript: ">=4"
-  checksum: a96501cc21553da89e9bcdf1728fb9523367b5591ed833dc5ba69d56d774f30d3ee8520d8a7141ac3b4e9234251c56f90bc8129218e5e1d50fa3a4aa596c3410
-  languageName: node
-  linkType: hard
-
-"@einride/ui-maps@workspace:packages/einride-ui-maps":
-  version: 0.0.0-use.local
-  resolution: "@einride/ui-maps@workspace:packages/einride-ui-maps"
-  dependencies:
-    "@rollup/plugin-image": 3.0.2
-    "@rollup/plugin-typescript": 11.0.0
-    "@storybook/react": 7.0.0-rc.8
-    mapbox-gl: 2.13.0
-    react-map-gl: 7.0.21
-    rollup: 3.20.2
-    typescript: 5.0.2
-  peerDependencies:
-    "@einride/ui": ^7.45.0
-    "@emotion/react": ^11.10.6
-    "@emotion/styled": ^11.10.6
-    react: ^18.0.0
   languageName: unknown
   linkType: soft
 
