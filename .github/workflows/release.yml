@@ -11,6 +11,10 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # to create release (changesets/action)
+      issues: write # to post issue comments (changesets/action)
+      pull-requests: write # to create pull request (changesets/action)
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -27,9 +31,9 @@ jobs:
         run: yarn install --immutable
 
       - name: Create release PR or publish to npm
-        id: changesets
         uses: changesets/action@v1
         with:
+          commit: "chore: version packages"
           publish: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
