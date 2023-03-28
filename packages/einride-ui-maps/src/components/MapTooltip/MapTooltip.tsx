@@ -4,7 +4,7 @@ import { ReactNode } from "react"
 import { Popup } from "react-map-gl"
 import { Coordinate } from "../../types/types"
 
-export interface TooltipProps {
+export interface MapTooltipProps {
   /** Tooltip content. Wrapped by `Card`. */
   children: ReactNode
 
@@ -12,7 +12,7 @@ export interface TooltipProps {
   position: Coordinate
 }
 
-export const MapTooltip = ({ children, position }: TooltipProps): JSX.Element | null => {
+export const MapTooltip = ({ children, position }: MapTooltipProps): JSX.Element | null => {
   if (!position.lng || !position.lat) {
     return null
   }
