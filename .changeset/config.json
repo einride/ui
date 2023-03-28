@@ -1,9 +1,9 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@2.3.0/schema.json",
-  "changelog": "@changesets/cli/changelog",
+  "changelog": ["@changesets/changelog-github", { "repo": "einride/ui" }],
   "commit": false,
   "fixed": [],
-  "linked": [],
+  "linked": [["@einride/ui", "@einride/ui-maps"]],
   "access": "restricted",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
