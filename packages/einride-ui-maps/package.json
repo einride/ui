@@ -1,6 +1,6 @@
 {
   "name": "@einride/ui-maps",
-  "version": "7.45.2",
+  "version": "7.45.3",
   "description": "Map components that adhere to Einride's design system",
   "scripts": {
     "build": "rollup --config"
@@ -19,7 +19,7 @@
     "typescript": "5.0.2"
   },
   "peerDependencies": {
-    "@einride/ui": "^7.45.0",
+    "@einride/ui": "^7.45.3",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "react": "^18.0.0"
