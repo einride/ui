@@ -1,5 +1,5 @@
 {
-  "name": "@einride/monorepo",
+  "name": "@einride/ui-monorepo",
   "private": true,
   "workspaces": [
     "packages/*"

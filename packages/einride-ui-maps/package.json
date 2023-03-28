@@ -1,7 +1,7 @@
 {
   "name": "@einride/ui-maps",
   "version": "0.0.0-development",
-  "description": "Reusable map components",
+  "description": "Map components that adhere to Einride's design system",
   "scripts": {
     "build": "rollup --config"
   },
@@ -35,31 +35,31 @@
       "require": "./dist/main.cjs.js"
     }
   },
-  "engines": {
-    "node": "16 || 18"
-  },
-  "author": "Filip Tammergård",
-  "publishConfig": {
-    "access": "public"
-  },
   "keywords": [
-    "design-system",
-    "component-library",
-    "ui",
     "react",
     "typescript",
-    "einride",
-    "styleguide"
+    "ui",
+    "components",
+    "library",
+    "maps"
   ],
-  "license": "MIT",
   "homepage": "https://github.com/einride/ui",
   "repository": {
     "type": "git",
-    "url": "https://github.com/einride/ui.git"
+    "url": "https://github.com/einride/ui.git",
+    "directory": "packages/einride-ui-maps"
   },
   "bugs": {
     "email": "open-source@einride.tech",
     "url": "https://github.com/einride/ui/issues"
+  },
+  "license": "MIT",
+  "author": "Filip Tammergård <filip.tammergard@einride.tech> https://github.com/filiptammergard",
+  "engines": {
+    "node": "16 || 18"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "packageManager": "yarn@3.4.1"
 }
