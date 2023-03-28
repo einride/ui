@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.45.4
+
+### Patch Changes
+
+- f20346c: Align workflows
+
 ## 7.45.3
 
 ### Patch Changes
