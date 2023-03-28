@@ -14,8 +14,8 @@
   },
   "peerDependencies": {
     "@einride/ui": "^7.45.0",
-    "@emotion/react": "11.10.6",
-    "@emotion/styled": "11.10.6",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
     "react": "^18.0.0"
   },
   "files": [
