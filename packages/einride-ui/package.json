@@ -3,8 +3,7 @@
   "version": "0.0.0-development",
   "description": "Core components that adhere to Einride's design system",
   "scripts": {
-    "build": "rollup --config",
-    "release": "npx semantic-release"
+    "build": "rollup --config"
   },
   "dependencies": {
     "@einride/hooks": "1.7.5",

@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "yarn build:einride-ui",
+    "build": "yarn build:einride-ui && yarn build:einride-ui-maps",
     "build:einride-ui": "yarn workspace @einride/ui build",
     "build:einride-ui-maps": "yarn workspace @einride/ui-maps build",
     "build-storybook": "storybook build",
@@ -17,11 +17,13 @@
     "format": "prettier --write .",
     "format-check": "prettier --check .",
     "lint": "eslint --ext ts,tsx packages",
+    "release": "yarn build && yarn changeset publish",
     "test": "vitest run",
     "test-watch": "vitest",
     "typecheck": "tsc"
   },
   "devDependencies": {
+    "@changesets/cli": "2.26.1",
     "@commitlint/cli": "17.5.0",
     "@commitlint/config-conventional": "17.4.4",
     "@einride/eslint-plugin": "6.24.0",

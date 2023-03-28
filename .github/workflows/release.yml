@@ -4,10 +4,8 @@ on:
   push:
     branches:
       - main
-      - beta
-      - alpha
-      - next
-      - next-major
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
@@ -16,8 +14,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v3
@@ -28,19 +24,11 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Review
-        run: yarn review
-        env:
-          VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
-
-      - name: Release @einride/ui
-        run: yarn workspace @einride/ui release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Release @einride/ui-maps
-        run: yarn workspace @einride/ui-maps release
+      - name: Create release  or Publish to npm
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
