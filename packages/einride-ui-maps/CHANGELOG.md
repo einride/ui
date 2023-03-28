@@ -1,5 +1,11 @@
 # @einride/ui-maps
 
+## 7.45.4
+
+### Patch Changes
+
+- 451e003: Add dark charger marker
+
 ## 7.45.3
 
 ### Patch Changes
