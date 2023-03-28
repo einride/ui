@@ -4,7 +4,7 @@ import { ReactNode } from "react"
 import { Popup } from "react-map-gl"
 import { Coordinate } from "../../types/types"
 
-interface TooltipProps {
+export interface TooltipProps {
   /** Tooltip content. Wrapped by `Card`. */
   children: ReactNode
 
