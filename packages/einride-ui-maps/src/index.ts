@@ -1,6 +1,9 @@
-import ChargerIcon from "./assets/charger.svg"
-import ChargerIconDark from "./assets/chargerDark.svg"
-
 export { MapTooltip } from "./components/MapTooltip/MapTooltip"
-export * from "./styles"
-export { ChargerIcon, ChargerIconDark }
+export { useMarker } from "./hooks/useMarker"
+export { useVehicleMarker } from "./hooks/useVehicleMarker"
+export {
+  mapboxStyleDark,
+  mapboxStyleDarkOrchestrate,
+  mapboxStyleLight,
+  mapboxStyleLightOrchestrate,
+} from "./styles"

@@ -1,0 +1,27 @@
+<svg width="192" height="102" viewBox="0 0 192 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_28_690)">
+<g filter="url(#filter0_d_28_690)">
+<path d="M140 29.9416V69.9416H152V29.9416H140Z" fill="#747474"/>
+<path d="M18.6016 73.9416C17.1648 73.9416 16 72.7768 16 71.3396V28.6016C16 27.1648 17.1648 26 18.6016 26L139.398 26C140.835 26 142 27.1648 142 28.6016V71.3396C142 72.7768 140.835 73.9416 139.398 73.9416H18.6016Z" fill="white"/>
+<path d="M142 69.9416V29.9414H144.699C145.418 29.9414 146 30.5238 146 31.2422V68.6404C146 69.3592 145.418 69.9416 144.699 69.9416H142Z" fill="#ABABAB"/>
+<path d="M150.85 73.9416C149.32 73.9416 148.117 72.6328 148.241 71.1076C148.626 66.3928 149.333 56.7793 149.333 49.9414C149.333 43.1092 148.627 33.5373 148.242 28.8348C148.118 27.3094 149.32 26 150.851 26H166.667L173.731 26.9118C175.029 27.0792 176 28.1839 176 29.492V70.4052C176 71.7068 175.038 72.8084 173.747 72.9832L166.667 73.9416H150.85Z" fill="#222222"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M167.332 25.9999L173.757 26.8924C175.043 27.071 176.001 28.1707 176.001 29.4692V70.47C176.001 71.7684 175.043 72.8684 173.757 73.0468L166.895 74L166.895 25.9999H167.332Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M176.001 32.0688V67.81L166.895 69.9396V29.9394L176.001 32.0688Z" fill="#121212"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_d_28_690" x="0" y="21.9999" width="192.001" height="80.0001" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="12"/>
+<feGaussianBlur stdDeviation="8"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.32 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_28_690"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_28_690" result="shape"/>
+</filter>
+<clipPath id="clip0_28_690">
+<rect width="192" height="80" fill="white" transform="translate(0 22)"/>
+</clipPath>
+</defs>
+</svg>

@@ -14,6 +14,10 @@ export default {
       directory: "../packages/einride-ui-maps/src/components",
       titlePrefix: "maps",
     },
+    {
+      directory: "../packages/einride-ui-maps/src/hooks",
+      titlePrefix: "maps",
+    },
   ],
   addons: [
     "@storybook/addon-essentials",
