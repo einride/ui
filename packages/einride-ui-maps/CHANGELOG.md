@@ -1,5 +1,11 @@
 # @einride/ui-maps
 
+## 7.45.7
+
+### Patch Changes
+
+- 4dc8fa2: Export types
+
 ## 7.45.6
 
 ### Patch Changes
