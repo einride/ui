@@ -7,3 +7,4 @@ export {
   mapboxStyleLight,
   mapboxStyleLightOrchestrate,
 } from "./styles"
+export type { MarkerMask, MarkerName, MarkerState } from "./types/types"
