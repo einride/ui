@@ -1,5 +1,11 @@
 # @einride/ui-maps
 
+## 7.45.5
+
+### Patch Changes
+
+- af12f22: Move dependencies to peer dependencies.
+
 ## 7.45.4
 
 ### Patch Changes
