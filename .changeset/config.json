@@ -1,6 +1,6 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@2.3.0/schema.json",
-  "changelog": ["@changesets/changelog-github", { "repo": "einride/ui" }],
+  "changelog": "@changesets/cli/changelog",
   "commit": false,
   "fixed": [],
   "linked": [["@einride/ui", "@einride/ui-maps"]],
