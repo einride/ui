@@ -1,5 +1,11 @@
 # @einride/ui-maps
 
+## 7.45.8
+
+### Patch Changes
+
+- 2305138: Add useStyleLoad hook
+
 ## 7.45.7
 
 ### Patch Changes
