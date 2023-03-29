@@ -1,5 +1,11 @@
 # @einride/ui-maps
 
+## 7.45.6
+
+### Patch Changes
+
+- 89ab09a: Add useMarker and useVehicleMarker hooks
+
 ## 7.45.5
 
 ### Patch Changes
