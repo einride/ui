@@ -2107,7 +2107,7 @@ __metadata:
     "@storybook/testing-library": 0.0.14-next.1
     "@types/lodash.merge": 4.6.7
     "@types/luxon": 3.2.0
-    "@types/react": 18.0.30
+    "@types/react": 18.0.31
     "@types/react-dom": 18.0.11
     "@vitejs/plugin-react": 3.1.0
     chromatic: 6.17.2
@@ -5882,7 +5882,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:18.0.30, @types/react@npm:>=16":
+"@types/react@npm:*, @types/react@npm:>=16":
   version: 18.0.30
   resolution: "@types/react@npm:18.0.30"
   dependencies:
@@ -5890,6 +5890,17 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: 3ca13fd10a1ee92826e37cd8c2fe563bff65d4bdb3ff53f632bc46c8fba2e94e24247b4b77ce957677a54e592299782e1235f7a3dfcfea327cb3213ddc98e968
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:18.0.31":
+  version: 18.0.31
+  resolution: "@types/react@npm:18.0.31"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: 6befbd5587e266905b50fd6bbd7c1cacd557bddf99e6a9862ca2f1d06df3dca71b9d485a37d010479730f021aab93b852d417c714de5efc2f41be0ff4c09b4db
   languageName: node
   linkType: hard
 
