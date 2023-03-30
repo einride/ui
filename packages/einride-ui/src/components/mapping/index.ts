@@ -16,7 +16,7 @@ import SiteWithChargerIconDark from "./siteWithChargerDark.svg"
 import SiteWithChargerSmall from "./siteWithChargerSmall.svg"
 import SiteWithChargerSmallDark from "./siteWithChargerSmallDark.svg"
 
-import { Coordinate, IconMask } from "./types/types"
+import { IconMask } from "./types/types"
 
 export {
   ChargerIcon,
@@ -34,8 +34,6 @@ export {
   SiteWithChargerSmall,
   SiteWithChargerSmallDark,
 }
-
-export type { Coordinate, IconMask }
 
 export const coloredIconMask: IconMask = {
   url: SiteIcon,
