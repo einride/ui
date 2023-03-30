@@ -52,7 +52,7 @@
     "prettier": "2.8.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "storybook": "7.0.0-rc.9",
+    "storybook": "7.0.0-rc.10",
     "storybook-dark-mode-v7": "3.0.0-alpha.0",
     "tslib": "2.5.0",
     "typescript": "5.0.2",
