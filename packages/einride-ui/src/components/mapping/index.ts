@@ -27,26 +27,24 @@ export const mapboxStyleLightOrchestrate =
   "mapbox://styles/einride-portal/cl9pffnl8003r14vqtdvg5val"
 export const mapboxStyleDarkOrchestrate = "mapbox://styles/einride-portal/cl9pfirmr000u14molltrlf3y"
 
-export { useStyleLoad } from "./hooks/useStyleLoad"
-
 export {
   ChargerIcon,
+  ChargerIconDark,
   ChargerSmallIcon,
+  ChargerSmallIconDark,
   ConventionalTruckIcon,
   PodIcon,
-  SiteIcon,
   SiteHoveredIcon,
+  SiteIcon,
   SiteSelectedIcon,
   SiteSmallIcon,
+  SiteSmallIconDark,
   SiteWithChargerIcon,
   SiteWithChargerSmall,
-  ChargerIconDark,
-  ChargerSmallIconDark,
-  SiteSmallIconDark,
   SiteWithChargerSmallDark,
 }
 
-export type { IconMask, Coordinate }
+export type { Coordinate, IconMask }
 
 export const coloredIconMask: IconMask = {
   url: SiteIcon,
