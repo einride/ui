@@ -1,6 +1,7 @@
 {
   "extends": "@einride/tsconfig",
   "compilerOptions": {
+    "moduleResolution": "bundler",
     "paths": {
       "@einride/ui": ["./packages/einride-ui/src"],
       "@einride/ui-maps": ["./packages/einride-ui-maps/src"]
