@@ -2026,6 +2026,8 @@ __metadata:
     "@storybook/jest": 0.0.11-next.0
     "@storybook/react": 7.0.0-rc.10
     "@storybook/testing-library": 0.0.14-next.1
+    mapbox-gl: 2.13.0
+    react-map-gl: 7.0.21
     rollup: 3.20.2
     typescript: 5.0.2
   peerDependencies:
@@ -2117,10 +2119,8 @@ __metadata:
     framer-motion: 10.9.2
     lodash.merge: 4.6.2
     luxon: 3.3.0
-    mapbox-gl: 2.11.0
     react: 18.2.0
     react-dom: 18.2.0
-    react-map-gl: 7.0.19
     rollup: 3.20.2
     typescript: 5.0.2
     vite: 4.2.1
@@ -3178,7 +3178,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mapbox/tiny-sdf@npm:^2.0.5":
+"@mapbox/tiny-sdf@npm:^2.0.6":
   version: 2.0.6
   resolution: "@mapbox/tiny-sdf@npm:2.0.6"
   checksum: efff5b5a7599aaa995e3c2fd8f2acd071226096458eebb694ffd7258043c46c52b1d09bb3c7343d2126eb257b3cd7d34e6dc7ccaaad7619e6f3e7dd76229a3cd
@@ -12691,15 +12691,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mapbox-gl@npm:2.11.0":
-  version: 2.11.0
-  resolution: "mapbox-gl@npm:2.11.0"
+"mapbox-gl@npm:2.13.0":
+  version: 2.13.0
+  resolution: "mapbox-gl@npm:2.13.0"
   dependencies:
     "@mapbox/geojson-rewind": ^0.5.2
     "@mapbox/jsonlint-lines-primitives": ^2.0.2
     "@mapbox/mapbox-gl-supported": ^2.0.1
     "@mapbox/point-geometry": ^0.1.0
-    "@mapbox/tiny-sdf": ^2.0.5
+    "@mapbox/tiny-sdf": ^2.0.6
     "@mapbox/unitbezier": ^0.0.1
     "@mapbox/vector-tile": ^1.3.1
     "@mapbox/whoots-js": ^3.1.0
@@ -12716,7 +12716,7 @@ __metadata:
     supercluster: ^7.1.5
     tinyqueue: ^2.0.3
     vt-pbf: ^3.1.3
-  checksum: bc2ee6240a1097265ccf87d13bd50f7ea25be68a9a3cb56e9f91db8c7b88c4bf31348a49edd640b0d817026dfea9354040c3a4b2aab7adba1b9f0341f7701052
+  checksum: de0de328f31ee207295e150d6f715a4f6da4afbda02905f64928aaca5736995f61def941623c8390aa29d5425ddd72e540487fdb2e00c3421e425090d59d4204
   languageName: node
   linkType: hard
 
@@ -14406,15 +14406,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-map-gl@npm:7.0.19":
-  version: 7.0.19
-  resolution: "react-map-gl@npm:7.0.19"
+"react-map-gl@npm:7.0.21":
+  version: 7.0.21
+  resolution: "react-map-gl@npm:7.0.21"
   dependencies:
     "@types/mapbox-gl": ^2.6.0
   peerDependencies:
     mapbox-gl: "*"
     react: ">=16.3.0"
-  checksum: 93a63cb55e86fe89b503ba3300faedcb7e389e5720d161cfd329591789053c26d6f6827c34a5098d2f7d776303b6c2e5cf09e4f894458042f0d9f2deb87d4015
+  checksum: 9c182fc0ab612d965baf53da5a977f06a466634f65932527f1ee447b7eac880c4abfc6c87572a8193664aa3c2d854243e4e37a421d7b22bb4a5f1419b547b250
   languageName: node
   linkType: hard
 
