@@ -47,6 +47,12 @@ const parameters = {
     },
   },
   docs: {
+    canvas: {
+      sourceState: "shown",
+    },
+    source: {
+      language: "tsx",
+    },
     container: (props) => (
       <EinrideProvider colorMode="light">
         <DocsContainer {...props} />
