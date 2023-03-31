@@ -4,13 +4,13 @@ import { getColor } from "../../../lib/theme/prop-system"
 import { ContentColor } from "../../../lib/theme/types"
 
 export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
-  /** Effective element used. */
+  /** Rendered element. */
   as?: ElementType
 
   /** Color of the icon. */
   color?: ContentColor
 
-  /** Icon to be used. */
+  /** Icon to show. */
   name: IconName
 }
 
