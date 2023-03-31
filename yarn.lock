@@ -2056,6 +2056,7 @@ __metadata:
     "@storybook/addon-essentials": 7.0.0-rc.11
     "@storybook/addon-interactions": 7.0.0-rc.11
     "@storybook/addon-links": 7.0.0-rc.11
+    "@storybook/addon-styling": 1.0.0-next.1
     "@storybook/addons": 7.0.0-rc.11
     "@storybook/jest": 0.0.11-next.1
     "@storybook/node-logger": 7.0.0-rc.11
@@ -4296,6 +4297,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/addon-styling@npm:1.0.0-next.1":
+  version: 1.0.0-next.1
+  resolution: "@storybook/addon-styling@npm:1.0.0-next.1"
+  dependencies:
+    "@storybook/api": next
+    "@storybook/components": next
+    "@storybook/core-events": next
+    "@storybook/manager-api": next
+    "@storybook/preview-api": next
+    "@storybook/theming": next
+    "@storybook/types": next
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    resolve-url-loader: ^5.0.0
+    sass-loader: ^10.4.1
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    resolve-url-loader:
+      optional: true
+    sass-loader:
+      optional: true
+  checksum: 1391241da902b3c00e2b981c2631b64d2b09b69a54a15fb36726742c922b6552c44faca3f8f3b9ad0e5e919c9d4b14133928d92b480f684580ff1999de65adf7
+  languageName: node
+  linkType: hard
+
 "@storybook/addon-toolbars@npm:7.0.0-rc.11":
   version: 7.0.0-rc.11
   resolution: "@storybook/addon-toolbars@npm:7.0.0-rc.11"
@@ -4385,6 +4415,24 @@ __metadata:
     react-dom:
       optional: true
   checksum: 34a3dd41125a1d1d36f736c2eee8e655314e202d36c69dcc248e0540c4ea44b87598495801a449cd540e7c8712c36e27afb54ccaddec6685847c35bc5f911b57
+  languageName: node
+  linkType: hard
+
+"@storybook/api@npm:next":
+  version: 7.0.0-rc.11
+  resolution: "@storybook/api@npm:7.0.0-rc.11"
+  dependencies:
+    "@storybook/client-logger": 7.0.0-rc.11
+    "@storybook/manager-api": 7.0.0-rc.11
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: d6f222a0309254af54841b7d0f24dcd7cccef6044a20d24726be02d646185fa90a3153742084d445d03dc0f4fac88d17b7710fe457a8f6781b3f6dd15a6f0e2e
   languageName: node
   linkType: hard
 
@@ -4630,7 +4678,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/components@npm:7.0.0-rc.11":
+"@storybook/components@npm:7.0.0-rc.11, @storybook/components@npm:next":
   version: 7.0.0-rc.11
   resolution: "@storybook/components@npm:7.0.0-rc.11"
   dependencies:
@@ -4733,7 +4781,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/core-events@npm:7.0.0-rc.11":
+"@storybook/core-events@npm:7.0.0-rc.11, @storybook/core-events@npm:next":
   version: 7.0.0-rc.11
   resolution: "@storybook/core-events@npm:7.0.0-rc.11"
   checksum: 2e6acea78d4a3e7940ef2cedbb008f5b877c40e45046ab8b915c13829c226f82486a1c0cf90e5da6f7952f53c325a671e62f5285b814d8ddb34ed850a114d2c5
@@ -4947,7 +4995,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/manager-api@npm:7.0.0-rc.11":
+"@storybook/manager-api@npm:7.0.0-rc.11, @storybook/manager-api@npm:next":
   version: 7.0.0-rc.11
   resolution: "@storybook/manager-api@npm:7.0.0-rc.11"
   dependencies:
@@ -5261,7 +5309,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/theming@npm:7.0.0-rc.11":
+"@storybook/theming@npm:7.0.0-rc.11, @storybook/theming@npm:next":
   version: 7.0.0-rc.11
   resolution: "@storybook/theming@npm:7.0.0-rc.11"
   dependencies:
@@ -5291,7 +5339,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/types@npm:7.0.0-rc.11":
+"@storybook/types@npm:7.0.0-rc.11, @storybook/types@npm:next":
   version: 7.0.0-rc.11
   resolution: "@storybook/types@npm:7.0.0-rc.11"
   dependencies:

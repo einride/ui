@@ -1,15 +1,14 @@
+import { ThemeProvider } from "@emotion/react"
 import styled from "@emotion/styled"
+import { withThemeFromJSXProvider } from "@storybook/addon-styling"
 import { DocsContainer } from "@storybook/blocks"
 import { Preview, StoryContext, StoryFn } from "@storybook/react"
 import { themes } from "@storybook/theming"
-import React, { CSSProperties, ReactNode, useEffect } from "react"
-import { useDarkMode } from "storybook-dark-mode-v7"
-import {
-  ColorScheme,
-  useColorScheme,
-} from "../packages/einride-ui/src/contexts/ColorSchemeProvider"
+import React, { CSSProperties } from "react"
 import { EinrideProvider } from "../packages/einride-ui/src/contexts/EinrideProvider"
+import { GlobalStyles } from "../packages/einride-ui/src/lib/GlobalStyles"
 import { einrideTheme } from "../packages/einride-ui/src/lib/theme/einride"
+import { themes as einrideThemes } from "../packages/einride-ui/src/lib/theme/theme"
 import { color } from "../packages/einride-ui/src/primitives/color"
 
 const customViewports = {
@@ -75,37 +74,22 @@ const parameters = {
 }
 
 const decorators = [
+  withThemeFromJSXProvider({
+    themes: { light: einrideThemes.light, dark: einrideThemes.dark },
+    Provider: ThemeProvider,
+    GlobalStyles: GlobalStyles,
+    defaultTheme: "light",
+  }),
   (Story: StoryFn, options: StoryContext) => {
-    const colorMode = useDarkMode() ? "dark" : "light"
-    if (options.name === "Snapshot") {
-      return <Story />
-    }
     return (
-      <EinrideProvider theme={einrideTheme} colorMode={colorMode}>
-        <SetupColorScheme colorScheme={colorMode}>
-          <Wrapper style={options.args.style as CSSProperties}>
-            <Story />
-          </Wrapper>
-        </SetupColorScheme>
+      <EinrideProvider theme={einrideTheme} colorMode="light">
+        <Wrapper style={options.args.style as CSSProperties}>
+          <Story />
+        </Wrapper>
       </EinrideProvider>
     )
   },
 ]
-
-interface SetupColorSchemeProps {
-  children: ReactNode
-  colorScheme: ColorScheme
-}
-
-const SetupColorScheme = ({ children, colorScheme }: SetupColorSchemeProps) => {
-  const { setColorScheme } = useColorScheme()
-
-  useEffect(() => {
-    setColorScheme(colorScheme)
-  }, [colorScheme])
-
-  return <>{children}</>
-}
 
 const Wrapper = styled.div`
   padding: ${({ theme }) => 3 * (theme as any).spacingBase}rem;
@@ -113,5 +97,5 @@ const Wrapper = styled.div`
 
 export default {
   parameters,
-  decorators,
+  decorators: decorators as any,
 } satisfies Preview

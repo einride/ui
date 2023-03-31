@@ -35,6 +35,7 @@
     "@storybook/addon-essentials": "7.0.0-rc.11",
     "@storybook/addon-interactions": "7.0.0-rc.11",
     "@storybook/addon-links": "7.0.0-rc.11",
+    "@storybook/addon-styling": "1.0.0-next.1",
     "@storybook/addons": "7.0.0-rc.11",
     "@storybook/jest": "0.0.11-next.1",
     "@storybook/node-logger": "7.0.0-rc.11",

@@ -21,10 +21,10 @@ export default {
   ],
   addons: [
     "@storybook/addon-essentials",
+    "@storybook/addon-styling",
     "@storybook/addon-a11y",
     "@storybook/addon-interactions",
     "@storybook/addon-links",
-    "storybook-dark-mode-v7", // TODO: switch back to storybook-dark-mode when support for Storybook v7 is released
     "@storybook/addon-coverage",
   ],
   framework: {
