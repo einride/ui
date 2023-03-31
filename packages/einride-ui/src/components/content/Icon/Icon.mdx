@@ -1,0 +1,41 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as IconStories from "./Icon.stories.tsx"
+
+<Meta of={IconStories} />
+
+<Title />
+
+<Description of={IconStories} />
+
+```tsx
+import { Icon } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={IconStories.One} />
+
+<Canvas of={IconStories.One} />
+
+<Controls of={IconStories.One} />
+
+## Size
+
+<Description of={IconStories.WithLargeText} />
+
+<Canvas of={IconStories.WithLargeText} />
+
+<Controls of={IconStories.WithLargeText} />

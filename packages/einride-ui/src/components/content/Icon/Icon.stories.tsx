@@ -4,11 +4,17 @@ import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { Card } from "../../cards/Card/Card"
 import { Caption } from "../../typography/Caption/Caption"
 import { Paragraph } from "../../typography/Paragraph/Paragraph"
-import { Title1 } from "../../typography/Title1/Title1"
+import { Text } from "../../typography/Text/Text"
 import { Icon, iconNames } from "./Icon"
 
+/** Render icons as text. */
 const meta = {
   component: Icon,
+  argTypes: {
+    as: {
+      control: false,
+    },
+  },
 } satisfies Meta<typeof Icon>
 
 export default meta
@@ -49,11 +55,12 @@ export const One = {
   },
 } satisfies Story
 
+/** Change the size of the icon by wrapping it in a text component with the desired `font-size`. That makes it simple to display text and icon side-by-side with the same size. */
 export const WithLargeText = {
   render: (args) => (
-    <Title1>
-      <Icon {...args} /> Title1
-    </Title1>
+    <Text variant="titleLg">
+      <Icon {...args} /> Some large text
+    </Text>
   ),
   args: {
     color: "secondary",
