@@ -10,6 +10,9 @@ export interface IconButtonProps extends ComponentPropsWithoutRef<"button"> {
   /** Effective element used. */
   as?: ElementType
 
+  /** Makes the button disabled. */
+  disabled?: boolean
+
   /** Icon to render in the button. Default is `arrowRight`. */
   icon?: IconName
 
