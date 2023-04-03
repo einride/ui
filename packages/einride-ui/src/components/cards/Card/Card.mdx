@@ -1,0 +1,57 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as CardStories from "./Card.stories.tsx"
+
+<Meta of={CardStories} />
+
+<Title />
+
+<Description of={CardStories} />
+
+```tsx
+import { Card } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={CardStories.Basic} />
+
+<Canvas of={CardStories.Basic} />
+
+<Controls of={CardStories.Basic} />
+
+## Gauge
+
+<Description of={CardStories.Gauge} />
+
+<Canvas of={CardStories.Gauge} />
+
+<Controls of={CardStories.Gauge} />
+
+## Nested cards
+
+<Description of={CardStories.InsideCard} />
+
+<Canvas of={CardStories.InsideCard} />
+
+<Controls of={CardStories.InsideCard} />
+
+## Input in card
+
+<Description of={CardStories.WithInput} />
+
+<Canvas of={CardStories.WithInput} />
+
+<Controls of={CardStories.WithInput} />
