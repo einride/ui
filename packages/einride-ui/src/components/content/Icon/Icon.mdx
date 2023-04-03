@@ -12,13 +12,13 @@ import {
   Stories,
   Markdown,
 } from "@storybook/blocks"
-import * as IconStories from "./Icon.stories.tsx"
+import * as Icon from "./Icon.stories.tsx"
 
-<Meta of={IconStories} />
+<Meta of={Icon} />
 
 <Title />
 
-<Description of={IconStories} />
+<Description of={Icon} />
 
 ```tsx
 import { Icon } from "@einride/ui"
@@ -26,16 +26,16 @@ import { Icon } from "@einride/ui"
 
 ## Basic
 
-<Description of={IconStories.One} />
+<Description of={Icon.One} />
 
-<Canvas of={IconStories.One} />
+<Canvas of={Icon.One} />
 
-<Controls of={IconStories.One} />
+<Controls of={Icon.One} />
 
 ## Size
 
-<Description of={IconStories.WithLargeText} />
+<Description of={Icon.WithLargeText} />
 
-<Canvas of={IconStories.WithLargeText} />
+<Canvas of={Icon.WithLargeText} />
 
-<Controls of={IconStories.WithLargeText} include={["color", "name"]} />
+<Controls of={Icon.WithLargeText} include={["color", "name"]} />

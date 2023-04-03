@@ -12,46 +12,46 @@ import {
   Stories,
   Markdown,
 } from "@storybook/blocks"
-import * as SecondaryButtonStories from "./SecondaryButton.stories.tsx"
+import * as SecondaryButton from "./SecondaryButton.stories.tsx"
 
-<Meta of={SecondaryButtonStories} />
+<Meta of={SecondaryButton} />
 
 <Title />
 
-<Description of={SecondaryButtonStories} />
+<Description of={SecondaryButton} />
 
 ```tsx
-import { SecondaryButtonStories } from "@einride/ui"
+import { SecondaryButton } from "@einride/ui"
 ```
 
 ## Basic
 
-<Description of={SecondaryButtonStories.Basic} />
+<Description of={SecondaryButton.Basic} />
 
-<Canvas of={SecondaryButtonStories.Basic} />
+<Canvas of={SecondaryButton.Basic} />
 
-<Controls of={SecondaryButtonStories.Basic} />
+<Controls of={SecondaryButton.Basic} />
 
 ## Full width
 
-<Description of={SecondaryButtonStories.FullWidth} />
+<Description of={SecondaryButton.FullWidth} />
 
-<Canvas of={SecondaryButtonStories.FullWidth} />
+<Canvas of={SecondaryButton.FullWidth} />
 
-<Controls of={SecondaryButtonStories.FullWidth} include="isFullWidth" />
+<Controls of={SecondaryButton.FullWidth} include="isFullWidth" />
 
 ## With icon
 
-<Description of={SecondaryButtonStories.IconRight} />
+<Description of={SecondaryButton.IconRight} />
 
-<Canvas of={SecondaryButtonStories.IconRight} />
+<Canvas of={SecondaryButton.IconRight} />
 
-<Controls of={SecondaryButtonStories.IconRight} include="rightIcon" />
+<Controls of={SecondaryButton.IconRight} include="rightIcon" />
 
 ## Loading
 
-<Description of={SecondaryButtonStories.IsLoading} />
+<Description of={SecondaryButton.IsLoading} />
 
-<Canvas of={SecondaryButtonStories.IsLoading} />
+<Canvas of={SecondaryButton.IsLoading} />
 
-<Controls of={SecondaryButtonStories.IsLoading} include="isLoading" />
+<Controls of={SecondaryButton.IsLoading} include="isLoading" />
