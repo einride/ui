@@ -1,5 +1,14 @@
 # @einride/ui-maps
 
+## 8.0.0
+
+### Patch Changes
+
+- Updated dependencies [9f6b104]
+- Updated dependencies [2bb4974]
+- Updated dependencies [2d1e04f]
+  - @einride/ui@8.0.0
+
 ## 7.45.8
 
 ### Patch Changes
