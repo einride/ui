@@ -8,8 +8,11 @@ import { TertiaryButton } from "./TertiaryButton"
 const meta = {
   component: TertiaryButton,
   argTypes: {
-    disabled: {
-      control: "boolean",
+    as: {
+      control: false,
+    },
+    rightIcon: {
+      control: false,
     },
   },
 } satisfies Meta<typeof TertiaryButton>

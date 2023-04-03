@@ -1,0 +1,57 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as TertiaryButton from "./TertiaryButton.stories.tsx"
+
+<Meta of={TertiaryButton} />
+
+<Title />
+
+<Description of={TertiaryButton} />
+
+```tsx
+import { TertiaryButton } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={TertiaryButton.Basic} />
+
+<Canvas of={TertiaryButton.Basic} />
+
+<Controls of={TertiaryButton.Basic} />
+
+## Full width
+
+<Description of={TertiaryButton.FullWidth} />
+
+<Canvas of={TertiaryButton.FullWidth} />
+
+<Controls of={TertiaryButton.FullWidth} include="isFullWidth" />
+
+## With icon
+
+<Description of={TertiaryButton.IconRight} />
+
+<Canvas of={TertiaryButton.IconRight} />
+
+<Controls of={TertiaryButton.IconRight} include="rightIcon" />
+
+## Loading
+
+<Description of={TertiaryButton.IsLoading} />
+
+<Canvas of={TertiaryButton.IsLoading} />
+
+<Controls of={TertiaryButton.IsLoading} include="isLoading" />
