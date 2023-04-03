@@ -1,0 +1,57 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as Skeleton from "./Skeleton.stories.tsx"
+
+<Meta of={Skeleton} />
+
+<Title />
+
+<Description of={Skeleton} />
+
+```tsx
+import { Skeleton } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={Skeleton.Basic} />
+
+<Canvas of={Skeleton.Basic} />
+
+<Controls of={Skeleton.Basic} />
+
+## Circle
+
+<Description of={Skeleton.Circle} />
+
+<Canvas of={Skeleton.Circle} />
+
+<Controls of={Skeleton.Circle} include={["shape", "height"]} />
+
+## Content
+
+<Description of={Skeleton.Content} />
+
+<Canvas of={Skeleton.Content} />
+
+<Controls of={Skeleton.Content} include={["height"]} />
+
+## Without animation
+
+<Description of={Skeleton.WithoutAnimation} />
+
+<Canvas of={Skeleton.WithoutAnimation} />
+
+<Controls of={Skeleton.WithoutAnimation} include={["animate"]} />

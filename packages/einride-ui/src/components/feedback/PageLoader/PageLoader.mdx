@@ -1,0 +1,33 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as PageLoader from "./PageLoader.stories.tsx"
+
+<Meta of={PageLoader} />
+
+<Title />
+
+<Description of={PageLoader} />
+
+```tsx
+import { PageLoader } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={PageLoader.Basic} />
+
+<Canvas of={PageLoader.Basic} />
+
+<Controls of={PageLoader.Basic} />
