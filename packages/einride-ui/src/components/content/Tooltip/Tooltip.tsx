@@ -3,12 +3,12 @@ import styled from "@emotion/styled"
 import * as RadixTooltip from "@radix-ui/react-tooltip"
 import { ReactNode } from "react"
 import { useTheme } from "../../../hooks/useTheme"
-import { MaxWidth, Width } from "../../../lib/theme/props"
+import { MaxInlineSize, MaxWidth, Width } from "../../../lib/theme/props"
 import { zIndex } from "../../../lib/zIndex"
 import { Box } from "../../layout/Box/Box"
 
 export interface TooltipProps {
-  /* The preferred alignment against the trigger. May change when collisions occur. Default is `center`. */
+  /** The preferred alignment against the trigger. May change when collisions occur. Default is `center`. */
   align?: "start" | "center" | "end"
 
   /** Tooltip components. */
@@ -22,6 +22,9 @@ export interface TooltipProps {
 
   /** Determines whether or not to show a dashed underline on children as a tooltip hint. */
   hint?: boolean
+
+  /** Max inline size of the tooltip. */
+  maxInlineSize?: MaxInlineSize
 
   /** Max width of the tooltip. */
   maxWidth?: MaxWidth
