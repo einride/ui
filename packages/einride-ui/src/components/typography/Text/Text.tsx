@@ -14,7 +14,7 @@ export interface TextProps extends Omit<HTMLAttributes<HTMLParagraphElement>, "c
   /** Text font. */
   font?: FontFamily
 
-  /* Text variant. */
+  /** Text variant. */
   variant?: Variant
 
   /** Text weight. */
