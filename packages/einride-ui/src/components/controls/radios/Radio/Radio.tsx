@@ -5,6 +5,9 @@ export interface RadioProps extends Omit<ComponentPropsWithoutRef<"input">, "onC
   /** Radio label. */
   children?: ReactNode
 
+  /** Disables the radio. */
+  disabled?: boolean
+
   /** Props passed to the label element. */
   labelProps?: HTMLAttributes<HTMLLabelElement>
 

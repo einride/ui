@@ -4,6 +4,9 @@ import { Icon } from "../../../content/Icon/Icon"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 
 export interface CheckboxProps extends Omit<ComponentPropsWithoutRef<"input">, "onChange"> {
+  /** Disables the checkbox. */
+  disabled?: boolean
+
   /** Props passed to the inner wrapper element. */
   innerWrapperProps?: BoxProps
 

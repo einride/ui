@@ -5,11 +5,15 @@ import { ComponentProps, useState } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { Radio } from "./Radio"
 
+/** Radio button. */
 const meta = {
   component: Radio,
   argTypes: {
-    disabled: {
-      control: "boolean",
+    labelProps: {
+      control: false,
+    },
+    wrapperProps: {
+      control: false,
     },
   },
 } satisfies Meta<typeof Radio>
@@ -17,25 +21,25 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const WithLabel = {
+export const Basic = {
   args: {
     children: "Label",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const radio = canvas.getByRole("radio", { name: "Label" })
+    const radio = canvas.getByRole("radio", { name: Basic.args.children })
     await expect(radio).not.toBeChecked()
   },
 } satisfies Story
 
 export const DefaultChecked = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
     defaultChecked: true,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const radio = canvas.getByRole("radio", { name: "Label" })
+    const radio = canvas.getByRole("radio", { name: DefaultChecked.args.children })
     await expect(radio).toBeChecked()
   },
 } satisfies Story
@@ -48,22 +52,22 @@ const ControlledTemplate = (args: ComponentProps<typeof Radio>): JSX.Element => 
 export const Controlled = {
   render: (args) => <ControlledTemplate {...args} />,
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const radio = canvas.getByRole("radio", { name: "Label" })
+    const radio = canvas.getByRole("radio", { name: Controlled.args.children })
     await expect(radio).not.toBeChecked()
   },
 } satisfies Story
 
 export const Pointer = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const radio = canvas.getByRole("radio", { name: "Label" })
+    const radio = canvas.getByRole("radio", { name: Pointer.args.children })
     await expect(radio).not.toHaveFocus()
     await expect(radio).not.toBeChecked()
     await userEvent.click(radio)
@@ -74,11 +78,11 @@ export const Pointer = {
 
 export const Keyboard = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const radio = canvas.getByRole("radio", { name: "Label" })
+    const radio = canvas.getByRole("radio", { name: Keyboard.args.children })
     await expect(radio).not.toHaveFocus()
     await expect(radio).not.toBeChecked()
     await userEvent.tab()
@@ -162,7 +166,7 @@ export const GroupKeyboard = {
 export const Snapshot = {
   render: () => (
     <SnapshotWrapper>
-      {[WithLabel, DefaultChecked].map((Story, index) => (
+      {[Basic, DefaultChecked].map((Story, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <Radio key={index} {...Story.args} />
       ))}
