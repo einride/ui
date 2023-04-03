@@ -2112,7 +2112,7 @@ __metadata:
     "@rollup/plugin-typescript": 11.0.0
     "@storybook/jest": 0.0.11-next.2
     "@storybook/react": 7.0.0
-    "@storybook/testing-library": 0.0.14-next.2
+    "@storybook/testing-library": 0.0.14--canary.136d346.0
     mapbox-gl: 2.13.0
     react-map-gl: 7.0.21
     rollup: 3.20.2
@@ -2150,7 +2150,7 @@ __metadata:
     "@storybook/react": 7.0.0
     "@storybook/react-vite": 7.0.0
     "@storybook/test-runner": 0.10.0-next.12
-    "@storybook/testing-library": 0.0.14-next.2
+    "@storybook/testing-library": 0.0.14--canary.136d346.0
     "@storybook/theming": 7.0.0
     "@testing-library/jest-dom": 5.16.5
     "@testing-library/react": 14.0.0
@@ -2194,7 +2194,7 @@ __metadata:
     "@rollup/plugin-typescript": 11.0.0
     "@storybook/jest": 0.0.11-next.2
     "@storybook/react": 7.0.0
-    "@storybook/testing-library": 0.0.14-next.2
+    "@storybook/testing-library": 0.0.14--canary.136d346.0
     "@types/lodash.merge": 4.6.7
     "@types/luxon": 3.2.0
     "@types/react": 18.0.32
@@ -5148,16 +5148,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/testing-library@npm:0.0.14-next.2":
-  version: 0.0.14-next.2
-  resolution: "@storybook/testing-library@npm:0.0.14-next.2"
+"@storybook/testing-library@npm:0.0.14--canary.136d346.0":
+  version: 0.0.14--canary.136d346.0
+  resolution: "@storybook/testing-library@npm:0.0.14--canary.136d346.0"
   dependencies:
     "@storybook/client-logger": ^7.0.0-beta.0 || ^7.0.0-rc.0 || ^7.0.0
     "@storybook/instrumenter": ^7.0.0-beta.0 || ^7.0.0-rc.0 || ^7.0.0
     "@testing-library/dom": ^8.3.0
     "@testing-library/user-event": ^13.2.1
     ts-dedent: ^2.2.0
-  checksum: c471578493798e74e1f02f4a8cd046f24d1c387f32d5b3469f3331563d93c6dd872937aa9ce6a4dc12832e0c9f378639265c3b6862cbbc0b1887f6e26c102601
+  checksum: 0c67bd15c8efd4e3f3178efb0b4c00e0f4f5a407a40a0a479400a9d6669e9caf2d477ea0b9d3343382bca1cfabdca3dfaa37494fff4f06c3779211a807ef2be4
   languageName: node
   linkType: hard
 
