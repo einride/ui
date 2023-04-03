@@ -1,0 +1,33 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as Checkbox from "./Checkbox.stories.tsx"
+
+<Meta of={Checkbox} />
+
+<Title />
+
+<Description of={Checkbox} />
+
+```tsx
+import { Checkbox } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={Checkbox.Basic} />
+
+<Canvas of={Checkbox.Basic} />
+
+<Controls of={Checkbox.Basic} />

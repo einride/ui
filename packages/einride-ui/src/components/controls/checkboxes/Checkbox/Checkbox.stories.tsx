@@ -5,11 +5,18 @@ import { ComponentProps, useState } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { Checkbox } from "./Checkbox"
 
+/** Checkbox control. */
 const meta = {
   component: Checkbox,
   argTypes: {
-    disabled: {
-      control: "boolean",
+    innerWrapperProps: {
+      control: false,
+    },
+    labelProps: {
+      control: false,
+    },
+    wrapperProps: {
+      control: false,
     },
   },
 } satisfies Meta<typeof Checkbox>
@@ -17,25 +24,25 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const WithLabel = {
+export const Basic = {
   args: {
     children: "Label",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const checkbox = canvas.getByRole("checkbox", { name: "Label" })
+    const checkbox = canvas.getByRole("checkbox", { name: Basic.args.children })
     await expect(checkbox).not.toBeChecked()
   },
 } satisfies Story
 
 export const DefaultChecked = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
     defaultChecked: true,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const checkbox = canvas.getByRole("checkbox", { name: "Label" })
+    const checkbox = canvas.getByRole("checkbox", { name: DefaultChecked.args.children })
     await expect(checkbox).toBeChecked()
   },
 } satisfies Story
@@ -48,22 +55,22 @@ const ControlledTemplate = (args: ComponentProps<typeof Checkbox>): JSX.Element 
 export const Controlled = {
   render: (args) => <ControlledTemplate {...args} />,
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const checkbox = canvas.getByRole("checkbox", { name: "Label" })
+    const checkbox = canvas.getByRole("checkbox", { name: Controlled.args.children })
     await expect(checkbox).not.toBeChecked()
   },
 } satisfies StoryObj
 
 export const Pointer = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const checkbox = canvas.getByRole("checkbox", { name: "Label" })
+    const checkbox = canvas.getByRole("checkbox", { name: Pointer.args.children })
     await expect(checkbox).not.toBeChecked()
     await expect(checkbox).not.toHaveFocus()
     await userEvent.click(checkbox)
@@ -77,11 +84,11 @@ export const Pointer = {
 export const Keyboard = {
   render: (args) => <ControlledTemplate {...args} />,
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const checkbox = canvas.getByRole("checkbox", { name: "Label" })
+    const checkbox = canvas.getByRole("checkbox", { name: Keyboard.args.children })
     await expect(checkbox).not.toBeChecked()
     await expect(checkbox).not.toHaveFocus()
     await userEvent.tab()
@@ -134,7 +141,7 @@ export const GroupPointer = {
 export const GroupKeyboard = {
   render: (args) => <GroupTemplate {...args} />,
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -185,7 +192,7 @@ export const GroupKeyboard = {
 export const Snapshot = {
   render: () => (
     <SnapshotWrapper>
-      {[WithLabel, DefaultChecked].map((Story, index) => (
+      {[Basic, DefaultChecked].map((Story, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <Checkbox key={index} {...Story.args} />
       ))}
