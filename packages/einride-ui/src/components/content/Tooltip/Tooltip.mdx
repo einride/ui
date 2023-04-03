@@ -12,13 +12,13 @@ import {
   Stories,
   Markdown,
 } from "@storybook/blocks"
-import * as TooltipStories from "./Tooltip.stories.tsx"
+import * as Tooltip from "./Tooltip.stories.tsx"
 
-<Meta of={TooltipStories} />
+<Meta of={Tooltip} />
 
 <Title />
 
-<Description of={TooltipStories} />
+<Description of={Tooltip} />
 
 ```tsx
 import { Tooltip } from "@einride/ui"
@@ -26,40 +26,40 @@ import { Tooltip } from "@einride/ui"
 
 ## Basic
 
-<Description of={TooltipStories.Basic} />
+<Description of={Tooltip.Basic} />
 
-<Canvas of={TooltipStories.Basic} />
+<Canvas of={Tooltip.Basic} />
 
-<Controls of={TooltipStories.Basic} />
+<Controls of={Tooltip.Basic} />
 
 ## Button with tooltip
 
-<Description of={TooltipStories.ButtonTrigger} />
+<Description of={Tooltip.ButtonTrigger} />
 
-<Canvas of={TooltipStories.ButtonTrigger} />
+<Canvas of={Tooltip.ButtonTrigger} />
 
-<Controls of={TooltipStories.ButtonTrigger} include="triggerAsChild" />
+<Controls of={Tooltip.ButtonTrigger} include="triggerAsChild" />
 
 ## Open delay
 
-<Description of={TooltipStories.OpenDelay} />
+<Description of={Tooltip.OpenDelay} />
 
-<Canvas of={TooltipStories.OpenDelay} />
+<Canvas of={Tooltip.OpenDelay} />
 
-<Controls of={TooltipStories.OpenDelay} include="openDelayDuration" />
+<Controls of={Tooltip.OpenDelay} include="openDelayDuration" />
 
 ## Multiline
 
-<Description of={TooltipStories.Multiline} />
+<Description of={Tooltip.Multiline} />
 
-<Canvas of={TooltipStories.Multiline} />
+<Canvas of={Tooltip.Multiline} />
 
-<Controls of={TooltipStories.Multiline} include="maxInlineSize" />
+<Controls of={Tooltip.Multiline} include="maxInlineSize" />
 
 ## Tooltip alignment
 
-<Description of={TooltipStories.Align} />
+<Description of={Tooltip.Align} />
 
-<Canvas of={TooltipStories.Align} />
+<Canvas of={Tooltip.Align} />
 
-<Controls of={TooltipStories.Align} include="align" />
+<Controls of={Tooltip.Align} include="align" />

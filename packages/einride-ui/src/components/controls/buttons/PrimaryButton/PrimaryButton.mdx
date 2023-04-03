@@ -12,46 +12,46 @@ import {
   Stories,
   Markdown,
 } from "@storybook/blocks"
-import * as PrimaryButtonStories from "./PrimaryButton.stories.tsx"
+import * as PrimaryButton from "./PrimaryButton.stories.tsx"
 
-<Meta of={PrimaryButtonStories} />
+<Meta of={PrimaryButton} />
 
 <Title />
 
-<Description of={PrimaryButtonStories} />
+<Description of={PrimaryButton} />
 
 ```tsx
-import { PrimaryButtonStories } from "@einride/ui"
+import { PrimaryButton } from "@einride/ui"
 ```
 
 ## Basic
 
-<Description of={PrimaryButtonStories.Basic} />
+<Description of={PrimaryButton.Basic} />
 
-<Canvas of={PrimaryButtonStories.Basic} />
+<Canvas of={PrimaryButton.Basic} />
 
-<Controls of={PrimaryButtonStories.Basic} />
+<Controls of={PrimaryButton.Basic} />
 
 ## Full width
 
-<Description of={PrimaryButtonStories.FullWidth} />
+<Description of={PrimaryButton.FullWidth} />
 
-<Canvas of={PrimaryButtonStories.FullWidth} />
+<Canvas of={PrimaryButton.FullWidth} />
 
-<Controls of={PrimaryButtonStories.FullWidth} include="isFullWidth" />
+<Controls of={PrimaryButton.FullWidth} include="isFullWidth" />
 
 ## With icon
 
-<Description of={PrimaryButtonStories.IconRight} />
+<Description of={PrimaryButton.IconRight} />
 
-<Canvas of={PrimaryButtonStories.IconRight} />
+<Canvas of={PrimaryButton.IconRight} />
 
-<Controls of={PrimaryButtonStories.IconRight} include="rightIcon" />
+<Controls of={PrimaryButton.IconRight} include="rightIcon" />
 
 ## Loading
 
-<Description of={PrimaryButtonStories.IsLoading} />
+<Description of={PrimaryButton.IsLoading} />
 
-<Canvas of={PrimaryButtonStories.IsLoading} />
+<Canvas of={PrimaryButton.IsLoading} />
 
-<Controls of={PrimaryButtonStories.IsLoading} include="isLoading" />
+<Controls of={PrimaryButton.IsLoading} include="isLoading" />
