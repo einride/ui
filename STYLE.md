@@ -193,3 +193,32 @@ export const Snapshot = {
   },
 } satisfies StoryObj
 ```
+
+- Prefer querying elements with `getByRole` in interaction tests to other query types such as
+  `getByTestId` and `getByText`.
+
+```tsx
+// bad
+export const Basic = {
+  args: {
+    children: "Button",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const button = canvas.getByText("Button")
+  },
+} satisfies Story
+
+// good
+export const Basic = {
+  args: {
+    children: "Button",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const button = canvas.getByRole("button", { name: "Button" })
+  },
+} satisfies Story
+```
+
+Querying by ARIA role and accessibility name ensures certain accessibility requirements for free.
