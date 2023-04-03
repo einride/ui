@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, ElementType, forwardRef } from "react"
+import { ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef } from "react"
 import { getBackground, getBorderRadius, getSpacing } from "../../../lib/theme/prop-system"
 import { Background, BorderRadius, PaddingBlockEnd } from "../../../lib/theme/props"
 
@@ -9,6 +9,9 @@ export interface CardProps extends ComponentPropsWithoutRef<"div"> {
 
   /** Background color of the card. Default is `primary`. */
   background?: Background
+
+  /** Content of the card. */
+  children?: ReactNode
 
   /** Border radius of the card. Default is `lg`. */
   borderRadius?: BorderRadius

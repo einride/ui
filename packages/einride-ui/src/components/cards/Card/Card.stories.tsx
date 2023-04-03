@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react"
 import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
+import { backgroundColors, borderRadii, spacings } from "../../../lib/theme/types"
 import { StepGauge } from "../../charts/StepGauge/StepGauge"
 import { StepProgress } from "../../charts/StepProgress/StepProgress"
 import { Icon } from "../../content/Icon/Icon"
@@ -9,13 +10,47 @@ import { Stack } from "../../layout/Stack/Stack"
 import { Text } from "../../typography/Text/Text"
 import { Card } from "./Card"
 
+/** Cards are used to group content. */
 const meta = {
   component: Card,
+  argTypes: {
+    as: {
+      table: {
+        disable: true,
+      },
+    },
+    background: {
+      control: {
+        type: "select",
+      },
+      options: backgroundColors,
+    },
+    borderRadius: {
+      control: {
+        type: "select",
+      },
+      options: borderRadii,
+    },
+    paddingBlockEnd: {
+      control: {
+        type: "select",
+      },
+      options: spacings,
+    },
+  },
 } satisfies Meta<typeof Card>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
+export const Basic = {
+  args: {
+    background: "secondary",
+    children: "Card",
+  },
+} satisfies Story
+
+/** Use `<Group>` and `<Stack>` to compose content inside cards. */
 export const Gauge = {
   args: {
     background: "secondary",
@@ -28,6 +63,13 @@ export const Gauge = {
         <StepGauge aria-label="Electrification potential" steps={3} completedSteps={2} />
       </Group>
     ),
+  },
+  argTypes: {
+    children: {
+      table: {
+        disable: true,
+      },
+    },
   },
 } satisfies Story
 
@@ -75,6 +117,7 @@ export const Stat = {
   },
 } satisfies Story
 
+/** Cards can be rendered inside cards. Thanks to the use of opacity, nested cards will have contrast even when they are using the same background variant. Make sure to change the `border-radius` of the inner card! */
 export const InsideCard = {
   args: {
     background: "secondary",
@@ -91,8 +134,16 @@ export const InsideCard = {
       </Stack>
     ),
   },
+  argTypes: {
+    children: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 } satisfies Story
 
+/** Thanks to the use of opacity, `<TextInput>` can be rendered inside cards and will have contrast despite using the same background as the card. */
 export const WithInput = {
   args: {
     background: "secondary",
@@ -102,6 +153,13 @@ export const WithInput = {
         <TextInput label="Label" />
       </Stack>
     ),
+  },
+  argTypes: {
+    children: {
+      table: {
+        disable: true,
+      },
+    },
   },
 } satisfies Story
 
