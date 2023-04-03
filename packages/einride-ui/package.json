@@ -27,7 +27,7 @@
     "@faker-js/faker": "7.6.0",
     "@rollup/plugin-image": "3.0.2",
     "@rollup/plugin-typescript": "11.0.0",
-    "@storybook/jest": "0.0.11-next.2",
+    "@storybook/jest": "0.0.11--canary.23.9a91830.0",
     "@storybook/react": "7.0.0",
     "@storybook/testing-library": "0.0.14-next.2",
     "@types/lodash.merge": "4.6.7",

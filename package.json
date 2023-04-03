@@ -37,7 +37,7 @@
     "@storybook/addon-links": "7.0.0",
     "@storybook/addon-styling": "1.0.0-next.1",
     "@storybook/addons": "7.0.0",
-    "@storybook/jest": "0.0.11-next.2",
+    "@storybook/jest": "0.0.11--canary.23.9a91830.0",
     "@storybook/node-logger": "7.0.0",
     "@storybook/react": "7.0.0",
     "@storybook/react-vite": "7.0.0",
