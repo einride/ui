@@ -1,9 +1,9 @@
 import styled from "@emotion/styled"
-import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
+import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
 import { getColor } from "../../../lib/theme/prop-system"
 import { ContentColor } from "../../../lib/theme/types"
 
-export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
+export interface IconProps extends ComponentPropsWithoutRef<"span"> {
   /** Rendered element. */
   as?: ElementType
 

@@ -1,5 +1,7 @@
 import styled from "@emotion/styled"
+import { expect } from "@storybook/jest"
 import { Meta, StoryObj } from "@storybook/react"
+import { within } from "@storybook/testing-library"
 import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { Card } from "../../cards/Card/Card"
 import { Caption } from "../../typography/Caption/Caption"
@@ -53,6 +55,11 @@ export const One = {
   args: {
     name: "checkmark",
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const button = canvas.getByText("✓")
+    await expect(button).not.toHaveAccessibleName() // should be hidden from accessibility tree
+  },
 } satisfies Story
 
 /** Change the size of the icon by wrapping it in a text component with the desired `font-size`. That makes it simple to display text and icon side-by-side with the same size. */
@@ -65,6 +72,11 @@ export const WithLargeText = {
   args: {
     color: "secondary",
     name: "checkmark",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const button = canvas.getByText("✓")
+    await expect(button).not.toHaveAccessibleName() // should be hidden from accessibility tree
   },
 } satisfies Story
 
