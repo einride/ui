@@ -60,9 +60,6 @@ export const ButtonTrigger = {
     content: "Here's some more context on what the button does",
     triggerAsChild: true,
   },
-  parameters: {
-    controls: { include: "triggerAsChild" },
-  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const tooltipTrigger = canvas.getByRole("button", { name: /hover or focus me/i })
@@ -137,9 +134,6 @@ export const OpenDelay = {
     content: "Here's the tooltip!",
     openDelayDuration: 700,
   },
-  parameters: {
-    controls: { include: "openDelayDuration" },
-  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const tooltipTrigger = canvas.getByRole("button", {
@@ -157,9 +151,6 @@ export const Multiline = {
       "Some really really really really really really really really really really really really really really really really really really really really really really really long tooltip content.",
     maxInlineSize: 50,
   },
-  parameters: {
-    controls: { include: "maxInlineSize" },
-  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const tooltipTrigger = canvas.getByRole("button", { name: Multiline.args.children })
@@ -173,9 +164,6 @@ export const Align = {
     children: "Hover or focus me and notice that where the tooltip shows up",
     content: "Tooltip content",
     align: "start",
-  },
-  parameters: {
-    controls: { include: "align" },
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
