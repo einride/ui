@@ -37,6 +37,8 @@ import {
   MarginLeft,
   MarginRight,
   MarginTop,
+  MaxBlockSize,
+  MaxInlineSize,
   MaxWidth,
   Padding,
   PaddingBlock,
@@ -135,6 +137,12 @@ export interface BoxProps extends Omit<ComponentPropsWithoutRef<"div">, "color">
   /** Top margin of the box. */
   marginTop?: MarginTop
 
+  /** Max block size of the box. */
+  maxBlockSize?: MaxBlockSize
+
+  /** Max inline size of the box. */
+  maxInlineSize?: MaxInlineSize
+
   /** Max width of the box. */
   maxWidth?: MaxWidth
 
@@ -200,6 +208,8 @@ interface WrapperProps {
   marginLeft?: MarginLeft
   marginRight?: MarginRight
   marginTop?: MarginTop
+  maxBlockSize?: MaxBlockSize
+  maxInlineSize?: MaxInlineSize
   maxWidth?: MaxWidth
   padding?: Padding
   paddingBlock?: PaddingBlock
@@ -255,6 +265,9 @@ const Wrapper = styled("div", {
   margin-left: ${({ marginLeft, theme }) => marginLeft && getSpacing(marginLeft, theme)};
   margin-right: ${({ marginRight, theme }) => marginRight && getSpacing(marginRight, theme)};
   margin-top: ${({ marginTop, theme }) => marginTop && getSpacing(marginTop, theme)};
+  max-block-size: ${({ maxBlockSize, theme }) => maxBlockSize && getSpacing(maxBlockSize, theme)};
+  max-inline-size: ${({ maxInlineSize, theme }) =>
+    maxInlineSize && getSpacing(maxInlineSize, theme)};
   max-width: ${({ maxWidth, theme }) => maxWidth && getSpacing(maxWidth, theme)};
   padding: ${({ padding, theme }) => padding && getSpacing(padding, theme)};
   padding-block: ${({ paddingBlock, theme }) => paddingBlock && getSpacing(paddingBlock, theme)};
