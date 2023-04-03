@@ -1,0 +1,41 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as TableSkeleton from "./TableSkeleton.stories.tsx"
+
+<Meta of={TableSkeleton} />
+
+<Title />
+
+<Description of={TableSkeleton} />
+
+```tsx
+import { TableSkeleton } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={TableSkeleton.Basic} />
+
+<Canvas of={TableSkeleton.Basic} />
+
+<Controls of={TableSkeleton.Basic} />
+
+## Predefined table head
+
+<Description of={TableSkeleton.TableHead} />
+
+<Canvas of={TableSkeleton.TableHead} />
+
+<Controls of={TableSkeleton.TableHead} include={["rows"]} />
