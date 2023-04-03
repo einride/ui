@@ -8,8 +8,11 @@ import { SecondaryButton } from "./SecondaryButton"
 const meta = {
   component: SecondaryButton,
   argTypes: {
-    disabled: {
-      control: "boolean",
+    as: {
+      control: false,
+    },
+    rightIcon: {
+      control: false,
     },
   },
 } satisfies Meta<typeof SecondaryButton>

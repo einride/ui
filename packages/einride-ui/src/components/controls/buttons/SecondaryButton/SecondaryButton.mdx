@@ -1,0 +1,57 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as SecondaryButtonStories from "./SecondaryButton.stories.tsx"
+
+<Meta of={SecondaryButtonStories} />
+
+<Title />
+
+<Description of={SecondaryButtonStories} />
+
+```tsx
+import { SecondaryButtonStories } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={SecondaryButtonStories.Basic} />
+
+<Canvas of={SecondaryButtonStories.Basic} />
+
+<Controls of={SecondaryButtonStories.Basic} />
+
+## Full width
+
+<Description of={SecondaryButtonStories.FullWidth} />
+
+<Canvas of={SecondaryButtonStories.FullWidth} />
+
+<Controls of={SecondaryButtonStories.FullWidth} include="isFullWidth" />
+
+## With icon
+
+<Description of={SecondaryButtonStories.IconRight} />
+
+<Canvas of={SecondaryButtonStories.IconRight} />
+
+<Controls of={SecondaryButtonStories.IconRight} include="rightIcon" />
+
+## Loading
+
+<Description of={SecondaryButtonStories.IsLoading} />
+
+<Canvas of={SecondaryButtonStories.IsLoading} />
+
+<Controls of={SecondaryButtonStories.IsLoading} include="isLoading" />

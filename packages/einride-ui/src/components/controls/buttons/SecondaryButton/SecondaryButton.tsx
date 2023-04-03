@@ -4,11 +4,14 @@ import { BaseButton } from "../BaseButton/BaseButton"
 import { BaseButtonIcon } from "../BaseButton/BaseButtonIcon"
 
 export interface SecondaryButtonProps extends ComponentPropsWithoutRef<"button"> {
-  /** Effective element used. */
+  /** Rendered element. */
   as?: ElementType
 
   /** Content of the button. */
   children: ReactNode
+
+  /** Makes the button disabled. */
+  disabled?: boolean
 
   /** Adds a loading spinner to the button. */
   isLoading?: boolean
