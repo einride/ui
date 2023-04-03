@@ -4,11 +4,12 @@ import { within } from "@storybook/testing-library"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { IconButton } from "./IconButton"
 
+/** Small button with icon only. */
 const meta = {
   component: IconButton,
   argTypes: {
-    disabled: {
-      control: "boolean",
+    as: {
+      control: false,
     },
   },
 } satisfies Meta<typeof IconButton>
@@ -39,6 +40,7 @@ export const EllipsisButton = {
   },
 } satisfies Story
 
+/** Control the variant of the button with `variant`. */
 export const Primary = {
   args: {
     ...Basic.args,
@@ -76,11 +78,6 @@ export const Disabled = {
 } satisfies Story
 
 export const Snapshot = {
-  argTypes: {
-    disabled: {
-      control: false,
-    },
-  },
   render: () => (
     <SnapshotWrapper>
       {[Basic, EllipsisButton, Primary, Tertiary, Disabled].map((Story, index) => (
