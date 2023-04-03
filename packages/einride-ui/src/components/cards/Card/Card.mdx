@@ -38,7 +38,7 @@ import { Card } from "@einride/ui"
 
 <Canvas of={CardStories.Gauge} />
 
-<Controls of={CardStories.Gauge} />
+<Controls of={CardStories.Gauge} include={["background", "borderRadius"]} />
 
 ## Nested cards
 
@@ -46,7 +46,7 @@ import { Card } from "@einride/ui"
 
 <Canvas of={CardStories.InsideCard} />
 
-<Controls of={CardStories.InsideCard} />
+<Controls of={CardStories.InsideCard} include={["background", "borderRadius"]} />
 
 ## Input in card
 
@@ -54,4 +54,4 @@ import { Card } from "@einride/ui"
 
 <Canvas of={CardStories.WithInput} />
 
-<Controls of={CardStories.WithInput} />
+<Controls of={CardStories.WithInput} include={["background", "borderRadius"]} />

@@ -138,7 +138,5 @@ export const Snapshot = {
       ))}
     </SnapshotWrapper>
   ),
-  parameters: {
-    chromatic: { disableSnapshot: false },
-  },
+  parameters: { chromatic: { disableSnapshot: false } },
 } satisfies StoryObj

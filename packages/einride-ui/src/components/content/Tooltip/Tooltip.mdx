@@ -38,7 +38,7 @@ import { Tooltip } from "@einride/ui"
 
 <Canvas of={TooltipStories.ButtonTrigger} />
 
-<Controls of={TooltipStories.ButtonTrigger} />
+<Controls of={TooltipStories.ButtonTrigger} include="triggerAsChild" />
 
 ## Open delay
 
@@ -46,7 +46,7 @@ import { Tooltip } from "@einride/ui"
 
 <Canvas of={TooltipStories.OpenDelay} />
 
-<Controls of={TooltipStories.OpenDelay} />
+<Controls of={TooltipStories.OpenDelay} include="openDelayDuration" />
 
 ## Multiline
 
@@ -54,7 +54,7 @@ import { Tooltip } from "@einride/ui"
 
 <Canvas of={TooltipStories.Multiline} />
 
-<Controls of={TooltipStories.Multiline} />
+<Controls of={TooltipStories.Multiline} include="maxInlineSize" />
 
 ## Tooltip alignment
 
@@ -62,4 +62,4 @@ import { Tooltip } from "@einride/ui"
 
 <Canvas of={TooltipStories.Align} />
 
-<Controls of={TooltipStories.Align} />
+<Controls of={TooltipStories.Align} include="align" />

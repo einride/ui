@@ -15,9 +15,7 @@ const meta = {
   component: Card,
   argTypes: {
     as: {
-      table: {
-        disable: true,
-      },
+      control: false,
     },
     background: {
       control: {
@@ -66,9 +64,7 @@ export const Gauge = {
   },
   argTypes: {
     children: {
-      table: {
-        disable: true,
-      },
+      control: false,
     },
   },
 } satisfies Story
@@ -91,6 +87,11 @@ export const Progress = {
         />
       </Stack>
     ),
+  },
+  argTypes: {
+    children: {
+      control: false,
+    },
   },
 } satisfies Story
 
@@ -115,6 +116,11 @@ export const Stat = {
       </Stack>
     ),
   },
+  argTypes: {
+    children: {
+      control: false,
+    },
+  },
 } satisfies Story
 
 /** Cards can be rendered inside cards. Thanks to the use of opacity, nested cards will have contrast even when they are using the same background variant. Make sure to change the `border-radius` of the inner card! */
@@ -136,9 +142,7 @@ export const InsideCard = {
   },
   argTypes: {
     children: {
-      table: {
-        disable: true,
-      },
+      control: false,
     },
   },
 } satisfies Story
@@ -156,9 +160,7 @@ export const WithInput = {
   },
   argTypes: {
     children: {
-      table: {
-        disable: true,
-      },
+      control: false,
     },
   },
 } satisfies Story
