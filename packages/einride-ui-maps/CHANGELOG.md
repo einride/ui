@@ -1,5 +1,7 @@
 # @einride/ui-maps
 
+## 7.46.0
+
 ## 7.45.8
 
 ### Patch Changes
