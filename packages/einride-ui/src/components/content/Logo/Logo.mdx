@@ -1,0 +1,41 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as LogoStories from "./Logo.stories.tsx"
+
+<Meta of={LogoStories} />
+
+<Title />
+
+<Description of={LogoStories} />
+
+```tsx
+import { Logo } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={LogoStories.Basic} />
+
+<Canvas of={LogoStories.Basic} />
+
+<Controls of={LogoStories.Basic} />
+
+## Large
+
+<Description of={LogoStories.Large} />
+
+<Canvas of={LogoStories.Large} />
+
+<Controls of={LogoStories.Large} />
