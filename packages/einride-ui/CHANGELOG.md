@@ -1,5 +1,12 @@
 # @einride/ui
 
+## 8.0.0
+
+### Minor Changes
+
+- 9f6b104: Add max-inline-size and max-block-size props to <Box>.
+- 2d1e04f: Add maxInlineSize to <Tooltip> to make multiline possible with logical properties.
+
 ## 7.45.9
 
 ### Patch Changes

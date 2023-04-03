@@ -1,6 +1,6 @@
 {
   "name": "@einride/ui-maps",
-  "version": "7.45.8",
+  "version": "8.0.0",
   "description": "Map components that adhere to Einride's design system",
   "scripts": {
     "build": "rollup --config"
@@ -17,7 +17,7 @@
     "typescript": "5.0.3"
   },
   "peerDependencies": {
-    "@einride/ui": "^7.45.3",
+    "@einride/ui": "^8.0.0",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "mapbox-gl": "^2.13.0",
