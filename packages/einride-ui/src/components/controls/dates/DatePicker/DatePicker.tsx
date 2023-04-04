@@ -80,7 +80,6 @@ export const DatePicker = ({
         popoverProps={{ clickOutsideEvents: ["pointerdown"] }} // to ensure popover is closed when clicking on a menu trigger
         valueFormat={inputFormat}
         withAsterisk={false}
-        withCellSpacing={false}
         {...props}
       />
       {message && (

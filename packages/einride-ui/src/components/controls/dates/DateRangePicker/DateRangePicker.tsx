@@ -82,7 +82,6 @@ export const DateRangePicker = ({
         type="range"
         valueFormat={inputFormat}
         withAsterisk={false}
-        withCellSpacing={false}
         {...props}
       />
       {message && (
