@@ -2057,7 +2057,7 @@ __metadata:
     "@storybook/addon-coverage": 0.0.8
     "@storybook/addon-essentials": 7.0.2
     "@storybook/addon-interactions": 7.0.2
-    "@storybook/addon-links": 7.0.0
+    "@storybook/addon-links": 7.0.2
     "@storybook/addon-styling": 1.0.0-next.1
     "@storybook/addons": 7.0.2
     "@storybook/jest": 0.1.0
@@ -4225,18 +4225,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-links@npm:7.0.0":
-  version: 7.0.0
-  resolution: "@storybook/addon-links@npm:7.0.0"
+"@storybook/addon-links@npm:7.0.2":
+  version: 7.0.2
+  resolution: "@storybook/addon-links@npm:7.0.2"
   dependencies:
-    "@storybook/client-logger": 7.0.0
-    "@storybook/core-events": 7.0.0
-    "@storybook/csf": next
+    "@storybook/client-logger": 7.0.2
+    "@storybook/core-events": 7.0.2
+    "@storybook/csf": ^0.1.0
     "@storybook/global": ^5.0.0
-    "@storybook/manager-api": 7.0.0
-    "@storybook/preview-api": 7.0.0
-    "@storybook/router": 7.0.0
-    "@storybook/types": 7.0.0
+    "@storybook/manager-api": 7.0.2
+    "@storybook/preview-api": 7.0.2
+    "@storybook/router": 7.0.2
+    "@storybook/types": 7.0.2
     prop-types: ^15.7.2
     ts-dedent: ^2.0.0
   peerDependencies:
@@ -4247,7 +4247,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 0f96aef97f4657bebb99e448945bd8971e7c6693e36f20ca33b9a0a28a2adfe6a0fd25d7a7cbb8ef44739d6e243ac2a4f2131e9e43eeebdd4512682210358a3a
+  checksum: bd6a681a332efd0fb3b53666cdfe2346f9408ca828c0a9eb1c6be2db57a0894ef5c3980a90b8883c2b328c32da580acdef9993954fe89ab7005106d7a55d82e3
   languageName: node
   linkType: hard
 
