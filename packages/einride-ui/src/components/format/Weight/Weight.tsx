@@ -5,13 +5,13 @@ export interface WeightProps {
   /** Amount of kilograms to be formatted. */
   kilograms: number
 
-  /** Locale used to format weight. Default is `en-US`. */
+  /** Locale used to format weight. */
   locales: string | Array<string>
 
   /** Full `Intl` number format options that makes it possible to override defaults. */
   numberFormatOptions?: Intl.NumberFormatOptions
 
-  /** Unit system used to format weight. Default is `metric`. */
+  /** Unit system used to format weight. */
   unit: "metric" | "imperial"
 }
 
@@ -22,9 +22,9 @@ export interface WeightProps {
  */
 export const Weight = ({
   kilograms,
-  locales = "en-US",
-  numberFormatOptions = {},
-  unit = "metric",
+  locales,
+  numberFormatOptions,
+  unit,
 }: WeightProps): JSX.Element => {
   if (unit === "imperial") {
     return <>{formatImperial(kilograms, locales, numberFormatOptions)}</>

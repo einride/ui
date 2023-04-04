@@ -1,0 +1,57 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as Weight from "./Weight.stories.tsx"
+
+<Meta of={Weight} />
+
+<Title />
+
+<Description of={Weight} />
+
+```tsx
+import { Weight } from "@einride/ui"
+```
+
+## Metric
+
+<Description of={Weight.Metric} />
+
+<Canvas of={Weight.Metric} />
+
+<Controls of={Weight.Metric} />
+
+## Imperial
+
+<Description of={Weight.Imperial} />
+
+<Canvas of={Weight.Imperial} />
+
+<Controls of={Weight.Imperial} include="unit" />
+
+## Locale
+
+<Description of={Weight.ImperialInSwedish} />
+
+<Canvas of={Weight.ImperialInSwedish} />
+
+<Controls of={Weight.ImperialInSwedish} include="locales" />
+
+## Format options
+
+<Description of={Weight.MaximumSignificantDigits} />
+
+<Canvas of={Weight.MaximumSignificantDigits} />
+
+<Controls of={Weight.MaximumSignificantDigits} include="numberFormatOptions" />

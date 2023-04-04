@@ -10,6 +10,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
+/** Use `locales` and `unit` props to control output. */
 export const Metric = {
   args: {
     kilograms: 123456.789,
@@ -23,6 +24,7 @@ export const Metric = {
   },
 } satisfies Story
 
+/** Change the unit system with `unit` prop. */
 export const Imperial = {
   args: {
     kilograms: 123456.789,
@@ -36,6 +38,7 @@ export const Imperial = {
   },
 } satisfies Story
 
+/** Use `locales` prop to change formatting and language of output. */
 export const ImperialInSwedish = {
   args: {
     kilograms: 123456.789,
@@ -45,6 +48,21 @@ export const ImperialInSwedish = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const unit = canvas.getByText("272 175,6 pund")
+    expect(unit).toBeInTheDocument()
+  },
+} satisfies Story
+
+/** `numberFormatOptions` can be used for additions options when needed. In this example, maximum significant digits is set. */
+export const MaximumSignificantDigits = {
+  args: {
+    kilograms: 123456.789,
+    locales: "en-US",
+    unit: "metric",
+    numberFormatOptions: { maximumSignificantDigits: 3 },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const unit = canvas.getByText("123,000 kg")
     expect(unit).toBeInTheDocument()
   },
 } satisfies Story

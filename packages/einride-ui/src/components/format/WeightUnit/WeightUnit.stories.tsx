@@ -10,6 +10,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
+/** Use `locales` and `unit` props to control output. */
 export const Metric = {
   args: {
     locales: "en-US",
@@ -22,6 +23,7 @@ export const Metric = {
   },
 } satisfies Story
 
+/** Change the unit system with `unit` prop. */
 export const Imperial = {
   args: {
     locales: "en-US",
@@ -34,6 +36,7 @@ export const Imperial = {
   },
 } satisfies Story
 
+/** Use `locales` prop to change formatting and language of output. */
 export const ImperialInSwedish = {
   args: {
     locales: "sv-SE",
@@ -42,6 +45,20 @@ export const ImperialInSwedish = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const unit = canvas.getByText("pund")
+    expect(unit).toBeInTheDocument()
+  },
+} satisfies Story
+
+/** `numberFormatOptions` can be used for additions options when needed. In this example, long unit display style is used. */
+export const Long = {
+  args: {
+    locales: "en-US",
+    unitSystem: "metric",
+    numberFormatOptions: { unitDisplay: "long" },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const unit = canvas.getByText("kilograms")
     expect(unit).toBeInTheDocument()
   },
 } satisfies Story
