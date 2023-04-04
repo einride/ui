@@ -8,7 +8,7 @@
   "devDependencies": {
     "@rollup/plugin-image": "3.0.2",
     "@rollup/plugin-typescript": "11.0.0",
-    "@storybook/jest": "0.0.11-next.2",
+    "@storybook/jest": "0.1.0",
     "@storybook/react": "7.0.2",
     "@storybook/testing-library": "0.0.14-next.2",
     "mapbox-gl": "2.13.0",
