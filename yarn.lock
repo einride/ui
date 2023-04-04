@@ -2064,7 +2064,7 @@ __metadata:
     "@storybook/node-logger": 7.0.2
     "@storybook/react": 7.0.2
     "@storybook/react-vite": 7.0.0
-    "@storybook/test-runner": 0.10.0-next.12
+    "@storybook/test-runner": 0.10.0
     "@storybook/testing-library": 0.0.14-next.2
     "@storybook/theming": 7.0.2
     "@testing-library/jest-dom": 5.16.5
@@ -5307,9 +5307,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/test-runner@npm:0.10.0-next.12":
-  version: 0.10.0-next.12
-  resolution: "@storybook/test-runner@npm:0.10.0-next.12"
+"@storybook/test-runner@npm:0.10.0":
+  version: 0.10.0
+  resolution: "@storybook/test-runner@npm:0.10.0"
   dependencies:
     "@babel/core": ^7.20.7
     "@babel/generator": ^7.20.7
@@ -5319,7 +5319,7 @@ __metadata:
     "@babel/template": ^7.20.7
     "@babel/types": ^7.20.7
     "@storybook/core-common": ^7.0.0-beta.0 || ^7.0.0-rc.0 || ^7.0.0
-    "@storybook/csf": next
+    "@storybook/csf": ^0.1.0
     "@storybook/csf-tools": ^7.0.0-beta.0 || ^7.0.0-rc.0 || ^7.0.0
     "@storybook/preview-api": ^7.0.0-beta.0 || ^7.0.0-rc.0 || ^7.0.0
     can-bind-to-host: ^1.1.1
@@ -5343,7 +5343,7 @@ __metadata:
     ts-dedent: ^2.0.0
   bin:
     test-storybook: bin/test-storybook.js
-  checksum: 6f0996dcd50c965374dd9bc146269b615044a4ea73527c328722edd44750dd86ccf5c0e4de6cb34203e1548a1c02660fd49fa005e17348ff98d52e5597d97354
+  checksum: 73518b5df5d06173cad5c31da97189fbe7e3036c5106b2ab9159c6cbe829f8613fe515fa94e560c63c64a3fe6075c53c4ae3e121b023dc159067e45382e60f09
   languageName: node
   linkType: hard
 
