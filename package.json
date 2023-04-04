@@ -34,7 +34,7 @@
     "@storybook/addon-coverage": "0.0.8",
     "@storybook/addon-essentials": "7.0.2",
     "@storybook/addon-interactions": "7.0.2",
-    "@storybook/addon-links": "7.0.0",
+    "@storybook/addon-links": "7.0.2",
     "@storybook/addon-styling": "1.0.0-next.1",
     "@storybook/addons": "7.0.2",
     "@storybook/jest": "0.0.11-next.2",
