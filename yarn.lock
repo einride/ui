@@ -2138,7 +2138,7 @@ __metadata:
     "@einride/prettier-config": 2.0.0
     "@einride/tsconfig": 1.0.1
     "@storybook/addon-a11y": 7.0.0
-    "@storybook/addon-actions": 7.0.0
+    "@storybook/addon-actions": 7.0.2
     "@storybook/addon-coverage": 0.0.8
     "@storybook/addon-essentials": 7.0.2
     "@storybook/addon-interactions": 7.0.0
@@ -4109,38 +4109,6 @@ __metadata:
     react-dom:
       optional: true
   checksum: cf800dc40cbba628e36739bd43f0e5fb0ac8dc865596b2fa851c96fa010c767a9318d4a1f011217e4a02adadc0a48e5ab2e60000cbba4308ace09d99bd69697f
-  languageName: node
-  linkType: hard
-
-"@storybook/addon-actions@npm:7.0.0":
-  version: 7.0.0
-  resolution: "@storybook/addon-actions@npm:7.0.0"
-  dependencies:
-    "@storybook/client-logger": 7.0.0
-    "@storybook/components": 7.0.0
-    "@storybook/core-events": 7.0.0
-    "@storybook/global": ^5.0.0
-    "@storybook/manager-api": 7.0.0
-    "@storybook/preview-api": 7.0.0
-    "@storybook/theming": 7.0.0
-    "@storybook/types": 7.0.0
-    dequal: ^2.0.2
-    lodash: ^4.17.21
-    polished: ^4.2.2
-    prop-types: ^15.7.2
-    react-inspector: ^6.0.0
-    telejson: ^7.0.3
-    ts-dedent: ^2.0.0
-    uuid-browser: ^3.1.0
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-  checksum: a6b3e681b3abe7ec589b510e43054c498a354f87c82ae599241bb1bc4f55f76b4d8fe9ef96d31056b75314166f41322fd050cdde6f09888e51cd57f839c56ec0
   languageName: node
   linkType: hard
 
