@@ -2137,7 +2137,7 @@ __metadata:
     "@einride/eslint-plugin": 6.24.0
     "@einride/prettier-config": 2.0.0
     "@einride/tsconfig": 1.0.1
-    "@storybook/addon-a11y": 7.0.0
+    "@storybook/addon-a11y": 7.0.2
     "@storybook/addon-actions": 7.0.2
     "@storybook/addon-coverage": 0.0.8
     "@storybook/addon-essentials": 7.0.2
@@ -4083,20 +4083,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-a11y@npm:7.0.0":
-  version: 7.0.0
-  resolution: "@storybook/addon-a11y@npm:7.0.0"
+"@storybook/addon-a11y@npm:7.0.2":
+  version: 7.0.2
+  resolution: "@storybook/addon-a11y@npm:7.0.2"
   dependencies:
-    "@storybook/addon-highlight": 7.0.0
-    "@storybook/channels": 7.0.0
-    "@storybook/client-logger": 7.0.0
-    "@storybook/components": 7.0.0
-    "@storybook/core-events": 7.0.0
+    "@storybook/addon-highlight": 7.0.2
+    "@storybook/channels": 7.0.2
+    "@storybook/client-logger": 7.0.2
+    "@storybook/components": 7.0.2
+    "@storybook/core-events": 7.0.2
     "@storybook/global": ^5.0.0
-    "@storybook/manager-api": 7.0.0
-    "@storybook/preview-api": 7.0.0
-    "@storybook/theming": 7.0.0
-    "@storybook/types": 7.0.0
+    "@storybook/manager-api": 7.0.2
+    "@storybook/preview-api": 7.0.2
+    "@storybook/theming": 7.0.2
+    "@storybook/types": 7.0.2
     axe-core: ^4.2.0
     lodash: ^4.17.21
     react-resize-detector: ^7.1.2
@@ -4108,7 +4108,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: cf800dc40cbba628e36739bd43f0e5fb0ac8dc865596b2fa851c96fa010c767a9318d4a1f011217e4a02adadc0a48e5ab2e60000cbba4308ace09d99bd69697f
+  checksum: e6d3f1ae7d5278c98ce798c551aa4ead11a99cbc002616cadbe42af874c02cce9b34c091c9d6a56886f0513d94f2b08d7c5fc8839a157e3916e734a10d636780
   languageName: node
   linkType: hard
 
@@ -4267,17 +4267,6 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
   checksum: ab423836c37cd902f679ba9ab6ea13a3a67b9fb418d959833a70f00b12a00db6e31509cc4a2a5aa03da7229d160ee857cb46adca79d65709dc48938682214975
-  languageName: node
-  linkType: hard
-
-"@storybook/addon-highlight@npm:7.0.0":
-  version: 7.0.0
-  resolution: "@storybook/addon-highlight@npm:7.0.0"
-  dependencies:
-    "@storybook/core-events": 7.0.0
-    "@storybook/global": ^5.0.0
-    "@storybook/preview-api": 7.0.0
-  checksum: 470ad1b39302abbc870a56ab15392831319bff83b024157a2c402613c16ad303acc6c090cc1849f29e54d9deca929babfb3d8752918c45ef3b5245fd432289fd
   languageName: node
   linkType: hard
 
@@ -4743,25 +4732,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/components@npm:7.0.0, @storybook/components@npm:next":
-  version: 7.0.0
-  resolution: "@storybook/components@npm:7.0.0"
-  dependencies:
-    "@storybook/client-logger": 7.0.0
-    "@storybook/csf": next
-    "@storybook/global": ^5.0.0
-    "@storybook/theming": 7.0.0
-    "@storybook/types": 7.0.0
-    memoizerific: ^1.11.3
-    use-resize-observer: ^9.1.0
-    util-deprecate: ^1.0.2
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 07f6fea25668cd665b31506f3b01ebb7b037a5bd90a18be239d1d4be0d6f02a37709cf106a673cd8dec2700fc05cff208503880e2ec26e0628d9a5eb2a158088
-  languageName: node
-  linkType: hard
-
 "@storybook/components@npm:7.0.2":
   version: 7.0.2
   resolution: "@storybook/components@npm:7.0.2"
@@ -4778,6 +4748,25 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
   checksum: e4a787737171bef3561214875d1287c227f77e1b84c2bab364308a1da17265b79081a28585ce419903005bb27ef16a8ed3781cbaa5e735c246c0171e9a28cb64
+  languageName: node
+  linkType: hard
+
+"@storybook/components@npm:next":
+  version: 7.0.0
+  resolution: "@storybook/components@npm:7.0.0"
+  dependencies:
+    "@storybook/client-logger": 7.0.0
+    "@storybook/csf": next
+    "@storybook/global": ^5.0.0
+    "@storybook/theming": 7.0.0
+    "@storybook/types": 7.0.0
+    memoizerific: ^1.11.3
+    use-resize-observer: ^9.1.0
+    util-deprecate: ^1.0.2
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 07f6fea25668cd665b31506f3b01ebb7b037a5bd90a18be239d1d4be0d6f02a37709cf106a673cd8dec2700fc05cff208503880e2ec26e0628d9a5eb2a158088
   languageName: node
   linkType: hard
 
