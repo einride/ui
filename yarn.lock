@@ -2026,7 +2026,7 @@ __metadata:
     "@rollup/plugin-image": 3.0.2
     "@rollup/plugin-typescript": 11.0.0
     "@storybook/jest": 0.0.11-next.2
-    "@storybook/react": 7.0.0
+    "@storybook/react": 7.0.2
     "@storybook/testing-library": 0.0.14-next.2
     mapbox-gl: 2.13.0
     react-map-gl: 7.0.21
@@ -2062,7 +2062,7 @@ __metadata:
     "@storybook/addons": 7.0.2
     "@storybook/jest": 0.0.11-next.2
     "@storybook/node-logger": 7.0.2
-    "@storybook/react": 7.0.0
+    "@storybook/react": 7.0.2
     "@storybook/react-vite": 7.0.0
     "@storybook/test-runner": 0.10.0-next.12
     "@storybook/testing-library": 0.0.14-next.2
@@ -2108,7 +2108,7 @@ __metadata:
     "@rollup/plugin-image": 3.0.2
     "@rollup/plugin-typescript": 11.0.0
     "@storybook/jest": 0.0.11-next.2
-    "@storybook/react": 7.0.0
+    "@storybook/react": 7.0.2
     "@storybook/testing-library": 0.0.14-next.2
     "@types/lodash.merge": 4.6.7
     "@types/luxon": 3.2.0
@@ -4695,6 +4695,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/core-client@npm:7.0.2":
+  version: 7.0.2
+  resolution: "@storybook/core-client@npm:7.0.2"
+  dependencies:
+    "@storybook/client-logger": 7.0.2
+    "@storybook/preview-api": 7.0.2
+  checksum: e7890ba20611fbe99f5b2e9ab2dcc44ff540432fac9b6fcddb5107d213b475edd4581a9f438e14f20991cff276e5aa2dc6b33d15a4ff655f7a1c25709d8d2ed6
+  languageName: node
+  linkType: hard
+
 "@storybook/core-common@npm:7.0.0, @storybook/core-common@npm:^7.0.0-beta.0 || ^7.0.0-rc.0 || ^7.0.0":
   version: 7.0.0
   resolution: "@storybook/core-common@npm:7.0.0"
@@ -5214,6 +5224,41 @@ __metadata:
     typescript:
       optional: true
   checksum: 3e2d0687ea45f50e07bfa4a1ce673a15caa5b9d11eb5dd4414e1e6a36950c59fc922f156b7e13873e9718d12a1d5a689097337c0fd06e503472e5d92968908ea
+  languageName: node
+  linkType: hard
+
+"@storybook/react@npm:7.0.2":
+  version: 7.0.2
+  resolution: "@storybook/react@npm:7.0.2"
+  dependencies:
+    "@storybook/client-logger": 7.0.2
+    "@storybook/core-client": 7.0.2
+    "@storybook/docs-tools": 7.0.2
+    "@storybook/global": ^5.0.0
+    "@storybook/preview-api": 7.0.2
+    "@storybook/react-dom-shim": 7.0.2
+    "@storybook/types": 7.0.2
+    "@types/escodegen": ^0.0.6
+    "@types/estree": ^0.0.51
+    "@types/node": ^16.0.0
+    acorn: ^7.4.1
+    acorn-jsx: ^5.3.1
+    acorn-walk: ^7.2.0
+    escodegen: ^2.0.0
+    html-tags: ^3.1.0
+    lodash: ^4.17.21
+    prop-types: ^15.7.2
+    react-element-to-jsx-string: ^15.0.0
+    ts-dedent: ^2.0.0
+    type-fest: ^2.19.0
+    util-deprecate: ^1.0.2
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 045ed93b51c80c2ef14a99d101971b91f30411a3c396e5f8bc34706cde75aa01cef3ac95a368bdaf381c4bab678d0ba4c36b05738e4052579f8e470a2081543f
   languageName: node
   linkType: hard
 
