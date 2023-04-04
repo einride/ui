@@ -8,9 +8,9 @@
   "dependencies": {
     "@einride/hooks": "1.7.5",
     "@emotion/is-prop-valid": "1.2.0",
-    "@mantine/core": "6.0.5",
-    "@mantine/dates": "6.0.5",
-    "@mantine/hooks": "6.0.5",
+    "@mantine/core": "6.0.6",
+    "@mantine/dates": "6.0.6",
+    "@mantine/hooks": "6.0.6",
     "@radix-ui/react-alert-dialog": "1.0.3",
     "@radix-ui/react-dialog": "1.0.3",
     "@radix-ui/react-dropdown-menu": "2.0.4",
