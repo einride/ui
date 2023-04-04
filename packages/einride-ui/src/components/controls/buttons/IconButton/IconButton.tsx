@@ -20,6 +20,7 @@ export interface IconButtonProps extends ComponentPropsWithoutRef<"button"> {
   variant?: Variant
 }
 
+/** Small button with icon only. */
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   ({ icon = "arrowRight", variant = "secondary", ...props }, ref) => {
     return (

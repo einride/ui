@@ -16,6 +16,7 @@ export interface LinkButtonProps extends ComponentPropsWithoutRef<"button"> {
   font?: Font
 }
 
+/** Sometimes, you want a button to behave like a link—i.e. navigate to another URL on click. Use `<LinkButton>` for those cases to make that possible while keeping correct semantics. */
 export const LinkButton = forwardRef<HTMLButtonElement, LinkButtonProps>(
   ({ children, ...props }, ref) => {
     return (

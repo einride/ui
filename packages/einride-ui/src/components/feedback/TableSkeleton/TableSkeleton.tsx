@@ -17,6 +17,7 @@ export interface TableSkeletonProps {
   thead?: ReactNode
 }
 
+/** A utilify component for making table skeletons in a simple way. */
 export const TableSkeleton = ({ columns, rows, thead }: TableSkeletonProps): JSX.Element => {
   return (
     <Table>

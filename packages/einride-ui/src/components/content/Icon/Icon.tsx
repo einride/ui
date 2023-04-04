@@ -16,6 +16,7 @@ export interface IconProps extends ComponentPropsWithoutRef<"span"> {
 
 // use for example https://mothereff.in/html-entities to convert figma icons to html entities
 
+/** Render icons as text. */
 export const Icon = forwardRef<HTMLSpanElement, IconProps>(({ name, color, ...props }, ref) => {
   return (
     <StyledSpan aria-hidden="true" textColor={color} {...props} ref={ref}>

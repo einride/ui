@@ -5,7 +5,6 @@ import { ComponentProps, useState } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { Radio } from "./Radio"
 
-/** Radio button. */
 const meta = {
   component: Radio,
   argTypes: {

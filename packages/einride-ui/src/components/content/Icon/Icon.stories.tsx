@@ -9,7 +9,6 @@ import { Paragraph } from "../../typography/Paragraph/Paragraph"
 import { Text } from "../../typography/Text/Text"
 import { Icon, iconNames } from "./Icon"
 
-/** Render icons as text. */
 const meta = {
   component: Icon,
   argTypes: {

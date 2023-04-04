@@ -23,6 +23,7 @@ export interface SecondaryButtonProps extends ComponentPropsWithoutRef<"button">
   rightIcon?: ReactNode
 }
 
+/** Button for secondary actions. */
 export const SecondaryButton = forwardRef<HTMLButtonElement, SecondaryButtonProps>(
   ({ children, isLoading = false, rightIcon, isFullWidth = false, ...props }, ref) => {
     const hasIcon = !!rightIcon || isLoading

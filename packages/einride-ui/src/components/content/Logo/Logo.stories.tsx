@@ -4,7 +4,6 @@ import { within } from "@storybook/testing-library"
 import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { Logo } from "./Logo"
 
-/** Einride's official logo. */
 const meta = {
   component: Logo,
 } satisfies Meta<typeof Logo>

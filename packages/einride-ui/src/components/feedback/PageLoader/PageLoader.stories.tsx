@@ -1,7 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react"
 import { PageLoader } from "./PageLoader"
 
-/** Full screen loading indicator. */
 const meta = {
   component: PageLoader,
   argTypes: {

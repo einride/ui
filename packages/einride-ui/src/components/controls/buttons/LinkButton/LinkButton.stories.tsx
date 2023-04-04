@@ -4,7 +4,6 @@ import { within } from "@storybook/testing-library"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { LinkButton } from "./LinkButton"
 
-/** Sometimes, you want a button to behave like a link—i.e. navigate to another URL on click. Use `<LinkButton>` for those cases to make that possible while keeping correct semantics. */
 const meta = {
   component: LinkButton,
   argTypes: {

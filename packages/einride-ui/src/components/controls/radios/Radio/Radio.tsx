@@ -18,6 +18,7 @@ export interface RadioProps extends Omit<ComponentPropsWithoutRef<"input">, "onC
   wrapperProps?: HTMLAttributes<HTMLDivElement>
 }
 
+/** Radio button. */
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(
   ({ children, labelProps, onCheckedChange, wrapperProps, ...props }, ref) => {
     const id = useId()

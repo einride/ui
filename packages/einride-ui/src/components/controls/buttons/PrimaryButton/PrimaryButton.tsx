@@ -23,6 +23,7 @@ export interface PrimaryButtonProps extends ComponentPropsWithoutRef<"button"> {
   rightIcon?: ReactNode
 }
 
+/** Button for primary actions. */
 export const PrimaryButton = forwardRef<HTMLButtonElement, PrimaryButtonProps>(
   ({ children, isLoading = false, rightIcon, isFullWidth = false, ...props }, ref) => {
     const hasIcon = !!rightIcon || isLoading

@@ -20,6 +20,7 @@ export interface CheckboxProps extends Omit<ComponentPropsWithoutRef<"input">, "
   wrapperProps?: BoxProps
 }
 
+/** Checkbox control. */
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   ({ children, innerWrapperProps, labelProps, onCheckedChange, wrapperProps, ...props }, ref) => {
     const id = useId()

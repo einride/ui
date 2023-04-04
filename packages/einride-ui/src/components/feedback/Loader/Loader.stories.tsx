@@ -1,7 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react"
 import { Loader } from "./Loader"
 
-/** A loading indicator. */
 const meta = {
   component: Loader,
 } satisfies Meta<typeof Loader>

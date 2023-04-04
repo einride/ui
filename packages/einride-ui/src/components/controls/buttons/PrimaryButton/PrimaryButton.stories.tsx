@@ -5,7 +5,6 @@ import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { Icon } from "../../../content/Icon/Icon"
 import { PrimaryButton } from "./PrimaryButton"
 
-/** Button for primary actions. */
 const meta = {
   component: PrimaryButton,
   argTypes: {
