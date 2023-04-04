@@ -1,5 +1,12 @@
 # @einride/ui
 
+## 7.46.1
+
+### Patch Changes
+
+- 31e8322e: Updrade Mantine deps.
+- 0e59e173: Remove unrecognized DOM element error.
+
 ## 7.46.0
 
 ### Minor Changes
