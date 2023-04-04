@@ -23,6 +23,7 @@ export interface TertiaryButtonProps extends ComponentPropsWithoutRef<"button"> 
   rightIcon?: ReactNode
 }
 
+/** Button for teriary actions. */
 export const TertiaryButton = forwardRef<HTMLButtonElement, TertiaryButtonProps>(
   ({ children, isLoading = false, rightIcon, isFullWidth = false, ...props }, ref) => {
     const hasIcon = !!rightIcon || isLoading

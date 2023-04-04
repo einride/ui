@@ -4,7 +4,6 @@ import { Thead } from "../../table/Thead/Thead"
 import { Tr } from "../../table/Tr/Tr"
 import { TableSkeleton } from "./TableSkeleton"
 
-/** A utilify component for making table skeletons in a simple way. */
 const meta = {
   component: TableSkeleton,
   argTypes: {

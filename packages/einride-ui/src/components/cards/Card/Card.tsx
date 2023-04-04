@@ -20,6 +20,7 @@ export interface CardProps extends ComponentPropsWithoutRef<"div"> {
   paddingBlockEnd?: PaddingBlockEnd
 }
 
+/** Cards are used to group content. */
 export const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ background = "primary", borderRadius = "lg", children, ...props }, ref) => {
     return (

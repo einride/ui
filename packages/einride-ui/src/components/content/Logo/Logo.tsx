@@ -7,6 +7,7 @@ export interface LogoProps extends ComponentPropsWithoutRef<"svg"> {
   size?: Size
 }
 
+/** Einride's official logo. */
 export const Logo = forwardRef<SVGSVGElement, LogoProps>(({ size = "sm", ...props }, ref) => {
   if (size === "sm") return <LogoSmall ref={ref} {...props} />
   if (size === "lg") return <LogoLarge ref={ref} {...props} />

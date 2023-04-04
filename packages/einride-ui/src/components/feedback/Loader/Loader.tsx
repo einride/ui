@@ -4,6 +4,7 @@ import { ComponentPropsWithoutRef, forwardRef } from "react"
 
 export type LoaderProps = ComponentPropsWithoutRef<"div">
 
+/** A loading indicator. */
 export const Loader = forwardRef<HTMLDivElement, LoaderProps>(
   (props, forwardedRef): JSX.Element => {
     return (

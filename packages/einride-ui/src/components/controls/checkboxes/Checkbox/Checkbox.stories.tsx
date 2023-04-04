@@ -5,7 +5,6 @@ import { ComponentProps, useState } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { Checkbox } from "./Checkbox"
 
-/** Checkbox control. */
 const meta = {
   component: Checkbox,
   argTypes: {

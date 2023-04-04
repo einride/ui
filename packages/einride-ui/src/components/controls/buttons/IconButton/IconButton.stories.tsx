@@ -4,7 +4,6 @@ import { within } from "@storybook/testing-library"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { IconButton } from "./IconButton"
 
-/** Small button with icon only. */
 const meta = {
   component: IconButton,
   argTypes: {

@@ -13,7 +13,6 @@ import { Tr } from "../../table/Tr/Tr"
 import { Text } from "../../typography/Text/Text"
 import { Tooltip } from "./Tooltip"
 
-/** Use tooltips to show additional information.  */
 const meta = {
   component: Tooltip,
   argTypes: {

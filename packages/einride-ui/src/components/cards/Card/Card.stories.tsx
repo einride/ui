@@ -10,7 +10,6 @@ import { Stack } from "../../layout/Stack/Stack"
 import { Text } from "../../typography/Text/Text"
 import { Card } from "./Card"
 
-/** Cards are used to group content. */
 const meta = {
   component: Card,
   argTypes: {
