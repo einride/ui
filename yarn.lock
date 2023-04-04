@@ -2111,7 +2111,7 @@ __metadata:
     "@storybook/react": 7.0.2
     "@storybook/testing-library": 0.0.14-next.2
     "@types/lodash.merge": 4.6.7
-    "@types/luxon": 3.2.0
+    "@types/luxon": 3.2.2
     "@types/react": 18.0.32
     "@types/react-dom": 18.0.11
     "@vitejs/plugin-react": 3.1.0
@@ -5830,10 +5830,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/luxon@npm:3.2.0":
-  version: 3.2.0
-  resolution: "@types/luxon@npm:3.2.0"
-  checksum: 051bfbf841c6ce98728df6538342ce4aaddfcf0ec6e8b473e0195dcfc3ba6b1fe4b3ce17f2ba6d25344f41cb70032c1debe96da9e384e5f6e639665c1e6d368c
+"@types/luxon@npm:3.2.2":
+  version: 3.2.2
+  resolution: "@types/luxon@npm:3.2.2"
+  checksum: aa9955b85091bd5e1d7128e9fae4cd6d0b3ba0e17f887cde559c848a6ab2f726024c3514e30a3b86648f7bf031376bca6e957e17fe4f0578af2ba084f98967bd
   languageName: node
   linkType: hard
 

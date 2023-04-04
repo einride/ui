@@ -31,7 +31,7 @@
     "@storybook/react": "7.0.2",
     "@storybook/testing-library": "0.0.14-next.2",
     "@types/lodash.merge": "4.6.7",
-    "@types/luxon": "3.2.0",
+    "@types/luxon": "3.2.2",
     "@types/react": "18.0.32",
     "@types/react-dom": "18.0.11",
     "@vitejs/plugin-react": "3.1.0",
