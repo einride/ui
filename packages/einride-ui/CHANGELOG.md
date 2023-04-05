@@ -1,5 +1,21 @@
 # @einride/ui
 
+## 7.47.0
+
+### Minor Changes
+
+- 575c4dee: Allow `flexShrink` prop on Box.
+
+### Patch Changes
+
+- 29c14551: LinearProgress: Set correct required props.
+- 84496162: StepProgress: Set correct required props.
+- 461bab52: StepGauge: Set correct required props.
+- fb407fb9: StepVerticalProgress: set correct required props.
+- f25d636c: LinearVerticalProgress: Set correct required props."
+- 472e9ee4: Avatar: Fix edge-cases for initials.
+- f9a359a3: LinearGauge now only requires `aria-label`, not `aria-labelledby`.
+
 ## 7.46.1
 
 ### Patch Changes
