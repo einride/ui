@@ -31,7 +31,7 @@ export const Small = {
   },
 } satisfies Story
 
-/** It's possible to make the logo larger. */
+/** Control the size of the logo with the `size` prop. */
 export const Large = {
   args: {
     size: "lg",

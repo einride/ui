@@ -12,12 +12,12 @@ export interface UserAccessPointBaseProps extends Omit<ComponentPropsWithoutRef<
 
 interface UserAccessPointWithImageProps {
   /** Source of the image. */
-  avatarImageSrc: string | undefined
+  avatarImageSrc: string
 }
 
 interface UserAccessPointWithInitialsProps {
   /** Name of the user, used to compute initials. */
-  name: string | undefined
+  name: string
 }
 
 export type UserAccessPointProps = UserAccessPointBaseProps &

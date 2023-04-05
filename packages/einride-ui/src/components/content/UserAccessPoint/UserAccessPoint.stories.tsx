@@ -6,12 +6,17 @@ import { UserAccessPoint } from "./UserAccessPoint"
 
 const meta = {
   component: UserAccessPoint,
+  argTypes: {
+    as: {
+      control: false,
+    },
+  },
 } satisfies Meta<typeof UserAccessPoint>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const User = {
+export const Basic = {
   args: {
     avatarImageSrc: "https://avatars.githubusercontent.com/u/44197016?v=4",
     status: "default",
@@ -23,6 +28,7 @@ export const User = {
   },
 } satisfies Story
 
+/** Control the status of the user access point with the `status` prop. */
 export const NoUser = {
   args: {
     avatarImageSrc: "https://avatars.githubusercontent.com/u/44197016?v=4",
@@ -47,6 +53,7 @@ export const Notification = {
   },
 } satisfies Story
 
+/** Passing a `name` instead of `avatarImageSrc` will include initials instead of an image in the user access point. */
 export const Initials = {
   args: {
     name: "Filip Tammergård",
@@ -61,7 +68,7 @@ export const Initials = {
 export const Snapshot = {
   render: () => (
     <SnapshotWrapper>
-      {[User, NoUser, Notification, Initials].map((Story, index) => (
+      {[Basic, NoUser, Notification, Initials].map((Story, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <UserAccessPoint key={index} {...Story.args} />
       ))}

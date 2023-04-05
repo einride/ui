@@ -82,6 +82,7 @@ export const Avatar = forwardRef<HTMLImageElement, AvatarProps>(
     return (
       <Image
         as="div"
+        inverted
         {...rest}
         background={background}
         radius={radius}
@@ -98,6 +99,7 @@ export const Avatar = forwardRef<HTMLImageElement, AvatarProps>(
 type Size = "sm" | "md"
 
 interface ImageProps {
+  inverted?: boolean
   background: Background
   radius: BorderRadius
   size: Size
