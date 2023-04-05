@@ -4,25 +4,37 @@ import { getInitials } from "./getInitials"
 describe("getInitials", () => {
   it("handles one name", () => {
     const name = "Filip"
-    const initials = getInitials(name)
-    expect(initials).toEqual("F")
+    expect(getInitials(name)).toEqual("F")
   })
 
   it("handles two names", () => {
     const name = "Filip Tammergård"
-    const initials = getInitials(name)
-    expect(initials).toEqual("FT")
+    expect(getInitials(name)).toEqual("FT")
   })
 
   it("uses first and last name if many are provided", () => {
     const name = "Filip Mats Oskar Tammergård"
-    const initials = getInitials(name)
-    expect(initials).toEqual("FT")
+    expect(getInitials(name)).toEqual("FT")
   })
 
   it("returns upper-case initials", () => {
     const name = "filip tammergård"
-    const initials = getInitials(name)
-    expect(initials).toEqual("FT")
+    expect(getInitials(name)).toEqual("FT")
+  })
+
+  it("returns empty string when input is empty string", () => {
+    const name = ""
+    expect(getInitials(name)).toEqual("")
+  })
+
+  it("trims whitespace from both ends of name", () => {
+    let name = " Filip Tammergård"
+    expect(getInitials(name)).toEqual("FT")
+
+    name = "Filip Tammergård "
+    expect(getInitials(name)).toEqual("FT")
+
+    name = " Filip Tammergård "
+    expect(getInitials(name)).toEqual("FT")
   })
 })
