@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.47.1
+
+### Patch Changes
+
+- c068bb9f: `<Select>`: Set good text and background color on `<option>`s on Ubuntu/Chrome.
+
 ## 7.47.0
 
 ### Minor Changes
