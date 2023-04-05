@@ -2024,7 +2024,7 @@ __metadata:
   resolution: "@einride/ui-maps@workspace:packages/einride-ui-maps"
   dependencies:
     "@rollup/plugin-image": 3.0.2
-    "@rollup/plugin-typescript": 11.0.0
+    "@rollup/plugin-typescript": 11.1.0
     "@storybook/jest": 0.1.0
     "@storybook/react": 7.0.2
     "@storybook/testing-library": 0.1.0
@@ -2106,7 +2106,7 @@ __metadata:
     "@radix-ui/react-tabs": 1.0.3
     "@radix-ui/react-tooltip": 1.0.5
     "@rollup/plugin-image": 3.0.2
-    "@rollup/plugin-typescript": 11.0.0
+    "@rollup/plugin-typescript": 11.1.0
     "@storybook/jest": 0.1.0
     "@storybook/react": 7.0.2
     "@storybook/testing-library": 0.1.0
@@ -3841,9 +3841,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-typescript@npm:11.0.0":
-  version: 11.0.0
-  resolution: "@rollup/plugin-typescript@npm:11.0.0"
+"@rollup/plugin-typescript@npm:11.1.0":
+  version: 11.1.0
+  resolution: "@rollup/plugin-typescript@npm:11.1.0"
   dependencies:
     "@rollup/pluginutils": ^5.0.1
     resolve: ^1.22.1
@@ -3856,7 +3856,7 @@ __metadata:
       optional: true
     tslib:
       optional: true
-  checksum: b0d34ff0ad6bfc681c437ef42df7b02f04c361465be5a2044cd30cac5b003045c54e4377d58ab91925e296076b792bbb5ddded72cacdd21092bc8694a95b046f
+  checksum: 64ed5abbae392032fb190a5d3a29beb73f968919aed964ed5545e2732de6a1670f97131785e9376c06f784ae61545c5ad47352c126f3830aaa16b669bee2e9b9
   languageName: node
   linkType: hard
 
