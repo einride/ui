@@ -1,10 +1,11 @@
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, forwardRef } from "react"
-import { ContentColor } from "../../../lib/theme/types"
+import { getColor } from "../../../lib/theme/prop-system"
+import { Color } from "../../../lib/theme/props"
 
-interface StepGaugeStepProps extends ComponentPropsWithoutRef<"svg"> {
+interface StepGaugeStepProps extends Omit<ComponentPropsWithoutRef<"svg">, "color"> {
   /** Color of the completed gauge stroke. */
-  color: ContentColor
+  color: Color
 
   /** Number of completed steps. */
   completedSteps: number
@@ -76,14 +77,14 @@ export const StepGaugeStep = forwardRef<SVGPathElement, StepGaugeStepProps>(
 interface StyledPathProps {
   index: number
   completed: number
-  textColor: ContentColor
+  textColor: Color
 }
 
 const StyledPath = styled.path<StyledPathProps>`
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: ${({ theme, index, completed, textColor }) =>
-    index + 1 <= completed ? theme.colors.content[textColor] : theme.colors.background.tertiary};
+    index + 1 <= completed ? getColor(textColor, theme) : theme.colors.background.tertiary};
   transition-property: fill, stroke;
   transition-duration: ${({ theme }) => theme.transitions.morph.duration};
   transition-timing-function: ${({ theme }) => theme.transitions.morph.timingFunction};
