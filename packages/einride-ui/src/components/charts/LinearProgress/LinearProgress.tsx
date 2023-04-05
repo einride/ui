@@ -1,10 +1,15 @@
 import styled from "@emotion/styled"
-import { forwardRef, HTMLAttributes } from "react"
-import { ContentColor } from "../../../lib/theme/types"
+import { ComponentPropsWithoutRef, forwardRef } from "react"
+import { getColor } from "../../../lib/theme/prop-system"
+import { Color } from "../../../lib/theme/props"
+import { Box } from "../../layout/Box/Box"
 
-interface LinearProgressBaseProps extends HTMLAttributes<HTMLDivElement> {
+export interface LinearProgressProps extends Omit<ComponentPropsWithoutRef<"div">, "color"> {
+  /** Accessible name. Describes what information the progress is conveying. */
+  "aria-label": string
+
   /** Color of the completed progress line. Default is `positive`. */
-  color?: ContentColor
+  color?: Color
 
   /** Maximum value. Default is `100`. */
   max?: number
@@ -16,23 +21,16 @@ interface LinearProgressBaseProps extends HTMLAttributes<HTMLDivElement> {
   value: number
 }
 
-export type LinearProgressProps = (
-  | {
-      /** Accessible name. */
-      "aria-label": string
-    }
-  | {
-      /** Accessible name. */
-      "aria-labelledby": string
-    }
-) &
-  LinearProgressBaseProps
-
-/** Either `aria-label` or `aria-labelledby` is required for accessibility. */
+/** A linear progress that can be used for conveying progress. */
 export const LinearProgress = forwardRef<HTMLDivElement, LinearProgressProps>(
-  ({ color = "positive", max = 100, min = 0, value, ...props }, ref) => {
+  ({ color = "positive", max = DEFAULT_MAX, min = DEFAULT_MIN, value, ...props }, ref) => {
     return (
-      <Wrapper
+      <Box
+        background="tertiary"
+        blockSize={1}
+        borderRadius="sm"
+        position="relative"
+        inlineSize="100%"
         role="progressbar"
         aria-valuemax={max}
         aria-valuemin={min}
@@ -41,29 +39,23 @@ export const LinearProgress = forwardRef<HTMLDivElement, LinearProgressProps>(
         ref={ref}
       >
         <Value max={max} min={min} textColor={color} value={value} />
-      </Wrapper>
+      </Box>
     )
   },
 )
 
-const Wrapper = styled.div`
-  background: ${({ theme }) => theme.colors.background.tertiary};
-  block-size: ${({ theme }) => theme.spacingBase}rem;
-  border-radius: ${({ theme }) => theme.borderRadii.sm};
-  position: relative;
-  /* Needed to make sure component takes up full inline size in flex containers */
-  inline-size: 100%;
-`
+export const DEFAULT_MIN = 0
+export const DEFAULT_MAX = 100
 
 interface ValueProps {
   max: number
   min: number
-  textColor: ContentColor
+  textColor: Color
   value: number
 }
 
 const Value = styled.div<ValueProps>`
-  background: ${({ textColor, theme }) => theme.colors.content[textColor]};
+  background: ${({ textColor, theme }) => getColor(textColor, theme)};
   block-size: ${({ theme }) => theme.spacingBase}rem;
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   inline-size: ${({ max, min, value }) => getInlineSize(max, min, value)}%;
