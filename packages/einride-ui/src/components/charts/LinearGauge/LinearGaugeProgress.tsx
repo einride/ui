@@ -1,11 +1,11 @@
-import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
-import { SVGAttributes } from "react"
-import { ContentColor } from "../../../lib/theme/types"
+import { ComponentPropsWithoutRef } from "react"
+import { getColor } from "../../../lib/theme/prop-system"
+import { Color } from "../../../lib/theme/props"
 
-interface LinearGaugeProgressProps extends SVGAttributes<SVGSVGElement> {
+interface LinearGaugeProgressProps extends Omit<ComponentPropsWithoutRef<"svg">, "color"> {
   /** Stroke color. */
-  color: ContentColor
+  color: Color
 
   /** Percentage of gauge completed. */
   percentage: number
@@ -32,7 +32,7 @@ export const LinearGaugeProgress = ({
         cy={responsiveRadius + strokeWidth / 2}
       />
       <ProgressCircle
-        color={color}
+        textColor={color}
         percentage={percentage}
         strokeWidth={strokeWidth}
         r={responsiveRadius}
@@ -58,21 +58,19 @@ const BackgroundCircle = styled.circle<{ strokeWidth: number }>`
 `
 
 interface ProgressCircleProps {
-  color: ContentColor
+  textColor: Color
   percentage: number
   strokeWidth: number
 }
 
-const ProgressCircle = styled("circle", {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color", // avoid passing `color` attribute to HTML element
-})<ProgressCircleProps>`
+const ProgressCircle = styled.circle<ProgressCircleProps>`
   fill: none;
   stroke-dasharray: ${({ percentage }) =>
     `${percentage + TOP_GAP / 2 > 0 ? percentage + TOP_GAP / 2 : 0},${100}`};
   stroke-dashoffset: ${TOP_GAP};
   stroke-linecap: round;
-  stroke: ${({ theme, color, percentage }) =>
-    percentage > 0 ? theme.colors.content[color] : "none"};
+  stroke: ${({ theme, textColor, percentage }) =>
+    percentage > 0 ? getColor(textColor, theme) : "none"};
   stroke-width: ${({ strokeWidth }) => strokeWidth};
   transform: rotate(${CIRCLE_START_POINT_OFFSET}deg);
   transform-origin: center;
