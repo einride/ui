@@ -25,6 +25,13 @@ export const Basic = {
     "aria-label": "Electrification potential",
     completedSteps: 2,
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const gauge = canvas.getByRole("progressbar", { name: Basic.args["aria-label"] })
+    await expect(gauge).toHaveAttribute("aria-valuemin", "0")
+    await expect(gauge).toHaveAttribute("aria-valuemax", DEFAULT_STEPS.toString())
+    await expect(gauge).toHaveAttribute("aria-valuenow", Basic.args.completedSteps.toString())
+  },
 } satisfies Story
 
 /** The amount of steps can be customized with the `steps` prop. */
