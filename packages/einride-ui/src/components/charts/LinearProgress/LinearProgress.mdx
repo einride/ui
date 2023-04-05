@@ -1,0 +1,53 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as LinearProgress from "./LinearProgress.stories.tsx"
+
+<Meta of={LinearProgress} />
+
+<Title />
+
+<Description of={LinearProgress} />
+
+```tsx
+import { LinearProgress } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={LinearProgress.Basic} />
+
+<Canvas of={LinearProgress.Basic} />
+
+<Controls of={LinearProgress.Basic} />
+
+## Custom range
+
+<Description of={LinearProgress.CustomRange} />
+
+<Canvas of={LinearProgress.CustomRange} />
+
+<Controls of={LinearProgress.CustomRange} include={["min", "max", "value"]} />
+
+## Range color
+
+<Description of={LinearProgress.CustomColor} />
+
+<Canvas of={LinearProgress.CustomColor} />
+
+<Controls of={LinearProgress.CustomColor} include="color" />
+
+## Accessibility
+
+Adding a descriptive `aria-label` is required to convey what the progress is displaynig.
