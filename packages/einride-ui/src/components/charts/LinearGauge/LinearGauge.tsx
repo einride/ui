@@ -1,12 +1,16 @@
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, forwardRef } from "react"
-import { ContentColor } from "../../../lib/theme/types"
+import { Color } from "../../../lib/theme/props"
+import { Box } from "../../layout/Box/Box"
 import { PointerIcon } from "../StepGauge/PointerIcon"
 import { LinearGaugeProgress } from "./LinearGaugeProgress"
 
-interface LinearGaugeBaseProps extends ComponentPropsWithoutRef<"div"> {
+export interface LinearGaugeProps extends Omit<ComponentPropsWithoutRef<"div">, "color"> {
+  /** Accessible name. Describes what information the gauge is conveying. */
+  "aria-label": string
+
   /** Color of the completed gauge stroke. Default is `positive`. */
-  color?: ContentColor
+  color?: Color
 
   /** Maximum value. Default is `100`. */
   max?: number
@@ -18,35 +22,26 @@ interface LinearGaugeBaseProps extends ComponentPropsWithoutRef<"div"> {
   value: number
 }
 
-export type LinearGaugeProps = (
-  | {
-      /** Accessible name. */
-      "aria-label": string
-    }
-  | {
-      /** Accessible name. */
-      "aria-labelledby": string
-    }
-) &
-  LinearGaugeBaseProps
-
-const STROKE_WIDTH = 1.8
-const RESPONSIVE_RADIUS = 100 / (Math.PI * 2)
-const VIEW_BOX_VALUE = RESPONSIVE_RADIUS * 2 + STROKE_WIDTH
-
-/** Either `aria-label` or `aria-labelledby` is required for accessibility. */
+/** A linear gauge that can be used for conveying progress or status in a range. */
 export const LinearGauge = forwardRef<HTMLDivElement, LinearGaugeProps>(
-  ({ color = "positive", max = 100, min = 0, value, ...props }, ref) => {
+  ({ color = "positive", max = DEFAULT_MAX, min = DEFAULT_MIN, value, ...props }, ref) => {
     const percentage = ((value - min) / (max - min)) * 100
 
     return (
-      <Wrapper
-        {...props}
-        ref={ref}
+      <Box
+        position="relative"
+        inlineSize={7}
+        blockSize={7}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        flexShrink={0}
         role="progressbar"
         aria-valuemax={max}
         aria-valuemin={min}
         aria-valuenow={value}
+        {...props}
+        ref={ref}
       >
         <StyledSvg viewBox={`0 0 ${VIEW_BOX_VALUE} ${VIEW_BOX_VALUE}`}>
           <LinearGaugeProgress
@@ -57,20 +52,16 @@ export const LinearGauge = forwardRef<HTMLDivElement, LinearGaugeProps>(
           />
         </StyledSvg>
         <StyledPointerIcon percentage={percentage} />
-      </Wrapper>
+      </Box>
     )
   },
 )
 
-const Wrapper = styled.div`
-  position: relative;
-  inline-size: ${({ theme }) => 7 * theme.spacingBase}rem;
-  block-size: ${({ theme }) => 7 * theme.spacingBase}rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-`
+export const DEFAULT_MIN = 0
+export const DEFAULT_MAX = 100
+const STROKE_WIDTH = 1.8
+const RESPONSIVE_RADIUS = 100 / (Math.PI * 2)
+const VIEW_BOX_VALUE = RESPONSIVE_RADIUS * 2 + STROKE_WIDTH
 
 const StyledSvg = styled.svg`
   inline-size: 100%;
