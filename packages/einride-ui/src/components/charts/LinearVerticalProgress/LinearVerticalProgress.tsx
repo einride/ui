@@ -1,10 +1,16 @@
 import styled from "@emotion/styled"
-import { forwardRef, HTMLAttributes } from "react"
-import { ContentColor } from "../../../lib/theme/types"
+import { ComponentPropsWithoutRef, forwardRef } from "react"
+import { getColor } from "../../../lib/theme/prop-system"
+import { Color } from "../../../lib/theme/props"
+import { Box } from "../../layout/Box/Box"
 
-interface LinearVerticalProgressBaseProps extends HTMLAttributes<HTMLDivElement> {
+export interface LinearVerticalProgressProps
+  extends Omit<ComponentPropsWithoutRef<"div">, "color"> {
+  /** Accessible name. Describes what information the progress is conveying. */
+  "aria-label": string
+
   /** Color of the completed progress line. Default is `positive`. */
-  color?: ContentColor
+  color?: Color
 
   /** Maximum value. Default is `100`. */
   max?: number
@@ -16,23 +22,18 @@ interface LinearVerticalProgressBaseProps extends HTMLAttributes<HTMLDivElement>
   value: number
 }
 
-export type LinearVerticalProgressProps = (
-  | {
-      /** Accessible name. */
-      "aria-label": string
-    }
-  | {
-      /** Accessible name. */
-      "aria-labelledby": string
-    }
-) &
-  LinearVerticalProgressBaseProps
-
-/** Either `aria-label` or `aria-labelledby` is required for accessibility. */
+/** A linear vertical progress that can be used for conveying progress. */
 export const LinearVerticalProgress = forwardRef<HTMLDivElement, LinearVerticalProgressProps>(
-  ({ color = "positive", max = 100, min = 0, value, ...props }, ref) => {
+  ({ color = "positive", max = DEFAULT_MAX, min = DEFAULT_MIN, value, ...props }, ref) => {
     return (
-      <Wrapper
+      <Box
+        display="flex"
+        flexDirection="column"
+        justifyContent="flex-end"
+        background="tertiary"
+        borderRadius="xs"
+        inlineSize={2}
+        blockSize={8}
         role="progressbar"
         aria-valuemax={max}
         aria-valuemin={min}
@@ -41,30 +42,23 @@ export const LinearVerticalProgress = forwardRef<HTMLDivElement, LinearVerticalP
         ref={ref}
       >
         <Value max={max} min={min} textColor={color} value={value} />
-      </Wrapper>
+      </Box>
     )
   },
 )
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  background: ${({ theme }) => theme.colors.background.tertiary};
-  border-radius: ${({ theme }) => theme.borderRadii.xs};
-  inline-size: ${({ theme }) => 2 * theme.spacingBase}rem;
-  block-size: ${({ theme }) => 8 * theme.spacingBase}rem;
-`
+export const DEFAULT_MIN = 0
+export const DEFAULT_MAX = 100
 
 interface ValueProps {
   max: number
   min: number
-  textColor: ContentColor
+  textColor: Color
   value: number
 }
 
 const Value = styled.div<ValueProps>`
-  background: ${({ textColor, theme }) => theme.colors.content[textColor]};
+  background: ${({ textColor, theme }) => getColor(textColor, theme)};
   block-size: ${({ max, min, value }) => getBlockSize(max, min, value)}%;
   inline-size: 100%;
   border-radius: ${({ theme }) => theme.borderRadii.xs};
