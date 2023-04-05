@@ -2,10 +2,19 @@ import { expect } from "@storybook/jest"
 import { Meta, StoryObj } from "@storybook/react"
 import { within } from "@storybook/testing-library"
 import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
+import { contentColors } from "../../../lib/theme/types"
 import { DEFAULT_MAX, DEFAULT_MIN, LinearVerticalProgress } from "./LinearVerticalProgress"
 
 const meta = {
   component: LinearVerticalProgress,
+  argTypes: {
+    color: {
+      control: {
+        type: "select",
+      },
+      options: contentColors,
+    },
+  },
 } satisfies Meta<typeof LinearVerticalProgress>
 
 export default meta

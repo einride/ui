@@ -1,10 +1,15 @@
 import styled from "@emotion/styled"
-import { forwardRef, HTMLAttributes } from "react"
-import { ContentColor } from "../../../lib/theme/types"
+import { ComponentPropsWithoutRef, forwardRef } from "react"
+import { getColor } from "../../../lib/theme/prop-system"
+import { Color } from "../../../lib/theme/props"
+import { Box } from "../../layout/Box/Box"
 
-export interface StepProgressBaseProps extends HTMLAttributes<HTMLDivElement> {
+export interface StepProgressProps extends Omit<ComponentPropsWithoutRef<"div">, "color"> {
+  /** Accessible name. Describes what information the progress is conveying. */
+  "aria-label": string
+
   /** Color of the completed steps. Default is `positive`. */
-  color?: ContentColor
+  color?: Color
 
   /** Number of completed steps. */
   completedSteps: number
@@ -13,23 +18,14 @@ export interface StepProgressBaseProps extends HTMLAttributes<HTMLDivElement> {
   steps?: number | undefined
 }
 
-type StepProgressProps = (
-  | {
-      /** Accessible name. */
-      "aria-label": string
-    }
-  | {
-      /** Accessible name. */
-      "aria-labelledby": string
-    }
-) &
-  StepProgressBaseProps
-
-/** Either `aria-label` or `aria-labelledby` is required for accessibility. */
+/** A progress par with steps that can be used for conveying step-based progress. */
 export const StepProgress = forwardRef<HTMLDivElement, StepProgressProps>(
-  ({ color = "positive", completedSteps, steps = 4, ...props }, ref) => {
+  ({ color = "positive", completedSteps, steps = DEFAULT_STEPS, ...props }, ref) => {
     return (
-      <Wrapper
+      <Box
+        display="flex"
+        gap={0.5}
+        inlineSize="100%"
         role="progressbar"
         aria-valuemax={steps}
         aria-valuemin={0}
@@ -42,26 +38,21 @@ export const StepProgress = forwardRef<HTMLDivElement, StepProgressProps>(
           // eslint-disable-next-line react/no-array-index-key
           <Step key={index} completed={index < completedSteps} textColor={color} />
         ))}
-      </Wrapper>
+      </Box>
     )
   },
 )
 
-const Wrapper = styled.div`
-  display: flex;
-  gap: ${({ theme }) => 0.5 * theme.spacingBase}rem;
-  /* Needed to make sure component takes up full inline size in flex containers */
-  inline-size: 100%;
-`
+export const DEFAULT_STEPS = 4
 
 interface StepProps {
   completed: boolean
-  textColor: ContentColor
+  textColor: Color
 }
 
 const Step = styled.div<StepProps>`
   background: ${({ completed, textColor, theme }) =>
-    completed ? theme.colors.content[textColor] : theme.colors.background.tertiary};
+    completed ? getColor(textColor, theme) : theme.colors.background.tertiary};
   block-size: ${({ theme }) => theme.spacingBase}rem;
   border-radius: ${({ theme }) => theme.borderRadii.sm};
   flex-grow: 1;
