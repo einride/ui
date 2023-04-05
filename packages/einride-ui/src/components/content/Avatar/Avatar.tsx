@@ -1,7 +1,8 @@
-import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
-import { ElementType, forwardRef, HTMLAttributes, ImgHTMLAttributes, useState } from "react"
-import { BackgroundColor, BorderRadius, ContentColor, Theme } from "../../../lib/theme/types"
+import { ComponentPropsWithoutRef, ElementType, forwardRef, useState } from "react"
+import { getBackground, getBorderRadius, getColor } from "../../../lib/theme/prop-system"
+import { Background, BorderRadius, Color } from "../../../lib/theme/props"
+import { Theme } from "../../../lib/theme/types"
 import { getInitials } from "./getInitials"
 
 interface AvatarBaseProps {
@@ -9,10 +10,10 @@ interface AvatarBaseProps {
   as?: ElementType
 
   /** Color of the avatar. */
-  color?: ContentColor
+  color?: Color
 
   /** Background color of the avatar. */
-  background?: BackgroundColor
+  background?: Background
 
   /** Radius of the avatar. Default is `full`. */
   radius?: BorderRadius
@@ -21,7 +22,7 @@ interface AvatarBaseProps {
   size?: Size
 }
 
-interface AvatarImageProps extends ImgHTMLAttributes<HTMLImageElement> {
+interface AvatarImageProps extends ComponentPropsWithoutRef<"img"> {
   /** Alternate text of the image. */
   alt: string
 
@@ -32,13 +33,14 @@ interface AvatarImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   src: string | undefined
 }
 
-interface AvatarInitialsProps extends HTMLAttributes<HTMLDivElement> {
+interface AvatarInitialsProps extends ComponentPropsWithoutRef<"div"> {
   /** Name of the user, used to compute initials. */
   name: string | undefined
 }
 
 export type AvatarProps = AvatarBaseProps & (AvatarImageProps | AvatarInitialsProps)
 
+/** An avatar with an image or initials. */
 export const Avatar = forwardRef<HTMLImageElement, AvatarProps>(
   ({ background = "primary", color = "primary", radius = "full", size = "md", ...props }, ref) => {
     const [hasError, setHasError] = useState(false)
@@ -96,22 +98,20 @@ export const Avatar = forwardRef<HTMLImageElement, AvatarProps>(
 type Size = "sm" | "md"
 
 interface ImageProps {
-  background: BackgroundColor
+  background: Background
   radius: BorderRadius
   size: Size
-  textColor: ContentColor
+  textColor: Color
 }
 
-const Image = styled("img", {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== "color",
-})<ImageProps>`
-  background: ${({ background, theme }) => theme.colors.background[background]};
-  color: ${({ textColor, theme }) => theme.colors.content[textColor]};
+const Image = styled.img<ImageProps>`
+  background: ${({ background, theme }) => getBackground(background, theme)};
+  color: ${({ textColor, theme }) => getColor(textColor, theme)};
   block-size: ${({ radius, theme, size }) => getSize(radius, theme, size)}rem;
   inline-size: ${({ radius, theme, size }) => getSize(radius, theme, size)}rem;
   border: ${({ theme }) => 0.25 * theme.spacingBase}rem solid
     ${({ theme }) => theme.colors.border.primary};
-  border-radius: ${({ radius, theme }) => theme.borderRadii[radius]};
+  border-radius: ${({ radius, theme }) => getBorderRadius(radius, theme)};
   display: flex;
   align-items: center;
   justify-content: center;
