@@ -18,6 +18,7 @@ import {
   Display,
   FlexDirection,
   FlexGrow,
+  FlexShrink,
   FlexWrap,
   FontFamily,
   Gap,
@@ -77,8 +78,11 @@ export interface BoxProps extends Omit<ComponentPropsWithoutRef<"div">, "color">
   /** `flex-direction` CSS property. */
   flexDirection?: FlexDirection
 
-  /** `flex-direction` CSS property. */
+  /** `flex-grow` CSS property. */
   flexGrow?: FlexGrow
+
+  /** `flex-shrink` CSS property. */
+  flexShrink?: FlexShrink
 
   /** `flex-wrap` CSS property. */
   flexWrap?: FlexWrap
@@ -189,6 +193,7 @@ interface WrapperProps {
   display?: Display
   flexDirection?: FlexDirection
   flexGrow?: FlexGrow
+  flexShrink?: FlexShrink
   flexWrap?: FlexWrap
   fontFamily?: FontFamily
   gap?: Gap
@@ -238,6 +243,7 @@ const Wrapper = styled("div", {
   display: ${({ display }) => display};
   flex-direction: ${({ flexDirection }) => flexDirection};
   flex-grow: ${({ flexGrow }) => flexGrow};
+  flex-shrink: ${({ flexShrink }) => flexShrink};
   flex-wrap: ${({ flexWrap }) => flexWrap};
   font-family: ${({ fontFamily, theme }) => fontFamily && getFont(fontFamily, theme)};
   gap: ${({ gap, theme }) => gap && getSpacing(gap, theme)};

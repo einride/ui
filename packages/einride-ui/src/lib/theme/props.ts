@@ -20,6 +20,7 @@ export type Color = ContentColor | Omit<string, ContentColor>
 export type Display = CSSProperties["display"]
 export type FlexDirection = CSSProperties["flexDirection"]
 export type FlexGrow = CSSProperties["flexGrow"]
+export type FlexShrink = CSSProperties["flexShrink"]
 export type FlexWrap = CSSProperties["flexWrap"]
 export type FontFamily = Font | Omit<string, Font>
 export type FontSize = FontSizeType | Omit<string, FontSizeType> | number
