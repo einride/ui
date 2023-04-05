@@ -1,36 +1,27 @@
 import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, forwardRef, useCallback, useState } from "react"
-import { ContentColor } from "../../../lib/theme/types"
+import { Color } from "../../../lib/theme/props"
 import { PointerIcon } from "./PointerIcon"
 import { StepGaugeStep } from "./StepGaugeStep"
 
-interface StepGaugeBaseProps extends ComponentPropsWithoutRef<"div"> {
+export interface StepGaugeProps extends Omit<ComponentPropsWithoutRef<"div">, "color"> {
+  /** Accessible name. Describes what information the progress is conveying. */
+  "aria-label": string
+
   /** Color of the completed gauge stroke. Default is `positive`. */
-  color?: ContentColor
+  color?: Color
 
   /** Number of completed steps. */
   completedSteps: number
 
   /** Number of steps. Default is `3`. */
-  steps: number
+  steps?: number
 }
 
-export type StepGaugeProps = (
-  | {
-      /** Accessible name. */
-      "aria-label": string
-    }
-  | {
-      /** Accessible name. */
-      "aria-labelledby": string
-    }
-) &
-  StepGaugeBaseProps
-
-/** Either `aria-label` or `aria-labelledby` is required for accessibility. */
+/** A step gauge that can be used for conveying status. */
 export const StepGauge = forwardRef<HTMLDivElement, StepGaugeProps>(
-  ({ color = "positive", completedSteps, steps = 3, ...props }, forwardedRef) => {
+  ({ color = "positive", completedSteps, steps = DEFAULT_STEPS, ...props }, forwardedRef) => {
     const [svgHeight, setSvgHeight] = useState(0)
     const [pointerHeight, setPointerHeight] = useState(0)
     const svgRef = useCallback((node: SVGSVGElement | null) => {
@@ -73,6 +64,7 @@ export const StepGauge = forwardRef<HTMLDivElement, StepGaugeProps>(
   },
 )
 
+export const DEFAULT_STEPS = 3
 const SVG_SIZE = 106
 
 const Wrapper = styled.div`
