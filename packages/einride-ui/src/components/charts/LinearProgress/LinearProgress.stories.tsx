@@ -34,7 +34,7 @@ export const Basic = {
   },
 } satisfies Story
 
-/** If you have a custom value range, you can set that with the `min` and `max` props, and `value` will take those into account. In this example, `value: 110` is 75% of the range between 80 and 110, which is also conveyed by the progress.  */
+/** If you have a custom value range, you can set that with the `min` and `max` props, and `value` will take those into account. In this example, `value: 110` is 75% of the range between 80 and 110, which is also conveyed by the progress bar.  */
 export const CustomRange = {
   args: {
     ...Basic.args,
@@ -51,7 +51,7 @@ export const CustomRange = {
   },
 } satisfies Story
 
-/** Change the color of the progress with the `color` prop. */
+/** Change the color of the progress bar with the `color` prop. */
 export const CustomColor = {
   args: {
     ...Basic.args,

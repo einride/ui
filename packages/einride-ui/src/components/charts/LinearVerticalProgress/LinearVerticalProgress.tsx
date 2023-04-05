@@ -6,7 +6,7 @@ import { Box } from "../../layout/Box/Box"
 
 export interface LinearVerticalProgressProps
   extends Omit<ComponentPropsWithoutRef<"div">, "color"> {
-  /** Accessible name. Describes what information the progress is conveying. */
+  /** Accessible name. Describes what information the progress bar is conveying. */
   "aria-label": string
 
   /** Color of the completed progress line. Default is `positive`. */
@@ -22,7 +22,7 @@ export interface LinearVerticalProgressProps
   value: number
 }
 
-/** A linear vertical progress that can be used for conveying progress. */
+/** A linear vertical progress bar that can be used for conveying progress. */
 export const LinearVerticalProgress = forwardRef<HTMLDivElement, LinearVerticalProgressProps>(
   ({ color = "positive", max = DEFAULT_MAX, min = DEFAULT_MIN, value, ...props }, ref) => {
     return (
@@ -32,8 +32,8 @@ export const LinearVerticalProgress = forwardRef<HTMLDivElement, LinearVerticalP
         justifyContent="flex-end"
         background="tertiary"
         borderRadius="xs"
-        inlineSize={2}
-        blockSize={8}
+        inlineSize="sm"
+        blockSize="xl"
         role="progressbar"
         aria-valuemax={max}
         aria-valuemin={min}

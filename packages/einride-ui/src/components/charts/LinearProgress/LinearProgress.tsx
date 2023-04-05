@@ -5,7 +5,7 @@ import { Color } from "../../../lib/theme/props"
 import { Box } from "../../layout/Box/Box"
 
 export interface LinearProgressProps extends Omit<ComponentPropsWithoutRef<"div">, "color"> {
-  /** Accessible name. Describes what information the progress is conveying. */
+  /** Accessible name. Describes what information the progress bar is conveying. */
   "aria-label": string
 
   /** Color of the completed progress line. Default is `positive`. */
@@ -21,7 +21,7 @@ export interface LinearProgressProps extends Omit<ComponentPropsWithoutRef<"div"
   value: number
 }
 
-/** A linear progress that can be used for conveying progress. */
+/** A linear progress bar that can be used for conveying progress. */
 export const LinearProgress = forwardRef<HTMLDivElement, LinearProgressProps>(
   ({ color = "positive", max = DEFAULT_MAX, min = DEFAULT_MIN, value, ...props }, ref) => {
     return (

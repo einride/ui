@@ -5,7 +5,7 @@ import { Color } from "../../../lib/theme/props"
 import { Box } from "../../layout/Box/Box"
 
 export interface StepProgressProps extends Omit<ComponentPropsWithoutRef<"div">, "color"> {
-  /** Accessible name. Describes what information the progress is conveying. */
+  /** Accessible name. Describes what information the progress bar is conveying. */
   "aria-label": string
 
   /** Color of the completed steps. Default is `positive`. */
@@ -18,7 +18,7 @@ export interface StepProgressProps extends Omit<ComponentPropsWithoutRef<"div">,
   steps?: number | undefined
 }
 
-/** A progress par with steps that can be used for conveying step-based progress. */
+/** A progress bar with steps that can be used for conveying step-based progress. */
 export const StepProgress = forwardRef<HTMLDivElement, StepProgressProps>(
   ({ color = "positive", completedSteps, steps = DEFAULT_STEPS, ...props }, ref) => {
     return (

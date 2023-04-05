@@ -2,11 +2,12 @@ import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, forwardRef, useCallback, useState } from "react"
 import { Color } from "../../../lib/theme/props"
+import { Box } from "../../layout/Box/Box"
 import { PointerIcon } from "./PointerIcon"
 import { StepGaugeStep } from "./StepGaugeStep"
 
 export interface StepGaugeProps extends Omit<ComponentPropsWithoutRef<"div">, "color"> {
-  /** Accessible name. Describes what information the progress is conveying. */
+  /** Accessible name. Describes what information the gauge is conveying. */
   "aria-label": string
 
   /** Color of the completed gauge stroke. Default is `positive`. */
@@ -19,7 +20,7 @@ export interface StepGaugeProps extends Omit<ComponentPropsWithoutRef<"div">, "c
   steps?: number
 }
 
-/** A step gauge that can be used for conveying status. */
+/** A step gauge that can be used for conveying step-based status. */
 export const StepGauge = forwardRef<HTMLDivElement, StepGaugeProps>(
   ({ color = "positive", completedSteps, steps = DEFAULT_STEPS, ...props }, forwardedRef) => {
     const [svgHeight, setSvgHeight] = useState(0)
@@ -31,7 +32,12 @@ export const StepGauge = forwardRef<HTMLDivElement, StepGaugeProps>(
       setPointerHeight(node ? node.viewBox.baseVal.height : 0)
     }, [])
     return (
-      <Wrapper
+      <Box
+        position="relative"
+        inlineSize={7}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
         {...props}
         ref={forwardedRef}
         role="progressbar"
@@ -59,21 +65,13 @@ export const StepGauge = forwardRef<HTMLDivElement, StepGaugeProps>(
           steps={steps}
           ref={pointerRef}
         />
-      </Wrapper>
+      </Box>
     )
   },
 )
 
 export const DEFAULT_STEPS = 3
 const SVG_SIZE = 106
-
-const Wrapper = styled.div`
-  position: relative;
-  inline-size: ${({ theme }) => 7 * theme.spacingBase}rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
 
 const StyledSvg = styled.svg`
   stroke-width: ${({ theme }) => 0.375 * theme.spacingBase}rem;
