@@ -158,6 +158,11 @@ const StyledSelect = styled.select<StyledSelectProps>`
     color: ${({ theme }) => theme.colors.content.tertiary};
     cursor: not-allowed;
   }
+
+  & option {
+    background: ${({ theme }) => theme.colors.background.primary};
+    color: ${({ theme }) => theme.colors.content.primary};
+  }
 `
 
 const StyledIcon = styled(Icon)`
