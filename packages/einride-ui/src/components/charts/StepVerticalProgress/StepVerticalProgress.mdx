@@ -1,0 +1,53 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as StepVerticalProgress from "./StepVerticalProgress.stories.tsx"
+
+<Meta of={StepVerticalProgress} />
+
+<Title />
+
+<Description of={StepVerticalProgress} />
+
+```tsx
+import { StepVerticalProgress } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={StepVerticalProgress.Basic} />
+
+<Canvas of={StepVerticalProgress.Basic} />
+
+<Controls of={StepVerticalProgress.Basic} />
+
+## Custom steps
+
+<Description of={StepVerticalProgress.CustomSteps} />
+
+<Canvas of={StepVerticalProgress.CustomSteps} />
+
+<Controls of={StepVerticalProgress.CustomSteps} include={["completedSteps", "steps"]} />
+
+## Custom color
+
+<Description of={StepVerticalProgress.CustomColor} />
+
+<Canvas of={StepVerticalProgress.CustomColor} />
+
+<Controls of={StepVerticalProgress.CustomColor} include="color" />
+
+## Accessibility
+
+Adding a descriptive `aria-label` is required to convey what the gauge is displaynig.
