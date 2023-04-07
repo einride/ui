@@ -6,7 +6,7 @@
     "build": "rollup --config"
   },
   "dependencies": {
-    "@einride/hooks": "1.7.5",
+    "@einride/hooks": "1.7.8",
     "@emotion/is-prop-valid": "1.2.0",
     "@mantine/core": "6.0.6",
     "@mantine/dates": "6.0.6",

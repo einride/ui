@@ -1992,12 +1992,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@einride/hooks@npm:1.7.5":
-  version: 1.7.5
-  resolution: "@einride/hooks@npm:1.7.5"
+"@einride/hooks@npm:1.7.8":
+  version: 1.7.8
+  resolution: "@einride/hooks@npm:1.7.8"
   peerDependencies:
     react: ">=16.8.0"
-  checksum: 5207d3a1c49be146128a182086ea863cf3a276ec23cbd05fd2e761b1316f9297c125d6409791f03479101d68e25989ef1128f618a4a792a8dab1b5712e0af408
+  checksum: 6d36646659a30ad0289b25350a041bcb6ee6e908060ffd7c9612b2439f69ffc505d0799970625802572923a198326e4ca1a49d14a19a701b4f610b9187204818
   languageName: node
   linkType: hard
 
@@ -2090,7 +2090,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@einride/ui@workspace:packages/einride-ui"
   dependencies:
-    "@einride/hooks": 1.7.5
+    "@einride/hooks": 1.7.8
     "@emotion/is-prop-valid": 1.2.0
     "@emotion/react": 11.10.6
     "@emotion/styled": 11.10.6
