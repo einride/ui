@@ -39,7 +39,7 @@ export interface TooltipProps {
   width?: Width
 }
 
-/** Use tooltips to show additional information.  */
+/** Use tooltips to show additional information. */
 export const Tooltip = ({
   align = "center",
   children,

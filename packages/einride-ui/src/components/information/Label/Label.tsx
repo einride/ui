@@ -22,6 +22,7 @@ export interface LabelProps extends Omit<ComponentPropsWithoutRef<"span">, "colo
   variant?: Variant
 }
 
+/** Small pill-like label. */
 export const Label = forwardRef<HTMLSpanElement, LabelProps>(
   ({ children, color, variant = "secondary", ...props }, ref) => {
     const colorScheme = useColorScheme()

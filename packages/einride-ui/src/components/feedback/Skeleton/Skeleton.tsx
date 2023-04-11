@@ -18,6 +18,7 @@ export interface SkeletonProps extends BoxProps {
   visible?: boolean
 }
 
+/** Indicate content loading state. Can be used to create a placeholder for loading content while minimizing layout shift caused by loading spinners. */
 export const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
   (
     { animate = true, height = "md", shape = "rectangle", visible = true, ...props },

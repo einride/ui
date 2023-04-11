@@ -18,6 +18,7 @@ export interface BannerProps {
   children?: ReactNode
 }
 
+/** Banner to show information or inline error messages. */
 export const Banner = forwardRef<HTMLDivElement, BannerProps>(
   ({ status, title, children }, ref) => {
     const { colorScheme } = useColorScheme()
