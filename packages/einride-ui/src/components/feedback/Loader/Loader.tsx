@@ -4,7 +4,7 @@ import { ComponentPropsWithoutRef, forwardRef } from "react"
 
 export type LoaderProps = ComponentPropsWithoutRef<"div">
 
-/** A loading indicator. */
+/** A loading indicator. Can be used when loading content in cards for example. Prefer using `<Skeleton>` when possible to reduce layout shift. */
 export const Loader = forwardRef<HTMLDivElement, LoaderProps>(
   (props, forwardedRef): JSX.Element => {
     return (

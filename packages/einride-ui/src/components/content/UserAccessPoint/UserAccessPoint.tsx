@@ -23,6 +23,7 @@ interface UserAccessPointWithInitialsProps {
 export type UserAccessPointProps = UserAccessPointBaseProps &
   (UserAccessPointWithImageProps | UserAccessPointWithInitialsProps)
 
+/** A button displaying avatar or initials. Can be used for opening a sidebar with user related settings. */
 export const UserAccessPoint = forwardRef<HTMLButtonElement, UserAccessPointProps>(
   ({ status = "default", ...props }, ref) => {
     if (status === "no-user") {
