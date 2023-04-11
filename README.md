@@ -34,7 +34,7 @@ See [Contributing Guide](https://github.com/einride/ui/blob/main/CONTRIBUTING.md
 ## Documentation
 
 All currently available components are documented in our
-[Storybook](https://main--606dcc0a2208ee00215fb2d9.chromatic.com/).
+[Storybook](https://storybook.einride.tech/).
 
 ## License
 
