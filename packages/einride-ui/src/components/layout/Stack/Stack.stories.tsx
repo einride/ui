@@ -11,7 +11,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default = {
+export const Basic = {
   args: {
     children: (
       <>
@@ -25,7 +25,7 @@ export const Default = {
 
 export const AlignStart = {
   args: {
-    ...Default.args,
+    ...Basic.args,
     alignItems: "start",
   },
 } satisfies Story

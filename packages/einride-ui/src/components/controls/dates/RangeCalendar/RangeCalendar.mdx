@@ -1,0 +1,33 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as RangeCalendar from "./RangeCalendar.stories.tsx"
+
+<Meta of={RangeCalendar} />
+
+<Title />
+
+<Description of={RangeCalendar} />
+
+```tsx
+import { RangeCalendar } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={RangeCalendar.Basic} />
+
+<Canvas of={RangeCalendar.Basic} />
+
+<Controls of={RangeCalendar.Basic} />

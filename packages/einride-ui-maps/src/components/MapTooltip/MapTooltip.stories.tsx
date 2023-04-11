@@ -37,7 +37,7 @@ const Template = (args: ComponentProps<typeof MapTooltip>): JSX.Element => {
   )
 }
 
-export const Default = {
+export const Basic = {
   args: {
     children: <Text variant="bodyMd">Lorem Ipsum</Text>,
     position: {

@@ -1,0 +1,33 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as MapTooltip from "./MapTooltip.stories.tsx"
+
+<Meta of={MapTooltip} />
+
+<Title />
+
+<Description of={MapTooltip} />
+
+```tsx
+import { MapTooltip } from "@einride/ui-maps"
+```
+
+## Basic
+
+<Description of={MapTooltip.Basic} />
+
+<Canvas of={MapTooltip.Basic} sourceState="hidden" />
+
+<Controls of={MapTooltip.Basic} />

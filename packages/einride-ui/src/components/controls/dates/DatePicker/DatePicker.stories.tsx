@@ -18,7 +18,7 @@ const today = DateTime.now()
 const defaultDateFormat = "yyyy-MM-dd"
 const mantineDateFormat = "d MMMM yyyy"
 
-export const WithLabel = {
+export const Basic = {
   args: {
     label: "Label",
   },
@@ -26,7 +26,7 @@ export const WithLabel = {
     const canvas = within(canvasElement)
     const input = canvas.getByRole("button", { name: "" })
     await expect(input).toBeInTheDocument()
-    const label = canvas.getByText(WithLabel.args.label)
+    const label = canvas.getByText(Basic.args.label)
     await expect(label).toBeInTheDocument()
   },
 } satisfies Story
@@ -45,7 +45,7 @@ export const WithoutLabel = {
 
 export const DefaultValue = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
     defaultValue: defaultDate.toJSDate(),
   },
   play: async ({ canvasElement }) => {
@@ -57,7 +57,7 @@ export const DefaultValue = {
 
 export const USFormat = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
     inputFormat: "MM/DD/YYYY",
     defaultValue: defaultDate.toJSDate(),
   },
@@ -78,7 +78,7 @@ const ControlledTemplate = (args: ComponentProps<typeof DatePicker>): JSX.Elemen
 export const Controlled = {
   render: (args) => <ControlledTemplate {...args} />,
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -89,7 +89,7 @@ export const Controlled = {
 
 export const Message = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
     message: "Message",
   },
   play: async ({ canvasElement }) => {
@@ -101,7 +101,7 @@ export const Message = {
 
 export const SuccessMessage = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
     message: "Success message",
     status: "success",
   },
@@ -114,7 +114,7 @@ export const SuccessMessage = {
 
 export const ErrorMessage = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
     message: "Error message",
     status: "fail",
   },
@@ -128,7 +128,7 @@ export const ErrorMessage = {
 export const Pointer = {
   render: (args) => <ControlledTemplate {...args} />,
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -154,7 +154,7 @@ export const Pointer = {
 
 export const Keyboard = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
     defaultValue: defaultDate.toJSDate(),
   },
   play: async ({ canvasElement }) => {
@@ -187,7 +187,7 @@ export const Keyboard = {
 export const Snapshot = {
   render: () => (
     <SnapshotWrapper alignItems="stretch">
-      {[WithLabel, WithoutLabel, DefaultValue, USFormat, Message, SuccessMessage, ErrorMessage].map(
+      {[Basic, WithoutLabel, DefaultValue, USFormat, Message, SuccessMessage, ErrorMessage].map(
         (Story, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <DatePicker key={index} {...Story.args} />

@@ -19,7 +19,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const WithLabel = {
+export const Basic = {
   args: {
     label: "Label",
   },
@@ -63,7 +63,7 @@ export const ReadOnly = {
 
 export const DefaultValue = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
     defaultValue: "09:45",
   },
   play: async ({ canvasElement }) => {
@@ -83,7 +83,7 @@ const ControlledTemplate = (args: ComponentProps<typeof TimeInput>): JSX.Element
 export const Controlled = {
   render: (args) => <ControlledTemplate {...args} />,
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -137,7 +137,7 @@ export const Range = {
 
 export const Message = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
     message: "Message.",
   },
   play: async ({ canvasElement }) => {
@@ -150,7 +150,7 @@ export const Message = {
 
 export const SuccessMessage = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
     message: "Success message.",
     status: "success",
   },
@@ -164,7 +164,7 @@ export const SuccessMessage = {
 
 export const ErrorMessage = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
     message: "Error message.",
     status: "fail",
   },
@@ -178,7 +178,7 @@ export const ErrorMessage = {
 
 export const Keyboard = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -200,7 +200,7 @@ export const Snapshot = {
   },
   render: () => (
     <SnapshotWrapper>
-      {[WithLabel, WithoutLabel, ReadOnly, DefaultValue, Message, SuccessMessage, ErrorMessage].map(
+      {[Basic, WithoutLabel, ReadOnly, DefaultValue, Message, SuccessMessage, ErrorMessage].map(
         (Story, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <TimeInput key={index} {...Story.args} />

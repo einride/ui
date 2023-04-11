@@ -1,0 +1,33 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as VerticalSpacing from "./VerticalSpacing.stories.tsx"
+
+<Meta of={VerticalSpacing} />
+
+<Title />
+
+<Description of={VerticalSpacing} />
+
+```tsx
+import { VerticalSpacing } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={VerticalSpacing.Basic} />
+
+<Canvas of={VerticalSpacing.Basic} />
+
+<Controls of={VerticalSpacing.Basic} />

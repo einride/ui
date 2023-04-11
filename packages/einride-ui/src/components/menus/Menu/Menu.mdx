@@ -1,0 +1,33 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as Menu from "./Menu.stories.tsx"
+
+<Meta of={Menu} />
+
+<Title />
+
+<Description of={Menu} />
+
+```tsx
+import { Menu } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={Menu.Basic} />
+
+<Canvas of={Menu.Basic} sourceState="hidden" />
+
+<Controls of={Menu.Basic} />

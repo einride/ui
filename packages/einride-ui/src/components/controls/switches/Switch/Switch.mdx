@@ -1,0 +1,33 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as Switch from "./Switch.stories.tsx"
+
+<Meta of={Switch} />
+
+<Title />
+
+<Description of={Switch} />
+
+```tsx
+import { Switch } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={Switch.Basic} />
+
+<Canvas of={Switch.Basic} />
+
+<Controls of={Switch.Basic} />

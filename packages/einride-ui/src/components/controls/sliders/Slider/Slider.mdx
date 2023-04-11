@@ -1,0 +1,33 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as Slider from "./Slider.stories.tsx"
+
+<Meta of={Slider} />
+
+<Title />
+
+<Description of={Slider} />
+
+```tsx
+import { Slider } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={Slider.Basic} />
+
+<Canvas of={Slider.Basic} />
+
+<Controls of={Slider.Basic} />

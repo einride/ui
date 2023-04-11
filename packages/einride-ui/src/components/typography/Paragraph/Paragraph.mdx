@@ -1,0 +1,33 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as Paragraph from "./Paragraph.stories.tsx"
+
+<Meta of={Paragraph} />
+
+<Title />
+
+<Description of={Paragraph} />
+
+```tsx
+import { Paragraph } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={Paragraph.Basic} />
+
+<Canvas of={Paragraph.Basic} />
+
+<Controls of={Paragraph.Basic} />

@@ -28,7 +28,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const DefaultValue = {
+export const Basic = {
   args: {
     defaultValue: "tab1",
   },
