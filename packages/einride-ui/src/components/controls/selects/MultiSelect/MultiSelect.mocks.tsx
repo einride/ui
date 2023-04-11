@@ -25,7 +25,7 @@ const contents = [
 
 export const getMockData = (count: number): BaseOption[] => {
   return [...Array(count)].map((_, index) => {
-    const content = contents[index % contents.length]
+    const content = contents[index % contents.length] ?? ""
     return {
       label: <Box>{content}</Box>,
       value: content.toLowerCase().replace(/\s/g, "-"),

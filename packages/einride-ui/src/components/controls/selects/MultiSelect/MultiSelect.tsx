@@ -115,8 +115,8 @@ export const MultiSelect = <Option extends BaseOption>({
 
   const getTargetRef = (index: number | null): HTMLDivElement | null => {
     if (typeof index === "number" && filteredOptions[index]) {
-      const currentOption = filteredOptions[index]
-      return optionRefs.current[currentOption.value]
+      const currentOption = filteredOptions[index] as Option
+      return optionRefs.current[currentOption.value] as HTMLDivElement
     }
     return null
   }
@@ -202,7 +202,7 @@ export const MultiSelect = <Option extends BaseOption>({
       case "Enter":
         e.preventDefault()
         if (typeof highlightedDropdownIndex === "number" && filteredOptions.length > 0) {
-          handleOptionSelect(filteredOptions[highlightedDropdownIndex])
+          handleOptionSelect(filteredOptions[highlightedDropdownIndex] as Option)
         }
         break
       case "Escape":
