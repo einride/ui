@@ -87,6 +87,13 @@ const decorators = [
     defaultTheme: "light",
   }),
   (Story: StoryFn, options: StoryContext) => {
+    if (options.name === "Snapshot") {
+      return (
+        <EinrideProvider theme={einrideTheme}>
+          <Story />
+        </EinrideProvider>
+      )
+    }
     return (
       <EinrideProvider theme={einrideTheme} colorMode="light">
         <Wrapper style={options.args.style as CSSProperties}>
