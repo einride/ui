@@ -11,7 +11,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default = {
+export const Basic = {
   render: (args) => (
     <Group {...args}>
       <PrimaryButton>Button</PrimaryButton>
@@ -22,7 +22,7 @@ export const Default = {
 } satisfies Story
 
 export const SpaceBetween = {
-  ...Default,
+  ...Basic,
   args: {
     justifyContent: "space-between",
   },

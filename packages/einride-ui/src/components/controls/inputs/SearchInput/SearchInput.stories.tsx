@@ -17,7 +17,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const WithLabel = {
+export const Basic = {
   args: {
     label: "Search for something fun",
   },
@@ -42,7 +42,7 @@ export const WithoutLabel = {
 
 export const DefaultValue = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
     defaultValue: "I'm searching for something fun! 🤓",
   },
   play: async ({ canvasElement }) => {
@@ -60,7 +60,7 @@ const ControlledTemplate = (args: ComponentProps<typeof SearchInput>): JSX.Eleme
 export const Controlled = {
   render: (args) => <ControlledTemplate {...args} />,
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -71,7 +71,7 @@ export const Controlled = {
 
 export const Message = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
     message: "Message.",
     messageProps: { "data-testid": "asd" },
   },
@@ -85,7 +85,7 @@ export const Message = {
 
 export const SuccessMessage = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
     message: "Success message.",
     status: "success",
   },
@@ -99,7 +99,7 @@ export const SuccessMessage = {
 
 export const ErrorMessage = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
     message: "Error message.",
     status: "fail",
   },
@@ -113,7 +113,7 @@ export const ErrorMessage = {
 
 export const ClearButton = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -130,7 +130,7 @@ export const ClearButton = {
 export const Keyboard = {
   render: (args) => <ControlledTemplate {...args} />,
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
   },
 
   play: async ({ canvasElement }) => {
@@ -147,7 +147,7 @@ export const Keyboard = {
 export const Snapshot = {
   render: () => (
     <SnapshotWrapper>
-      {[WithLabel, WithoutLabel, DefaultValue, Message, SuccessMessage, ErrorMessage].map(
+      {[Basic, WithoutLabel, DefaultValue, Message, SuccessMessage, ErrorMessage].map(
         (Story, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <SearchInput key={index} {...Story.args} />

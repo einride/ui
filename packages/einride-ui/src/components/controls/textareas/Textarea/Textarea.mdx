@@ -1,0 +1,33 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as Textarea from "./Textarea.stories.tsx"
+
+<Meta of={Textarea} />
+
+<Title />
+
+<Description of={Textarea} />
+
+```tsx
+import { Textarea } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={Textarea.Basic} />
+
+<Canvas of={Textarea.Basic} />
+
+<Controls of={Textarea.Basic} />

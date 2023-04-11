@@ -32,7 +32,7 @@ export const All = {
   ),
 } satisfies StoryObj
 
-export const One = {
+export const Basic = {
   args: {
     name: "aet",
     state: "default",

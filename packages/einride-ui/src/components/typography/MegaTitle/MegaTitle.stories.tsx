@@ -8,7 +8,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default = {
+export const Basic = {
   args: {
     children: "A whole new way to ship.",
   },

@@ -31,14 +31,17 @@ export const AllVariants = {
   ),
 } satisfies Story
 
-export const Primary = {
-  args: {
-    variant: "primary",
-  },
+export const Basic = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const label = canvas.getByText("Label")
     await expect(label).toBeInTheDocument()
+  },
+} satisfies Story
+
+export const Primary = {
+  args: {
+    variant: "primary",
   },
 } satisfies Story
 

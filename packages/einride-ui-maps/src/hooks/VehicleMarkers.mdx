@@ -1,0 +1,33 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as VehicleMarkers from "./VehicleMarkers.stories.tsx"
+
+<Meta of={VehicleMarkers} />
+
+<Title />
+
+<Description of={VehicleMarkers} />
+
+```tsx
+import { VehicleMarkers } from "@einride/ui-maps"
+```
+
+## Basic
+
+<Description of={VehicleMarkers.Basic} />
+
+<Canvas of={VehicleMarkers.Basic} />
+
+<Controls of={VehicleMarkers.Basic} />

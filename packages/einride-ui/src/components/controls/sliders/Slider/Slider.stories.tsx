@@ -11,7 +11,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const WithLabel = {
+export const Basic = {
   args: {
     label: "Label",
   },
@@ -35,7 +35,7 @@ export const WithoutLabel = {
 
 export const DefaultValue = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
     defaultValue: [40],
   },
   play: async ({ canvasElement }) => {
@@ -53,7 +53,7 @@ const ControlledTemplate = (args: ComponentProps<typeof Slider>): JSX.Element =>
 export const Controlled = {
   render: (args) => <ControlledTemplate {...args} />,
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -64,7 +64,7 @@ export const Controlled = {
 
 export const Keyboard = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)

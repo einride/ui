@@ -20,6 +20,14 @@ const today = DateTime.now()
 const defaultDateFormat = "MMMM yyyy"
 const mantineDateFormat = "d MMMM yyyy"
 
+export const Basic = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const month = canvas.getByText(today.toFormat(defaultDateFormat))
+    expect(month).toBeInTheDocument()
+  },
+} satisfies Story
+
 export const DefaultDate = {
   args: {
     defaultDate: defaultDate.toJSDate(),

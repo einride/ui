@@ -1,0 +1,33 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as TimeInput from "./TimeInput.stories.tsx"
+
+<Meta of={TimeInput} />
+
+<Title />
+
+<Description of={TimeInput} />
+
+```tsx
+import { TimeInput } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={TimeInput.Basic} />
+
+<Canvas of={TimeInput.Basic} />
+
+<Controls of={TimeInput.Basic} />

@@ -16,14 +16,14 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const WithLabel = {
+export const Basic = {
   args: {
     label: "Label",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const textarea = canvas.getByRole("textbox")
-    await expect(textarea).toHaveAccessibleName("Label")
+    const textarea = canvas.getByRole("textbox", { name: Basic.args.label })
+    await expect(textarea).toBeInTheDocument()
   },
 } satisfies Story
 
@@ -34,31 +34,31 @@ export const WithoutLabel = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const textarea = canvas.getByRole("textbox")
-    await expect(textarea).toHaveAccessibleName("Label")
+    const textarea = canvas.getByRole("textbox", { name: WithoutLabel.args["aria-label"] })
+    await expect(textarea).toBeInTheDocument()
   },
 } satisfies Story
 
 export const DefaultValue = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
     defaultValue: "Default value",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const textarea = canvas.getByRole("textbox", { name: "Label" })
+    const textarea = canvas.getByRole("textbox", { name: DefaultValue.args.label })
     await expect(textarea).toHaveValue("Default value")
   },
 } satisfies Story
 
 export const Message = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
     message: <>Message</>,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const textarea = canvas.getByRole("textbox", { name: "Label" })
+    const textarea = canvas.getByRole("textbox", { name: Message.args.label })
     await expect(textarea).toHaveAccessibleDescription("Message")
     await expect(textarea).toBeValid()
   },
@@ -66,13 +66,13 @@ export const Message = {
 
 export const Negative = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
     status: "fail",
     message: <>Negative message</>,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const textarea = canvas.getByRole("textbox", { name: "Label" })
+    const textarea = canvas.getByRole("textbox", { name: Negative.args.label })
     await expect(textarea).toHaveErrorMessage("Negative message")
     await expect(textarea).toBeInvalid()
   },
@@ -80,13 +80,13 @@ export const Negative = {
 
 export const Positive = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
     status: "success",
     message: <>Positive message</>,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const textarea = canvas.getByRole("textbox", { name: "Label" })
+    const textarea = canvas.getByRole("textbox", { name: Positive.args.label })
     await expect(textarea).toHaveAccessibleDescription("Positive message")
     await expect(textarea).toBeValid()
   },
@@ -100,22 +100,22 @@ const ControlledTemplate = (args: ComponentProps<typeof Textarea>): JSX.Element 
 export const Controlled = {
   render: (args) => <ControlledTemplate {...args} />,
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const textarea = canvas.getByRole("textbox", { name: "Label" })
+    const textarea = canvas.getByRole("textbox", { name: Controlled.args.label })
     await expect(textarea).toHaveValue("")
   },
 } satisfies Story
 
 export const Pointer = {
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const textarea = canvas.getByRole("textbox", { name: "Label" })
+    const textarea = canvas.getByRole("textbox", { name: Pointer.args.label })
     await expect(textarea).not.toHaveFocus()
     await userEvent.click(textarea)
     await expect(textarea).toHaveFocus()
@@ -128,11 +128,11 @@ export const Pointer = {
 export const Keyboard = {
   render: (args) => <ControlledTemplate {...args} />,
   args: {
-    ...WithLabel.args,
+    ...Basic.args,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const textarea = canvas.getByRole("textbox", { name: "Label" })
+    const textarea = canvas.getByRole("textbox", { name: Keyboard.args.label })
     await expect(textarea).not.toHaveFocus()
     await userEvent.tab()
     await expect(textarea).toHaveFocus()

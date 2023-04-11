@@ -1,0 +1,33 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as SearchInput from "./SearchInput.stories.tsx"
+
+<Meta of={SearchInput} />
+
+<Title />
+
+<Description of={SearchInput} />
+
+```tsx
+import { SearchInput } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={SearchInput.Basic} />
+
+<Canvas of={SearchInput.Basic} />
+
+<Controls of={SearchInput.Basic} />

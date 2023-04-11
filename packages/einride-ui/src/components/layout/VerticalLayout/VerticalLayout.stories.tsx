@@ -10,7 +10,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default = {
+export const Basic = {
   args: {
     children: (
       <>
@@ -24,42 +24,42 @@ export const Default = {
 
 export const None = {
   args: {
-    ...Default.args,
+    ...Basic.args,
     gap: "none",
   },
 } satisfies Story
 
 export const ExtraSmall = {
   args: {
-    ...Default.args,
+    ...Basic.args,
     gap: "xs",
   },
 } satisfies Story
 
 export const Small = {
   args: {
-    ...Default.args,
+    ...Basic.args,
     gap: "sm",
   },
 } satisfies Story
 
 export const Medium = {
   args: {
-    ...Default.args,
+    ...Basic.args,
     gap: "md",
   },
 } satisfies Story
 
 export const Large = {
   args: {
-    ...Default.args,
+    ...Basic.args,
     gap: "lg",
   },
 } satisfies Story
 
 export const ExtraLarge = {
   args: {
-    ...Default.args,
+    ...Basic.args,
     gap: "xl",
   },
 } satisfies Story

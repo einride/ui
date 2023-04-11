@@ -1,0 +1,33 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as Label from "./Label.stories.tsx"
+
+<Meta of={Label} />
+
+<Title />
+
+<Description of={Label} />
+
+```tsx
+import { Label } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={Label.Basic} />
+
+<Canvas of={Label.Basic} />
+
+<Controls of={Label.Basic} />

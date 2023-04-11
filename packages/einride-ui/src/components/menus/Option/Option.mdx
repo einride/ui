@@ -1,0 +1,33 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as Option from "./Option.stories.tsx"
+
+<Meta of={Option} />
+
+<Title />
+
+<Description of={Option} />
+
+```tsx
+import { Option } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={Option.Basic} />
+
+<Canvas of={Option.Basic} />
+
+<Controls of={Option.Basic} />

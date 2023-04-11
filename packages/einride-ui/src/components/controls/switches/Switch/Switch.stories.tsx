@@ -11,7 +11,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default = {
+export const Basic = {
   args: {
     label: "Label",
   },
@@ -35,7 +35,7 @@ export const WithoutLabel = {
 
 export const DefaultChecked = {
   args: {
-    ...Default.args,
+    ...Basic.args,
     defaultChecked: true,
   },
   play: async ({ canvasElement }) => {
@@ -53,7 +53,7 @@ const ControlledTemplate = (args: ComponentProps<typeof Switch>): JSX.Element =>
 export const Controlled = {
   render: (args) => <ControlledTemplate {...args} />,
   args: {
-    ...Default.args,
+    ...Basic.args,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -68,7 +68,7 @@ export const Controlled = {
 
 export const Pointer = {
   args: {
-    ...Default.args,
+    ...Basic.args,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -83,7 +83,7 @@ export const Pointer = {
 
 export const Keyboard = {
   args: {
-    ...Default.args,
+    ...Basic.args,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)

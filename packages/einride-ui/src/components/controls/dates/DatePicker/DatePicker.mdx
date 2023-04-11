@@ -1,0 +1,33 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as DatePicker from "./DatePicker.stories.tsx"
+
+<Meta of={DatePicker} />
+
+<Title />
+
+<Description of={DatePicker} />
+
+```tsx
+import { DatePicker } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={DatePicker.Basic} />
+
+<Canvas of={DatePicker.Basic} />
+
+<Controls of={DatePicker.Basic} />
