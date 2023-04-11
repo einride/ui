@@ -1,5 +1,7 @@
+import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, ElementType, forwardRef, useState } from "react"
+import * as AvatarPrimitive from "@radix-ui/react-avatar"
+import { ComponentPropsWithoutRef, ElementType, forwardRef } from "react"
 import { getBackground, getBorderRadius, getColor } from "../../../lib/theme/prop-system"
 import { Background, BorderRadius, Color } from "../../../lib/theme/props"
 import { Theme } from "../../../lib/theme/types"
@@ -43,62 +45,29 @@ export type AvatarProps = AvatarBaseProps & (AvatarImageProps | AvatarInitialsPr
 /** An avatar with an image or initials. */
 export const Avatar = forwardRef<HTMLImageElement, AvatarProps>(
   ({ background = "primary", color = "primary", radius = "full", size = "md", ...props }, ref) => {
-    const [hasError, setHasError] = useState(false)
-
-    if ("src" in props) {
-      const { name, src, ...rest } = props
-
-      if (hasError) {
-        return (
-          <Image
-            as="div"
-            {...rest}
-            background={background}
-            radius={radius}
-            size={size}
-            textColor={color}
-            ref={ref}
-          >
-            {getInitials(name)}
-          </Image>
-        )
-      }
-
-      return (
-        <Image
-          {...rest}
+    return (
+      <AvatarPrimitive.Root ref={ref}>
+        {"src" in props && (
+          <Image background={background} textColor={color} radius={radius} size={size} {...props} />
+        )}
+        <Fallback
           background={background}
-          onError={() => setHasError(true)}
+          textColor={color}
           radius={radius}
           size={size}
-          src={src}
-          textColor={color}
-          ref={ref}
-        />
-      )
-    }
-
-    const { name, ...rest } = props
-    return (
-      <Image
-        as="div"
-        inverted
-        {...rest}
-        background={background}
-        radius={radius}
-        size={size}
-        textColor={color}
-        ref={ref}
-      >
-        {getInitials(name)}
-      </Image>
+          delayMs={100000}
+          {...props}
+        >
+          {getInitials(props.name)}
+        </Fallback>
+      </AvatarPrimitive.Root>
     )
   },
 )
 
 type Size = "sm" | "md"
 
-interface ImageProps {
+interface WrapperProps {
   inverted?: boolean
   background: Background
   radius: BorderRadius
@@ -106,7 +75,11 @@ interface ImageProps {
   textColor: Color
 }
 
-const Image = styled.img<ImageProps>`
+const propsToExclude = ["radius", "name"]
+
+const Wrapper = styled("div", {
+  shouldForwardProp: (prop) => isPropValid(prop) && !propsToExclude.includes(prop),
+})<WrapperProps>`
   background: ${({ background, theme }) => getBackground(background, theme)};
   color: ${({ textColor, theme }) => getColor(textColor, theme)};
   block-size: ${({ radius, theme, size }) => getSize(radius, theme, size)}rem;
@@ -118,6 +91,9 @@ const Image = styled.img<ImageProps>`
   align-items: center;
   justify-content: center;
 `
+
+const Image = Wrapper.withComponent(AvatarPrimitive.Image)
+const Fallback = Wrapper.withComponent(AvatarPrimitive.Fallback)
 
 const getSize = (radius: BorderRadius, theme: Theme, size: Size): number => {
   if (radius === "full") {

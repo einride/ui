@@ -2099,6 +2099,7 @@ __metadata:
     "@mantine/dates": 6.0.9
     "@mantine/hooks": 6.0.9
     "@radix-ui/react-alert-dialog": 1.0.3
+    "@radix-ui/react-avatar": 1.0.2
     "@radix-ui/react-dialog": 1.0.3
     "@radix-ui/react-dropdown-menu": 2.0.4
     "@radix-ui/react-radio-group": 1.1.2
@@ -3327,6 +3328,22 @@ __metadata:
     react: ^16.8 || ^17.0 || ^18.0
     react-dom: ^16.8 || ^17.0 || ^18.0
   checksum: d9c4a810376b686edfedfab15c3ef739bb2b388211fbf33191648149aba5064bfff8a5de05b264ad0b76c4a4df98fd8267002580e3515b7f5ad31b9495bfda21
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-avatar@npm:1.0.2":
+  version: 1.0.2
+  resolution: "@radix-ui/react-avatar@npm:1.0.2"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/react-context": 1.0.0
+    "@radix-ui/react-primitive": 1.0.2
+    "@radix-ui/react-use-callback-ref": 1.0.0
+    "@radix-ui/react-use-layout-effect": 1.0.0
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: 5351bd8763b1d0f2450e79a443b8525a652c89921321c25b93afad666b56a7eb00fcedfc801d5f284c78a7cbebea658f04e4fee6d305d7def57a562d9518dbdb
   languageName: node
   linkType: hard
 
