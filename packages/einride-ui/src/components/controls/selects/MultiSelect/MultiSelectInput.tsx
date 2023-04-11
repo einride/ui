@@ -6,9 +6,9 @@ import {
   ReactNode,
   RefObject,
   useId,
+  useLayoutEffect,
   useRef,
   useState,
-  useLayoutEffect,
 } from "react"
 import { useScrollIntoView } from "../../../../hooks/useScrollIntoView"
 import { ContentColor } from "../../../../lib/theme/types"
@@ -118,7 +118,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
 
   const getTargetRef = (index: number | null): HTMLButtonElement | null => {
     if (index !== null && pillRefs.current[index]) {
-      return pillRefs.current[index]
+      return pillRefs.current[index] as HTMLButtonElement
     }
     return null
   }

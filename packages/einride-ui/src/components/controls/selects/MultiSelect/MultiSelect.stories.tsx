@@ -8,6 +8,14 @@ import { Box } from "../../../layout/Box/Box"
 import { MultiSelect } from "./MultiSelect"
 import { BaseOption } from "./types"
 
+const meta = {
+  component: MultiSelect,
+  argTypes: { onSelectionChange: { action: "onSelectionChange" } },
+} satisfies Meta<typeof MultiSelect>
+
+export default meta
+type Story = StoryObj<typeof meta>
+
 const mockContents = [
   "Snowfall guzzler drapery",
   "Remorse strike tartly",
@@ -29,16 +37,8 @@ function getMockData(count: number, withInputValue?: boolean): BaseOption[] {
   })
 }
 
-const meta = {
-  component: MultiSelect,
-  argTypes: { onSelectionChange: { action: "onSelectionChange" } },
-} satisfies Meta<typeof MultiSelect>
-
 const basicOptions = getMockData(3)
 const largeDataset = getMockData(32)
-
-export default meta
-type Story = StoryObj<typeof meta>
 
 export const Basic = {
   args: {
@@ -75,7 +75,7 @@ export const LargeDataset = {
 } satisfies Story
 
 const ControlledTemplate = (args: ComponentProps<typeof MultiSelect>): JSX.Element => {
-  const [selectedOption, setSelectedOption] = useState([basicOptions[0]])
+  const [selectedOption, setSelectedOption] = useState([basicOptions[0] as BaseOption])
   return (
     <MultiSelect
       {...args}
@@ -182,17 +182,17 @@ export const Pointer = {
     const options = await canvas.getAllByRole("option")
     await expect(options.length).toBe(3)
     await userEvent.click(options[1])
-    await expect(options[1].ariaSelected).toBe("true")
+    await expect(options[1]?.ariaSelected).toBe("true")
     await userEvent.click(options[2])
-    await expect(options[1].ariaSelected).toBe("true")
-    await expect(options[2].ariaSelected).toBe("true")
+    await expect(options[1]?.ariaSelected).toBe("true")
+    await expect(options[2]?.ariaSelected).toBe("true")
     await userEvent.click(options[1])
-    await expect(options[1].ariaSelected).toBe("false")
-    await expect(options[2].ariaSelected).toBe("true")
+    await expect(options[1]?.ariaSelected).toBe("false")
+    await expect(options[2]?.ariaSelected).toBe("true")
     const clearButton = canvas.getByRole("button", { name: "Clear input" })
     await userEvent.click(clearButton)
     await expect(inputField).toHaveFocus()
-    await expect(options[2].ariaSelected).toBe("false")
+    await expect(options[2]?.ariaSelected).toBe("false")
     await userEvent.click(clearButton)
     await expect(inputField).not.toHaveFocus()
   },
@@ -212,35 +212,35 @@ export const Keyboard = {
     await userEvent.keyboard("[ArrowDown]")
     await userEvent.keyboard("[Enter]")
     const options = await canvas.getAllByRole("option")
-    await expect(options[2].ariaSelected).toBe("true")
+    await expect(options[2]?.ariaSelected).toBe("true")
     // hit clear button
     await userEvent.keyboard("[Tab]")
     await userEvent.keyboard("[Enter]")
-    await expect(options[2].ariaSelected).toBe("false")
+    await expect(options[2]?.ariaSelected).toBe("false")
 
     await userEvent.keyboard("[ArrowDown]")
     await userEvent.keyboard("[Enter]")
-    await expect(options[1].ariaSelected).toBe("true")
+    await expect(options[1]?.ariaSelected).toBe("true")
     await userEvent.keyboard("[ArrowDown]")
     await userEvent.keyboard("[Enter]")
-    await expect(options[1].ariaSelected).toBe("true")
-    await expect(options[2].ariaSelected).toBe("true")
+    await expect(options[1]?.ariaSelected).toBe("true")
+    await expect(options[2]?.ariaSelected).toBe("true")
     await userEvent.keyboard("[Backspace]")
     await userEvent.keyboard("[Backspace]")
-    await expect(options[1].ariaSelected).toBe("true")
-    await expect(options[2].ariaSelected).toBe("false")
+    await expect(options[1]?.ariaSelected).toBe("true")
+    await expect(options[2]?.ariaSelected).toBe("false")
     await userEvent.keyboard("[ArrowDown]")
     await userEvent.keyboard("[Enter]")
-    await expect(options[0].ariaSelected).toBe("true")
-    await expect(options[1].ariaSelected).toBe("true")
+    await expect(options[0]?.ariaSelected).toBe("true")
+    await expect(options[1]?.ariaSelected).toBe("true")
     await userEvent.keyboard("[ArrowLeft]")
     await userEvent.keyboard("[ArrowLeft]")
     await userEvent.keyboard("[Backspace]")
-    await expect(options[0].ariaSelected).toBe("true")
-    await expect(options[1].ariaSelected).toBe("false")
+    await expect(options[0]?.ariaSelected).toBe("true")
+    await expect(options[1]?.ariaSelected).toBe("false")
     await userEvent.keyboard("[Backspace]")
     await userEvent.keyboard("[Backspace]")
-    await expect(options[0].ariaSelected).toBe("false")
+    await expect(options[0]?.ariaSelected).toBe("false")
     await userEvent.keyboard("[Escape]")
     await expect(inputField).not.toHaveFocus()
   },

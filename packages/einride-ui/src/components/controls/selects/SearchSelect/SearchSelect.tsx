@@ -100,7 +100,7 @@ export const SearchSelect = <Option extends BaseOption>({
 
   const getTargetRef = (index: number | null): HTMLDivElement | null => {
     if (typeof index === "number") {
-      return optionRefs.current[index]
+      return optionRefs.current[index] as HTMLDivElement
     }
     return null
   }
@@ -173,7 +173,7 @@ export const SearchSelect = <Option extends BaseOption>({
     if (e.key === "Enter") {
       e.preventDefault()
       if (typeof selectedIndex === "number" && filteredOptions.length > 0) {
-        handleOptionSelect(filteredOptions[selectedIndex])
+        handleOptionSelect(filteredOptions[selectedIndex] as Option)
       }
     }
 

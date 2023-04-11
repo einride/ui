@@ -2010,12 +2010,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@einride/tsconfig@npm:1.0.1":
-  version: 1.0.1
-  resolution: "@einride/tsconfig@npm:1.0.1"
+"@einride/tsconfig@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@einride/tsconfig@npm:2.0.0"
   peerDependencies:
-    typescript: ">=4"
-  checksum: a96501cc21553da89e9bcdf1728fb9523367b5591ed833dc5ba69d56d774f30d3ee8520d8a7141ac3b4e9234251c56f90bc8129218e5e1d50fa3a4aa596c3410
+    typescript: ">=5"
+  checksum: da94330163624f437431667f9c621b633c61e79efc32493e7daba5d07b4d1f863fe1c2283e61af7210fdd0b0b1f8a1b89eb9b80cc4104dc7d65ada0fe35d00a8
   languageName: node
   linkType: hard
 
@@ -2051,7 +2051,7 @@ __metadata:
     "@commitlint/config-conventional": 17.4.4
     "@einride/eslint-plugin": 6.25.0
     "@einride/prettier-config": 2.0.0
-    "@einride/tsconfig": 1.0.1
+    "@einride/tsconfig": 2.0.0
     "@storybook/addon-a11y": 7.0.2
     "@storybook/addon-actions": 7.0.2
     "@storybook/addon-coverage": 0.0.8
