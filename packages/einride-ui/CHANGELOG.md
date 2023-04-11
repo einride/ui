@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.47.2
+
+### Patch Changes
+
+- 265fc212: Bump Mantine packages.
+
 ## 7.47.1
 
 ### Patch Changes
