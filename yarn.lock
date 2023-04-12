@@ -2029,7 +2029,7 @@ __metadata:
     "@storybook/react": 7.0.3
     "@storybook/testing-library": 0.1.0
     mapbox-gl: 2.13.0
-    react-map-gl: 7.0.21
+    react-map-gl: 7.0.22
     rollup: 3.20.2
     typescript: 5.0.4
   peerDependencies:
@@ -14468,15 +14468,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-map-gl@npm:7.0.21":
-  version: 7.0.21
-  resolution: "react-map-gl@npm:7.0.21"
+"react-map-gl@npm:7.0.22":
+  version: 7.0.22
+  resolution: "react-map-gl@npm:7.0.22"
   dependencies:
     "@types/mapbox-gl": ^2.6.0
   peerDependencies:
     mapbox-gl: "*"
     react: ">=16.3.0"
-  checksum: 9c182fc0ab612d965baf53da5a977f06a466634f65932527f1ee447b7eac880c4abfc6c87572a8193664aa3c2d854243e4e37a421d7b22bb4a5f1419b547b250
+  checksum: 50ed74f26abb68f6c6e279389f9762f4370599f6ef89ca37b95208e898cf6852a5a7793dae8f9f4bd48357502910a28713932a29d43be3fa7ac1ea558b93cbf6
   languageName: node
   linkType: hard
 
