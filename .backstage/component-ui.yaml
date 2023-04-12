@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ui
+  description: Core components that adhere to Einride's design system
+  annotations:
+    github.com/project-slug: einride/ui
+    github.com/team-slug: einride/team-design-system
+spec:
+  type: library
+  lifecycle: production
+  owner: team-design-system
+  system: ui
