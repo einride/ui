@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: ui
+  description: |
+    Einride's UI framework
+spec:
+  owner: team-design-system
+  domain: saga
