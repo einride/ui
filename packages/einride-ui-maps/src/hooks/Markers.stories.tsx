@@ -66,6 +66,7 @@ interface MarkerProps {
 const Marker = ({ name, state }: MarkerProps): JSX.Element => {
   const { getMarker } = useMarker()
   const icon = getMarker(name, state)
+  console.log(icon)
   return <img src={icon.url} alt={name} />
 }
 
