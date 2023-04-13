@@ -1,3 +1,5 @@
+import { KILOGRAM_TO_POUND } from "./conversionFactors"
+
 export const formatImperial = (
   kilograms: number,
   locales: string | Array<string>,
@@ -9,7 +11,8 @@ export const formatImperial = (
     unitDisplay: "short",
     maximumFractionDigits: 1,
     ...numberFormatOptions,
-  }).format(kilograms * POUND_FACTOR)
+  }).format(kilograms * KILOGRAM_TO_POUND)
 }
 
+/** @deprecated Use `KILOGRAM_TO_POUND` instead. */
 export const POUND_FACTOR = 2.2046226218
