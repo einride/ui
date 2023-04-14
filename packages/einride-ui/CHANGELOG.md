@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.48.0
+
+### Minor Changes
+
+- effe09f7: Deprecate POUND_FACTOR in favor of KILOGRAM_TO_POUND.
+
 ## 7.47.2
 
 ### Patch Changes
