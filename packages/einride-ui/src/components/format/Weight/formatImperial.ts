@@ -1,4 +1,4 @@
-import { KILOGRAM_TO_POUND } from "./conversionFactors"
+import { KILOGRAM_TO_POUND } from "./constants"
 
 export const formatImperial = (
   kilograms: number,

@@ -1,1 +1,0 @@
-export const KILOGRAM_TO_POUND = 2.2046226218
