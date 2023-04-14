@@ -1778,12 +1778,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-conventional@npm:17.4.4":
-  version: 17.4.4
-  resolution: "@commitlint/config-conventional@npm:17.4.4"
+"@commitlint/config-conventional@npm:17.6.0":
+  version: 17.6.0
+  resolution: "@commitlint/config-conventional@npm:17.6.0"
   dependencies:
     conventional-changelog-conventionalcommits: ^5.0.0
-  checksum: 679d92509fe6e53ee0cc4202f8069d88360c4f9dbd7ab74114bb28278a196da517ef711dfe69893033a66e54ffc29e8df2ccf63cfd746a89c82a053949473c4b
+  checksum: ac62e3904d152adc9e1f7e2613918879fd7c0e44e64c8379ca96a3a8ec76367f23d02c1b0f5745d3749d56ddf458c19ebd2ca09bdf5a48d75ac28026ebb8f848
   languageName: node
   linkType: hard
 
@@ -2048,7 +2048,7 @@ __metadata:
   dependencies:
     "@changesets/cli": 2.26.1
     "@commitlint/cli": 17.6.0
-    "@commitlint/config-conventional": 17.4.4
+    "@commitlint/config-conventional": 17.6.0
     "@einride/eslint-plugin": 6.25.0
     "@einride/prettier-config": 2.0.0
     "@einride/tsconfig": 2.0.0
