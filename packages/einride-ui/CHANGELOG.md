@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.49.1
+
+### Patch Changes
+
+- 2196052c: Weight & WeightUnit: Deprecate imperial instead of removing.
+
 ## 7.49.0
 
 ### Minor Changes
