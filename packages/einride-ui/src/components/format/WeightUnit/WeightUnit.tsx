@@ -11,8 +11,10 @@ export interface WeightUnitProps {
 
 /** Formats weight unit based on locale and measurement system.
  *
- * @example <WeightUnit locales="en-US" unitSystem="metric" /> // => <>kg</>
- * @example <WeightUnit locales="en-US" unitSystem="imperial" /> // => <>lb</>
+ * @example <WeightUnit locales="en-US" measurementSystem="metric" /> // => <>kg</>
+ * @example <WeightUnit locales="en-US" measurementSystem="US" /> // => <>lb</>
+ * @example <WeightUnit locales="sv-SE" measurementSystem="US" /> // => <>pund</>
+ * @example <WeightUnit locales="en-US" measurementSystem="metric" numberFormatOptions={{ unitDisplay: "long" }} /> // => <>kilograms</>
  */
 export const WeightUnit = ({
   locales,
