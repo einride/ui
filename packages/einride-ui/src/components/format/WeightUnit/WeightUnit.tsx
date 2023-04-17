@@ -1,31 +1,34 @@
-import { formatImperial } from "./formatImperial"
-import { formatMetric } from "./formatMetric"
-
 export interface WeightUnitProps {
   /** Locale used to format weight unit. */
   locales: string | Array<string>
 
+  /** Measurement system used to format weight unit. */
+  measurementSystem: "metric" | "US"
+
   /** Full `Intl` number format options that makes it possible to override defaults. */
   numberFormatOptions?: Intl.NumberFormatOptions
-
-  /** Unit system used to format weight unit. */
-  unitSystem: UnitSystem
 }
 
-/** Formats weight unit based on locale and unit system.
+/** Formats weight unit based on locale and measurement system.
  *
  * @example <WeightUnit locales="en-US" unitSystem="metric" /> // => <>kg</>
  * @example <WeightUnit locales="en-US" unitSystem="imperial" /> // => <>lb</>
  */
 export const WeightUnit = ({
   locales,
+  measurementSystem,
   numberFormatOptions,
-  unitSystem,
 }: WeightUnitProps): JSX.Element => {
-  if (unitSystem === "imperial") {
-    return <>{formatImperial(locales, numberFormatOptions)}</>
-  }
-  return <>{formatMetric(locales, numberFormatOptions)}</>
+  return (
+    <>
+      {new Intl.NumberFormat(locales, {
+        style: "unit",
+        unit: measurementSystem === "US" ? "pound" : "kilogram",
+        unitDisplay: "short",
+        ...numberFormatOptions,
+      })
+        .formatToParts()
+        .find((part) => part.type === "unit")?.value ?? ""}
+    </>
+  )
 }
-
-type UnitSystem = "metric" | "imperial"

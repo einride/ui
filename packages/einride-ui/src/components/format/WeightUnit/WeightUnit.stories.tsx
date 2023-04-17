@@ -10,11 +10,11 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-/** Use `locales` and `unit` props to control output. */
+/** Use `locales` and `measurementSystem` props to control output. */
 export const Metric = {
   args: {
     locales: "en-US",
-    unitSystem: "metric",
+    measurementSystem: "metric",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -23,11 +23,11 @@ export const Metric = {
   },
 } satisfies Story
 
-/** Change the unit system with `unit` prop. */
-export const Imperial = {
+/** Change the measurement system with `measurementSystem` prop. */
+export const US = {
   args: {
     locales: "en-US",
-    unitSystem: "imperial",
+    measurementSystem: "US",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -36,11 +36,11 @@ export const Imperial = {
   },
 } satisfies Story
 
-/** Use `locales` prop to change formatting and language of output. */
-export const ImperialInSwedish = {
+/** Use `locales` prop to change language of output. */
+export const USInSwedish = {
   args: {
     locales: "sv-SE",
-    unitSystem: "imperial",
+    measurementSystem: "US",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -53,7 +53,7 @@ export const ImperialInSwedish = {
 export const Long = {
   args: {
     locales: "en-US",
-    unitSystem: "metric",
+    measurementSystem: "metric",
     numberFormatOptions: { unitDisplay: "long" },
   },
   play: async ({ canvasElement }) => {
