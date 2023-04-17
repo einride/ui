@@ -44,8 +44,10 @@ export { PageLoader } from "./components/feedback/PageLoader/PageLoader"
 export { Skeleton } from "./components/feedback/Skeleton/Skeleton"
 export { TableSkeleton } from "./components/feedback/TableSkeleton/TableSkeleton"
 export { Weight } from "./components/format/Weight/Weight"
-export { KILOGRAM_TO_POUND } from "./components/format/Weight/constants"
-export { POUND_FACTOR } from "./components/format/Weight/formatImperial"
+export {
+  KILOGRAM_TO_POUND,
+  KILOGRAM_TO_POUND as POUND_FACTOR,
+} from "./components/format/Weight/constants"
 export { WeightUnit } from "./components/format/WeightUnit/WeightUnit"
 export { Label, type Variant as LabelVariant } from "./components/information/Label/Label"
 export { Box } from "./components/layout/Box/Box"

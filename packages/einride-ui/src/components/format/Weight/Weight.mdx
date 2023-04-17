@@ -24,7 +24,7 @@ import * as Weight from "./Weight.stories.tsx"
 import { Weight } from "@einride/ui"
 ```
 
-## Metric
+## Basic
 
 <Description of={Weight.Metric} />
 
@@ -32,21 +32,29 @@ import { Weight } from "@einride/ui"
 
 <Controls of={Weight.Metric} />
 
-## Imperial
+## Measurement system
 
-<Description of={Weight.Imperial} />
+<Description of={Weight.US} />
 
-<Canvas of={Weight.Imperial} />
+<Canvas of={Weight.US} />
 
-<Controls of={Weight.Imperial} include="unit" />
+<Controls of={Weight.US} include="unit" />
+
+## Input unit
+
+<Description of={Weight.MetricFromPound} />
+
+<Canvas of={Weight.MetricFromPound} />
+
+<Controls of={Weight.MetricFromPound} include="weight" />
 
 ## Locale
 
-<Description of={Weight.ImperialInSwedish} />
+<Description of={Weight.USInSwedish} />
 
-<Canvas of={Weight.ImperialInSwedish} />
+<Canvas of={Weight.USInSwedish} />
 
-<Controls of={Weight.ImperialInSwedish} include="locales" />
+<Controls of={Weight.USInSwedish} include="locales" />
 
 ## Format options
 
