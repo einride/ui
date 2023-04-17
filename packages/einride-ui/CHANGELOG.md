@@ -1,5 +1,12 @@
 # @einride/ui
 
+## 7.49.0
+
+### Minor Changes
+
+- c89e02ae: WeightUnit: Replace `unitSystem` prop with `measurementSystem`.
+- 4b4b35d3: Make it possible to input weight in both kilogram and pound.
+
 ## 7.48.0
 
 ### Minor Changes
