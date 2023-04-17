@@ -16,6 +16,7 @@ export interface WeightProps {
 
 /**
  * Formats weight based on locale and measurement system.
+ *
  * @example <Weight locales="en-US" measurementSystem="metric" weight={{ unit: "kilogram", value: 123456.789 }} /> // => <>123,456.8 kg</>
  * @example <Weight locales="en-US" measurementSystem="US" weight={{ unit: "pound", value: 123456.789 }} /> // => <>123,456.8 lb</>
  * @example <Weight locales="en-US" measurementSystem="metric" weight={{ unit: "pound", value: 123456.789 }} /> // => <>55,999.1 kg</>
