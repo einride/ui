@@ -1,0 +1,31 @@
+import {
+  Meta,
+  Primary,
+  Description,
+  Source,
+  Title,
+  ArgTypes,
+  Subtitle,
+  Controls,
+  Story,
+  Canvas,
+  Stories,
+  Markdown,
+} from "@storybook/blocks"
+import * as Segments from "./Segments.stories.tsx"
+
+<Meta of={Segments} />
+
+<Title />
+
+<Description of={Segments} />
+
+```tsx
+import { Segments, SegmentsTrigger } from "@einride/ui"
+```
+
+## Basic
+
+<Description of={Segments.Basic} />
+
+<Canvas of={Segments.Basic} sourceState="hidden" />
