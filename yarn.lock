@@ -2028,7 +2028,7 @@ __metadata:
     "@storybook/jest": 0.1.0
     "@storybook/react": 7.0.5
     "@storybook/testing-library": 0.1.0
-    mapbox-gl: 2.14.0
+    mapbox-gl: 2.14.1
     react-map-gl: 7.0.23
     rollup: 3.20.2
     typescript: 5.0.4
@@ -12820,9 +12820,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mapbox-gl@npm:2.14.0":
-  version: 2.14.0
-  resolution: "mapbox-gl@npm:2.14.0"
+"mapbox-gl@npm:2.14.1":
+  version: 2.14.1
+  resolution: "mapbox-gl@npm:2.14.1"
   dependencies:
     "@mapbox/geojson-rewind": ^0.5.2
     "@mapbox/jsonlint-lines-primitives": ^2.0.2
@@ -12845,7 +12845,7 @@ __metadata:
     supercluster: ^7.1.5
     tinyqueue: ^2.0.3
     vt-pbf: ^3.1.3
-  checksum: f7a568b1f191f8faedac2633ed59b90313f87f5d9af83f1162b681b67c51bc31da5c363467901458e9c567755f61a9c5d7a20b559f48ca599e4b3552f751ab37
+  checksum: 7042c02696d1a5cd3fd36a468847fa4690d498352af5d54bdfe2f9c25049d5f8bfe3ae601838e76d3bdc1b18a2ada5c87d2e3fd88dbbe9b0291415629a72ee75
   languageName: node
   linkType: hard
 
