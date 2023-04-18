@@ -43,7 +43,7 @@ export { Loader } from "./components/feedback/Loader/Loader"
 export { PageLoader } from "./components/feedback/PageLoader/PageLoader"
 export { Skeleton } from "./components/feedback/Skeleton/Skeleton"
 export { TableSkeleton } from "./components/feedback/TableSkeleton/TableSkeleton"
-export { METER_TO_YARD } from "./components/format/Length/constants"
+export { KILOMETER_TO_MILE, METER_TO_YARD } from "./components/format/Length/constants"
 export { Weight } from "./components/format/Weight/Weight"
 export {
   KILOGRAM_TO_POUND,
