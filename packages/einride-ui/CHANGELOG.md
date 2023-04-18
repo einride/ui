@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.50.1
+
+### Patch Changes
+
+- 1bd6c8c9: Compute METER_TO_YARD correctly.
+
 ## 7.50.0
 
 ### Minor Changes
