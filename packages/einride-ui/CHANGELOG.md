@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.50.2
+
+### Patch Changes
+
+- 136d8bc6: Add kilometer to mile conversion factor.
+
 ## 7.50.1
 
 ### Patch Changes
