@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { forwardRef, ReactNode } from "react"
+import { ComponentProps, forwardRef, ReactNode } from "react"
 import { ColorScheme, useColorScheme } from "../../../contexts/ColorSchemeProvider"
 import { BackgroundColor, ContentColor } from "../../../lib/theme/types"
 import { Box } from "../../layout/Box/Box"
@@ -7,7 +7,7 @@ import { Text } from "../../typography/Text/Text"
 
 type Status = "success" | "warning" | "fail" | "neutral"
 
-export interface BannerProps {
+export interface BannerProps extends Omit<ComponentProps<"div">, "title" | "color"> {
   /** Status of the banner. */
   status?: Status
 
@@ -20,12 +20,13 @@ export interface BannerProps {
 
 /** Banner to show information or inline error messages. */
 export const Banner = forwardRef<HTMLDivElement, BannerProps>(
-  ({ status, title, children }, ref) => {
+  ({ status, title, children, ...props }, ref) => {
     const { colorScheme } = useColorScheme()
     return (
       <StyledBanner
         backgroundColor={getMessageBackgroundColor(status)}
         textColor={getMessageColor(status, colorScheme)}
+        {...props}
         ref={ref}
       >
         {title && <Text>{title}</Text>}
