@@ -1,5 +1,15 @@
 # @einride/ui
 
+## 7.50.0
+
+### Minor Changes
+
+- b5eed33d: Add conversion factor for meter to yard.
+
+### Patch Changes
+
+- 0cc3b78f: Banner: Extend div props.
+
 ## 7.49.1
 
 ### Patch Changes
