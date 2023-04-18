@@ -140,27 +140,37 @@ export const Pointer = {
   args: {
     defaultValue: "tab1",
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
     const tab1 = canvas.getByRole("tab", { name: /first tab/i })
     const tab2 = canvas.getByRole("tab", { name: /second tab/i })
     const tab3 = canvas.getByRole("tab", { name: /third tab/i })
-    await expect(tab1).toHaveAttribute("aria-selected", "true")
-    await expect(tab2).not.toHaveAttribute("aria-selected", "true")
-    await expect(tab3).not.toHaveAttribute("aria-selected", "true")
-    const tab1panel = canvas.getByRole("tabpanel", { name: /first tab/i })
-    await expect(tab1panel).toHaveTextContent(/first tab content/i)
-    await userEvent.click(tab2)
-    await expect(tab1).not.toHaveAttribute("aria-selected", "true")
-    await expect(tab2).toHaveAttribute("aria-selected", "true")
-    const tab2panel = canvas.getByRole("tabpanel", { name: /second tab/i })
-    await expect(tab2panel).toHaveTextContent(/second tab content/i)
-    await userEvent.click(tab3)
-    await expect(tab1).not.toHaveAttribute("aria-selected", "true")
-    await expect(tab2).not.toHaveAttribute("aria-selected", "true")
-    await expect(tab3).toHaveAttribute("aria-selected", "true")
-    const tab3panel = canvas.getByRole("tabpanel", { name: /third tab/i })
-    await expect(tab3panel).toHaveTextContent(/third tab content/i)
+
+    await step("Expect first tab panel to show initially", async () => {
+      await expect(tab1).toHaveAttribute("aria-selected", "true")
+      await expect(tab2).not.toHaveAttribute("aria-selected", "true")
+      await expect(tab3).not.toHaveAttribute("aria-selected", "true")
+      const tab1panel = canvas.getByRole("tabpanel", { name: /first tab/i })
+      await expect(tab1panel).toHaveTextContent(/first tab content/i)
+    })
+
+    await step("Expect second tab panel to show when clicking second tab", async () => {
+      await userEvent.click(tab2)
+      await expect(tab1).not.toHaveAttribute("aria-selected", "true")
+      await expect(tab2).toHaveAttribute("aria-selected", "true")
+      await expect(tab3).not.toHaveAttribute("aria-selected", "true")
+      const tab2panel = canvas.getByRole("tabpanel", { name: /second tab/i })
+      await expect(tab2panel).toHaveTextContent(/second tab content/i)
+    })
+
+    await step("Expect third tab panel to show when clicking third tab", async () => {
+      await userEvent.click(tab3)
+      await expect(tab1).not.toHaveAttribute("aria-selected", "true")
+      await expect(tab2).not.toHaveAttribute("aria-selected", "true")
+      await expect(tab3).toHaveAttribute("aria-selected", "true")
+      const tab3panel = canvas.getByRole("tabpanel", { name: /third tab/i })
+      await expect(tab3panel).toHaveTextContent(/third tab content/i)
+    })
   },
 } satisfies Story
 
@@ -169,34 +179,60 @@ export const Keyboard = {
   args: {
     defaultValue: "tab1",
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
     const tab1 = canvas.getByRole("tab", { name: /first tab/i })
     const tab2 = canvas.getByRole("tab", { name: /second tab/i })
     const tab3 = canvas.getByRole("tab", { name: /third tab/i })
-    await expect(tab1).toHaveAttribute("aria-selected", "true")
-    await expect(tab2).not.toHaveAttribute("aria-selected", "true")
-    await expect(tab3).not.toHaveAttribute("aria-selected", "true")
-    await expect(tab1).not.toHaveFocus()
-    await userEvent.click(tab1)
-    await expect(tab1).toHaveFocus()
-    const tab1panel = canvas.getByRole("tabpanel", { name: /first tab/i })
-    await expect(tab1panel).toHaveTextContent(/first tab content/i)
-    await userEvent.keyboard("[ArrowRight]")
-    await expect(tab1).not.toHaveAttribute("aria-selected", "true")
-    await expect(tab2).toHaveAttribute("aria-selected", "true")
-    const tab2panel = canvas.getByRole("tabpanel", { name: /second tab/i })
-    await expect(tab2panel).toHaveTextContent(/second tab content/i)
-    await userEvent.keyboard("[ArrowRight]")
-    await expect(tab1).not.toHaveAttribute("aria-selected", "true")
-    await expect(tab2).not.toHaveAttribute("aria-selected", "true")
-    await expect(tab3).toHaveAttribute("aria-selected", "true")
-    const tab3panel = canvas.getByRole("tabpanel", { name: /third tab/i })
-    await expect(tab3panel).toHaveTextContent(/third tab content/i)
-    await userEvent.keyboard("[ArrowRight]")
-    await expect(tab1).toHaveAttribute("aria-selected", "true")
-    await expect(tab2).not.toHaveAttribute("aria-selected", "true")
-    await expect(tab3).not.toHaveAttribute("aria-selected", "true")
-    await expect(tab1panel).toHaveTextContent(/first tab content/i)
+
+    await step("Expect first tab panel to show initially", async () => {
+      await expect(tab1).toHaveAttribute("aria-selected", "true")
+      await expect(tab2).not.toHaveAttribute("aria-selected", "true")
+      await expect(tab3).not.toHaveAttribute("aria-selected", "true")
+      const tab1panel = canvas.getByRole("tabpanel", { name: /first tab/i })
+      await expect(tab1panel).toHaveTextContent(/first tab content/i)
+    })
+
+    await step("Expect first tab to get focus when tabbing", async () => {
+      await expect(tab1).not.toHaveFocus()
+      await userEvent.click(tab1)
+      await expect(tab1).toHaveFocus()
+    })
+
+    await step("Expect second tab panel to show when clicking ArrowRight", async () => {
+      await expect(tab2).not.toHaveFocus()
+      await userEvent.keyboard("[ArrowRight]")
+      await expect(tab2).toHaveFocus()
+      await expect(tab1).not.toHaveAttribute("aria-selected", "true")
+      await expect(tab2).toHaveAttribute("aria-selected", "true")
+      await expect(tab3).not.toHaveAttribute("aria-selected", "true")
+      const tab2panel = canvas.getByRole("tabpanel", { name: /second tab/i })
+      await expect(tab2panel).toHaveTextContent(/second tab content/i)
+    })
+
+    await step("Expect third tab panel to show when clicking ArrowRight", async () => {
+      await expect(tab3).not.toHaveFocus()
+      await userEvent.keyboard("[ArrowRight]")
+      await expect(tab3).toHaveFocus()
+      await expect(tab1).not.toHaveAttribute("aria-selected", "true")
+      await expect(tab2).not.toHaveAttribute("aria-selected", "true")
+      await expect(tab3).toHaveAttribute("aria-selected", "true")
+      const tab3panel = canvas.getByRole("tabpanel", { name: /third tab/i })
+      await expect(tab3panel).toHaveTextContent(/third tab content/i)
+    })
+
+    await step(
+      "Expect first tab panel to show when clicking ArrowRight from the last tab panel",
+      async () => {
+        await expect(tab1).not.toHaveFocus()
+        await userEvent.keyboard("[ArrowRight]")
+        await expect(tab1).toHaveFocus()
+        await expect(tab1).toHaveAttribute("aria-selected", "true")
+        await expect(tab2).not.toHaveAttribute("aria-selected", "true")
+        await expect(tab3).not.toHaveAttribute("aria-selected", "true")
+        const tab1panel = canvas.getByRole("tabpanel", { name: /first tab/i })
+        await expect(tab1panel).toHaveTextContent(/first tab content/i)
+      },
+    )
   },
 } satisfies Story
