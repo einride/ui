@@ -43,9 +43,11 @@ export { Loader } from "./components/feedback/Loader/Loader"
 export { PageLoader } from "./components/feedback/PageLoader/PageLoader"
 export { Skeleton } from "./components/feedback/Skeleton/Skeleton"
 export { TableSkeleton } from "./components/feedback/TableSkeleton/TableSkeleton"
+export { METER_TO_YARD } from "./components/format/Length/constants"
 export { Weight } from "./components/format/Weight/Weight"
 export {
   KILOGRAM_TO_POUND,
+  /** @deprecated Use `KILOGRAM_TO_POUND` instead. */
   KILOGRAM_TO_POUND as POUND_FACTOR,
 } from "./components/format/Weight/constants"
 export { WeightUnit } from "./components/format/WeightUnit/WeightUnit"
