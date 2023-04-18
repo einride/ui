@@ -2118,7 +2118,7 @@ __metadata:
     chromatic: 6.17.3
     concurrently: 8.0.1
     dayjs: 1.11.7
-    framer-motion: 10.11.6
+    framer-motion: 10.12.2
     lodash.merge: 4.6.2
     luxon: 3.3.0
     react: 18.2.0
@@ -9931,9 +9931,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:10.11.6":
-  version: 10.11.6
-  resolution: "framer-motion@npm:10.11.6"
+"framer-motion@npm:10.12.2":
+  version: 10.12.2
+  resolution: "framer-motion@npm:10.12.2"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
     tslib: ^2.4.0
@@ -9948,7 +9948,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 5f6ebb5b3b8aed29b336a5a3fbe608ae9827820514093dc447a7c33de40e61fd832e249f89ea443d8c130865652b60ccfb12be08749b4676c3badc16f3387970
+  checksum: 772fdbcd2962061a29d28fb0ee3aa5099342f812ae107b8d0860b955a98cdd2ab18e2a838d34a1810126366779cd5c1e349705cb12561828403763a73d69ebfd
   languageName: node
   linkType: hard
 
