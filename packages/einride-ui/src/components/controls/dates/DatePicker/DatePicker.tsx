@@ -80,6 +80,7 @@ export const DatePicker = ({
         popoverProps={{ clickOutsideEvents: ["pointerdown"] }} // to ensure popover is closed when clicking on a menu trigger
         valueFormat={inputFormat}
         withAsterisk={false}
+        withCellSpacing={false}
         {...props}
       />
       {message && (
@@ -247,9 +248,6 @@ const StyledDatePickerInput = styled(DatePickerInput, {
       font-size: ${({ theme }) => theme.fontSizes.md};
       font-weight: ${({ theme }) => theme.fontWeights.book};
       padding: 0;
-    }
-    .mantine-DatePickerInput-monthCell {
-      padding: 0; // until withCellSpacing prop works
     }
     .mantine-DatePickerInput-day {
       font-family: ${({ theme }) => theme.fonts.body};
