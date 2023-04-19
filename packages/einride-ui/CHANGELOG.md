@@ -1,5 +1,12 @@
 # @einride/ui
 
+## 7.50.3
+
+### Patch Changes
+
+- 8c146939: DatePicker, DateRangePicker: Reintroduce `withCellSpacing={false}` that's been fixed in
+  Mantine.
+
 ## 7.50.2
 
 ### Patch Changes
