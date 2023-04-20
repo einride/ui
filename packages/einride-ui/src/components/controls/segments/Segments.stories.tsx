@@ -3,6 +3,8 @@ import { Meta, StoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { useState } from "react"
 import { Weight } from "../../format/Weight/Weight"
+import { Box } from "../../layout/Box/Box"
+import { Group } from "../../layout/Group/Group"
 import { Stack } from "../../layout/Stack/Stack"
 import { Segments } from "./Segments"
 import { SegmentsTrigger } from "./SegmentsTrigger"
@@ -14,23 +16,67 @@ const meta = {
 export default meta
 
 const BasicTemplate = (): JSX.Element => {
-  const [activeSegment, setActiveSegment] = useState("segment-1")
+  const [unit, setUnit] = useState("kilogram")
   return (
-    <Segments onValueChange={setActiveSegment} value={activeSegment}>
-      <SegmentsTrigger value="segment-1">Segment 1</SegmentsTrigger>
-      <SegmentsTrigger value="segment-2">Segment 2</SegmentsTrigger>
+    <Segments onValueChange={setUnit} value={unit}>
+      <SegmentsTrigger value="kilogram">Kilogram</SegmentsTrigger>
+      <SegmentsTrigger value="pound">Pound</SegmentsTrigger>
     </Segments>
   )
 }
 
 export const Basic = {
   render: () => <BasicTemplate />,
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement)
+    const tab1 = canvas.getByRole("tab", { name: "Kilogram" })
+    const tab2 = canvas.getByRole("tab", { name: "Pound" })
+
+    await step("Expect default tab to be selected initially", async () => {
+      await expect(tab1).toHaveAttribute("aria-selected", "true")
+      await expect(tab2).toHaveAttribute("aria-selected", "false")
+    })
+  },
+} satisfies StoryObj
+
+const WithLabelTemplate = (): JSX.Element => {
+  const [activeSegment, setActiveSegment] = useState("segment-1")
+  return (
+    <Segments onValueChange={setActiveSegment} value={activeSegment}>
+      <SegmentsTrigger value="segment-1">
+        <Group gap="xs">
+          <span>Segment</span>
+          <Box
+            as="span"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            background="tertiary"
+            borderRadius="full"
+            blockSize={3}
+            inlineSize={3}
+          >
+            1
+          </Box>
+        </Group>
+      </SegmentsTrigger>
+      <SegmentsTrigger value="segment-2">Segment</SegmentsTrigger>
+    </Segments>
+  )
+}
+
+/** You can format the segments according to your needs by passing custom `children`. */
+export const WithLabel = {
+  render: () => <WithLabelTemplate />,
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
     const tab1 = canvas.getByRole("tab", { name: "Segment 1" })
-    await expect(tab1).toHaveAttribute("aria-selected", "true")
-    const tab2 = canvas.getByRole("tab", { name: "Segment 2" })
-    await expect(tab2).toHaveAttribute("aria-selected", "false")
+    const tab2 = canvas.getByRole("tab", { name: "Segment" })
+
+    await step("Expect default tab to be selected initially", async () => {
+      await expect(tab1).toHaveAttribute("aria-selected", "true")
+      await expect(tab2).toHaveAttribute("aria-selected", "false")
+    })
   },
 } satisfies StoryObj
 
