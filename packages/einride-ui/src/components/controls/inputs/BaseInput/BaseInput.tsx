@@ -58,7 +58,7 @@ export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
     }, [])
     const theme = useTheme()
     const inlineEndOffsetRem = getInlineEndOffsetRem(suffixInlineSizePx, !!rightIcon, theme)
-    console.log(suffixInlineSizePx, inlineEndOffsetRem)
+
     return (
       <Box {...wrapperProps}>
         {label && (

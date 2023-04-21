@@ -31,6 +31,9 @@ interface SearchInputBaseProps extends ComponentPropsWithoutRef<"input"> {
   /** Status of the input, controlling color and icon. */
   status?: Status | undefined
 
+  /** Suffix shown after input value. For example `kg`. */
+  suffix?: ReactNode
+
   /** Props passed to root element. */
   wrapperProps?: BoxProps
 }
@@ -51,7 +54,7 @@ export type SearchInputProps = SearchInputBaseProps &
   (SearchInputWithLabelProps | SearchInputWithoutLabelProps)
 
 export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
-  ({ value, defaultValue, onInputChange, clearButtonProps, ...props }, ref) => {
+  ({ value, defaultValue, onInputChange, clearButtonProps, suffix, ...props }, ref) => {
     const innerRef = useRef<HTMLInputElement>(null)
     const combinedRef = useMergedRef(ref, innerRef)
 
@@ -83,6 +86,7 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
             </ClearButton>
           ) : null
         }
+        suffix={suffix}
         value={_value}
         ref={combinedRef}
       />
