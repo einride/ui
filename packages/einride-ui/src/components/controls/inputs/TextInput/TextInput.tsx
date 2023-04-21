@@ -43,6 +43,7 @@ interface TextInputWithoutLabelProps {
 export type TextInputProps = TextInputBaseProps &
   (TextInputWithLabelProps | TextInputWithoutLabelProps)
 
+/** Capture string input from user. */
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   ({ message, suffix, status, ...props }, ref) => {
     return (

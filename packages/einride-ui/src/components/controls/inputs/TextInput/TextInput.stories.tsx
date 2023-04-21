@@ -8,8 +8,14 @@ import { TextInput } from "./TextInput"
 const meta = {
   component: TextInput,
   argTypes: {
+    as: {
+      control: false,
+    },
     disabled: {
       control: "boolean",
+    },
+    suffix: {
+      control: false,
     },
   },
 } satisfies Meta<typeof TextInput>
@@ -117,9 +123,11 @@ export const SuccessMessage = {
   },
 } satisfies Story
 
+/** Add a suffix with the `suffix` prop. Can be used to show the unit when inputting a measurement as an example. */
 export const Suffix = {
   args: {
     ...Basic.args,
+    label: "Weight",
     suffix: <>kg</>,
   },
   play: async ({ canvasElement, step }) => {
