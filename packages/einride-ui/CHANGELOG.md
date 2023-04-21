@@ -1,5 +1,13 @@
 # @einride/ui
 
+## 7.52.0
+
+### Minor Changes
+
+- ac336f11: SearchInput: Make it possible to add suffix
+- 90eccf43: TextInput: Make it possible to add a suffix.
+- 086199ab: Separate disabled from read-only.
+
 ## 7.51.0
 
 ### Minor Changes
