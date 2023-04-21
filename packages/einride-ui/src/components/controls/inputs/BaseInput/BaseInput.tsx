@@ -176,7 +176,7 @@ const StyledInput = styled.input<StyledInputProps>`
     hasLabel ? theme.borderRadii.sm : theme.borderRadii.xl};
   ${({ leftIcon, theme }) => leftIcon && `padding-inline-start: ${4.5 * theme.spacingBase}rem`};
 
-  &:read-only {
+  &:read-only:not(:disabled) {
     padding-inline-start: 0;
     background: none;
   }
