@@ -17,6 +17,9 @@ interface TextInputBaseProps extends ComponentPropsWithoutRef<"input"> {
   /** Status of the input, controlling color and icon. */
   status?: Status | undefined
 
+  /** Suffix shown after input value. For example `kg`. */
+  suffix?: ReactNode
+
   /** Controlled input value. */
   value?: string
 
@@ -41,13 +44,14 @@ export type TextInputProps = TextInputBaseProps &
   (TextInputWithLabelProps | TextInputWithoutLabelProps)
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
-  ({ message, status, ...props }, ref) => {
+  ({ message, suffix, status, ...props }, ref) => {
     return (
       <BaseInput
         {...props}
         message={message}
         rightIcon={getStatusIcon(status)}
         status={status}
+        suffix={suffix}
         ref={ref}
       />
     )

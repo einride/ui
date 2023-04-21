@@ -117,6 +117,26 @@ export const SuccessMessage = {
   },
 } satisfies Story
 
+export const Suffix = {
+  args: {
+    ...Basic.args,
+    suffix: <>kg</>,
+  },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement)
+    const input = canvas.getByRole("textbox", { name: Suffix.args.label })
+    const suffix = canvas.getByText(Suffix.args.suffix.props.children)
+
+    await step("Except no input value initially", async () => {
+      expect(input).toHaveValue("")
+    })
+
+    await step("Expect suffix to show", async () => {
+      expect(suffix).toBeInTheDocument()
+    })
+  },
+} satisfies Story
+
 export const ErrorMessage = {
   args: {
     ...Basic.args,
