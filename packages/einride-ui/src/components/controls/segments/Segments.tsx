@@ -13,7 +13,7 @@ export interface SegmentsProps {
   value: string
 }
 
-/** Segments used as radio buttons. */
+/** Segments are a tab-like alternative to radio buttons. */
 export const Segments = forwardRef<HTMLDivElement, SegmentsProps>(
   ({ children, onValueChange, value }, ref) => {
     return (
