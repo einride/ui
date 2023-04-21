@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.51.0
+
+### Minor Changes
+
+- 92a2c06f: Export Segments and SegmentsTrigger components.
+
 ## 7.50.3
 
 ### Patch Changes
