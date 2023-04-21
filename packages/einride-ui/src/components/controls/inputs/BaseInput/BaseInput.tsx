@@ -1,6 +1,15 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef, useId } from "react"
-import { ContentColor } from "../../../../lib/theme/types"
+import {
+  ComponentPropsWithoutRef,
+  ElementType,
+  ReactNode,
+  forwardRef,
+  useCallback,
+  useId,
+  useState,
+} from "react"
+import { useTheme } from "../../../../hooks/useTheme"
+import { ContentColor, Theme } from "../../../../lib/theme/types"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 import { Caption, CaptionProps } from "../../../typography/Caption/Caption"
 
@@ -29,15 +38,27 @@ export interface BaseInputProps extends ComponentPropsWithoutRef<"input"> {
   /** Status of the input, controlling color and icon. */
   status?: Status | undefined
 
+  /** Suffix shown after input value. For example `kg`. */
+  suffix?: ReactNode
+
   /** Props passed to root element. */
   wrapperProps?: BoxProps
 }
 
 export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
-  ({ label, labelProps, leftIcon, message, rightIcon, status, wrapperProps, ...props }, ref) => {
+  (
+    { label, labelProps, leftIcon, message, rightIcon, status, suffix, wrapperProps, ...props },
+    ref,
+  ) => {
     const id = useId()
     const messageId = useId()
-
+    const [suffixInlineSizePx, setSuffixInlineSizePx] = useState(0)
+    const suffixRef = useCallback((node: HTMLDivElement | null) => {
+      setSuffixInlineSizePx(node ? node.offsetWidth : 0)
+    }, [])
+    const theme = useTheme()
+    const inlineEndOffsetRem = getInlineEndOffsetRem(suffixInlineSizePx, !!rightIcon, theme)
+    console.log(suffixInlineSizePx, inlineEndOffsetRem)
     return (
       <Box {...wrapperProps}>
         {label && (
@@ -55,9 +76,15 @@ export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
             hasLabel={!!label}
             leftIcon={!!leftIcon}
             rightIcon={!!rightIcon}
+            inlineEndOffsetRem={inlineEndOffsetRem}
             id={id}
             ref={ref}
           />
+          {suffix && (
+            <Suffix rightIcon={!!rightIcon} ref={suffixRef}>
+              {suffix}
+            </Suffix>
+          )}
           {rightIcon && <RightIconWrapper>{rightIcon}</RightIconWrapper>}
         </InputWrapper>
         {message && (
@@ -72,6 +99,23 @@ export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
 
 export interface MessageProps extends Omit<CaptionProps, "children"> {
   "data-testid"?: string
+}
+
+const getInlineEndOffsetRem = (
+  suffixInlineSizePx: number,
+  rightIcon: boolean,
+  theme: Theme,
+): number => {
+  if (suffixInlineSizePx && rightIcon) {
+    return suffixInlineSizePx / 16 + 5 * theme.spacingBase
+  }
+  if (suffixInlineSizePx) {
+    return suffixInlineSizePx / 16 + 2 * theme.spacingBase
+  }
+  if (rightIcon) {
+    return 4 * theme.spacingBase
+  }
+  return 0
 }
 
 const StyledLabel = styled.label`
@@ -112,6 +156,7 @@ interface StyledInputProps {
   hasLabel: boolean
   leftIcon: boolean
   rightIcon: boolean
+  inlineEndOffsetRem: number
 }
 
 const StyledInput = styled.input<StyledInputProps>`
@@ -124,11 +169,12 @@ const StyledInput = styled.input<StyledInputProps>`
   inline-size: 100%;
   display: block;
   padding-block: ${({ theme }) => 1.5 * theme.spacingBase}rem;
-  padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem;
+  padding-inline-start: ${({ theme }) => 2 * theme.spacingBase}rem;
+  padding-inline-end: ${({ inlineEndOffsetRem, theme }) =>
+    inlineEndOffsetRem + 2 * theme.spacingBase}rem;
   border-radius: ${({ hasLabel, theme }) =>
     hasLabel ? theme.borderRadii.sm : theme.borderRadii.xl};
   ${({ leftIcon, theme }) => leftIcon && `padding-inline-start: ${4.5 * theme.spacingBase}rem`};
-  ${({ rightIcon, theme }) => rightIcon && `padding-inline-end: ${6 * theme.spacingBase}rem`};
 
   &:read-only {
     padding-inline-start: 0;
@@ -158,6 +204,16 @@ const StyledInput = styled.input<StyledInputProps>`
     color: ${({ theme }) => theme.colors.content.tertiary};
     cursor: not-allowed;
   }
+`
+
+const Suffix = styled.div<{ rightIcon: boolean }>`
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: ${({ rightIcon, theme }) => (rightIcon ? 5 : 2) * theme.spacingBase}rem;
+  color: ${({ theme }) => theme.colors.content.secondary};
+  display: flex;
+  align-items: center;
+  pointer-events: none;
 `
 
 const getMessageColor = (status: Status | undefined): ContentColor => {
