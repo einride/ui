@@ -1,6 +1,6 @@
 {
   "name": "@einride/ui-maps",
-  "version": "7.45.8",
+  "version": "7.52.2",
   "description": "Map components that adhere to Einride's design system",
   "scripts": {
     "build": "rollup --config"
