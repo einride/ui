@@ -1,5 +1,11 @@
 # @einride/ui-maps
 
+## 7.52.2
+
+### Patch Changes
+
+- d84cb8d0: Publish with provenance.
+
 ## 7.45.8
 
 ### Patch Changes
