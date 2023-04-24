@@ -87,7 +87,8 @@
     "node": "16 || 18"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "packageManager": "yarn@3.4.1"
 }

@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write # to create release (changesets/action)
+      id-token: write # to publish with provenance
       issues: write # to post issue comments (changesets/action)
       pull-requests: write # to create pull request (changesets/action)
     steps:
