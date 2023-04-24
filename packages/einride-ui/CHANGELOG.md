@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.52.1
+
+### Patch Changes
+
+- b65a2dcb: Publish with provenance.
+
 ## 7.52.0
 
 ### Minor Changes
