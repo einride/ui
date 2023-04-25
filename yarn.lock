@@ -1971,9 +1971,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@einride/eslint-plugin@npm:6.26.0":
-  version: 6.26.0
-  resolution: "@einride/eslint-plugin@npm:6.26.0"
+"@einride/eslint-plugin@npm:6.26.1":
+  version: 6.26.1
+  resolution: "@einride/eslint-plugin@npm:6.26.1"
   dependencies:
     "@typescript-eslint/eslint-plugin": 5.59.0
     "@typescript-eslint/parser": 5.59.0
@@ -1988,7 +1988,7 @@ __metadata:
   peerDependencies:
     eslint: ">=7.28.0"
     prettier: ^2.4.1
-  checksum: 4a627097e1e820defbd31ed5bd6da78d28d15819ca0cbea446d44cd0c507a854747f6c5ba2fc256e871736e1c267cb4a5e798be9638cb4d386c1b51b3b76347a
+  checksum: 17bb4e94d64c411ab3f2d93229de6233492d130be3262b38603baf2aee24beef28c86ce41f653ca731b9f7fae6a989b55aa6329231c67d2c69a7a11d9a21aa5f
   languageName: node
   linkType: hard
 
@@ -2049,7 +2049,7 @@ __metadata:
     "@changesets/cli": 2.26.1
     "@commitlint/cli": 17.6.1
     "@commitlint/config-conventional": 17.6.1
-    "@einride/eslint-plugin": 6.26.0
+    "@einride/eslint-plugin": 6.26.1
     "@einride/prettier-config": 2.0.0
     "@einride/tsconfig": 2.0.0
     "@storybook/addon-a11y": 7.0.6

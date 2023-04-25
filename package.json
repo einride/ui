@@ -26,7 +26,7 @@
     "@changesets/cli": "2.26.1",
     "@commitlint/cli": "17.6.1",
     "@commitlint/config-conventional": "17.6.1",
-    "@einride/eslint-plugin": "6.26.0",
+    "@einride/eslint-plugin": "6.26.1",
     "@einride/prettier-config": "2.0.0",
     "@einride/tsconfig": "2.0.0",
     "@storybook/addon-a11y": "7.0.6",
