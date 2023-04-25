@@ -4,7 +4,7 @@ import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "re
 import { ContentColor, Font } from "../../../lib/theme/types"
 
 export interface CaptionProps extends Omit<ComponentPropsWithoutRef<"p">, "color"> {
-  /** Effective element used. */
+  /** Rendered element. */
   as?: ElementType
 
   /** Caption content. */

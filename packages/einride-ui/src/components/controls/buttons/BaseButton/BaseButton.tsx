@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
 
 export interface BaseButtonProps extends ComponentPropsWithoutRef<"button"> {
-  /** Effective element used. */
+  /** Rendered element. */
   as?: ElementType
 
   /** Button content. */

@@ -3,7 +3,7 @@ import { ComponentPropsWithoutRef, ElementType, forwardRef } from "react"
 import { Avatar } from "../Avatar/Avatar"
 
 export interface UserAccessPointBaseProps extends Omit<ComponentPropsWithoutRef<"button">, "name"> {
-  /** Effective element used. */
+  /** Rendered element. */
   as?: ElementType
 
   /** Status of the user access point. Default is `default`. */

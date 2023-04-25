@@ -4,7 +4,7 @@ import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 import { ContentColor, Font } from "../../../lib/theme/types"
 
 export interface MegaTitleProps extends HTMLAttributes<HTMLHeadingElement> {
-  /** Effective element used. */
+  /** Rendered element. */
   as?: ElementType
 
   /** Mega title content. */

@@ -13,7 +13,7 @@ import { BoxProps } from "../../../layout/Box/Box"
 import { BaseInput, MessageProps, Status } from "../BaseInput/BaseInput"
 
 interface SearchInputBaseProps extends ComponentPropsWithoutRef<"input"> {
-  /** Effective element used. */
+  /** Rendered element. */
   as?: ElementType
 
   /** Message shown below input field. Can be used together with `status` to show a success or error message. */

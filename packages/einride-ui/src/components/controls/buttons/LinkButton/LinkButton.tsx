@@ -3,7 +3,7 @@ import { ContentColor, Font } from "../../../../lib/theme/types"
 import { Link } from "../../../typography/Link/Link"
 
 export interface LinkButtonProps extends ComponentPropsWithoutRef<"button"> {
-  /** Effective element used. */
+  /** Rendered element. */
   as?: ElementType
 
   /** Content of the link. */

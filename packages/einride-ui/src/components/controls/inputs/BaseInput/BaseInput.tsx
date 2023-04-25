@@ -14,7 +14,7 @@ import { Box, BoxProps } from "../../../layout/Box/Box"
 import { Caption, CaptionProps } from "../../../typography/Caption/Caption"
 
 export interface BaseInputProps extends ComponentPropsWithoutRef<"input"> {
-  /** Effective element used. */
+  /** Rendered element. */
   as?: ElementType
 
   /** Input label, displayed before input. */

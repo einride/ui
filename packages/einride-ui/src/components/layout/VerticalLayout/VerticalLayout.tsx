@@ -3,7 +3,7 @@ import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 import { Theme } from "../../../lib/theme/types"
 
 export interface VerticalLayoutProps extends HTMLAttributes<HTMLDivElement> {
-  /** Effective element used. */
+  /** Rendered element. */
   as?: ElementType
 
   /** Content in layout. */

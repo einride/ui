@@ -6,7 +6,7 @@ import { Theme } from "../../../lib/theme/types"
 import { getInitials } from "./getInitials"
 
 interface AvatarBaseProps {
-  /** Effective element used. */
+  /** Rendered element. */
   as?: ElementType
 
   /** Color of the avatar. */

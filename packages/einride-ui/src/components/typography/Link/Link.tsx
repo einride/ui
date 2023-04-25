@@ -5,7 +5,7 @@ import { getColor, getFont } from "../../../lib/theme/prop-system"
 import { ContentColor, Font, Theme } from "../../../lib/theme/types"
 
 type LinkProps<C extends ElementType> = {
-  /** Effective element used. */
+  /** Rendered element. */
   as?: C
 
   /** Link content. */

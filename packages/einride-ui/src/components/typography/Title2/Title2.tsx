@@ -4,7 +4,7 @@ import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 import { ContentColor, Font } from "../../../lib/theme/types"
 
 export interface Title2Props extends HTMLAttributes<HTMLHeadingElement> {
-  /** Effective element used. */
+  /** Rendered element. */
   as?: ElementType
 
   /** Title content. */
