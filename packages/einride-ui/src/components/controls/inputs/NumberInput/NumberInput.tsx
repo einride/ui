@@ -3,7 +3,7 @@ import { Icon } from "../../../content/Icon/Icon"
 import { BoxProps } from "../../../layout/Box/Box"
 import { BaseInput, MessageProps, Status } from "../BaseInput/BaseInput"
 
-interface TextInputBaseProps extends ComponentPropsWithoutRef<"input"> {
+interface NumberInputInputBaseProps extends ComponentPropsWithoutRef<"input"> {
   /** Rendered element. */
   as?: ElementType
 
@@ -26,7 +26,7 @@ interface TextInputBaseProps extends ComponentPropsWithoutRef<"input"> {
   wrapperProps?: BoxProps
 }
 
-interface TextInputWithLabelProps {
+interface NumberInputWithLabelProps {
   /** Input label, displayed before input. */
   label: ReactNode
 
@@ -34,20 +34,21 @@ interface TextInputWithLabelProps {
   labelProps?: ComponentPropsWithoutRef<"label"> & { "data-testid"?: string }
 }
 
-interface TextInputWithoutLabelProps {
+interface NumberInputWithoutLabelProps {
   /** Accessible name, required when `label` is not provided. */
   "aria-label": string
 }
 
-export type TextInputProps = TextInputBaseProps &
-  (TextInputWithLabelProps | TextInputWithoutLabelProps)
+export type NumberInputProps = NumberInputInputBaseProps &
+  (NumberInputWithLabelProps | NumberInputWithoutLabelProps)
 
-/** Capture string input from user. */
-export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
+/** Capture number input from user. */
+export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
   ({ message, suffix, status, ...props }, ref) => {
     return (
       <BaseInput
         {...props}
+        inputMode="numeric"
         message={message}
         rightIcon={getStatusIcon(status)}
         status={status}
