@@ -28,7 +28,7 @@
     "@commitlint/config-conventional": "17.6.1",
     "@einride/eslint-plugin": "6.26.1",
     "@einride/prettier-config": "2.0.0",
-    "@einride/tsconfig": "2.0.0",
+    "@einride/tsconfig": "2.0.1",
     "@storybook/addon-a11y": "7.0.6",
     "@storybook/addon-actions": "7.0.6",
     "@storybook/addon-coverage": "0.0.8",
