@@ -2080,7 +2080,7 @@ __metadata:
     tslib: 2.5.0
     typescript: 5.0.4
     vite: 4.3.1
-    vite-plugin-turbosnap: 1.0.1
+    vite-plugin-turbosnap: 1.0.2
     vite-tsconfig-paths: 4.2.0
     vitest: 0.30.1
   languageName: unknown
@@ -17013,10 +17013,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-turbosnap@npm:1.0.1":
-  version: 1.0.1
-  resolution: "vite-plugin-turbosnap@npm:1.0.1"
-  checksum: 1f182feb737bcb16822d067f6e0cab4b712ab6f3a60f2de0229f18217b86417c52315bb6c1868a6caedea9094c6e2a03c3fe6d949322796ac3cf947c2fd898c7
+"vite-plugin-turbosnap@npm:1.0.2":
+  version: 1.0.2
+  resolution: "vite-plugin-turbosnap@npm:1.0.2"
+  checksum: c5da204cd9fa0dbf8a5f3c151681057da0f8cec3acbec94bdc04e525d410d85bd87c46b73498ba20c487fe61a68b1486b0f88bc51fec48d7053d1f3597411231
   languageName: node
   linkType: hard
 
