@@ -29,7 +29,7 @@ export const Basic = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByRole("textbox", { name: "Label" })
+    const input = canvas.getByRole("textbox", { name: Basic.args.label })
     await expect(input).toHaveValue("")
     await expect(input).not.toHaveAccessibleDescription()
     await expect(input).not.toHaveErrorMessage()
@@ -43,7 +43,7 @@ export const WithoutLabel = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByRole("textbox", { name: "Label" })
+    const input = canvas.getByRole("textbox", { name: WithoutLabel.args["aria-label"] })
     await expect(input).toHaveValue("")
     await expect(input).not.toHaveAccessibleDescription()
     await expect(input).not.toHaveErrorMessage()
@@ -52,13 +52,13 @@ export const WithoutLabel = {
 
 export const ReadOnly = {
   args: {
-    label: "Label",
+    ...Basic.args,
     value: "Readonly value",
     readOnly: true,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByRole("textbox", { name: "Label" })
+    const input = canvas.getByRole("textbox", { name: ReadOnly.args.label })
     await expect(input).toHaveAttribute("readonly")
   },
 } satisfies Story
@@ -70,8 +70,8 @@ export const DefaultValue = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByRole("textbox", { name: "Label" })
-    await expect(input).toHaveValue("Default value")
+    const input = canvas.getByRole("textbox", { name: DefaultValue.args.label })
+    await expect(input).toHaveValue(DefaultValue.args.defaultValue)
     await expect(input).not.toHaveAccessibleDescription()
     await expect(input).not.toHaveErrorMessage()
   },
@@ -89,7 +89,7 @@ export const Controlled = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByRole("textbox", { name: "Label" })
+    const input = canvas.getByRole("textbox", { name: Controlled.args.label })
     await expect(input).toHaveValue("")
     await expect(input).not.toHaveAccessibleDescription()
     await expect(input).not.toHaveErrorMessage()
@@ -99,12 +99,12 @@ export const Controlled = {
 export const Message = {
   args: {
     ...Basic.args,
-    message: "Message.",
+    message: "Message",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByRole("textbox", { name: "Label" })
-    await expect(input).toHaveAccessibleDescription("Message.")
+    const input = canvas.getByRole("textbox", { name: Message.args.label })
+    await expect(input).toHaveAccessibleDescription(Message.args.message)
     await expect(input).not.toHaveErrorMessage()
   },
 } satisfies Story
@@ -112,13 +112,13 @@ export const Message = {
 export const SuccessMessage = {
   args: {
     ...Basic.args,
-    message: "Success message.",
+    message: "Success message",
     status: "success",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByRole("textbox", { name: "Label" })
-    await expect(input).toHaveAccessibleDescription("Success message.")
+    const input = canvas.getByRole("textbox", { name: SuccessMessage.args.label })
+    await expect(input).toHaveAccessibleDescription(SuccessMessage.args.message)
     await expect(input).not.toHaveErrorMessage()
   },
 } satisfies Story
@@ -148,14 +148,14 @@ export const Suffix = {
 export const ErrorMessage = {
   args: {
     ...Basic.args,
-    message: "Error message.",
+    message: "Error message",
     status: "fail",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByRole("textbox", { name: "Label" })
+    const input = canvas.getByRole("textbox", { name: ErrorMessage.args.label })
     await expect(input).not.toHaveAccessibleDescription()
-    await expect(input).toHaveErrorMessage("Error message.")
+    await expect(input).toHaveErrorMessage(ErrorMessage.args.message)
   },
 } satisfies Story
 
@@ -165,7 +165,7 @@ export const Keyboard = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByRole("textbox", { name: "Label" })
+    const input = canvas.getByRole("textbox", { name: Keyboard.args.label })
     await expect(input).not.toHaveFocus()
     await userEvent.tab()
     await expect(input).toHaveFocus()
