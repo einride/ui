@@ -3,7 +3,7 @@ import { ElementType, forwardRef, HTMLAttributes } from "react"
 import { Theme } from "../../../lib/theme/types"
 
 export interface VerticalSpacingProps extends HTMLAttributes<HTMLDivElement> {
-  /** Effective element used. */
+  /** Rendered element. */
   as?: ElementType
 
   /** Size of spacing. Default is `sm`. */

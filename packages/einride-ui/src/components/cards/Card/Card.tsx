@@ -4,7 +4,7 @@ import { getBackground, getBorderRadius, getSpacing } from "../../../lib/theme/p
 import { Background, BorderRadius, PaddingBlockEnd } from "../../../lib/theme/props"
 
 export interface CardProps extends ComponentPropsWithoutRef<"div"> {
-  /** Effective element used. */
+  /** Rendered element. */
   as?: ElementType
 
   /** Background color of the card. Default is `primary`. */

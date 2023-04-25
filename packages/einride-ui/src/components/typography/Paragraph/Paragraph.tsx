@@ -4,7 +4,7 @@ import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
 import { ContentColor, Font } from "../../../lib/theme/types"
 
 export interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
-  /** Effective element used. */
+  /** Rendered element. */
   as?: ElementType
 
   /** Paragraph content. */

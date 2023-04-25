@@ -3,7 +3,7 @@ import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "re
 import { Icon } from "../../content/Icon/Icon"
 
 export interface OptionProps extends ComponentPropsWithoutRef<"div"> {
-  /** Effective element used. */
+  /** Rendered element. */
   as?: ElementType
 
   /** Option content. */

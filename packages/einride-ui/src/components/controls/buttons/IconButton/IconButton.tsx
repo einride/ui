@@ -7,7 +7,7 @@ export interface IconButtonProps extends ComponentPropsWithoutRef<"button"> {
   /** Accessible name of the icon button. Describe what happens when you click the button. */
   "aria-label": string
 
-  /** Effective element used. */
+  /** Rendered element. */
   as?: ElementType
 
   /** Makes the button disabled. */

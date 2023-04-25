@@ -6,7 +6,7 @@ import { Background, Color } from "../../../lib/theme/props"
 import { Theme } from "../../../lib/theme/types"
 
 export interface LabelProps extends Omit<ComponentPropsWithoutRef<"span">, "color"> {
-  /** Effective element used. */
+  /** Rendered element. */
   as?: ElementType
 
   /** Background color of the label. Default is `secondary`. */
