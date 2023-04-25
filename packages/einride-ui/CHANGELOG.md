@@ -1,5 +1,18 @@
 # @einride/ui
 
+## 7.53.0
+
+### Minor Changes
+
+- 470f922c: Segments: Base on Radio Group instead of tabs to make it possible to use it
+  uncontrolled.
+- 6b5018e7: Add NumberInput component.
+
+### Patch Changes
+
+- dd029b52: Improve JSDocs of `as` prop.
+- de571109: Bump Mantine dependencies.
+
 ## 7.52.1
 
 ### Patch Changes
