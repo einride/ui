@@ -24,6 +24,7 @@ export {
   type DateRangePickerValue,
 } from "./components/controls/dates/DateRangePicker/DateRangePicker"
 export { RangeCalendar } from "./components/controls/dates/RangeCalendar/RangeCalendar"
+export { NumberInput } from "./components/controls/inputs/NumberInput/NumberInput"
 export { SearchInput } from "./components/controls/inputs/SearchInput/SearchInput"
 export { TextInput } from "./components/controls/inputs/TextInput/TextInput"
 export { TimeInput } from "./components/controls/inputs/TimeInput/TimeInput"
