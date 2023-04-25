@@ -32,13 +32,37 @@ import { TextInput } from "@einride/ui"
 
 <Controls of={TextInput.Basic} />
 
+## Without label
+
+<Description of={TextInput.WithoutLabel} />
+
+<Canvas of={TextInput.WithoutLabel} />
+
+<Controls of={TextInput.WithoutLabel} include={["aria-label", "placeholder"]} />
+
+## Message
+
+<Description of={TextInput.Message} />
+
+<Canvas of={TextInput.Message} />
+
+<Controls of={TextInput.Message} include={["message"]} />
+
+## Status message
+
+<Description of={TextInput.Message} />
+
+<Canvas of={TextInput.Message} />
+
+<Controls of={TextInput.Message} include={["message", "status"]} />
+
 ## Suffix
 
 <Description of={TextInput.Suffix} />
 
 <Canvas of={TextInput.Suffix} />
 
-<Controls of={TextInput.Suffix} include="suffix" />
+<Controls of={TextInput.Suffix} include={["suffix"]} />
 
 ## Accessibility
 
