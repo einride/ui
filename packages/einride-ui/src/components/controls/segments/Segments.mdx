@@ -21,14 +21,40 @@ import * as Segments from "./Segments.stories.tsx"
 <Description of={Segments} />
 
 ```tsx
-import { Segments, SegmentsTrigger } from "@einride/ui"
+import { Segments, SegmentsItem } from "@einride/ui"
 ```
 
 ## Basic
 
 <Description of={Segments.Basic} />
 
-<Canvas of={Segments.Basic} sourceState="hidden" />
+<Canvas of={Segments.Basic} />
+
+<Controls of={Segments.Basic} />
+
+## Default segment
+
+<Description of={Segments.DefaultValue} />
+
+<Canvas of={Segments.DefaultValue} />
+
+<Controls of={Segments.DefaultValue} />
+
+## Controlled
+
+<Description of={Segments.Controlled} />
+
+<Canvas of={Segments.Controlled} sourceState="hidden" />
+
+<Controls of={Segments.Controlled} />
+
+## Control based on selected segments
+
+<Description of={Segments.MeasurementSystem} />
+
+<Canvas of={Segments.MeasurementSystem} sourceState="hidden" />
+
+<Controls of={Segments.MeasurementSystem} />
 
 ## With label
 
