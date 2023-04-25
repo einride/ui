@@ -7,6 +7,9 @@ interface NumberInputInputBaseProps extends ComponentPropsWithoutRef<"input"> {
   /** Rendered element. */
   as?: ElementType
 
+  /** Disables the input. */
+  disabled?: boolean
+
   /** Message shown below input field. Can be used together with `status` to show a success or error message. */
   message?: ReactNode
 

@@ -11,11 +11,11 @@ const meta = {
     as: {
       control: false,
     },
-    disabled: {
-      control: "boolean",
+    message: {
+      control: "text",
     },
     suffix: {
-      control: false,
+      control: "text",
     },
   },
 } satisfies Meta<typeof NumberInput>
@@ -27,12 +27,15 @@ export const Basic = {
   args: {
     label: "Label",
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
     const input = canvas.getByRole("textbox", { name: Basic.args.label })
-    await expect(input).toHaveValue("")
-    await expect(input).not.toHaveAccessibleDescription()
-    await expect(input).not.toHaveErrorMessage()
+
+    await step("Expect default state", async () => {
+      await expect(input).toHaveValue("")
+      await expect(input).not.toHaveAccessibleDescription()
+      await expect(input).not.toHaveErrorMessage()
+    })
   },
 } satisfies Story
 
@@ -42,12 +45,15 @@ export const WithoutLabel = {
     "aria-label": "Label",
     placeholder: "Placeholder",
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
     const input = canvas.getByRole("textbox", { name: WithoutLabel.args["aria-label"] })
-    await expect(input).toHaveValue("")
-    await expect(input).not.toHaveAccessibleDescription()
-    await expect(input).not.toHaveErrorMessage()
+
+    await step("Expect default state", async () => {
+      await expect(input).toHaveValue("")
+      await expect(input).not.toHaveAccessibleDescription()
+      await expect(input).not.toHaveErrorMessage()
+    })
   },
 } satisfies Story
 
@@ -57,10 +63,16 @@ export const ReadOnly = {
     value: "Readonly value",
     readOnly: true,
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
     const input = canvas.getByRole("textbox", { name: ReadOnly.args.label })
-    await expect(input).toHaveAttribute("readonly")
+
+    await step("Expect default state", async () => {
+      await expect(input).toHaveValue(ReadOnly.args.value)
+      await expect(input).not.toHaveAccessibleDescription()
+      await expect(input).not.toHaveErrorMessage()
+      await expect(input).toHaveAttribute("readonly")
+    })
   },
 } satisfies Story
 
@@ -69,12 +81,15 @@ export const DefaultValue = {
     ...Basic.args,
     defaultValue: "Default value",
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
     const input = canvas.getByRole("textbox", { name: DefaultValue.args.label })
-    await expect(input).toHaveValue(DefaultValue.args.defaultValue)
-    await expect(input).not.toHaveAccessibleDescription()
-    await expect(input).not.toHaveErrorMessage()
+
+    await step("Expect default state", async () => {
+      await expect(input).toHaveValue(DefaultValue.args.defaultValue)
+      await expect(input).not.toHaveAccessibleDescription()
+      await expect(input).not.toHaveErrorMessage()
+    })
   },
 } satisfies Story
 
@@ -88,12 +103,15 @@ export const Controlled = {
   args: {
     ...Basic.args,
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
     const input = canvas.getByRole("textbox", { name: Controlled.args.label })
-    await expect(input).toHaveValue("")
-    await expect(input).not.toHaveAccessibleDescription()
-    await expect(input).not.toHaveErrorMessage()
+
+    await step("Expect default state", async () => {
+      await expect(input).toHaveValue("")
+      await expect(input).not.toHaveAccessibleDescription()
+      await expect(input).not.toHaveErrorMessage()
+    })
   },
 } satisfies Story
 
@@ -103,26 +121,39 @@ export const Message = {
     ...Basic.args,
     message: "Message",
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
     const input = canvas.getByRole("textbox", { name: Message.args.label })
-    await expect(input).toHaveAccessibleDescription(Message.args.message)
-    await expect(input).not.toHaveErrorMessage()
+
+    await step("Expect default state", async () => {
+      await expect(input).toHaveValue("")
+      await expect(input).not.toHaveErrorMessage()
+    })
+
+    await step("Expect input to have accessible description based on `message`", async () => {
+      await expect(input).toHaveAccessibleDescription(Message.args.message)
+    })
   },
 } satisfies Story
 
-/** `message` and `status` can be used together to show either a success message or an error message. */
 export const SuccessMessage = {
   args: {
     ...Basic.args,
     message: "Success message",
     status: "success",
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
     const input = canvas.getByRole("textbox", { name: SuccessMessage.args.label })
-    await expect(input).toHaveAccessibleDescription(SuccessMessage.args.message)
-    await expect(input).not.toHaveErrorMessage()
+
+    await step("Expect default state", async () => {
+      await expect(input).toHaveValue("")
+      await expect(input).not.toHaveErrorMessage()
+    })
+
+    await step("Expect input to have accessible description based on `message`", async () => {
+      await expect(input).toHaveAccessibleDescription(SuccessMessage.args.message)
+    })
   },
 } satisfies Story
 
@@ -132,11 +163,18 @@ export const ErrorMessage = {
     message: "Error message",
     status: "fail",
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
     const input = canvas.getByRole("textbox", { name: ErrorMessage.args.label })
-    await expect(input).not.toHaveAccessibleDescription()
-    await expect(input).toHaveErrorMessage(ErrorMessage.args.message)
+
+    await step("Expect default state", async () => {
+      await expect(input).toHaveValue("")
+      await expect(input).not.toHaveAccessibleDescription()
+    })
+
+    await step("Expect input to have error message based on `message`", async () => {
+      await expect(input).toHaveErrorMessage(ErrorMessage.args.message)
+    })
   },
 } satisfies Story
 
@@ -152,8 +190,10 @@ export const Suffix = {
     const input = canvas.getByRole("textbox", { name: Suffix.args.label })
     const suffix = canvas.getByText(Suffix.args.suffix.props.children)
 
-    await step("Except no input value initially", async () => {
-      expect(input).toHaveValue("")
+    await step("Expect default state", async () => {
+      await expect(input).toHaveValue("")
+      await expect(input).not.toHaveAccessibleDescription()
+      await expect(input).not.toHaveErrorMessage()
     })
 
     await step("Expect suffix to show", async () => {
@@ -166,15 +206,28 @@ export const Keyboard = {
   args: {
     ...Basic.args,
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
     const input = canvas.getByRole("textbox", { name: Keyboard.args.label })
-    await expect(input).not.toHaveFocus()
-    await userEvent.tab()
-    await expect(input).toHaveFocus()
-    await expect(input).toHaveValue("")
-    await userEvent.keyboard("Just filling in a text input!")
-    await expect(input).toHaveValue("Just filling in a text input!")
+
+    await step("Expect default state", async () => {
+      await expect(input).toHaveValue("")
+      await expect(input).not.toHaveAccessibleDescription()
+      await expect(input).not.toHaveErrorMessage()
+    })
+
+    await step("Expect focus when tabbing", async () => {
+      await expect(input).not.toHaveFocus()
+      await userEvent.tab()
+      await expect(input).toHaveFocus()
+    })
+
+    await step("Expect value to change when typing", async () => {
+      await expect(input).toHaveValue("")
+      const text = "Just filling in a text input!"
+      await userEvent.keyboard(text)
+      await expect(input).toHaveValue(text)
+    })
   },
 } satisfies Story
 
