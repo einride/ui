@@ -1,27 +1,27 @@
 import styled from "@emotion/styled"
-import * as Tabs from "@radix-ui/react-tabs"
+import * as RadioGroup from "@radix-ui/react-radio-group"
 import { ReactNode, forwardRef } from "react"
 
-export interface SegmentsTriggerProps {
+export interface SegmentsItemProps {
   /** Content of the segment trigger. */
   children: ReactNode
 
-  /** A unique value that associates the trigger with a content. */
+  /** The value given as data when submitted with a name. */
   value: string
 }
 
 /** Radio button. */
-export const SegmentsTrigger = forwardRef<HTMLButtonElement, SegmentsTriggerProps>(
+export const SegmentsItem = forwardRef<HTMLButtonElement, SegmentsItemProps>(
   ({ children, value }, ref) => {
     return (
-      <Trigger value={value} ref={ref}>
+      <Item value={value} ref={ref}>
         {children}
-      </Trigger>
+      </Item>
     )
   },
 )
 
-const Trigger = styled(Tabs.Trigger)`
+const Item = styled(RadioGroup.Item)`
   padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem;
   padding-block: ${({ theme }) => 1.5 * theme.spacingBase}rem;
   border-radius: ${({ theme }) => theme.borderRadii.full};
@@ -31,7 +31,7 @@ const Trigger = styled(Tabs.Trigger)`
     background: ${({ theme }) => theme.colors.background.tertiaryElevated};
   }
 
-  &[aria-selected="true"] {
+  &[aria-checked="true"] {
     background: ${({ theme }) => theme.colors.background.positive};
     color: ${({ theme }) => theme.colors.content.primaryInverted};
   }

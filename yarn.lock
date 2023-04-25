@@ -2101,6 +2101,7 @@ __metadata:
     "@radix-ui/react-alert-dialog": 1.0.3
     "@radix-ui/react-dialog": 1.0.3
     "@radix-ui/react-dropdown-menu": 2.0.4
+    "@radix-ui/react-radio-group": 1.1.2
     "@radix-ui/react-slider": 1.1.1
     "@radix-ui/react-switch": 1.0.2
     "@radix-ui/react-tabs": 1.0.3
@@ -3580,6 +3581,28 @@ __metadata:
     react: ^16.8 || ^17.0 || ^18.0
     react-dom: ^16.8 || ^17.0 || ^18.0
   checksum: 070b1770749eb629425ef959c4cdbd86957b83c5286ae4423e55ab1a89fa286a51f5aeee44e3a13eb6ca44771415ac1acbaeb0ba03013b49ecb5253e1a5a8996
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-radio-group@npm:1.1.2":
+  version: 1.1.2
+  resolution: "@radix-ui/react-radio-group@npm:1.1.2"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/primitive": 1.0.0
+    "@radix-ui/react-compose-refs": 1.0.0
+    "@radix-ui/react-context": 1.0.0
+    "@radix-ui/react-direction": 1.0.0
+    "@radix-ui/react-presence": 1.0.0
+    "@radix-ui/react-primitive": 1.0.2
+    "@radix-ui/react-roving-focus": 1.0.3
+    "@radix-ui/react-use-controllable-state": 1.0.0
+    "@radix-ui/react-use-previous": 1.0.0
+    "@radix-ui/react-use-size": 1.0.0
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: fd264cd9e25b5ca4d20f6949ab7361305745637ea609e6bc46f604ebc39800b7ca41d214459ee751cb7dcb4d2c15abd2578153ae76ab84147515db0d313b7281
   languageName: node
   linkType: hard
 
