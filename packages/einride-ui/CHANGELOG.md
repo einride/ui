@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.54.0
+
+### Minor Changes
+
+- 044fecb2: Box: Add `alignSelf` prop.
+
 ## 7.53.0
 
 ### Minor Changes
