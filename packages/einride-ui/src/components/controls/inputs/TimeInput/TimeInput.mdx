@@ -31,3 +31,39 @@ import { TimeInput } from "@einride/ui"
 <Canvas of={TimeInput.Basic} />
 
 <Controls of={TimeInput.Basic} />
+
+## Without label
+
+<Description of={TimeInput.WithoutLabel} />
+
+<Canvas of={TimeInput.WithoutLabel} />
+
+<Controls of={TimeInput.WithoutLabel} include={["aria-label"]} />
+
+## Range
+
+<Description of={TimeInput.Range} />
+
+<Canvas of={TimeInput.Range} sourceState="hidden" />
+
+## Message
+
+<Description of={TimeInput.Message} />
+
+<Canvas of={TimeInput.Message} />
+
+<Controls of={TimeInput.Message} include={["message"]} />
+
+## Status message
+
+<Description of={TimeInput.SuccessMessage} />
+
+<Canvas of={TimeInput.SuccessMessage} />
+
+<Controls of={TimeInput.SuccessMessage} include={["message", "status"]} />
+
+## Accessibility
+
+A descriptive `label` or `aria-label` is required to make sure the input has an accessible name.
+
+Prefer a visible label when possible.

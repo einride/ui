@@ -3,15 +3,16 @@ import { Meta, StoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { ComponentProps, useState } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
-import { HorizontalLayout } from "../../../layout/HorizontalLayout/HorizontalLayout"
+import { Box } from "../../../layout/Box/Box"
+import { Group } from "../../../layout/Group/Group"
 import { TimeInput } from "./TimeInput"
 import { useRangeTimeInput } from "./useRangeTimeInput"
 
 const meta = {
   component: TimeInput,
   argTypes: {
-    disabled: {
-      control: "boolean",
+    message: {
+      control: "text",
     },
   },
 } satisfies Meta<typeof TimeInput>
@@ -23,41 +24,51 @@ export const Basic = {
   args: {
     label: "Label",
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByLabelText("Label")
+    const input = canvas.getByLabelText(Basic.args.label) // <input type="time" /> has not corresponding aria role: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time#technical_summary
 
-    await expect(input).toHaveAttribute("type", "time")
-    await expect(input).toHaveValue("")
-    await expect(input).not.toHaveAccessibleDescription()
-    await expect(input).not.toHaveErrorMessage()
+    await step("Expect default state", async () => {
+      await expect(input).toHaveValue("")
+      await expect(input).not.toHaveAccessibleDescription()
+      await expect(input).not.toHaveErrorMessage()
+    })
   },
 } satisfies Story
 
+/** If you for some reason can't show a visible label, a descriptive `aria-label` is required. Prefer using `label` when possible! */
 export const WithoutLabel = {
   args: {
     "aria-label": "Label",
-    placeholder: "Placeholder",
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByLabelText("Label")
-    await expect(input).toHaveValue("")
-    await expect(input).not.toHaveAccessibleDescription()
-    await expect(input).not.toHaveErrorMessage()
+    const input = canvas.getByLabelText(WithoutLabel.args["aria-label"])
+
+    await step("Expect default state", async () => {
+      await expect(input).toHaveValue("")
+      await expect(input).not.toHaveAccessibleDescription()
+      await expect(input).not.toHaveErrorMessage()
+    })
   },
 } satisfies Story
 
 export const ReadOnly = {
   args: {
-    label: "Label",
+    ...Basic.args,
     value: "12:30",
     readOnly: true,
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByLabelText("Label")
-    await expect(input).toHaveAttribute("readonly")
+    const input = canvas.getByLabelText(ReadOnly.args.label)
+
+    await step("Expect default state", async () => {
+      await expect(input).toHaveValue(ReadOnly.args.value)
+      await expect(input).not.toHaveAccessibleDescription()
+      await expect(input).not.toHaveErrorMessage()
+      await expect(input).toHaveAttribute("readonly")
+    })
   },
 } satisfies Story
 
@@ -66,12 +77,15 @@ export const DefaultValue = {
     ...Basic.args,
     defaultValue: "09:45",
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
     const input = canvas.getByLabelText("Label")
-    await expect(input).toHaveValue("09:45")
-    await expect(input).not.toHaveAccessibleDescription()
-    await expect(input).not.toHaveErrorMessage()
+
+    await step("Expect default state", async () => {
+      await expect(input).toHaveValue(DefaultValue.args.defaultValue)
+      await expect(input).not.toHaveAccessibleDescription()
+      await expect(input).not.toHaveErrorMessage()
+    })
   },
 } satisfies Story
 
@@ -85,12 +99,15 @@ export const Controlled = {
   args: {
     ...Basic.args,
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByLabelText("Label")
-    await expect(input).toHaveValue("")
-    await expect(input).not.toHaveAccessibleDescription()
-    await expect(input).not.toHaveErrorMessage()
+    const input = canvas.getByLabelText(Controlled.args.label)
+
+    await step("Expect default state", async () => {
+      await expect(input).toHaveValue("")
+      await expect(input).not.toHaveAccessibleDescription()
+      await expect(input).not.toHaveErrorMessage()
+    })
   },
 } satisfies Story
 
@@ -98,81 +115,86 @@ const RangeTemplate = (): JSX.Element => {
   const { valueFrom, onChangeFrom, valueTo, onChangeTo, minTo, maxFrom, status } =
     useRangeTimeInput()
   return (
-    <HorizontalLayout>
-      <TimeInput label="from" name="from" max={maxFrom} onChange={onChangeFrom} value={valueFrom} />
-      <span
-        style={{
-          alignSelf: "flex-end",
-          lineHeight: "3rem",
-        }}
-      >
+    <Group gap="xs">
+      <TimeInput label="From" max={maxFrom} onChange={onChangeFrom} value={valueFrom} />
+      <Box as="span" alignSelf="flex-end" blockSize="lg" display="flex" alignItems="center">
         &ndash;
-      </span>
-      <TimeInput
-        status={status}
-        label="to"
-        name="to"
-        min={minTo}
-        onChange={onChangeTo}
-        value={valueTo}
-      />
-    </HorizontalLayout>
+      </Box>
+      <TimeInput status={status} label="To" min={minTo} onChange={onChangeTo} value={valueTo} />
+    </Group>
   )
 }
 
+/** If you need a start and end time, you can use two `<TimeInput>` and associate them with `useRangeTimeInput()`. */
 export const Range = {
   render: () => <RangeTemplate />,
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
-    const inputFrom = canvas.getByLabelText("from")
-    await expect(inputFrom).toHaveValue("")
-    await expect(inputFrom).not.toHaveAccessibleDescription()
-    await expect(inputFrom).not.toHaveErrorMessage()
-    const inputTo = canvas.getByLabelText("to")
-    await expect(inputTo).toHaveValue("")
-    await expect(inputTo).not.toHaveAccessibleDescription()
-    await expect(inputTo).not.toHaveErrorMessage()
+    const inputFrom = canvas.getByLabelText("From")
+    const inputTo = canvas.getByLabelText("To")
+
+    await step("Expect default state", async () => {
+      await expect(inputFrom).toHaveValue("")
+      await expect(inputFrom).not.toHaveAccessibleDescription()
+      await expect(inputFrom).not.toHaveErrorMessage()
+      await expect(inputTo).toHaveValue("")
+      await expect(inputTo).not.toHaveAccessibleDescription()
+      await expect(inputTo).not.toHaveErrorMessage()
+    })
   },
 } satisfies StoryObj
 
+/** A message can be provided with the `message` prop. Can be used for giving some context for the input field. */
 export const Message = {
   args: {
     ...Basic.args,
-    message: "Message.",
+    message: "Message",
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByLabelText("Label")
-    await expect(input).toHaveAccessibleDescription("Message.")
-    await expect(input).not.toHaveErrorMessage()
+    const input = canvas.getByLabelText(Message.args.label)
+
+    await step("Expect default state", async () => {
+      await expect(input).toHaveValue("")
+      await expect(input).toHaveAccessibleDescription(Message.args.message)
+      await expect(input).not.toHaveErrorMessage()
+    })
   },
 } satisfies Story
 
 export const SuccessMessage = {
   args: {
     ...Basic.args,
-    message: "Success message.",
+    message: "Success message",
     status: "success",
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByLabelText("Label")
-    await expect(input).toHaveAccessibleDescription("Success message.")
-    await expect(input).not.toHaveErrorMessage()
+    const input = canvas.getByLabelText(SuccessMessage.args.label)
+
+    await step("Expect default state", async () => {
+      await expect(input).toHaveValue("")
+      await expect(input).toHaveAccessibleDescription(SuccessMessage.args.message)
+      await expect(input).not.toHaveErrorMessage()
+    })
   },
 } satisfies Story
 
 export const ErrorMessage = {
   args: {
     ...Basic.args,
-    message: "Error message.",
+    message: "Error message",
     status: "fail",
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByLabelText("Label")
-    await expect(input).not.toHaveAccessibleDescription()
-    await expect(input).toHaveErrorMessage("Error message.")
+    const input = canvas.getByLabelText(ErrorMessage.args.label)
+
+    await step("Expect default state", async () => {
+      await expect(input).toHaveValue("")
+      await expect(input).not.toHaveAccessibleDescription()
+      await expect(input).toHaveErrorMessage(ErrorMessage.args.message)
+    })
   },
 } satisfies Story
 
@@ -180,15 +202,27 @@ export const Keyboard = {
   args: {
     ...Basic.args,
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByLabelText("Label")
-    await expect(input).not.toHaveFocus()
-    await userEvent.tab()
-    await expect(input).toHaveFocus()
-    await expect(input).toHaveValue("")
-    await userEvent.keyboard("2015")
-    await expect(input).toHaveValue("20:15")
+    const input = canvas.getByLabelText(Keyboard.args.label)
+
+    await step("Expect default state", async () => {
+      await expect(input).toHaveValue("")
+      await expect(input).not.toHaveAccessibleDescription()
+      await expect(input).not.toHaveErrorMessage()
+    })
+
+    await step("Expect focus when tabbing", async () => {
+      await expect(input).not.toHaveFocus()
+      await userEvent.tab()
+      await expect(input).toHaveFocus()
+    })
+
+    await step("Expect value to change when typing", async () => {
+      await expect(input).toHaveValue("")
+      await userEvent.keyboard("2015")
+      await expect(input).toHaveValue("20:15")
+    })
   },
 } satisfies Story
 
