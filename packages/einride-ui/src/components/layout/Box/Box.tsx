@@ -10,6 +10,7 @@ import {
 } from "../../../lib/theme/prop-system"
 import {
   AlignItems,
+  AlignSelf,
   As,
   Background,
   BlockSize,
@@ -56,6 +57,9 @@ import {
 export interface BoxProps extends Omit<ComponentPropsWithoutRef<"div">, "color"> {
   /** `align-items` CSS property. */
   alignItems?: AlignItems
+
+  /** `align-self` CSS property. */
+  alignSelf?: AlignSelf
 
   /** Effective element used. Default is `div`. */
   as?: As
@@ -187,6 +191,7 @@ export const Box = forwardRef<HTMLDivElement, BoxProps>(({ color, ...props }, fo
 
 interface WrapperProps {
   alignItems?: AlignItems
+  alignSelf?: AlignSelf
   background?: Background
   blockSize?: BlockSize
   borderRadius?: BorderRadius
@@ -235,6 +240,7 @@ const Wrapper = styled("div", {
   shouldForwardProp: (prop) => isPropValid(prop) && !validPropsToAvoidForwarding.includes(prop),
 })<WrapperProps>`
   align-items: ${({ alignItems }) => alignItems};
+  align-self: ${({ alignSelf }) => alignSelf};
   background: ${({ background, theme }) => background && getBackground(background, theme)};
   block-size: ${({ blockSize, theme }) => blockSize && getSpacing(blockSize, theme)};
   border-radius: ${({ borderRadius, theme }) =>

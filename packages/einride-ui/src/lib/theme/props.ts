@@ -12,6 +12,7 @@ import {
 export type SpacingInput = Spacing | Omit<string, Spacing> | number
 
 export type AlignItems = CSSProperties["alignItems"]
+export type AlignSelf = CSSProperties["alignSelf"]
 export type As = ElementType
 export type Background = BackgroundColor | Omit<string, BackgroundColor>
 export type BlockSize = SpacingInput
