@@ -2058,7 +2058,7 @@ __metadata:
     "@storybook/addon-essentials": 7.0.7
     "@storybook/addon-interactions": 7.0.7
     "@storybook/addon-links": 7.0.7
-    "@storybook/addon-styling": 1.0.2
+    "@storybook/addon-styling": 1.0.3
     "@storybook/addons": 7.0.7
     "@storybook/jest": 0.1.0
     "@storybook/node-logger": 7.0.7
@@ -4317,9 +4317,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-styling@npm:1.0.2":
-  version: 1.0.2
-  resolution: "@storybook/addon-styling@npm:1.0.2"
+"@storybook/addon-styling@npm:1.0.3":
+  version: 1.0.3
+  resolution: "@storybook/addon-styling@npm:1.0.3"
   dependencies:
     "@storybook/api": ^7.0.2
     "@storybook/components": ^7.0.2
@@ -4343,7 +4343,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 4fc513462da95de0a89c530763a08248e971fb26191c2a94486c3611d889d959d4337c9608b01cf8336acf03bb6f2a4fcce286b6d6fe6f1399aaf2b3514235d8
+  checksum: 5b1cd67fc7749e64db321ddce4da6d6e7eda2ea5757542694ea16db25411c847b82e805e0d3e28bea1725f3433add758586e18cd49fc9a3b8d39a8513521466c
   languageName: node
   linkType: hard
 
