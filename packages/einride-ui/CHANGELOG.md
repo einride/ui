@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.55.0
+
+### Minor Changes
+
+- dba167f9: Option: Enable passing children flexibly without disturbance from icon prop.
+
 ## 7.54.0
 
 ### Minor Changes
