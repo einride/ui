@@ -41,10 +41,13 @@ export const Basic = {
     alt: "Astronaut walking on the moon",
     src: "https://source.unsplash.com/e5eDHbmHprg/250x250",
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
-    const avatar = canvas.getByRole("img", { name: Basic.args.alt })
-    expect(avatar).toBeInTheDocument()
+
+    await step("Expect image to show", async () => {
+      const avatar = canvas.getByRole("img", { name: Basic.args.alt })
+      expect(avatar).toBeInTheDocument()
+    })
   },
 } satisfies Story
 
@@ -54,10 +57,13 @@ export const Square = {
     ...Basic.args,
     radius: "sm",
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
-    const avatar = canvas.getByRole("img", { name: Square.args.alt })
-    expect(avatar).toBeInTheDocument()
+
+    await step("Expect image to show", async () => {
+      const avatar = canvas.getByRole("img", { name: Square.args.alt })
+      expect(avatar).toBeInTheDocument()
+    })
   },
 } satisfies Story
 
@@ -67,10 +73,13 @@ export const Small = {
     ...Basic.args,
     size: "sm",
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
-    const avatar = canvas.getByRole("img", { name: Small.args.alt })
-    expect(avatar).toBeInTheDocument()
+
+    await step("Expect image to show", async () => {
+      const avatar = canvas.getByRole("img", { name: Small.args.alt })
+      expect(avatar).toBeInTheDocument()
+    })
   },
 } satisfies Story
 
@@ -79,10 +88,13 @@ export const Initials = {
   args: {
     name: "Filip Tammergård",
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
-    const initials = canvas.getByText(getInitials(Initials.args.name) ?? "")
-    expect(initials).toBeInTheDocument()
+
+    await step("Expect initials to show", async () => {
+      const initials = canvas.getByText(getInitials(Initials.args.name))
+      expect(initials).toBeInTheDocument()
+    })
   },
 } satisfies Story
 
@@ -93,10 +105,13 @@ export const CustomColors = {
     color: "primaryInverted",
     background: "primaryInverted",
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
-    const initials = canvas.getByText(getInitials(Initials.args.name) ?? "")
-    expect(initials).toBeInTheDocument()
+
+    await step("Expect initials to show", async () => {
+      const initials = canvas.getByText(getInitials(Initials.args.name))
+      expect(initials).toBeInTheDocument()
+    })
   },
 } satisfies Story
 
