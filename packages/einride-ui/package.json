@@ -44,7 +44,7 @@
     "react-dom": "18.2.0",
     "rollup": "3.21.0",
     "typescript": "5.0.4",
-    "vite": "4.3.2"
+    "vite": "4.3.3"
   },
   "peerDependencies": {
     "@emotion/react": "^11.4.1",
