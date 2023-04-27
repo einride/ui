@@ -232,7 +232,7 @@ export const SearchSelect = <Option extends BaseOption>({
         <OptionsWrapper role="listbox" aria-labelledby={id} {...dropdownProps} ref={scrollableRef}>
           {filteredOptions?.map((option, index) => (
             <Option
-              focused={index === selectedIndex}
+              data-focused={index === selectedIndex}
               key={option.key ?? option.value}
               variant="secondary"
               onClick={(e) => {

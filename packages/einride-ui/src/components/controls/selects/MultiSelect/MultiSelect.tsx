@@ -14,6 +14,7 @@ import {
 } from "react"
 import { useScrollIntoView } from "../../../../hooks/useScrollIntoView"
 import { zIndex } from "../../../../lib/zIndex"
+import { Icon } from "../../../content/Icon/Icon"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 import { Option } from "../../../menus/Option/Option"
 
@@ -261,7 +262,7 @@ export const MultiSelect = <Option extends BaseOption>({
           {filteredOptions?.map((option, index) => (
             <Option
               key={option.value}
-              focused={index === highlightedDropdownIndex}
+              data-focused={index === highlightedDropdownIndex}
               onClick={(e) => {
                 e.stopPropagation()
                 handleOptionSelect(option)
@@ -272,13 +273,13 @@ export const MultiSelect = <Option extends BaseOption>({
               ref={(node: HTMLDivElement) => {
                 optionRefs.current[option.value] = node
               }}
-              selected={!!selectedOptions?.includes(option)}
               aria-selected={!!selectedOptions?.includes(option)}
               role="option"
               variant="secondary"
               {...optionProps}
             >
               {option.label}
+              {!!selectedOptions?.includes(option) && <Icon name="checkmark" />}
             </Option>
           ))}
         </OptionsWrapper>
