@@ -2116,7 +2116,7 @@ __metadata:
     "@types/react": 18.2.0
     "@types/react-dom": 18.2.1
     "@vitejs/plugin-react": 4.0.0
-    chromatic: 6.17.3
+    chromatic: 6.17.4
     concurrently: 8.0.1
     dayjs: 1.11.7
     framer-motion: 10.12.7
@@ -7693,18 +7693,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:6.17.3":
-  version: 6.17.3
-  resolution: "chromatic@npm:6.17.3"
+"chromatic@npm:6.17.4":
+  version: 6.17.4
+  resolution: "chromatic@npm:6.17.4"
   dependencies:
     "@discoveryjs/json-ext": ^0.5.7
     "@types/webpack-env": ^1.17.0
-    snyk-nodejs-lockfile-parser: ^1.47.4
+    snyk-nodejs-lockfile-parser: ^1.49.0
   bin:
     chroma: bin/main.cjs
     chromatic: bin/main.cjs
     chromatic-cli: bin/main.cjs
-  checksum: 4ac84633a15993302c1d82a49d76adb7622f79c76ed2282960816a99f82263c115ffb4a7c86d61047f07b5d4d252515a3433481732b0e87af4be6c33e29f381f
+  checksum: d49ebcc17f2f3010e95d06b5084b7802d293a4ad3cd571dc5b744f5e90763a19b643729fc3dcfe86beb44b6f542800378c7a4c1478b963d3adbdc58a1bfa9988
   languageName: node
   linkType: hard
 
@@ -15638,9 +15638,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"snyk-nodejs-lockfile-parser@npm:^1.47.4":
-  version: 1.48.2
-  resolution: "snyk-nodejs-lockfile-parser@npm:1.48.2"
+"snyk-nodejs-lockfile-parser@npm:^1.49.0":
+  version: 1.49.0
+  resolution: "snyk-nodejs-lockfile-parser@npm:1.49.0"
   dependencies:
     "@snyk/dep-graph": ^2.3.0
     "@snyk/graphlib": 2.1.9-patch.3
@@ -15653,13 +15653,14 @@ __metadata:
     lodash.isempty: ^4.4.0
     lodash.topairs: ^4.3.0
     micromatch: ^4.0.5
+    p-map: ^4.0.0
     semver: ^7.3.5
     snyk-config: ^5.0.0
     tslib: ^1.9.3
     uuid: ^8.3.0
   bin:
     parse-nodejs-lockfile: bin/index.js
-  checksum: bae0606d2c39f66c953c36d32c727a56aedabe8f6a81dfa0c2cee057ad86e27d0c7764f3a1cee247cc0903b3d63bcab3aadd6f98ec0758a08fe5f69275394196
+  checksum: 8e41273dccc71fadde6923723abe61714a199a54f11de98c82bd0ed0bbf5fa749ca9b85372d52f4d30d27feecbb58c6f739bcc71ef02bb4d374823b2a41a75c4
   languageName: node
   linkType: hard
 
