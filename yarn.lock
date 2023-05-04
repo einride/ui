@@ -2113,7 +2113,7 @@ __metadata:
     "@storybook/testing-library": 0.1.0
     "@types/lodash.merge": 4.6.7
     "@types/luxon": 3.3.0
-    "@types/react": 18.2.0
+    "@types/react": 18.2.3
     "@types/react-dom": 18.2.1
     "@vitejs/plugin-react": 4.0.0
     chromatic: 6.17.4
@@ -6018,14 +6018,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.0":
-  version: 18.2.0
-  resolution: "@types/react@npm:18.2.0"
+"@types/react@npm:18.2.3":
+  version: 18.2.3
+  resolution: "@types/react@npm:18.2.3"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: db3d92b423150222a666329f7aa3023e3e942044700557b8a7d161530847e621aec9f56c9e7f71761b06dd164c8a7b17ad52355863efe80963dffa5537e8e5fd
+  checksum: 697e5b5a84a9a586e6e5aef01897677efcd4c5586d324e7c2a6219e0ac9dc8e1663e7ced0bdb576cc7f367ebc004cbf576eb142c9dc196b17062843ce1004011
   languageName: node
   linkType: hard
 
