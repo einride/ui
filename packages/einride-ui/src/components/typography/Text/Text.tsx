@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import { ElementType, forwardRef, HTMLAttributes } from "react"
 import { getColor, getFont } from "../../../lib/theme/prop-system"
-import { As, Color, FontFamily, FontWeight } from "../../../lib/theme/props"
+import { As, Color, FontFamily, FontWeight, TextDecoration } from "../../../lib/theme/props"
 import { Theme } from "../../../lib/theme/types"
 
 export interface TextProps extends Omit<HTMLAttributes<HTMLParagraphElement>, "color"> {
@@ -13,6 +13,9 @@ export interface TextProps extends Omit<HTMLAttributes<HTMLParagraphElement>, "c
 
   /** Text font. */
   font?: FontFamily
+
+  /** `text-decoration` CSS property. */
+  textDecoration?: TextDecoration
 
   /** Text variant. */
   variant?: Variant
@@ -38,6 +41,7 @@ interface StyledTextProps {
   font?: FontFamily
   textColor: Color | undefined
   variant?: Variant
+  textDecoration?: TextDecoration
   weight?: FontWeight
 }
 
@@ -48,6 +52,7 @@ const StyledText = styled.p<StyledTextProps>`
   font-weight: ${({ theme, variant, weight }) => getFontWeight(theme, variant, weight)};
   line-height: ${({ variant }) => getLineHeight(variant)};
   padding-block: ${({ variant }) => getPaddingBlock(variant)};
+  text-decoration: ${({ textDecoration }) => textDecoration};
 `
 
 const getAs = (variant?: Variant): ElementType => {
