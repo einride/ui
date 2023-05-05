@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.56.2
+
+### Patch Changes
+
+- cb7fbf0c: Text: Add `textDecoration` prop.
+
 ## 7.56.1
 
 ### Patch Changes
