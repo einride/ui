@@ -31,9 +31,11 @@ import {
   InsetInlineStart,
   JustifyContent,
   Margin,
+  MarginBlock,
   MarginBlockEnd,
   MarginBlockStart,
   MarginBottom,
+  MarginInline,
   MarginInlineEnd,
   MarginInlineStart,
   MarginLeft,
@@ -121,6 +123,9 @@ export interface BoxProps extends Omit<ComponentPropsWithoutRef<"div">, "color">
   /** Margin of the box. */
   margin?: Margin
 
+  /** Block margin of the box. */
+  marginBlock?: MarginBlock
+
   /** Block end margin of the box. */
   marginBlockEnd?: MarginBlockEnd
 
@@ -129,6 +134,9 @@ export interface BoxProps extends Omit<ComponentPropsWithoutRef<"div">, "color">
 
   /** Bottom margin of the box. */
   marginBottom?: MarginBottom
+
+  /** Inline margin of the box. */
+  marginInline?: MarginInline
 
   /** Inline end margin of the box. */
   marginInlineEnd?: MarginInlineEnd
@@ -210,9 +218,11 @@ interface WrapperProps {
   insetInlineStart?: InsetInlineStart
   justifyContent?: JustifyContent
   margin?: Margin
+  marginBlock?: MarginBlock
   marginBlockEnd?: MarginBlockEnd
   marginBlockStart?: MarginBlockStart
   marginBottom?: MarginBottom
+  marginInline?: MarginInline
   marginInlineEnd?: MarginInlineEnd
   marginInlineStart?: MarginInlineStart
   marginLeft?: MarginLeft
@@ -265,11 +275,14 @@ const Wrapper = styled("div", {
     insetInlineStart && getSpacing(insetInlineStart, theme)};
   justify-content: ${({ justifyContent }) => justifyContent};
   margin: ${({ margin, theme }) => margin && getSpacing(margin, theme)};
+  margin-block: ${({ marginBlock, theme }) => marginBlock && getSpacing(marginBlock, theme)};
   margin-block-end: ${({ marginBlockEnd, theme }) =>
     marginBlockEnd && getSpacing(marginBlockEnd, theme)};
   margin-block-start: ${({ marginBlockStart, theme }) =>
     marginBlockStart && getSpacing(marginBlockStart, theme)};
   margin-bottom: ${({ marginBottom, theme }) => marginBottom && getSpacing(marginBottom, theme)};
+  margin-inline-end: ${({ marginInline, theme }) =>
+    marginInline && getSpacing(marginInline, theme)};
   margin-inline-end: ${({ marginInlineEnd, theme }) =>
     marginInlineEnd && getSpacing(marginInlineEnd, theme)};
   margin-inline-start: ${({ marginInlineStart, theme }) =>
