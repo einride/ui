@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.56.0
+
+### Minor Changes
+
+- 05f1c15f: Box: Add margin-block and margin-inline props.
+
 ## 7.55.1
 
 ### Patch Changes
