@@ -281,8 +281,7 @@ const Wrapper = styled("div", {
   margin-block-start: ${({ marginBlockStart, theme }) =>
     marginBlockStart && getSpacing(marginBlockStart, theme)};
   margin-bottom: ${({ marginBottom, theme }) => marginBottom && getSpacing(marginBottom, theme)};
-  margin-inline-end: ${({ marginInline, theme }) =>
-    marginInline && getSpacing(marginInline, theme)};
+  margin-inline: ${({ marginInline, theme }) => marginInline && getSpacing(marginInline, theme)};
   margin-inline-end: ${({ marginInlineEnd, theme }) =>
     marginInlineEnd && getSpacing(marginInlineEnd, theme)};
   margin-inline-start: ${({ marginInlineStart, theme }) =>

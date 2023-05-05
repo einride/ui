@@ -13,6 +13,7 @@ export const Basic = {
     background: "tertiary",
     borderRadius: "lg",
     height: 10,
+    marginInline: "sm",
     width: 10,
   },
 } satisfies Story
