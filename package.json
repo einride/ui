@@ -25,7 +25,7 @@
   "devDependencies": {
     "@changesets/cli": "2.26.1",
     "@commitlint/cli": "17.6.3",
-    "@commitlint/config-conventional": "17.6.1",
+    "@commitlint/config-conventional": "17.6.3",
     "@einride/eslint-plugin": "6.26.1",
     "@einride/prettier-config": "2.0.1",
     "@einride/tsconfig": "2.0.1",
