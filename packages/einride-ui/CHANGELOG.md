@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.56.1
+
+### Patch Changes
+
+- b27bd459: Box: Set margin-inline correctly.
+
 ## 7.56.0
 
 ### Minor Changes
