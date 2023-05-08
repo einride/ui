@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@emotion/react": "11.10.8",
-    "@emotion/styled": "11.10.8",
+    "@emotion/styled": "11.11.0",
     "@faker-js/faker": "7.6.0",
     "@rollup/plugin-image": "3.0.2",
     "@rollup/plugin-typescript": "11.1.0",
