@@ -18,7 +18,7 @@ export interface TableSkeletonProps {
 }
 
 /** A utilify component for generating table skeletons. */
-export const TableSkeleton = ({ columns, rows, thead }: TableSkeletonProps): JSX.Element => {
+export const TableSkeleton = ({ columns, rows, thead }: TableSkeletonProps): React.JSX.Element => {
   return (
     <Table>
       {thead ?? (

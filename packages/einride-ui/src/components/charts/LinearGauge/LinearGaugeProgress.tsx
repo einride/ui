@@ -22,7 +22,7 @@ export const LinearGaugeProgress = ({
   percentage,
   responsiveRadius,
   strokeWidth,
-}: LinearGaugeProgressProps): JSX.Element => {
+}: LinearGaugeProgressProps): React.JSX.Element => {
   return (
     <>
       <BackgroundCircle

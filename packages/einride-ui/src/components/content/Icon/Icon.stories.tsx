@@ -21,7 +21,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const AllIcons = (): JSX.Element => {
+const AllIcons = (): React.JSX.Element => {
   return (
     <Wrapper>
       {iconNames.map((iconName) => (

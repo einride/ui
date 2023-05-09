@@ -66,7 +66,7 @@ export const ButtonTrigger = {
   },
 } satisfies Story
 
-const TableTemplate = (): JSX.Element => (
+const TableTemplate = (): React.JSX.Element => (
   <TableComponent>
     <Thead>
       <Tr color="secondary">

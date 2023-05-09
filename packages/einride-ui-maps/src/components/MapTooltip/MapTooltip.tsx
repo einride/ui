@@ -12,7 +12,7 @@ export interface MapTooltipProps {
   position: Coordinate
 }
 
-export const MapTooltip = ({ children, position }: MapTooltipProps): JSX.Element | null => {
+export const MapTooltip = ({ children, position }: MapTooltipProps): React.JSX.Element | null => {
   if (!position.lng || !position.lat) {
     return null
   }

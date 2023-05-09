@@ -49,7 +49,7 @@ export const Tooltip = ({
   openDelayDuration = 0,
   triggerAsChild,
   ...props
-}: TooltipProps): JSX.Element => {
+}: TooltipProps): React.JSX.Element => {
   const theme = useTheme()
   if (disabled) return <>{children}</>
   return (

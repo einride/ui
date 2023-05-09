@@ -17,7 +17,7 @@ interface NavbarProps {
 
 export const Navbar = ({
   actions = <PrimaryButton>Invite</PrimaryButton>,
-}: NavbarProps): JSX.Element => (
+}: NavbarProps): React.JSX.Element => (
   <Group as="nav" justifyContent="space-between" paddingBlock={3}>
     <Group alignItems="center" gap="sm">
       <IconButton aria-label="Navigate back" icon="arrowLeft" />

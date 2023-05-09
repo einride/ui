@@ -15,6 +15,6 @@ export interface TabsProps {
   value?: string
 }
 
-export const Tabs = ({ children, ...props }: TabsProps): JSX.Element => {
+export const Tabs = ({ children, ...props }: TabsProps): React.JSX.Element => {
   return <RadixTabs.Root {...props}>{children}</RadixTabs.Root>
 }

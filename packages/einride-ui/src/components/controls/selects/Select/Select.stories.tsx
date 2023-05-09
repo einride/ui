@@ -49,7 +49,7 @@ export const DefaultValue = {
   },
 } satisfies Story
 
-const ControlledTemplate = (args: ComponentProps<typeof Select>): JSX.Element => {
+const ControlledTemplate = (args: ComponentProps<typeof Select>): React.JSX.Element => {
   const [value, setValue] = useState("")
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>): void => {

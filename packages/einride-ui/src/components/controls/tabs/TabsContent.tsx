@@ -10,7 +10,7 @@ interface TabsContentProps {
   value: string
 }
 
-export const TabsContent = ({ children, ...props }: TabsContentProps): JSX.Element => {
+export const TabsContent = ({ children, ...props }: TabsContentProps): React.JSX.Element => {
   return <StyledTabsContent {...props}>{children}</StyledTabsContent>
 }
 

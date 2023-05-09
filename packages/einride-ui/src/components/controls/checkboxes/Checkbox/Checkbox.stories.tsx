@@ -46,7 +46,7 @@ export const DefaultChecked = {
   },
 } satisfies Story
 
-const ControlledTemplate = (args: ComponentProps<typeof Checkbox>): JSX.Element => {
+const ControlledTemplate = (args: ComponentProps<typeof Checkbox>): React.JSX.Element => {
   const [checked, setChecked] = useState(false)
   return <Checkbox {...args} checked={checked} onCheckedChange={setChecked} />
 }
@@ -98,7 +98,7 @@ export const Keyboard = {
   },
 } satisfies Story
 
-const GroupTemplate = (): JSX.Element => {
+const GroupTemplate = (): React.JSX.Element => {
   return (
     <>
       <Checkbox name="name">Label 1</Checkbox>

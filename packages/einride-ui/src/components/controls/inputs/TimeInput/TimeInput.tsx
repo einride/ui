@@ -55,7 +55,7 @@ export const TimeInput = forwardRef<HTMLInputElement, TimeInputProps>(
   },
 )
 
-const getStatusIcon = (status?: Status): JSX.Element | null => {
+const getStatusIcon = (status?: Status): React.JSX.Element | null => {
   switch (status) {
     case "success":
       return <PositiveIcon name="checkmark" />

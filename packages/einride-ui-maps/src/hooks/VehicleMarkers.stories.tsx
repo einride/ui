@@ -55,7 +55,7 @@ interface MarkerProps {
   state: VehicleMarkerState
 }
 
-const Marker = ({ name, state }: MarkerProps): JSX.Element => {
+const Marker = ({ name, state }: MarkerProps): React.JSX.Element => {
   const { getMarker } = useVehicleMarker()
   const icon = getMarker(name, state)
   return <img src={icon.url} alt={name} />

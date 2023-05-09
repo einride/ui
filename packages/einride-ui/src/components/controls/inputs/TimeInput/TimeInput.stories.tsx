@@ -89,7 +89,7 @@ export const DefaultValue = {
   },
 } satisfies Story
 
-const ControlledTemplate = (args: ComponentProps<typeof TimeInput>): JSX.Element => {
+const ControlledTemplate = (args: ComponentProps<typeof TimeInput>): React.JSX.Element => {
   const [value, setValue] = useState("")
   return <TimeInput {...args} value={value} onChange={(e) => setValue(e.target.value)} />
 }
@@ -111,7 +111,7 @@ export const Controlled = {
   },
 } satisfies Story
 
-const RangeTemplate = (): JSX.Element => {
+const RangeTemplate = (): React.JSX.Element => {
   const { valueFrom, onChangeFrom, valueTo, onChangeTo, minTo, maxFrom, status } =
     useRangeTimeInput()
   return (

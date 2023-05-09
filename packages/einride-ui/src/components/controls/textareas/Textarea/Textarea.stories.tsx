@@ -92,7 +92,7 @@ export const Positive = {
   },
 } satisfies Story
 
-const ControlledTemplate = (args: ComponentProps<typeof Textarea>): JSX.Element => {
+const ControlledTemplate = (args: ComponentProps<typeof Textarea>): React.JSX.Element => {
   const [value, setValue] = useState("")
   return <Textarea {...args} value={value} onChange={(e) => setValue(e.target.value)} />
 }

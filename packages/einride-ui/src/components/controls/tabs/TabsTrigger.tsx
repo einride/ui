@@ -13,7 +13,7 @@ interface TabsTriggerProps {
   value: string
 }
 
-export const TabsTrigger = ({ children, ...props }: TabsTriggerProps): JSX.Element => {
+export const TabsTrigger = ({ children, ...props }: TabsTriggerProps): React.JSX.Element => {
   return <StyledTabsTrigger {...props}>{children}</StyledTabsTrigger>
 }
 

@@ -57,7 +57,7 @@ export const DefaultValue = {
   },
 } satisfies Story
 
-const ControlledTemplate = (args: ComponentProps<typeof RangeCalendar>): JSX.Element => {
+const ControlledTemplate = (args: ComponentProps<typeof RangeCalendar>): React.JSX.Element => {
   const { value: argsValue } = args
   const [value, setValue] = useState<DatesRangeValue>(argsValue ?? [null, null])
   return <RangeCalendar {...args} value={value} onChange={setValue} />

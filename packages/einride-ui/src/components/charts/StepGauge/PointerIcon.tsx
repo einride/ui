@@ -3,7 +3,7 @@ import { ComponentPropsWithoutRef, forwardRef } from "react"
 type PointerIconProps = ComponentPropsWithoutRef<"svg">
 
 export const PointerIcon = forwardRef<SVGSVGElement, PointerIconProps>(
-  (props, forwardedRef): JSX.Element => {
+  (props, forwardedRef): React.JSX.Element => {
     return (
       <svg
         viewBox="0 0 6 27"

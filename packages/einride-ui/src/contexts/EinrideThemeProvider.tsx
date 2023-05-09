@@ -24,7 +24,7 @@ export const EinrideThemeProvider = ({
   children,
   resetCSS,
   theme,
-}: EinrideThemeProviderProps): JSX.Element => {
+}: EinrideThemeProviderProps): React.JSX.Element => {
   const { colorScheme } = useColorScheme()
   const defaultTheme = themes[colorScheme]
   const mergedTheme = merge(defaultTheme, theme)

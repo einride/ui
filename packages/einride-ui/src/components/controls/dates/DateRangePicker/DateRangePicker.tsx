@@ -70,7 +70,7 @@ export const DateRangePicker = ({
   wrapperProps,
   inputFormat = "YYYY-MM-DD",
   ...props
-}: DateRangePickerProps): JSX.Element => {
+}: DateRangePickerProps): React.JSX.Element => {
   return (
     <Box {...wrapperProps}>
       <StyledDatePickerInput

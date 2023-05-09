@@ -23,7 +23,7 @@ export const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
   (
     { animate = true, height = "md", shape = "rectangle", visible = true, ...props },
     forwardedRef,
-  ): JSX.Element => {
+  ): React.JSX.Element => {
     return (
       <Wrapper
         animate={animate}

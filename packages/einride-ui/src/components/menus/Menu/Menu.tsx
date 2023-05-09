@@ -15,7 +15,7 @@ export interface MenuProps {
   onOpenChange?: (open: boolean) => void
 }
 
-export const Menu = ({ children, isOpen, ...props }: MenuProps): JSX.Element => {
+export const Menu = ({ children, isOpen, ...props }: MenuProps): React.JSX.Element => {
   return (
     <DropdownMenu.Root
       {...(typeof isOpen === "boolean" && { open: isOpen })} // TODO: Change to `open` in next major?

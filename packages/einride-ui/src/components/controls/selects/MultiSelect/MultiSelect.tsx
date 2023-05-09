@@ -76,7 +76,7 @@ export const MultiSelect = <Option extends BaseOption>({
   filter = defaultFilter,
   ...props
 }: MultiSelectProps<Option> &
-  (MultiSelectWithLabelProps | MultiSelectWithoutLabelProps)): JSX.Element => {
+  (MultiSelectWithLabelProps | MultiSelectWithoutLabelProps)): React.JSX.Element => {
   const [highlightedDropdownIndex, setHighlightedDropdownIndex] = useState<number | null>(null)
   const [highlightedInputIndex, setHighlightedInputIndex] = useState<number | null>(null)
   const [selectedOptions, setSelectedOptions] = useUncontrolled<Option[] | undefined>({

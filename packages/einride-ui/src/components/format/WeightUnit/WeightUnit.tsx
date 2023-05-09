@@ -24,7 +24,7 @@ export const WeightUnit = ({
   measurementSystem,
   numberFormatOptions,
   unitSystem,
-}: WeightUnitProps): JSX.Element => {
+}: WeightUnitProps): React.JSX.Element => {
   if (typeof measurementSystem !== "undefined") {
     return (
       <>

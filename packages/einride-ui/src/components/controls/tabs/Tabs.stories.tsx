@@ -91,7 +91,7 @@ export const Grow = {
   },
 } satisfies Story
 
-const ControlledTemplate = (args: ComponentProps<typeof Tabs>): JSX.Element => {
+const ControlledTemplate = (args: ComponentProps<typeof Tabs>): React.JSX.Element => {
   const [value, setValue] = useState("tab1")
   return (
     <Tabs {...args} value={value} onValueChange={setValue}>
