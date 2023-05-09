@@ -2,7 +2,7 @@ import { Global } from "@emotion/react"
 import { useColorScheme } from "../contexts/ColorSchemeProvider"
 import { useTheme } from "../hooks/useTheme"
 
-export const GlobalStyles = (): JSX.Element => {
+export const GlobalStyles = (): React.JSX.Element => {
   const theme = useTheme()
   const { colorScheme } = useColorScheme()
 

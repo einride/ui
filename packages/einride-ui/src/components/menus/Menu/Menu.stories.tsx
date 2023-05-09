@@ -31,7 +31,7 @@ const Template = ({
   defaultOpen = false,
   withOverlay = false,
   inPortal = true,
-}: TemplateProps): JSX.Element => (
+}: TemplateProps): React.JSX.Element => (
   <Menu defaultOpen={defaultOpen}>
     <MenuTrigger>
       <IconButton aria-label="See options" icon="ellipsis" />
@@ -81,7 +81,7 @@ export const WithoutPortal = {
   },
 } satisfies StoryObj
 
-const ControlledTemplate = (): JSX.Element => {
+const ControlledTemplate = (): React.JSX.Element => {
   const [open, setOpen] = useState(false)
   return (
     <Menu isOpen={open} onOpenChange={setOpen}>
@@ -113,7 +113,7 @@ const founders = [
   { key: "filip", firstName: "Filip", lastName: "Lilja" },
 ]
 
-const InTableTemplate = (): JSX.Element => (
+const InTableTemplate = (): React.JSX.Element => (
   <Table>
     <Thead>
       <Tr>

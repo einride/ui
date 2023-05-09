@@ -15,7 +15,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const Template = (): JSX.Element => {
+const Template = (): React.JSX.Element => {
   return (
     <Table>
       <Thead>

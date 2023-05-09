@@ -22,7 +22,7 @@ color schemes. It's common to put it in the `<App>` component in the top of the 
 ```tsx
 import { EinrideProvider } from "@einride/ui"
 
-export const App = (): JSX.Element => {
+export const App = (): React.JSX.Element => {
   return <EinrideProvider>{/* All @einride/ui components go here! */}</EinrideProvider>
 }
 ```

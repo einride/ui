@@ -16,7 +16,10 @@ interface MenuContentProps extends ComponentPropsWithoutRef<"div"> {
 }
 
 export const MenuContent = forwardRef<HTMLDivElement, MenuContentProps>(
-  ({ children, withOverlay, inPortal = true, ...props }, forwardedRef): JSX.Element | null => {
+  (
+    { children, withOverlay, inPortal = true, ...props },
+    forwardedRef,
+  ): React.JSX.Element | null => {
     const theme = useTheme()
     const ConditionalPortal = inPortal ? DropdownMenu.Portal : Fragment
 

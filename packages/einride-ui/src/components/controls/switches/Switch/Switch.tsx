@@ -29,7 +29,7 @@ interface SwitchWithoutLabelProps {
 
 export type SwitchProps = SwitchBaseProps & (SwitchWithLabelProps | SwitchWithoutLabelProps)
 
-export const Switch = ({ ...props }: SwitchProps): JSX.Element => {
+export const Switch = ({ ...props }: SwitchProps): React.JSX.Element => {
   const id = useId()
   return (
     <Group alignItems="center" gap="sm">

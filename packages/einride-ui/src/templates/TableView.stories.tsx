@@ -12,7 +12,7 @@ const meta = {
 
 export default meta
 
-export const TableView = (): JSX.Element => (
+export const TableView = (): React.JSX.Element => (
   <Box>
     <Navbar />
     <VerticalSpacing />

@@ -27,14 +27,16 @@ passing a `ref` for any other reason.
 
 ```tsx
 // bad
-const Component = ({ ...props }: ComponentProps): JSX.Element => {
+const Component = ({ ...props }: ComponentProps): React.JSX.Element => {
   return <div {...props} />
 }
 
 // good
-const Component = forwardRef<HTMLDivElement, ComponentProps>(({ ...props }, ref): JSX.Element => {
-  return <div {...props} ref={ref} />
-})
+const Component = forwardRef<HTMLDivElement, ComponentProps>(
+  ({ ...props }, ref): React.JSX.Element => {
+    return <div {...props} ref={ref} />
+  },
+)
 ```
 
 - Place component interface and function first in each component file.

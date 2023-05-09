@@ -27,7 +27,7 @@ export interface CalendarBaseProps {
 
 export type CalendarProps = CalendarBaseProps
 
-export const Calendar = ({ wrapperProps, ...props }: CalendarProps): JSX.Element => {
+export const Calendar = ({ wrapperProps, ...props }: CalendarProps): React.JSX.Element => {
   return (
     <Box {...wrapperProps}>
       <StyledCalendar

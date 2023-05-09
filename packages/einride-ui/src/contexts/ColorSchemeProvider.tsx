@@ -8,7 +8,7 @@ interface ColorSchemeProviderProps {
 export const ColorSchemeProvider = ({
   children,
   colorScheme: initialColorScheme,
-}: ColorSchemeProviderProps): JSX.Element => {
+}: ColorSchemeProviderProps): React.JSX.Element => {
   const [colorScheme, setColorScheme] = useState(initialColorScheme)
 
   const value = useMemo(

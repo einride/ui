@@ -13,7 +13,7 @@ export interface PageLoaderProps extends ComponentPropsWithoutRef<"div"> {
 /** Full screen loading indicator. Use only when no content can be displayed, for example during initial page load. Prefer using `<Skeleton>` to reduce layout shift. */
 export const PageLoader = forwardRef<HTMLDivElement, PageLoaderProps>(({ loaderProps, text = <>
       Loading
-    </>, ...props }, forwardedRef): JSX.Element => {
+    </>, ...props }, forwardedRef): React.JSX.Element => {
   return (
     <Wrapper {...props} ref={forwardedRef}>
       <Loader {...loaderProps} /> {text}

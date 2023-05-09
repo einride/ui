@@ -51,7 +51,7 @@ export const DefaultValue = {
   },
 } satisfies Story
 
-const ControlledTemplate = (args: ComponentProps<typeof Calendar>): JSX.Element => {
+const ControlledTemplate = (args: ComponentProps<typeof Calendar>): React.JSX.Element => {
   const { value: argsValue } = args
   const [value, setValue] = useState<Date | null>(argsValue ?? null)
   return <Calendar {...args} value={value} onChange={setValue} />

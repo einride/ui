@@ -18,7 +18,7 @@ const meta = {
 
 export default meta
 
-export const SheetView = (): JSX.Element => {
+export const SheetView = (): React.JSX.Element => {
   const { isOpen, handlers } = useDisclosure(true)
 
   return (

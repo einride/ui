@@ -89,7 +89,7 @@ const Notification = styled.div`
   border-radius: ${({ theme }) => theme.borderRadii.full};
 `
 
-const Dots = (): JSX.Element => {
+const Dots = (): React.JSX.Element => {
   return (
     <>
       <Dot />

@@ -9,7 +9,7 @@ import { Tr } from "../../components/table/Tr/Tr"
 import { getSpacing } from "../../lib/theme/prop-system"
 import { spacings } from "../../lib/theme/types"
 
-export const Spacing = (): JSX.Element => {
+export const Spacing = (): React.JSX.Element => {
   const theme = useTheme()
   return (
     <Table>

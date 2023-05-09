@@ -42,7 +42,7 @@ export const Weight = ({
   numberFormatOptions,
   unit,
   weight,
-}: WeightProps): JSX.Element => {
+}: WeightProps): React.JSX.Element => {
   if (measurementSystem === "US") {
     return (
       <>

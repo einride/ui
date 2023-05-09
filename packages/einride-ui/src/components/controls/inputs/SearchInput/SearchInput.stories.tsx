@@ -52,7 +52,7 @@ export const DefaultValue = {
   },
 } satisfies Story
 
-const ControlledTemplate = (args: ComponentProps<typeof SearchInput>): JSX.Element => {
+const ControlledTemplate = (args: ComponentProps<typeof SearchInput>): React.JSX.Element => {
   const [value, setValue] = useState("")
   return <SearchInput {...args} value={value} onInputChange={setValue} />
 }

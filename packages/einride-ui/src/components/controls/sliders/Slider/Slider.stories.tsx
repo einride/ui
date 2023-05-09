@@ -45,7 +45,7 @@ export const DefaultValue = {
   },
 } satisfies Story
 
-const ControlledTemplate = (args: ComponentProps<typeof Slider>): JSX.Element => {
+const ControlledTemplate = (args: ComponentProps<typeof Slider>): React.JSX.Element => {
   const [value, setValue] = useState([0])
   return <Slider {...args} value={value} onValueChange={setValue} />
 }

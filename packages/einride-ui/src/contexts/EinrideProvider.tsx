@@ -24,7 +24,7 @@ export const EinrideProvider = ({
   colorMode = "system",
   resetCSS = true,
   theme,
-}: EinrideProviderProps): JSX.Element => {
+}: EinrideProviderProps): React.JSX.Element => {
   const colorScheme = useColorScheme(colorMode)
 
   return (

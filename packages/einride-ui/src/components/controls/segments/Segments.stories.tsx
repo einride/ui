@@ -66,7 +66,7 @@ export const DefaultValue = {
   },
 } satisfies Story
 
-const ControlledTemplate = (): JSX.Element => {
+const ControlledTemplate = (): React.JSX.Element => {
   const [unit, setUnit] = useState("kilogram")
   return (
     <Segments onValueChange={setUnit} value={unit}>
@@ -92,7 +92,7 @@ export const Controlled = {
   },
 } satisfies StoryObj
 
-const MeasurementSystemTemplate = (): JSX.Element => {
+const MeasurementSystemTemplate = (): React.JSX.Element => {
   const [unit, setUnit] = useState("kilogram")
   return (
     <Stack alignItems="start">
@@ -126,7 +126,7 @@ export const MeasurementSystem = {
   },
 } satisfies StoryObj
 
-const WithLabelTemplate = (): JSX.Element => {
+const WithLabelTemplate = (): React.JSX.Element => {
   const [activeSegment, setActiveSegment] = useState("segment-1")
   return (
     <Segments onValueChange={setActiveSegment} value={activeSegment}>

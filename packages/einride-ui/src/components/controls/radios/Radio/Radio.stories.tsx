@@ -43,7 +43,7 @@ export const DefaultChecked = {
   },
 } satisfies Story
 
-const ControlledTemplate = (args: ComponentProps<typeof Radio>): JSX.Element => {
+const ControlledTemplate = (args: ComponentProps<typeof Radio>): React.JSX.Element => {
   const [checked, setChecked] = useState(false)
   return <Radio {...args} checked={checked} onCheckedChange={setChecked} />
 }
@@ -91,7 +91,7 @@ export const Keyboard = {
   },
 } satisfies Story
 
-const GroupTemplate = (): JSX.Element => {
+const GroupTemplate = (): React.JSX.Element => {
   return (
     <>
       <Radio name="name">Label 1</Radio>

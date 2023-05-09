@@ -38,7 +38,7 @@ function createRandomUser(): {
 
 const users = Array.from({ length: 20 }).map(() => createRandomUser())
 
-export const UserTable = (): JSX.Element => (
+export const UserTable = (): React.JSX.Element => (
   <Table>
     <Thead>
       <Tr color="secondary">

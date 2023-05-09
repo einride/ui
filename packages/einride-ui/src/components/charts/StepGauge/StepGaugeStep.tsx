@@ -23,7 +23,7 @@ interface StepGaugeStepProps extends Omit<ComponentPropsWithoutRef<"svg">, "colo
 const RADIUS = 50
 
 export const StepGaugeStep = forwardRef<SVGPathElement, StepGaugeStepProps>(
-  ({ color, completedSteps, index, steps, svgSize }, forwardedRef): JSX.Element => {
+  ({ color, completedSteps, index, steps, svgSize }, forwardedRef): React.JSX.Element => {
     const convertPolarCoordinatesToCartesian = (degree: number): number[] => {
       const center = svgSize / 2
       const radians = (degree * Math.PI) / 180.0

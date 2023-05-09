@@ -74,7 +74,7 @@ export const LargeDataset = {
   },
 } satisfies Story
 
-const ControlledTemplate = (args: ComponentProps<typeof MultiSelect>): JSX.Element => {
+const ControlledTemplate = (args: ComponentProps<typeof MultiSelect>): React.JSX.Element => {
   const [selectedOption, setSelectedOption] = useState([basicOptions[0] as BaseOption])
   return (
     <MultiSelect

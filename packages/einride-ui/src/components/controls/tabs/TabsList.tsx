@@ -10,7 +10,7 @@ interface TabsListProps {
   grow?: boolean
 }
 
-export const TabsList = ({ children, ...props }: TabsListProps): JSX.Element => {
+export const TabsList = ({ children, ...props }: TabsListProps): React.JSX.Element => {
   return <StyledTabsList {...props}>{children}</StyledTabsList>
 }
 

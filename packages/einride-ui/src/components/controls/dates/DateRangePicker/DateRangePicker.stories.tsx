@@ -80,7 +80,7 @@ export const USFormat = {
   },
 } satisfies Story
 
-const ControlledTemplate = (args: ComponentProps<typeof DateRangePicker>): JSX.Element => {
+const ControlledTemplate = (args: ComponentProps<typeof DateRangePicker>): React.JSX.Element => {
   const [value, setValue] = useState<DateRangePickerValue>([null, null])
   return <DateRangePicker {...args} value={value} onChange={setValue} />
 }

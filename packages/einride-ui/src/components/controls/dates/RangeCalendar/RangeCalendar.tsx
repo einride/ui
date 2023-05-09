@@ -25,7 +25,10 @@ export interface RangeCalendarProps {
   wrapperProps?: BoxProps
 }
 
-export const RangeCalendar = ({ wrapperProps, ...props }: RangeCalendarProps): JSX.Element => {
+export const RangeCalendar = ({
+  wrapperProps,
+  ...props
+}: RangeCalendarProps): React.JSX.Element => {
   return (
     <Box {...wrapperProps}>
       <StyledDatePicker

@@ -9,7 +9,10 @@ interface SnapshotWrapperProps extends BoxProps {
   children?: ReactNode
 }
 
-export const SnapshotWrapper = ({ children, ...props }: SnapshotWrapperProps): JSX.Element => {
+export const SnapshotWrapper = ({
+  children,
+  ...props
+}: SnapshotWrapperProps): React.JSX.Element => {
   return (
     <>
       <EinrideProvider theme={einrideTheme} colorMode="light">

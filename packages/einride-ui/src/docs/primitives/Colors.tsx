@@ -4,7 +4,7 @@ import { EinrideProvider } from "../../contexts/EinrideProvider"
 import { useTheme } from "../../hooks/useTheme"
 import { ColorTheme } from "../../lib/theme/types"
 
-const ThemeColor = ({ color }: { color?: keyof ColorTheme }): JSX.Element => {
+const ThemeColor = ({ color }: { color?: keyof ColorTheme }): React.JSX.Element => {
   const themes = useTheme()
   const theme = color ? themes.colors[color] : themes.colors
 
@@ -34,7 +34,7 @@ export const ThemeColorWrapper = ({
 }: {
   colorScheme?: ColorScheme
   color?: keyof ColorTheme
-}): JSX.Element => {
+}): React.JSX.Element => {
   return (
     <EinrideProvider colorMode={colorScheme}>
       <ThemeColor {...args} />

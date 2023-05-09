@@ -18,7 +18,7 @@ export const BaseButtonIcon = ({
   innerWrapperProps,
   isLoading,
   ...props
-}: BaseButtonIconProps): JSX.Element => {
+}: BaseButtonIconProps): React.JSX.Element => {
   return (
     <Box marginInlineStart={2} {...props}>
       {isLoading ? (

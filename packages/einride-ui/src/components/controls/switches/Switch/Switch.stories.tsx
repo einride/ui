@@ -45,7 +45,7 @@ export const DefaultChecked = {
   },
 } satisfies Story
 
-const ControlledTemplate = (args: ComponentProps<typeof Switch>): JSX.Element => {
+const ControlledTemplate = (args: ComponentProps<typeof Switch>): React.JSX.Element => {
   const [checked, setChecked] = useState(false)
   return <Switch {...args} checked={checked} onCheckedChange={setChecked} />
 }

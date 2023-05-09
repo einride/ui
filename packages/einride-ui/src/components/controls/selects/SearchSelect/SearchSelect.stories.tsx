@@ -46,7 +46,7 @@ const largeDataset = getMockData(32)
 
 const Template = (
   args: ComponentProps<typeof SearchSelect<(typeof basicOptions)[0]>>,
-): JSX.Element => {
+): React.JSX.Element => {
   const [searchTerm, setSearchTerm] = useState("")
   return (
     <SearchSelect {...args} onSearchChange={(text) => setSearchTerm(text)} value={searchTerm} />
@@ -90,7 +90,7 @@ export const WithoutLabel = {
 const inputValueOptions = getMockData(3, true)
 const InputValueTemplate = (
   args: ComponentProps<typeof SearchSelect<(typeof inputValueOptions)[0]>>,
-): JSX.Element => {
+): React.JSX.Element => {
   const [searchTerm, setSearchTerm] = useState("")
   return (
     <SearchSelect {...args} onSearchChange={(text) => setSearchTerm(text)} value={searchTerm} />
@@ -132,7 +132,7 @@ const descriptionOptions = [
 
 const DescriptionTemplate = (
   args: ComponentProps<typeof SearchSelect<(typeof descriptionOptions)[0]>>,
-): JSX.Element => {
+): React.JSX.Element => {
   const [searchTerm, setSearchTerm] = useState("")
   return (
     <SearchSelect {...args} onSearchChange={(text) => setSearchTerm(text)} value={searchTerm} />

@@ -17,7 +17,7 @@ const meta = {
 
 export default meta
 
-const Template = (args: ComponentProps<typeof MapTooltip>): JSX.Element => {
+const Template = (args: ComponentProps<typeof MapTooltip>): React.JSX.Element => {
   const { colorScheme } = useColorScheme()
   return (
     <Map

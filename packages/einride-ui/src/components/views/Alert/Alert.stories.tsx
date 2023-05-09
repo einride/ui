@@ -15,7 +15,7 @@ interface TemplateProps {
   defaultOpen?: boolean
 }
 
-const Template = ({ defaultOpen = false }: TemplateProps): JSX.Element => {
+const Template = ({ defaultOpen = false }: TemplateProps): React.JSX.Element => {
   const { isOpen, handlers } = useDisclosure(defaultOpen)
   return (
     <>

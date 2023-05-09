@@ -91,7 +91,7 @@ export const SearchSelect = <Option extends BaseOption>({
   wrapperProps,
   ...props
 }: SearchSelectProps<Option> &
-  (SearchSelectWithLabelProps | SearchSelectWithoutLabelProps)): JSX.Element => {
+  (SearchSelectWithLabelProps | SearchSelectWithoutLabelProps)): React.JSX.Element => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
   const { isOpen, handlers } = useDisclosure(false)
   const inputRef = useRef<HTMLInputElement>(null)

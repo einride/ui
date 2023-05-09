@@ -22,7 +22,7 @@ export const Link = <C extends ElementType>({
   children,
   color,
   ...props
-}: LinkProps<C>): JSX.Element => {
+}: LinkProps<C>): React.JSX.Element => {
   return (
     <StyledAnchor textColor={color} {...props}>
       {children}

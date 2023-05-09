@@ -93,7 +93,7 @@ export const DefaultValue = {
   },
 } satisfies Story
 
-const ControlledTemplate = (args: ComponentProps<typeof NumberInput>): JSX.Element => {
+const ControlledTemplate = (args: ComponentProps<typeof NumberInput>): React.JSX.Element => {
   const [value, setValue] = useState("")
   return <NumberInput {...args} value={value} onChange={(e) => setValue(e.target.value)} />
 }

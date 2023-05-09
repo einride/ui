@@ -105,7 +105,9 @@ export const MultiSelectInput = <Option extends BaseOption>({
   selectedOptions = [],
   status,
   ...props
-}: MultiSelectInputProps<Option> & { inputRef: RefObject<HTMLInputElement> }): JSX.Element => {
+}: MultiSelectInputProps<Option> & {
+  inputRef: RefObject<HTMLInputElement>
+}): React.JSX.Element => {
   const messageId = useId()
   const pillRefs = useRef<HTMLButtonElement[]>([])
   const [conditionalMaxOptions, setConditionalMaxOptions] = useState<number | undefined>(
@@ -241,7 +243,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
     }
   }
 
-  const getInputRightIcon = (): JSX.Element => {
+  const getInputRightIcon = (): React.JSX.Element => {
     if (status === "success" && !isOpen) {
       return <PositiveIcon name="checkmark" />
     }

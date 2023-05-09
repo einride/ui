@@ -22,7 +22,7 @@ interface TemplateProps {
   modal?: boolean
 }
 
-const Template = ({ defaultOpen = false, modal = true }: TemplateProps): JSX.Element => {
+const Template = ({ defaultOpen = false, modal = true }: TemplateProps): React.JSX.Element => {
   const { isOpen, handlers } = useDisclosure(defaultOpen)
   return (
     <>
@@ -96,7 +96,7 @@ export const Keyboard = {
   },
 } satisfies StoryObj
 
-const ContextMenuTemplate = (): JSX.Element => {
+const ContextMenuTemplate = (): React.JSX.Element => {
   const { isOpen, handlers } = useDisclosure(true)
   return (
     <>

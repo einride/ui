@@ -8,7 +8,7 @@ interface MenuTriggerProps extends ComponentPropsWithoutRef<"button"> {
 }
 
 export const MenuTrigger = forwardRef<HTMLButtonElement, MenuTriggerProps>(
-  ({ children, ...props }, forwardedRef): JSX.Element => {
+  ({ children, ...props }, forwardedRef): React.JSX.Element => {
     return (
       <StyledTrigger asChild {...props} ref={forwardedRef}>
         {children}
