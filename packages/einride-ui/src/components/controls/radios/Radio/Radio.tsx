@@ -31,20 +31,26 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
           onChange={(value) => onCheckedChange?.(value.target.checked)}
           ref={ref}
         />
-        <StyledLabel htmlFor={id} {...labelProps}>
-          {children}
-        </StyledLabel>
+        {children && (
+          <StyledLabel htmlFor={id} {...labelProps}>
+            {children}
+          </StyledLabel>
+        )}
       </Wrapper>
     )
   },
 )
 
 const Wrapper = styled.div`
-  padding-block: ${({ theme }) => 1.5 * theme.spacingBase}rem;
-  padding-inline: ${({ theme }) => 2 * theme.spacingBase}rem;
+  padding: ${({ theme }) => 1.5 * theme.spacingBase}rem;
   display: flex;
   align-items: center;
   gap: ${({ theme }) => 2 * theme.spacingBase}rem;
+
+  &:has(label) {
+    padding-inline: ${({ theme }) =>
+      2 * theme.spacingBase}rem; // increase inline padding when label is present
+  }
 
   &:has(input:focus-visible) label {
     text-decoration: underline;
@@ -87,5 +93,6 @@ const StyledInput = styled.input`
 const StyledLabel = styled.label`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.md};
+  line-height: calc(4 / 3);
   color: ${({ theme }) => theme.colors.content.primary};
 `
