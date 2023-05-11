@@ -10,14 +10,14 @@ type Story = StoryObj<typeof meta>
 
 export const Basic = {
   args: {
+    blockSize: "xl",
+    inlineSize: 16,
     background: "tertiary",
     borderRadius: "lg",
-    height: 10,
-    marginInline: "sm",
-    width: 10,
   },
 } satisfies Story
 
+/** Think of `<Box>` as a `<div>` with some extra supercharging. It accepts `children` just as expected. */
 export const WithContent = {
   args: {
     background: "positive",

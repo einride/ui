@@ -193,6 +193,7 @@ export interface BoxProps extends Omit<ComponentPropsWithoutRef<"div">, "color">
   width?: Width
 }
 
+/** The most primitive component that allows adding inline styles based on theme. */
 export const Box = forwardRef<HTMLDivElement, BoxProps>(({ color, ...props }, forwardedRef) => {
   return <Wrapper textColor={color} {...props} ref={forwardedRef} />
 })
