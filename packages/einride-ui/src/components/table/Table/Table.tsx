@@ -11,6 +11,7 @@ export interface TableProps extends Omit<ComponentPropsWithoutRef<"table">, "col
   font?: FontFamily
 }
 
+/** Represent tabular data. */
 export const Table = forwardRef<HTMLTableElement, TableProps>(
   ({ children, color, ...props }, ref) => {
     return (

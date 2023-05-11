@@ -28,6 +28,41 @@ import { Table, Tbody, Td, Th, Thead, Tr } from "@einride/ui"
 
 <Description of={Table.Basic} />
 
-<Canvas of={Table.Basic} sourceState="hidden" />
+<Canvas
+  source={{
+    code: `
+<Table>
+  <Thead>
+    <Tr color="secondary">
+      <Th scope="col">Country</Th>
+      <Th scope="col">Capital</Th>
+      <Th scope="col">Date format</Th>
+      <Th scope="col">Internet TLD</Th>
+    </Tr>
+  </Thead>
+  <Tbody>
+    <Tr>
+      <Th scope="row">Sweden</Th>
+      <Td>Stockholm</Td>
+      <Td>YYYY-MM-DD</Td>
+      <Td>.se</Td>
+    </Tr>
+    <Tr>
+      <Th scope="row">Germany</Th>
+      <Td>Berlin</Td>
+      <Td>DD.MM.YYYY</Td>
+      <Td>.de</Td>
+    </Tr>
+    <Tr>
+      <Th scope="row">Brazil</Th>
+      <Td>Brasília</Td>
+      <Td>DD/MM/YYYY</Td>
+      <Td>.br</Td>
+    </Tr>
+  </Tbody>
+</Table>
+`,
+  }}
+/>
 
 <Controls of={Table.Basic} />
