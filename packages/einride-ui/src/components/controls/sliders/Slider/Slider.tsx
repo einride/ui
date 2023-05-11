@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import * as SliderPrimitive from "@radix-ui/react-slider"
-import { ComponentPropsWithoutRef, forwardRef, ReactNode } from "react"
+import { ComponentPropsWithoutRef, ReactNode, forwardRef } from "react"
 import { Group } from "../../../layout/Group/Group"
 
 interface SliderBaseProps {

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentProps, forwardRef, ReactNode } from "react"
+import { ComponentProps, ReactNode, forwardRef } from "react"
 import { ColorScheme, useColorScheme } from "../../../contexts/ColorSchemeProvider"
 import { BackgroundColor, ContentColor } from "../../../lib/theme/types"
 import { Box } from "../../layout/Box/Box"

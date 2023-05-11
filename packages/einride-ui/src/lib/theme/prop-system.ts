@@ -1,13 +1,13 @@
 import { isInArray } from "./guard"
 import { Background, BorderRadius, Color, FontFamily, FontSize, Gap, SpacingInput } from "./props"
 import {
+  Theme,
   backgroundColors,
   borderRadii,
   contentColors,
-  fonts,
   fontSizes,
+  fonts,
   spacings,
-  Theme,
 } from "./types"
 
 export const getBackground = (background: Background, theme: Theme): string => {

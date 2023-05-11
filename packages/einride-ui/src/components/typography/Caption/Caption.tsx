@@ -1,6 +1,6 @@
 import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
+import { ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef } from "react"
 import { ContentColor, Font } from "../../../lib/theme/types"
 
 export interface CaptionProps extends Omit<ComponentPropsWithoutRef<"p">, "color"> {

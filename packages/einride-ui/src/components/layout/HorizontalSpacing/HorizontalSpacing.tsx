@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ElementType, forwardRef, HTMLAttributes } from "react"
+import { ElementType, HTMLAttributes, forwardRef } from "react"
 import { Theme } from "../../../lib/theme/types"
 
 export interface HorizontalSpacingProps extends HTMLAttributes<HTMLDivElement> {

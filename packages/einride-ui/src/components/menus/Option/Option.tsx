@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
+import { ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef } from "react"
 
 export interface OptionProps extends ComponentPropsWithoutRef<"div"> {
   /** Rendered element. */

@@ -1,4 +1,4 @@
-import { forwardRef, SVGAttributes } from "react"
+import { SVGAttributes, forwardRef } from "react"
 import { useColorScheme } from "../../../../contexts/ColorSchemeProvider"
 import { color } from "../../../../primitives/color"
 

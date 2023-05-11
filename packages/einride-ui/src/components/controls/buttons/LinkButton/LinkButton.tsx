@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
+import { ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef } from "react"
 import { ContentColor, Font } from "../../../../lib/theme/types"
 import { Link } from "../../../typography/Link/Link"
 

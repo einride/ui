@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, forwardRef, ReactNode } from "react"
+import { ComponentPropsWithoutRef, ReactNode, forwardRef } from "react"
 
 export interface VisuallyHiddenProps extends ComponentPropsWithoutRef<"span"> {
   /** Visually hidden content. */

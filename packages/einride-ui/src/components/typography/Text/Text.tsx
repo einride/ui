@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ElementType, forwardRef, HTMLAttributes } from "react"
+import { ElementType, HTMLAttributes, forwardRef } from "react"
 import { getColor, getFont } from "../../../lib/theme/prop-system"
 import { As, Color, FontFamily, FontWeight, TextDecoration } from "../../../lib/theme/props"
 import { Theme } from "../../../lib/theme/types"

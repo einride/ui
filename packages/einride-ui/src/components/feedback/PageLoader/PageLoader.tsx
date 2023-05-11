@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, forwardRef, ReactNode } from "react"
+import { ComponentPropsWithoutRef, ReactNode, forwardRef } from "react"
 import { Loader, LoaderProps } from "../Loader/Loader"
 
 export interface PageLoaderProps extends ComponentPropsWithoutRef<"div"> {

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactNode } from "react"
+import { ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef } from "react"
 import { getColor } from "../../../lib/theme/prop-system"
 import { ContentColor } from "../../../lib/theme/types"
 

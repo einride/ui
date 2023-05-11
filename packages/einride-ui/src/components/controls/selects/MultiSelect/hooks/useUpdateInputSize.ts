@@ -1,5 +1,5 @@
 import { useTheme } from "@emotion/react"
-import { useLayoutEffect, useState, useRef, RefObject } from "react"
+import { RefObject, useLayoutEffect, useRef, useState } from "react"
 import { BaseOption } from "../types"
 
 interface UpdateInputSizeProps<Option> {

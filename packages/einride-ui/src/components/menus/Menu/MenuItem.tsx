@@ -1,5 +1,5 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
-import { ComponentPropsWithoutRef, forwardRef, ReactNode } from "react"
+import { ComponentPropsWithoutRef, ReactNode, forwardRef } from "react"
 import { Option } from "../Option/Option"
 
 interface MenuItemProps extends ComponentPropsWithoutRef<"div"> {

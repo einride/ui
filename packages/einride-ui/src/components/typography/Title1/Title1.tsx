@@ -1,6 +1,6 @@
 import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
-import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react"
+import { ElementType, HTMLAttributes, ReactNode, forwardRef } from "react"
 import { ContentColor, Font } from "../../../lib/theme/types"
 
 export interface Title1Props extends HTMLAttributes<HTMLHeadingElement> {

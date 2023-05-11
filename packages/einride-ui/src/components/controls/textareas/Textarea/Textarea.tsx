@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, forwardRef, ReactNode, useId } from "react"
+import { ComponentPropsWithoutRef, ReactNode, forwardRef, useId } from "react"
 import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Box, BoxProps } from "../../../layout/Box/Box"
