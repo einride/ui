@@ -1,5 +1,11 @@
 # @einride/ui-maps
 
+## 7.57.1
+
+### Patch Changes
+
+- cc17b3aa: Version bumps.
+
 ## 7.52.2
 
 ### Patch Changes
