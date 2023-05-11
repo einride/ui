@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.57.0
+
+### Minor Changes
+
+- 8cd16247: Radio: Set correct styles when not using visible label.
+
 ## 7.56.2
 
 ### Patch Changes
