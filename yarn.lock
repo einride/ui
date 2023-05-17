@@ -1971,9 +1971,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@einride/eslint-plugin@npm:7.0.0-beta.1":
-  version: 7.0.0-beta.1
-  resolution: "@einride/eslint-plugin@npm:7.0.0-beta.1"
+"@einride/eslint-plugin@npm:7.0.0-beta.2":
+  version: 7.0.0-beta.2
+  resolution: "@einride/eslint-plugin@npm:7.0.0-beta.2"
   dependencies:
     "@typescript-eslint/eslint-plugin": 5.59.0
     "@typescript-eslint/parser": 5.59.0
@@ -1986,9 +1986,9 @@ __metadata:
     eslint-plugin-react: 7.32.2
     eslint-plugin-react-hooks: 4.6.0
   peerDependencies:
-    eslint: ">=7.28.0"
+    eslint: ">=8.0.0"
     prettier: ^2.4.1
-  checksum: c82cd16561ab76623f95e52c224c268be96c621070d050cf0ff034f39338b1ad01bee799e7d73eb686d34f1153af203886586d9e67fea20d058d5841bd51539a
+  checksum: 7ff2aa828a9d92c4a5a28de02164c01802d19759715a55407b73fa1809bf4e8b9ede02e5c57e8f36870b218bbe80779217a2e404d29a4cb84b7c0a0e23d6b1c7
   languageName: node
   linkType: hard
 
@@ -2049,7 +2049,7 @@ __metadata:
     "@changesets/cli": 2.26.1
     "@commitlint/cli": 17.6.3
     "@commitlint/config-conventional": 17.6.3
-    "@einride/eslint-plugin": 7.0.0-beta.1
+    "@einride/eslint-plugin": 7.0.0-beta.2
     "@einride/prettier-config": 2.0.1
     "@einride/tsconfig": 2.0.1
     "@storybook/addon-a11y": 7.0.12
