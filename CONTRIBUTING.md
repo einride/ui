@@ -26,8 +26,7 @@ a PR following the [Pull Request Guidelines](#pull-request-guidelines).
 Follow these steps to start development server:
 
 - Install dependencies by running `yarn`
-- Create .env file `cp .env.example .env.local`
-- add `VITE_MAPBOX_TOKEN`
+- Create an local env file `.evn.local` based on `.env.example` fill in missing env values
 - Start Storybook by running `yarn storybook`
 
 ## Pull Request Guidelines
@@ -35,7 +34,7 @@ Follow these steps to start development server:
 Einride UI is using the [Conventional Commits](https://www.conventionalcommits.org/) commit message
 convention.
 
-Every component should come with one component file `[Component].tsx` and one Storybook file
-`[Component].stories.tsx`.
+Every component should come with one component file `[Component].tsx`, one Storybook file
+`[Component].stories.tsx` and one documentation file `[Component].mdx`.
 
 Before opening a PR, please make sure you get no errors when running `yarn review`.
