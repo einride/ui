@@ -42,7 +42,7 @@
     "luxon": "3.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "rollup": "3.21.7",
+    "rollup": "3.22.0",
     "typescript": "5.0.4",
     "vite": "4.3.7"
   },
