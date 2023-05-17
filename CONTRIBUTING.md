@@ -26,7 +26,7 @@ a PR following the [Pull Request Guidelines](#pull-request-guidelines).
 Follow these steps to start development server:
 
 - Install dependencies by running `yarn`
-- Create an local env file `.evn.local` based on `.env.example` fill in missing env values
+- Create an local env file `.evn.local` based on `.env.example` and fill in missing env values
 - Start Storybook by running `yarn storybook`
 
 ## Pull Request Guidelines
