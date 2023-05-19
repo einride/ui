@@ -20,13 +20,14 @@ export interface MarkerMask {
 }
 
 export type MarkerName =
-  | "siteWithCharger"
+  | "charger"
+  | "hub"
+  | "hubElectric"
+  | "hubWithCharger"
   | "site"
   | "siteElectric"
-  | "hub"
-  | "hubWithCharger"
-  | "hubElectric"
-  | "charger"
+  | "siteWithCharger"
+  | "siteWithChargerElectric"
 export type MarkerState = "hover" | "selected" | "default"
 
 export type VehicleMarkerName = "aet" | "cet"
