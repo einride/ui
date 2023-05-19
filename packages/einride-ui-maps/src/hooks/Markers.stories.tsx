@@ -5,13 +5,14 @@ import { MarkerName, MarkerState } from "../types/types"
 import { useMarker } from "./useMarker"
 
 const markerNames: MarkerName[] = [
-  "site",
-  "siteElectric",
+  "charger",
   "hub",
   "hubElectric",
-  "charger",
-  "siteWithCharger",
   "hubWithCharger",
+  "site",
+  "siteWithCharger",
+  "siteElectric",
+  "siteWithChargerElectric",
 ]
 const markerStates: MarkerState[] = ["default", "hover", "selected"]
 

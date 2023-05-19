@@ -19,6 +19,9 @@ import siteElectricSelectedDark from "../assets/dark/siteElectricSelected.svg"
 import siteHoverDark from "../assets/dark/siteHover.svg"
 import siteSelectedDark from "../assets/dark/siteSelected.svg"
 import siteWithChargerDark from "../assets/dark/siteWithCharger.svg"
+import siteWithChargerElectricDark from "../assets/dark/siteWithChargerElectric.svg"
+import siteWithChargerElectricHoverDark from "../assets/dark/siteWithChargerElectricHover.svg"
+import siteWithChargerElectricSelectedDark from "../assets/dark/siteWithChargerElectricSelected.svg"
 import siteWithChargerHoverDark from "../assets/dark/siteWithChargerHover.svg"
 import siteWithChargerSelectedDark from "../assets/dark/siteWithChargerSelected.svg"
 import chargerLight from "../assets/light/charger.svg"
@@ -40,6 +43,9 @@ import siteElectricSelectedLight from "../assets/light/siteElectricSelected.svg"
 import siteHoverLight from "../assets/light/siteHover.svg"
 import siteSelectedLight from "../assets/light/siteSelected.svg"
 import siteWithChargerLight from "../assets/light/siteWithCharger.svg"
+import siteWithChargerElectricLight from "../assets/light/siteWithChargerElectric.svg"
+import siteWithChargerElectricHoverLight from "../assets/light/siteWithChargerElectricHover.svg"
+import siteWithChargerElectricSelectedLight from "../assets/light/siteWithChargerElectricSelected.svg"
 import siteWithChargerHoverLight from "../assets/light/siteWithChargerHover.svg"
 import siteWithChargerSelectedLight from "../assets/light/siteWithChargerSelected.svg"
 import { MarkerMask, MarkerName, MarkerState } from "../types/types"
@@ -100,20 +106,25 @@ const markers: Marker = {
       hover: hubWithChargerHoverLight,
       selected: hubWithChargerSelectedLight,
     },
-    siteElectric: {
-      default: siteElectricLight,
-      hover: siteElectricHoverLight,
-      selected: siteElectricSelectedLight,
-    },
     site: {
       default: siteLight,
       hover: siteHoverLight,
       selected: siteSelectedLight,
     },
+    siteElectric: {
+      default: siteElectricLight,
+      hover: siteElectricHoverLight,
+      selected: siteElectricSelectedLight,
+    },
     siteWithCharger: {
       default: siteWithChargerLight,
       hover: siteWithChargerHoverLight,
       selected: siteWithChargerSelectedLight,
+    },
+    siteWithChargerElectric: {
+      default: siteWithChargerElectricLight,
+      hover: siteWithChargerElectricHoverLight,
+      selected: siteWithChargerElectricSelectedLight,
     },
   },
   dark: {
@@ -137,20 +148,25 @@ const markers: Marker = {
       hover: hubWithChargerHoverDark,
       selected: hubWithChargerSelectedDark,
     },
-    siteElectric: {
-      default: siteElectricDark,
-      hover: siteElectricHoverDark,
-      selected: siteElectricSelectedDark,
-    },
     site: {
       default: siteDark,
       hover: siteHoverDark,
       selected: siteSelectedDark,
     },
+    siteElectric: {
+      default: siteElectricDark,
+      hover: siteElectricHoverDark,
+      selected: siteElectricSelectedDark,
+    },
     siteWithCharger: {
       default: siteWithChargerDark,
       hover: siteWithChargerHoverDark,
       selected: siteWithChargerSelectedDark,
+    },
+    siteWithChargerElectric: {
+      default: siteWithChargerElectricDark,
+      hover: siteWithChargerElectricHoverDark,
+      selected: siteWithChargerElectricSelectedDark,
     },
   },
 }
