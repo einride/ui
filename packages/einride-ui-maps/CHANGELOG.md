@@ -1,5 +1,11 @@
 # @einride/ui-maps
 
+## 7.58.0
+
+### Minor Changes
+
+- dec53e70: Change color of siteWithCharger marker and add siteWithChargerElectric marker.
+
 ## 7.57.1
 
 ### Patch Changes
