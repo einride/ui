@@ -1971,9 +1971,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@einride/eslint-plugin@npm:7.0.0-beta.2":
-  version: 7.0.0-beta.2
-  resolution: "@einride/eslint-plugin@npm:7.0.0-beta.2"
+"@einride/eslint-plugin@npm:7.0.0":
+  version: 7.0.0
+  resolution: "@einride/eslint-plugin@npm:7.0.0"
   dependencies:
     "@typescript-eslint/eslint-plugin": 5.59.0
     "@typescript-eslint/parser": 5.59.0
@@ -1988,7 +1988,7 @@ __metadata:
   peerDependencies:
     eslint: ">=8.0.0"
     prettier: ^2.4.1
-  checksum: 7ff2aa828a9d92c4a5a28de02164c01802d19759715a55407b73fa1809bf4e8b9ede02e5c57e8f36870b218bbe80779217a2e404d29a4cb84b7c0a0e23d6b1c7
+  checksum: 59e5621b73ab4c77f9a0f650b744d971b85b85f27bd41da03dc92ad922ba1ee67bb4a210781bb05cef18a91d5138f541a7cb7b73b3c8be4837e5bd9191265ae9
   languageName: node
   linkType: hard
 
@@ -2049,7 +2049,7 @@ __metadata:
     "@changesets/cli": 2.26.1
     "@commitlint/cli": 17.6.3
     "@commitlint/config-conventional": 17.6.3
-    "@einride/eslint-plugin": 7.0.0-beta.2
+    "@einride/eslint-plugin": 7.0.0
     "@einride/prettier-config": 2.0.1
     "@einride/tsconfig": 2.0.1
     "@storybook/addon-a11y": 7.0.12
