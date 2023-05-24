@@ -1,4 +1,4 @@
-# @einride/ui
+# Einride UI
 
 [![license](https://img.shields.io/npm/l/@einride/ui.svg)](https://github.com/einride/ui/blob/main/LICENSE)
 [![npm version](https://img.shields.io/npm/v/@einride/ui.svg)](https://www.npmjs.com/package/@einride/ui)
@@ -6,13 +6,20 @@
 
 Reusable React components that adhere to Einride's design system.
 
+Einride UI consists of these packages:
+
+- [`@einride/ui`](./packages/einride-ui/): Core UI components.
+- [`@einride/ui-maps`](./packages/einride-ui-maps/): Mapping components.
+
 ## Installation
 
-Install @einride/ui together with its peer dependencies:
+Install `@einride/ui` together with its peer dependencies:
 
 ```bash
 yarn add @einride/ui @emotion/react @emotion/styled framer-motion
 ```
+
+Install `@einride/ui-maps` if you have a need of showing maps.
 
 ## Setup
 
@@ -29,7 +36,7 @@ export const App = (): React.JSX.Element => {
 
 ## Contribute
 
-See [Contributing Guide](https://github.com/einride/ui/blob/main/CONTRIBUTING.md).
+See [Contributing Guide](./CONTRIBUTING.md).
 
 ## Documentation
 

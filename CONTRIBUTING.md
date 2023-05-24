@@ -37,6 +37,6 @@ convention.
 Every component should come with a component file `[Component].tsx`, a Storybook file
 `[Component].stories.tsx` and a documentation file `[Component].mdx`.
 
-Follow the conventions provided in [STYLE](STYLE.md).
+Follow the conventions provided in [STYLE](./STYLE.md).
 
 Before opening a PR, please make sure you get no errors when running `yarn review`.
