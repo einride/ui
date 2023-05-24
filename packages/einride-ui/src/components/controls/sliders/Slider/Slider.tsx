@@ -3,7 +3,9 @@ import * as SliderPrimitive from "@radix-ui/react-slider"
 import { ComponentPropsWithoutRef, ReactNode, forwardRef } from "react"
 import { Group } from "../../../layout/Group/Group"
 
-interface SliderBaseProps {
+interface SliderBaseProps
+  extends Pick<ComponentPropsWithoutRef<typeof SliderPrimitive.Root>, "onClick"> {
+  // pass `onClick` to make it possible to stop propagation
   /** Default slider value when uncontrolled. */
   defaultValue?: Array<number>
 
