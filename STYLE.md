@@ -1,29 +1,32 @@
 # Style
 
-We're using
 [Einride Frontend Style Guide](https://einride.engineering/docs/tech-radar/frontend/techniques/einride-frontend-style-guide)
-as a base.
+serves as a base style guide.
 
 In addition, here follows a few project specific styling conventions.
 
 ## Components
 
-- Both
-  [controlled and uncontrolled API](https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components)
-  should be supported whenever applicable.
+### Support both controlled and uncontrolled API
+
+Both
+[controlled and uncontrolled API](https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components)
+should be supported whenever applicable
 
 As an example, make sure `value` and `onChange` props are optional rather than required for input
 components and also support `defaultValue`.
 
-- Make it easy to pass the right props while making it possible to pass something else.
+### Make it easy to pass the right thing while keeping possibility to override
 
-As an example, let `gap` auto-suggest on officially supported variants such as `"md"` and `"lg"`,
-while keeping it possible to pass a custom number if needed.
+As an example, let `gap` prop auto-suggest officially supported values such as `"md"` and `"lg"`,
+while keeping possibility to pass a custom number if needed.
 
-- Wrap component in `forwardRef()` whenever applicable.
+### Forward refs
 
-It makes it possible to use libraries such as `framer-motion` on the consumer side and enables
-passing a `ref` for any other reason.
+Wrap component in `forwardRef()` whenever applicable.
+
+It makes it possible to use libraries such as `framer-motion` in user-land and enables passing a
+`ref` for any other reason.
 
 ```tsx
 // bad
@@ -39,9 +42,10 @@ const Component = forwardRef<HTMLDivElement, ComponentProps>(
 )
 ```
 
-- Place component interface and function first in each component file.
+### Place component interface and function first in each component file
 
-It makes the contract of the component fast to discover.
+Putting the most important things at the top of the file makes the contract of the component fast to
+discover.
 
 ```tsx
 // bad
@@ -71,9 +75,9 @@ const SubComponent = () => {...}
 
 ## Stories
 
-- Rely on automatic titles whenever possible.
+### Rely on automatic titles whenever possible
 
-It ensures hierarchy is the same in code and Storybook, which improves discoverability.
+Automatic titles ensure hierarchy is the same in code and Storybook, which improves discoverability.
 
 ```tsx
 // ./src/components/typography/Text/Text.stories.tsx
@@ -91,7 +95,7 @@ const meta = {
 } satisfies Meta<typeof Text>
 ```
 
-- Use the following way of typing metadata and stories.
+### Use `satisfies` to type metadata and stories
 
 ```tsx
 const meta = {
@@ -109,7 +113,7 @@ export const MyStory = {} satisfies Story
 Using `StoryObj<typeof meta>` makes it possible to combine type information from metadata and
 individual story.
 
-- Prefer arg-style stories to changing args in render function.
+### Prefer arg-style stories to changing args in render function
 
 ```tsx
 // bad
@@ -139,9 +143,11 @@ export const Secondary = {
 Using args unlocks the full potential of Storybook by enabling changing args in the UI and reusing
 args in many stories.
 
-- Use interaction testing to ensure interactive components are possible to use both with pointer and
-  keyboard. Every interactive component should have one `Pointer` story and one `Keyboard` story
-  with an associated `play` function that navigates the component.
+### Test pointer and keyboard interaction
+
+Use interaction testing to ensure interactive components are possible to use both with pointer and
+keyboard. Every interactive component should have one `Pointer` story and one `Keyboard` story with
+an associated `play` function that navigates the component.
 
 ```tsx
 // Example interaction test for pointer navigation
@@ -173,8 +179,10 @@ export const Keyboard = {
 } satisfies Story
 ```
 
-- Every component should have a `Snapshot` story at the end of the file used for visual regression
-  testing.
+### Make one Snapshot story for each component
+
+Every component should have a `Snapshot` story at the end of the file used for visual regression
+testing.
 
 Combining multiple stories in one `Snapshot` story makes it possible to decrease
 [cost related to monthly amount of snapshots](https://www.chromatic.com/pricing).
@@ -196,8 +204,10 @@ export const Snapshot = {
 } satisfies StoryObj
 ```
 
-- Prefer querying elements with `getByRole` in interaction tests to other query types such as
-  `getByTestId` and `getByText`.
+### Query by accessibility role and name
+
+Prefer querying elements with `getByRole` in interaction tests to other query types such as
+`getByTestId` and `getByText`.
 
 ```tsx
 // bad
