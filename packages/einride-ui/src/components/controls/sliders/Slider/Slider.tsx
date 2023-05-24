@@ -93,7 +93,9 @@ const Root = styled(SliderPrimitive.Root)`
 const StartRange = styled.span`
   position: absolute;
   block-size: ${({ theme }) => 6 * theme.spacingBase}rem;
-  inline-size: ${({ theme }) => 3 * theme.spacingBase}rem;
+  inline-size: calc(
+    ${({ theme }) => 3 * theme.spacingBase}rem + 1px
+  ); // Add a very small buffer to avoid a small gap between the start range and the range when dragged out
   background: ${({ theme }) => theme.colors.content.positive};
   border-start-start-radius: ${({ theme }) => theme.borderRadii.xl};
   border-end-start-radius: ${({ theme }) => theme.borderRadii.xl};
