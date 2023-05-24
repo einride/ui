@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.58.1
+
+### Patch Changes
+
+- ed5532c1: Slider: Avoid small gap between start range and range when dragged out.
+
 ## 7.57.2
 
 ### Patch Changes
