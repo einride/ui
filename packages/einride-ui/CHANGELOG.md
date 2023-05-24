@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.58.2
+
+### Patch Changes
+
+- 0ab477aa: Slider: Add onClick prop to make it possible to stop propagation.
+
 ## 7.58.1
 
 ### Patch Changes
