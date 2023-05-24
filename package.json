@@ -38,7 +38,7 @@
     "@storybook/addon-styling": "1.0.8",
     "@storybook/addons": "7.0.13",
     "@storybook/jest": "0.1.0",
-    "@storybook/node-logger": "7.0.13",
+    "@storybook/node-logger": "7.0.15",
     "@storybook/react": "7.0.13",
     "@storybook/react-vite": "7.0.13",
     "@storybook/test-runner": "0.10.0",
