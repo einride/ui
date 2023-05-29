@@ -56,7 +56,7 @@
     "storybook": "7.0.17",
     "tslib": "2.5.2",
     "typescript": "5.0.4",
-    "vite": "4.3.8",
+    "vite": "4.3.9",
     "vite-plugin-turbosnap": "1.0.2",
     "vite-tsconfig-paths": "4.2.0",
     "vitest": "0.31.1"
