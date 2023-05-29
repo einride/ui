@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.58.3
+
+### Patch Changes
+
+- ae88575b: Bump Radix UI deps.
+
 ## 7.58.2
 
 ### Patch Changes
