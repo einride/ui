@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.58.4
+
+### Patch Changes
+
+- bfafdf99: Add new icons needed in Demand Wizard.
+
 ## 7.58.3
 
 ### Patch Changes
