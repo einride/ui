@@ -76,6 +76,13 @@ export const iconNames = [
   "fossilFree",
   "resilientTransport",
   "circularEconomy",
+  "retailCapacity",
+  "groceryAndFMCGCapacity",
+  "industrialCapacity",
+  "customCapacity",
+  "mail",
+  "CO2",
+  "cost",
 ] as const
 
 export type IconName = (typeof iconNames)[number]
@@ -123,5 +130,12 @@ const getEncodedEntity = (name: IconName): ReactNode => {
   if (name === "fossilFree") return <>&#x100200;</>
   if (name === "resilientTransport") return <>&#x100655;</>
   if (name === "circularEconomy") return <>&#x100B0E;</>
+  if (name === "retailCapacity") return <>&#x10041B;</>
+  if (name === "groceryAndFMCGCapacity") return <>&#x10036A;</>
+  if (name === "industrialCapacity") return <>&#x1008CC;</>
+  if (name === "customCapacity") return <>&#x1013B5;</>
+  if (name === "mail") return <>&#x100356;</>
+  if (name === "CO2") return <>&#x1014B9;</>
+  if (name === "cost") return <>&#x100598;</>
   return null
 }
