@@ -1,6 +1,6 @@
 {
   "name": "@einride/ui",
-  "version": "7.58.2",
+  "version": "7.58.3",
   "description": "Core components that adhere to Einride's design system",
   "scripts": {
     "build": "rollup --config"
