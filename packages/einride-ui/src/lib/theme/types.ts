@@ -16,6 +16,7 @@ export const backgroundColors = [
   "accent1",
   "accent2",
   "accent3",
+  "highlight",
   "focus",
 ] as const
 export type BackgroundColor = (typeof backgroundColors)[number]

@@ -26,6 +26,7 @@ export const light: ColorTheme = {
     accent1: color.blue[60],
     accent2: color.violet[60],
     accent3: color.yellow[60],
+    highlight: color.green[20],
     focus: `${color.black}66`, // 66 is HEX for ~40% opacity
   },
   content: {
