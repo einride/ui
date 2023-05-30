@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.59.0
+
+### Minor Changes
+
+- 1d13661b: Add background highligh theme color.
+
 ## 7.58.4
 
 ### Patch Changes
