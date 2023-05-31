@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.59.1
+
+### Patch Changes
+
+- e8fc307f: Bump Mantine deps.
+
 ## 7.59.0
 
 ### Minor Changes
