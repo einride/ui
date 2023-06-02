@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.59.2
+
+### Patch Changes
+
+- 79ab266c: Slider: Prevent zooming/scrolling during ongoing slide on touch devices.
+
 ## 7.59.1
 
 ### Patch Changes
