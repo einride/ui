@@ -79,6 +79,8 @@ export const MultiSelect = <Option extends BaseOption>({
   (MultiSelectWithLabelProps | MultiSelectWithoutLabelProps)): React.JSX.Element => {
   const [highlightedDropdownIndex, setHighlightedDropdownIndex] = useState<number | null>(null)
   const [highlightedInputIndex, setHighlightedInputIndex] = useState<number | null>(null)
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   const [selectedOptions, setSelectedOptions] = useUncontrolled<Option[] | undefined>({
     value,
     defaultValue,

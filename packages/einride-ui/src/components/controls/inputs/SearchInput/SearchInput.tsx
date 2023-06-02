@@ -57,7 +57,8 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
   ({ value, defaultValue, onInputChange, clearButtonProps, suffix, ...props }, ref) => {
     const innerRef = useRef<HTMLInputElement>(null)
     const combinedRef = useMergedRef(ref, innerRef)
-
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     const [_value = "", handleChange] = useUncontrolled({
       value,
       defaultValue,
