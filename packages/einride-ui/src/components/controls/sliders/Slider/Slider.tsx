@@ -73,6 +73,7 @@ const Root = styled(SliderPrimitive.Root)`
   flex-grow: 1;
   position: relative;
   display: flex;
+  touch-action: none; // without this, using slider with touch device is impossible because as soon as you move the slider 1px vertically the page scrolls and you need to touch again to continue moving slider
   cursor: pointer;
 
   &:hover {
