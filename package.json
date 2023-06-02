@@ -59,7 +59,7 @@
     "vite": "4.3.9",
     "vite-plugin-turbosnap": "1.0.2",
     "vite-tsconfig-paths": "4.2.0",
-    "vitest": "0.31.3"
+    "vitest": "0.31.4"
   },
   "resolutions": {
     "@testing-library/user-event": "14.4.3"
