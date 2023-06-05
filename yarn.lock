@@ -2426,7 +2426,7 @@ __metadata:
     "@storybook/testing-library": 0.1.0
     mapbox-gl: 2.15.0
     react-map-gl: 7.0.25
-    rollup: 3.23.0
+    rollup: 3.23.1
     typescript: 5.1.3
   peerDependencies:
     "@einride/ui": ^7.45.3
@@ -2520,7 +2520,7 @@ __metadata:
     luxon: 3.3.0
     react: 18.2.0
     react-dom: 18.2.0
-    rollup: 3.23.0
+    rollup: 3.23.1
     typescript: 5.1.3
     vite: 4.3.9
   peerDependencies:
@@ -15696,7 +15696,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:3.23.0, rollup@npm:^2.25.0 || ^3.3.0, rollup@npm:^3.21.0":
+"rollup@npm:3.23.1":
+  version: 3.23.1
+  resolution: "rollup@npm:3.23.1"
+  dependencies:
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: 4b3b3bbfd490b41ec5473d1141fe2beb0c86f600b56378fce97e0485192818256f8cbf4d43450b097ee7042e6629fb0187488807e2d15050860718f458c44685
+  languageName: node
+  linkType: hard
+
+"rollup@npm:^2.25.0 || ^3.3.0, rollup@npm:^3.21.0":
   version: 3.23.0
   resolution: "rollup@npm:3.23.0"
   dependencies:
