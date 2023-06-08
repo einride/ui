@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.60.0
+
+### Minor Changes
+
+- 498ba779: Add inverted border colors.
+
 ## 7.59.2
 
 ### Patch Changes
