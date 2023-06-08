@@ -21,7 +21,7 @@ export const backgroundColors = [
 ] as const
 export type BackgroundColor = (typeof backgroundColors)[number]
 
-export type BorderColor = "primary" | "selected"
+export type BorderColor = "primary" | "primaryInverted" | "selected" | "selectedInverted"
 
 export const borderRadii = ["none", "xs", "sm", "lg", "xl", "full"] as const
 export type BorderRadius = (typeof borderRadii)[number]

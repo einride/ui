@@ -45,7 +45,9 @@ export const dark: ColorTheme = {
   },
   border: {
     primary: color.grey[60],
+    primaryInverted: color.grey[30],
     selected: color.white,
+    selectedInverted: color.black,
   },
   buttons: {
     background: {
