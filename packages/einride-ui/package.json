@@ -23,7 +23,7 @@
     "lodash.merge": "4.6.2"
   },
   "devDependencies": {
-    "@emotion/react": "11.11.0",
+    "@emotion/react": "11.11.1",
     "@emotion/styled": "11.11.0",
     "@faker-js/faker": "8.0.2",
     "@rollup/plugin-image": "3.0.2",
