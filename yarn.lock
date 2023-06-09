@@ -2457,7 +2457,7 @@ __metadata:
     "@storybook/addon-styling": 1.0.8
     "@storybook/addons": 7.0.18
     "@storybook/jest": 0.1.0
-    "@storybook/node-logger": 7.0.18
+    "@storybook/node-logger": 7.0.20
     "@storybook/react": 7.0.18
     "@storybook/react-vite": 7.0.18
     "@storybook/test-runner": 0.10.0
@@ -5572,6 +5572,18 @@ __metadata:
     npmlog: ^5.0.1
     pretty-hrtime: ^1.0.3
   checksum: aefaf1ef87728665f894c10c51bdb832f7721a9ecd46440f4d0bcb8ec94b52318183d85b4c9c03e2a3e3e1a122d3940221428a556d1f35e393d3b53252bb4337
+  languageName: node
+  linkType: hard
+
+"@storybook/node-logger@npm:7.0.20":
+  version: 7.0.20
+  resolution: "@storybook/node-logger@npm:7.0.20"
+  dependencies:
+    "@types/npmlog": ^4.1.2
+    chalk: ^4.1.0
+    npmlog: ^5.0.1
+    pretty-hrtime: ^1.0.3
+  checksum: 7720f643364e3c216ac80cf4983490c44e4141066c0eab84517c0867615935debb6a7d69c05fa71350125e8d00aa79db8edbef3821291304137c319f5f431622
   languageName: node
   linkType: hard
 
