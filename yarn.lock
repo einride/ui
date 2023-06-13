@@ -2512,7 +2512,7 @@ __metadata:
     "@types/react": 18.2.11
     "@types/react-dom": 18.2.4
     "@vitejs/plugin-react": 4.0.0
-    chromatic: 6.18.2
+    chromatic: 6.19.2
     concurrently: 8.2.0
     dayjs: 1.11.8
     framer-motion: 10.12.16
@@ -6623,13 +6623,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/webpack-env@npm:^1.17.0":
-  version: 1.18.1
-  resolution: "@types/webpack-env@npm:1.18.1"
-  checksum: 3173c069763e51a96565d602af7e6dac9d772ae4aa6f26cac187cbf599a7f0b88f790b4b050b9dbdb0485daed3061b4a337863f3b8ce66f8a4e51f75ad387c6a
-  languageName: node
-  linkType: hard
-
 "@types/yargs-parser@npm:*":
   version: 21.0.0
   resolution: "@types/yargs-parser@npm:21.0.0"
@@ -8244,19 +8237,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:6.18.2":
-  version: 6.18.2
-  resolution: "chromatic@npm:6.18.2"
+"chromatic@npm:6.19.2":
+  version: 6.19.2
+  resolution: "chromatic@npm:6.19.2"
   dependencies:
     "@discoveryjs/json-ext": ^0.5.7
     "@storybook/csf-tools": ^7.0.12
-    "@types/webpack-env": ^1.17.0
     snyk-nodejs-lockfile-parser: ^1.49.0
   bin:
-    chroma: bin/main.cjs
-    chromatic: bin/main.cjs
-    chromatic-cli: bin/main.cjs
-  checksum: 5af02ce736d5e7034bf9423e723e83439d45f7fc19694f63efb8b5100910b75fe31579a9a7c7ce94645a38c63bbb713e215717b8cd41c0b6ddf872e8130779b9
+    chroma: dist/bin.js
+    chromatic: dist/bin.js
+    chromatic-cli: dist/bin.js
+  checksum: bdb41d77d22818a529a9e52c8140392ed9ddbf00535542a6540f86c4bbb0756e96eea8a0da693dc1e36ebb4aaa74eedb32d6e7246eabe81e5869bc652e459279
   languageName: node
   linkType: hard
 
