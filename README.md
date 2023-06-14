@@ -10,7 +10,7 @@ Einride UI consists of these packages:
 
 - [`@einride/ui`](./packages/einride-ui/): Core UI components.
 - [`@einride/ui-maps`](./packages/einride-ui-maps/): Mapping components.
-- [`@einride/ui-maps`](./packages/einride-ui-maps/): Experimental components that are not yet added
+- [`@einride/ui-labs`](./packages/einride-ui-labs/): Experimental components that are not yet added
   to `@einride/ui`.
 
 ## Installation
