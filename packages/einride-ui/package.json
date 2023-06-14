@@ -36,7 +36,7 @@
     "@types/react": "18.2.12",
     "@types/react-dom": "18.2.5",
     "@vitejs/plugin-react": "4.0.0",
-    "chromatic": "6.19.2",
+    "chromatic": "6.19.5",
     "concurrently": "8.2.0",
     "framer-motion": "10.12.16",
     "luxon": "3.3.0",
