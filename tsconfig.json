@@ -4,7 +4,8 @@
     "baseUrl": "./",
     "paths": {
       "@einride/ui": ["./packages/einride-ui/src"],
-      "@einride/ui-maps": ["./packages/einride-ui-maps/src"]
+      "@einride/ui-maps": ["./packages/einride-ui-maps/src"],
+      "@einride/ui-labs": ["./packages/einride-ui-labs/src"]
     }
   }
 }
