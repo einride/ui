@@ -2406,6 +2406,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@einride/ui-labs@workspace:packages/einride-ui-labs":
+  version: 0.0.0-use.local
+  resolution: "@einride/ui-labs@workspace:packages/einride-ui-labs"
+  dependencies:
+    "@rollup/plugin-typescript": 11.1.1
+    "@storybook/jest": 0.1.0
+    "@storybook/react": 7.0.20
+    "@storybook/testing-library": 0.1.0
+    "@types/react": 18.2.12
+    "@types/react-dom": 18.2.5
+    "@vitejs/plugin-react": 4.0.0
+    framer-motion: 10.12.16
+    react: 18.2.0
+    react-dom: 18.2.0
+    rollup: 3.25.1
+    typescript: 5.1.3
+  peerDependencies:
+    "@einride/ui": ^7.45.3
+    "@emotion/react": ^11.10.6
+    "@emotion/styled": ^11.10.6
+    react: ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@einride/ui-maps@workspace:packages/einride-ui-maps":
   version: 0.0.0-use.local
   resolution: "@einride/ui-maps@workspace:packages/einride-ui-maps"

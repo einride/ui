@@ -3,7 +3,7 @@
   "changelog": "@changesets/cli/changelog",
   "commit": false,
   "fixed": [],
-  "linked": [["@einride/ui", "@einride/ui-maps"]],
+  "linked": [["@einride/ui", "@einride/ui-maps", "@einride/ui-labs"]],
   "access": "restricted",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",

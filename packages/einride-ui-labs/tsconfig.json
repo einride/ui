@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "composite": true,
+    "moduleResolution": "node",
+    "rootDir": "./src",
+    "paths": {
+      "@einride/ui": ["../einride-ui/src"]
+    }
+  },
+  "references": [{ "path": "../einride-ui" }]
+}
