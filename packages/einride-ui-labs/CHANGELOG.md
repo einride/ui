@@ -1,5 +1,11 @@
 # @einride/ui-labs
 
+## 7.61.3
+
+### Patch Changes
+
+- 4748c673: Correct import path.
+
 ## 7.61.2
 
 ### Patch Changes
