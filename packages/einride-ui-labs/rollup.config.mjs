@@ -1,3 +1,4 @@
+import image from "@rollup/plugin-image"
 import typescript from "@rollup/plugin-typescript"
 import pkg from "./package.json" assert { type: "json" }
 
@@ -18,5 +19,5 @@ export default {
     ...Object.keys(pkg.peerDependencies ?? {}),
     "react/jsx-runtime",
   ],
-  plugins: [typescript({ tsconfig: "./tsconfig.build.json" })],
+  plugins: [image(), typescript({ tsconfig: "./tsconfig.build.json" })],
 }

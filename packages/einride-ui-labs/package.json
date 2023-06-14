@@ -6,6 +6,7 @@
     "build": "rollup --config"
   },
   "devDependencies": {
+    "@rollup/plugin-image": "3.0.2",
     "@rollup/plugin-typescript": "11.1.1",
     "@storybook/jest": "0.1.0",
     "@storybook/react": "7.0.20",
