@@ -1,5 +1,11 @@
 # @einride/ui-labs
 
+## 7.61.4
+
+### Patch Changes
+
+- 384b2ba4: Fix tsconfig paths.
+
 ## 7.61.3
 
 ### Patch Changes
