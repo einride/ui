@@ -1,5 +1,11 @@
 # @einride/ui-labs
 
+## 7.61.2
+
+### Patch Changes
+
+- 7f9f22ff: Mimic @einride/ui-maps.
+
 ## 7.61.1
 
 ### Patch Changes
