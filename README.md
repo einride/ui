@@ -10,6 +10,8 @@ Einride UI consists of these packages:
 
 - [`@einride/ui`](./packages/einride-ui/): Core UI components.
 - [`@einride/ui-maps`](./packages/einride-ui-maps/): Mapping components.
+- [`@einride/ui-maps`](./packages/einride-ui-maps/): Experimental components that are not yet added
+  to `@einride/ui`.
 
 ## Installation
 
@@ -19,7 +21,7 @@ Install `@einride/ui` together with its peer dependencies:
 yarn add @einride/ui @emotion/react @emotion/styled framer-motion
 ```
 
-Install `@einride/ui-maps` if you have a need of showing maps.
+Install the other packages depending on your requirements.
 
 ## Setup
 
