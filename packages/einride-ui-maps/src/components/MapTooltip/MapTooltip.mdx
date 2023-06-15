@@ -25,5 +25,35 @@ import { MapTooltip } from "@einride/ui-maps"
 ## Basic
 
 <Description of={MapTooltip.Basic} />
-<Canvas of={MapTooltip.Basic} sourceState="hidden" />
+<Canvas
+  of={MapTooltip.Basic}
+  source={{
+    code: `
+const { colorScheme } = useColorScheme()
+return (
+  <Map
+    style={{
+      height: "80vh",
+    }}
+    mapboxAccessToken={mapboxAccessToken}
+    mapStyle={colorScheme === "light" ? mapboxStyleLight : mapboxStyleDark}
+    initialViewState={{
+      latitude: 51.1657,
+      longitude: 10.4515,
+      zoom: 4,
+    }}
+  >
+    <MapTooltip
+      position={{
+        lat: 51.1657,
+        lng: 10.4515,
+      }}
+    >
+      <Text variant="bodyMd">Lorem Ipsum</Text>,
+    </MapTooltip>
+  </Map>
+)
+`,
+  }}
+/>
 <Controls of={MapTooltip.Basic} />

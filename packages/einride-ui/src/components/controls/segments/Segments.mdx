@@ -37,16 +37,76 @@ import { Segments, SegmentsItem } from "@einride/ui"
 ## Controlled
 
 <Description of={Segments.Controlled} />
-<Canvas of={Segments.Controlled} sourceState="hidden" />
+<Canvas
+  of={Segments.Controlled}
+  source={{
+    code: `
+const [unit, setUnit] = useState("kilogram")
+return (
+  <Segments onValueChange={setUnit} value={unit}>
+    <SegmentsItem value="kilogram">Kilogram</SegmentsItem>
+    <SegmentsItem value="pound">Pound</SegmentsItem>
+  </Segments>
+)
+`,
+  }}
+/>
 <Controls of={Segments.Controlled} />
 
 ## Control based on selected segments
 
 <Description of={Segments.MeasurementSystem} />
-<Canvas of={Segments.MeasurementSystem} sourceState="hidden" />
+<Canvas
+  of={Segments.MeasurementSystem}
+  source={{
+    code: `
+const [unit, setUnit] = useState("kilogram")
+return (
+  <Stack alignItems="start">
+    <Segments onValueChange={setUnit} value={unit}>
+      <SegmentsItem value="kilogram">Kilogram</SegmentsItem>
+      <SegmentsItem value="pound">Pound</SegmentsItem>
+    </Segments>
+    <Weight
+      weight={{ unit: "kilogram", value: 1000 }}
+      locales="en-US"
+      measurementSystem={unit === "kilogram" ? "metric" : "US"}
+    />
+  </Stack>
+)
+`,
+  }}
+/>
 <Controls of={Segments.MeasurementSystem} />
 
 ## With label
 
 <Description of={Segments.WithLabel} />
-<Canvas of={Segments.WithLabel} sourceState="hidden" />
+<Canvas
+  of={Segments.WithLabel}
+  source={{
+    code: `
+<Segments defaultValue="segment-1">
+  <SegmentsItem value="segment-1">
+    <Group gap="xs">
+      <span>Segment</span>
+      <Box
+        as="span"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        background="tertiary"
+        borderRadius="full"
+        blockSize={3}
+        inlineSize={3}
+      >
+        1
+      </Box>
+    </Group>
+  </SegmentsItem>
+  <SegmentsItem value="segment-2">Segment</SegmentsItem>
+</Segments>
+)
+`,
+  }}
+/>

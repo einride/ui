@@ -29,7 +29,7 @@ import { Sheets } from "@einride/ui"
   of={Sheets.Basic}
   source={{
     code: `
-const { isOpen, handlers } = useDisclosure(defaultOpen)
+const { isOpen, handlers } = useDisclosure(true)
 return (
   <>
     <PrimaryButton onClick={handlers.open}>Open sheets</PrimaryButton>

@@ -126,35 +126,33 @@ export const MeasurementSystem = {
   },
 } satisfies StoryObj
 
-const WithLabelTemplate = (): React.JSX.Element => {
-  const [activeSegment, setActiveSegment] = useState("segment-1")
-  return (
-    <Segments onValueChange={setActiveSegment} value={activeSegment}>
-      <SegmentsItem value="segment-1">
-        <Group gap="xs">
-          <span>Segment</span>
-          <Box
-            as="span"
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            background="tertiary"
-            borderRadius="full"
-            blockSize={3}
-            inlineSize={3}
-          >
-            1
-          </Box>
-        </Group>
-      </SegmentsItem>
-      <SegmentsItem value="segment-2">Segment</SegmentsItem>
-    </Segments>
-  )
-}
-
 /** You can format the segments according to your needs by passing custom `children`. */
 export const WithLabel = {
-  render: () => <WithLabelTemplate />,
+  args: {
+    defaultValue: "segment-1",
+    children: (
+      <>
+        <SegmentsItem value="segment-1">
+          <Group gap="xs">
+            <span>Segment</span>
+            <Box
+              as="span"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              background="tertiary"
+              borderRadius="full"
+              blockSize={3}
+              inlineSize={3}
+            >
+              1
+            </Box>
+          </Group>
+        </SegmentsItem>
+        <SegmentsItem value="segment-2">Segment</SegmentsItem>
+      </>
+    ),
+  },
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
     const radioGroup = canvas.getByRole("radiogroup")
@@ -166,7 +164,7 @@ export const WithLabel = {
       await expect(segment2).not.toBeChecked()
     })
   },
-} satisfies StoryObj
+} satisfies Story
 
 export const Pointer = {
   render: () => <MeasurementSystemTemplate />,

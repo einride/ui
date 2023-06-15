@@ -25,5 +25,25 @@ import { Alert } from "@einride/ui"
 ## Basic
 
 <Description of={Alert.Basic} />
-<Canvas of={Alert.Basic} sourceState="hidden" />
+<Canvas
+  of={Alert.Basic}
+  source={{
+    code: `
+const { isOpen, handlers } = useDisclosure(true)
+return (
+  <>
+    <PrimaryButton onClick={handlers.open}>Open alert</PrimaryButton>
+    <Alert
+      closeHandler={handlers.close}
+      description="Secondary, supporting text that should span to a maximum of 2-3 lines and no more than that."
+      isOpen={isOpen}
+      primaryAction={{ children: "Primary" }}
+      secondaryAction={{ children: "Secondary", onClick: handlers.close }}
+      title="Title"
+    />
+  </>
+)
+`,
+  }}
+/>
 <Controls of={Alert.Basic} />

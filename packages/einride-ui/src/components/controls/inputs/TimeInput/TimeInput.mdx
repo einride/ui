@@ -37,7 +37,24 @@ import { TimeInput } from "@einride/ui"
 ## Range
 
 <Description of={TimeInput.Range} />
-<Canvas of={TimeInput.Range} sourceState="hidden" />
+<Canvas
+  of={TimeInput.Range}
+  source={{
+    code: `
+const { valueFrom, onChangeFrom, valueTo, onChangeTo, minTo, maxFrom, status } =
+  useRangeTimeInput()
+return (
+  <Group gap="xs">
+    <TimeInput label="From" max={maxFrom} onChange={onChangeFrom} value={valueFrom} />
+    <Box as="span" alignSelf="flex-end" blockSize="lg" display="flex" alignItems="center">
+      &ndash;
+    </Box>
+    <TimeInput status={status} label="To" min={minTo} onChange={onChangeTo} value={valueTo} />
+  </Group>
+)
+`,
+  }}
+/>
 
 ## Message
 
