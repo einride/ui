@@ -73,6 +73,7 @@ interface DialogStyles {
   style?: Omit<CSSProperties, "rotate" | "scale" | "perspective">
 }
 
+/** A panel that uses a portion of the screen to show something. */
 export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
   (
     {
