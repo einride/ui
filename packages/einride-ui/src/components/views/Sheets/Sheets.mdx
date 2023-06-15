@@ -25,5 +25,30 @@ import { Sheets } from "@einride/ui"
 ## Basic
 
 <Description of={Sheets.Basic} />
-<Canvas of={Sheets.Basic} sourceState="hidden" />
+<Canvas
+  of={Sheets.Basic}
+  source={{
+    code: `
+const { isOpen, handlers } = useDisclosure(defaultOpen)
+return (
+  <>
+    <PrimaryButton onClick={handlers.open}>Open sheets</PrimaryButton>
+    <Sheets
+      closeHandler={handlers.close}
+      isOpen={isOpen}
+      navigationAction={{
+        "aria-label": "Close",
+        icon: "xMark",
+        onClick: handlers.close,
+      }}
+      navigationTitle="Page name"
+      primaryAction={{ children: "Primary" }}
+    >
+      <Text>Sheets content</Text>
+    </Sheets>
+  </>
+)
+`,
+  }}
+/>
 <Controls of={Sheets.Basic} />
