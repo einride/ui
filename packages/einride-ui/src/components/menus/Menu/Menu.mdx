@@ -18,12 +18,36 @@ import * as Menu from "./Menu.stories.tsx"
 <Title />
 <Description of={Menu} />
 
+Menu consists of these components:
+
+- `<Menu>`: Contains all the parts of the menu.
+- `<MenuTrigger>`: The button that toggles the dropdown menu.
+- `<MenuContent>`: The content that pops out when the dropdown menu is open.
+- `<MenuItem>`: The wrapper for each individual menu item.
+
 ```tsx
-import { Menu } from "@einride/ui"
+import { Menu, MenuTrigger, MenuContent, MenuItem } from "@einride/ui"
 ```
 
 ## Basic
 
 <Description of={Menu.Basic} />
-<Canvas of={Menu.Basic} sourceState="hidden" />
+<Canvas
+  of={Menu.Basic}
+  source={{
+    code: `
+<Menu>
+  <MenuTrigger>
+    <IconButton aria-label="See options" icon="ellipsis" />
+  </MenuTrigger>
+  <MenuContent>
+    <MenuItem icon={<Icon name="arrowDownCircle" />}>Option 1</MenuItem>
+    <MenuItem icon={<Icon name="arrowDownCircle" />}>Option 2</MenuItem>
+    <MenuItem>Option 3</MenuItem>
+    <MenuItem>Option 4</MenuItem>
+  </MenuContent>
+</Menu>
+`,
+  }}
+/>
 <Controls of={Menu.Basic} />
