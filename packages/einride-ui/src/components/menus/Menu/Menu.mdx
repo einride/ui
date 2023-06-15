@@ -51,3 +51,25 @@ import { Menu, MenuTrigger, MenuContent, MenuItem } from "@einride/ui"
   }}
 />
 <Controls of={Menu.Basic} />
+
+## Menu content alignment
+
+<Description of={Menu.AlignContentEnd} />
+<Canvas
+  of={Menu.AlignContentEnd}
+  source={{
+    code: `
+<Menu>
+  <MenuTrigger>
+    <IconButton aria-label="See options" icon="ellipsis" />
+  </MenuTrigger>
+  <MenuContent align="end">
+    <MenuItem icon={<Icon name="arrowDownCircle" />}>Option 1</MenuItem>
+    <MenuItem icon={<Icon name="arrowDownCircle" />}>Option 2</MenuItem>
+    <MenuItem>Option 3</MenuItem>
+    <MenuItem>Option 4</MenuItem>
+  </MenuContent>
+</Menu>
+`,
+  }}
+/>
