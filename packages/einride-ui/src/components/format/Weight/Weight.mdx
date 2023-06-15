@@ -15,9 +15,7 @@ import {
 import * as Weight from "./Weight.stories.tsx"
 
 <Meta of={Weight} />
-
 <Title />
-
 <Description of={Weight} />
 
 ```tsx
@@ -27,39 +25,29 @@ import { Weight } from "@einride/ui"
 ## Basic
 
 <Description of={Weight.Metric} />
-
 <Canvas of={Weight.Metric} />
-
 <Controls of={Weight.Metric} />
 
 ## Measurement system
 
 <Description of={Weight.US} />
-
 <Canvas of={Weight.US} />
-
 <Controls of={Weight.US} include="measurementSystem" />
 
 ## Input unit
 
 <Description of={Weight.MetricFromPound} />
-
 <Canvas of={Weight.MetricFromPound} />
-
 <Controls of={Weight.MetricFromPound} include="weight" />
 
 ## Locale
 
 <Description of={Weight.USInSwedish} />
-
 <Canvas of={Weight.USInSwedish} />
-
 <Controls of={Weight.USInSwedish} include="locales" />
 
 ## Format options
 
 <Description of={Weight.MaximumSignificantDigits} />
-
 <Canvas of={Weight.MaximumSignificantDigits} />
-
 <Controls of={Weight.MaximumSignificantDigits} include="numberFormatOptions" />
