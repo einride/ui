@@ -1,5 +1,11 @@
 # @einride/ui-labs
 
+## 7.61.5
+
+### Patch Changes
+
+- 1b4a77f1: Include @einride/ui-labs in build script.
+
 ## 7.61.4
 
 ### Patch Changes
