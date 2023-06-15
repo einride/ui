@@ -1,6 +1,6 @@
 {
   "name": "@einride/ui-labs",
-  "version": "7.61.4",
+  "version": "7.61.5",
   "description": "Experimental new components that are not yet included in the core package",
   "scripts": {
     "build": "rollup --config"
