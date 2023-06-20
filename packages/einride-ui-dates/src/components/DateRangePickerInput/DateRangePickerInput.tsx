@@ -104,7 +104,7 @@ const getMessageColor = (status: Status | undefined): ContentColor => {
   }
 }
 
-export type DateRangePickerValue = [Date | null, Date | null]
+type DateRangePickerValue = [Date | null, Date | null]
 
 interface StyledDateRangePickerProps {
   /** Whether to allow clearing value or not. Default is `false`. */

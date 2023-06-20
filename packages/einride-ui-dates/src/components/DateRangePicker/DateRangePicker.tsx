@@ -17,10 +17,10 @@ export interface DateRangePicker {
   maxDate?: Date
 
   /** Called when date changes. */
-  onChange?: (value: RangeCalendarValue) => void
+  onChange?: (value: DateRangePickerValue) => void
 
   /** Selected date, required with controlled input. */
-  value?: RangeCalendarValue
+  value?: DateRangePickerValue
 
   /** Props passed to root element. */
   wrapperProps?: ComponentPropsWithoutRef<typeof Box>
@@ -42,7 +42,7 @@ export const DateRangePicker = ({ wrapperProps, ...props }: DateRangePicker): Re
   )
 }
 
-type RangeCalendarValue = [Date | null, Date | null]
+export type DateRangePickerValue = [Date | null, Date | null]
 
 const StyledDatePicker = styled(DatePicker)`
   &.mantine-DatePicker-calendar {
