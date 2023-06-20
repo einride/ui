@@ -4,7 +4,8 @@ import { userEvent, within } from "@storybook/testing-library"
 import { DateTime } from "luxon"
 import { ComponentProps, useState } from "react"
 import { SnapshotWrapper } from "../../lib/storybook/SnapshotWrapper"
-import { DateRangePickerInput, DateRangePickerValue } from "./DateRangePickerInput"
+import { DateRangePickerValue } from "../DateRangePicker/DateRangePicker"
+import { DateRangePickerInput } from "./DateRangePickerInput"
 
 const meta = {
   component: DateRangePickerInput,
