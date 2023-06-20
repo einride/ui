@@ -1,5 +1,12 @@
 # @einride/ui-dates
 
+## 7.61.8
+
+### Patch Changes
+
+- 66661b31: Include dayjs as dependency.
+- 81e267b5: Bump Mantine deps.
+
 ## 7.61.7
 
 ### Patch Changes
