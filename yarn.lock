@@ -2676,6 +2676,7 @@ __metadata:
     "@types/react": 18.2.12
     "@types/react-dom": 18.2.5
     "@vitejs/plugin-react": 4.0.0
+    dayjs: 1.11.8
     framer-motion: 10.12.16
     luxon: 3.3.0
     react: 18.2.0
