@@ -25,6 +25,9 @@ export interface RangeCalendarProps {
   wrapperProps?: BoxProps
 }
 
+/**
+ * @deprecated Use `<DateRangePicker>` from `@einride/ui-dates` instead.
+ */
 export const RangeCalendar = ({
   wrapperProps,
   ...props

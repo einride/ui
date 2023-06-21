@@ -63,6 +63,9 @@ interface DateRangePickerWithoutLabelProps {
 export type DateRangePickerProps = DateRangePickerBaseProps &
   (DateRangePickerWithLabelProps | DateRangePickerWithoutLabelProps)
 
+/**
+ * @deprecated Use `<DateRangePickerInput>` from `@einride/ui-dates` instead.
+ */
 export const DateRangePicker = ({
   message,
   messageProps,

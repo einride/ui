@@ -27,6 +27,9 @@ export interface CalendarBaseProps {
 
 export type CalendarProps = CalendarBaseProps
 
+/**
+ * @deprecated Use `<DatePicker>` from `@einride/ui-dates` instead.
+ */
 export const Calendar = ({ wrapperProps, ...props }: CalendarProps): React.JSX.Element => {
   return (
     <Box {...wrapperProps}>

@@ -63,6 +63,9 @@ interface DatePickerWithoutLabelProps {
 export type DatePickerProps = DatePickerBaseProps &
   (DatePickerWithLabelProps | DatePickerWithoutLabelProps)
 
+/**
+ * @deprecated Use `<DatePickerInput>` from `@einride/ui-dates` instead.
+ */
 export const DatePicker = ({
   message,
   messageProps,
