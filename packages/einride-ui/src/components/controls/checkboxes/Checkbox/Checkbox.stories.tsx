@@ -43,6 +43,7 @@ export const DefaultChecked = {
     const canvas = within(canvasElement)
     const checkbox = canvas.getByRole("checkbox", { name: DefaultChecked.args.children })
     await expect(checkbox).toBeChecked()
+    await expect(checkbox).not.toHaveAttribute("data-indeterminate")
   },
 } satisfies Story
 
@@ -95,6 +96,19 @@ export const Keyboard = {
     await expect(checkbox).not.toBeChecked()
     await userEvent.keyboard("[Space]")
     await expect(checkbox).toBeChecked()
+  },
+} satisfies Story
+
+export const Indeterminate = {
+  render: (args) => <ControlledTemplate {...args} />,
+  args: {
+    ...Basic.args,
+    indeterminate: true,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const checkbox = canvas.getByRole("checkbox", { name: Indeterminate.args.children })
+    await expect(checkbox).toHaveAttribute("data-indeterminate", "true")
   },
 } satisfies Story
 
@@ -191,7 +205,7 @@ export const GroupKeyboard = {
 export const Snapshot = {
   render: () => (
     <SnapshotWrapper>
-      {[Basic, DefaultChecked].map((Story, index) => (
+      {[Basic, DefaultChecked, Indeterminate].map((Story, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <Checkbox key={index} {...Story.args} />
       ))}
