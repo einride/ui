@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.62.0
+
+### Minor Changes
+
+- 4a88f7cc: Add indeterminate property to the checkbox component.
+
 ## 7.61.8
 
 ### Patch Changes
