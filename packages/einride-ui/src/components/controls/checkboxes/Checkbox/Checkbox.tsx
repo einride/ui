@@ -7,6 +7,9 @@ export interface CheckboxProps extends Omit<ComponentPropsWithoutRef<"input">, "
   /** Disables the checkbox. */
   disabled?: boolean
 
+  /** Sets the checkbox to an indeterminate state in which case the `checked` state is ignored visually. */
+  indeterminate?: boolean
+
   /** Props passed to the inner wrapper element. */
   innerWrapperProps?: BoxProps
 
@@ -22,7 +25,18 @@ export interface CheckboxProps extends Omit<ComponentPropsWithoutRef<"input">, "
 
 /** Checkbox control. */
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ children, innerWrapperProps, labelProps, onCheckedChange, wrapperProps, ...props }, ref) => {
+  (
+    {
+      children,
+      indeterminate,
+      innerWrapperProps,
+      labelProps,
+      onCheckedChange,
+      wrapperProps,
+      ...props
+    },
+    ref,
+  ) => {
     const id = useId()
     return (
       <Wrapper
@@ -35,12 +49,17 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         <InnerWrapper display="flex" position="relative" {...innerWrapperProps}>
           <StyledInput
             id={id}
+            data-indeterminate={indeterminate}
             type="checkbox"
             {...props}
             onChange={(e) => onCheckedChange?.(e.target.checked)}
             ref={ref}
           />
-          <StyledIcon color="primaryInverted" name="checkmark" />
+          {indeterminate ? (
+            <MinusSpan>—</MinusSpan>
+          ) : (
+            <StyledIcon color="primaryInverted" name="checkmark" />
+          )}
         </InnerWrapper>
         {children ? (
           <StyledLabel htmlFor={id} {...labelProps}>
@@ -87,7 +106,8 @@ const StyledInput = styled.input`
     border-color: ${({ theme }) => theme.colors.border.selected};
   }
 
-  &:checked:not(:disabled) {
+  &:checked:not(:disabled),
+  &[data-indeterminate="true"]:not(:disabled) {
     border-color: ${({ theme }) => theme.colors.border.selected};
     background: ${({ theme }) => theme.colors.content.primary};
   }
@@ -102,4 +122,13 @@ const StyledIcon = styled(Icon)`
   position: absolute;
   inset-inline-start: ${({ theme }) => 0.625 * theme.spacingBase}rem;
   pointer-events: none;
+`
+
+const MinusSpan = styled.span`
+  position: absolute;
+  inset-inline-start: ${({ theme }) => 0.625 * theme.spacingBase}rem;
+  inset-block-start: ${({ theme }) => 1.25 * theme.spacingBase}rem;
+  color: ${({ theme }) => theme.colors.background.primary};
+  pointer-events: none;
+  line-height: 0.125;
 `
