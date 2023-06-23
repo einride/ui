@@ -2700,7 +2700,7 @@ __metadata:
     "@einride/prettier-config": 2.0.1
     "@einride/tsconfig": 2.0.1
     "@storybook/addon-a11y": 7.0.22
-    "@storybook/addon-actions": 7.0.22
+    "@storybook/addon-actions": 7.0.23
     "@storybook/addon-coverage": 0.0.8
     "@storybook/addon-essentials": 7.0.22
     "@storybook/addon-interactions": 7.0.22
@@ -4973,6 +4973,38 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/addon-actions@npm:7.0.23":
+  version: 7.0.23
+  resolution: "@storybook/addon-actions@npm:7.0.23"
+  dependencies:
+    "@storybook/client-logger": 7.0.23
+    "@storybook/components": 7.0.23
+    "@storybook/core-events": 7.0.23
+    "@storybook/global": ^5.0.0
+    "@storybook/manager-api": 7.0.23
+    "@storybook/preview-api": 7.0.23
+    "@storybook/theming": 7.0.23
+    "@storybook/types": 7.0.23
+    dequal: ^2.0.2
+    lodash: ^4.17.21
+    polished: ^4.2.2
+    prop-types: ^15.7.2
+    react-inspector: ^6.0.0
+    telejson: ^7.0.3
+    ts-dedent: ^2.0.0
+    uuid: ^9.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: fdeb47a7ca38075002363cdc6a330966800577fb992e0c169213deae7735bae9e8b2ca6deae5981a7323fedebc8df93a7f0ff682bddddbf2a751242dc684e7de
+  languageName: node
+  linkType: hard
+
 "@storybook/addon-backgrounds@npm:7.0.22":
   version: 7.0.22
   resolution: "@storybook/addon-backgrounds@npm:7.0.22"
@@ -5636,6 +5668,25 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
   checksum: 92b804d5dad1678312042f219af2cfeac7a7ad699ab2936b48389dd9add846dc8c8e5620361fa7e0a4840efc2b40b7e5437729fad7b7f418784223cf47fadd78
+  languageName: node
+  linkType: hard
+
+"@storybook/components@npm:7.0.23":
+  version: 7.0.23
+  resolution: "@storybook/components@npm:7.0.23"
+  dependencies:
+    "@storybook/client-logger": 7.0.23
+    "@storybook/csf": ^0.1.0
+    "@storybook/global": ^5.0.0
+    "@storybook/theming": 7.0.23
+    "@storybook/types": 7.0.23
+    memoizerific: ^1.11.3
+    use-resize-observer: ^9.1.0
+    util-deprecate: ^1.0.2
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 8c9c42178b6c5c84d7b1ccdde4a6f9536e7c63b855b4a35eb993480a8709c0a7fff6b08229844a326fc29eff2fbfe1919a07f15c655410f6fdcfa495c0434a65
   languageName: node
   linkType: hard
 
