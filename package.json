@@ -38,7 +38,7 @@
     "@storybook/addon-interactions": "7.0.22",
     "@storybook/addon-links": "7.0.22",
     "@storybook/addon-styling": "1.3.0",
-    "@storybook/addons": "7.0.22",
+    "@storybook/addons": "7.0.23",
     "@storybook/jest": "0.1.0",
     "@storybook/node-logger": "7.0.22",
     "@storybook/react": "7.0.22",
