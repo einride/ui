@@ -2621,7 +2621,7 @@ __metadata:
     "@rollup/plugin-image": 3.0.2
     "@rollup/plugin-typescript": 11.1.1
     "@storybook/jest": 0.1.0
-    "@storybook/react": 7.0.22
+    "@storybook/react": 7.0.23
     "@storybook/testing-library": 0.2.0
     "@types/react": 18.2.13
     "@types/react-dom": 18.2.6
@@ -2648,7 +2648,7 @@ __metadata:
     "@rollup/plugin-image": 3.0.2
     "@rollup/plugin-typescript": 11.1.1
     "@storybook/jest": 0.1.0
-    "@storybook/react": 7.0.22
+    "@storybook/react": 7.0.23
     "@storybook/testing-library": 0.2.0
     "@types/react": 18.2.13
     "@types/react-dom": 18.2.6
@@ -2673,7 +2673,7 @@ __metadata:
     "@rollup/plugin-image": 3.0.2
     "@rollup/plugin-typescript": 11.1.1
     "@storybook/jest": 0.1.0
-    "@storybook/react": 7.0.22
+    "@storybook/react": 7.0.23
     "@storybook/testing-library": 0.2.0
     mapbox-gl: 2.15.0
     react-map-gl: 7.0.25
@@ -2709,7 +2709,7 @@ __metadata:
     "@storybook/addons": 7.0.23
     "@storybook/jest": 0.1.0
     "@storybook/node-logger": 7.0.22
-    "@storybook/react": 7.0.22
+    "@storybook/react": 7.0.23
     "@storybook/react-vite": 7.0.22
     "@storybook/test-runner": 0.11.0
     "@storybook/testing-library": 0.2.0
@@ -2756,7 +2756,7 @@ __metadata:
     "@rollup/plugin-image": 3.0.2
     "@rollup/plugin-typescript": 11.1.1
     "@storybook/jest": 0.1.0
-    "@storybook/react": 7.0.22
+    "@storybook/react": 7.0.23
     "@storybook/testing-library": 0.2.0
     "@types/lodash.merge": 4.6.7
     "@types/luxon": 3.3.0
@@ -5730,6 +5730,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/core-client@npm:7.0.23":
+  version: 7.0.23
+  resolution: "@storybook/core-client@npm:7.0.23"
+  dependencies:
+    "@storybook/client-logger": 7.0.23
+    "@storybook/preview-api": 7.0.23
+  checksum: 9efa2e6ebc01fbf37453f2b7cb50e27c3766eba97c67d0bd31b63e187e23956c4473f8b21b9281657c438533701f74447e026f1d00a041bc16a28ac367910251
+  languageName: node
+  linkType: hard
+
 "@storybook/core-common@npm:7.0.22":
   version: 7.0.22
   resolution: "@storybook/core-common@npm:7.0.22"
@@ -6017,6 +6027,21 @@ __metadata:
     doctrine: ^3.0.0
     lodash: ^4.17.21
   checksum: f583ae24e37e46bd06fd31167c49854cddd0853f60cfb30ac522f1e0d523db36018102ce6da26d7e9c270b32ef1b7fdca6d2668b4fa9e7adc1a338a1244ec6b9
+  languageName: node
+  linkType: hard
+
+"@storybook/docs-tools@npm:7.0.23":
+  version: 7.0.23
+  resolution: "@storybook/docs-tools@npm:7.0.23"
+  dependencies:
+    "@babel/core": ^7.12.10
+    "@storybook/core-common": 7.0.23
+    "@storybook/preview-api": 7.0.23
+    "@storybook/types": 7.0.23
+    "@types/doctrine": ^0.0.3
+    doctrine: ^3.0.0
+    lodash: ^4.17.21
+  checksum: d3802f7648f5aee5fc620dcbc34043aee75446043e12c3b8e8828cefb4af8357fdf2159dfe62911825dd94ae8e90732a0443f555cc315f58fa8cefed52ecd656
   languageName: node
   linkType: hard
 
@@ -6330,6 +6355,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/react-dom-shim@npm:7.0.23":
+  version: 7.0.23
+  resolution: "@storybook/react-dom-shim@npm:7.0.23"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 53b53a2fbe4e8ff14fcac3e389fc7ebc56335d32894e3358f449dc2f6ab0b0336cdad1298a82c53209a6514068d39b627135c80ec3f463cd1cd8d965950e4699
+  languageName: node
+  linkType: hard
+
 "@storybook/react-vite@npm:7.0.22":
   version: 7.0.22
   resolution: "@storybook/react-vite@npm:7.0.22"
@@ -6382,6 +6417,41 @@ __metadata:
     typescript:
       optional: true
   checksum: eee9719d282258158e0bd006c0a2e0dce4025e59efb7bcd98ca015e02ed2d45a1e048159ffa30cbf0eaeeed12f38d89e96297cbcd322fca066a769e1505dbac7
+  languageName: node
+  linkType: hard
+
+"@storybook/react@npm:7.0.23":
+  version: 7.0.23
+  resolution: "@storybook/react@npm:7.0.23"
+  dependencies:
+    "@storybook/client-logger": 7.0.23
+    "@storybook/core-client": 7.0.23
+    "@storybook/docs-tools": 7.0.23
+    "@storybook/global": ^5.0.0
+    "@storybook/preview-api": 7.0.23
+    "@storybook/react-dom-shim": 7.0.23
+    "@storybook/types": 7.0.23
+    "@types/escodegen": ^0.0.6
+    "@types/estree": ^0.0.51
+    "@types/node": ^16.0.0
+    acorn: ^7.4.1
+    acorn-jsx: ^5.3.1
+    acorn-walk: ^7.2.0
+    escodegen: ^2.0.0
+    html-tags: ^3.1.0
+    lodash: ^4.17.21
+    prop-types: ^15.7.2
+    react-element-to-jsx-string: ^15.0.0
+    ts-dedent: ^2.0.0
+    type-fest: ^2.19.0
+    util-deprecate: ^1.0.2
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: bafd7fa66f2391eb90a1a621136258eeffd8ed47b710f79be1b111e1486507ebebdcafc1e1f9bb49d10ec2d03c377e2efab774f78a9eb1e4ac49ad44e3a5a59e
   languageName: node
   linkType: hard
 
