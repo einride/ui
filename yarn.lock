@@ -2699,7 +2699,7 @@ __metadata:
     "@einride/eslint-plugin": 7.0.1
     "@einride/prettier-config": 2.0.1
     "@einride/tsconfig": 2.0.1
-    "@storybook/addon-a11y": 7.0.22
+    "@storybook/addon-a11y": 7.0.23
     "@storybook/addon-actions": 7.0.23
     "@storybook/addon-coverage": 0.0.8
     "@storybook/addon-essentials": 7.0.22
@@ -4912,20 +4912,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-a11y@npm:7.0.22":
-  version: 7.0.22
-  resolution: "@storybook/addon-a11y@npm:7.0.22"
+"@storybook/addon-a11y@npm:7.0.23":
+  version: 7.0.23
+  resolution: "@storybook/addon-a11y@npm:7.0.23"
   dependencies:
-    "@storybook/addon-highlight": 7.0.22
-    "@storybook/channels": 7.0.22
-    "@storybook/client-logger": 7.0.22
-    "@storybook/components": 7.0.22
-    "@storybook/core-events": 7.0.22
+    "@storybook/addon-highlight": 7.0.23
+    "@storybook/channels": 7.0.23
+    "@storybook/client-logger": 7.0.23
+    "@storybook/components": 7.0.23
+    "@storybook/core-events": 7.0.23
     "@storybook/global": ^5.0.0
-    "@storybook/manager-api": 7.0.22
-    "@storybook/preview-api": 7.0.22
-    "@storybook/theming": 7.0.22
-    "@storybook/types": 7.0.22
+    "@storybook/manager-api": 7.0.23
+    "@storybook/preview-api": 7.0.23
+    "@storybook/theming": 7.0.23
+    "@storybook/types": 7.0.23
     axe-core: ^4.2.0
     lodash: ^4.17.21
     react-resize-detector: ^7.1.2
@@ -4937,7 +4937,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 09004f336b647b5b989df9a5bf3461740ff728c6c236f1be99876a2603bc0496deb91ef9db28257aeb57b57fc8cfcec2c018c43ca86969f227c8ae2891ec6b55
+  checksum: 99649b6ff8e9daa32819e7f12f306fe7dc798d15e7d2b6edd3111a1e7c36ceb118357a8a6331cf9abbdff68732350d12b47b82ea4cdcedc69b604b1a5acdf039
   languageName: node
   linkType: hard
 
@@ -5135,6 +5135,17 @@ __metadata:
     "@storybook/global": ^5.0.0
     "@storybook/preview-api": 7.0.22
   checksum: 4dc8bf03ba6c9bb15c77d272f29e13c1a9b72602bc3d56fe04ec6ae231d47fc301827dfafc4b58f45185011ddc2aa01aa9f65c7b4d53a836022357d12e78d131
+  languageName: node
+  linkType: hard
+
+"@storybook/addon-highlight@npm:7.0.23":
+  version: 7.0.23
+  resolution: "@storybook/addon-highlight@npm:7.0.23"
+  dependencies:
+    "@storybook/core-events": 7.0.23
+    "@storybook/global": ^5.0.0
+    "@storybook/preview-api": 7.0.23
+  checksum: e928f9348112a44d00b9a0cc53a07ae69535487c73359d75f6b3520a3d61074625bda674c48f141b683674f5b38ae254485460f1e93c6e6d8c88791c310d9058
   languageName: node
   linkType: hard
 
