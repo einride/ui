@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.62.1
+
+### Patch Changes
+
+- abdaefde: Deprecate date components in favor of components from @einride/ui-dates.
+
 ## 7.62.0
 
 ### Minor Changes
