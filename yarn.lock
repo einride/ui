@@ -2616,7 +2616,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@einride/ui-dates@workspace:packages/einride-ui-dates"
   dependencies:
-    "@mantine/core": 6.0.14
+    "@mantine/core": 6.0.15
     "@mantine/dates": 6.0.14
     "@rollup/plugin-image": 3.0.2
     "@rollup/plugin-typescript": 11.1.1
@@ -3715,24 +3715,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/core@npm:6.0.14":
-  version: 6.0.14
-  resolution: "@mantine/core@npm:6.0.14"
-  dependencies:
-    "@floating-ui/react": ^0.19.1
-    "@mantine/styles": 6.0.14
-    "@mantine/utils": 6.0.14
-    "@radix-ui/react-scroll-area": 1.0.2
-    react-remove-scroll: ^2.5.5
-    react-textarea-autosize: 8.3.4
-  peerDependencies:
-    "@mantine/hooks": 6.0.14
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-  checksum: 0541686ce796cc505452208dbe2a1bb08c16238a0ad7f3558ea40561996a24a8036378c6fdf7ab567afdc59df419c95c3290330e6d08b469e59dec19aa021795
-  languageName: node
-  linkType: hard
-
 "@mantine/core@npm:6.0.15":
   version: 6.0.15
   resolution: "@mantine/core@npm:6.0.15"
@@ -3785,20 +3767,6 @@ __metadata:
   peerDependencies:
     react: ">=16.8.0"
   checksum: 4d9568fb667c744aa3c34742a75b15832b64631a47a59ddfca790006ca2f5cb3109d9a39a443036f0c5812dcfaab98ca438aad8dadd9333ac1424f0d8dea6bbe
-  languageName: node
-  linkType: hard
-
-"@mantine/styles@npm:6.0.14":
-  version: 6.0.14
-  resolution: "@mantine/styles@npm:6.0.14"
-  dependencies:
-    clsx: 1.1.1
-    csstype: 3.0.9
-  peerDependencies:
-    "@emotion/react": ">=11.9.0"
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-  checksum: e273e63d15002672431d8883c9fe6583a76f421bab6e167a32e372e637955349323d196e296ebf7faf8b0ce385bcb5a2d3b9b733233f20264323303b23848cc4
   languageName: node
   linkType: hard
 
