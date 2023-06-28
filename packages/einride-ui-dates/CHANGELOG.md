@@ -1,5 +1,11 @@
 # @einride/ui-dates
 
+## 7.62.2
+
+### Patch Changes
+
+- 2dc6473e: Bump Mantine deps.
+
 ## 7.61.8
 
 ### Patch Changes
