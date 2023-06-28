@@ -39,7 +39,7 @@ type Story = StoryObj<typeof meta>
 export const Basic = {
   args: {
     alt: "Astronaut walking on the moon",
-    src: "https://source.unsplash.com/e5eDHbmHprg/250x250",
+    src: "https://avatars.githubusercontent.com/u/44197016?v=4",
   },
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement)
