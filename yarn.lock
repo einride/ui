@@ -2723,7 +2723,7 @@ __metadata:
     prettier: 2.8.8
     react: 18.2.0
     react-dom: 18.2.0
-    storybook: 7.0.23
+    storybook: 7.0.24
     tslib: 2.6.0
     typescript: 5.1.5
     vite: 4.3.9
@@ -5354,14 +5354,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/builder-manager@npm:7.0.23":
-  version: 7.0.23
-  resolution: "@storybook/builder-manager@npm:7.0.23"
+"@storybook/builder-manager@npm:7.0.24":
+  version: 7.0.24
+  resolution: "@storybook/builder-manager@npm:7.0.24"
   dependencies:
     "@fal-works/esbuild-plugin-global-externals": ^2.1.2
-    "@storybook/core-common": 7.0.23
-    "@storybook/manager": 7.0.23
-    "@storybook/node-logger": 7.0.23
+    "@storybook/core-common": 7.0.24
+    "@storybook/manager": 7.0.24
+    "@storybook/node-logger": 7.0.24
     "@types/ejs": ^3.1.1
     "@types/find-cache-dir": ^3.2.1
     "@yarnpkg/esbuild-plugin-pnp": ^3.0.0-rc.10
@@ -5374,7 +5374,7 @@ __metadata:
     fs-extra: ^11.1.0
     process: ^0.11.10
     util: ^0.12.4
-  checksum: 556d5de52f2c9ffea3a00d6f05ac46fbfacd8d016c0722065e512e1350e6c4c421f40bd061b29ff55dcb3f5e50a34a61553268521ce15ac720235a7a18d0efd7
+  checksum: 0fb3bb4cf95d73b552c1302cfec1fe9ec063621384d7e3390d52e3a5c4ccc350fa5518bcc2502534ceb9f725c846a5d0f3d3b909940f4299740d3778feee71fd
   languageName: node
   linkType: hard
 
@@ -5460,6 +5460,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/channel-postmessage@npm:7.0.24":
+  version: 7.0.24
+  resolution: "@storybook/channel-postmessage@npm:7.0.24"
+  dependencies:
+    "@storybook/channels": 7.0.24
+    "@storybook/client-logger": 7.0.24
+    "@storybook/core-events": 7.0.24
+    "@storybook/global": ^5.0.0
+    qs: ^6.10.0
+    telejson: ^7.0.3
+  checksum: 950e52c80463ff84de4c2c94a4c01b9366af86f0f6094a4f84bbce806561c332a9fc63098e8ba4cc066626cb6954e7c04ba3071a2691ae7c5aaa8348c3cfa909
+  languageName: node
+  linkType: hard
+
 "@storybook/channel-websocket@npm:7.0.23":
   version: 7.0.23
   resolution: "@storybook/channel-websocket@npm:7.0.23"
@@ -5493,20 +5507,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/cli@npm:7.0.23":
-  version: 7.0.23
-  resolution: "@storybook/cli@npm:7.0.23"
+"@storybook/channels@npm:7.0.24":
+  version: 7.0.24
+  resolution: "@storybook/channels@npm:7.0.24"
+  checksum: 68f8fb9c0f59a21cf471aff0518aba0997e5691ca06c0d1d78a1578a9ecabce53b8d82b39a64f96d06669bfab68d99fe9d13fad6552f21df73e799e2170cd5b2
+  languageName: node
+  linkType: hard
+
+"@storybook/cli@npm:7.0.24":
+  version: 7.0.24
+  resolution: "@storybook/cli@npm:7.0.24"
   dependencies:
     "@babel/core": ^7.20.2
     "@babel/preset-env": ^7.20.2
     "@ndelangen/get-tarball": ^3.0.7
-    "@storybook/codemod": 7.0.23
-    "@storybook/core-common": 7.0.23
-    "@storybook/core-server": 7.0.23
-    "@storybook/csf-tools": 7.0.23
-    "@storybook/node-logger": 7.0.23
-    "@storybook/telemetry": 7.0.23
-    "@storybook/types": 7.0.23
+    "@storybook/codemod": 7.0.24
+    "@storybook/core-common": 7.0.24
+    "@storybook/core-server": 7.0.24
+    "@storybook/csf-tools": 7.0.24
+    "@storybook/node-logger": 7.0.24
+    "@storybook/telemetry": 7.0.24
+    "@storybook/types": 7.0.24
     "@types/semver": ^7.3.4
     chalk: ^4.1.0
     commander: ^6.2.1
@@ -5538,7 +5559,7 @@ __metadata:
   bin:
     getstorybook: ./bin/index.js
     sb: ./bin/index.js
-  checksum: dbac6e8a3dfe4e51a8de300b2ea18620a7104b04cd6c16eb76102fb8c631f9d92cfdde2a7f752d98a7644ca4d01de1666b59d804daedb7b9dbd8cb064c5eeda7
+  checksum: 68cce1199b6a23fe9b3cf633bb7ea6028e68bf6df44a9e98a01471d5a0e6c6e6471c4baf5fc67809179a02776a579dc4b1a8e08e8b570ddd7864cae30c7d3bf6
   languageName: node
   linkType: hard
 
@@ -5569,24 +5590,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/codemod@npm:7.0.23":
-  version: 7.0.23
-  resolution: "@storybook/codemod@npm:7.0.23"
+"@storybook/client-logger@npm:7.0.24":
+  version: 7.0.24
+  resolution: "@storybook/client-logger@npm:7.0.24"
+  dependencies:
+    "@storybook/global": ^5.0.0
+  checksum: fb71495535d3be50c6199b04caed286fd13de8d83e07fce5001bd4db247957b148f889c449074facfaa07fec39080de34d412985a0f4be6920cd5d34c3ce56fa
+  languageName: node
+  linkType: hard
+
+"@storybook/codemod@npm:7.0.24":
+  version: 7.0.24
+  resolution: "@storybook/codemod@npm:7.0.24"
   dependencies:
     "@babel/core": ~7.21.0
     "@babel/preset-env": ~7.21.0
     "@babel/types": ~7.21.2
     "@storybook/csf": ^0.1.0
-    "@storybook/csf-tools": 7.0.23
-    "@storybook/node-logger": 7.0.23
-    "@storybook/types": 7.0.23
+    "@storybook/csf-tools": 7.0.24
+    "@storybook/node-logger": 7.0.24
+    "@storybook/types": 7.0.24
     cross-spawn: ^7.0.3
     globby: ^11.0.2
     jscodeshift: ^0.14.0
     lodash: ^4.17.21
     prettier: ^2.8.0
     recast: ^0.23.1
-  checksum: 8425a6a4fc1803824ecc2cc92f43a8175d70c63501302d98847c5443c5fa735425e12aa6d1f11f858bc61bb347394749f835dcdcea5209189dd8ea14eed442a4
+  checksum: 3e5ec8f7ee08e1424ab67342f4cc5aa51266e6e2b0ea86b724826e0a1c6d3b119ca5e09adc30e9eda243eee1583c20ffd97790830bf3daa5066b4eb175eb6594
   languageName: node
   linkType: hard
 
@@ -5667,6 +5697,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/core-common@npm:7.0.24":
+  version: 7.0.24
+  resolution: "@storybook/core-common@npm:7.0.24"
+  dependencies:
+    "@storybook/node-logger": 7.0.24
+    "@storybook/types": 7.0.24
+    "@types/node": ^16.0.0
+    "@types/node-fetch": ^2.6.4
+    "@types/pretty-hrtime": ^1.0.0
+    chalk: ^4.1.0
+    esbuild: ^0.17.0
+    esbuild-register: ^3.4.0
+    file-system-cache: 2.3.0
+    find-up: ^5.0.0
+    fs-extra: ^11.1.0
+    glob: ^8.1.0
+    glob-promise: ^6.0.2
+    handlebars: ^4.7.7
+    lazy-universal-dotenv: ^4.0.0
+    node-fetch: ^2.0.0
+    picomatch: ^2.3.0
+    pkg-dir: ^5.0.0
+    pretty-hrtime: ^1.0.3
+    resolve-from: ^5.0.0
+    ts-dedent: ^2.0.0
+  checksum: e66216ebab5c073051e47a67bd484eb0b80cfc030369f1ecd32533424933ae5bffbfa007239f421982f5390151dcd7180c08c20718b432e5f4e63d38936899e6
+  languageName: node
+  linkType: hard
+
 "@storybook/core-common@npm:^7.0.0-beta.0 || ^7.0.0-rc.0 || ^7.0.0":
   version: 7.0.18
   resolution: "@storybook/core-common@npm:7.0.18"
@@ -5742,24 +5801,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/core-server@npm:7.0.23":
-  version: 7.0.23
-  resolution: "@storybook/core-server@npm:7.0.23"
+"@storybook/core-events@npm:7.0.24":
+  version: 7.0.24
+  resolution: "@storybook/core-events@npm:7.0.24"
+  checksum: 1bf563ed16551acf7caee56c5be5a47f67612b13ad1e97bb23cdd3f337a2fc82a0c0160421f02f254dba7d7bfc641c6aa36b534903ffca9afb2ec67c01870845
+  languageName: node
+  linkType: hard
+
+"@storybook/core-server@npm:7.0.24":
+  version: 7.0.24
+  resolution: "@storybook/core-server@npm:7.0.24"
   dependencies:
     "@aw-web-design/x-default-browser": 1.4.88
     "@discoveryjs/json-ext": ^0.5.3
-    "@storybook/builder-manager": 7.0.23
-    "@storybook/core-common": 7.0.23
-    "@storybook/core-events": 7.0.23
+    "@storybook/builder-manager": 7.0.24
+    "@storybook/core-common": 7.0.24
+    "@storybook/core-events": 7.0.24
     "@storybook/csf": ^0.1.0
-    "@storybook/csf-tools": 7.0.23
+    "@storybook/csf-tools": 7.0.24
     "@storybook/docs-mdx": ^0.1.0
     "@storybook/global": ^5.0.0
-    "@storybook/manager": 7.0.23
-    "@storybook/node-logger": 7.0.23
-    "@storybook/preview-api": 7.0.23
-    "@storybook/telemetry": 7.0.23
-    "@storybook/types": 7.0.23
+    "@storybook/manager": 7.0.24
+    "@storybook/node-logger": 7.0.24
+    "@storybook/preview-api": 7.0.24
+    "@storybook/telemetry": 7.0.24
+    "@storybook/types": 7.0.24
     "@types/detect-port": ^1.3.0
     "@types/node": ^16.0.0
     "@types/node-fetch": ^2.5.7
@@ -5787,7 +5853,7 @@ __metadata:
     util-deprecate: ^1.0.2
     watchpack: ^2.2.0
     ws: ^8.2.3
-  checksum: 924a5ea394ddfba59afe3ea8f4b6d1ee746534237c34aaa18a9e87af9aae9316b96f71f6e8ea7644fdb16c24f6848f7f54a3508ca7262d069ba64ba8e4b0fbaf
+  checksum: 90f0c1e4c2e181ed543e38b5b63e145165406bf900f908145a048f771eb3093a2336d9e7a4096a0de0789d419f1fff4f46ad906caea126e151790b0640cb1c02
   languageName: node
   linkType: hard
 
@@ -5815,6 +5881,23 @@ __metadata:
     recast: ^0.23.1
     ts-dedent: ^2.0.0
   checksum: a4c13b3bb25f92b0ed0a6ae0080b3c95282290bee01ceb92c9aa389d88310f4ea0b4db1f9732ada63057e82438d7bc12e57287408e915beb346d5e0dd13f666d
+  languageName: node
+  linkType: hard
+
+"@storybook/csf-tools@npm:7.0.24":
+  version: 7.0.24
+  resolution: "@storybook/csf-tools@npm:7.0.24"
+  dependencies:
+    "@babel/generator": ~7.21.1
+    "@babel/parser": ~7.21.2
+    "@babel/traverse": ~7.21.2
+    "@babel/types": ~7.21.2
+    "@storybook/csf": ^0.1.0
+    "@storybook/types": 7.0.24
+    fs-extra: ^11.1.0
+    recast: ^0.23.1
+    ts-dedent: ^2.0.0
+  checksum: c60ace6ad36c0c89968d5ee094a645913a92d2c90aea6b103ab623ad07544052f093662ce6cb20876559294fe3c6b2a6d54a57a7f25d28b1c32aef1086366dba
   languageName: node
   linkType: hard
 
@@ -5981,10 +6064,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/manager@npm:7.0.23":
-  version: 7.0.23
-  resolution: "@storybook/manager@npm:7.0.23"
-  checksum: 7097cbd5e64beab96b014b243ae1fbd3868a2397a04a92da94165a0a5cb6522813d59445accc0bbd999d582df5bbdf13c0f41b6d9e14f47d30b335e2c7dda8f6
+"@storybook/manager@npm:7.0.24":
+  version: 7.0.24
+  resolution: "@storybook/manager@npm:7.0.24"
+  checksum: afc7ec49dc9f6633944a7f7fe21b61249b85f65bfe2ffcdba67b2ad752809eee0f958cb3d57595438b2995690e0eba815380cd1b1fc1e28f29ce3bc4fb9225bd
   languageName: node
   linkType: hard
 
@@ -6028,6 +6111,18 @@ __metadata:
     npmlog: ^5.0.1
     pretty-hrtime: ^1.0.3
   checksum: 600a5799f96254e3c98b431989166089fe6e1844e3dad95092b1948a98746fb0a096433cde5553b258f33c04f400f9b2127ead55589183ce8cfb911134a2cbf9
+  languageName: node
+  linkType: hard
+
+"@storybook/node-logger@npm:7.0.24":
+  version: 7.0.24
+  resolution: "@storybook/node-logger@npm:7.0.24"
+  dependencies:
+    "@types/npmlog": ^4.1.2
+    chalk: ^4.1.0
+    npmlog: ^5.0.1
+    pretty-hrtime: ^1.0.3
+  checksum: a70afae655f7ce7b8937b97e4c09537ed726c0bf88609021904486314866d4db14914358984a8b25fd06ac331034bbf9684fb3671728ad4560882aceca5e521b
   languageName: node
   linkType: hard
 
@@ -6081,6 +6176,29 @@ __metadata:
     ts-dedent: ^2.0.0
     util-deprecate: ^1.0.2
   checksum: 0dc9b6b454ebfec09a6646cf738d616ab45864aef5a7cee59aa9dbb11a79650474d05fdd34461e269a68cf72f0961109c6bad6798c37617aea4efd362223b3ea
+  languageName: node
+  linkType: hard
+
+"@storybook/preview-api@npm:7.0.24":
+  version: 7.0.24
+  resolution: "@storybook/preview-api@npm:7.0.24"
+  dependencies:
+    "@storybook/channel-postmessage": 7.0.24
+    "@storybook/channels": 7.0.24
+    "@storybook/client-logger": 7.0.24
+    "@storybook/core-events": 7.0.24
+    "@storybook/csf": ^0.1.0
+    "@storybook/global": ^5.0.0
+    "@storybook/types": 7.0.24
+    "@types/qs": ^6.9.5
+    dequal: ^2.0.2
+    lodash: ^4.17.21
+    memoizerific: ^1.11.3
+    qs: ^6.10.0
+    synchronous-promise: ^2.0.15
+    ts-dedent: ^2.0.0
+    util-deprecate: ^1.0.2
+  checksum: ce702286652794b6517b16671692c621a5c9c14364e98cfee795b9b3874d29cd3de82f349f414450897ae077f58784f750de3472707367924eb29f36f9231726
   languageName: node
   linkType: hard
 
@@ -6207,12 +6325,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/telemetry@npm:7.0.23":
-  version: 7.0.23
-  resolution: "@storybook/telemetry@npm:7.0.23"
+"@storybook/telemetry@npm:7.0.24":
+  version: 7.0.24
+  resolution: "@storybook/telemetry@npm:7.0.24"
   dependencies:
-    "@storybook/client-logger": 7.0.23
-    "@storybook/core-common": 7.0.23
+    "@storybook/client-logger": 7.0.24
+    "@storybook/core-common": 7.0.24
     chalk: ^4.1.0
     detect-package-manager: ^2.0.1
     fetch-retry: ^5.0.2
@@ -6220,7 +6338,7 @@ __metadata:
     isomorphic-unfetch: ^3.1.0
     nanoid: ^3.3.1
     read-pkg-up: ^7.0.1
-  checksum: 71674830e2eb78c361537fc31caadf7ca1434e9b11c6cda3a73982c5da8b587adfd3ce030ec5e050886cae1001d19a5cd3904766de37cfe01f3f84b084421952
+  checksum: 45485d4f7cf844cbc357937fd6e695841c620886bb84d6e799e81b49aac035b71eb37627f7e395a6abe4a2fb064294ce4893f394f625dc208973195ba02c7212
   languageName: node
   linkType: hard
 
@@ -6335,6 +6453,18 @@ __metadata:
     "@types/express": ^4.7.0
     file-system-cache: ^2.0.0
   checksum: da8f65c0846aea047763bf83e5d941dbf63dbd472c2b8435cead6de5473e01c8bc8622d463fe2863dab054958bfbe4f53ceb307e3fdcf5417613874d50468433
+  languageName: node
+  linkType: hard
+
+"@storybook/types@npm:7.0.24":
+  version: 7.0.24
+  resolution: "@storybook/types@npm:7.0.24"
+  dependencies:
+    "@storybook/channels": 7.0.24
+    "@types/babel__core": ^7.0.0
+    "@types/express": ^4.7.0
+    file-system-cache: 2.3.0
+  checksum: 38bcd0c8a43760309281de433636c2d6ca4d59bfd99de62382afef8235b0a1dcf8fa9dae68263837962ee3a85cfd55f6e4e82adcba65cf07f48362f716c8cfec
   languageName: node
   linkType: hard
 
@@ -10540,7 +10670,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"file-system-cache@npm:^2.0.0":
+"file-system-cache@npm:2.3.0, file-system-cache@npm:^2.0.0":
   version: 2.3.0
   resolution: "file-system-cache@npm:2.3.0"
   dependencies:
@@ -16413,15 +16543,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook@npm:7.0.23":
-  version: 7.0.23
-  resolution: "storybook@npm:7.0.23"
+"storybook@npm:7.0.24":
+  version: 7.0.24
+  resolution: "storybook@npm:7.0.24"
   dependencies:
-    "@storybook/cli": 7.0.23
+    "@storybook/cli": 7.0.24
   bin:
     sb: ./index.js
     storybook: ./index.js
-  checksum: 6920a7d22e0b6bbed442d0258463c3caed031fab9d47bc2b46d5aa42aa58bd105fd3d59cd30de852252d6cd874ec46b7dfdec286a00e46d024e772fccf463eb8
+  checksum: e142c8deb951ea6005a099f7e89c53e2e8673d980fbf2b8659520fbe985a4f91055ea2845fc59033b8e218b17790cb5489a3abf9046652e06598e591757a6388
   languageName: node
   linkType: hard
 
