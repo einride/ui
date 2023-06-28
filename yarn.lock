@@ -2617,7 +2617,7 @@ __metadata:
   resolution: "@einride/ui-dates@workspace:packages/einride-ui-dates"
   dependencies:
     "@mantine/core": 6.0.14
-    "@mantine/dates": 6.0.14
+    "@mantine/dates": 6.0.15
     "@rollup/plugin-image": 3.0.2
     "@rollup/plugin-typescript": 11.1.1
     "@storybook/jest": 0.1.0
@@ -3748,20 +3748,6 @@ __metadata:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
   checksum: 31f37d4b5a46899dc41ac3f5ca7122f01d6e5e7d8ae1d9cb735c5b0876c537572179fdf51ffa2387cfdc792a4aee48a851bac9823c2a3f19cebdd03a042773c9
-  languageName: node
-  linkType: hard
-
-"@mantine/dates@npm:6.0.14":
-  version: 6.0.14
-  resolution: "@mantine/dates@npm:6.0.14"
-  dependencies:
-    "@mantine/utils": 6.0.14
-  peerDependencies:
-    "@mantine/core": 6.0.14
-    "@mantine/hooks": 6.0.14
-    dayjs: ">=1.0.0"
-    react: ">=16.8.0"
-  checksum: 5bcecb09ab2db95074ea0d25d7e3917cd95009194a337f4f39d420de5509f2a31319d0794e5eaa17f7e3474c78d7d5b6cc54eb642d87238771972a2d50c86e37
   languageName: node
   linkType: hard
 
