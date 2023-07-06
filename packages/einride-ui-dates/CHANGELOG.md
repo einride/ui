@@ -1,5 +1,11 @@
 # @einride/ui-dates
 
+## 7.62.4
+
+### Patch Changes
+
+- 36f5dde1: Bump dayjs dependency.
+
 ## 7.62.3
 
 ### Patch Changes
