@@ -8,7 +8,7 @@
   "dependencies": {
     "@mantine/core": "6.0.16",
     "@mantine/dates": "6.0.16",
-    "dayjs": "1.11.8"
+    "dayjs": "1.11.9"
   },
   "devDependencies": {
     "@rollup/plugin-image": "3.0.2",
