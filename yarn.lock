@@ -2632,7 +2632,7 @@ __metadata:
     "@storybook/testing-library": 0.2.0
     "@types/react": 18.2.14
     "@types/react-dom": 18.2.6
-    "@vitejs/plugin-react": 4.0.1
+    "@vitejs/plugin-react": 4.0.2
     dayjs: 1.11.9
     framer-motion: 10.12.18
     luxon: 3.3.0
@@ -2659,7 +2659,7 @@ __metadata:
     "@storybook/testing-library": 0.2.0
     "@types/react": 18.2.14
     "@types/react-dom": 18.2.6
-    "@vitejs/plugin-react": 4.0.1
+    "@vitejs/plugin-react": 4.0.2
     framer-motion: 10.12.18
     react: 18.2.0
     react-dom: 18.2.0
@@ -2769,7 +2769,7 @@ __metadata:
     "@types/luxon": 3.3.0
     "@types/react": 18.2.14
     "@types/react-dom": 18.2.6
-    "@vitejs/plugin-react": 4.0.1
+    "@vitejs/plugin-react": 4.0.2
     chromatic: 6.19.9
     concurrently: 8.2.0
     dayjs: 1.11.9
@@ -7288,9 +7288,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-react@npm:4.0.1":
-  version: 4.0.1
-  resolution: "@vitejs/plugin-react@npm:4.0.1"
+"@vitejs/plugin-react@npm:4.0.2":
+  version: 4.0.2
+  resolution: "@vitejs/plugin-react@npm:4.0.2"
   dependencies:
     "@babel/core": ^7.22.5
     "@babel/plugin-transform-react-jsx-self": ^7.22.5
@@ -7298,7 +7298,7 @@ __metadata:
     react-refresh: ^0.14.0
   peerDependencies:
     vite: ^4.2.0
-  checksum: a0ec9349204fbe19ae301ffbe5734cb83e22fb4e8717b4b563a1edcec71796cc6194a9a39bccfc28d9531e83b0cf85949df57329f4063b21a06bfd2b0f0d31eb
+  checksum: 07eeb28ad0f60dc6289367e64a58cd6d0b0d856a227ef6ea17e7af3f548d7940707ec56ad296f2c34cb7aab2fc4d76473d1a05c148277136ce0bfe294ce13bf4
   languageName: node
   linkType: hard
 
