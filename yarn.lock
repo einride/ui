@@ -2733,7 +2733,7 @@ __metadata:
     storybook: 7.0.26
     tslib: 2.6.0
     typescript: 5.1.6
-    vite: 4.4.1
+    vite: 4.4.2
     vite-plugin-turbosnap: 1.0.2
     vite-tsconfig-paths: 4.2.0
     vitest: 0.33.0
@@ -2780,7 +2780,7 @@ __metadata:
     react-dom: 18.2.0
     rollup: 3.26.2
     typescript: 5.1.6
-    vite: 4.4.1
+    vite: 4.4.2
   peerDependencies:
     "@emotion/react": ^11.4.1
     "@emotion/styled": ^11.3.0
@@ -17831,9 +17831,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:4.4.1":
-  version: 4.4.1
-  resolution: "vite@npm:4.4.1"
+"vite@npm:4.4.2":
+  version: 4.4.2
+  resolution: "vite@npm:4.4.2"
   dependencies:
     esbuild: ^0.18.10
     fsevents: ~2.3.2
@@ -17867,7 +17867,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: c91d5228cd0b2410e95ea4b17279640a414f1a2d5290a01baec77351af2dda7d5901c240ed6a62de2b465567e328168d386da2aaa262d3a138fde827b289592d
+  checksum: 37a1c3a0ccc4b80c0a696203d3608d6bf7dc98219ddc178e528b972e3305af9ab8f92dea455421024e98c59372f6a97b1b4cc409a05f757a64bff830610053c6
   languageName: node
   linkType: hard
 
