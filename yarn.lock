@@ -2601,12 +2601,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@einride/prettier-config@npm:2.0.1":
-  version: 2.0.1
-  resolution: "@einride/prettier-config@npm:2.0.1"
+"@einride/prettier-config@npm:2.1.0":
+  version: 2.1.0
+  resolution: "@einride/prettier-config@npm:2.1.0"
   peerDependencies:
-    prettier: ^2.4.0
-  checksum: 6c967bc1a2e4e4f104cbab9190a1680c51ca4508a2d79e9b1fe2f85f76c7a2cadc3e3e2cfa09d117c7bdb159830106e05f455be83169b51f4c1e8be92fb515f5
+    prettier: ">=2.4.0"
+  checksum: df958fcb4c3c7b8d87801df80654ecb7f35e8df66df183225f2dcf7a5b5392bc520eb42474b217d0efc9a266266a2c3c6d7807b72c44071bb16fe41a9a42530a
   languageName: node
   linkType: hard
 
@@ -2704,7 +2704,7 @@ __metadata:
     "@commitlint/cli": 17.6.6
     "@commitlint/config-conventional": 17.6.6
     "@einride/eslint-plugin": 7.0.1
-    "@einride/prettier-config": 2.0.1
+    "@einride/prettier-config": 2.1.0
     "@einride/tsconfig": 2.0.1
     "@storybook/addon-a11y": 7.0.26
     "@storybook/addon-actions": 7.0.26
