@@ -1,5 +1,6 @@
+import { MapboxEvent } from "mapbox-gl"
 import { MutableRefObject, useCallback, useRef } from "react"
-import { MapRef, MapboxEvent } from "react-map-gl"
+import { MapRef } from "react-map-gl"
 
 interface StyleLoadProp {
   onStyleLoad?: (event: MapboxEvent) => void
