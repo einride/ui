@@ -31,7 +31,7 @@
     "@einride/eslint-plugin": "7.1.2",
     "@einride/prettier-config": "2.1.0",
     "@einride/tsconfig": "2.0.1",
-    "@storybook/addon-a11y": "7.0.26",
+    "@storybook/addon-a11y": "7.0.27",
     "@storybook/addon-actions": "7.0.26",
     "@storybook/addon-coverage": "0.0.8",
     "@storybook/addon-essentials": "7.0.26",
