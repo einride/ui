@@ -2464,7 +2464,7 @@ __metadata:
     "@storybook/addon-essentials": 7.0.26
     "@storybook/addon-interactions": 7.0.26
     "@storybook/addon-links": 7.0.26
-    "@storybook/addon-styling": 1.3.2
+    "@storybook/addon-styling": 1.3.3
     "@storybook/addons": 7.0.26
     "@storybook/jest": 0.1.0
     "@storybook/node-logger": 7.0.26
@@ -5144,9 +5144,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-styling@npm:1.3.2":
-  version: 1.3.2
-  resolution: "@storybook/addon-styling@npm:1.3.2"
+"@storybook/addon-styling@npm:1.3.3":
+  version: 1.3.3
+  resolution: "@storybook/addon-styling@npm:1.3.3"
   dependencies:
     "@babel/template": ^7.20.7
     "@babel/types": ^7.21.5
@@ -5162,20 +5162,30 @@ __metadata:
     css-loader: ^6.7.3
     less-loader: ^11.1.0
     postcss-loader: ^7.2.4
+    prettier: ^2.8.0
     resolve-url-loader: ^5.0.0
     sass-loader: ^13.2.2
     style-loader: ^3.3.2
   peerDependencies:
+    less: ^3.5.0 || ^4.0.0
+    postcss: ^7.0.0 || ^8.0.1
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    webpack: ^5.0.0
   peerDependenciesMeta:
+    less:
+      optional: true
+    postcss:
+      optional: true
     react:
       optional: true
     react-dom:
       optional: true
+    webpack:
+      optional: true
   bin:
     addon-styling-setup: postinstall.js
-  checksum: d0e7db8cae396f5e602986b5154c535b3a6403380ec2c9968113ed39e583e3a06344cae19c014a34e8bbaa2d1d8bea123fea6e042998fee384390fed37883d90
+  checksum: 2c1949c635110182e5249ca10686ce2356146ffe1eef9002b4dfebb037bbea06ec0200abb024079617c1996bafadec6e56e1f11679c522b33dfc572123cb1647
   languageName: node
   linkType: hard
 
