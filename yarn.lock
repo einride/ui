@@ -2390,7 +2390,7 @@ __metadata:
     luxon: 3.3.0
     react: 18.2.0
     react-dom: 18.2.0
-    rollup: 3.26.2
+    rollup: 3.26.3
     typescript: 5.1.6
   peerDependencies:
     "@einride/ui": ^7.45.3
@@ -2415,7 +2415,7 @@ __metadata:
     framer-motion: 10.12.21
     react: 18.2.0
     react-dom: 18.2.0
-    rollup: 3.26.2
+    rollup: 3.26.3
     typescript: 5.1.6
   peerDependencies:
     "@einride/ui": ^7.45.3
@@ -2436,7 +2436,7 @@ __metadata:
     "@storybook/testing-library": 0.2.0
     mapbox-gl: 2.15.0
     react-map-gl: 7.1.2
-    rollup: 3.26.2
+    rollup: 3.26.3
     typescript: 5.1.6
   peerDependencies:
     "@einride/ui": ^7.45.3
@@ -2531,7 +2531,7 @@ __metadata:
     luxon: 3.3.0
     react: 18.2.0
     react-dom: 18.2.0
-    rollup: 3.26.2
+    rollup: 3.26.3
     typescript: 5.1.6
     vite: 4.4.4
   peerDependencies:
@@ -16452,7 +16452,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:3.26.2, rollup@npm:^2.25.0 || ^3.3.0, rollup@npm:^3.25.2":
+"rollup@npm:3.26.3":
+  version: 3.26.3
+  resolution: "rollup@npm:3.26.3"
+  dependencies:
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: e6a765b2b7af709170344cc804392936613e06b6bdab46a04d264368d154bdadaaaf77de39e6e656bf728a060d7b4867d81e2464d791c0f37dd5b21aa9c7a6df
+  languageName: node
+  linkType: hard
+
+"rollup@npm:^2.25.0 || ^3.3.0, rollup@npm:^3.25.2":
   version: 3.26.2
   resolution: "rollup@npm:3.26.2"
   dependencies:
