@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@mantine/core": "6.0.16",
-    "@mantine/dates": "6.0.16",
+    "@mantine/dates": "6.0.17",
     "dayjs": "1.11.9"
   },
   "devDependencies": {
