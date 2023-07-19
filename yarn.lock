@@ -2460,7 +2460,7 @@ __metadata:
     "@storybook/addon-essentials": 7.0.27
     "@storybook/addon-interactions": 7.0.27
     "@storybook/addon-links": 7.0.27
-    "@storybook/addon-mdx-gfm": 7.0.27
+    "@storybook/addon-mdx-gfm": 7.1.0
     "@storybook/addon-styling": 1.3.4
     "@storybook/addons": 7.0.27
     "@storybook/jest": 0.1.0
@@ -5094,14 +5094,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-mdx-gfm@npm:7.0.27":
-  version: 7.0.27
-  resolution: "@storybook/addon-mdx-gfm@npm:7.0.27"
+"@storybook/addon-mdx-gfm@npm:7.1.0":
+  version: 7.1.0
+  resolution: "@storybook/addon-mdx-gfm@npm:7.1.0"
   dependencies:
-    "@storybook/node-logger": 7.0.27
+    "@storybook/node-logger": 7.1.0
     remark-gfm: ^3.0.1
     ts-dedent: ^2.0.0
-  checksum: 7daf9bf88f1c4cf6d8b4b33492720f169ddebd5fc62b1f274ebb23331d44d7bf5476b01b8eb3425225ccd3079f7e3c8ce88b8892205477afe4476505f828eb2d
+  checksum: 49084ce29db6c7fad8610ed6ba92d1e49702f86f5e0df2d0b8b0d5e0af0ea97f0da75648a4cef6330664f5749dd7f8a421d272ab22332e1eb44fb2a88fa7dce8
   languageName: node
   linkType: hard
 
