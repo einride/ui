@@ -2462,7 +2462,7 @@ __metadata:
     "@storybook/addon-links": 7.0.27
     "@storybook/addon-mdx-gfm": 7.0.27
     "@storybook/addon-styling": 1.3.4
-    "@storybook/addons": 7.0.27
+    "@storybook/addons": 7.1.0
     "@storybook/jest": 0.1.0
     "@storybook/node-logger": 7.0.27
     "@storybook/react": 7.0.27
@@ -5243,17 +5243,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addons@npm:7.0.27":
-  version: 7.0.27
-  resolution: "@storybook/addons@npm:7.0.27"
+"@storybook/addons@npm:7.1.0":
+  version: 7.1.0
+  resolution: "@storybook/addons@npm:7.1.0"
   dependencies:
-    "@storybook/manager-api": 7.0.27
-    "@storybook/preview-api": 7.0.27
-    "@storybook/types": 7.0.27
+    "@storybook/manager-api": 7.1.0
+    "@storybook/preview-api": 7.1.0
+    "@storybook/types": 7.1.0
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 96cb7edfd04fdf7dba072ccbdc88f9f3ae2e0e36120c94eff88b58774c6794577ac4779c1bfc590dde9cafcf7c0218e5f8a02c793afaa816a8b6029f7757cad0
+  checksum: 7447cb0a87d63bc47fad6041578939ebde82f139414f96a85d4d4dfd4a5cda274cdfd57164837464858c1632d87a07ee15e6ae36d2cf9b3ef2d120970843796b
   languageName: node
   linkType: hard
 

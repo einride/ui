@@ -39,7 +39,7 @@
     "@storybook/addon-links": "7.0.27",
     "@storybook/addon-mdx-gfm": "7.0.27",
     "@storybook/addon-styling": "1.3.4",
-    "@storybook/addons": "7.0.27",
+    "@storybook/addons": "7.1.0",
     "@storybook/jest": "0.1.0",
     "@storybook/node-logger": "7.0.27",
     "@storybook/react": "7.0.27",
