@@ -2455,7 +2455,7 @@ __metadata:
     "@einride/prettier-config": 2.1.0
     "@einride/tsconfig": 2.0.1
     "@storybook/addon-a11y": 7.0.27
-    "@storybook/addon-actions": 7.0.27
+    "@storybook/addon-actions": 7.1.0
     "@storybook/addon-coverage": 0.0.8
     "@storybook/addon-essentials": 7.0.27
     "@storybook/addon-interactions": 7.0.27
@@ -4906,6 +4906,38 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/addon-actions@npm:7.1.0":
+  version: 7.1.0
+  resolution: "@storybook/addon-actions@npm:7.1.0"
+  dependencies:
+    "@storybook/client-logger": 7.1.0
+    "@storybook/components": 7.1.0
+    "@storybook/core-events": 7.1.0
+    "@storybook/global": ^5.0.0
+    "@storybook/manager-api": 7.1.0
+    "@storybook/preview-api": 7.1.0
+    "@storybook/theming": 7.1.0
+    "@storybook/types": 7.1.0
+    dequal: ^2.0.2
+    lodash: ^4.17.21
+    polished: ^4.2.2
+    prop-types: ^15.7.2
+    react-inspector: ^6.0.0
+    telejson: ^7.0.3
+    ts-dedent: ^2.0.0
+    uuid: ^9.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 63e518fa55299a837e4ec4f25ec95d4d5b2529f05dad14736123c118a0c446efc7ca40a751f1581f98860205d8a2c0669574fda6079b140f8c7cb02d946f0c75
+  languageName: node
+  linkType: hard
+
 "@storybook/addon-backgrounds@npm:7.0.27":
   version: 7.0.27
   resolution: "@storybook/addon-backgrounds@npm:7.0.27"
@@ -5537,7 +5569,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/components@npm:^7.0.12":
+"@storybook/components@npm:7.1.0, @storybook/components@npm:^7.0.12":
   version: 7.1.0
   resolution: "@storybook/components@npm:7.1.0"
   dependencies:
