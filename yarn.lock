@@ -2371,7 +2371,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@einride/ui-dates@workspace:packages/einride-ui-dates"
   dependencies:
-    "@mantine/core": 6.0.16
+    "@mantine/core": 6.0.17
     "@mantine/dates": 6.0.16
     "@rollup/plugin-image": 3.0.2
     "@rollup/plugin-typescript": 11.1.2
@@ -2498,7 +2498,7 @@ __metadata:
     "@emotion/react": 11.11.1
     "@emotion/styled": 11.11.0
     "@faker-js/faker": 8.0.2
-    "@mantine/core": 6.0.16
+    "@mantine/core": 6.0.17
     "@mantine/dates": 6.0.16
     "@mantine/hooks": 6.0.16
     "@radix-ui/react-alert-dialog": 1.0.4
@@ -3618,21 +3618,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/core@npm:6.0.16":
-  version: 6.0.16
-  resolution: "@mantine/core@npm:6.0.16"
+"@mantine/core@npm:6.0.17":
+  version: 6.0.17
+  resolution: "@mantine/core@npm:6.0.17"
   dependencies:
     "@floating-ui/react": ^0.19.1
-    "@mantine/styles": 6.0.16
-    "@mantine/utils": 6.0.16
+    "@mantine/styles": 6.0.17
+    "@mantine/utils": 6.0.17
     "@radix-ui/react-scroll-area": 1.0.2
     react-remove-scroll: ^2.5.5
     react-textarea-autosize: 8.3.4
   peerDependencies:
-    "@mantine/hooks": 6.0.16
+    "@mantine/hooks": 6.0.17
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 0bee88053216bb9190f78f023e6272c8333487cdb5d7f5c1abe3dde0bf5492365b87cadb4c120513f7312b3ccd7ee4adc76767b961bbd720d4e17c4f796742b6
+  checksum: a73418fbfa58dd50678be24eb4d06237e859e56421b564d4b9d280989171dc13867c95d15f81c62d02d2cf5ad8a0ffec23edfe121bb645e1afaace332b393616
   languageName: node
   linkType: hard
 
@@ -3659,9 +3659,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/styles@npm:6.0.16":
-  version: 6.0.16
-  resolution: "@mantine/styles@npm:6.0.16"
+"@mantine/styles@npm:6.0.17":
+  version: 6.0.17
+  resolution: "@mantine/styles@npm:6.0.17"
   dependencies:
     clsx: 1.1.1
     csstype: 3.0.9
@@ -3669,7 +3669,7 @@ __metadata:
     "@emotion/react": ">=11.9.0"
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 587be266fe982db0716a27dc1b6e81c3051301758a167af06863b64609d6114244698739ada55d2acc5b58f700b8f6b47eb623162fa5cacc9ebd4be0f2f37f7f
+  checksum: b3495220074d95fa8864d1e5a512f17e07443c1ac2a84315252057615473b54d87006e693e2c4191d2c0ae0d7d2b1e0dd14dd2da477aa7e9ed57377ba5a12bf6
   languageName: node
   linkType: hard
 
@@ -3679,6 +3679,15 @@ __metadata:
   peerDependencies:
     react: ">=16.8.0"
   checksum: dc9e6690497fdc769cc4abaaa6152c6ed03408d0e1e8429d39ff6b084e03a525abe3b2bfcbe8a4fa69f5dd88a7e7743859b91811b8aa1808195549f6d803006d
+  languageName: node
+  linkType: hard
+
+"@mantine/utils@npm:6.0.17":
+  version: 6.0.17
+  resolution: "@mantine/utils@npm:6.0.17"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 393869f22cfea70ff5b7483b7e23bc79fb39f1be7079baa388235a9ccf648845e10ef7c70a47081728ef09df682484bedfcf00c375bcd21a524fd114f892c9b5
   languageName: node
   linkType: hard
 
