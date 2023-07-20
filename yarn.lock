@@ -2382,7 +2382,7 @@ __metadata:
     "@types/react-dom": 18.2.7
     "@vitejs/plugin-react": 4.0.3
     dayjs: 1.11.9
-    framer-motion: 10.12.22
+    framer-motion: 10.13.0
     luxon: 3.3.0
     react: 18.2.0
     react-dom: 18.2.0
@@ -2408,7 +2408,7 @@ __metadata:
     "@types/react": 18.2.15
     "@types/react-dom": 18.2.7
     "@vitejs/plugin-react": 4.0.3
-    framer-motion: 10.12.22
+    framer-motion: 10.13.0
     react: 18.2.0
     react-dom: 18.2.0
     rollup: 3.26.3
@@ -2522,7 +2522,7 @@ __metadata:
     chromatic: 6.19.9
     concurrently: 8.2.0
     dayjs: 1.11.9
-    framer-motion: 10.12.22
+    framer-motion: 10.13.0
     lodash.merge: 4.6.2
     luxon: 3.3.0
     react: 18.2.0
@@ -10838,9 +10838,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:10.12.22":
-  version: 10.12.22
-  resolution: "framer-motion@npm:10.12.22"
+"framer-motion@npm:10.13.0":
+  version: 10.13.0
+  resolution: "framer-motion@npm:10.13.0"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
     tslib: ^2.4.0
@@ -10855,7 +10855,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: ed24d3f92ad3d5578303f25a846921acbd49ccde7de45445fcaaef8e8d77d962cfec8b35426ba9ee26f3fd3af0216bf65d15782c7e0f72babeac59c90a4f571b
+  checksum: b84b78b6994bd77814a3fa0dfb4f266b74221369d9e82e350f8c8b2ec952d683597a373fe49609645631af020de42a6ec041bac60a022e396ff0be70c4233d87
   languageName: node
   linkType: hard
 
