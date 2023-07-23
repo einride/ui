@@ -1,5 +1,11 @@
 # @einride/ui-maps
 
+## 7.62.6
+
+### Patch Changes
+
+- 2948e887: Bump react-map-gl dependency.
+
 ## 7.58.0
 
 ### Minor Changes
