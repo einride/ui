@@ -2152,7 +2152,7 @@ __metadata:
     storybook: 7.1.0
     tslib: 2.6.0
     typescript: 5.1.6
-    vite: 4.4.5
+    vite: 4.4.6
     vite-plugin-turbosnap: 1.0.2
     vite-tsconfig-paths: 4.2.0
     vitest: 0.33.0
@@ -2199,7 +2199,7 @@ __metadata:
     react-dom: 18.2.0
     rollup: 3.26.3
     typescript: 5.1.6
-    vite: 4.4.5
+    vite: 4.4.6
   peerDependencies:
     "@emotion/react": ^11.4.1
     "@emotion/styled": ^11.3.0
@@ -17543,7 +17543,47 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:4.4.5, vite@npm:^3.0.0 || ^4.0.0":
+"vite@npm:4.4.6":
+  version: 4.4.6
+  resolution: "vite@npm:4.4.6"
+  dependencies:
+    esbuild: ^0.18.10
+    fsevents: ~2.3.2
+    postcss: ^8.4.26
+    rollup: ^3.25.2
+  peerDependencies:
+    "@types/node": ">= 14"
+    less: "*"
+    lightningcss: ^1.21.0
+    sass: "*"
+    stylus: "*"
+    sugarss: "*"
+    terser: ^5.4.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+    less:
+      optional: true
+    lightningcss:
+      optional: true
+    sass:
+      optional: true
+    stylus:
+      optional: true
+    sugarss:
+      optional: true
+    terser:
+      optional: true
+  bin:
+    vite: bin/vite.js
+  checksum: 5a821897f1e03f9786f827acb89e3117a79b8901d184bbc3a2e48d6404b37975a5cdeb6b6969ec24ed1e81d96f1959ed6f9426cbb64501d1e4770bdb20f9c02f
+  languageName: node
+  linkType: hard
+
+"vite@npm:^3.0.0 || ^4.0.0":
   version: 4.4.5
   resolution: "vite@npm:4.4.5"
   dependencies:
