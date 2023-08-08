@@ -2189,7 +2189,7 @@ __metadata:
     "@types/react": 18.2.18
     "@types/react-dom": 18.2.7
     "@vitejs/plugin-react": 4.0.4
-    chromatic: 6.20.0
+    chromatic: 6.21.0
     concurrently: 8.2.0
     dayjs: 1.11.9
     framer-motion: 10.15.0
@@ -7929,14 +7929,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:6.20.0":
-  version: 6.20.0
-  resolution: "chromatic@npm:6.20.0"
+"chromatic@npm:6.21.0":
+  version: 6.21.0
+  resolution: "chromatic@npm:6.21.0"
   bin:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 90d413144ea9502cb96fd0065a0cf2ece63d832da2d7fd93f9577fd09080cbeb829ce9ca1d2384d4f7739cc249aa09033ca61820ac3c1656ff92d6a4ba2fbd67
+  checksum: f30903455790099566c8701b8e4c9419cab288b598b6cd28f34e457ff9879cdc31e4d34b377ba962b014ac6b52d17c506d044cf5cb0b2031340f6068d350a139
   languageName: node
   linkType: hard
 
