@@ -1,5 +1,11 @@
 # @einride/ui-dates
 
+## 7.62.7
+
+### Patch Changes
+
+- 0d400dd2: Bump Mantine packages.
+
 ## 7.62.5
 
 ### Patch Changes
