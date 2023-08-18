@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.62.9
+
+### Patch Changes
+
+- 6cfe719a: Make it possible to pass a custom border radius to Skeleton.
+
 ## 7.62.8
 
 ### Patch Changes
