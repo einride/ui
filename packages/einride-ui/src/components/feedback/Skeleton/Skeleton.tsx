@@ -1,7 +1,9 @@
 import { css, keyframes } from "@emotion/react"
 import styled from "@emotion/styled"
 import { forwardRef } from "react"
+import { getBorderRadius } from "../../../lib/theme/prop-system"
 import { SpacingInput } from "../../../lib/theme/props"
+import { Theme } from "../../../lib/theme/types"
 import { Box, BoxProps } from "../../layout/Box/Box"
 
 export interface SkeletonProps extends BoxProps {
@@ -59,7 +61,7 @@ interface WrapperProps {
 const Wrapper = styled(Box)<WrapperProps>`
   position: relative;
 
-  ${({ shape, visible, theme }) =>
+  ${({ borderRadius, shape, visible, theme }) =>
     visible &&
     css`
       &::before {
@@ -67,12 +69,14 @@ const Wrapper = styled(Box)<WrapperProps>`
         position: absolute;
         inset: 0;
         background: ${theme.colors.background.secondaryElevated};
-        border-radius: ${shape === "circle" ? theme.borderRadii.full : theme.borderRadii.sm};
+        border-radius: ${borderRadius
+          ? getBorderRadius(borderRadius, theme)
+          : getBorderRadiusFromShape(shape, theme)};
       }
     `}
 
   @media (prefers-reduced-motion: no-preference) {
-    ${({ animate, shape, visible, theme }) =>
+    ${({ animate, borderRadius, shape, visible, theme }) =>
       visible &&
       animate &&
       css`
@@ -81,9 +85,18 @@ const Wrapper = styled(Box)<WrapperProps>`
           position: absolute;
           inset: 0;
           background: ${theme.colors.content.tertiary};
-          border-radius: ${shape === "circle" ? theme.borderRadii.full : theme.borderRadii.sm};
+          border-radius: ${borderRadius
+            ? getBorderRadius(borderRadius, theme)
+            : getBorderRadiusFromShape(shape, theme)};
           animation: ${pulse} 1500ms linear infinite;
         }
       `}
   }
 `
+
+const getBorderRadiusFromShape = (shape: Shape, theme: Theme): string => {
+  if (shape === "circle") {
+    return theme.borderRadii.full
+  }
+  return theme.borderRadii.sm
+}
