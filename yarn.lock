@@ -2030,7 +2030,7 @@ __metadata:
     "@mantine/dates": 6.0.19
     "@rollup/plugin-image": 3.0.2
     "@rollup/plugin-typescript": 11.1.2
-    "@storybook/jest": 0.2.0
+    "@storybook/jest": 0.2.1
     "@storybook/react": 7.3.2
     "@storybook/testing-library": 0.2.0
     "@types/react": 18.2.20
@@ -2057,7 +2057,7 @@ __metadata:
   dependencies:
     "@rollup/plugin-image": 3.0.2
     "@rollup/plugin-typescript": 11.1.2
-    "@storybook/jest": 0.2.0
+    "@storybook/jest": 0.2.1
     "@storybook/react": 7.3.2
     "@storybook/testing-library": 0.2.0
     "@types/react": 18.2.20
@@ -2082,7 +2082,7 @@ __metadata:
   dependencies:
     "@rollup/plugin-image": 3.0.2
     "@rollup/plugin-typescript": 11.1.2
-    "@storybook/jest": 0.2.0
+    "@storybook/jest": 0.2.1
     "@storybook/react": 7.3.2
     "@storybook/testing-library": 0.2.0
     mapbox-gl: 2.15.0
@@ -2166,7 +2166,7 @@ __metadata:
     "@radix-ui/react-tooltip": 1.0.6
     "@rollup/plugin-image": 3.0.2
     "@rollup/plugin-typescript": 11.1.2
-    "@storybook/jest": 0.2.0
+    "@storybook/jest": 0.2.1
     "@storybook/react": 7.3.2
     "@storybook/testing-library": 0.2.0
     "@types/lodash.merge": 4.6.7
@@ -5400,18 +5400,6 @@ __metadata:
     "@storybook/global": ^5.0.0
     "@storybook/preview-api": 7.3.2
   checksum: 5228a2cab3d3b3d737909ce493aace18e387541a0a265d2fbaea89024228036af3cdd5e13d65d98198a0c566e14c69e3cf7a11e7886cdc4878ae1e7bef9d121f
-  languageName: node
-  linkType: hard
-
-"@storybook/jest@npm:0.2.0":
-  version: 0.2.0
-  resolution: "@storybook/jest@npm:0.2.0"
-  dependencies:
-    "@storybook/expect": storybook-jest
-    "@testing-library/jest-dom": ^5.16.2
-    "@types/jest": 28.1.3
-    jest-mock: ^27.3.0
-  checksum: 3ffa4f2b67019586a729cb94b83afe4ec8acf895025a1827aca07dffb57a28653265a1d7023ed05adf561fcc06c8dac4599dc53e42d120234c2c2f6ee93c4f40
   languageName: node
   linkType: hard
 
