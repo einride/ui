@@ -2125,7 +2125,7 @@ __metadata:
     "@storybook/test-runner": 0.13.0
     "@storybook/testing-library": 0.2.0
     "@storybook/theming": 7.3.2
-    "@testing-library/jest-dom": 6.0.1
+    "@testing-library/jest-dom": 6.1.1
     "@testing-library/react": 14.0.0
     "@testing-library/user-event": 14.4.3
     concurrently: 8.2.1
@@ -5907,9 +5907,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:6.0.1":
-  version: 6.0.1
-  resolution: "@testing-library/jest-dom@npm:6.0.1"
+"@testing-library/jest-dom@npm:6.1.1":
+  version: 6.1.1
+  resolution: "@testing-library/jest-dom@npm:6.1.1"
   dependencies:
     "@adobe/css-tools": ^4.0.1
     "@babel/runtime": ^7.9.2
@@ -5933,7 +5933,7 @@ __metadata:
       optional: true
     vitest:
       optional: true
-  checksum: b5c35e2a79d646753f0305bf7f461c5d6fb873016527a78606a20a5fcc7e55a2f5e9eb394d376c47739cee566af133c6f53d8f49681d623db1cf6f236c5971df
+  checksum: 1255f8c0c296fcec385cda7f818f1027f3c416e4c8b6d778d45a188aa4a483891baecf709cea6cda8fc4a0440b251a6e5bdaa7924bcea94a58c3052f1b16cc8a
   languageName: node
   linkType: hard
 
