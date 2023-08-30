@@ -46,7 +46,7 @@
     "@storybook/react-vite": "7.3.2",
     "@storybook/test-runner": "0.13.0",
     "@storybook/testing-library": "0.2.0",
-    "@storybook/theming": "7.3.2",
+    "@storybook/theming": "7.4.0",
     "@testing-library/jest-dom": "6.1.2",
     "@testing-library/react": "14.0.0",
     "@testing-library/user-event": "14.4.3",
