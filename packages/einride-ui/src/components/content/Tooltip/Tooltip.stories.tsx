@@ -160,13 +160,27 @@ export const Multiline = {
 /** You can change the tooltip alignment with `align`. */
 export const Align = {
   args: {
-    children: "Hover or focus me and notice that where the tooltip shows up",
+    children: "Hover or focus me and notice where the tooltip shows up",
     content: "Tooltip content",
     align: "start",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const tooltipTrigger = canvas.getByRole("button", { name: Align.args.children })
+    await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
+  },
+} satisfies Story
+
+/** You can change the tooltip position with `side`. */
+export const Side = {
+  args: {
+    children: "Hover or focus me and notice where the tooltip shows up",
+    content: "Tooltip content",
+    side: "right",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const tooltipTrigger = canvas.getByRole("button", { name: Side.args.children })
     await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
   },
 } satisfies Story
