@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.63.0
+
+### Minor Changes
+
+- dea855b6: add tooltip styling and position change props
+
 ## 7.62.9
 
 ### Patch Changes
