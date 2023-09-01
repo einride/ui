@@ -1,7 +1,7 @@
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import * as RadixTooltip from "@radix-ui/react-tooltip"
-import { ReactNode } from "react"
+import { CSSProperties, ReactNode } from "react"
 import { useTheme } from "../../../hooks/useTheme"
 import { MaxInlineSize, MaxWidth, Width } from "../../../lib/theme/props"
 import { zIndex } from "../../../lib/zIndex"
@@ -40,6 +40,11 @@ export interface TooltipProps {
 
   /** The preferred side on which the tooltip should appear. In case of collision it'll appear on the opposite side. */
   side?: "top" | "right" | "bottom" | "left"
+
+  /** Props passed to the tooltip content wrapper element */
+  contentWrapperProps?: {
+    style?: Omit<CSSProperties, "rotate" | "scale" | "perspective">
+  }
 }
 
 /** Use tooltips to show additional information. */
@@ -52,6 +57,7 @@ export const Tooltip = ({
   openDelayDuration = 0,
   triggerAsChild,
   side = "top",
+  contentWrapperProps,
   ...props
 }: TooltipProps): React.JSX.Element => {
   const theme = useTheme()
@@ -68,6 +74,7 @@ export const Tooltip = ({
             collisionPadding={2 * theme.spacer}
             sideOffset={5}
             side={side}
+            {...contentWrapperProps}
           >
             <Box {...props}>{content}</Box>
           </StyledTooltipContent>
