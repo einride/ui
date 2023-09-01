@@ -37,6 +37,9 @@ export interface TooltipProps {
 
   /** Width of the tooltip. */
   width?: Width
+
+  /** The preferred side on which the tooltip should appear. In case of collision it'll appear on the opposite side. */
+  side?: "top" | "right" | "bottom" | "left"
 }
 
 /** Use tooltips to show additional information. */
@@ -48,6 +51,7 @@ export const Tooltip = ({
   hint,
   openDelayDuration = 0,
   triggerAsChild,
+  side = "top",
   ...props
 }: TooltipProps): React.JSX.Element => {
   const theme = useTheme()
@@ -59,7 +63,12 @@ export const Tooltip = ({
           {children}
         </StyledTooltipTrigger>
         <RadixTooltip.Portal>
-          <StyledTooltipContent align={align} collisionPadding={2 * theme.spacer} sideOffset={5}>
+          <StyledTooltipContent
+            align={align}
+            collisionPadding={2 * theme.spacer}
+            sideOffset={5}
+            side={side}
+          >
             <Box {...props}>{content}</Box>
           </StyledTooltipContent>
         </RadixTooltip.Portal>
