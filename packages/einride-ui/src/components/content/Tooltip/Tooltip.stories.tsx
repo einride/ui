@@ -171,6 +171,20 @@ export const Align = {
   },
 } satisfies Story
 
+/** You can change the tooltip position with `side`. */
+export const Side = {
+  args: {
+    children: "Hover or focus me and notice that where the tooltip shows up",
+    content: "Tooltip content",
+    side: "right",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const tooltipTrigger = canvas.getByRole("button", { name: Side.args.children })
+    await expect(tooltipTrigger).toHaveAttribute("data-state", "closed")
+  },
+} satisfies Story
+
 export const Pointer = {
   args: {
     ...Basic.args,
