@@ -6,8 +6,8 @@
     "build": "rollup --config"
   },
   "dependencies": {
-    "@mantine/core": "6.0.19",
-    "@mantine/dates": "6.0.19",
+    "@mantine/core": "6.0.20",
+    "@mantine/dates": "6.0.20",
     "dayjs": "1.11.9"
   },
   "devDependencies": {
