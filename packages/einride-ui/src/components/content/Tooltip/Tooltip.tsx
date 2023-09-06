@@ -1,7 +1,7 @@
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import * as RadixTooltip from "@radix-ui/react-tooltip"
-import { CSSProperties, ReactNode } from "react"
+import { ComponentPropsWithoutRef, ReactNode } from "react"
 import { useTheme } from "../../../hooks/useTheme"
 import { MaxInlineSize, MaxWidth, Width } from "../../../lib/theme/props"
 import { zIndex } from "../../../lib/zIndex"
@@ -16,6 +16,11 @@ export interface TooltipProps {
 
   /** The content of the tooltip. */
   content: ReactNode
+
+  /** Props passed to the tooltip content wrapper element. */
+  contentWrapperProps?: Omit<ComponentPropsWithoutRef<"div">, "aria-label"> & {
+    "aria-label"?: string
+  }
 
   /** Disables tooltip from showing. */
   disabled?: boolean
@@ -32,19 +37,14 @@ export interface TooltipProps {
   /** The duration from when the pointer enters the tooltip trigger until the tooltip opens. Default is `0`. */
   openDelayDuration?: number
 
+  /** The preferred side on which the tooltip should appear. In case of collision it'll appear on the opposite side. */
+  side?: "top" | "right" | "bottom" | "left"
+
   /** Merges the original component props with the props of the supplied component and change the underlying DOM node. */
   triggerAsChild?: boolean
 
   /** Width of the tooltip. */
   width?: Width
-
-  /** The preferred side on which the tooltip should appear. In case of collision it'll appear on the opposite side. */
-  side?: "top" | "right" | "bottom" | "left"
-
-  /** Props passed to the tooltip content wrapper element */
-  contentWrapperProps?: {
-    style?: Omit<CSSProperties, "rotate" | "scale" | "perspective">
-  }
 }
 
 /** Use tooltips to show additional information. */
@@ -52,12 +52,12 @@ export const Tooltip = ({
   align = "center",
   children,
   content,
+  contentWrapperProps,
   disabled,
   hint,
   openDelayDuration = 0,
-  triggerAsChild,
   side = "top",
-  contentWrapperProps,
+  triggerAsChild,
   ...props
 }: TooltipProps): React.JSX.Element => {
   const theme = useTheme()
