@@ -2041,7 +2041,7 @@ __metadata:
     luxon: 3.4.3
     react: 18.2.0
     react-dom: 18.2.0
-    rollup: 3.29.0
+    rollup: 3.29.1
     typescript: 5.2.2
   peerDependencies:
     "@einride/ui": ^7.45.3
@@ -2066,7 +2066,7 @@ __metadata:
     framer-motion: 10.16.4
     react: 18.2.0
     react-dom: 18.2.0
-    rollup: 3.29.0
+    rollup: 3.29.1
     typescript: 5.2.2
   peerDependencies:
     "@einride/ui": ^7.45.3
@@ -2087,7 +2087,7 @@ __metadata:
     "@storybook/testing-library": 0.2.0
     mapbox-gl: 2.15.0
     react-map-gl: 7.1.5
-    rollup: 3.29.0
+    rollup: 3.29.1
     typescript: 5.2.2
   peerDependencies:
     "@einride/ui": ^7.45.3
@@ -2182,7 +2182,7 @@ __metadata:
     luxon: 3.4.3
     react: 18.2.0
     react-dom: 18.2.0
-    rollup: 3.29.0
+    rollup: 3.29.1
     typescript: 5.2.2
     vite: 4.4.9
   peerDependencies:
@@ -15924,9 +15924,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:3.29.0":
-  version: 3.29.0
-  resolution: "rollup@npm:3.29.0"
+"rollup@npm:3.29.1, rollup@npm:^3.28.0":
+  version: 3.29.1
+  resolution: "rollup@npm:3.29.1"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -15934,7 +15934,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 77124a606f44c065dce95b615cd0c9955e1a12f67a30ad28c1128438d5080535b0f028d0edef9dda576ebe8806bdc48aff990198334978738da9716fe9677d72
+  checksum: eb92dbb83842f46782257c93e864dd12e9eef72eb98485a70a08026e50f7b557cfff7da71f677a4bd62906e597cc99284bf152b876f814a95b61f5a618a0f43e
   languageName: node
   linkType: hard
 
@@ -15949,20 +15949,6 @@ __metadata:
   bin:
     rollup: dist/bin/rollup
   checksum: 6ded4a0d3ca531d68e82897d5eebaa9d085014a062620bc328f2859ccf78d6a148a51ed53f1275a5f89b55cc6d7b1440b7cee44e5a9e3a51442f809b4b26f727
-  languageName: node
-  linkType: hard
-
-"rollup@npm:^3.28.0":
-  version: 3.29.1
-  resolution: "rollup@npm:3.29.1"
-  dependencies:
-    fsevents: ~2.3.2
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  bin:
-    rollup: dist/bin/rollup
-  checksum: eb92dbb83842f46782257c93e864dd12e9eef72eb98485a70a08026e50f7b557cfff7da71f677a4bd62906e597cc99284bf152b876f814a95b61f5a618a0f43e
   languageName: node
   linkType: hard
 
