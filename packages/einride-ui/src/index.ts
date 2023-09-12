@@ -88,6 +88,7 @@ export { useColorScheme } from "./contexts/ColorSchemeProvider"
 export { EinrideProvider } from "./contexts/EinrideProvider"
 export { useTheme } from "./hooks/useTheme"
 export { einrideTheme } from "./lib/theme/einride"
+export { themes } from "./lib/theme/theme"
 export type {
   BackgroundColor,
   BorderColor,
