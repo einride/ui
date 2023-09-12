@@ -2124,7 +2124,7 @@ __metadata:
     "@storybook/react-vite": 7.4.0
     "@storybook/test-runner": 0.13.0
     "@storybook/testing-library": 0.2.0
-    "@storybook/theming": 7.4.0
+    "@storybook/theming": 7.4.1
     "@testing-library/jest-dom": 6.1.3
     "@testing-library/react": 14.0.0
     "@testing-library/user-event": 14.4.3
@@ -5081,6 +5081,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/client-logger@npm:7.4.1":
+  version: 7.4.1
+  resolution: "@storybook/client-logger@npm:7.4.1"
+  dependencies:
+    "@storybook/global": ^5.0.0
+  checksum: 46b420f0ab9da2a590f39e215471706de324e20e21c5d859153ab2c919a43aaac8e15515392489fcc598775f36b5f772e5c4ae5a92da9f4702791faabe25dae0
+  languageName: node
+  linkType: hard
+
 "@storybook/codemod@npm:7.4.0":
   version: 7.4.0
   resolution: "@storybook/codemod@npm:7.4.0"
@@ -5739,6 +5748,21 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
   checksum: b36b13a0a66c95391e6efe25aac17922d80c028cb07b5303fd530cd4e8ed1c01ffb8d63de78d178ca9c800504454418a12c130c655e65b9f37b83a16982c992e
+  languageName: node
+  linkType: hard
+
+"@storybook/theming@npm:7.4.1":
+  version: 7.4.1
+  resolution: "@storybook/theming@npm:7.4.1"
+  dependencies:
+    "@emotion/use-insertion-effect-with-fallbacks": ^1.0.0
+    "@storybook/client-logger": 7.4.1
+    "@storybook/global": ^5.0.0
+    memoizerific: ^1.11.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 685c6b535b7754b72fbca5a763a11b0208465ab368a8984c3943735e9e711e8f6fe34c6acc765eb64c761e7e9fa16e28f767d3c00d5e77702ec13c4a0c79462f
   languageName: node
   linkType: hard
 
