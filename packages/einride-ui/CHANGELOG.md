@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.63.1
+
+### Patch Changes
+
+- c701ee04: Export themes which is needed to setup color modes storybook plugin.
+
 ## 7.63.0
 
 ### Minor Changes
