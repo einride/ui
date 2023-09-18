@@ -2032,7 +2032,7 @@ __metadata:
     "@rollup/plugin-typescript": 11.1.2
     "@storybook/jest": 0.2.2
     "@storybook/react": 7.4.2
-    "@storybook/testing-library": 0.2.0
+    "@storybook/testing-library": 0.2.1
     "@types/react": 18.2.21
     "@types/react-dom": 18.2.7
     "@vitejs/plugin-react": 4.0.4
@@ -2059,7 +2059,7 @@ __metadata:
     "@rollup/plugin-typescript": 11.1.2
     "@storybook/jest": 0.2.2
     "@storybook/react": 7.4.2
-    "@storybook/testing-library": 0.2.0
+    "@storybook/testing-library": 0.2.1
     "@types/react": 18.2.21
     "@types/react-dom": 18.2.7
     "@vitejs/plugin-react": 4.0.4
@@ -2084,7 +2084,7 @@ __metadata:
     "@rollup/plugin-typescript": 11.1.2
     "@storybook/jest": 0.2.2
     "@storybook/react": 7.4.2
-    "@storybook/testing-library": 0.2.0
+    "@storybook/testing-library": 0.2.1
     mapbox-gl: 2.15.0
     react-map-gl: 7.1.6
     rollup: 3.29.2
@@ -2168,7 +2168,7 @@ __metadata:
     "@rollup/plugin-typescript": 11.1.2
     "@storybook/jest": 0.2.2
     "@storybook/react": 7.4.2
-    "@storybook/testing-library": 0.2.0
+    "@storybook/testing-library": 0.2.1
     "@types/lodash.merge": 4.6.7
     "@types/luxon": 3.3.2
     "@types/react": 18.2.21
@@ -5703,17 +5703,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/testing-library@npm:0.2.0":
-  version: 0.2.0
-  resolution: "@storybook/testing-library@npm:0.2.0"
-  dependencies:
-    "@testing-library/dom": ^9.0.0
-    "@testing-library/user-event": ^14.0.0
-    ts-dedent: ^2.2.0
-  checksum: 1c1c16aea6f961de344f5d43bdfd2847bc5f44df1037c2e1383312bb6b842e2c17a805670fc9cfe1a8425f9e48e240fe5d025ab3d4802a198cfe9eb6ed8e7636
-  languageName: node
-  linkType: hard
-
 "@storybook/testing-library@npm:0.2.1":
   version: 0.2.1
   resolution: "@storybook/testing-library@npm:0.2.1"
@@ -6004,7 +5993,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:^14.0.0, @testing-library/user-event@npm:~14.4.0":
+"@testing-library/user-event@npm:~14.4.0":
   version: 14.4.3
   resolution: "@testing-library/user-event@npm:14.4.3"
   peerDependencies:
