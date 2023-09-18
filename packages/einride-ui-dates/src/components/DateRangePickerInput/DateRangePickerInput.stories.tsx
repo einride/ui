@@ -31,7 +31,7 @@ export const Basic = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByRole("button", { name: "" })
+    const input = canvas.getByRole("button", { name: Basic.args.label })
     expect(input).toBeInTheDocument()
     const label = canvas.getByText(Basic.args.label)
     await expect(label).toBeInTheDocument()
@@ -95,7 +95,7 @@ export const Controlled = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const input = canvas.getByRole("button", { name: "" })
+    const input = canvas.getByRole("button", { name: Controlled.args.label })
     expect(input).toBeInTheDocument()
   },
 } satisfies Story
