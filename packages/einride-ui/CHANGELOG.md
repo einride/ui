@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.63.2
+
+### Patch Changes
+
+- 89e1f750: Bump Mantine dependencies.
+
 ## 7.63.1
 
 ### Patch Changes
