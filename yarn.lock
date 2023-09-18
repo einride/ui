@@ -2027,7 +2027,7 @@ __metadata:
   resolution: "@einride/ui-dates@workspace:packages/einride-ui-dates"
   dependencies:
     "@mantine/core": 6.0.19
-    "@mantine/dates": 6.0.19
+    "@mantine/dates": 6.0.21
     "@rollup/plugin-image": 3.0.2
     "@rollup/plugin-typescript": 11.1.2
     "@storybook/jest": 0.2.2
@@ -2154,7 +2154,7 @@ __metadata:
     "@emotion/styled": 11.11.0
     "@faker-js/faker": 8.0.2
     "@mantine/core": 6.0.19
-    "@mantine/dates": 6.0.19
+    "@mantine/dates": 6.0.21
     "@mantine/hooks": 6.0.19
     "@radix-ui/react-alert-dialog": 1.0.4
     "@radix-ui/react-dialog": 1.0.4
@@ -3133,17 +3133,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/dates@npm:6.0.19":
-  version: 6.0.19
-  resolution: "@mantine/dates@npm:6.0.19"
+"@mantine/dates@npm:6.0.21":
+  version: 6.0.21
+  resolution: "@mantine/dates@npm:6.0.21"
   dependencies:
-    "@mantine/utils": 6.0.19
+    "@mantine/utils": 6.0.21
   peerDependencies:
-    "@mantine/core": 6.0.19
-    "@mantine/hooks": 6.0.19
+    "@mantine/core": 6.0.21
+    "@mantine/hooks": 6.0.21
     dayjs: ">=1.0.0"
     react: ">=16.8.0"
-  checksum: 0faedab40d6fbc5720ce872bf70d2a890cc4576f52aaccd93db68385dd27536bf2f08959ba09c99d49ec8d3d7db0d160dbc7442f6e137eaaf04e55944919d0c8
+  checksum: 785f1651555d963554aa2ef89ac109b5475ee1d99e4aa720e86d4da16d1e29a2dadbaa9442243bb8ccba132875b9dc03e6d14cc7be53d5b2b71233eff2031b9f
   languageName: node
   linkType: hard
 
@@ -3176,6 +3176,15 @@ __metadata:
   peerDependencies:
     react: ">=16.8.0"
   checksum: c33e2eba6d78e2b07c222c79a086da9d43a39a1fb8e409b10ab5775f6855325fd30c56b17fd67f9a827497eff2fdc22fff4b9190c2d7069b2c58565d63b3a450
+  languageName: node
+  linkType: hard
+
+"@mantine/utils@npm:6.0.21":
+  version: 6.0.21
+  resolution: "@mantine/utils@npm:6.0.21"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 9f4b08ff06fb2473545705f1bebc7e31becc1b1d98332e5ce0d827746d4454b14fcf4c77121cf250ff55af52e5e321a51ca913eedcff2ed99616429edb39fa66
   languageName: node
   linkType: hard
 
