@@ -1,5 +1,11 @@
 # @einride/ui-labs
 
+## 7.64.0
+
+### Minor Changes
+
+- dbe7533a: Remove node version requirements
+
 ## 7.61.5
 
 ### Patch Changes
