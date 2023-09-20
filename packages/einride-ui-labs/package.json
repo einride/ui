@@ -58,9 +58,6 @@
   },
   "license": "MIT",
   "author": "Filip Tammergård <filip.tammergard@einride.tech> https://github.com/filiptammergard",
-  "engines": {
-    "node": "16 || 18"
-  },
   "publishConfig": {
     "access": "public",
     "provenance": true
