@@ -2036,7 +2036,7 @@ __metadata:
     "@types/react": 18.2.22
     "@types/react-dom": 18.2.7
     "@vitejs/plugin-react": 4.0.4
-    dayjs: 1.11.9
+    dayjs: 1.11.10
     framer-motion: 10.16.4
     luxon: 3.4.3
     react: 18.2.0
@@ -2176,7 +2176,7 @@ __metadata:
     "@vitejs/plugin-react": 4.0.4
     chromatic: 7.2.0
     concurrently: 8.2.1
-    dayjs: 1.11.9
+    dayjs: 1.11.10
     framer-motion: 10.16.4
     lodash.merge: 4.6.2
     luxon: 3.4.3
@@ -8685,10 +8685,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dayjs@npm:1.11.9":
-  version: 1.11.9
-  resolution: "dayjs@npm:1.11.9"
-  checksum: a4844d83dc87f921348bb9b1b93af851c51e6f71fa259604809cfe1b49d1230e6b0212dab44d1cb01994c096ad3a77ea1cf18fa55154da6efcc9d3610526ac38
+"dayjs@npm:1.11.10":
+  version: 1.11.10
+  resolution: "dayjs@npm:1.11.10"
+  checksum: a6b5a3813b8884f5cd557e2e6b7fa569f4c5d0c97aca9558e38534af4f2d60daafd3ff8c2000fed3435cfcec9e805bcebd99f90130c6d1c5ef524084ced588c4
   languageName: node
   linkType: hard
 
