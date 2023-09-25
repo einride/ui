@@ -11,3 +11,16 @@ updates:
     schedule:
       interval: daily
     open-pull-requests-limit: 20
+    groups:
+      storybook:
+        patterns:
+          - "*storybook*"
+      vite:
+        patterns:
+          - "*vite*"
+      mantine:
+        patterns:
+          - "@mantine*"
+      radix:
+        patterns:
+          - "@radix-ui/*"
