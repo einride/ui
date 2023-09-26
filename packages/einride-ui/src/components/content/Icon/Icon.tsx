@@ -94,7 +94,7 @@ const getEncodedEntity = (name: IconName): ReactNode => {
   if (name === "chevronUp") return <>&#8963;</>
   if (name === "chevronRight") return <>&#707;</>
   if (name === "chevronLeft") return <>&#706;</>
-  if (name === "xMark") return <>&#10060;</>
+  if (name === "xMark") return <>&#1048964;</>
   if (name === "arrowUp") return <>&#8593;</>
   if (name === "arrowDown") return <>&#8595;</>
   if (name === "arrowRight") return <>&#8594;</>
