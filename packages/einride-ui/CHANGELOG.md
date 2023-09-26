@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.64.1
+
+### Patch Changes
+
+- fe0449d2: Bump Radix deps.
+
 ## 7.64.0
 
 ### Minor Changes
