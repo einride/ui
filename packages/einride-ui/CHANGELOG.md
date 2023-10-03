@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.64.2
+
+### Patch Changes
+
+- 08dd77fa: Reassign xMark icon to new character to resolve iOS17 issue.
+
 ## 7.64.1
 
 ### Patch Changes
