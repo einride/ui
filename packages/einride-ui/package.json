@@ -28,7 +28,7 @@
     "@faker-js/faker": "8.1.0",
     "@rollup/plugin-image": "3.0.2",
     "@rollup/plugin-typescript": "11.1.2",
-    "@storybook/jest": "0.2.2",
+    "@storybook/jest": "0.2.3",
     "@storybook/react": "7.4.6",
     "@storybook/testing-library": "0.2.2",
     "@types/lodash.merge": "4.6.7",
