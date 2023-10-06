@@ -2202,7 +2202,7 @@ __metadata:
   dependencies:
     "@mantine/core": 6.0.21
     "@mantine/dates": 6.0.21
-    "@rollup/plugin-image": 3.0.2
+    "@rollup/plugin-image": 3.0.3
     "@rollup/plugin-typescript": 11.1.2
     "@storybook/jest": 0.2.3
     "@storybook/react": 7.4.6
@@ -2229,7 +2229,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@einride/ui-labs@workspace:packages/einride-ui-labs"
   dependencies:
-    "@rollup/plugin-image": 3.0.2
+    "@rollup/plugin-image": 3.0.3
     "@rollup/plugin-typescript": 11.1.2
     "@storybook/jest": 0.2.3
     "@storybook/react": 7.4.6
@@ -2254,7 +2254,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@einride/ui-maps@workspace:packages/einride-ui-maps"
   dependencies:
-    "@rollup/plugin-image": 3.0.2
+    "@rollup/plugin-image": 3.0.3
     "@rollup/plugin-typescript": 11.1.2
     "@storybook/jest": 0.2.3
     "@storybook/react": 7.4.6
@@ -2338,7 +2338,7 @@ __metadata:
     "@radix-ui/react-switch": 1.0.3
     "@radix-ui/react-tabs": 1.0.4
     "@radix-ui/react-tooltip": 1.0.7
-    "@rollup/plugin-image": 3.0.2
+    "@rollup/plugin-image": 3.0.3
     "@rollup/plugin-typescript": 11.1.2
     "@storybook/jest": 0.2.3
     "@storybook/react": 7.4.6
@@ -4621,18 +4621,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-image@npm:3.0.2":
-  version: 3.0.2
-  resolution: "@rollup/plugin-image@npm:3.0.2"
+"@rollup/plugin-image@npm:3.0.3":
+  version: 3.0.3
+  resolution: "@rollup/plugin-image@npm:3.0.3"
   dependencies:
     "@rollup/pluginutils": ^5.0.1
     mini-svg-data-uri: ^1.4.4
   peerDependencies:
-    rollup: ^1.20.0||^2.0.0||^3.0.0
+    rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: f9d8f587f10c51398fa8c23f1543e3073f969cf7e4acd7f401e02a3e3752702a9eb289ddb14009733ce37d04474c549aba9e7d13ebf50e26226266ba51546b69
+  checksum: 30363d50c3d43fc35add135ce1b9591a69f378d696829724ce229e7c78ed00bc646280c150bd4b872d9359aeee656fae7107876c802dd7374aa71e21cb0af371
   languageName: node
   linkType: hard
 
