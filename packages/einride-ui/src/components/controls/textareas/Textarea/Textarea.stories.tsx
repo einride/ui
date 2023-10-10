@@ -73,7 +73,7 @@ export const Negative = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const textarea = canvas.getByRole("textbox", { name: Negative.args.label })
-    await expect(textarea).toHaveErrorMessage("Negative message")
+    await expect(textarea).toHaveAccessibleErrorMessage("Negative message")
     await expect(textarea).toBeInvalid()
   },
 } satisfies Story

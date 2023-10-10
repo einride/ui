@@ -79,7 +79,7 @@ export const Message = {
     const canvas = within(canvasElement)
     const input = canvas.getByRole("textbox", { name: "Search for something fun" })
     await expect(input).toHaveAccessibleDescription("Message.")
-    await expect(input).not.toHaveErrorMessage()
+    await expect(input).not.toHaveAccessibleErrorMessage()
   },
 } satisfies Story
 
@@ -93,7 +93,7 @@ export const SuccessMessage = {
     const canvas = within(canvasElement)
     const input = canvas.getByRole("textbox", { name: "Search for something fun" })
     await expect(input).toHaveAccessibleDescription("Success message.")
-    await expect(input).not.toHaveErrorMessage()
+    await expect(input).not.toHaveAccessibleErrorMessage()
   },
 } satisfies Story
 
@@ -107,7 +107,7 @@ export const ErrorMessage = {
     const canvas = within(canvasElement)
     const input = canvas.getByRole("textbox", { name: "Search for something fun" })
     await expect(input).not.toHaveAccessibleDescription()
-    await expect(input).toHaveErrorMessage("Error message.")
+    await expect(input).toHaveAccessibleErrorMessage("Error message.")
   },
 } satisfies Story
 

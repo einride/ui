@@ -34,7 +34,7 @@ export const Basic = {
     await step("Expect default state", async () => {
       await expect(input).toHaveValue("")
       await expect(input).not.toHaveAccessibleDescription()
-      await expect(input).not.toHaveErrorMessage()
+      await expect(input).not.toHaveAccessibleErrorMessage()
     })
   },
 } satisfies Story
@@ -52,7 +52,7 @@ export const WithoutLabel = {
     await step("Expect default state", async () => {
       await expect(input).toHaveValue("")
       await expect(input).not.toHaveAccessibleDescription()
-      await expect(input).not.toHaveErrorMessage()
+      await expect(input).not.toHaveAccessibleErrorMessage()
     })
   },
 } satisfies Story
@@ -70,7 +70,7 @@ export const ReadOnly = {
     await step("Expect default state", async () => {
       await expect(input).toHaveValue(ReadOnly.args.value)
       await expect(input).not.toHaveAccessibleDescription()
-      await expect(input).not.toHaveErrorMessage()
+      await expect(input).not.toHaveAccessibleErrorMessage()
       await expect(input).toHaveAttribute("readonly")
     })
   },
@@ -88,7 +88,7 @@ export const DefaultValue = {
     await step("Expect default state", async () => {
       await expect(input).toHaveValue(DefaultValue.args.defaultValue)
       await expect(input).not.toHaveAccessibleDescription()
-      await expect(input).not.toHaveErrorMessage()
+      await expect(input).not.toHaveAccessibleErrorMessage()
     })
   },
 } satisfies Story
@@ -110,7 +110,7 @@ export const Controlled = {
     await step("Expect default state", async () => {
       await expect(input).toHaveValue("")
       await expect(input).not.toHaveAccessibleDescription()
-      await expect(input).not.toHaveErrorMessage()
+      await expect(input).not.toHaveAccessibleErrorMessage()
     })
   },
 } satisfies Story
@@ -127,7 +127,7 @@ export const Message = {
 
     await step("Expect default state", async () => {
       await expect(input).toHaveValue("")
-      await expect(input).not.toHaveErrorMessage()
+      await expect(input).not.toHaveAccessibleErrorMessage()
     })
 
     await step("Expect input to have accessible description based on `message`", async () => {
@@ -148,7 +148,7 @@ export const SuccessMessage = {
 
     await step("Expect default state", async () => {
       await expect(input).toHaveValue("")
-      await expect(input).not.toHaveErrorMessage()
+      await expect(input).not.toHaveAccessibleErrorMessage()
     })
 
     await step("Expect input to have accessible description based on `message`", async () => {
@@ -173,7 +173,7 @@ export const ErrorMessage = {
     })
 
     await step("Expect input to have error message based on `message`", async () => {
-      await expect(input).toHaveErrorMessage(ErrorMessage.args.message)
+      await expect(input).toHaveAccessibleErrorMessage(ErrorMessage.args.message)
     })
   },
 } satisfies Story
@@ -193,7 +193,7 @@ export const Suffix = {
     await step("Expect default state", async () => {
       await expect(input).toHaveValue("")
       await expect(input).not.toHaveAccessibleDescription()
-      await expect(input).not.toHaveErrorMessage()
+      await expect(input).not.toHaveAccessibleErrorMessage()
     })
 
     await step("Expect suffix to show", async () => {
@@ -213,7 +213,7 @@ export const Keyboard = {
     await step("Expect default state", async () => {
       await expect(input).toHaveValue("")
       await expect(input).not.toHaveAccessibleDescription()
-      await expect(input).not.toHaveErrorMessage()
+      await expect(input).not.toHaveAccessibleErrorMessage()
     })
 
     await step("Expect focus when tabbing", async () => {

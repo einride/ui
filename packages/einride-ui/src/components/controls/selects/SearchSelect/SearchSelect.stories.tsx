@@ -201,7 +201,7 @@ export const Message = {
     const canvas = within(canvasElement)
     const input = canvas.getByRole("textbox", { name: "Label" })
     await expect(input).toHaveAccessibleDescription("Message.")
-    await expect(input).not.toHaveErrorMessage()
+    await expect(input).not.toHaveAccessibleErrorMessage()
   },
 } satisfies Story
 
