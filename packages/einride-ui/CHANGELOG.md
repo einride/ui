@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.64.3
+
+### Patch Changes
+
+- 3d9142eb: Resolve zoom/small device issues in tabs component
+
 ## 7.64.2
 
 ### Patch Changes
