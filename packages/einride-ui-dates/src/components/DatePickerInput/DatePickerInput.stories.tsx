@@ -131,7 +131,7 @@ export const Pointer = {
     ...Basic.args,
   },
   play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement)
+    const canvas = within(canvasElement.parentElement ?? canvasElement)
     const input = canvas.getByRole("button", { name: Pointer.args.label })
     await userEvent.click(input)
     const firstDateInCurrentMonth = today.set({ day: 1 })
@@ -158,7 +158,7 @@ export const Keyboard = {
     defaultValue: defaultDate.toJSDate(),
   },
   play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement)
+    const canvas = within(canvasElement.parentElement ?? canvasElement)
     const input = canvas.getByRole("button", { name: defaultDate.toFormat(defaultDateFormat) })
     await expect(input).not.toHaveFocus()
     await userEvent.tab()

@@ -1,4 +1,5 @@
 import { usePrefersColorScheme } from "@einride/hooks"
+import { MantineProvider } from "@mantine/core"
 import { ReactNode } from "react"
 import { DeepPartial } from "../lib/theme/deep-partial"
 import { Theme } from "../lib/theme/types"
@@ -30,7 +31,7 @@ export const EinrideProvider = ({
   return (
     <ColorSchemeProvider colorScheme={colorScheme}>
       <EinrideThemeProvider resetCSS={resetCSS} theme={theme}>
-        {children}
+        <MantineProvider>{children}</MantineProvider>
       </EinrideThemeProvider>
     </ColorSchemeProvider>
   )
