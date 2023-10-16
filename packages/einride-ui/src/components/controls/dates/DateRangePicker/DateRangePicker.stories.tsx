@@ -141,7 +141,7 @@ export const Pointer = {
     ...Basic.args,
   },
   play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement)
+    const canvas = within(canvasElement.parentElement ?? canvasElement)
     const input = canvas.getByRole("button")
     const firstDateInCurrentMonth = today.set({ day: 1 })
     const fourthDateInCurrentMonth = today.set({ day: 4 })
@@ -188,7 +188,7 @@ export const Keyboard = {
     defaultValue: [defaultDate.toJSDate(), defaultEndDate.toJSDate()],
   },
   play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement)
+    const canvas = within(canvasElement.parentElement ?? canvasElement)
     const input = canvas.getByRole("button", {
       name: `${defaultDate.toFormat(defaultDateFormat)} – ${defaultEndDate.toFormat(
         defaultDateFormat,
