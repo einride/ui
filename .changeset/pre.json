@@ -1,0 +1,11 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "@einride/ui": "7.64.3",
+    "@einride/ui-dates": "7.64.0",
+    "@einride/ui-labs": "7.64.0",
+    "@einride/ui-maps": "7.64.0"
+  },
+  "changesets": []
+}
