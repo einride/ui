@@ -2416,7 +2416,7 @@ __metadata:
     "@storybook/jest": 0.2.3
     "@storybook/react": 7.5.0
     "@storybook/testing-library": 0.2.2
-    "@types/lodash.merge": 4.6.7
+    "@types/lodash.merge": 4.6.8
     "@types/luxon": 3.3.2
     "@types/react": 18.2.28
     "@types/react-dom": 18.2.13
@@ -6787,12 +6787,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash.merge@npm:4.6.7":
-  version: 4.6.7
-  resolution: "@types/lodash.merge@npm:4.6.7"
+"@types/lodash.merge@npm:4.6.8":
+  version: 4.6.8
+  resolution: "@types/lodash.merge@npm:4.6.8"
   dependencies:
     "@types/lodash": "*"
-  checksum: 94cd6fb8e606756a28f45d63c658aacfbce11a151f7fa322c4a3e87aa50d8bf26e0ae8cba0250070a7c5a6792fc51f79abf4c648bbb1850692be386cd76cd0ca
+  checksum: e1e08869c67e0e73a53da45b65e34ee0dcbfe1ab0223dab6cdd1de1e5b736c2792f6acf17912aa357cd3fe245f2ba2ad7ad20df3b4bca57a5f1bea2c882a2043
   languageName: node
   linkType: hard
 
