@@ -12,15 +12,18 @@ updates:
       interval: daily
     open-pull-requests-limit: 20
     groups:
-      storybook:
+      commitlint:
         patterns:
-          - "*storybook*"
-      vite:
-        patterns:
-          - "*vite*"
+          - "@commitlint/*"
       mantine:
         patterns:
           - "@mantine*"
       radix:
         patterns:
           - "@radix-ui/*"
+      storybook:
+        patterns:
+          - "*storybook*"
+      vite:
+        patterns:
+          - "*vite*"
