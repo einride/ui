@@ -18,12 +18,6 @@ updates:
       mantine:
         patterns:
           - "@mantine*"
-      radix:
-        patterns:
-          - "@radix-ui/*"
       storybook:
         patterns:
           - "*storybook*"
-      vite:
-        patterns:
-          - "*vite*"
