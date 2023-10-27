@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.65.0
+
+### Minor Changes
+
+- 06a8809f: Adds a minus icon to the Icon component.
+
 ## 7.64.3
 
 ### Patch Changes
