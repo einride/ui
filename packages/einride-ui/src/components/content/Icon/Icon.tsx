@@ -50,6 +50,7 @@ export const iconNames = [
   "bolt",
   "loupe",
   "plus",
+  "minus",
   "ellipsis",
   "plusCircle",
   "minusCircle",
@@ -103,7 +104,8 @@ const getEncodedEntity = (name: IconName): ReactNode => {
   if (name === "arrowDownCircle") return <>&#1048696;</>
   if (name === "bolt") return <>&#128498;</>
   if (name === "loupe") return <>&#1049259;</>
-  if (name === "plus") return <>&#43;</>
+  if (name === "plus") return <>&#43;</> // TODO: change this to `&#x10017C;` 2023-10-03 at earliest when font cache should have expired everywhere.
+  if (name === "minus") return <>&#x10017D;</>
   if (name === "ellipsis") return <>&#x100360;</>
   if (name === "plusCircle") return <>&#x10004C;</>
   if (name === "minusCircle") return <>&#x10004E;</>
