@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: einride-ui-labs
+  title: Einride UI labs
+  description: Experimental new components that are not yet included in the core package.
+  annotations:
+    backstage.io/source-location: url:https://github.com/einride/einride-ui/tree/main
+    github.com/project-slug: einride/ui
+    github.com/team-slug: einride/team-divops
+spec:
+  type: library
+  system: einride-ui
+  owner: team-divops
+  lifecycle: experimental

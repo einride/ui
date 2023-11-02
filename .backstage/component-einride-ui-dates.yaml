@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: einride-ui-dates
+  title: Einride UI dates
+  description: Date components that adhere to Einride's design system.
+  annotations:
+    backstage.io/source-location: url:https://github.com/einride/einride-ui/tree/main
+    github.com/project-slug: einride/ui
+    github.com/team-slug: einride/team-divops
+spec:
+  type: library
+  system: einride-ui
+  owner: team-divops
+  lifecycle: production
