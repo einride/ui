@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.66.1
+
+### Patch Changes
+
+- af82f54f: Fix date picker positioning.
+
 ## 7.66.0
 
 ### Minor Changes
