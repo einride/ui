@@ -82,6 +82,7 @@ export const DateRangePicker = ({
       <Global
         styles={css`
           .mantine-Popover-dropdown {
+            position: absolute;
             background: ${theme.colors.background.secondaryElevated};
             border: none;
             border-radius: ${theme.borderRadii.lg};
