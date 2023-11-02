@@ -1,5 +1,11 @@
 # @einride/ui-dates
 
+## 7.66.0
+
+### Minor Changes
+
+- 5243c861: Bump Mantine to v7.
+
 ## 7.64.0
 
 ### Minor Changes
