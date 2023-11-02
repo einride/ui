@@ -1,5 +1,15 @@
 # @einride/ui
 
+## 7.66.0
+
+### Minor Changes
+
+- 5243c861: Bump Mantine to v7.
+
+### Patch Changes
+
+- f62677ad: Use correct font character for plus icon.
+
 ## 7.65.0
 
 ### Minor Changes
