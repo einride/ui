@@ -170,7 +170,7 @@ export const DateRangePicker = ({
                 color: ${theme.colors.content.positive};
               }
               &[data-outside] {
-                display: none;
+                display: none; // TODO: use hideOutsideDates instead when bug is fixed in Mantine
               }
               &[data-in-range]:not([data-selected]) {
                 background: ${theme.colors.background.tertiary};

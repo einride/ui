@@ -193,6 +193,7 @@ export const DatePicker = ({
         ariaLabels={{ previousMonth: "Previous month", nextMonth: "Next month" }}
         hasLabel={"label" in props}
         maxLevel="month"
+        hideOutsideDates
         popoverProps={{ clickOutsideEvents: ["pointerdown"] }} // to ensure popover is closed when clicking on a menu trigger
         valueFormat={inputFormat}
         withAsterisk={false}
