@@ -2210,8 +2210,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@einride/ui-dates@workspace:packages/einride-ui-dates"
   dependencies:
-    "@mantine/core": 7.1.1
-    "@mantine/dates": 7.1.1
+    "@mantine/core": 7.1.7
+    "@mantine/dates": 7.1.7
     "@rollup/plugin-image": 3.0.3
     "@rollup/plugin-typescript": 11.1.2
     "@storybook/jest": 0.2.3
@@ -2337,9 +2337,9 @@ __metadata:
     "@emotion/react": 11.11.1
     "@emotion/styled": 11.11.0
     "@faker-js/faker": 8.2.0
-    "@mantine/core": 7.1.1
-    "@mantine/dates": 7.1.1
-    "@mantine/hooks": 7.1.1
+    "@mantine/core": 7.1.7
+    "@mantine/dates": 7.1.7
+    "@mantine/hooks": 7.1.7
     "@radix-ui/react-alert-dialog": 1.0.5
     "@radix-ui/react-dialog": 1.0.5
     "@radix-ui/react-dropdown-menu": 2.0.6
@@ -3322,9 +3322,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/core@npm:7.1.1":
-  version: 7.1.1
-  resolution: "@mantine/core@npm:7.1.1"
+"@mantine/core@npm:7.1.7":
+  version: 7.1.7
+  resolution: "@mantine/core@npm:7.1.7"
   dependencies:
     "@floating-ui/react": ^0.24.8
     clsx: 2.0.0
@@ -3333,34 +3333,34 @@ __metadata:
     react-textarea-autosize: 8.5.3
     type-fest: ^3.13.1
   peerDependencies:
-    "@mantine/hooks": 7.1.1
+    "@mantine/hooks": 7.1.7
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: 76cc99dca1f60a862c245f9340c6da1156aa84edc841f6215a9639a3c510fe446020dd0f12a384eed05826495c2396021795b0cd0f4063cd2d42f34094f55eb2
+  checksum: ab0816d43377382232222bd9d88309e3bbae940f5e9c93192b00e9fbd710f3534964059f5f4ece9425fc78a9d8fef5e7a2272f585beb83d1152fd30678314e2b
   languageName: node
   linkType: hard
 
-"@mantine/dates@npm:7.1.1":
-  version: 7.1.1
-  resolution: "@mantine/dates@npm:7.1.1"
+"@mantine/dates@npm:7.1.7":
+  version: 7.1.7
+  resolution: "@mantine/dates@npm:7.1.7"
   dependencies:
     clsx: 2.0.0
   peerDependencies:
-    "@mantine/core": 7.1.1
-    "@mantine/hooks": 7.1.1
+    "@mantine/core": 7.1.7
+    "@mantine/hooks": 7.1.7
     dayjs: ^1.10.5
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: def43f62055eb896755a6d78123b211b3a0ccaeaafe8fd3002720cd0a185b42972fe1d1bfca44d396f10cedb6a70e00243bc659a0bc94fb120a9180f34a660e2
+  checksum: df4289d5e3123062b92bfdd110badcbd7c34de355bc91b827aa3653a145dafe1cfc1624bed4975fb79bed3ed3deae71d96780eb0a30d51772595b96b77341605
   languageName: node
   linkType: hard
 
-"@mantine/hooks@npm:7.1.1":
-  version: 7.1.1
-  resolution: "@mantine/hooks@npm:7.1.1"
+"@mantine/hooks@npm:7.1.7":
+  version: 7.1.7
+  resolution: "@mantine/hooks@npm:7.1.7"
   peerDependencies:
     react: ^18.2.0
-  checksum: ea4cc4b858f97a74840d6d545da801d7e30a837f0ee85a32762b3e3a7983569a4c9b34cc37b34ed876955f525d0915e55d959e9c53e48908ed823bf651ee6721
+  checksum: e2ab7036391292c31106abafe7e84ff2bc64603b6c9cc6360d97bb2edd619fa67715b47f4cc08a5710bf021136787fdff5e1ce0c9521ebed4cc7f5ba9df2587a
   languageName: node
   linkType: hard
 
