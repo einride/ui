@@ -185,6 +185,7 @@ export const DatePickerInput = ({
       <StyledDatePickerInput
         ariaLabels={{ previousMonth: "Previous month", nextMonth: "Next month" }}
         hasLabel={"label" in props}
+        hideOutsideDates
         maxLevel="month"
         popoverProps={{ clickOutsideEvents: ["pointerdown"] }} // to ensure popover is closed when clicking on a menu trigger
         valueFormat={inputFormat}
