@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.66.2
+
+### Patch Changes
+
+- 53a1b386: Properly hide outsides dates.
+
 ## 7.66.1
 
 ### Patch Changes
