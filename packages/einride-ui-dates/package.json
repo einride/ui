@@ -1,6 +1,6 @@
 {
   "name": "@einride/ui-dates",
-  "version": "7.66.2",
+  "version": "7.66.3",
   "description": "Date components that adhere to Einride's design system",
   "scripts": {
     "build": "rollup --config"
