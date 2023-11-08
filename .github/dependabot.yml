@@ -21,3 +21,5 @@ updates:
       storybook:
         patterns:
           - "*storybook*"
+      dev-dependencies: # all other dev dependencies
+        dependency-type: "development"
