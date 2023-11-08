@@ -31,7 +31,7 @@
     "@storybook/jest": "0.2.3",
     "@storybook/react": "7.5.3",
     "@storybook/testing-library": "0.2.2",
-    "@types/lodash.merge": "4.6.8",
+    "@types/lodash.merge": "4.6.9",
     "@types/luxon": "3.3.4",
     "@types/react": "18.2.36",
     "@types/react-dom": "18.2.14",
