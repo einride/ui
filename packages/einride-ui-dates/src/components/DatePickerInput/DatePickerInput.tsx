@@ -150,7 +150,7 @@ export const DatePickerInput = ({
             margin-block-start: ${theme.spacingBase}rem;
 
             &[data-hidden] {
-              display: none;
+              display: none; // TODO: use hideOutsideDates instead when bug is fixed in Mantine
             }
             &[data-today] {
               color: ${theme.colors.content.positive};
@@ -187,7 +187,10 @@ export const DatePickerInput = ({
         hasLabel={"label" in props}
         hideOutsideDates
         maxLevel="month"
-        popoverProps={{ clickOutsideEvents: ["pointerdown"] }} // to ensure popover is closed when clicking on a menu trigger
+        popoverProps={{
+          clickOutsideEvents: ["pointerdown"], // to ensure popover is closed when clicking on a menu trigger
+          withinPortal: false, // to ensure picker is usable within dialogs that traps focus – the picker will have `pointer-events: none` rendrered outside of the dialog
+        }}
         valueFormat={inputFormat}
         withAsterisk={false}
         withCellSpacing={false}

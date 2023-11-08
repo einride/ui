@@ -117,7 +117,7 @@ const StyledCalendar = styled(MantineDatePicker)`
     margin-block-start: ${({ theme }) => theme.spacingBase}rem;
 
     &[data-hidden] {
-      display: none;
+      display: none; // TODO: use hideOutsideDates instead when bug is fixed in Mantine
     }
     &[data-today] {
       color: ${({ theme }) => theme.colors.content.positive};
