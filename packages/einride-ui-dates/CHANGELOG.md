@@ -1,5 +1,11 @@
 # @einride/ui-dates
 
+## 7.66.3
+
+### Patch Changes
+
+- 0cb2090b: Do not render date picker popovers in portals.
+
 ## 7.66.2
 
 ### Patch Changes
