@@ -229,8 +229,12 @@ export const DateRangePicker = ({
         allowSingleDateInRange
         ariaLabels={{ previousMonth: "Previous month", nextMonth: "Next month" }}
         hasLabel={"label" in props}
+        hideOutsideDates
         maxLevel="month"
-        popoverProps={{ clickOutsideEvents: ["pointerdown"] }} // to ensure popover is closed when clicking on a menu trigger
+        popoverProps={{
+          clickOutsideEvents: ["pointerdown"], // to ensure popover is closed when clicking on a menu trigger
+          withinPortal: false, // to ensure picker is usable within dialogs that traps focus – the picker will have `pointer-events: none` rendrered outside of the dialog
+        }}
         type="range"
         valueFormat={inputFormat}
         withAsterisk={false}
