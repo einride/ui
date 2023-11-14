@@ -2306,7 +2306,7 @@ __metadata:
     "@storybook/node-logger": 7.5.3
     "@storybook/react": 7.5.3
     "@storybook/react-vite": 7.5.3
-    "@storybook/test-runner": 0.14.0
+    "@storybook/test-runner": 0.14.1
     "@storybook/testing-library": 0.2.2
     "@storybook/theming": 7.5.3
     "@testing-library/jest-dom": 6.1.4
@@ -5900,9 +5900,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/test-runner@npm:0.14.0":
-  version: 0.14.0
-  resolution: "@storybook/test-runner@npm:0.14.0"
+"@storybook/test-runner@npm:0.14.1":
+  version: 0.14.1
+  resolution: "@storybook/test-runner@npm:0.14.1"
   dependencies:
     "@babel/core": ^7.22.5
     "@babel/generator": ^7.22.5
@@ -5933,7 +5933,7 @@ __metadata:
     ts-dedent: ^2.0.0
   bin:
     test-storybook: dist/test-storybook.js
-  checksum: ea57f52334e4c8429b6d06cf12bacffee0677e8d92c14d10bf4974624678c79239d068f2067a2b16df01d25d2d62e64804b945091f2bb6cc4deae9b1ede3b546
+  checksum: c8d4d54a5a24a0829db9f8cd60eb69cc7f01a118916b22b89f1da179a116ad1deb3f8d72ffab5a5bccc3cf12474c244416964d029ed2d3411a95dd7df1fa1978
   languageName: node
   linkType: hard
 
