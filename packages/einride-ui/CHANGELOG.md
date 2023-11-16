@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.66.4
+
+### Patch Changes
+
+- 5fac7ca6: Expose all menu content props.
+
 ## 7.66.3
 
 ### Patch Changes
