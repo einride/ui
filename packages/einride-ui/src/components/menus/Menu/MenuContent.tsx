@@ -4,7 +4,7 @@ import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
 import { ComponentPropsWithoutRef, Fragment, forwardRef } from "react"
 import { zIndex } from "../../../lib/zIndex"
 
-interface MenuContentProps extends ComponentPropsWithoutRef<"div"> {
+interface MenuContentProps extends ComponentPropsWithoutRef<typeof DropdownMenu.Content> {
   /** The preferred alignment against the trigger. May change when collisions occur. Default is `center`. */
   align?: "start" | "center" | "end"
 
