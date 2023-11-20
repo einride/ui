@@ -38,6 +38,9 @@ const Template = ({ defaultOpen = false, modal = true }: TemplateProps): React.J
         modal={modal}
         navigationTitle="Page name"
         primaryAction={{ children: "Primary" }}
+        onPointerDownOutside={(e) => {
+          e.preventDefault()
+        }}
       >
         <Text>Sheets content</Text>
       </Sheets>
