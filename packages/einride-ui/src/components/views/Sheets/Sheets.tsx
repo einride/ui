@@ -17,7 +17,7 @@ import {
 
 export interface SheetsProps
   extends Omit<
-      ComponentPropsWithoutRef<"div">,
+      ComponentPropsWithoutRef<typeof Dialog.Content>,
       "onAnimationStart" | "onDrag" | "onDragEnd" | "onDragStart" | "style" | "title"
     >,
     DialogStyles {
