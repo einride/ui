@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.66.5
+
+### Patch Changes
+
+- 7e1d06be: Expose all dialog content props.
+
 ## 7.66.4
 
 ### Patch Changes
