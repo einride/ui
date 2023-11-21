@@ -2327,8 +2327,8 @@ __metadata:
     "@storybook/jest": 0.2.3
     "@storybook/react": 7.5.3
     "@storybook/testing-library": 0.2.2
-    "@types/react": 18.2.37
-    "@types/react-dom": 18.2.15
+    "@types/react": 18.2.38
+    "@types/react-dom": 18.2.16
     "@vitejs/plugin-react": 4.2.0
     dayjs: 1.11.10
     framer-motion: 10.16.5
@@ -2336,7 +2336,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     rollup: 4.5.0
-    typescript: 5.2.2
+    typescript: 5.3.2
   peerDependencies:
     "@einride/ui": ^7.45.3
     "@emotion/react": ^11.10.6
@@ -2354,14 +2354,14 @@ __metadata:
     "@storybook/jest": 0.2.3
     "@storybook/react": 7.5.3
     "@storybook/testing-library": 0.2.2
-    "@types/react": 18.2.37
-    "@types/react-dom": 18.2.15
+    "@types/react": 18.2.38
+    "@types/react-dom": 18.2.16
     "@vitejs/plugin-react": 4.2.0
     framer-motion: 10.16.5
     react: 18.2.0
     react-dom: 18.2.0
     rollup: 4.5.0
-    typescript: 5.2.2
+    typescript: 5.3.2
   peerDependencies:
     "@einride/ui": ^7.45.3
     "@emotion/react": ^11.10.6
@@ -2382,7 +2382,7 @@ __metadata:
     mapbox-gl: 2.15.0
     react-map-gl: 7.1.6
     rollup: 4.5.0
-    typescript: 5.2.2
+    typescript: 5.3.2
   peerDependencies:
     "@einride/ui": ^7.45.3
     "@emotion/react": ^11.10.6
@@ -2430,7 +2430,7 @@ __metadata:
     react-dom: 18.2.0
     storybook: 7.5.3
     tslib: 2.6.2
-    typescript: 5.2.2
+    typescript: 5.3.2
     vite: 5.0.0
     vite-plugin-turbosnap: 1.0.3
     vite-tsconfig-paths: 4.2.1
@@ -2464,9 +2464,9 @@ __metadata:
     "@storybook/react": 7.5.3
     "@storybook/testing-library": 0.2.2
     "@types/lodash.merge": 4.6.9
-    "@types/luxon": 3.3.4
-    "@types/react": 18.2.37
-    "@types/react-dom": 18.2.15
+    "@types/luxon": 3.3.5
+    "@types/react": 18.2.38
+    "@types/react-dom": 18.2.16
     "@vitejs/plugin-react": 4.2.0
     chromatic: 9.1.0
     concurrently: 8.2.2
@@ -2477,7 +2477,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     rollup: 4.5.0
-    typescript: 5.2.2
+    typescript: 5.3.2
     vite: 5.0.0
   peerDependencies:
     "@emotion/react": ^11.4.1
@@ -6954,10 +6954,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/luxon@npm:3.3.4":
-  version: 3.3.4
-  resolution: "@types/luxon@npm:3.3.4"
-  checksum: aa4862bd62d748e7966f9a0ec76058e9d74397ee426c7d64f61c677d83de0303c303cc78515001833df3f4ad16c95f572b0e2ffaee6e55bc50b80857e8437f3a
+"@types/luxon@npm:3.3.5":
+  version: 3.3.5
+  resolution: "@types/luxon@npm:3.3.5"
+  checksum: 7fd31c673600dd494dedefe8c405d2e6957c0ba101f8445f7eaf9afcf4a1fa1ca649cab01c9777523ff9de58c3c35e2589a1a004a0c629cd7953033115ac74f5
   languageName: node
   linkType: hard
 
@@ -7115,12 +7115,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.2.15":
-  version: 18.2.15
-  resolution: "@types/react-dom@npm:18.2.15"
+"@types/react-dom@npm:18.2.16":
+  version: 18.2.16
+  resolution: "@types/react-dom@npm:18.2.16"
   dependencies:
     "@types/react": "*"
-  checksum: 8e9631600c21ff561328e38a951d1991b3b3b20f538af4c0efbd1327c883a5573a63f50e1b945c34fa51b114b30e1ca5e62317bd54f21e063d6697b4be843a03
+  checksum: 0d79f6e121155003840414e3cb1f5d70eef3a7f03450f7837c806b319b9e737880e368def615e2bf49159ed4041899e77b1002902e1285dd656783d2a836eb73
   languageName: node
   linkType: hard
 
@@ -7144,14 +7144,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.37":
-  version: 18.2.37
-  resolution: "@types/react@npm:18.2.37"
+"@types/react@npm:18.2.38":
+  version: 18.2.38
+  resolution: "@types/react@npm:18.2.38"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 2d2599f1a09e4f678509161fea8baeaf76d21deee460f4f3ccc1ca431ebe85f896d7d0b906127de17e97ed57240cec61955eb97d0b5d9cbf4e97fd6620b1acdb
+  checksum: 71f8c167173d32252be8b2d3c1c76b3570b94d2fbbd139da86d146be453626f5777e12c2781559119637520dbef9f91cffe968f67b5901618f29226d49fad326
   languageName: node
   linkType: hard
 
@@ -18661,23 +18661,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:5.2.2":
-  version: 5.2.2
-  resolution: "typescript@npm:5.2.2"
+"typescript@npm:5.3.2":
+  version: 5.3.2
+  resolution: "typescript@npm:5.3.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 7912821dac4d962d315c36800fe387cdc0a6298dba7ec171b350b4a6e988b51d7b8f051317786db1094bd7431d526b648aba7da8236607febb26cf5b871d2d3c
+  checksum: d92534dda639eb825db013203404c1fabca8ac630564283c9e7dc9e64fd9c9346c2de95ecebdf3e6e8c1c32941bca1cfe0da37877611feb9daf8feeaea58d230
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@5.2.2#~builtin<compat/typescript>":
-  version: 5.2.2
-  resolution: "typescript@patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=1f5320"
+"typescript@patch:typescript@5.3.2#~builtin<compat/typescript>":
+  version: 5.3.2
+  resolution: "typescript@patch:typescript@npm%3A5.3.2#~builtin<compat/typescript>::version=5.3.2&hash=1f5320"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 07106822b4305de3f22835cbba949a2b35451cad50888759b6818421290ff95d522b38ef7919e70fb381c5fe9c1c643d7dea22c8b31652a717ddbd57b7f4d554
+  checksum: c034461079fbfde3cb584ddee52afccb15b6e32a0ce186d0b2719968786f7ca73e1b07f71fac4163088790b16811c6ccf79680de190664ef66ff0ba9c1fe4a23
   languageName: node
   linkType: hard
 
