@@ -45,7 +45,7 @@ export const Avatar = forwardRef<HTMLImageElement, AvatarProps>(
   ({ background = "primary", color = "primary", radius = "full", size = "md", ...props }, ref) => {
     const [hasError, setHasError] = useState(false)
 
-    if ("src" in props) {
+    if ("src" in props && typeof props.src === "string") {
       const { name, src, ...rest } = props
 
       if (hasError) {
