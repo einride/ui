@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.66.6
+
+### Patch Changes
+
+- 237206e2: Show initials in avatar if src is undefined.
+
 ## 7.66.5
 
 ### Patch Changes
