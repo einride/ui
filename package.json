@@ -44,7 +44,7 @@
     "@storybook/node-logger": "7.5.3",
     "@storybook/react": "7.5.3",
     "@storybook/react-vite": "7.5.3",
-    "@storybook/test-runner": "0.15.1",
+    "@storybook/test-runner": "0.15.2",
     "@storybook/testing-library": "0.2.2",
     "@storybook/theming": "7.5.3",
     "@testing-library/jest-dom": "6.1.4",
