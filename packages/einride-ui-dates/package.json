@@ -19,7 +19,7 @@
     "@types/react": "18.2.39",
     "@types/react-dom": "18.2.17",
     "@vitejs/plugin-react": "4.2.0",
-    "framer-motion": "10.16.5",
+    "framer-motion": "10.16.7",
     "luxon": "3.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
