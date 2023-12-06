@@ -14,7 +14,7 @@
     "@types/react": "18.2.42",
     "@types/react-dom": "18.2.17",
     "@vitejs/plugin-react": "4.2.1",
-    "framer-motion": "10.16.12",
+    "framer-motion": "10.16.14",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "rollup": "4.6.1",
