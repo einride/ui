@@ -1,5 +1,11 @@
 # @einride/ui-labs
 
+## 7.67.0
+
+### Minor Changes
+
+- df16225: Add test SVG icons.
+
 ## 7.64.0
 
 ### Minor Changes
