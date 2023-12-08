@@ -9,7 +9,7 @@
     "@rollup/plugin-image": "3.0.3",
     "@rollup/plugin-typescript": "11.1.2",
     "@storybook/jest": "0.2.3",
-    "@storybook/react": "7.6.3",
+    "@storybook/react": "7.6.4",
     "@storybook/testing-library": "0.2.2",
     "mapbox-gl": "3.0.0",
     "react-map-gl": "7.1.6",
