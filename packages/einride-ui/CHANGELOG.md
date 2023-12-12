@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.67.1
+
+### Patch Changes
+
+- c707dcd: Forward ref to Menu component
+
 ## 7.66.6
 
 ### Patch Changes
