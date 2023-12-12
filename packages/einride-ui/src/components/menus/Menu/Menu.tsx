@@ -1,7 +1,11 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
-import { ReactNode } from "react"
+import { ComponentPropsWithoutRef, ReactNode, forwardRef } from "react"
 
-export interface MenuProps {
+export interface MenuProps
+  extends Omit<
+    ComponentPropsWithoutRef<typeof DropdownMenu.Content>,
+    "onAnimationStart" | "onDrag" | "onDragEnd" | "onDragStart" | "style" | "title"
+  > {
   /** Menu content. */
   children: ReactNode
 
@@ -15,13 +19,15 @@ export interface MenuProps {
   onOpenChange?: (open: boolean) => void
 }
 
-export const Menu = ({ children, isOpen, ...props }: MenuProps): React.JSX.Element => {
+export const Menu = forwardRef<HTMLDivElement, MenuProps>(({ children, isOpen, ...props }, ref) => {
   return (
-    <DropdownMenu.Root
-      {...(typeof isOpen === "boolean" && { open: isOpen })} // TODO: Change to `open` in next major?
-      {...props}
-    >
-      {children}
-    </DropdownMenu.Root>
+    <div ref={ref}>
+      <DropdownMenu.Root
+        {...(typeof isOpen === "boolean" && { open: isOpen })} // TODO: Change to `open` in next major?
+        {...props}
+      >
+        {children}
+      </DropdownMenu.Root>
+    </div>
   )
-}
+})
