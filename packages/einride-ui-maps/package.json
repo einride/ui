@@ -11,9 +11,9 @@
     "@storybook/jest": "0.2.3",
     "@storybook/react": "7.6.4",
     "@storybook/testing-library": "0.2.2",
-    "mapbox-gl": "3.0.0",
+    "mapbox-gl": "3.0.1",
     "react-map-gl": "7.1.6",
-    "rollup": "4.6.1",
+    "rollup": "4.9.0",
     "typescript": "5.3.3"
   },
   "peerDependencies": {
