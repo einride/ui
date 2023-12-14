@@ -16,11 +16,14 @@ interface SelectBaseProps extends Omit<ComponentPropsWithoutRef<"select">, "pref
   /** Options to render in select list. */
   children: ReactNode
 
-  /** Prefix shown before select value. For example `Group by:`. */
-  prefix?: ReactNode
-
   /** Message shown below input field. Can be used together with `status` to show a success or error message. */
   message?: ReactNode
+
+  /** Placeholder that shows as the first option. */
+  placeholder?: string | undefined
+
+  /** Prefix shown before select value. For example `Group by:`. */
+  prefix?: ReactNode
 
   /**  Default is `neutral`. */
   status?: Status
