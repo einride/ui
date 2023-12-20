@@ -1,5 +1,11 @@
 # @einride/ui
 
+## 7.68.0
+
+### Minor Changes
+
+- 8a92c9d: Allow passing props to textarea wrapper element.
+
 ## 7.66.6
 
 ### Patch Changes
