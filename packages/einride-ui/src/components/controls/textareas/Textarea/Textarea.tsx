@@ -12,6 +12,9 @@ interface TextareaBaseProps extends ComponentPropsWithoutRef<"textarea"> {
   /**  Default is `neutral`. */
   status?: Status
 
+  /** Props passed to the textarea wrapper element. */
+  textareaWrapperProps?: BoxProps
+
   /** Props passed to root elemenet. */
   wrapperProps?: BoxProps
 }
@@ -32,7 +35,7 @@ interface TextareaWithoutLabelProps {
 export type TextareaProps = TextareaBaseProps & (TextareaWithLabelProps | TextareaWithoutLabelProps)
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ message, status, wrapperProps, ...props }, ref) => {
+  ({ message, status, textareaWrapperProps, wrapperProps, ...props }, ref) => {
     const id = useId()
     const messageId = useId()
     return (
@@ -42,7 +45,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             {props.label}
           </StyledLabel>
         )}
-        <Box position="relative">
+        <Box position="relative" {...textareaWrapperProps}>
           <StyledTextarea
             {...props}
             aria-errormessage={status === "fail" && message ? messageId : undefined}
