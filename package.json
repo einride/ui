@@ -28,7 +28,7 @@
     "@changesets/cli": "2.27.1",
     "@commitlint/cli": "18.4.3",
     "@commitlint/config-conventional": "18.4.3",
-    "@einride/eslint-plugin": "7.7.0",
+    "@einride/eslint-plugin": "7.8.0",
     "@einride/prettier-config": "2.1.0",
     "@einride/tsconfig": "2.0.1",
     "@storybook/addon-a11y": "7.6.6",
