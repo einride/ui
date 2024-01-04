@@ -2544,7 +2544,7 @@ __metadata:
     "@types/react-dom": 18.2.18
     "@vitejs/plugin-react": 4.2.1
     dayjs: 1.11.10
-    framer-motion: 10.17.0
+    framer-motion: 10.17.4
     luxon: 3.4.4
     react: 18.2.0
     react-dom: 18.2.0
@@ -2570,7 +2570,7 @@ __metadata:
     "@types/react": 18.2.46
     "@types/react-dom": 18.2.18
     "@vitejs/plugin-react": 4.2.1
-    framer-motion: 10.17.0
+    framer-motion: 10.17.4
     react: 18.2.0
     react-dom: 18.2.0
     rollup: 4.9.2
@@ -2632,7 +2632,7 @@ __metadata:
     "@storybook/test-runner": 0.16.0
     "@storybook/testing-library": 0.2.2
     "@storybook/theming": 7.6.7
-    "@testing-library/jest-dom": 6.1.6
+    "@testing-library/jest-dom": 6.2.0
     "@testing-library/react": 14.1.2
     "@testing-library/user-event": 14.5.2
     concurrently: 8.2.2
@@ -2677,14 +2677,14 @@ __metadata:
     "@storybook/react": 7.6.7
     "@storybook/testing-library": 0.2.2
     "@types/lodash.merge": 4.6.9
-    "@types/luxon": 3.3.7
+    "@types/luxon": 3.3.8
     "@types/react": 18.2.46
     "@types/react-dom": 18.2.18
     "@vitejs/plugin-react": 4.2.1
     chromatic: 10.2.0
     concurrently: 8.2.2
     dayjs: 1.11.10
-    framer-motion: 10.17.0
+    framer-motion: 10.17.4
     lodash.merge: 4.6.2
     luxon: 3.4.4
     react: 18.2.0
@@ -6576,16 +6576,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:6.1.6":
-  version: 6.1.6
-  resolution: "@testing-library/jest-dom@npm:6.1.6"
+"@testing-library/jest-dom@npm:6.2.0":
+  version: 6.2.0
+  resolution: "@testing-library/jest-dom@npm:6.2.0"
   dependencies:
     "@adobe/css-tools": ^4.3.2
     "@babel/runtime": ^7.9.2
     aria-query: ^5.0.0
     chalk: ^3.0.0
     css.escape: ^1.5.1
-    dom-accessibility-api: ^0.5.6
+    dom-accessibility-api: ^0.6.3
     lodash: ^4.17.15
     redent: ^3.0.0
   peerDependencies:
@@ -6602,7 +6602,7 @@ __metadata:
       optional: true
     vitest:
       optional: true
-  checksum: 8d1a80678027915228b483a116fb9e358d25e2faffcd9a2c40b371752fbd53b5cb87351215866a43dd09393e7d364c46fc43923566b00ef63bbf3576d47da940
+  checksum: 3d46e36b1b7c2cb3c92f64d55d458aab44ae135ac77299df14d14dcf567a286590de58b2f140011b8f7a343f0703ff88f144f27c6ae4921fd612741771d8ee2c
   languageName: node
   linkType: hard
 
@@ -7004,10 +7004,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/luxon@npm:3.3.7":
-  version: 3.3.7
-  resolution: "@types/luxon@npm:3.3.7"
-  checksum: 97026557e92bcba308a5592f981591cd200d493fc8997874d79acecf6a2ec41debeded3ac5cd80c371ef7f6f56cc0d1be0a5aca846e03d3e6b4a2be37256fe2f
+"@types/luxon@npm:3.3.8":
+  version: 3.3.8
+  resolution: "@types/luxon@npm:3.3.8"
+  checksum: 026711b4aefc01c6e233e359c693b6d4c0873acc3f52a08661ea3751b2cf3e34d1ce1d5b0b99b0e40a059a2a3755acc20498d37db5f9a5a4f0f330cdf72db3db
   languageName: node
   linkType: hard
 
@@ -9924,6 +9924,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dom-accessibility-api@npm:^0.6.3":
+  version: 0.6.3
+  resolution: "dom-accessibility-api@npm:0.6.3"
+  checksum: c325b5144bb406df23f4affecffc117dbaec9af03daad9ee6b510c5be647b14d28ef0a4ea5ca06d696d8ab40bb777e5fed98b985976fdef9d8790178fa1d573f
+  languageName: node
+  linkType: hard
+
 "dom-serializer@npm:0":
   version: 0.2.2
   resolution: "dom-serializer@npm:0.2.2"
@@ -11460,9 +11467,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:10.17.0":
-  version: 10.17.0
-  resolution: "framer-motion@npm:10.17.0"
+"framer-motion@npm:10.17.4":
+  version: 10.17.4
+  resolution: "framer-motion@npm:10.17.4"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
     tslib: ^2.4.0
@@ -11477,7 +11484,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 43ce547f4cfeb6dce02d2f0d7a1c531b24b51a60a4659b4eeaf50378d8a1963016f2ae50e69ee2cf2a903a2ebcae99da6ace01b77afd0f934eaa3a8b2afe7bde
+  checksum: c5aefc5ddc48f27f8f3b262290485dd17488f8f76b6f78028d67629fc06c8ceed7f4aefb1753de710b1d9f29bb408d5e24cbf8559ecb4b660ebf106a25ced759
   languageName: node
   linkType: hard
 
