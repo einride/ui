@@ -1,3 +1,4 @@
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
 import { expect } from "@storybook/jest"
 import { Meta, StoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
@@ -212,3 +213,15 @@ export const Keyboard = {
     await expect(button).toHaveFocus()
   },
 } satisfies StoryObj
+
+export const Collapsible = (): React.JSX.Element => (
+  <DropdownMenu.Root>
+    <DropdownMenu.Trigger asChild>
+      <IconButton aria-label="See options" icon="ellipsis" />
+    </DropdownMenu.Trigger>
+    <DropdownMenu.Content>
+      <DropdownMenu.Item onSelect={(e) => e.preventDefault()}>Option 1</DropdownMenu.Item>
+      <DropdownMenu.Item>Option 2</DropdownMenu.Item>
+    </DropdownMenu.Content>
+  </DropdownMenu.Root>
+)
