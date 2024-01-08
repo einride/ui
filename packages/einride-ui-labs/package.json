@@ -11,13 +11,13 @@
     "@storybook/jest": "0.2.3",
     "@storybook/react": "7.6.7",
     "@storybook/testing-library": "0.2.2",
-    "@types/react": "18.2.46",
+    "@types/react": "18.2.47",
     "@types/react-dom": "18.2.18",
     "@vitejs/plugin-react": "4.2.1",
-    "framer-motion": "10.17.6",
+    "framer-motion": "10.17.9",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "rollup": "4.9.2",
+    "rollup": "4.9.4",
     "typescript": "5.3.3"
   },
   "peerDependencies": {
