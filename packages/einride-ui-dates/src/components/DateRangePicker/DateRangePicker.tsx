@@ -36,6 +36,7 @@ export const DateRangePicker = ({ wrapperProps, ...props }: DateRangePicker): Re
         maxLevel="month"
         withCellSpacing={false}
         type="range"
+        unstyled
         {...props}
       />
     </Box>

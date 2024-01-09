@@ -34,6 +34,7 @@ export const DatePicker = ({ wrapperProps, ...props }: DatePickerProps): React.J
         hideOutsideDates
         maxLevel="month"
         withCellSpacing={false}
+        unstyled
         {...props}
       />
     </Box>

@@ -41,6 +41,7 @@ export const RangeCalendar = ({
         maxLevel="month"
         withCellSpacing={false}
         type="range"
+        unstyled
         {...props}
       />
     </Box>

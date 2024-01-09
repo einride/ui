@@ -38,6 +38,7 @@ export const Calendar = ({ wrapperProps, ...props }: CalendarProps): React.JSX.E
         hideOutsideDates
         maxLevel="month"
         withCellSpacing={false}
+        unstyled
         {...props}
       />
     </Box>
