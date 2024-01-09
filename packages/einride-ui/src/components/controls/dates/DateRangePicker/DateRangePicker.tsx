@@ -239,6 +239,7 @@ export const DateRangePicker = ({
         valueFormat={inputFormat}
         withAsterisk={false}
         withCellSpacing={false}
+        unstyled
         {...props}
       />
       {message && (
