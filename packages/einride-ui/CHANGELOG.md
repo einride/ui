@@ -1,5 +1,12 @@
 # @einride/ui
 
+## 7.69.0
+
+### Minor Changes
+
+- fc3bfac: Make sure to use Mantine components in headless mode so as to remove conflicts between Mantine in
+  this package and Saga apps that are importing Mantine components on their own.
+
 ## 7.68.0
 
 ### Minor Changes
