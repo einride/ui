@@ -2542,7 +2542,7 @@ __metadata:
     "@types/react-dom": 18.2.18
     "@vitejs/plugin-react": 4.2.1
     dayjs: 1.11.10
-    framer-motion: 10.17.12
+    framer-motion: 10.18.0
     luxon: 3.4.4
     react: 18.2.0
     react-dom: 18.2.0
@@ -2568,7 +2568,7 @@ __metadata:
     "@types/react": 18.2.47
     "@types/react-dom": 18.2.18
     "@vitejs/plugin-react": 4.2.1
-    framer-motion: 10.17.12
+    framer-motion: 10.18.0
     react: 18.2.0
     react-dom: 18.2.0
     rollup: 4.9.4
@@ -2679,10 +2679,10 @@ __metadata:
     "@types/react": 18.2.47
     "@types/react-dom": 18.2.18
     "@vitejs/plugin-react": 4.2.1
-    chromatic: 10.2.0
+    chromatic: 10.2.1
     concurrently: 8.2.2
     dayjs: 1.11.10
-    framer-motion: 10.17.12
+    framer-motion: 10.18.0
     lodash.merge: 4.6.2
     luxon: 3.4.4
     react: 18.2.0
@@ -8917,14 +8917,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:10.2.0":
-  version: 10.2.0
-  resolution: "chromatic@npm:10.2.0"
+"chromatic@npm:10.2.1":
+  version: 10.2.1
+  resolution: "chromatic@npm:10.2.1"
   bin:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 91cc4fac72789552121084399d5e6e0f560261e0c69d4678b112c446b629b0f3cd85ea8380d328c03a2bd595162d508fc07d541b97655c1278a4013eccad7f0f
+  checksum: be6471b2673205f8903e323e692583a952f67251f6b071be8b77189c2e2d401cdfe0d41b1ef467e519002c54b9af8116807f55997d47b74e84be8573baf9dfa5
   languageName: node
   linkType: hard
 
@@ -11475,9 +11475,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:10.17.12":
-  version: 10.17.12
-  resolution: "framer-motion@npm:10.17.12"
+"framer-motion@npm:10.18.0":
+  version: 10.18.0
+  resolution: "framer-motion@npm:10.18.0"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
     tslib: ^2.4.0
@@ -11492,7 +11492,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 09887e22a4749f0be7fe93b78bc5ba19d55c9d00a3b7126de35abe96a3208217021582f859aaf1e9a1866f2fa6a4c404779e2c57ada05c875c7ea0fa64a6e178
+  checksum: b43f1edcfc8c2226e3325517612d2abb7455455c4d2232d62499d70a603a51ffdd6a810aa7b5e783a25860856ec6c6e5b3bcf749846facedc54a063f9a548f0b
   languageName: node
   linkType: hard
 
