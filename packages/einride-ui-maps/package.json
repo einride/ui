@@ -13,7 +13,7 @@
     "@storybook/testing-library": "0.2.2",
     "mapbox-gl": "3.0.1",
     "react-map-gl": "7.1.7",
-    "rollup": "4.9.4",
+    "rollup": "4.9.5",
     "typescript": "5.3.3"
   },
   "peerDependencies": {
