@@ -2518,12 +2518,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@einride/tsconfig@npm:2.0.1":
-  version: 2.0.1
-  resolution: "@einride/tsconfig@npm:2.0.1"
+"@einride/tsconfig@npm:2.1.0":
+  version: 2.1.0
+  resolution: "@einride/tsconfig@npm:2.1.0"
   peerDependencies:
     typescript: ">=5"
-  checksum: ebd0cf26189fa583d1d108e9880a8bee8349a90a5d8cd4c02b78beba555c392da174ef1aea9c9a6e2e94e1bdf19a6004eca0e1594eee8811cb56be9a335f55f5
+  checksum: 34ce8527bb93b0d4480300d5c977cf77d024374a35b6efc34c124b238222201572ed669234fb514909ce7cbbfacfddd3bab438c5c1473e9c3b77928de22c9c3d
   languageName: node
   linkType: hard
 
@@ -2613,7 +2613,7 @@ __metadata:
     "@commitlint/config-conventional": 18.4.4
     "@einride/eslint-plugin": 7.8.0
     "@einride/prettier-config": 2.1.0
-    "@einride/tsconfig": 2.0.1
+    "@einride/tsconfig": 2.1.0
     "@storybook/addon-a11y": 7.6.8
     "@storybook/addon-actions": 7.6.8
     "@storybook/addon-coverage": 1.0.0
@@ -2644,7 +2644,7 @@ __metadata:
     typescript: 5.3.3
     vite: 5.0.11
     vite-plugin-turbosnap: 1.0.3
-    vite-tsconfig-paths: 4.2.3
+    vite-tsconfig-paths: 4.3.1
     vitest: 1.2.0
   languageName: unknown
   linkType: soft
@@ -2679,7 +2679,7 @@ __metadata:
     "@types/react": 18.2.48
     "@types/react-dom": 18.2.18
     "@vitejs/plugin-react": 4.2.1
-    chromatic: 10.2.2
+    chromatic: 10.3.0
     concurrently: 8.2.2
     dayjs: 1.11.10
     framer-motion: 10.18.0
@@ -8917,14 +8917,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:10.2.2":
-  version: 10.2.2
-  resolution: "chromatic@npm:10.2.2"
+"chromatic@npm:10.3.0":
+  version: 10.3.0
+  resolution: "chromatic@npm:10.3.0"
   bin:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 1d4adb0ce1a68fd96e91ab6c524c1b27269f4b9fc1b0a1330c4eee721b66c0863250fee0b9af59e657cfc04f8453415c52c36ee74cdb9b53ca4edab097309ab9
+  checksum: 266715d57665bbf71cd0aa3cf4c9ae014edff952a973ef303c7a57c4bb686b062b5d27e8239832b8e68bd90eefa73fd5a2702bc4116761e6068e0f81885a96d2
   languageName: node
   linkType: hard
 
@@ -18619,17 +18619,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsconfck@npm:^2.1.0":
-  version: 2.1.2
-  resolution: "tsconfck@npm:2.1.2"
+"tsconfck@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "tsconfck@npm:3.0.1"
   peerDependencies:
-    typescript: ^4.3.5 || ^5.0.0
+    typescript: ^5.0.0
   peerDependenciesMeta:
     typescript:
       optional: true
   bin:
     tsconfck: bin/tsconfck.js
-  checksum: 6fd2f7de012a724f6b4bf48ae76cc7dae2b59dd5cad2dc50bac58d224d4ed7d5c43c6b26e55d3e00636f426f8b5373c996523d73b7830d05f8479a9b83282192
+  checksum: 8ce536b2888c871531bc629ce11b13d22cdaa8f6539e5e16cd58ea0b6a4a9561dd83065db1c2d3c0bb03942cd7fa48c56f8e034e5298bb8c30be4578359ba57d
   languageName: node
   linkType: hard
 
@@ -19367,19 +19367,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-tsconfig-paths@npm:4.2.3":
-  version: 4.2.3
-  resolution: "vite-tsconfig-paths@npm:4.2.3"
+"vite-tsconfig-paths@npm:4.3.1":
+  version: 4.3.1
+  resolution: "vite-tsconfig-paths@npm:4.3.1"
   dependencies:
     debug: ^4.1.1
     globrex: ^0.1.2
-    tsconfck: ^2.1.0
+    tsconfck: ^3.0.1
   peerDependencies:
     vite: "*"
   peerDependenciesMeta:
     vite:
       optional: true
-  checksum: d8a837eded390ea03c56eb97c8e35fbb8a1073c97e3c8119adab5e8c8a3f8b6dc610c5a9236c6dc3f778ea1650e72d7f5a39b82df20feec0e546f23feac74b8e
+  checksum: 2934d5d674e0b6ab8d435d4262ff30143c30512072d71ece5a3859a70a188cbdbcc2b0370277049ab551f7bbb6ffb2be94a0bf30154e5c58d38b32adce9740bd
   languageName: node
   linkType: hard
 
