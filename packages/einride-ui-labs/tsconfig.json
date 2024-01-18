@@ -6,8 +6,8 @@
     "moduleResolution": "node",
     "rootDir": "./src",
     "paths": {
-      "@einride/ui": ["../einride-ui/src"]
-    }
+      "@einride/ui": ["../einride-ui/src"],
+    },
   },
-  "references": [{ "path": "../einride-ui" }]
+  "references": [{ "path": "../einride-ui" }],
 }
