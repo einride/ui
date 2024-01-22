@@ -32,7 +32,7 @@
     "@storybook/react": "7.6.10",
     "@storybook/testing-library": "0.2.2",
     "@types/lodash.merge": "4.6.9",
-    "@types/luxon": "3.4.1",
+    "@types/luxon": "3.4.2",
     "@types/react": "18.2.48",
     "@types/react-dom": "18.2.18",
     "@vitejs/plugin-react": "4.2.1",
@@ -42,7 +42,7 @@
     "luxon": "3.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "rollup": "4.9.5",
+    "rollup": "4.9.6",
     "typescript": "5.3.3",
     "vite": "5.0.12"
   },
