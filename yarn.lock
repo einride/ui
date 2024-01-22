@@ -2531,8 +2531,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@einride/ui-dates@workspace:packages/einride-ui-dates"
   dependencies:
-    "@mantine/core": 7.1.1
-    "@mantine/dates": 7.1.1
+    "@mantine/core": 7.4.2
+    "@mantine/dates": 7.4.2
     "@rollup/plugin-image": 3.0.3
     "@rollup/plugin-typescript": 11.1.2
     "@storybook/jest": 0.2.3
@@ -2658,9 +2658,9 @@ __metadata:
     "@emotion/react": 11.11.3
     "@emotion/styled": 11.11.0
     "@faker-js/faker": 8.3.1
-    "@mantine/core": 7.1.1
-    "@mantine/dates": 7.1.1
-    "@mantine/hooks": 7.1.1
+    "@mantine/core": 7.4.2
+    "@mantine/dates": 7.4.2
+    "@mantine/hooks": 7.4.2
     "@radix-ui/react-alert-dialog": 1.0.5
     "@radix-ui/react-dialog": 1.0.5
     "@radix-ui/react-dropdown-menu": 2.0.6
@@ -3831,45 +3831,45 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/core@npm:7.1.1":
-  version: 7.1.1
-  resolution: "@mantine/core@npm:7.1.1"
+"@mantine/core@npm:7.4.2":
+  version: 7.4.2
+  resolution: "@mantine/core@npm:7.4.2"
   dependencies:
     "@floating-ui/react": ^0.24.8
     clsx: 2.0.0
-    react-number-format: ^5.2.2
-    react-remove-scroll: ^2.5.6
+    react-number-format: ^5.3.1
+    react-remove-scroll: ^2.5.7
     react-textarea-autosize: 8.5.3
     type-fest: ^3.13.1
   peerDependencies:
-    "@mantine/hooks": 7.1.1
+    "@mantine/hooks": 7.4.2
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: 76cc99dca1f60a862c245f9340c6da1156aa84edc841f6215a9639a3c510fe446020dd0f12a384eed05826495c2396021795b0cd0f4063cd2d42f34094f55eb2
+  checksum: abc7a017799911d5127f98401ba1c4462cb9cc99ab320126475f4934cc7d318e2cdbdeadf865acaf9d1a52201c5bb5c7dc12ae75e76a3fdb3f564baab7fedecd
   languageName: node
   linkType: hard
 
-"@mantine/dates@npm:7.1.1":
-  version: 7.1.1
-  resolution: "@mantine/dates@npm:7.1.1"
+"@mantine/dates@npm:7.4.2":
+  version: 7.4.2
+  resolution: "@mantine/dates@npm:7.4.2"
   dependencies:
     clsx: 2.0.0
   peerDependencies:
-    "@mantine/core": 7.1.1
-    "@mantine/hooks": 7.1.1
-    dayjs: ^1.10.5
+    "@mantine/core": 7.4.2
+    "@mantine/hooks": 7.4.2
+    dayjs: ">=1.0.0"
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: def43f62055eb896755a6d78123b211b3a0ccaeaafe8fd3002720cd0a185b42972fe1d1bfca44d396f10cedb6a70e00243bc659a0bc94fb120a9180f34a660e2
+  checksum: 861f524f060aacf1b99998a3adbddb22bd2a9efc5e267f2794acbea37b20bc1566a91b9cf282a8272a6ad8ac24cfcd687fed61c9f922669600845a4a2ff62cbe
   languageName: node
   linkType: hard
 
-"@mantine/hooks@npm:7.1.1":
-  version: 7.1.1
-  resolution: "@mantine/hooks@npm:7.1.1"
+"@mantine/hooks@npm:7.4.2":
+  version: 7.4.2
+  resolution: "@mantine/hooks@npm:7.4.2"
   peerDependencies:
     react: ^18.2.0
-  checksum: ea4cc4b858f97a74840d6d545da801d7e30a837f0ee85a32762b3e3a7983569a4c9b34cc37b34ed876955f525d0915e55d959e9c53e48908ed823bf651ee6721
+  checksum: 7b14e2d59ee5558823efcb9552e8775588a7f2be9df8809cca7d31240ef6b9bcc12949cc9731e3a566231d2b54c9a3481ad379161cd44a1509880136f3541c47
   languageName: node
   linkType: hard
 
@@ -16688,7 +16688,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-number-format@npm:^5.2.2":
+"react-number-format@npm:^5.3.1":
   version: 5.3.1
   resolution: "react-number-format@npm:5.3.1"
   dependencies:
@@ -16742,7 +16742,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-remove-scroll@npm:^2.5.6":
+"react-remove-scroll@npm:^2.5.7":
   version: 2.5.7
   resolution: "react-remove-scroll@npm:2.5.7"
   dependencies:
