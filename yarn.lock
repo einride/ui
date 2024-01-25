@@ -2542,7 +2542,7 @@ __metadata:
     "@types/react-dom": 18.2.18
     "@vitejs/plugin-react": 4.2.1
     dayjs: 1.11.10
-    framer-motion: 11.0.2
+    framer-motion: 11.0.3
     luxon: 3.4.4
     react: 18.2.0
     react-dom: 18.2.0
@@ -2568,7 +2568,7 @@ __metadata:
     "@types/react": 18.2.48
     "@types/react-dom": 18.2.18
     "@vitejs/plugin-react": 4.2.1
-    framer-motion: 11.0.2
+    framer-motion: 11.0.3
     react: 18.2.0
     react-dom: 18.2.0
     rollup: 4.9.6
@@ -2630,7 +2630,7 @@ __metadata:
     "@storybook/test-runner": 0.16.0
     "@storybook/testing-library": 0.2.2
     "@storybook/theming": 7.6.10
-    "@testing-library/jest-dom": 6.2.1
+    "@testing-library/jest-dom": 6.3.0
     "@testing-library/react": 14.1.2
     "@testing-library/user-event": 14.5.2
     concurrently: 8.2.2
@@ -2679,10 +2679,10 @@ __metadata:
     "@types/react": 18.2.48
     "@types/react-dom": 18.2.18
     "@vitejs/plugin-react": 4.2.1
-    chromatic: 10.4.0
+    chromatic: 10.5.0
     concurrently: 8.2.2
     dayjs: 1.11.10
-    framer-motion: 11.0.2
+    framer-motion: 11.0.3
     lodash.merge: 4.6.2
     luxon: 3.4.4
     react: 18.2.0
@@ -6573,9 +6573,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:6.2.1":
-  version: 6.2.1
-  resolution: "@testing-library/jest-dom@npm:6.2.1"
+"@testing-library/jest-dom@npm:6.3.0":
+  version: 6.3.0
+  resolution: "@testing-library/jest-dom@npm:6.3.0"
   dependencies:
     "@adobe/css-tools": ^4.3.2
     "@babel/runtime": ^7.9.2
@@ -6602,7 +6602,7 @@ __metadata:
       optional: true
     vitest:
       optional: true
-  checksum: 36bb8c23fd102a572bb22e37933c5134c6b4737c9d1ca575d2abde64bd5ffbb5f571caa76c1d8ab0b384670fcc680353f1ef563a2d9a6d46d00c47b4eb38969b
+  checksum: cea8aa17895cf4aff573fedee80e8a592611caf7bc724702fc70b3b7bfee94becd3a10873c818d931424018d6fdeeca9d1a2ea5f53b74092ad5e8e09f03dde90
   languageName: node
   linkType: hard
 
@@ -8919,14 +8919,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:10.4.0":
-  version: 10.4.0
-  resolution: "chromatic@npm:10.4.0"
+"chromatic@npm:10.5.0":
+  version: 10.5.0
+  resolution: "chromatic@npm:10.5.0"
+  peerDependencies:
+    chromatic-cypress: ^0.4.0 || ^1.0.0
+    chromatic-playwright: ^0.4.0 || ^1.0.0
+  peerDependenciesMeta:
+    chromatic-cypress:
+      optional: true
+    chromatic-playwright:
+      optional: true
   bin:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: be2fbb8df917ef22076758ff96e787c9266f4eb85c3e63dae2a6d323d4cdddc02a60ba84f7ea1b1cffee7fb6194f3eeb2d33df8b6ae5ae65fcde0e4f8a94a411
+  checksum: d28658a251db21c54bd89a8912fb786cf5f934cc9b0e9a17ed022fc56fcdb72015216da6c924c7b4af517f947072d4eeab08b2183babedd95765a0c5d4f72c37
   languageName: node
   linkType: hard
 
@@ -11477,9 +11485,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:11.0.2":
-  version: 11.0.2
-  resolution: "framer-motion@npm:11.0.2"
+"framer-motion@npm:11.0.3":
+  version: 11.0.3
+  resolution: "framer-motion@npm:11.0.3"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
     tslib: ^2.4.0
@@ -11494,7 +11502,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 57afded7ca665da226eafbfcb056e3da16d6398fe1af0e69c239b5a275526fcde642480e7b3f9a090a33a53affd30463dffd7a450fc2232094da06429ef7e164
+  checksum: fcc287089c5beabefee6b06eea1c764ff6f3d28294e15fd00da6a88ddc8210261f106352db382ee6d59e44a1ad9f3cf0fbeef297380645400db1f9985097f481
   languageName: node
   linkType: hard
 
