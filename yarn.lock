@@ -2590,7 +2590,7 @@ __metadata:
     "@storybook/jest": 0.2.3
     "@storybook/react": 7.6.10
     "@storybook/testing-library": 0.2.2
-    mapbox-gl: 3.1.0
+    mapbox-gl: 3.1.2
     react-map-gl: 7.1.7
     rollup: 4.9.6
     typescript: 5.3.3
@@ -2657,7 +2657,7 @@ __metadata:
     "@emotion/is-prop-valid": 1.2.1
     "@emotion/react": 11.11.3
     "@emotion/styled": 11.11.0
-    "@faker-js/faker": 8.3.1
+    "@faker-js/faker": 8.4.0
     "@mantine/core": 7.1.1
     "@mantine/dates": 7.1.1
     "@mantine/hooks": 7.1.1
@@ -2679,7 +2679,7 @@ __metadata:
     "@types/react": 18.2.48
     "@types/react-dom": 18.2.18
     "@vitejs/plugin-react": 4.2.1
-    chromatic: 10.5.0
+    chromatic: 10.5.2
     concurrently: 8.2.2
     dayjs: 1.11.10
     framer-motion: 11.0.3
@@ -3230,10 +3230,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@faker-js/faker@npm:8.3.1":
-  version: 8.3.1
-  resolution: "@faker-js/faker@npm:8.3.1"
-  checksum: 33efe912411fe61f43b313784a9ce041dfbfb54bc3b2f7b923a547f97beb6b3763534f9c37af25ab330982e6b36e6f7b040dfb35c115deb8c789d8ada413bd94
+"@faker-js/faker@npm:8.4.0":
+  version: 8.4.0
+  resolution: "@faker-js/faker@npm:8.4.0"
+  checksum: 682581f0b009b7e8b81bc0736a3f1df2fb5179706786b87ef5bed5e2e28e22dfeba10e5122942371f12d68e833be3b3726850f96940baf080500cef35a77403b
   languageName: node
   linkType: hard
 
@@ -8919,9 +8919,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:10.5.0":
-  version: 10.5.0
-  resolution: "chromatic@npm:10.5.0"
+"chromatic@npm:10.5.2":
+  version: 10.5.2
+  resolution: "chromatic@npm:10.5.2"
   peerDependencies:
     chromatic-cypress: ^0.4.0 || ^1.0.0
     chromatic-playwright: ^0.4.0 || ^1.0.0
@@ -8934,7 +8934,7 @@ __metadata:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: d28658a251db21c54bd89a8912fb786cf5f934cc9b0e9a17ed022fc56fcdb72015216da6c924c7b4af517f947072d4eeab08b2183babedd95765a0c5d4f72c37
+  checksum: 5e1ed715e43eda981f68116b25dc28ae7f47dc17f15a96fe3cb47ae2df1a4bc2626a9dee97aa153c3f675174d05558d79103c950e57a45eba97d04550995882a
   languageName: node
   linkType: hard
 
@@ -14418,9 +14418,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mapbox-gl@npm:3.1.0":
-  version: 3.1.0
-  resolution: "mapbox-gl@npm:3.1.0"
+"mapbox-gl@npm:3.1.2":
+  version: 3.1.2
+  resolution: "mapbox-gl@npm:3.1.2"
   dependencies:
     "@mapbox/geojson-rewind": ^0.5.2
     "@mapbox/jsonlint-lines-primitives": ^2.0.2
@@ -14445,7 +14445,7 @@ __metadata:
     supercluster: ^8.0.0
     tinyqueue: ^2.0.3
     vt-pbf: ^3.1.3
-  checksum: ebbba0d2401d391062af7f7859f81bd8d7e0e73b915797b12cd4b74f69967c5a8df03a624e63bef14e5bfa230684b4ada343ec0f9aa92c56b8766875da0202dd
+  checksum: a7e061144871ece2bf977e833788b92e23376aa26762dafa6f7958c822bdfdb67cb8b2922102a5207cf1af2b7c3693af088eaa634872dd0c85bae33ef60e009c
   languageName: node
   linkType: hard
 
