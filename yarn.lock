@@ -2538,7 +2538,7 @@ __metadata:
     "@storybook/jest": 0.2.3
     "@storybook/react": 7.6.12
     "@storybook/testing-library": 0.2.2
-    "@types/react": 18.2.48
+    "@types/react": 18.2.51
     "@types/react-dom": 18.2.18
     "@vitejs/plugin-react": 4.2.1
     dayjs: 1.11.10
@@ -2565,7 +2565,7 @@ __metadata:
     "@storybook/jest": 0.2.3
     "@storybook/react": 7.6.12
     "@storybook/testing-library": 0.2.2
-    "@types/react": 18.2.48
+    "@types/react": 18.2.51
     "@types/react-dom": 18.2.18
     "@vitejs/plugin-react": 4.2.1
     framer-motion: 11.0.3
@@ -2631,7 +2631,7 @@ __metadata:
     "@storybook/testing-library": 0.2.2
     "@storybook/theming": 7.6.12
     "@testing-library/jest-dom": 6.4.1
-    "@testing-library/react": 14.2.0
+    "@testing-library/react": 14.2.1
     "@testing-library/user-event": 14.5.2
     concurrently: 8.2.2
     eslint: 8.56.0
@@ -2676,10 +2676,10 @@ __metadata:
     "@storybook/testing-library": 0.2.2
     "@types/lodash.merge": 4.6.9
     "@types/luxon": 3.4.2
-    "@types/react": 18.2.48
+    "@types/react": 18.2.51
     "@types/react-dom": 18.2.18
     "@vitejs/plugin-react": 4.2.1
-    chromatic: 10.6.1
+    chromatic: 10.7.0
     concurrently: 8.2.2
     dayjs: 1.11.10
     framer-motion: 11.0.3
@@ -6636,9 +6636,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:14.2.0":
-  version: 14.2.0
-  resolution: "@testing-library/react@npm:14.2.0"
+"@testing-library/react@npm:14.2.1":
+  version: 14.2.1
+  resolution: "@testing-library/react@npm:14.2.1"
   dependencies:
     "@babel/runtime": ^7.12.5
     "@testing-library/dom": ^9.0.0
@@ -6646,7 +6646,7 @@ __metadata:
   peerDependencies:
     react: ^18.0.0
     react-dom: ^18.0.0
-  checksum: c7fa471dbb01c8bcf66abbdb210b24fb36c81afcc99db3ea4e22bd1556af1ccbd2a9dd2b14bd86870690f681c3e72080468728d63084e73bef071062d4174c1c
+  checksum: 7054ae69a0e06c0777da8105fa08fac7e8dac570476a065285d7b993947acda5c948598764a203ebaac759c161c562d6712f19f5bd08be3f09a07e23baee5426
   languageName: node
   linkType: hard
 
@@ -7194,14 +7194,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.48":
-  version: 18.2.48
-  resolution: "@types/react@npm:18.2.48"
+"@types/react@npm:18.2.51":
+  version: 18.2.51
+  resolution: "@types/react@npm:18.2.51"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: c9ca43ed2995389b7e09492c24e6f911a8439bb8276dd17cc66a2fbebbf0b42daf7b2ad177043256533607c2ca644d7d928fdfce37a67af1f8646d2bac988900
+  checksum: 1ab49e51e6314cefb9a162e9ac3a15a0474c82a0737f12f3a9628ccba555ab6645d2449152e7a5fc3ff650a7139a4718715af2c5ae9bc46b0533e98036706f84
   languageName: node
   linkType: hard
 
@@ -8919,22 +8919,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:10.6.1":
-  version: 10.6.1
-  resolution: "chromatic@npm:10.6.1"
+"chromatic@npm:10.7.0":
+  version: 10.7.0
+  resolution: "chromatic@npm:10.7.0"
   peerDependencies:
-    chromatic-cypress: ^0.4.0 || ^1.0.0
-    chromatic-playwright: ^0.4.0 || ^1.0.0
+    "@chromatic-com/cypress": ^0.5.2 || ^1.0.0
+    "@chromatic-com/playwright": ^0.5.2 || ^1.0.0
   peerDependenciesMeta:
-    chromatic-cypress:
+    "@chromatic-com/cypress":
       optional: true
-    chromatic-playwright:
+    "@chromatic-com/playwright":
       optional: true
   bin:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 71ae940cae633aa4ce48357b1ccd82bb504ec23655cd2beac0c367255f251a02aeb055fc68271e83e45d1bb000631aba7bf78f7aa27584e65b0e677edde53954
+  checksum: 397eb966d6a09becbe5805249ab219cfe7a2c99b69a0706f06dad7c3d529403faa271695a087fa3c3ae0564251cf98abfcc7b04b8cefa780c36e4146d13279de
   languageName: node
   linkType: hard
 
