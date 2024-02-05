@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { DateTime } from "luxon"
 import { ComponentProps, useState } from "react"
-import { SnapshotWrapper } from "../../lib/storybook/SnapshotWrapper"
+import { SnapshotWrapper } from "src/lib/storybook/SnapshotWrapper"
 import { DatePicker } from "./DatePicker"
 
 const meta = {
@@ -13,10 +13,10 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const defaultDate = DateTime.local(2022, 8, 1)
+const defaultDate = DateTime.local(2024, 2, 4)
 const today = DateTime.now()
 const defaultDateFormat = "MMMM yyyy"
-const mantineDateFormat = "d MMMM yyyy"
+const datePickerDateFormat = "d"
 
 export const Basic = {
   play: async ({ canvasElement }) => {
@@ -26,104 +26,78 @@ export const Basic = {
   },
 } satisfies Story
 
-export const DefaultDate = {
-  args: {
-    defaultDate: defaultDate.toJSDate(),
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement)
-    const month = canvas.getByText(defaultDate.toFormat(defaultDateFormat))
-    expect(month).toBeInTheDocument()
-  },
-} satisfies Story
-
-export const DefaultValue = {
-  args: {
-    defaultValue: defaultDate.toJSDate(),
-    defaultDate: defaultDate.toJSDate(),
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement)
-    const selectedDate = canvas.getByRole("button", {
-      name: defaultDate.toFormat(mantineDateFormat),
-    })
-    expect(selectedDate).toHaveAttribute("data-selected", "true")
-  },
-} satisfies Story
-
 const ControlledTemplate = (args: ComponentProps<typeof DatePicker>): React.JSX.Element => {
-  const { value: argsValue } = args
-  const [value, setValue] = useState<Date | null>(argsValue ?? null)
-  return <DatePicker {...args} value={value} onChange={setValue} />
+  const { selected: argsValue } = args
+  const [value, setValue] = useState<Date | undefined>(argsValue)
+  return <DatePicker {...args} selected={value} onSelect={setValue} />
 }
 
 export const Controlled = {
   render: (args) => <ControlledTemplate {...args} />,
   args: {
-    defaultDate: defaultDate.toJSDate(),
-    value: defaultDate.toJSDate(),
+    selected: defaultDate.toJSDate(),
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const selectedDate = canvas.getByRole("button", {
-      name: defaultDate.toFormat(mantineDateFormat),
+    const selectedDate = canvas.getByRole("gridcell", {
+      name: defaultDate.toFormat(datePickerDateFormat),
     })
-    expect(selectedDate).toHaveAttribute("data-selected", "true")
+    expect(selectedDate).toHaveAttribute("aria-selected", "true")
   },
 } satisfies Story
 
 export const Pointer = {
+  render: (args) => <ControlledTemplate {...args} />,
   args: {
-    defaultValue: today.toJSDate(),
+    selected: defaultDate.toJSDate(),
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const currentDateButton = canvas.getByRole("button", {
-      name: today.toFormat(mantineDateFormat),
+    const currentDateButton = canvas.getByRole("gridcell", {
+      name: defaultDate.toFormat(datePickerDateFormat),
     })
-    await expect(currentDateButton.getAttribute("data-selected")).toBe("true")
-    const previousMonthButton = canvas.getByRole("button", { name: "Previous month" })
+    await expect(currentDateButton.getAttribute("aria-selected")).toBe("true")
+    const previousMonthButton = canvas.getByRole("button", { name: "Go to previous month" })
     await userEvent.click(previousMonthButton)
-    const fourthDateInPreviousMonthButton = canvas.getByRole("button", {
-      name: today.minus({ month: 1 }).set({ day: 4 }).toFormat(mantineDateFormat),
+    const fourthDateInPreviousMonthButton = canvas.getByRole("gridcell", {
+      name: "4",
     })
     await userEvent.click(fourthDateInPreviousMonthButton)
-    await expect(fourthDateInPreviousMonthButton.getAttribute("data-selected")).toBe("true")
+    await expect(fourthDateInPreviousMonthButton.getAttribute("aria-selected")).toBe("true")
   },
 } satisfies Story
 
 export const Keyboard = {
+  render: (args) => <ControlledTemplate {...args} />,
   args: {
-    defaultDate: defaultDate.toJSDate(),
+    selected: defaultDate.toJSDate(),
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await userEvent.tab()
-    await expect(canvas.getByRole("button", { name: "Previous month" })).toHaveFocus()
+    await expect(canvas.getByRole("button", { name: "Go to previous month" })).toHaveFocus()
     await userEvent.tab()
-    await expect(canvas.getByRole("button", { name: "Next month" })).toHaveFocus()
+    await expect(canvas.getByRole("button", { name: "Go to next month" })).toHaveFocus()
     await userEvent.tab()
-    const defaultDateButton = canvas.getByRole("button", {
-      name: defaultDate.toFormat(mantineDateFormat),
+    const currentDateButton = canvas.getByRole("gridcell", {
+      name: defaultDate.toFormat(datePickerDateFormat),
     })
-    await expect(defaultDateButton).toHaveFocus()
-    await userEvent.keyboard("[Enter]")
-    await expect(defaultDateButton.getAttribute("data-selected")).toBe("true")
+    await expect(currentDateButton.getAttribute("aria-selected")).toBe("true")
     await userEvent.keyboard("[ArrowDown]")
-    const eighthDateButton = canvas.getByRole("button", {
-      name: defaultDate.set({ day: 8 }).toFormat(mantineDateFormat),
+    const eleventhDateButton = canvas.getByRole("gridcell", {
+      name: "11",
     })
-    await expect(eighthDateButton).toHaveFocus()
+    await expect(eleventhDateButton).toHaveFocus()
     await userEvent.keyboard("[Enter]")
-    await expect(eighthDateButton.getAttribute("data-selected")).toBe("true")
-    await expect(defaultDateButton.getAttribute("data-selected")).not.toBe("true")
+    await expect(eleventhDateButton.getAttribute("aria-selected")).toBe("true")
+    await expect(currentDateButton.getAttribute("aria-selected")).not.toBe("true")
   },
 } satisfies Story
 
 export const Snapshot = {
   render: () => (
     <SnapshotWrapper>
-      {[DefaultDate, DefaultValue, Controlled].map((Story, index) => (
+      {[Controlled].map((Story, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <DatePicker key={index} {...Story.args} />
       ))}
