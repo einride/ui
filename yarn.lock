@@ -2538,7 +2538,7 @@ __metadata:
     "@storybook/jest": 0.2.3
     "@storybook/react": 7.6.12
     "@storybook/testing-library": 0.2.2
-    "@types/react": 18.2.51
+    "@types/react": 18.2.52
     "@types/react-dom": 18.2.18
     "@vitejs/plugin-react": 4.2.1
     dayjs: 1.11.10
@@ -2565,7 +2565,7 @@ __metadata:
     "@storybook/jest": 0.2.3
     "@storybook/react": 7.6.12
     "@storybook/testing-library": 0.2.2
-    "@types/react": 18.2.51
+    "@types/react": 18.2.52
     "@types/react-dom": 18.2.18
     "@vitejs/plugin-react": 4.2.1
     framer-motion: 11.0.3
@@ -2636,7 +2636,7 @@ __metadata:
     concurrently: 8.2.2
     eslint: 8.56.0
     eslint-plugin-storybook: 0.6.15
-    prettier: 3.2.4
+    prettier: 3.2.5
     react: 18.2.0
     react-dom: 18.2.0
     storybook: 7.6.12
@@ -2676,10 +2676,10 @@ __metadata:
     "@storybook/testing-library": 0.2.2
     "@types/lodash.merge": 4.6.9
     "@types/luxon": 3.4.2
-    "@types/react": 18.2.51
+    "@types/react": 18.2.52
     "@types/react-dom": 18.2.18
     "@vitejs/plugin-react": 4.2.1
-    chromatic: 10.7.0
+    chromatic: 10.7.1
     concurrently: 8.2.2
     dayjs: 1.11.10
     framer-motion: 11.0.3
@@ -7194,14 +7194,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.51":
-  version: 18.2.51
-  resolution: "@types/react@npm:18.2.51"
+"@types/react@npm:18.2.52":
+  version: 18.2.52
+  resolution: "@types/react@npm:18.2.52"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 1ab49e51e6314cefb9a162e9ac3a15a0474c82a0737f12f3a9628ccba555ab6645d2449152e7a5fc3ff650a7139a4718715af2c5ae9bc46b0533e98036706f84
+  checksum: 4abc9bd63879e57c3df43a9cacff54c079e21b61ef934d33801e0177c26f582aa7d1d88a0769a740a4fd273168e3b150ff61de23e0fa85d1070e82ddce2b7fd2
   languageName: node
   linkType: hard
 
@@ -8919,9 +8919,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:10.7.0":
-  version: 10.7.0
-  resolution: "chromatic@npm:10.7.0"
+"chromatic@npm:10.7.1":
+  version: 10.7.1
+  resolution: "chromatic@npm:10.7.1"
   peerDependencies:
     "@chromatic-com/cypress": ^0.5.2 || ^1.0.0
     "@chromatic-com/playwright": ^0.5.2 || ^1.0.0
@@ -8934,7 +8934,7 @@ __metadata:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 397eb966d6a09becbe5805249ab219cfe7a2c99b69a0706f06dad7c3d529403faa271695a087fa3c3ae0564251cf98abfcc7b04b8cefa780c36e4146d13279de
+  checksum: e917d8c4a8afc63e44ee3774548cd9bd2be49b4a9243446118d5bceb749fa2752364050cfab95fc490c5117a2854fce45e81714d6e9583514a94a7067a96c9c3
   languageName: node
   linkType: hard
 
@@ -16298,12 +16298,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:3.2.4":
-  version: 3.2.4
-  resolution: "prettier@npm:3.2.4"
+"prettier@npm:3.2.5":
+  version: 3.2.5
+  resolution: "prettier@npm:3.2.5"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 6ec9385a836e0b9bac549e585101c086d1521c31d7b882d5c8bb7d7646da0693da5f31f4fff6dc080710e5e2d34c85e6fb2f8766876b3645c8be2f33b9c3d1a3
+  checksum: 2ee4e1417572372afb7a13bb446b34f20f1bf1747db77cf6ccaf57a9be005f2f15c40f903d41a6b79eec3f57fff14d32a20fb6dee1f126da48908926fe43c311
   languageName: node
   linkType: hard
 

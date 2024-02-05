@@ -4,6 +4,6 @@
     "baseUrl": "./",
     "composite": true,
     "moduleResolution": "node",
-    "rootDir": "./src",
-  },
+    "rootDir": "./src"
+  }
 }
