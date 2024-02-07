@@ -2538,7 +2538,7 @@ __metadata:
     "@storybook/jest": 0.2.3
     "@storybook/react": 7.6.12
     "@storybook/testing-library": 0.2.2
-    "@types/react": 18.2.54
+    "@types/react": 18.2.55
     "@types/react-dom": 18.2.18
     "@vitejs/plugin-react": 4.2.1
     dayjs: 1.11.10
@@ -2565,7 +2565,7 @@ __metadata:
     "@storybook/jest": 0.2.3
     "@storybook/react": 7.6.12
     "@storybook/testing-library": 0.2.2
-    "@types/react": 18.2.54
+    "@types/react": 18.2.55
     "@types/react-dom": 18.2.18
     "@vitejs/plugin-react": 4.2.1
     framer-motion: 11.0.3
@@ -2676,10 +2676,10 @@ __metadata:
     "@storybook/testing-library": 0.2.2
     "@types/lodash.merge": 4.6.9
     "@types/luxon": 3.4.2
-    "@types/react": 18.2.54
+    "@types/react": 18.2.55
     "@types/react-dom": 18.2.18
     "@vitejs/plugin-react": 4.2.1
-    chromatic: 10.7.1
+    chromatic: 10.8.0
     concurrently: 8.2.2
     dayjs: 1.11.10
     framer-motion: 11.0.3
@@ -7194,14 +7194,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.54":
-  version: 18.2.54
-  resolution: "@types/react@npm:18.2.54"
+"@types/react@npm:18.2.55":
+  version: 18.2.55
+  resolution: "@types/react@npm:18.2.55"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 261bf1f5d8320708f059b9b2e691eb60dff94a2b7d2e821f55289b611b8a215b4b23d69358d621ef9b5969d88198a32024ef43d5dd979c9df60aeae98cd27b0e
+  checksum: a8eb4fa77f73831b9112d4f11a7006217dc0740361649b9b0da3fd441d151a9cd415d5d68b91c0af4e430e063424d301c77489e5edaddc9f711c4e46cf9818a5
   languageName: node
   linkType: hard
 
@@ -8919,9 +8919,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:10.7.1":
-  version: 10.7.1
-  resolution: "chromatic@npm:10.7.1"
+"chromatic@npm:10.8.0":
+  version: 10.8.0
+  resolution: "chromatic@npm:10.8.0"
   peerDependencies:
     "@chromatic-com/cypress": ^0.5.2 || ^1.0.0
     "@chromatic-com/playwright": ^0.5.2 || ^1.0.0
@@ -8934,7 +8934,7 @@ __metadata:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: e917d8c4a8afc63e44ee3774548cd9bd2be49b4a9243446118d5bceb749fa2752364050cfab95fc490c5117a2854fce45e81714d6e9583514a94a7067a96c9c3
+  checksum: 65112527ae1856b6db0e155f1be2ffc7c8094a4b57cf497b4c37c28705448500cccccf9799b04fbe1662e2dd2201d3694d1f19e926665485098bbd9c11acc3e3
   languageName: node
   linkType: hard
 
