@@ -2679,7 +2679,7 @@ __metadata:
     "@types/react": 18.2.55
     "@types/react-dom": 18.2.18
     "@vitejs/plugin-react": 4.2.1
-    chromatic: 10.8.0
+    chromatic: 10.9.0
     concurrently: 8.2.2
     dayjs: 1.11.10
     framer-motion: 11.0.3
@@ -8919,9 +8919,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:10.8.0":
-  version: 10.8.0
-  resolution: "chromatic@npm:10.8.0"
+"chromatic@npm:10.9.0":
+  version: 10.9.0
+  resolution: "chromatic@npm:10.9.0"
   peerDependencies:
     "@chromatic-com/cypress": ^0.5.2 || ^1.0.0
     "@chromatic-com/playwright": ^0.5.2 || ^1.0.0
@@ -8934,7 +8934,7 @@ __metadata:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 65112527ae1856b6db0e155f1be2ffc7c8094a4b57cf497b4c37c28705448500cccccf9799b04fbe1662e2dd2201d3694d1f19e926665485098bbd9c11acc3e3
+  checksum: 476549cef83f3b39290f634776d741bd8220e67426771453e43a627f553c65f4c35eee23838099f2d329be46d74d75538df625a2b02a1e2168d79d3f91b496ad
   languageName: node
   linkType: hard
 
