@@ -1995,7 +1995,7 @@ __metadata:
     "@storybook/jest": 0.2.3
     "@storybook/react": 7.6.16
     "@storybook/testing-library": 0.2.2
-    "@types/react": 18.2.56
+    "@types/react": 18.2.57
     "@types/react-dom": 18.2.19
     "@vitejs/plugin-react": 4.2.1
     dayjs: 1.11.10
@@ -2022,7 +2022,7 @@ __metadata:
     "@storybook/jest": 0.2.3
     "@storybook/react": 7.6.16
     "@storybook/testing-library": 0.2.2
-    "@types/react": 18.2.56
+    "@types/react": 18.2.57
     "@types/react-dom": 18.2.19
     "@vitejs/plugin-react": 4.2.1
     framer-motion: 11.0.5
@@ -2133,7 +2133,7 @@ __metadata:
     "@storybook/testing-library": 0.2.2
     "@types/lodash.merge": 4.6.9
     "@types/luxon": 3.4.2
-    "@types/react": 18.2.56
+    "@types/react": 18.2.57
     "@types/react-dom": 18.2.19
     "@vitejs/plugin-react": 4.2.1
     chromatic: 10.9.6
@@ -6393,14 +6393,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.56":
-  version: 18.2.56
-  resolution: "@types/react@npm:18.2.56"
+"@types/react@npm:18.2.57":
+  version: 18.2.57
+  resolution: "@types/react@npm:18.2.57"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 8f6d754e4add007667002bd3f4c3a3a577c4a75afcd5cdc93bd3c584750f25c41a024a9f7de802204156483bc2fcce417ff9d7063ac1713e2b8ccb7c8a08c0ff
+  checksum: 01e7a3424162468428f3b28acec5e5c6cd1e26775ff605d0f46c883dea2d835924873d36b9ea0b75e40c9593aa78ca56a8ccde66bd58dbf6ecb0dd95af28609d
   languageName: node
   linkType: hard
 
