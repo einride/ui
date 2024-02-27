@@ -11,7 +11,7 @@
     "@storybook/jest": "0.2.3",
     "@storybook/react": "7.6.17",
     "@storybook/testing-library": "0.2.2",
-    "@types/react": "18.2.58",
+    "@types/react": "18.2.59",
     "@types/react-dom": "18.2.19",
     "@vitejs/plugin-react": "4.2.1",
     "framer-motion": "11.0.6",
