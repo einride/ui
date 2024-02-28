@@ -1995,7 +1995,7 @@ __metadata:
     "@storybook/jest": 0.2.3
     "@storybook/react": 7.6.17
     "@storybook/testing-library": 0.2.2
-    "@types/react": 18.2.59
+    "@types/react": 18.2.60
     "@types/react-dom": 18.2.19
     "@vitejs/plugin-react": 4.2.1
     dayjs: 1.11.10
@@ -2022,7 +2022,7 @@ __metadata:
     "@storybook/jest": 0.2.3
     "@storybook/react": 7.6.17
     "@storybook/testing-library": 0.2.2
-    "@types/react": 18.2.59
+    "@types/react": 18.2.60
     "@types/react-dom": 18.2.19
     "@vitejs/plugin-react": 4.2.1
     framer-motion: 11.0.6
@@ -2112,7 +2112,7 @@ __metadata:
   dependencies:
     "@einride/hooks": 1.7.9
     "@emotion/is-prop-valid": 1.2.1
-    "@emotion/react": 11.11.3
+    "@emotion/react": 11.11.4
     "@emotion/styled": 11.11.0
     "@faker-js/faker": 8.4.1
     "@mantine/core": 7.1.1
@@ -2133,7 +2133,7 @@ __metadata:
     "@storybook/testing-library": 0.2.2
     "@types/lodash.merge": 4.6.9
     "@types/luxon": 3.4.2
-    "@types/react": 18.2.59
+    "@types/react": 18.2.60
     "@types/react-dom": 18.2.19
     "@vitejs/plugin-react": 4.2.1
     chromatic: 11.0.0
@@ -2226,9 +2226,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/react@npm:11.11.3":
-  version: 11.11.3
-  resolution: "@emotion/react@npm:11.11.3"
+"@emotion/react@npm:11.11.4":
+  version: 11.11.4
+  resolution: "@emotion/react@npm:11.11.4"
   dependencies:
     "@babel/runtime": ^7.18.3
     "@emotion/babel-plugin": ^11.11.0
@@ -2243,7 +2243,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 2e4b223591569f0a41686d5bd72dc8778629b7be33267e4a09582979e6faee4d7218de84e76294ed827058d4384d75557b5d71724756539c1f235e9a69e62b2e
+  checksum: 6abaa7a05c5e1db31bffca7ac79169f5456990022cbb3794e6903221536609a60420f2b4888dd3f84e9634a304e394130cb88dc32c243a1dedc263e50da329f8
   languageName: node
   linkType: hard
 
@@ -6393,14 +6393,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.59":
-  version: 18.2.59
-  resolution: "@types/react@npm:18.2.59"
+"@types/react@npm:18.2.60":
+  version: 18.2.60
+  resolution: "@types/react@npm:18.2.60"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 0b6c72d22817039b90b889eec1a3099ed9b194b2971f6322671e6a5eddc384356e0fd1d7b0c0d0e92e828c9515b85458d19f923d9e99dc49694850acc5190650
+  checksum: 4cd2000c4c5d93aec92bca9fce3a6050a6a20c5827409099a4cc9e68a259a937b2acc77aecbcea555eb99e295373903da17bc833e3f711442eec20e3c6cc5895
   languageName: node
   linkType: hard
 
