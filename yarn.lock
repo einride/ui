@@ -2068,7 +2068,7 @@ __metadata:
     "@einride/tsconfig": 2.1.0
     "@storybook/addon-a11y": 7.6.17
     "@storybook/addon-actions": 7.6.17
-    "@storybook/addon-coverage": 1.0.0
+    "@storybook/addon-coverage": 1.0.1
     "@storybook/addon-essentials": 7.6.17
     "@storybook/addon-interactions": 7.6.17
     "@storybook/addon-links": 7.6.17
@@ -4676,9 +4676,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-coverage@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@storybook/addon-coverage@npm:1.0.0"
+"@storybook/addon-coverage@npm:1.0.1":
+  version: 1.0.1
+  resolution: "@storybook/addon-coverage@npm:1.0.1"
   dependencies:
     "@istanbuljs/load-nyc-config": ^1.1.0
     "@jsdevtools/coverage-istanbul-loader": ^3.0.5
@@ -4689,7 +4689,7 @@ __metadata:
     source-map: ^0.7.4
     test-exclude: ^6.0.0
     vite-plugin-istanbul: ^3.0.1
-  checksum: 80157b9442ffcc99884276f8ea8fd724c293eb8f38a75077053c4e350af2d970a2359d29272df3c06cd2669d32693a5e0c355bd39a1539bcfb9b01a969241a70
+  checksum: 9efdc3234da805bc5a9f908bf91adea98f469bfb7bb4c00a092909a302a770e8b5afc094a6a839ae981f0a3197903de8a60e9ca0f2f7a0edd9f8cb3fc981b948
   languageName: node
   linkType: hard
 
