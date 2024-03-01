@@ -1992,11 +1992,11 @@ __metadata:
     "@storybook/jest": 0.2.3
     "@storybook/react": 7.6.17
     "@storybook/testing-library": 0.2.2
-    "@types/react": 18.2.60
+    "@types/react": 18.2.61
     "@types/react-dom": 18.2.19
     "@vitejs/plugin-react": 4.2.1
     dayjs: 1.11.10
-    framer-motion: 11.0.6
+    framer-motion: 11.0.8
     luxon: 3.4.4
     react: 18.2.0
     react-dom: 18.2.0
@@ -2019,10 +2019,10 @@ __metadata:
     "@storybook/jest": 0.2.3
     "@storybook/react": 7.6.17
     "@storybook/testing-library": 0.2.2
-    "@types/react": 18.2.60
+    "@types/react": 18.2.61
     "@types/react-dom": 18.2.19
     "@vitejs/plugin-react": 4.2.1
-    framer-motion: 11.0.6
+    framer-motion: 11.0.8
     react: 18.2.0
     react-dom: 18.2.0
     rollup: 4.12.0
@@ -2130,13 +2130,13 @@ __metadata:
     "@storybook/testing-library": 0.2.2
     "@types/lodash.merge": 4.6.9
     "@types/luxon": 3.4.2
-    "@types/react": 18.2.60
+    "@types/react": 18.2.61
     "@types/react-dom": 18.2.19
     "@vitejs/plugin-react": 4.2.1
     chromatic: 11.0.0
     concurrently: 8.2.2
     dayjs: 1.11.10
-    framer-motion: 11.0.6
+    framer-motion: 11.0.8
     lodash.merge: 4.6.2
     luxon: 3.4.4
     react: 18.2.0
@@ -6408,14 +6408,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.60":
-  version: 18.2.60
-  resolution: "@types/react@npm:18.2.60"
+"@types/react@npm:18.2.61":
+  version: 18.2.61
+  resolution: "@types/react@npm:18.2.61"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 4cd2000c4c5d93aec92bca9fce3a6050a6a20c5827409099a4cc9e68a259a937b2acc77aecbcea555eb99e295373903da17bc833e3f711442eec20e3c6cc5895
+  checksum: a100c09bc0d6d1a0a42b3fa0944b71d209b5adea6515fc21109972ec3267185372cc416c0467b1998afce6b90fc80f4c0029b5d975afb0b3070d864c7a924a5e
   languageName: node
   linkType: hard
 
@@ -10391,9 +10391,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:11.0.6":
-  version: 11.0.6
-  resolution: "framer-motion@npm:11.0.6"
+"framer-motion@npm:11.0.8":
+  version: 11.0.8
+  resolution: "framer-motion@npm:11.0.8"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
     tslib: ^2.4.0
@@ -10408,7 +10408,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 5b843ca004725c1f90d00bfcb4dcfd5221b37b0ab305774164048e94f2f6e98b3f5e38faa2326bba348e50ada14d78bd9d01167870d1295ba1c31845e953333d
+  checksum: 5009b748045c3bd4e123925de493cee0e754269f5fc43fe1a6cba7e53f4024f286cbfba78b85b024bfcbbd3b87a777e70d09e7cafcefd8ada80743037e429c30
   languageName: node
   linkType: hard
 
