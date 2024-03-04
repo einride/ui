@@ -1,18 +1,10 @@
-# Einride UI
+# @einride/ui
 
 [![license](https://img.shields.io/npm/l/@einride/ui.svg)](https://github.com/einride/ui/blob/main/LICENSE)
 [![npm version](https://img.shields.io/npm/v/@einride/ui.svg)](https://www.npmjs.com/package/@einride/ui)
 [![total npm downloads](https://img.shields.io/npm/dt/@einride/ui.svg)](https://www.npmjs.com/package/@einride/ui)
 
 Reusable React components that adhere to Einride's design system.
-
-Einride UI consists of these packages:
-
-- [`@einride/ui`](./packages/einride-ui/): Core UI components.
-- [`@einride/ui-dates`](./packages/einride-ui-dates/): Date components.
-- [`@einride/ui-labs`](./packages/einride-ui-labs/): Experimental components that are not yet added
-  to `@einride/ui`.
-- [`@einride/ui-maps`](./packages/einride-ui-maps/): Mapping components.
 
 ## Installation
 
@@ -21,8 +13,6 @@ Install `@einride/ui` together with its peer dependencies:
 ```bash
 yarn add @einride/ui @emotion/react @emotion/styled framer-motion
 ```
-
-Install the other packages depending on your requirements.
 
 ## Setup
 

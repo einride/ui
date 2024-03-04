@@ -5,11 +5,8 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "yarn build:einride-ui && yarn build:einride-ui-dates && yarn build:einride-ui-labs && yarn build:einride-ui-maps",
+    "build": "yarn build:einride-ui",
     "build:einride-ui": "yarn workspace @einride/ui build",
-    "build:einride-ui-dates": "yarn workspace @einride/ui-dates build",
-    "build:einride-ui-labs": "yarn workspace @einride/ui-labs build",
-    "build:einride-ui-maps": "yarn workspace @einride/ui-maps build",
     "build-storybook": "storybook build",
     "review": "concurrently --kill-others-on-fail 'yarn commitlint' 'yarn format-check' 'yarn lint' 'yarn test' 'yarn typecheck' 'yarn build'",
     "storybook": "storybook dev -p 6006",
