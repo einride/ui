@@ -3,10 +3,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@einride/ui": ["./packages/einride-ui/src"],
-      "@einride/ui-dates": ["./packages/einride-ui-dates/src"],
-      "@einride/ui-labs": ["./packages/einride-ui-labs/src"],
-      "@einride/ui-maps": ["./packages/einride-ui-maps/src"]
+      "@einride/ui": ["./packages/einride-ui/src"]
     }
   }
 }
