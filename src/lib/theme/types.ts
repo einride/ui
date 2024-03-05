@@ -109,9 +109,6 @@ export interface ColorTheme {
     icon: ButtonIcon
   }
   content: Record<ContentColor, string>
-  negative: string
-  positive: string
-  warning: string
 }
 
 export interface CommonTheme {

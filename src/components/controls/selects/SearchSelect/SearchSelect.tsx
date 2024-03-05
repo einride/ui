@@ -233,7 +233,7 @@ export const SearchSelect = <Option extends BaseOption>({
           {filteredOptions?.map((option, index) => (
             <Option
               data-focused={index === selectedIndex}
-              key={option.key ?? option.value}
+              key={option.value}
               variant="secondary"
               onClick={(e) => {
                 e.stopPropagation()
