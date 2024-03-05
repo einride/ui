@@ -17,13 +17,6 @@ export { PrimaryButton } from "./components/controls/buttons/PrimaryButton/Prima
 export { SecondaryButton } from "./components/controls/buttons/SecondaryButton/SecondaryButton"
 export { TertiaryButton } from "./components/controls/buttons/TertiaryButton/TertiaryButton"
 export { Checkbox } from "./components/controls/checkboxes/Checkbox/Checkbox"
-export { Calendar } from "./components/controls/dates/Calendar/Calendar"
-export { DatePicker } from "./components/controls/dates/DatePicker/DatePicker"
-export {
-  DateRangePicker,
-  type DateRangePickerValue,
-} from "./components/controls/dates/DateRangePicker/DateRangePicker"
-export { RangeCalendar } from "./components/controls/dates/RangeCalendar/RangeCalendar"
 export { NumberInput } from "./components/controls/inputs/NumberInput/NumberInput"
 export { SearchInput } from "./components/controls/inputs/SearchInput/SearchInput"
 export { TextInput } from "./components/controls/inputs/TextInput/TextInput"
@@ -48,11 +41,7 @@ export { Skeleton } from "./components/feedback/Skeleton/Skeleton"
 export { TableSkeleton } from "./components/feedback/TableSkeleton/TableSkeleton"
 export { KILOMETER_TO_MILE, METER_TO_YARD } from "./components/format/Length/constants"
 export { Weight } from "./components/format/Weight/Weight"
-export {
-  KILOGRAM_TO_POUND,
-  /** @deprecated Use `KILOGRAM_TO_POUND` instead. */
-  KILOGRAM_TO_POUND as POUND_FACTOR,
-} from "./components/format/Weight/constants"
+export { KILOGRAM_TO_POUND } from "./components/format/Weight/constants"
 export { WeightUnit } from "./components/format/WeightUnit/WeightUnit"
 export { Label, type Variant as LabelVariant } from "./components/information/Label/Label"
 export { Box } from "./components/layout/Box/Box"
