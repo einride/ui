@@ -7,9 +7,9 @@ metadata:
   annotations:
     backstage.io/source-location: url:https://github.com/einride/einride-ui/tree/main
     github.com/project-slug: einride/ui
-    github.com/team-slug: einride/team-divops
+    github.com/team-slug: einride/platform-engineering
 spec:
   type: library
   system: einride-ui
-  owner: team-divops
+  owner: platform-engineering
   lifecycle: production

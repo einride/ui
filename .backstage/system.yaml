@@ -5,5 +5,5 @@ metadata:
   title: Einride UI
   description: Einride's UI framework.
 spec:
-  owner: team-divops
+  owner: platform-engineering
   domain: developer-platform
