@@ -1,9 +1,3 @@
 {
-  "extends": "@einride/tsconfig",
-  "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "@einride/ui": ["./packages/einride-ui/src"]
-    }
-  }
+  "extends": "@einride/tsconfig"
 }

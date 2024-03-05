@@ -5,11 +5,11 @@ import { DocsContainer } from "@storybook/blocks"
 import { Preview, StoryContext, StoryFn } from "@storybook/react"
 import { themes } from "@storybook/theming"
 import React, { CSSProperties } from "react"
-import { EinrideProvider } from "../packages/einride-ui/src/contexts/EinrideProvider"
-import { GlobalStyles } from "../packages/einride-ui/src/lib/GlobalStyles"
-import { einrideTheme } from "../packages/einride-ui/src/lib/theme/einride"
-import { themes as einrideThemes } from "../packages/einride-ui/src/lib/theme/theme"
-import { color } from "../packages/einride-ui/src/primitives/color"
+import { EinrideProvider } from "../src/contexts/EinrideProvider"
+import { GlobalStyles } from "../src/lib/GlobalStyles"
+import { einrideTheme } from "../src/lib/theme/einride"
+import { themes as einrideThemes } from "../src/lib/theme/theme"
+import { color } from "../src/primitives/color"
 
 const customViewports = {
   small: {
