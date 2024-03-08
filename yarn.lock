@@ -1760,7 +1760,7 @@ __metadata:
     "@emotion/react": 11.11.4
     "@emotion/styled": 11.11.0
     "@faker-js/faker": 8.4.1
-    "@mantine/hooks": 7.1.1
+    "@mantine/hooks": 7.6.1
     "@radix-ui/react-alert-dialog": 1.0.5
     "@radix-ui/react-dialog": 1.0.5
     "@radix-ui/react-dropdown-menu": 2.0.6
@@ -2825,12 +2825,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/hooks@npm:7.1.1":
-  version: 7.1.1
-  resolution: "@mantine/hooks@npm:7.1.1"
+"@mantine/hooks@npm:7.6.1":
+  version: 7.6.1
+  resolution: "@mantine/hooks@npm:7.6.1"
   peerDependencies:
     react: ^18.2.0
-  checksum: ea4cc4b858f97a74840d6d545da801d7e30a837f0ee85a32762b3e3a7983569a4c9b34cc37b34ed876955f525d0915e55d959e9c53e48908ed823bf651ee6721
+  checksum: e34496844e7c3e14f55019eb3e662eef852805f3eef640f72257a70431eb5cfb21cb9a25255825fda504ff56ecbc41e95e3ad48a8ec03f7b1efc7f1d1f1fdec7
   languageName: node
   linkType: hard
 
