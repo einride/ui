@@ -1795,7 +1795,7 @@ __metadata:
     "@types/react": 18.2.64
     "@types/react-dom": 18.2.21
     "@vitejs/plugin-react": 4.2.1
-    chromatic: 11.0.6
+    chromatic: 11.0.7
     concurrently: 8.2.2
     eslint: 8.57.0
     eslint-plugin-storybook: 0.8.0
@@ -7960,9 +7960,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:11.0.6":
-  version: 11.0.6
-  resolution: "chromatic@npm:11.0.6"
+"chromatic@npm:11.0.7":
+  version: 11.0.7
+  resolution: "chromatic@npm:11.0.7"
   peerDependencies:
     "@chromatic-com/cypress": ^0.5.2 || ^1.0.0
     "@chromatic-com/playwright": ^0.5.2 || ^1.0.0
@@ -7975,7 +7975,7 @@ __metadata:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 50a72820a9c578a9db735f952f09148f81430a2554f06ef9ac0989f5793c9f8a42cf8c55525751695b2ea8c5a17fddebea85cdd4c0cfe3e5b8a798ec27ea2c3c
+  checksum: b614510762b7eaca05a84ff1c6f4eb3072d6b6ea2cf43a9418030132656ac46d2e0e72e08298f50d626db2e4b33cbb6c4401ad7457cf2b5525340796cbcaaa0d
   languageName: node
   linkType: hard
 
