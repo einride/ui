@@ -1792,10 +1792,10 @@ __metadata:
     "@testing-library/user-event": 14.5.2
     "@types/lodash.merge": 4.6.9
     "@types/luxon": 3.4.2
-    "@types/react": 18.2.64
+    "@types/react": 18.2.65
     "@types/react-dom": 18.2.21
     "@vitejs/plugin-react": 4.2.1
-    chromatic: 11.0.7
+    chromatic: 11.0.8
     concurrently: 8.2.2
     eslint: 8.57.0
     eslint-plugin-storybook: 0.8.0
@@ -1810,7 +1810,7 @@ __metadata:
     storybook: 7.6.17
     tslib: 2.6.2
     typescript: 5.4.2
-    vite: 5.1.5
+    vite: 5.1.6
     vite-plugin-turbosnap: 1.0.3
     vite-tsconfig-paths: 4.3.1
     vitest: 1.3.1
@@ -6415,14 +6415,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.64":
-  version: 18.2.64
-  resolution: "@types/react@npm:18.2.64"
+"@types/react@npm:18.2.65":
+  version: 18.2.65
+  resolution: "@types/react@npm:18.2.65"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 1fd28dc5e5d191619e0b001485f428a070bad11f55683a212d3bd937bdc979335913f90f4ca4f0510871e5f35d8f46b169a23276fb048d06584623d3652cc0f3
+  checksum: 1931a8b36e3135f3058e988cfc0d4ffe4b75af10b8efcf8b7e5759934333922162394edff9ccf8aff838e8db62de014c015c9c094597fdf9ca1405ac1d040fdf
   languageName: node
   linkType: hard
 
@@ -7960,12 +7960,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:11.0.7":
-  version: 11.0.7
-  resolution: "chromatic@npm:11.0.7"
+"chromatic@npm:11.0.8":
+  version: 11.0.8
+  resolution: "chromatic@npm:11.0.8"
   peerDependencies:
-    "@chromatic-com/cypress": ^0.5.2 || ^1.0.0
-    "@chromatic-com/playwright": ^0.5.2 || ^1.0.0
+    "@chromatic-com/cypress": ^0.*.* || ^1.0.0
+    "@chromatic-com/playwright": ^0.*.* || ^1.0.0
   peerDependenciesMeta:
     "@chromatic-com/cypress":
       optional: true
@@ -7975,7 +7975,7 @@ __metadata:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: b614510762b7eaca05a84ff1c6f4eb3072d6b6ea2cf43a9418030132656ac46d2e0e72e08298f50d626db2e4b33cbb6c4401ad7457cf2b5525340796cbcaaa0d
+  checksum: cef2a686a192b522ae8dda4ec5f93fbad567b9bbc7be7795f6db5231656279a2221cef426aa1a00b52ff3d5367b2e422a547d380c381cba15492846db4d5ad48
   languageName: node
   linkType: hard
 
@@ -18677,9 +18677,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:5.1.5":
-  version: 5.1.5
-  resolution: "vite@npm:5.1.5"
+"vite@npm:5.1.6":
+  version: 5.1.6
+  resolution: "vite@npm:5.1.6"
   dependencies:
     esbuild: ^0.19.3
     fsevents: ~2.3.3
@@ -18713,7 +18713,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 14c079ebe508d55198a3b1ca528d13515c745d7ae279e4864e89110a1661a4cfa880d894c2d7dcf557f6ed3ffc17fa3abea9d9ea4b6f256f0cab99d16a3b385b
+  checksum: 21863ca12303ea6305fe9230a55e7cb30b4cac05dd2a2596889e079163ccc81bcb465ff6dd165001042f47e999192b9c579329484211e000afe9b47068c7fab0
   languageName: node
   linkType: hard
 
