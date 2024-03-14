@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react"
-import { Th } from "../../table/Th/Th"
-import { Thead } from "../../table/Thead/Thead"
-import { Tr } from "../../table/Tr/Tr"
+import { Th } from "../../table/Table/Th/Th"
+import { Thead } from "../../table/Table/Thead/Thead"
+import { Tr } from "../../table/Table/Tr/Tr"
 import { TableSkeleton } from "./TableSkeleton"
 
 const meta = {

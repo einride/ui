@@ -1,9 +1,9 @@
 import { ReactNode } from "react"
-import { Table } from "../../table/Table/Table"
-import { Tbody } from "../../table/Tbody/Tbody"
-import { Td } from "../../table/Td/Td"
-import { Thead } from "../../table/Thead/Thead"
-import { Tr } from "../../table/Tr/Tr"
+import { Table } from "../../table/Table/Table/Table"
+import { Tbody } from "../../table/Table/Tbody/Tbody"
+import { Td } from "../../table/Table/Td/Td"
+import { Thead } from "../../table/Table/Thead/Thead"
+import { Tr } from "../../table/Table/Tr/Tr"
 import { Skeleton } from "../Skeleton/Skeleton"
 
 export interface TableSkeletonProps {

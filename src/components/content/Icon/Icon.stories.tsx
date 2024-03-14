@@ -1,7 +1,6 @@
 import styled from "@emotion/styled"
-import { expect } from "@storybook/jest"
 import { Meta, StoryObj } from "@storybook/react"
-import { within } from "@storybook/testing-library"
+import { expect, within } from "@storybook/test"
 import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { Card } from "../../cards/Card/Card"
 import { Caption } from "../../typography/Caption/Caption"

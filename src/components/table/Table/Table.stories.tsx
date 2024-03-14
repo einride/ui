@@ -1,6 +1,5 @@
-import { expect } from "@storybook/jest"
 import { Meta, StoryObj } from "@storybook/react"
-import { within } from "@storybook/testing-library"
+import { expect, within } from "@storybook/test"
 import { Table } from "./Table/Table"
 import { Tbody } from "./Tbody/Tbody"
 import { Td } from "./Td/Td"

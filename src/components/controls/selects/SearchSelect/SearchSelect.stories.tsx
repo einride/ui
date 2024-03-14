@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker"
-import { expect, jest } from "@storybook/jest"
 import { Meta, StoryObj } from "@storybook/react"
-import { userEvent, within } from "@storybook/testing-library"
+import { expect, userEvent, within } from "@storybook/test"
+import * as test from "@storybook/test"
 import { ComponentProps, useState } from "react"
 import { Box } from "../../../layout/Box/Box"
 import { SearchSelect } from "./SearchSelect"
@@ -159,8 +159,8 @@ export const CustomFilter = {
   },
 } satisfies StoryObj<typeof SearchSelect<(typeof descriptionOptions)[0]>>
 
-const onOptionSelect = jest.fn()
-const onClearClick = jest.fn()
+const onOptionSelect = test.fn()
+const onClearClick = test.fn()
 export const Pointer = {
   args: {
     label: "Label",

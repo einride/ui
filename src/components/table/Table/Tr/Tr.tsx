@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import { ComponentPropsWithoutRef, forwardRef } from "react"
-import { getColor, getFont } from "../../../lib/theme/prop-system"
-import { Color, FontFamily } from "../../../lib/theme/props"
+import { getColor, getFont } from "../../../../lib/theme/prop-system"
+import { Color, FontFamily } from "../../../../lib/theme/props"
 
 interface TrProps extends Omit<ComponentPropsWithoutRef<"tr">, "color"> {
   /** Text color set on the table row. */

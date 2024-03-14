@@ -6,12 +6,12 @@ import { Menu } from "../../components/menus/Menu/Menu"
 import { MenuContent } from "../../components/menus/Menu/MenuContent"
 import { MenuItem } from "../../components/menus/Menu/MenuItem"
 import { MenuTrigger } from "../../components/menus/Menu/MenuTrigger"
-import { Table } from "../../components/table/Table/Table"
-import { Tbody } from "../../components/table/Tbody/Tbody"
-import { Td } from "../../components/table/Td/Td"
-import { Th } from "../../components/table/Th/Th"
-import { Thead } from "../../components/table/Thead/Thead"
-import { Tr } from "../../components/table/Tr/Tr"
+import { Table } from "../../components/table/Table/Table/Table"
+import { Tbody } from "../../components/table/Table/Tbody/Tbody"
+import { Td } from "../../components/table/Table/Td/Td"
+import { Th } from "../../components/table/Table/Th/Th"
+import { Thead } from "../../components/table/Table/Thead/Thead"
+import { Tr } from "../../components/table/Table/Tr/Tr"
 
 const meta = {
   title: "Templates/Wireframes/UserTable",

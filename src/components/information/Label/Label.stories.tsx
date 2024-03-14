@@ -1,6 +1,5 @@
-import { expect } from "@storybook/jest"
 import { Meta, StoryObj } from "@storybook/react"
-import { within } from "@storybook/testing-library"
+import { expect, within } from "@storybook/test"
 import { SnapshotWrapper } from "../../../lib/storybook/SnapshotWrapper"
 import { Group } from "../../layout/Group/Group"
 import { Label } from "./Label"

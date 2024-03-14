@@ -1,6 +1,5 @@
-import { expect } from "@storybook/jest"
 import { Meta, StoryObj } from "@storybook/react"
-import { userEvent, within } from "@storybook/testing-library"
+import { expect, userEvent, within } from "@storybook/test"
 import { ComponentProps, useState } from "react"
 import { SnapshotWrapper } from "../../../../lib/storybook/SnapshotWrapper"
 import { Box } from "../../../layout/Box/Box"
