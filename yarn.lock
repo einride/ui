@@ -1793,7 +1793,7 @@ __metadata:
     "@types/lodash.merge": 4.6.9
     "@types/luxon": 3.4.2
     "@types/react": 18.2.65
-    "@types/react-dom": 18.2.21
+    "@types/react-dom": 18.2.22
     "@vitejs/plugin-react": 4.2.1
     chromatic: 11.0.8
     concurrently: 8.2.2
@@ -1812,7 +1812,7 @@ __metadata:
     typescript: 5.4.2
     vite: 5.1.6
     vite-plugin-turbosnap: 1.0.3
-    vite-tsconfig-paths: 4.3.1
+    vite-tsconfig-paths: 4.3.2
     vitest: 1.3.1
   peerDependencies:
     "@emotion/react": ^11.11.0
@@ -6370,12 +6370,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.2.21":
-  version: 18.2.21
-  resolution: "@types/react-dom@npm:18.2.21"
+"@types/react-dom@npm:18.2.22":
+  version: 18.2.22
+  resolution: "@types/react-dom@npm:18.2.22"
   dependencies:
     "@types/react": "*"
-  checksum: 0ff00aedf5ffad90ed226c0ab0acdca609804c81af5dbde0d13a4ae53dac6bd92f85f1adc032c42966ec2e9417d13d18a41767434afa4d8c1979cad57348191b
+  checksum: 83bb3ddcd7894f20a9a6cbc2befe75d8b76984734020c455b4c50cad625a4025250d8e1d247ef6264e484d47d5a94f2dd11f77c1dcac6a5de998cb447d85b720
   languageName: node
   linkType: hard
 
@@ -17947,9 +17947,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsconfck@npm:^3.0.1":
-  version: 3.0.2
-  resolution: "tsconfck@npm:3.0.2"
+"tsconfck@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "tsconfck@npm:3.0.3"
   peerDependencies:
     typescript: ^5.0.0
   peerDependenciesMeta:
@@ -17957,7 +17957,7 @@ __metadata:
       optional: true
   bin:
     tsconfck: bin/tsconfck.js
-  checksum: bf40e547a01610571a55ff33beb74751942561963f9c5f1152ad415ad4bd27eb90d65e9fb2edbb60ecb9407b115d1d52a633fc1f83cf4ea0424041a10e7eeea3
+  checksum: 8ee0d73f730c0747d4bfe569b1931e1b3848f2adfb86ee8f3dc9aedd123f155b363dec7f51dc165fc7938ce592af753aa513adf7753ffcbee1baf97017d919dd
   languageName: node
   linkType: hard
 
@@ -18644,19 +18644,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-tsconfig-paths@npm:4.3.1":
-  version: 4.3.1
-  resolution: "vite-tsconfig-paths@npm:4.3.1"
+"vite-tsconfig-paths@npm:4.3.2":
+  version: 4.3.2
+  resolution: "vite-tsconfig-paths@npm:4.3.2"
   dependencies:
     debug: ^4.1.1
     globrex: ^0.1.2
-    tsconfck: ^3.0.1
+    tsconfck: ^3.0.3
   peerDependencies:
     vite: "*"
   peerDependenciesMeta:
     vite:
       optional: true
-  checksum: 2934d5d674e0b6ab8d435d4262ff30143c30512072d71ece5a3859a70a188cbdbcc2b0370277049ab551f7bbb6ffb2be94a0bf30154e5c58d38b32adce9740bd
+  checksum: 7105ff641379f9f7055110f33067b236c8ee71b1390c0e6482412cdcc7a98c2e139c1c2a483d14fe9045d1977c14dc931e1ff302d6257ec919c70379db9d2419
   languageName: node
   linkType: hard
 
