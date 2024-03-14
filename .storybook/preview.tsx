@@ -36,7 +36,6 @@ const customViewports = {
 }
 
 const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
   chromatic: {
     disableSnapshot: true,
   },
