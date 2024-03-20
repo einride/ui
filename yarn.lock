@@ -1801,18 +1801,18 @@ __metadata:
     "@storybook/test-runner": 0.17.0
     "@storybook/theming": 8.0.1
     "@testing-library/jest-dom": 6.4.2
-    "@testing-library/react": 14.2.1
+    "@testing-library/react": 14.2.2
     "@testing-library/user-event": 14.5.2
     "@types/lodash.merge": 4.6.9
     "@types/luxon": 3.4.2
     "@types/react": 18.2.67
     "@types/react-dom": 18.2.22
     "@vitejs/plugin-react": 4.2.1
-    chromatic: 11.0.8
+    chromatic: 11.1.1
     concurrently: 8.2.2
     eslint: 8.57.0
     eslint-plugin-storybook: 0.8.0
-    framer-motion: 11.0.14
+    framer-motion: 11.0.15
     lodash.merge: 4.6.2
     luxon: 3.4.4
     prettier: 3.2.5
@@ -6051,9 +6051,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:14.2.1":
-  version: 14.2.1
-  resolution: "@testing-library/react@npm:14.2.1"
+"@testing-library/react@npm:14.2.2":
+  version: 14.2.2
+  resolution: "@testing-library/react@npm:14.2.2"
   dependencies:
     "@babel/runtime": ^7.12.5
     "@testing-library/dom": ^9.0.0
@@ -6061,7 +6061,7 @@ __metadata:
   peerDependencies:
     react: ^18.0.0
     react-dom: ^18.0.0
-  checksum: 7054ae69a0e06c0777da8105fa08fac7e8dac570476a065285d7b993947acda5c948598764a203ebaac759c161c562d6712f19f5bd08be3f09a07e23baee5426
+  checksum: cb73df588592d9101429f057eaa6f320fc12524d5eb2acc8a16002c1ee2d9422a49e44841003bba42974c9ae1ced6b134f0d647826eca42ab8f19e4592971b16
   languageName: node
   linkType: hard
 
@@ -7973,9 +7973,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:11.0.8":
-  version: 11.0.8
-  resolution: "chromatic@npm:11.0.8"
+"chromatic@npm:11.1.1":
+  version: 11.1.1
+  resolution: "chromatic@npm:11.1.1"
   peerDependencies:
     "@chromatic-com/cypress": ^0.*.* || ^1.0.0
     "@chromatic-com/playwright": ^0.*.* || ^1.0.0
@@ -7988,7 +7988,7 @@ __metadata:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: cef2a686a192b522ae8dda4ec5f93fbad567b9bbc7be7795f6db5231656279a2221cef426aa1a00b52ff3d5367b2e422a547d380c381cba15492846db4d5ad48
+  checksum: 347a3e3f2b6982ecb8459197a33d0a75c37e760e1d77bfbd861cb2fa959c112d4fe33b71ac0f20e1b9b79db5ea4792f16cbc0c719c489120b648f5226c89c210
   languageName: node
   linkType: hard
 
@@ -10560,9 +10560,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:11.0.14":
-  version: 11.0.14
-  resolution: "framer-motion@npm:11.0.14"
+"framer-motion@npm:11.0.15":
+  version: 11.0.15
+  resolution: "framer-motion@npm:11.0.15"
   dependencies:
     tslib: ^2.4.0
   peerDependencies:
@@ -10576,7 +10576,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 13299c0d91a0f04d96313ad3c929a1c7a07c9e4dad120dff23411926199b23f6a40f2f17ec7908a6db994d933b4601402cd4d72068ce349ed6a834c9313a65ac
+  checksum: 8341f7507926672a6fe8dc977b24b9c5a4d73acf9449d6ad1eed748151badcaf652cd36c6dac84718ae747e6aa55f9df5bb0ced9ab71cd5116dd9d62bebebf66
   languageName: node
   linkType: hard
 
