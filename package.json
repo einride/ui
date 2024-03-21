@@ -18,7 +18,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@einride/hooks": "1.7.9",
+    "@einride/hooks": "1.8.0",
     "@emotion/is-prop-valid": "1.2.2",
     "@mantine/hooks": "7.1.1",
     "@radix-ui/react-alert-dialog": "1.0.5",
