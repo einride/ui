@@ -1735,12 +1735,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@einride/hooks@npm:1.7.9":
-  version: 1.7.9
-  resolution: "@einride/hooks@npm:1.7.9"
+"@einride/hooks@npm:1.8.0":
+  version: 1.8.0
+  resolution: "@einride/hooks@npm:1.8.0"
   peerDependencies:
     react: ">=16.8.0"
-  checksum: aae7d620cb9be4e34671babf171d4bb092aa5b2cd530613c1240a0982c9be944ad32e4587f3950dc2e8a6589b7aae1848b9a4fb50e5db49977b5b8b24f4afd23
+  checksum: f8153519bf15b18e08ac2b7780123822a045b85f0d5ac0cf0a691f3a1273912b2576c4a8da70fbb91381dce0ce115f9695c2685602fefbf4399edae7e09871a9
   languageName: node
   linkType: hard
 
@@ -1769,7 +1769,7 @@ __metadata:
     "@commitlint/cli": 19.2.1
     "@commitlint/config-conventional": 19.1.0
     "@einride/eslint-plugin": 7.9.0
-    "@einride/hooks": 1.7.9
+    "@einride/hooks": 1.8.0
     "@einride/prettier-config": 2.1.0
     "@einride/tsconfig": 2.1.0
     "@emotion/is-prop-valid": 1.2.2
