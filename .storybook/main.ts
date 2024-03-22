@@ -23,4 +23,7 @@ export default {
         configType === "PRODUCTION" ? [turbosnap({ rootDir: config.root ?? process.cwd() })] : [],
     })
   },
+  typescript: {
+    reactDocgen: "react-docgen-typescript",
+  },
 } satisfies StorybookConfig
