@@ -1812,7 +1812,7 @@ __metadata:
     concurrently: 8.2.2
     eslint: 8.57.0
     eslint-plugin-storybook: 0.8.0
-    framer-motion: 11.0.18
+    framer-motion: 11.0.20
     lodash.merge: 4.6.2
     luxon: 3.4.4
     prettier: 3.2.5
@@ -10561,9 +10561,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:11.0.18":
-  version: 11.0.18
-  resolution: "framer-motion@npm:11.0.18"
+"framer-motion@npm:11.0.20":
+  version: 11.0.20
+  resolution: "framer-motion@npm:11.0.20"
   dependencies:
     tslib: ^2.4.0
   peerDependencies:
@@ -10577,7 +10577,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 051c621125d3bcded400c372a0062fd3ebdbe820b3789803d19707c5d6446f2a38c07979235e27f1cf378755f973be04d08f4b360b2f1be48eabc32cde9d4e3d
+  checksum: 253e24aca3b9582cb4bdeb7b19706bc78b31c9d64e819b2370bd43c281a2122012e2a506c95bf6196d18a64b646dc00159467cdd13c67cbf57fd55daceca84dd
   languageName: node
   linkType: hard
 
