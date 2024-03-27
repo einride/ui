@@ -1805,14 +1805,14 @@ __metadata:
     "@testing-library/user-event": 14.5.2
     "@types/lodash.merge": 4.6.9
     "@types/luxon": 3.4.2
-    "@types/react": 18.2.70
+    "@types/react": 18.2.72
     "@types/react-dom": 18.2.22
     "@vitejs/plugin-react": 4.2.1
     chromatic: 11.2.0
     concurrently: 8.2.2
     eslint: 8.57.0
     eslint-plugin-storybook: 0.8.0
-    framer-motion: 11.0.20
+    framer-motion: 11.0.22
     lodash.merge: 4.6.2
     luxon: 3.4.4
     prettier: 3.2.5
@@ -6479,14 +6479,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.70":
-  version: 18.2.70
-  resolution: "@types/react@npm:18.2.70"
+"@types/react@npm:18.2.72":
+  version: 18.2.72
+  resolution: "@types/react@npm:18.2.72"
   dependencies:
     "@types/prop-types": "*"
-    "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 4d1160ad2449ce5e96aa795f24f9e3902975cd59e6ce3c79eb674acb1262a54cdb0bc9c9b0aeb858da24e20148a09ec1822c8ed12f70c1c87b779ac2baf72ebd
+  checksum: 694127e704afd3fe1fefe699c6600d1edbb5a81c9862960f40f3d53d4ea625333199671b25b7f13191bc7fa088e15a4342a3de7fa8a5657a24744b65d6ec95f9
   languageName: node
   linkType: hard
 
@@ -10561,9 +10560,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:11.0.20":
-  version: 11.0.20
-  resolution: "framer-motion@npm:11.0.20"
+"framer-motion@npm:11.0.22":
+  version: 11.0.22
+  resolution: "framer-motion@npm:11.0.22"
   dependencies:
     tslib: ^2.4.0
   peerDependencies:
@@ -10577,7 +10576,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 253e24aca3b9582cb4bdeb7b19706bc78b31c9d64e819b2370bd43c281a2122012e2a506c95bf6196d18a64b646dc00159467cdd13c67cbf57fd55daceca84dd
+  checksum: 632e69819001bf757cab5f3b42c4e4d110ba8cef4ad41e85fc72e5feebee4220d77708b2550099e7a415b9dd5c0a107207beba45eea49a16d6380cfc083344d2
   languageName: node
   linkType: hard
 
