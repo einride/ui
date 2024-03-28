@@ -3,7 +3,7 @@ name: Storybook tests
 on:
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   storybook-tests:

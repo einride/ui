@@ -9,7 +9,7 @@
     "storybook": "storybook dev -p 6006",
     "test-storybook": "test-storybook",
     "test-storybook-coverage": "test-storybook --coverage",
-    "commitlint": "commitlint --from origin/main --to HEAD",
+    "commitlint": "commitlint --from origin/master --to HEAD",
     "format": "prettier --write .",
     "format-check": "prettier --check .",
     "lint": "eslint --ext ts,tsx .",
