@@ -5,7 +5,7 @@ metadata:
   title: Einride UI
   description: Core components that adhere to Einride's design system.
   annotations:
-    backstage.io/source-location: url:https://github.com/einride/einride-ui/tree/main
+    backstage.io/source-location: url:https://github.com/einride/einride-ui/tree/master
     github.com/project-slug: einride/ui
     github.com/team-slug: einride/platform-engineering
 spec:
