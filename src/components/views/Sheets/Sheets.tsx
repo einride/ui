@@ -97,58 +97,52 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
     const isAboveSm = useMediaQuery(theme.mediaQueries.md)
     return (
       <AnimatePresence>
-        <Dialog.Root modal={modal} open={isOpen}>
-          <Dialog.Portal>
-            {withOverlay && (
-              <DialogOverlay
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                initial={{ opacity: 0 }}
-                {...overlayProps}
-              />
-            )}
-            <DialogContent
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              initial={{ opacity: 0 }}
-              size={size}
-              onBlur={(e) => e.stopPropagation()} // to prevent weird focus bugs with interactive components such as <SearchSelect>, where focus is blurred and then immediately reapplied when clicking on an option in modal mode
-              onEscapeKeyDown={closeHandler}
-              onPointerDownOutside={() => {
-                if (closeOnClickOutside && modal) {
-                  closeHandler()
-                }
-              }}
-              {...props}
-              ref={forwardedRef}
-            >
-              <Navigation>
-                <NavigationAction>
-                  {navigationAction && <IconButton {...navigationAction} />}
-                  {navigationTitle && navigationTitle}
-                </NavigationAction>
-                {isAboveSm && (
-                  <MdLgActions>
-                    {secondaryAction && <SecondaryButton {...secondaryAction} />}
-                    {primaryAction && <PrimaryButton {...primaryAction} />}
-                  </MdLgActions>
-                )}
-              </Navigation>
-              <Content
-                data-primary-action={Boolean(primaryAction)}
-                data-secondary-action={Boolean(secondaryAction)}
-              >
-                {children}
-              </Content>
-              {!isAboveSm && (
-                <SmActions>
-                  {primaryAction && <PrimaryButton isFullWidth {...primaryAction} />}
-                  {secondaryAction && <SecondaryButton isFullWidth {...secondaryAction} />}
-                </SmActions>
-              )}
-            </DialogContent>
-          </Dialog.Portal>
-        </Dialog.Root>
+        {isOpen && (
+          <Dialog.Root modal={modal} open={isOpen}>
+            <Dialog.Portal>
+              <motion.div animate={{ opacity: 1 }} exit={{ opacity: 0 }} initial={{ opacity: 0 }}>
+                {withOverlay && <DialogOverlay {...overlayProps} />}
+                <DialogContent
+                  size={size}
+                  onBlur={(e) => e.stopPropagation()} // to prevent weird focus bugs with interactive components such as <SearchSelect>, where focus is blurred and then immediately reapplied when clicking on an option in modal mode
+                  onEscapeKeyDown={closeHandler}
+                  onPointerDownOutside={() => {
+                    if (closeOnClickOutside && modal) {
+                      closeHandler()
+                    }
+                  }}
+                  {...props}
+                  ref={forwardedRef}
+                >
+                  <Navigation>
+                    <NavigationAction>
+                      {navigationAction && <IconButton {...navigationAction} />}
+                      {navigationTitle && navigationTitle}
+                    </NavigationAction>
+                    {isAboveSm && (
+                      <MdLgActions>
+                        {secondaryAction && <SecondaryButton {...secondaryAction} />}
+                        {primaryAction && <PrimaryButton {...primaryAction} />}
+                      </MdLgActions>
+                    )}
+                  </Navigation>
+                  <Content
+                    data-primary-action={Boolean(primaryAction)}
+                    data-secondary-action={Boolean(secondaryAction)}
+                  >
+                    {children}
+                  </Content>
+                  {!isAboveSm && (
+                    <SmActions>
+                      {primaryAction && <PrimaryButton isFullWidth {...primaryAction} />}
+                      {secondaryAction && <SecondaryButton isFullWidth {...secondaryAction} />}
+                    </SmActions>
+                  )}
+                </DialogContent>
+              </motion.div>
+            </Dialog.Portal>
+          </Dialog.Root>
+        )}
       </AnimatePresence>
     )
   },
@@ -156,14 +150,14 @@ export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
 
 type Size = "sm" | "md"
 
-const DialogOverlay = styled(motion(Dialog.Overlay))`
+const DialogOverlay = styled(Dialog.Overlay)`
   position: fixed;
   inset: 0;
   background: ${({ theme }) => theme.colors.background.focus};
   z-index: ${zIndex.sheets - 10}; // below but close to sheets
 `
 
-const DialogContent = styled(motion(Dialog.Content))<{ size: Size }>`
+const DialogContent = styled(Dialog.Content)<{ size: Size }>`
   position: fixed;
   inset-block-start: ${({ theme }) => 8 * theme.spacingBase}rem;
   inset-block-end: 0;
