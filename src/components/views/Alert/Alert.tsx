@@ -73,71 +73,67 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
   ) => {
     return (
       <AnimatePresence>
-        <AlertDialog.Root open={isOpen}>
-          <AlertDialog.Portal>
-            <AlertDialogOverlay
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              initial={{ opacity: 0 }}
-              {...overlayProps}
-            />
-            <AlertDialogContent
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              initial={{ opacity: 0 }}
-              onEscapeKeyDown={closeHandler}
-              {...props}
-              ref={forwardedRef}
-            >
-              {title && (
-                <AlertDialog.Title asChild>
-                  <Text>{title}</Text>
-                </AlertDialog.Title>
-              )}
-              {description && (
-                <AlertDialog.Description asChild>
-                  <Text color="secondary">{description}</Text>
-                </AlertDialog.Description>
-              )}
-              {children && <Box>{children}</Box>}
-              <VerticalSpacing size="xl" />
-              <VerticalSpacing size="md" />
-              <Box display="flex" flexDirection="column" gap="sm">
-                {primaryAction && (
-                  <AlertDialog.Action asChild>
-                    <PrimaryButton {...primaryAction} isFullWidth onClick={primaryAction.onClick}>
-                      {primaryAction.children}
-                    </PrimaryButton>
-                  </AlertDialog.Action>
-                )}
-                {secondaryAction && (
-                  <AlertDialog.Cancel asChild>
-                    <SecondaryButton
-                      {...secondaryAction}
-                      isFullWidth
-                      onClick={secondaryAction.onClick}
-                    >
-                      {secondaryAction.children}
-                    </SecondaryButton>
-                  </AlertDialog.Cancel>
-                )}
-              </Box>
-            </AlertDialogContent>
-          </AlertDialog.Portal>
-        </AlertDialog.Root>
+        {isOpen && (
+          <AlertDialog.Root open={isOpen}>
+            <AlertDialog.Portal>
+              <motion.div animate={{ opacity: 1 }} exit={{ opacity: 0 }} initial={{ opacity: 0 }}>
+                <AlertDialogOverlay {...overlayProps} />
+                <AlertDialogContent onEscapeKeyDown={closeHandler} {...props} ref={forwardedRef}>
+                  {title && (
+                    <AlertDialog.Title asChild>
+                      <Text>{title}</Text>
+                    </AlertDialog.Title>
+                  )}
+                  {description && (
+                    <AlertDialog.Description asChild>
+                      <Text color="secondary">{description}</Text>
+                    </AlertDialog.Description>
+                  )}
+                  {children && <Box>{children}</Box>}
+                  <VerticalSpacing size="xl" />
+                  <VerticalSpacing size="md" />
+                  <Box display="flex" flexDirection="column" gap="sm">
+                    {primaryAction && (
+                      <AlertDialog.Action asChild>
+                        <PrimaryButton
+                          {...primaryAction}
+                          isFullWidth
+                          onClick={primaryAction.onClick}
+                        >
+                          {primaryAction.children}
+                        </PrimaryButton>
+                      </AlertDialog.Action>
+                    )}
+                    {secondaryAction && (
+                      <AlertDialog.Cancel asChild>
+                        <SecondaryButton
+                          {...secondaryAction}
+                          isFullWidth
+                          onClick={secondaryAction.onClick}
+                        >
+                          {secondaryAction.children}
+                        </SecondaryButton>
+                      </AlertDialog.Cancel>
+                    )}
+                  </Box>
+                </AlertDialogContent>
+              </motion.div>
+            </AlertDialog.Portal>
+          </AlertDialog.Root>
+        )}
       </AnimatePresence>
     )
   },
 )
 
-const AlertDialogOverlay = styled(motion(AlertDialog.Overlay))`
+const AlertDialogOverlay = styled(AlertDialog.Overlay)`
   position: fixed;
   inset: 0;
   background: ${({ theme }) => theme.colors.background.focus};
   z-index: ${zIndex.alert - 10}; // below but close to alert
 `
 
-const AlertDialogContent = styled(motion(AlertDialog.Content))`
+const AlertDialogContent = styled(AlertDialog.Content)`
   position: fixed;
   inset-block-start: 50%;
   inset-inline-start: 50%;

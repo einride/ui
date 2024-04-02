@@ -1,6 +1,6 @@
 import { useDisclosure } from "@einride/hooks"
 import { Meta, StoryObj } from "@storybook/react"
-import { expect, userEvent, within } from "@storybook/test"
+import { expect, userEvent, waitFor, within } from "@storybook/test"
 import { PrimaryButton } from "../../controls/buttons/PrimaryButton/PrimaryButton"
 import { Alert } from "./Alert"
 
@@ -55,7 +55,9 @@ export const Pointer = {
     await expect(openButton).toHaveStyle("pointer-events: none")
     const secondaryButton = canvas.getByRole("button", { name: "Secondary" })
     await userEvent.click(secondaryButton)
-    await expect(alert).not.toBeInTheDocument()
+    await waitFor(async () => {
+      await expect(alert).not.toBeInTheDocument()
+    })
   },
 } satisfies StoryObj
 
@@ -75,6 +77,8 @@ export const Keyboard = {
     const secondaryButton = canvas.getByRole("button", { name: "Secondary" })
     await expect(secondaryButton).toHaveFocus()
     await userEvent.keyboard("[Enter]")
-    await expect(alert).not.toBeInTheDocument()
+    await waitFor(async () => {
+      await expect(alert).not.toBeInTheDocument()
+    })
   },
 } satisfies StoryObj
