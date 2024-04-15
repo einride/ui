@@ -1,9 +1,0 @@
-apiVersion: backstage.io/v1alpha1
-kind: System
-metadata:
-  name: einride-ui
-  title: Einride UI
-  description: Einride's UI framework.
-spec:
-  owner: platform-engineering
-  domain: developer-platform
