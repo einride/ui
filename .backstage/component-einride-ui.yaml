@@ -10,6 +10,6 @@ metadata:
     github.com/team-slug: einride/platform-engineering
 spec:
   type: library
-  system: einride-ui
+  system: frontend-sdk
   owner: platform-engineering
   lifecycle: production
