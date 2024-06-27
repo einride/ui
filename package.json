@@ -28,7 +28,7 @@
     "@radix-ui/react-slider": "1.2.0",
     "@radix-ui/react-switch": "1.0.3",
     "@radix-ui/react-tabs": "1.1.0",
-    "@radix-ui/react-tooltip": "1.0.7",
+    "@radix-ui/react-tooltip": "1.1.1",
     "lodash.merge": "4.6.2"
   },
   "devDependencies": {
