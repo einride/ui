@@ -1823,7 +1823,7 @@ __metadata:
     storybook: 8.0.6
     tslib: 2.6.2
     typescript: 5.4.4
-    vite: 5.2.8
+    vite: 5.2.14
     vite-plugin-turbosnap: 1.0.3
     vite-tsconfig-paths: 4.3.2
     vitest: 1.4.0
@@ -18526,9 +18526,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:5.2.8":
-  version: 5.2.8
-  resolution: "vite@npm:5.2.8"
+"vite@npm:5.2.14":
+  version: 5.2.14
+  resolution: "vite@npm:5.2.14"
   dependencies:
     esbuild: ^0.20.1
     fsevents: ~2.3.3
@@ -18562,7 +18562,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: c0a77271b548fce443af59a383939924ffcba8e6d0ba6ecb2e481d0ec2318465d2116ce9317599c448e6d6d8af11a67b8efc5b52cb1deab37d2e83311ac4f1b5
+  checksum: 20faac4c6e22f5b3e072c8dd639ebe36836c85bd6611967a76e784e332cfc5602caaf22339f1d18ab66e3466122fe46dea51c803517f82d8e63a37d1999333dd
   languageName: node
   linkType: hard
 
