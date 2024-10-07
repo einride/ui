@@ -1783,7 +1783,7 @@ __metadata:
     "@radix-ui/react-radio-group": 1.2.1
     "@radix-ui/react-slider": 1.2.0
     "@radix-ui/react-switch": 1.1.1
-    "@radix-ui/react-tabs": 1.1.0
+    "@radix-ui/react-tabs": 1.1.1
     "@radix-ui/react-tooltip": 1.1.3
     "@rollup/plugin-image": 3.0.3
     "@rollup/plugin-typescript": 11.1.2
@@ -4370,15 +4370,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-tabs@npm:1.1.0":
-  version: 1.1.0
-  resolution: "@radix-ui/react-tabs@npm:1.1.0"
+"@radix-ui/react-tabs@npm:1.1.1":
+  version: 1.1.1
+  resolution: "@radix-ui/react-tabs@npm:1.1.1"
   dependencies:
     "@radix-ui/primitive": 1.1.0
-    "@radix-ui/react-context": 1.1.0
+    "@radix-ui/react-context": 1.1.1
     "@radix-ui/react-direction": 1.1.0
     "@radix-ui/react-id": 1.1.0
-    "@radix-ui/react-presence": 1.1.0
+    "@radix-ui/react-presence": 1.1.1
     "@radix-ui/react-primitive": 2.0.0
     "@radix-ui/react-roving-focus": 1.1.0
     "@radix-ui/react-use-controllable-state": 1.1.0
@@ -4392,7 +4392,7 @@ __metadata:
       optional: true
     "@types/react-dom":
       optional: true
-  checksum: 68200d65f02f1aa9d8c06f9a587dbf169e0a4efa715eb855d98f9dd8e3c0ba32981f431f4e306d2ff85005dfe2b0a905c8d5f9ee50f7a80abc1e4eb59ecd56d7
+  checksum: 9ceac8a655df3c692d86247bdc2f951c4df22b1329451ca7148a545b48ba809e280e565d084d7d502cfe30370e0fcc57f80d47b57ebecd75caca6825bbf47f4a
   languageName: node
   linkType: hard
 
