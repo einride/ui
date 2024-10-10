@@ -46,7 +46,7 @@ jobs:
 
       - name: Publish Storybook Preview in PR comment
         if: ${{ github.event_name == 'pull_request' }}
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@v3
         with:
           message: |
             Storybook Preview: ${{ steps.chromatic.outputs.storybookUrl }}
