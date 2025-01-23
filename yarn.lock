@@ -1778,7 +1778,7 @@ __metadata:
     "@faker-js/faker": 8.4.1
     "@mantine/hooks": 7.1.1
     "@radix-ui/react-alert-dialog": 1.1.2
-    "@radix-ui/react-dialog": 1.1.4
+    "@radix-ui/react-dialog": 1.1.5
     "@radix-ui/react-dropdown-menu": 2.1.2
     "@radix-ui/react-radio-group": 1.2.1
     "@radix-ui/react-slider": 1.2.2
@@ -3682,14 +3682,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-dialog@npm:1.1.4":
-  version: 1.1.4
-  resolution: "@radix-ui/react-dialog@npm:1.1.4"
+"@radix-ui/react-dialog@npm:1.1.5":
+  version: 1.1.5
+  resolution: "@radix-ui/react-dialog@npm:1.1.5"
   dependencies:
     "@radix-ui/primitive": 1.1.1
     "@radix-ui/react-compose-refs": 1.1.1
     "@radix-ui/react-context": 1.1.1
-    "@radix-ui/react-dismissable-layer": 1.1.3
+    "@radix-ui/react-dismissable-layer": 1.1.4
     "@radix-ui/react-focus-guards": 1.1.1
     "@radix-ui/react-focus-scope": 1.1.1
     "@radix-ui/react-id": 1.1.0
@@ -3698,8 +3698,8 @@ __metadata:
     "@radix-ui/react-primitive": 2.0.1
     "@radix-ui/react-slot": 1.1.1
     "@radix-ui/react-use-controllable-state": 1.1.0
-    aria-hidden: ^1.1.1
-    react-remove-scroll: ^2.6.1
+    aria-hidden: ^1.2.4
+    react-remove-scroll: ^2.6.2
   peerDependencies:
     "@types/react": "*"
     "@types/react-dom": "*"
@@ -3710,7 +3710,7 @@ __metadata:
       optional: true
     "@types/react-dom":
       optional: true
-  checksum: 695b35c7283adfe2be4ad88d30f0ad08be099a55dfd54e49ede61074846255b426eb57734509b5fc6f349439a051b48e44e58b542c2605383aa721a1b2bd7861
+  checksum: 0897fd319e9566fac87141ae74b91dee17202c5ef68850ce0f15702bfb7bd45dbacec0221b3e0a1ec25e43f79727ff88948098eb83e072c655215129dac72bc8
   languageName: node
   linkType: hard
 
@@ -3789,9 +3789,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-dismissable-layer@npm:1.1.3":
-  version: 1.1.3
-  resolution: "@radix-ui/react-dismissable-layer@npm:1.1.3"
+"@radix-ui/react-dismissable-layer@npm:1.1.4":
+  version: 1.1.4
+  resolution: "@radix-ui/react-dismissable-layer@npm:1.1.4"
   dependencies:
     "@radix-ui/primitive": 1.1.1
     "@radix-ui/react-compose-refs": 1.1.1
@@ -3808,7 +3808,7 @@ __metadata:
       optional: true
     "@types/react-dom":
       optional: true
-  checksum: 26d15726bdb274aeb8d801fd163051c270707fb19e9bac4e0e90b368e79063a5347a0b15dc3aadc0bbafa157674e9e796d785d720bd5132c059ac5294ac73a81
+  checksum: 387060b412c8db474d2e0395c5ad8eb93544a81268be2a22ff1c9c8127f9477471bd8a6d026cfc9a541512223edbf3107f6603d574b46b554431819c3c68ff2e
   languageName: node
   linkType: hard
 
@@ -7875,6 +7875,15 @@ __metadata:
   dependencies:
     tslib: ^2.0.0
   checksum: 7d7d211629eef315e94ed3b064c6823d13617e609d3f9afab1c2ed86399bb8e90405f9bdd358a85506802766f3ecb468af985c67c846045a34b973bcc0289db9
+  languageName: node
+  linkType: hard
+
+"aria-hidden@npm:^1.2.4":
+  version: 1.2.4
+  resolution: "aria-hidden@npm:1.2.4"
+  dependencies:
+    tslib: ^2.0.0
+  checksum: 2ac90b70d29c6349d86d90e022cf01f4885f9be193932d943a14127cf28560dd0baf068a6625f084163437a4be0578f513cf7892f4cc63bfe91aa41dce27c6b2
   languageName: node
   linkType: hard
 
@@ -16304,22 +16313,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-remove-scroll@npm:^2.6.1":
-  version: 2.6.1
-  resolution: "react-remove-scroll@npm:2.6.1"
+"react-remove-scroll@npm:^2.6.2":
+  version: 2.6.3
+  resolution: "react-remove-scroll@npm:2.6.3"
   dependencies:
     react-remove-scroll-bar: ^2.3.7
-    react-style-singleton: ^2.2.1
+    react-style-singleton: ^2.2.3
     tslib: ^2.1.0
-    use-callback-ref: ^1.3.0
-    use-sidecar: ^1.1.2
+    use-callback-ref: ^1.3.3
+    use-sidecar: ^1.1.3
   peerDependencies:
     "@types/react": "*"
     react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 4acc701076505c6809de0348d002593eb875ccf5868d27d547876a2a7773a2b5ae5be96f298ce2a99510908b8ab347df64567fc9d82727077636a3ba9f1a847d
+  checksum: a4afd320435cc25a6ee39d7cef2f605dca14cc7618e1cdab24ed0924fa71d8c3756626334dedc9a578945d7ba6f8f87d7b8b66b48034853dc4dbfbda0a1b228b
   languageName: node
   linkType: hard
 
@@ -16340,7 +16349,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-style-singleton@npm:^2.2.2":
+"react-style-singleton@npm:^2.2.2, react-style-singleton@npm:^2.2.3":
   version: 2.2.3
   resolution: "react-style-singleton@npm:2.2.3"
   dependencies:
@@ -18659,6 +18668,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"use-callback-ref@npm:^1.3.3":
+  version: 1.3.3
+  resolution: "use-callback-ref@npm:1.3.3"
+  dependencies:
+    tslib: ^2.0.0
+  peerDependencies:
+    "@types/react": "*"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: 4da1c82d7a2409cee6c882748a40f4a083decf238308bf12c3d0166f0e338f8d512f37b8d11987eb5a421f14b9b5b991edf3e11ed25c3bb7a6559081f8359b44
+  languageName: node
+  linkType: hard
+
 "use-resize-observer@npm:^9.1.0":
   version: 9.1.0
   resolution: "use-resize-observer@npm:9.1.0"
@@ -18684,6 +18708,22 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 925d1922f9853e516eaad526b6fed1be38008073067274f0ecc3f56b17bb8ab63480140dd7c271f94150027c996cea4efe83d3e3525e8f3eda22055f6a39220b
+  languageName: node
+  linkType: hard
+
+"use-sidecar@npm:^1.1.3":
+  version: 1.1.3
+  resolution: "use-sidecar@npm:1.1.3"
+  dependencies:
+    detect-node-es: ^1.1.0
+    tslib: ^2.0.0
+  peerDependencies:
+    "@types/react": "*"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: 88664c6b2c5b6e53e4d5d987694c9053cea806da43130248c74ca058945c8caa6ccb7b1787205a9eb5b9d124633e42153848904002828acabccdc48cda026622
   languageName: node
   linkType: hard
 
