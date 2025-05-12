@@ -40,6 +40,7 @@
     "@emotion/react": "11.11.4",
     "@emotion/styled": "11.11.5",
     "@faker-js/faker": "8.4.1",
+    "@playwright/test": "1.52.0",
     "@rollup/plugin-image": "3.0.3",
     "@rollup/plugin-typescript": "11.1.2",
     "@storybook/addon-a11y": "8.6.12",
