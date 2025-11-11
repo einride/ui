@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef } from "react"
+import { ComponentPropsWithoutRef, ElementType, ReactNode } from "react"
 import { getBackground, getBorderRadius, getSpacing } from "../../../lib/theme/prop-system"
 import { Background, BorderRadius, PaddingBlockEnd } from "../../../lib/theme/props"
 
@@ -18,18 +18,24 @@ export interface CardProps extends ComponentPropsWithoutRef<"div"> {
 
   /** Padding block end of the card. */
   paddingBlockEnd?: PaddingBlockEnd
+
+  ref?: React.Ref<HTMLDivElement> | undefined
 }
 
 /** Cards are used to group content. */
-export const Card = forwardRef<HTMLDivElement, CardProps>(
-  ({ background = "primary", borderRadius = "lg", children, ...props }, ref) => {
-    return (
-      <Wrapper background={background} borderRadius={borderRadius} {...props} ref={ref}>
-        {children}
-      </Wrapper>
-    )
-  },
-)
+export const Card = ({
+  ref,
+  background = "primary",
+  borderRadius = "lg",
+  children,
+  ...props
+}: CardProps): React.JSX.Element => {
+  return (
+    <Wrapper background={background} borderRadius={borderRadius} {...props} ref={ref}>
+      {children}
+    </Wrapper>
+  )
+}
 
 interface WrapperProps {
   background: Background

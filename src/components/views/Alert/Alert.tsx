@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import * as AlertDialog from "@radix-ui/react-alert-dialog"
 import { AnimatePresence, motion } from "framer-motion"
-import { CSSProperties, ComponentPropsWithoutRef, ReactNode, forwardRef } from "react"
+import { CSSProperties, ComponentPropsWithoutRef, ReactNode } from "react"
 import { zIndex } from "../../../lib/zIndex"
 import {
   PrimaryButton,
@@ -49,6 +49,8 @@ export interface AlertProps
 
   /** Title of the alert. Rendered in `<Text>`. */
   title?: ReactNode
+
+  ref?: React.Ref<HTMLDivElement> | undefined
 }
 
 interface AlertStyles {
@@ -56,75 +58,67 @@ interface AlertStyles {
 }
 
 /** An alert commonly used when there's a need to interrupt the user with a mandatory confirmation or action. */
-export const Alert = forwardRef<HTMLDivElement, AlertProps>(
-  (
-    {
-      children,
-      closeHandler,
-      description,
-      isOpen,
-      overlayProps,
-      primaryAction,
-      secondaryAction,
-      title,
-      ...props
-    },
-    forwardedRef,
-  ) => {
-    return (
-      <AnimatePresence>
-        {isOpen && (
-          <AlertDialog.Root open={isOpen}>
-            <AlertDialog.Portal>
-              <motion.div animate={{ opacity: 1 }} exit={{ opacity: 0 }} initial={{ opacity: 0 }}>
-                <AlertDialogOverlay {...overlayProps} />
-                <AlertDialogContent onEscapeKeyDown={closeHandler} {...props} ref={forwardedRef}>
-                  {title && (
-                    <AlertDialog.Title asChild>
-                      <Text>{title}</Text>
-                    </AlertDialog.Title>
+export const Alert = ({
+  ref,
+  children,
+  closeHandler,
+  description,
+  isOpen,
+  overlayProps,
+  primaryAction,
+  secondaryAction,
+  title,
+  ...props
+}: AlertProps): React.JSX.Element => {
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <AlertDialog.Root open={isOpen}>
+          <AlertDialog.Portal>
+            <motion.div animate={{ opacity: 1 }} exit={{ opacity: 0 }} initial={{ opacity: 0 }}>
+              <AlertDialogOverlay {...overlayProps} />
+              <AlertDialogContent onEscapeKeyDown={closeHandler} {...props} ref={ref}>
+                {title && (
+                  <AlertDialog.Title asChild>
+                    <Text>{title}</Text>
+                  </AlertDialog.Title>
+                )}
+                {description && (
+                  <AlertDialog.Description asChild>
+                    <Text color="secondary">{description}</Text>
+                  </AlertDialog.Description>
+                )}
+                {children && <Box>{children}</Box>}
+                <VerticalSpacing size="xl" />
+                <VerticalSpacing size="md" />
+                <Box display="flex" flexDirection="column" gap="sm">
+                  {primaryAction && (
+                    <AlertDialog.Action asChild>
+                      <PrimaryButton {...primaryAction} isFullWidth onClick={primaryAction.onClick}>
+                        {primaryAction.children}
+                      </PrimaryButton>
+                    </AlertDialog.Action>
                   )}
-                  {description && (
-                    <AlertDialog.Description asChild>
-                      <Text color="secondary">{description}</Text>
-                    </AlertDialog.Description>
+                  {secondaryAction && (
+                    <AlertDialog.Cancel asChild>
+                      <SecondaryButton
+                        {...secondaryAction}
+                        isFullWidth
+                        onClick={secondaryAction.onClick}
+                      >
+                        {secondaryAction.children}
+                      </SecondaryButton>
+                    </AlertDialog.Cancel>
                   )}
-                  {children && <Box>{children}</Box>}
-                  <VerticalSpacing size="xl" />
-                  <VerticalSpacing size="md" />
-                  <Box display="flex" flexDirection="column" gap="sm">
-                    {primaryAction && (
-                      <AlertDialog.Action asChild>
-                        <PrimaryButton
-                          {...primaryAction}
-                          isFullWidth
-                          onClick={primaryAction.onClick}
-                        >
-                          {primaryAction.children}
-                        </PrimaryButton>
-                      </AlertDialog.Action>
-                    )}
-                    {secondaryAction && (
-                      <AlertDialog.Cancel asChild>
-                        <SecondaryButton
-                          {...secondaryAction}
-                          isFullWidth
-                          onClick={secondaryAction.onClick}
-                        >
-                          {secondaryAction.children}
-                        </SecondaryButton>
-                      </AlertDialog.Cancel>
-                    )}
-                  </Box>
-                </AlertDialogContent>
-              </motion.div>
-            </AlertDialog.Portal>
-          </AlertDialog.Root>
-        )}
-      </AnimatePresence>
-    )
-  },
-)
+                </Box>
+              </AlertDialogContent>
+            </motion.div>
+          </AlertDialog.Portal>
+        </AlertDialog.Root>
+      )}
+    </AnimatePresence>
+  )
+}
 
 const AlertDialogOverlay = styled(AlertDialog.Overlay)`
   position: fixed;

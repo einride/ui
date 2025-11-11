@@ -1,7 +1,7 @@
 import { useTheme } from "@emotion/react"
 import styled from "@emotion/styled"
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
-import { ComponentPropsWithoutRef, Fragment, forwardRef } from "react"
+import { ComponentPropsWithoutRef, Fragment } from "react"
 import { zIndex } from "../../../lib/zIndex"
 
 interface MenuContentProps extends ComponentPropsWithoutRef<typeof DropdownMenu.Content> {
@@ -13,33 +13,36 @@ interface MenuContentProps extends ComponentPropsWithoutRef<typeof DropdownMenu.
 
   /** Render content within a portal. Default is `true`. */
   inPortal?: boolean
+
+  ref?: React.Ref<HTMLDivElement> | undefined
 }
 
-export const MenuContent = forwardRef<HTMLDivElement, MenuContentProps>(
-  (
-    { children, withOverlay, inPortal = true, ...props },
-    forwardedRef,
-  ): React.JSX.Element | null => {
-    const theme = useTheme()
-    const ConditionalPortal = inPortal ? DropdownMenu.Portal : Fragment
+export const MenuContent = ({
+  ref,
+  children,
+  withOverlay,
+  inPortal = true,
+  ...props
+}: MenuContentProps): React.JSX.Element | null => {
+  const theme = useTheme()
+  const ConditionalPortal = inPortal ? DropdownMenu.Portal : Fragment
 
-    return (
-      <ConditionalPortal>
-        <Wrapper>
-          {withOverlay && inPortal && <MenuOverlay />}
-          <StyledContent
-            collisionPadding={2 * theme.spacer}
-            sideOffset={theme.spacer}
-            {...props}
-            ref={forwardedRef}
-          >
-            {children}
-          </StyledContent>
-        </Wrapper>
-      </ConditionalPortal>
-    )
-  },
-)
+  return (
+    <ConditionalPortal>
+      <Wrapper>
+        {withOverlay && inPortal && <MenuOverlay />}
+        <StyledContent
+          collisionPadding={2 * theme.spacer}
+          sideOffset={theme.spacer}
+          {...props}
+          ref={ref}
+        >
+          {children}
+        </StyledContent>
+      </Wrapper>
+    </ConditionalPortal>
+  )
+}
 
 const MenuOverlay = styled.div`
   position: fixed;

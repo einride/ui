@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef } from "react"
+import { ComponentPropsWithoutRef, ElementType, ReactNode } from "react"
 
 export interface OptionProps extends ComponentPropsWithoutRef<"div"> {
   /** Rendered element. */
@@ -10,17 +10,22 @@ export interface OptionProps extends ComponentPropsWithoutRef<"div"> {
 
   /** Variant of the option. Default is `primary`. */
   variant?: Variant
+
+  ref?: React.Ref<HTMLDivElement> | undefined
 }
 
-export const Option = forwardRef<HTMLDivElement, OptionProps>(
-  ({ children, variant = "primary", ...props }, forwardedRef) => {
-    return (
-      <Wrapper variant={variant} tabIndex={0} {...props} ref={forwardedRef}>
-        {children}
-      </Wrapper>
-    )
-  },
-)
+export const Option = ({
+  ref,
+  children,
+  variant = "primary",
+  ...props
+}: OptionProps): React.JSX.Element => {
+  return (
+    <Wrapper variant={variant} tabIndex={0} {...props} ref={ref}>
+      {children}
+    </Wrapper>
+  )
+}
 
 type Variant = "primary" | "secondary"
 

@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef } from "react"
+import { ComponentPropsWithoutRef, ElementType, ReactNode } from "react"
 import { Icon } from "../../../content/Icon/Icon"
 import { BoxProps } from "../../../layout/Box/Box"
 import { BaseInput, MessageProps, Status } from "../BaseInput/BaseInput"
@@ -27,6 +27,8 @@ interface NumberInputInputBaseProps extends ComponentPropsWithoutRef<"input"> {
 
   /** Props passed to root element. */
   wrapperProps?: BoxProps
+
+  ref?: React.Ref<HTMLInputElement> | undefined
 }
 
 interface NumberInputWithLabelProps {
@@ -46,21 +48,25 @@ export type NumberInputProps = NumberInputInputBaseProps &
   (NumberInputWithLabelProps | NumberInputWithoutLabelProps)
 
 /** Capture number input from user. */
-export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
-  ({ message, suffix, status, ...props }, ref) => {
-    return (
-      <BaseInput
-        {...props}
-        inputMode="numeric"
-        message={message}
-        rightIcon={getStatusIcon(status)}
-        status={status}
-        suffix={suffix}
-        ref={ref}
-      />
-    )
-  },
-)
+export const NumberInput = ({
+  ref,
+  message,
+  suffix,
+  status,
+  ...props
+}: NumberInputProps): React.JSX.Element => {
+  return (
+    <BaseInput
+      {...props}
+      inputMode="numeric"
+      message={message}
+      rightIcon={getStatusIcon(status)}
+      status={status}
+      suffix={suffix}
+      ref={ref}
+    />
+  )
+}
 
 const getStatusIcon = (status?: Status): React.JSX.Element | null => {
   switch (status) {

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ElementType, HTMLAttributes, ReactNode, forwardRef } from "react"
+import { ElementType, HTMLAttributes, ReactNode } from "react"
 import { Theme } from "../../../lib/theme/types"
 
 export interface VerticalLayoutProps extends HTMLAttributes<HTMLDivElement> {
@@ -11,13 +11,17 @@ export interface VerticalLayoutProps extends HTMLAttributes<HTMLDivElement> {
 
   /**  Gap between children. Default is `sm`. */
   gap?: Gap
+
+  ref?: React.Ref<HTMLDivElement> | undefined
 }
 
-export const VerticalLayout = forwardRef<HTMLDivElement, VerticalLayoutProps>(
-  ({ gap = "sm", ...props }, ref) => {
-    return <StyledDiv gap={gap} {...props} ref={ref} />
-  },
-)
+export const VerticalLayout = ({
+  ref,
+  gap = "sm",
+  ...props
+}: VerticalLayoutProps): React.JSX.Element => {
+  return <StyledDiv gap={gap} {...props} ref={ref} />
+}
 
 type Gap = "none" | "xs" | "sm" | "md" | "lg" | "xl"
 

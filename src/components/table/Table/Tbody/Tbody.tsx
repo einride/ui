@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, forwardRef } from "react"
+import { ComponentPropsWithoutRef } from "react"
 import { getColor, getFont } from "../../../../lib/theme/prop-system"
 import { Color, FontFamily } from "../../../../lib/theme/props"
 
@@ -9,17 +9,17 @@ interface TbodyProps extends Omit<ComponentPropsWithoutRef<"tbody">, "color"> {
 
   /** Font set on the table body. */
   font?: FontFamily
+
+  ref?: React.Ref<HTMLTableSectionElement> | undefined
 }
 
-export const Tbody = forwardRef<HTMLTableSectionElement, TbodyProps>(
-  ({ children, color, ...props }, ref) => {
-    return (
-      <StyledTbody textColor={color} {...props} ref={ref}>
-        {children}
-      </StyledTbody>
-    )
-  },
-)
+export const Tbody = ({ ref, children, color, ...props }: TbodyProps): React.JSX.Element => {
+  return (
+    <StyledTbody textColor={color} {...props} ref={ref}>
+      {children}
+    </StyledTbody>
+  )
+}
 
 interface StyledTbodyProps {
   font?: FontFamily

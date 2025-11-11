@@ -1,6 +1,6 @@
 import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, forwardRef, useCallback, useState } from "react"
+import { ComponentPropsWithoutRef, useCallback, useState } from "react"
 import { Color } from "../../../lib/theme/props"
 import { Box } from "../../layout/Box/Box"
 import { PointerIcon } from "./PointerIcon"
@@ -18,57 +18,63 @@ export interface StepGaugeProps extends Omit<ComponentPropsWithoutRef<"div">, "c
 
   /** Number of steps. Default is `3`. */
   steps?: number
+
+  ref?: React.Ref<HTMLDivElement> | undefined
 }
 
 /** A step gauge that can be used for conveying step-based status. */
-export const StepGauge = forwardRef<HTMLDivElement, StepGaugeProps>(
-  ({ color = "positive", completedSteps, steps = DEFAULT_STEPS, ...props }, forwardedRef) => {
-    const [svgHeight, setSvgHeight] = useState(0)
-    const [pointerHeight, setPointerHeight] = useState(0)
-    const svgRef = useCallback((node: SVGSVGElement | null) => {
-      setSvgHeight(node ? node.clientHeight : 0)
-    }, [])
-    const pointerRef = useCallback((node: SVGSVGElement | null) => {
-      setPointerHeight(node ? node.viewBox.baseVal.height : 0)
-    }, [])
-    return (
-      <Box
-        position="relative"
-        inlineSize={7}
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        {...props}
-        ref={forwardedRef}
-        role="progressbar"
-        aria-valuemax={steps}
-        aria-valuemin={0}
-        aria-valuenow={completedSteps}
-        aria-valuetext={`${completedSteps} of ${steps} steps completed`}
-      >
-        <StyledSvg viewBox={`0 0 ${SVG_SIZE} ${SVG_SIZE}`} ref={svgRef}>
-          {[...Array(steps).keys()].map((step) => (
-            <StepGaugeStep
-              color={color}
-              completedSteps={completedSteps}
-              index={step}
-              key={step}
-              steps={steps}
-              svgSize={SVG_SIZE}
-            />
-          ))}
-        </StyledSvg>
-        <StyledPointerIcon
-          completedSteps={completedSteps}
-          pointerHeight={pointerHeight}
-          svgHeight={svgHeight}
-          steps={steps}
-          ref={pointerRef}
-        />
-      </Box>
-    )
-  },
-)
+export const StepGauge = ({
+  ref,
+  color = "positive",
+  completedSteps,
+  steps = DEFAULT_STEPS,
+  ...props
+}: StepGaugeProps): React.JSX.Element => {
+  const [svgHeight, setSvgHeight] = useState(0)
+  const [pointerHeight, setPointerHeight] = useState(0)
+  const svgRef = useCallback((node: SVGSVGElement | null) => {
+    setSvgHeight(node ? node.clientHeight : 0)
+  }, [])
+  const pointerRef = useCallback((node: SVGSVGElement | null) => {
+    setPointerHeight(node ? node.viewBox.baseVal.height : 0)
+  }, [])
+  return (
+    <Box
+      position="relative"
+      inlineSize={7}
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      {...props}
+      ref={ref}
+      role="progressbar"
+      aria-valuemax={steps}
+      aria-valuemin={0}
+      aria-valuenow={completedSteps}
+      aria-valuetext={`${completedSteps} of ${steps} steps completed`}
+    >
+      <StyledSvg viewBox={`0 0 ${SVG_SIZE} ${SVG_SIZE}`} ref={svgRef}>
+        {[...Array(steps).keys()].map((step) => (
+          <StepGaugeStep
+            color={color}
+            completedSteps={completedSteps}
+            index={step}
+            key={step}
+            steps={steps}
+            svgSize={SVG_SIZE}
+          />
+        ))}
+      </StyledSvg>
+      <StyledPointerIcon
+        completedSteps={completedSteps}
+        pointerHeight={pointerHeight}
+        svgHeight={svgHeight}
+        steps={steps}
+        ref={pointerRef}
+      />
+    </Box>
+  )
+}
 
 export const DEFAULT_STEPS = 3
 const SVG_SIZE = 106

@@ -1,5 +1,5 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
-import { ComponentPropsWithoutRef, ReactNode, forwardRef } from "react"
+import { ComponentPropsWithoutRef, ReactNode } from "react"
 import { Option } from "../Option/Option"
 
 interface MenuItemProps extends ComponentPropsWithoutRef<"div"> {
@@ -11,15 +11,15 @@ interface MenuItemProps extends ComponentPropsWithoutRef<"div"> {
 
   /** Event handler called when the user selects an item. */
   onSelect?: () => void
+
+  ref?: React.Ref<HTMLDivElement> | undefined
 }
 
-export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
-  ({ children, icon, ...props }, forwardedRef) => {
-    return (
-      <Option as={DropdownMenu.Item} variant="secondary" {...props} ref={forwardedRef}>
-        {children}
-        {icon}
-      </Option>
-    )
-  },
-)
+export const MenuItem = ({ ref, children, icon, ...props }: MenuItemProps): React.JSX.Element => {
+  return (
+    <Option as={DropdownMenu.Item} variant="secondary" {...props} ref={ref}>
+      {children}
+      {icon}
+    </Option>
+  )
+}

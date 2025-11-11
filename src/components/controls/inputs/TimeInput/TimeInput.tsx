@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, ReactNode, forwardRef } from "react"
+import { ComponentPropsWithoutRef, ReactNode } from "react"
 import { Icon } from "../../../content/Icon/Icon"
 import { BoxProps } from "../../../layout/Box/Box"
 import { BaseInput, MessageProps, Status } from "../BaseInput/BaseInput"
@@ -22,6 +22,8 @@ interface TimeInputBaseProps extends ComponentPropsWithoutRef<"input"> {
 
   /** Props passed to root element. */
   wrapperProps?: BoxProps
+
+  ref?: React.Ref<HTMLInputElement> | undefined
 }
 
 interface TimeInputWithLabelProps {
@@ -40,20 +42,23 @@ interface TimeInputWithoutLabelProps {
 export type TimeInputProps = TimeInputBaseProps &
   (TimeInputWithLabelProps | TimeInputWithoutLabelProps)
 
-export const TimeInput = forwardRef<HTMLInputElement, TimeInputProps>(
-  ({ message, status, ...props }, ref) => {
-    return (
-      <StyledBaseInput
-        {...props}
-        type="time"
-        message={message}
-        rightIcon={getStatusIcon(status)}
-        status={status}
-        ref={ref}
-      />
-    )
-  },
-)
+export const TimeInput = ({
+  ref,
+  message,
+  status,
+  ...props
+}: TimeInputProps): React.JSX.Element => {
+  return (
+    <StyledBaseInput
+      {...props}
+      type="time"
+      message={message}
+      rightIcon={getStatusIcon(status)}
+      status={status}
+      ref={ref}
+    />
+  )
+}
 
 const getStatusIcon = (status?: Status): React.JSX.Element | null => {
   switch (status) {

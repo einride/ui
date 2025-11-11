@@ -1,6 +1,5 @@
 import { css, keyframes } from "@emotion/react"
 import styled from "@emotion/styled"
-import { forwardRef } from "react"
 import { getBorderRadius } from "../../../lib/theme/prop-system"
 import { SpacingInput } from "../../../lib/theme/props"
 import { Theme } from "../../../lib/theme/types"
@@ -18,27 +17,31 @@ export interface SkeletonProps extends BoxProps {
 
   /** Determines whether skeleton overlay should be displayed. */
   visible?: boolean
+
+  ref?: React.Ref<HTMLDivElement> | undefined
 }
 
 /** Indicate content loading state. Can be used to create a placeholder for loading content while minimizing layout shift caused by loading spinners. */
-export const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
-  (
-    { animate = true, height = "md", shape = "rectangle", visible = true, ...props },
-    forwardedRef,
-  ): React.JSX.Element => {
-    return (
-      <Wrapper
-        animate={animate}
-        height={height}
-        inlineSize={shape === "circle" ? height : "100%"}
-        shape={shape}
-        visible={visible}
-        {...props}
-        ref={forwardedRef}
-      />
-    )
-  },
-)
+export const Skeleton = ({
+  ref,
+  animate = true,
+  height = "md",
+  shape = "rectangle",
+  visible = true,
+  ...props
+}: SkeletonProps): React.JSX.Element => {
+  return (
+    <Wrapper
+      animate={animate}
+      height={height}
+      inlineSize={shape === "circle" ? height : "100%"}
+      shape={shape}
+      visible={visible}
+      {...props}
+      ref={ref}
+    />
+  )
+}
 
 type Shape = "rectangle" | "circle"
 

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, forwardRef } from "react"
+import { ComponentPropsWithoutRef } from "react"
 import { getColor, getFont } from "../../../../lib/theme/prop-system"
 import { Color, FontFamily } from "../../../../lib/theme/props"
 
@@ -9,15 +9,17 @@ interface TrProps extends Omit<ComponentPropsWithoutRef<"tr">, "color"> {
 
   /** Font set on the table row. */
   font?: FontFamily
+
+  ref?: React.Ref<HTMLTableRowElement> | undefined
 }
 
-export const Tr = forwardRef<HTMLTableRowElement, TrProps>(({ children, color, ...props }, ref) => {
+export const Tr = ({ ref, children, color, ...props }: TrProps): React.JSX.Element => {
   return (
     <StyledTr textColor={color} {...props} ref={ref}>
       {children}
     </StyledTr>
   )
-})
+}
 
 interface StyledTrProps {
   font?: FontFamily

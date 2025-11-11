@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, ReactNode, forwardRef, useId } from "react"
+import { ComponentPropsWithoutRef, ReactNode, useId } from "react"
 import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Box, BoxProps } from "../../../layout/Box/Box"
@@ -17,6 +17,8 @@ interface TextareaBaseProps extends ComponentPropsWithoutRef<"textarea"> {
 
   /** Props passed to root elemenet. */
   wrapperProps?: BoxProps
+
+  ref?: React.Ref<HTMLTextAreaElement> | undefined
 }
 
 interface TextareaWithLabelProps {
@@ -34,52 +36,57 @@ interface TextareaWithoutLabelProps {
 
 export type TextareaProps = TextareaBaseProps & (TextareaWithLabelProps | TextareaWithoutLabelProps)
 
-export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ message, status, textareaWrapperProps, wrapperProps, ...props }, ref) => {
-    const id = useId()
-    const messageId = useId()
-    return (
-      <Box {...wrapperProps}>
-        {"label" in props && (
-          <StyledLabel {...props.labelProps} htmlFor={id}>
-            {props.label}
-          </StyledLabel>
-        )}
-        <Box position="relative" {...textareaWrapperProps}>
-          <StyledTextarea
-            {...props}
-            aria-errormessage={status === "fail" && message ? messageId : undefined}
-            aria-describedby={status !== "fail" && message ? messageId : undefined}
-            aria-invalid={status === "fail"}
-            hasLabel={"label" in props}
-            id={id}
-            ref={ref}
-          />
-          {(status === "fail" || status === "success") && (
-            <Box
-              alignItems="center"
-              blockSize={3}
-              display="flex"
-              inlineSize={3}
-              insetBlockStart={1.5}
-              insetInlineEnd={2}
-              justifyContent="center"
-              pointerEvents="none"
-              position="absolute"
-            >
-              {getStatusIcon(status)}
-            </Box>
-          )}
-        </Box>
-        {message && (
-          <Caption color={getMessageColor(status)} id={messageId}>
-            {message}
-          </Caption>
+export const Textarea = ({
+  ref,
+  message,
+  status,
+  textareaWrapperProps,
+  wrapperProps,
+  ...props
+}: TextareaProps): React.JSX.Element => {
+  const id = useId()
+  const messageId = useId()
+  return (
+    <Box {...wrapperProps}>
+      {"label" in props && (
+        <StyledLabel {...props.labelProps} htmlFor={id}>
+          {props.label}
+        </StyledLabel>
+      )}
+      <Box position="relative" {...textareaWrapperProps}>
+        <StyledTextarea
+          {...props}
+          aria-errormessage={status === "fail" && message ? messageId : undefined}
+          aria-describedby={status !== "fail" && message ? messageId : undefined}
+          aria-invalid={status === "fail"}
+          hasLabel={"label" in props}
+          id={id}
+          ref={ref}
+        />
+        {(status === "fail" || status === "success") && (
+          <Box
+            alignItems="center"
+            blockSize={3}
+            display="flex"
+            inlineSize={3}
+            insetBlockStart={1.5}
+            insetInlineEnd={2}
+            justifyContent="center"
+            pointerEvents="none"
+            position="absolute"
+          >
+            {getStatusIcon(status)}
+          </Box>
         )}
       </Box>
-    )
-  },
-)
+      {message && (
+        <Caption color={getMessageColor(status)} id={messageId}>
+          {message}
+        </Caption>
+      )}
+    </Box>
+  )
+}
 
 const StyledLabel = styled.label`
   display: inline-block;

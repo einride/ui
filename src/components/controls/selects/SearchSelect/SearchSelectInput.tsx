@@ -7,7 +7,6 @@ import {
   LabelHTMLAttributes,
   MouseEvent,
   ReactNode,
-  forwardRef,
 } from "react"
 import { Icon } from "../../../content/Icon/Icon"
 import { BaseInput, MessageProps } from "../../inputs/BaseInput/BaseInput"
@@ -27,6 +26,8 @@ interface SearchSelectInputBaseProps extends ComponentPropsWithoutRef<"input"> {
   onClearInput: (e: MouseEvent<HTMLButtonElement>) => void
   status?: Status
   value: string | undefined
+
+  ref?: React.Ref<HTMLInputElement> | undefined
 }
 
 interface SearchSelectInputWithLabelProps {
@@ -45,28 +46,33 @@ interface SearchSelectInputWithoutLabelProps {
 export type SearchSelectInputProps = SearchSelectInputBaseProps &
   (SearchSelectInputWithLabelProps | SearchSelectInputWithoutLabelProps)
 
-export const SearchSelectInput = forwardRef<HTMLInputElement, SearchSelectInputProps>(
-  ({ clearButtonProps, isOpen, onClearInput, value, ...props }, ref) => {
-    return (
-      <Wrapper>
-        <StyledBaseInput
-          value={value}
-          rightIcon={
-            value?.length ? (
-              <ClearButton type="button" onClick={onClearInput} {...clearButtonProps}>
-                <Icon name="xMark" />
-              </ClearButton>
-            ) : (
-              <StyledIcon name="chevronRight" animate={{ rotate: isOpen ? 90 : 0 }} />
-            )
-          }
-          {...props}
-          ref={ref}
-        />
-      </Wrapper>
-    )
-  },
-)
+export const SearchSelectInput = ({
+  ref,
+  clearButtonProps,
+  isOpen,
+  onClearInput,
+  value,
+  ...props
+}: SearchSelectInputProps): React.JSX.Element => {
+  return (
+    <Wrapper>
+      <StyledBaseInput
+        value={value}
+        rightIcon={
+          value?.length ? (
+            <ClearButton type="button" onClick={onClearInput} {...clearButtonProps}>
+              <Icon name="xMark" />
+            </ClearButton>
+          ) : (
+            <StyledIcon name="chevronRight" animate={{ rotate: isOpen ? 90 : 0 }} />
+          )
+        }
+        {...props}
+        ref={ref}
+      />
+    </Wrapper>
+  )
+}
 
 type Status = "success" | "fail" | "neutral"
 

@@ -3,7 +3,6 @@ import {
   ComponentPropsWithoutRef,
   ElementType,
   ReactNode,
-  forwardRef,
   useCallback,
   useId,
   useState,
@@ -43,59 +42,67 @@ export interface BaseInputProps extends ComponentPropsWithoutRef<"input"> {
 
   /** Props passed to root element. */
   wrapperProps?: BoxProps
+
+  ref?: React.Ref<HTMLInputElement> | undefined
 }
 
-export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
-  (
-    { label, labelProps, leftIcon, message, rightIcon, status, suffix, wrapperProps, ...props },
-    ref,
-  ) => {
-    const id = useId()
-    const messageId = useId()
-    const [suffixInlineSizePx, setSuffixInlineSizePx] = useState(0)
-    const suffixRef = useCallback((node: HTMLDivElement | null) => {
-      setSuffixInlineSizePx(node ? node.offsetWidth : 0)
-    }, [])
-    const theme = useTheme()
-    const inlineEndOffsetRem = getInlineEndOffsetRem(suffixInlineSizePx, !!rightIcon, theme)
+export const BaseInput = ({
+  ref,
+  label,
+  labelProps,
+  leftIcon,
+  message,
+  rightIcon,
+  status,
+  suffix,
+  wrapperProps,
+  ...props
+}: BaseInputProps): React.JSX.Element => {
+  const id = useId()
+  const messageId = useId()
+  const [suffixInlineSizePx, setSuffixInlineSizePx] = useState(0)
+  const suffixRef = useCallback((node: HTMLDivElement | null) => {
+    setSuffixInlineSizePx(node ? node.offsetWidth : 0)
+  }, [])
+  const theme = useTheme()
+  const inlineEndOffsetRem = getInlineEndOffsetRem(suffixInlineSizePx, !!rightIcon, theme)
 
-    return (
-      <Box {...wrapperProps}>
-        {label && (
-          <StyledLabel {...labelProps} htmlFor={id}>
-            {label}
-          </StyledLabel>
+  return (
+    <Box {...wrapperProps}>
+      {label && (
+        <StyledLabel {...labelProps} htmlFor={id}>
+          {label}
+        </StyledLabel>
+      )}
+      <InputWrapper>
+        {leftIcon && <LeftIconWrapper>{leftIcon}</LeftIconWrapper>}
+        <StyledInput
+          {...props}
+          aria-errormessage={status === "fail" && message ? messageId : undefined}
+          aria-describedby={status !== "fail" && message ? messageId : undefined}
+          aria-invalid={status === "fail"}
+          hasLabel={!!label}
+          leftIcon={!!leftIcon}
+          rightIcon={!!rightIcon}
+          inlineEndOffsetRem={inlineEndOffsetRem}
+          id={id}
+          ref={ref}
+        />
+        {suffix && (
+          <Suffix rightIcon={!!rightIcon} ref={suffixRef}>
+            {suffix}
+          </Suffix>
         )}
-        <InputWrapper>
-          {leftIcon && <LeftIconWrapper>{leftIcon}</LeftIconWrapper>}
-          <StyledInput
-            {...props}
-            aria-errormessage={status === "fail" && message ? messageId : undefined}
-            aria-describedby={status !== "fail" && message ? messageId : undefined}
-            aria-invalid={status === "fail"}
-            hasLabel={!!label}
-            leftIcon={!!leftIcon}
-            rightIcon={!!rightIcon}
-            inlineEndOffsetRem={inlineEndOffsetRem}
-            id={id}
-            ref={ref}
-          />
-          {suffix && (
-            <Suffix rightIcon={!!rightIcon} ref={suffixRef}>
-              {suffix}
-            </Suffix>
-          )}
-          {rightIcon && <RightIconWrapper>{rightIcon}</RightIconWrapper>}
-        </InputWrapper>
-        {message && (
-          <Caption color={getMessageColor(status)} {...props.messageProps} id={messageId}>
-            {message}
-          </Caption>
-        )}
-      </Box>
-    )
-  },
-)
+        {rightIcon && <RightIconWrapper>{rightIcon}</RightIconWrapper>}
+      </InputWrapper>
+      {message && (
+        <Caption color={getMessageColor(status)} {...props.messageProps} id={messageId}>
+          {message}
+        </Caption>
+      )}
+    </Box>
+  )
+}
 
 export interface MessageProps extends Omit<CaptionProps, "children"> {
   "data-testid"?: string

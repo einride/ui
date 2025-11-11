@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef } from "react"
+import { ComponentPropsWithoutRef, ElementType, ReactNode } from "react"
 import { ContentColor, Font } from "../../../../lib/theme/types"
 import { Link } from "../../../typography/Link/Link"
 
@@ -14,17 +14,17 @@ export interface LinkButtonProps extends ComponentPropsWithoutRef<"button"> {
 
   /** Font use in the link. */
   font?: Font
+
+  ref?: React.Ref<HTMLButtonElement> | undefined
 }
 
 /** Sometimes, you want a button to behave like a link—i.e. navigate to another URL on click. Use `<LinkButton>` for those cases to make that possible while keeping correct semantics. */
-export const LinkButton = forwardRef<HTMLButtonElement, LinkButtonProps>(
-  ({ children, ...props }, ref) => {
-    return (
-      <Link as="button" {...props} ref={ref}>
-        {children}
-      </Link>
-    )
-  },
-)
+export const LinkButton = ({ ref, children, ...props }: LinkButtonProps): React.JSX.Element => {
+  return (
+    <Link as="button" {...props} ref={ref}>
+      {children}
+    </Link>
+  )
+}
 
 type Color = Extract<ContentColor, "primary" | "secondary">

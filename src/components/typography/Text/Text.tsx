@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ElementType, HTMLAttributes, forwardRef } from "react"
+import { ElementType, HTMLAttributes } from "react"
 import { getColor, getFont } from "../../../lib/theme/prop-system"
 import { As, Color, FontFamily, FontWeight, TextDecoration } from "../../../lib/theme/props"
 import { Theme } from "../../../lib/theme/types"
@@ -22,18 +22,18 @@ export interface TextProps extends Omit<HTMLAttributes<HTMLParagraphElement>, "c
 
   /** Text weight. */
   weight?: FontWeight
+
+  ref?: React.Ref<HTMLParagraphElement> | undefined
 }
 
-export const Text = forwardRef<HTMLParagraphElement, TextProps>(
-  ({ children, color, ...props }, ref) => {
-    const as = getAs(props.variant)
-    return (
-      <StyledText as={as} textColor={color} {...props} ref={ref}>
-        {children}
-      </StyledText>
-    )
-  },
-)
+export const Text = ({ ref, children, color, ...props }: TextProps): React.JSX.Element => {
+  const as = getAs(props.variant)
+  return (
+    <StyledText as={as} textColor={color} {...props} ref={ref}>
+      {children}
+    </StyledText>
+  )
+}
 
 type Variant = "bodySm" | "bodyMd" | "titleSm" | "titleMd" | "titleLg" | "titleXl"
 

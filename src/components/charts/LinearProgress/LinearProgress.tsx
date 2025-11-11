@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, forwardRef } from "react"
+import { ComponentPropsWithoutRef } from "react"
 import { getColor } from "../../../lib/theme/prop-system"
 import { Color } from "../../../lib/theme/props"
 import { Box } from "../../layout/Box/Box"
@@ -19,30 +19,37 @@ export interface LinearProgressProps extends Omit<ComponentPropsWithoutRef<"div"
 
   /** Current value. */
   value: number
+
+  ref?: React.Ref<HTMLDivElement> | undefined
 }
 
 /** A linear progress bar that can be used for conveying progress. */
-export const LinearProgress = forwardRef<HTMLDivElement, LinearProgressProps>(
-  ({ color = "positive", max = DEFAULT_MAX, min = DEFAULT_MIN, value, ...props }, ref) => {
-    return (
-      <Box
-        background="tertiary"
-        blockSize={1}
-        borderRadius="sm"
-        position="relative"
-        inlineSize="100%"
-        role="progressbar"
-        aria-valuemax={max}
-        aria-valuemin={min}
-        aria-valuenow={value}
-        {...props}
-        ref={ref}
-      >
-        <Value max={max} min={min} textColor={color} value={value} />
-      </Box>
-    )
-  },
-)
+export const LinearProgress = ({
+  ref,
+  color = "positive",
+  max = DEFAULT_MAX,
+  min = DEFAULT_MIN,
+  value,
+  ...props
+}: LinearProgressProps): React.JSX.Element => {
+  return (
+    <Box
+      background="tertiary"
+      blockSize={1}
+      borderRadius="sm"
+      position="relative"
+      inlineSize="100%"
+      role="progressbar"
+      aria-valuemax={max}
+      aria-valuemin={min}
+      aria-valuenow={value}
+      {...props}
+      ref={ref}
+    >
+      <Value max={max} min={min} textColor={color} value={value} />
+    </Box>
+  )
+}
 
 export const DEFAULT_MIN = 0
 export const DEFAULT_MAX = 100

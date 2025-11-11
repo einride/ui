@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import * as SliderPrimitive from "@radix-ui/react-slider"
-import { ComponentPropsWithoutRef, ReactNode, forwardRef } from "react"
+import { ComponentPropsWithoutRef, ReactNode } from "react"
 import { Group } from "../../../layout/Group/Group"
 
 interface SliderBaseProps
@@ -29,6 +29,8 @@ interface SliderBaseProps
 
   /** Controlled slider value. Use together with `onValueChange`. */
   value?: Array<number>
+
+  ref?: React.Ref<HTMLSpanElement> | undefined
 }
 
 interface SliderWithLabelProps {
@@ -46,26 +48,24 @@ interface SliderWithoutLabelProps {
 
 export type SliderProps = SliderBaseProps & (SliderWithLabelProps | SliderWithoutLabelProps)
 
-export const Slider = forwardRef<HTMLSpanElement, SliderProps>(
-  ({ max = 100, min = 0, ...props }, ref) => {
-    return (
-      <Group alignItems="center" gap="sm">
-        {"label" in props && <StyledLabel {...props.labelProps}>{props.label}</StyledLabel>}
-        <Root max={max} min={min} {...props} ref={ref}>
-          <StartRange data-anatomy="start-range" />
-          <Track data-anatomy="track">
-            <InnerTrack>
-              <Range />
-            </InnerTrack>
-          </Track>
-          <OuterThumb aria-label={"label" in props ? props.label?.toString() : props["aria-label"]}>
-            <InnerThumb data-anatomy="inner-thumb" />
-          </OuterThumb>
-        </Root>
-      </Group>
-    )
-  },
-)
+export const Slider = ({ ref, max = 100, min = 0, ...props }: SliderProps): React.JSX.Element => {
+  return (
+    <Group alignItems="center" gap="sm">
+      {"label" in props && <StyledLabel {...props.labelProps}>{props.label}</StyledLabel>}
+      <Root max={max} min={min} {...props} ref={ref}>
+        <StartRange data-anatomy="start-range" />
+        <Track data-anatomy="track">
+          <InnerTrack>
+            <Range />
+          </InnerTrack>
+        </Track>
+        <OuterThumb aria-label={"label" in props ? props.label?.toString() : props["aria-label"]}>
+          <InnerThumb data-anatomy="inner-thumb" />
+        </OuterThumb>
+      </Root>
+    </Group>
+  )
+}
 
 const StyledLabel = styled.label``
 
