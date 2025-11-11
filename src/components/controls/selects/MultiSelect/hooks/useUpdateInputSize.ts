@@ -3,7 +3,7 @@ import { RefObject, useLayoutEffect, useRef, useState } from "react"
 import { BaseOption } from "../types"
 
 interface UpdateInputSizeProps<Option> {
-  scrollableRef: RefObject<HTMLDivElement>
+  scrollableRef: RefObject<HTMLDivElement | null>
   isOpen: boolean
   inputValue: string
   selectedOptions: Option[]
@@ -13,8 +13,8 @@ interface UpdateInputSizeProps<Option> {
 interface UpdateInputSizeReturnType {
   inputInlineSize: number
   contentInlineSize: number
-  optionsWrapperRef: RefObject<HTMLDivElement>
-  shadowElRef: RefObject<HTMLSpanElement>
+  optionsWrapperRef: RefObject<HTMLDivElement | null>
+  shadowElRef: RefObject<HTMLSpanElement | null>
 }
 
 /**

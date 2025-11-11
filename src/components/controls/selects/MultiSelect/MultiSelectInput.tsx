@@ -106,7 +106,7 @@ export const MultiSelectInput = <Option extends BaseOption>({
   status,
   ...props
 }: MultiSelectInputProps<Option> & {
-  inputRef: RefObject<HTMLInputElement>
+  inputRef: RefObject<HTMLInputElement | null>
 }): React.JSX.Element => {
   const messageId = useId()
   const pillRefs = useRef<HTMLButtonElement[]>([])

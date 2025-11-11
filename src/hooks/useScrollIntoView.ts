@@ -6,8 +6,8 @@ export type Alignment = "start" | "end" | "center"
 type ScrollIntoViewArgs = { alignment: Alignment }
 
 interface ScrollIntoViewReturnType<Target, Parent> {
-  scrollableRef: RefObject<Parent>
-  targetRef: React.MutableRefObject<Target | null>
+  scrollableRef: RefObject<Parent | null>
+  targetRef: React.RefObject<Target | null>
   scrollIntoView: ({ alignment }: ScrollIntoViewArgs) => void
 }
 
