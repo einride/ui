@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, HTMLAttributes, ReactNode, forwardRef, useId } from "react"
+import { ComponentPropsWithoutRef, HTMLAttributes, ReactNode, useId } from "react"
 
 export interface RadioProps extends Omit<ComponentPropsWithoutRef<"input">, "onChange"> {
   /** Radio label. */
@@ -16,30 +16,37 @@ export interface RadioProps extends Omit<ComponentPropsWithoutRef<"input">, "onC
 
   /** Props passed to root element. */
   wrapperProps?: HTMLAttributes<HTMLDivElement>
+
+  ref?: React.Ref<HTMLInputElement> | undefined
 }
 
 /** Radio button. */
-export const Radio = forwardRef<HTMLInputElement, RadioProps>(
-  ({ children, labelProps, onCheckedChange, wrapperProps, ...props }, ref) => {
-    const id = useId()
-    return (
-      <Wrapper {...wrapperProps}>
-        <StyledInput
-          type="radio"
-          id={id}
-          {...props}
-          onChange={(value) => onCheckedChange?.(value.target.checked)}
-          ref={ref}
-        />
-        {children && (
-          <StyledLabel htmlFor={id} {...labelProps}>
-            {children}
-          </StyledLabel>
-        )}
-      </Wrapper>
-    )
-  },
-)
+export const Radio = ({
+  ref,
+  children,
+  labelProps,
+  onCheckedChange,
+  wrapperProps,
+  ...props
+}: RadioProps): React.JSX.Element => {
+  const id = useId()
+  return (
+    <Wrapper {...wrapperProps}>
+      <StyledInput
+        type="radio"
+        id={id}
+        {...props}
+        onChange={(value) => onCheckedChange?.(value.target.checked)}
+        ref={ref}
+      />
+      {children && (
+        <StyledLabel htmlFor={id} {...labelProps}>
+          {children}
+        </StyledLabel>
+      )}
+    </Wrapper>
+  )
+}
 
 const Wrapper = styled.div`
   padding: ${({ theme }) => 1.5 * theme.spacingBase}rem;

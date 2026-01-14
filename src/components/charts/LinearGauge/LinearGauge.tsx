@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, forwardRef } from "react"
+import { ComponentPropsWithoutRef } from "react"
 import { Color } from "../../../lib/theme/props"
 import { Box } from "../../layout/Box/Box"
 import { PointerIcon } from "../StepGauge/PointerIcon"
@@ -20,42 +20,49 @@ export interface LinearGaugeProps extends Omit<ComponentPropsWithoutRef<"div">, 
 
   /** Current value. */
   value: number
+
+  ref?: React.Ref<HTMLDivElement> | undefined
 }
 
 /** A linear gauge that can be used for conveying progress or status in a range. */
-export const LinearGauge = forwardRef<HTMLDivElement, LinearGaugeProps>(
-  ({ color = "positive", max = DEFAULT_MAX, min = DEFAULT_MIN, value, ...props }, ref) => {
-    const percentage = ((value - min) / (max - min)) * 100
+export const LinearGauge = ({
+  ref,
+  color = "positive",
+  max = DEFAULT_MAX,
+  min = DEFAULT_MIN,
+  value,
+  ...props
+}: LinearGaugeProps): React.JSX.Element => {
+  const percentage = ((value - min) / (max - min)) * 100
 
-    return (
-      <Box
-        position="relative"
-        inlineSize={7}
-        blockSize={7}
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        flexShrink={0}
-        role="progressbar"
-        aria-valuemax={max}
-        aria-valuemin={min}
-        aria-valuenow={value}
-        {...props}
-        ref={ref}
-      >
-        <StyledSvg viewBox={`0 0 ${VIEW_BOX_VALUE} ${VIEW_BOX_VALUE}`}>
-          <LinearGaugeProgress
-            color={color}
-            percentage={percentage}
-            strokeWidth={STROKE_WIDTH}
-            responsiveRadius={RESPONSIVE_RADIUS}
-          />
-        </StyledSvg>
-        <StyledPointerIcon percentage={percentage} />
-      </Box>
-    )
-  },
-)
+  return (
+    <Box
+      position="relative"
+      inlineSize={7}
+      blockSize={7}
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      flexShrink={0}
+      role="progressbar"
+      aria-valuemax={max}
+      aria-valuemin={min}
+      aria-valuenow={value}
+      {...props}
+      ref={ref}
+    >
+      <StyledSvg viewBox={`0 0 ${VIEW_BOX_VALUE} ${VIEW_BOX_VALUE}`}>
+        <LinearGaugeProgress
+          color={color}
+          percentage={percentage}
+          strokeWidth={STROKE_WIDTH}
+          responsiveRadius={RESPONSIVE_RADIUS}
+        />
+      </StyledSvg>
+      <StyledPointerIcon percentage={percentage} />
+    </Box>
+  )
+}
 
 export const DEFAULT_MIN = 0
 export const DEFAULT_MAX = 100

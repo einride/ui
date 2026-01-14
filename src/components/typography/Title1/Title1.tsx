@@ -1,6 +1,6 @@
 import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
-import { ElementType, HTMLAttributes, ReactNode, forwardRef } from "react"
+import { ElementType, HTMLAttributes, ReactNode } from "react"
 import { ContentColor, Font } from "../../../lib/theme/types"
 
 export interface Title1Props extends HTMLAttributes<HTMLHeadingElement> {
@@ -15,17 +15,23 @@ export interface Title1Props extends HTMLAttributes<HTMLHeadingElement> {
 
   /** Font styling. */
   font?: Font
+
+  ref?: React.Ref<HTMLHeadingElement> | undefined
 }
 
-export const Title1 = forwardRef<HTMLHeadingElement, Title1Props>(
-  ({ children, color, font, ...props }, ref) => {
-    return (
-      <StyledText color={color} font={font} {...props} ref={ref}>
-        {children}
-      </StyledText>
-    )
-  },
-)
+export const Title1 = ({
+  ref,
+  children,
+  color,
+  font,
+  ...props
+}: Title1Props): React.JSX.Element => {
+  return (
+    <StyledText color={color} font={font} {...props} ref={ref}>
+      {children}
+    </StyledText>
+  )
+}
 
 interface StyledTextProps {
   color: ContentColor | undefined

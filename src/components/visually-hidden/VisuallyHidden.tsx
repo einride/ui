@@ -1,20 +1,24 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, ReactNode, forwardRef } from "react"
+import { ComponentPropsWithoutRef, ReactNode } from "react"
 
 export interface VisuallyHiddenProps extends ComponentPropsWithoutRef<"span"> {
   /** Visually hidden content. */
   children: ReactNode
+
+  ref?: React.Ref<HTMLSpanElement> | undefined
 }
 
-export const VisuallyHidden = forwardRef<HTMLSpanElement, VisuallyHiddenProps>(
-  ({ children, ...props }, ref) => {
-    return (
-      <Wrapper {...props} ref={ref}>
-        {children}
-      </Wrapper>
-    )
-  },
-)
+export const VisuallyHidden = ({
+  ref,
+  children,
+  ...props
+}: VisuallyHiddenProps): React.JSX.Element => {
+  return (
+    <Wrapper {...props} ref={ref}>
+      {children}
+    </Wrapper>
+  )
+}
 
 const Wrapper = styled.span`
   clip: rect(0 0 0 0);

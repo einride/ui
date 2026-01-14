@@ -21,27 +21,6 @@ components and also support `defaultValue`.
 As an example, let `gap` prop auto-suggest officially supported values such as `"md"` and `"lg"`,
 while keeping possibility to pass a custom number if needed.
 
-### Forward refs
-
-Wrap component in `forwardRef()` whenever applicable.
-
-It makes it possible to use libraries such as `framer-motion` in user-land and enables passing a
-`ref` for any other reason.
-
-```tsx
-// bad
-const Component = ({ ...props }: ComponentProps): React.JSX.Element => {
-  return <div {...props} />
-}
-
-// good
-const Component = forwardRef<HTMLDivElement, ComponentProps>(
-  ({ ...props }, ref): React.JSX.Element => {
-    return <div {...props} ref={ref} />
-  },
-)
-```
-
 ### Place component interface and function first in each component file
 
 Putting the most important things at the top of the file makes the contract of the component fast to

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentProps, ReactNode, forwardRef } from "react"
+import { ComponentProps, ReactNode } from "react"
 import { ColorScheme, useColorScheme } from "../../../contexts/ColorSchemeProvider"
 import { BackgroundColor, ContentColor } from "../../../lib/theme/types"
 import { Box } from "../../layout/Box/Box"
@@ -16,25 +16,31 @@ export interface BannerProps extends Omit<ComponentProps<"div">, "title" | "colo
 
   /** Custom content of the banner. Prefer using `title`. */
   children?: ReactNode
+
+  ref?: React.Ref<HTMLDivElement> | undefined
 }
 
 /** Banner to show information or inline error messages. */
-export const Banner = forwardRef<HTMLDivElement, BannerProps>(
-  ({ status, title, children, ...props }, ref) => {
-    const { colorScheme } = useColorScheme()
-    return (
-      <StyledBanner
-        backgroundColor={getMessageBackgroundColor(status)}
-        textColor={getMessageColor(status, colorScheme)}
-        {...props}
-        ref={ref}
-      >
-        {title && <Text>{title}</Text>}
-        {children}
-      </StyledBanner>
-    )
-  },
-)
+export const Banner = ({
+  ref,
+  status,
+  title,
+  children,
+  ...props
+}: BannerProps): React.JSX.Element => {
+  const { colorScheme } = useColorScheme()
+  return (
+    <StyledBanner
+      backgroundColor={getMessageBackgroundColor(status)}
+      textColor={getMessageColor(status, colorScheme)}
+      {...props}
+      ref={ref}
+    >
+      {title && <Text>{title}</Text>}
+      {children}
+    </StyledBanner>
+  )
+}
 
 const StyledBanner = styled(Box)<{ backgroundColor: BackgroundColor; textColor: ContentColor }>`
   display: flex;

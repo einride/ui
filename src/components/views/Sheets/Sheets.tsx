@@ -2,7 +2,7 @@ import { useMediaQuery } from "@einride/hooks"
 import styled from "@emotion/styled"
 import * as Dialog from "@radix-ui/react-dialog"
 import { AnimatePresence, motion } from "framer-motion"
-import { CSSProperties, ComponentPropsWithoutRef, ReactNode, forwardRef } from "react"
+import { CSSProperties, ComponentPropsWithoutRef, ReactNode } from "react"
 import { useTheme } from "../../../hooks/useTheme"
 import { zIndex } from "../../../lib/zIndex"
 import { IconButton, IconButtonProps } from "../../controls/buttons/IconButton/IconButton"
@@ -67,6 +67,8 @@ export interface SheetsProps
    * @deprecated since v7.10.0. Use `modal` instead.
    */
   withOverlay?: boolean
+
+  ref?: React.Ref<HTMLDivElement> | undefined
 }
 
 interface DialogStyles {
@@ -74,79 +76,75 @@ interface DialogStyles {
 }
 
 /** A panel that uses a portion of the screen to show something. */
-export const Sheets = forwardRef<HTMLDivElement, SheetsProps>(
-  (
-    {
-      children,
-      closeHandler,
-      closeOnClickOutside = true,
-      isOpen,
-      modal = true,
-      navigationAction,
-      navigationTitle,
-      overlayProps,
-      primaryAction,
-      secondaryAction,
-      size = "md",
-      withOverlay = true,
-      ...props
-    },
-    forwardedRef,
-  ) => {
-    const theme = useTheme()
-    const isAboveSm = useMediaQuery(theme.mediaQueries.md)
-    return (
-      <AnimatePresence>
-        {isOpen && (
-          <Dialog.Root modal={modal} open={isOpen}>
-            <Dialog.Portal>
-              <motion.div animate={{ opacity: 1 }} exit={{ opacity: 0 }} initial={{ opacity: 0 }}>
-                {withOverlay && <DialogOverlay {...overlayProps} />}
-                <DialogContent
-                  size={size}
-                  onBlur={(e) => e.stopPropagation()} // to prevent weird focus bugs with interactive components such as <SearchSelect>, where focus is blurred and then immediately reapplied when clicking on an option in modal mode
-                  onEscapeKeyDown={closeHandler}
-                  onPointerDownOutside={() => {
-                    if (closeOnClickOutside && modal) {
-                      closeHandler()
-                    }
-                  }}
-                  {...props}
-                  ref={forwardedRef}
-                >
-                  <Navigation>
-                    <NavigationAction>
-                      {navigationAction && <IconButton {...navigationAction} />}
-                      {navigationTitle && navigationTitle}
-                    </NavigationAction>
-                    {isAboveSm && (
-                      <MdLgActions>
-                        {secondaryAction && <SecondaryButton {...secondaryAction} />}
-                        {primaryAction && <PrimaryButton {...primaryAction} />}
-                      </MdLgActions>
-                    )}
-                  </Navigation>
-                  <Content
-                    data-primary-action={Boolean(primaryAction)}
-                    data-secondary-action={Boolean(secondaryAction)}
-                  >
-                    {children}
-                  </Content>
-                  {!isAboveSm && (
-                    <SmActions>
-                      {primaryAction && <PrimaryButton isFullWidth {...primaryAction} />}
-                      {secondaryAction && <SecondaryButton isFullWidth {...secondaryAction} />}
-                    </SmActions>
+export const Sheets = ({
+  ref,
+  children,
+  closeHandler,
+  closeOnClickOutside = true,
+  isOpen,
+  modal = true,
+  navigationAction,
+  navigationTitle,
+  overlayProps,
+  primaryAction,
+  secondaryAction,
+  size = "md",
+  withOverlay = true,
+  ...props
+}: SheetsProps): React.JSX.Element => {
+  const theme = useTheme()
+  const isAboveSm = useMediaQuery(theme.mediaQueries.md)
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <Dialog.Root modal={modal} open={isOpen}>
+          <Dialog.Portal>
+            <motion.div animate={{ opacity: 1 }} exit={{ opacity: 0 }} initial={{ opacity: 0 }}>
+              {withOverlay && <DialogOverlay {...overlayProps} />}
+              <DialogContent
+                size={size}
+                onBlur={(e) => e.stopPropagation()} // to prevent weird focus bugs with interactive components such as <SearchSelect>, where focus is blurred and then immediately reapplied when clicking on an option in modal mode
+                onEscapeKeyDown={closeHandler}
+                onPointerDownOutside={() => {
+                  if (closeOnClickOutside && modal) {
+                    closeHandler()
+                  }
+                }}
+                {...props}
+                ref={ref}
+              >
+                <Navigation>
+                  <NavigationAction>
+                    {navigationAction && <IconButton {...navigationAction} />}
+                    {navigationTitle && navigationTitle}
+                  </NavigationAction>
+                  {isAboveSm && (
+                    <MdLgActions>
+                      {secondaryAction && <SecondaryButton {...secondaryAction} />}
+                      {primaryAction && <PrimaryButton {...primaryAction} />}
+                    </MdLgActions>
                   )}
-                </DialogContent>
-              </motion.div>
-            </Dialog.Portal>
-          </Dialog.Root>
-        )}
-      </AnimatePresence>
-    )
-  },
-)
+                </Navigation>
+                <Content
+                  data-primary-action={Boolean(primaryAction)}
+                  data-secondary-action={Boolean(secondaryAction)}
+                >
+                  {children}
+                </Content>
+                {!isAboveSm && (
+                  <SmActions>
+                    {primaryAction && <PrimaryButton isFullWidth {...primaryAction} />}
+                    {secondaryAction && <SecondaryButton isFullWidth {...secondaryAction} />}
+                  </SmActions>
+                )}
+              </DialogContent>
+            </motion.div>
+          </Dialog.Portal>
+        </Dialog.Root>
+      )}
+    </AnimatePresence>
+  )
+}
 
 type Size = "sm" | "md"
 

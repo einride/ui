@@ -1,10 +1,12 @@
-import { SVGAttributes, forwardRef } from "react"
+import { SVGAttributes } from "react"
 import { useColorScheme } from "../../../../contexts/ColorSchemeProvider"
 import { color } from "../../../../primitives/color"
 
-type LogoLargeProps = SVGAttributes<SVGSVGElement>
+type LogoLargeProps = SVGAttributes<SVGSVGElement> & {
+  ref?: React.Ref<SVGSVGElement> | undefined
+}
 
-export const LogoLarge = forwardRef<SVGSVGElement, LogoLargeProps>((props, ref) => {
+export const LogoLarge = ({ ref, ...props }: LogoLargeProps): React.JSX.Element => {
   const { colorScheme } = useColorScheme()
   const main = colorScheme === "dark" ? color.white : color.black
   const inverse = colorScheme === "dark" ? color.black : color.white
@@ -65,4 +67,4 @@ export const LogoLarge = forwardRef<SVGSVGElement, LogoLargeProps>((props, ref) 
       />
     </svg>
   )
-})
+}

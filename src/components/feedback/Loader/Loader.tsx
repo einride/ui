@@ -1,28 +1,28 @@
 import styled from "@emotion/styled"
 import { motion } from "framer-motion"
-import { ComponentPropsWithoutRef, forwardRef } from "react"
+import { ComponentPropsWithoutRef } from "react"
 
-export type LoaderProps = ComponentPropsWithoutRef<"div">
+export type LoaderProps = ComponentPropsWithoutRef<"div"> & {
+  ref?: React.Ref<HTMLDivElement> | undefined
+}
 
 /** A loading indicator. Can be used when loading content in cards for example. Prefer using `<Skeleton>` when possible to reduce layout shift. */
-export const Loader = forwardRef<HTMLDivElement, LoaderProps>(
-  (props, forwardedRef): React.JSX.Element => {
-    return (
-      <Wrapper {...props} ref={forwardedRef}>
-        <Line
-          animate={{
-            rotate: 180,
-            transition: {
-              repeat: Infinity,
-              ease: [0.84, 0.0, 0.33, 1.0],
-              duration: 1,
-            },
-          }}
-        />
-      </Wrapper>
-    )
-  },
-)
+export const Loader = ({ ref, ...props }: LoaderProps): React.JSX.Element => {
+  return (
+    <Wrapper {...props} ref={ref}>
+      <Line
+        animate={{
+          rotate: 180,
+          transition: {
+            repeat: Infinity,
+            ease: [0.84, 0.0, 0.33, 1.0],
+            duration: 1,
+          },
+        }}
+      />
+    </Wrapper>
+  )
+}
 
 const Wrapper = styled.div`
   position: relative;

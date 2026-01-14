@@ -1,6 +1,6 @@
 import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef } from "react"
+import { ComponentPropsWithoutRef, ElementType, ReactNode } from "react"
 import { ContentColor, Font } from "../../../lib/theme/types"
 
 export interface CaptionProps extends Omit<ComponentPropsWithoutRef<"p">, "color"> {
@@ -15,17 +15,23 @@ export interface CaptionProps extends Omit<ComponentPropsWithoutRef<"p">, "color
 
   /** Font styling. */
   font?: Font
+
+  ref?: React.Ref<HTMLParagraphElement> | undefined
 }
 
-export const Caption = forwardRef<HTMLParagraphElement, CaptionProps>(
-  ({ children, color, font, ...props }, ref) => {
-    return (
-      <StyledText color={color} font={font} {...props} ref={ref}>
-        {children}
-      </StyledText>
-    )
-  },
-)
+export const Caption = ({
+  ref,
+  children,
+  color,
+  font,
+  ...props
+}: CaptionProps): React.JSX.Element => {
+  return (
+    <StyledText color={color} font={font} {...props} ref={ref}>
+      {children}
+    </StyledText>
+  )
+}
 
 interface StyledTextProps {
   color: ContentColor | undefined

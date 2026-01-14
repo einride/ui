@@ -1,6 +1,6 @@
 import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
-import { ElementType, HTMLAttributes, ReactNode, forwardRef } from "react"
+import { ElementType, HTMLAttributes, ReactNode } from "react"
 import { ContentColor, Font } from "../../../lib/theme/types"
 
 export interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
@@ -15,17 +15,23 @@ export interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
 
   /** Font styling. */
   font?: Font
+
+  ref?: React.Ref<HTMLParagraphElement> | undefined
 }
 
-export const Paragraph = forwardRef<HTMLParagraphElement, ParagraphProps>(
-  ({ children, color, font, ...props }, ref) => {
-    return (
-      <StyledText color={color} font={font} {...props} ref={ref}>
-        {children}
-      </StyledText>
-    )
-  },
-)
+export const Paragraph = ({
+  ref,
+  children,
+  color,
+  font,
+  ...props
+}: ParagraphProps): React.JSX.Element => {
+  return (
+    <StyledText color={color} font={font} {...props} ref={ref}>
+      {children}
+    </StyledText>
+  )
+}
 
 interface StyledTextProps {
   color: ContentColor | undefined

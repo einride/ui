@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import * as RadioGroup from "@radix-ui/react-radio-group"
-import { ReactNode, forwardRef } from "react"
+import { ReactNode } from "react"
 
 export interface SegmentsProps {
   /** Segments content. */
@@ -17,16 +17,18 @@ export interface SegmentsProps {
 
   /** The controlled value of the selected segment. Should be used in conjunction with `onValueChange`. */
   value?: string
+
+  ref?: React.Ref<HTMLDivElement> | undefined
 }
 
 /** Segments are a tab-like alternative to radio buttons. */
-export const Segments = forwardRef<HTMLDivElement, SegmentsProps>(({ children, ...props }, ref) => {
+export const Segments = ({ ref, children, ...props }: SegmentsProps): React.JSX.Element => {
   return (
     <Root {...props} ref={ref}>
       {children}
     </Root>
   )
-})
+}
 
 const Root = styled(RadioGroup.Root)`
   background: ${({ theme }) => theme.colors.background.secondaryElevated};

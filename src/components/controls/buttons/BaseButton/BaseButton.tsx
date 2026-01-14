@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef } from "react"
+import { ComponentPropsWithoutRef, ElementType, ReactNode } from "react"
 
 export interface BaseButtonProps extends ComponentPropsWithoutRef<"button"> {
   /** Rendered element. */
@@ -10,11 +10,13 @@ export interface BaseButtonProps extends ComponentPropsWithoutRef<"button"> {
 
   /** Whether the button has a label or not. */
   hasIcon?: boolean
+
+  ref?: React.Ref<HTMLButtonElement> | undefined
 }
 
-export const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(({ ...props }, ref) => {
+export const BaseButton = ({ ref, ...props }: BaseButtonProps): React.JSX.Element => {
   return <StyledButton {...props} ref={ref} />
-})
+}
 
 const StyledButton = styled.button<{ hasIcon?: boolean }>`
   block-size: ${({ theme }) => 6 * theme.spacingBase}rem;

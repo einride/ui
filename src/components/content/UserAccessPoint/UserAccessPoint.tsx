@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, ElementType, forwardRef } from "react"
+import { ComponentPropsWithoutRef, ElementType } from "react"
 import { Avatar } from "../Avatar/Avatar"
 
 export interface UserAccessPointBaseProps extends Omit<ComponentPropsWithoutRef<"button">, "name"> {
@@ -8,6 +8,8 @@ export interface UserAccessPointBaseProps extends Omit<ComponentPropsWithoutRef<
 
   /** Status of the user access point. Default is `default`. */
   status?: Status
+
+  ref?: React.Ref<HTMLButtonElement> | undefined
 }
 
 interface UserAccessPointWithImageProps {
@@ -24,38 +26,40 @@ export type UserAccessPointProps = UserAccessPointBaseProps &
   (UserAccessPointWithImageProps | UserAccessPointWithInitialsProps)
 
 /** A button displaying avatar or initials. Can be used for opening a sidebar with user related settings. */
-export const UserAccessPoint = forwardRef<HTMLButtonElement, UserAccessPointProps>(
-  ({ status = "default", ...props }, ref) => {
-    if (status === "no-user") {
-      return (
-        <Button status={status} {...props} ref={ref}>
-          <StyledAvatar
-            alt="Einride logo"
-            size="sm"
-            src="https://avatars.githubusercontent.com/u/31446515?s=200&v=4"
-          />
-        </Button>
-      )
-    }
-
+export const UserAccessPoint = ({
+  ref,
+  status = "default",
+  ...props
+}: UserAccessPointProps): React.JSX.Element => {
+  if (status === "no-user") {
     return (
       <Button status={status} {...props} ref={ref}>
-        {"avatarImageSrc" in props ? (
-          <StyledAvatar alt="User profile picture" size="sm" src={props.avatarImageSrc} />
-        ) : (
-          <StyledAvatar
-            aria-label={props.name}
-            background="primaryInverted"
-            color="primaryInverted"
-            name={props.name}
-            size="sm"
-          />
-        )}
-        <Right>{status === "notification" ? <Notification /> : <Dots aria-label="Search" />}</Right>
+        <StyledAvatar
+          alt="Einride logo"
+          size="sm"
+          src="https://avatars.githubusercontent.com/u/31446515?s=200&v=4"
+        />
       </Button>
     )
-  },
-)
+  }
+
+  return (
+    <Button status={status} {...props} ref={ref}>
+      {"avatarImageSrc" in props ? (
+        <StyledAvatar alt="User profile picture" size="sm" src={props.avatarImageSrc} />
+      ) : (
+        <StyledAvatar
+          aria-label={props.name}
+          background="primaryInverted"
+          color="primaryInverted"
+          name={props.name}
+          size="sm"
+        />
+      )}
+      <Right>{status === "notification" ? <Notification /> : <Dots aria-label="Search" />}</Right>
+    </Button>
+  )
+}
 
 type Status = "default" | "notification" | "no-user"
 

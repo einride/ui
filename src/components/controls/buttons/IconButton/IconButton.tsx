@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, ElementType, forwardRef } from "react"
+import { ComponentPropsWithoutRef, ElementType } from "react"
 import { Icon, IconName } from "../../../content/Icon/Icon"
 import { BaseButton } from "../BaseButton/BaseButton"
 
@@ -18,18 +18,23 @@ export interface IconButtonProps extends ComponentPropsWithoutRef<"button"> {
 
   /** Color variant of the icon button. Default is `secondary`. */
   variant?: Variant
+
+  ref?: React.Ref<HTMLButtonElement> | undefined
 }
 
 /** Small button with icon only. */
-export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ icon = "arrowRight", variant = "secondary", ...props }, ref) => {
-    return (
-      <StyledBaseButton variant={variant} {...props} ref={ref}>
-        <Icon name={icon} />
-      </StyledBaseButton>
-    )
-  },
-)
+export const IconButton = ({
+  ref,
+  icon = "arrowRight",
+  variant = "secondary",
+  ...props
+}: IconButtonProps): React.JSX.Element => {
+  return (
+    <StyledBaseButton variant={variant} {...props} ref={ref}>
+      <Icon name={icon} />
+    </StyledBaseButton>
+  )
+}
 
 type Variant = "primary" | "secondary" | "tertiary"
 

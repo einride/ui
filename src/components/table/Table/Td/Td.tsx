@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, forwardRef } from "react"
+import { ComponentPropsWithoutRef } from "react"
 import { getColor, getFont } from "../../../../lib/theme/prop-system"
 import { Color, FontFamily, TextAlign } from "../../../../lib/theme/props"
 
@@ -12,17 +12,17 @@ interface TdProps extends Omit<ComponentPropsWithoutRef<"td">, "color"> {
 
   /** `text-align` CSS property. Set to `end` to end-align content in table cell. */
   textAlign?: TextAlign
+
+  ref?: React.Ref<HTMLTableCellElement> | undefined
 }
 
-export const Td = forwardRef<HTMLTableCellElement, TdProps>(
-  ({ children, color, ...props }, ref) => {
-    return (
-      <StyledTd textColor={color} {...props} ref={ref}>
-        {children}
-      </StyledTd>
-    )
-  },
-)
+export const Td = ({ ref, children, color, ...props }: TdProps): React.JSX.Element => {
+  return (
+    <StyledTd textColor={color} {...props} ref={ref}>
+      {children}
+    </StyledTd>
+  )
+}
 
 interface StyledTdProps {
   font?: FontFamily

@@ -1,6 +1,6 @@
 import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
-import { ElementType, HTMLAttributes, ReactNode, forwardRef } from "react"
+import { ElementType, HTMLAttributes, ReactNode } from "react"
 import { ContentColor, Font } from "../../../lib/theme/types"
 
 export interface MegaTitleProps extends HTMLAttributes<HTMLHeadingElement> {
@@ -15,17 +15,23 @@ export interface MegaTitleProps extends HTMLAttributes<HTMLHeadingElement> {
 
   /** Font styling. */
   font?: Font
+
+  ref?: React.Ref<HTMLHeadingElement> | undefined
 }
 
-export const MegaTitle = forwardRef<HTMLHeadingElement, MegaTitleProps>(
-  ({ children, color, font, ...props }, ref) => {
-    return (
-      <StyledText color={color} font={font} {...props} ref={ref}>
-        {children}
-      </StyledText>
-    )
-  },
-)
+export const MegaTitle = ({
+  ref,
+  children,
+  color,
+  font,
+  ...props
+}: MegaTitleProps): React.JSX.Element => {
+  return (
+    <StyledText color={color} font={font} {...props} ref={ref}>
+      {children}
+    </StyledText>
+  )
+}
 
 interface StyledTextProps {
   color: ContentColor | undefined

@@ -1,12 +1,5 @@
 import styled from "@emotion/styled"
-import {
-  ComponentPropsWithoutRef,
-  ReactNode,
-  forwardRef,
-  useCallback,
-  useId,
-  useState,
-} from "react"
+import { ComponentPropsWithoutRef, ReactNode, useCallback, useId, useState } from "react"
 import { ContentColor } from "../../../../lib/theme/types"
 import { Icon } from "../../../content/Icon/Icon"
 import { Box, BoxProps } from "../../../layout/Box/Box"
@@ -30,6 +23,8 @@ interface SelectBaseProps extends Omit<ComponentPropsWithoutRef<"select">, "pref
 
   /** Props passed to root element. */
   wrapperProps?: BoxProps
+
+  ref?: React.Ref<HTMLSelectElement> | undefined
 }
 
 interface SelectWithLabelProps {
@@ -47,51 +42,58 @@ interface SelectWithoutLabelProps {
 
 export type SelectProps = SelectBaseProps & (SelectWithLabelProps | SelectWithoutLabelProps)
 
-export const Select = forwardRef<HTMLSelectElement, SelectProps>(
-  ({ children, message, placeholder, prefix, status, wrapperProps, ...props }, ref) => {
-    const id = useId()
-    const messageId = useId()
-    const [prefixWidthPx, setPrefixWidthPx] = useState(0)
-    const prefixRef = useCallback((node: HTMLDivElement | null) => {
-      setPrefixWidthPx(node ? node.offsetWidth : 0)
-    }, [])
-    const offsetWidthRem = getOffsetWidthRem(prefixWidthPx)
+export const Select = ({
+  ref,
+  children,
+  message,
+  placeholder,
+  prefix,
+  status,
+  wrapperProps,
+  ...props
+}: SelectProps): React.JSX.Element => {
+  const id = useId()
+  const messageId = useId()
+  const [prefixWidthPx, setPrefixWidthPx] = useState(0)
+  const prefixRef = useCallback((node: HTMLDivElement | null) => {
+    setPrefixWidthPx(node ? node.offsetWidth : 0)
+  }, [])
+  const offsetWidthRem = getOffsetWidthRem(prefixWidthPx)
 
-    return (
-      <Box {...wrapperProps}>
-        {"label" in props && (
-          <StyledLabel {...props.labelProps} htmlFor={id}>
-            {props.label}
-          </StyledLabel>
+  return (
+    <Box {...wrapperProps}>
+      {"label" in props && (
+        <StyledLabel {...props.labelProps} htmlFor={id}>
+          {props.label}
+        </StyledLabel>
+      )}
+      <SelectWrapper>
+        {prefix && (
+          <Prefix aria-hidden ref={prefixRef}>
+            {prefix}
+          </Prefix>
         )}
-        <SelectWrapper>
-          {prefix && (
-            <Prefix aria-hidden ref={prefixRef}>
-              {prefix}
-            </Prefix>
-          )}
-          <StyledSelect
-            {...props}
-            {...(status === "fail" && { "aria-errormessage": messageId, "aria-invalid": "true" })}
-            hasLabel={"label" in props}
-            offsetWidthRem={offsetWidthRem}
-            id={id}
-            ref={ref}
-          >
-            {placeholder && <option value="">{placeholder}</option>}
-            {children}
-          </StyledSelect>
-          <StyledIcon name="chevronDown" />
-        </SelectWrapper>
-        {message && (
-          <Caption color={getMessageColor(status)} id={messageId}>
-            {message}
-          </Caption>
-        )}
-      </Box>
-    )
-  },
-)
+        <StyledSelect
+          {...props}
+          {...(status === "fail" && { "aria-errormessage": messageId, "aria-invalid": "true" })}
+          hasLabel={"label" in props}
+          offsetWidthRem={offsetWidthRem}
+          id={id}
+          ref={ref}
+        >
+          {placeholder && <option value="">{placeholder}</option>}
+          {children}
+        </StyledSelect>
+        <StyledIcon name="chevronDown" />
+      </SelectWrapper>
+      {message && (
+        <Caption color={getMessageColor(status)} id={messageId}>
+          {message}
+        </Caption>
+      )}
+    </Box>
+  )
+}
 
 type Status = "success" | "fail" | "neutral"
 

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, ElementType, forwardRef, useState } from "react"
+import { ComponentPropsWithoutRef, ElementType, useState } from "react"
 import { getBackground, getBorderRadius, getColor } from "../../../lib/theme/prop-system"
 import { Background, BorderRadius, Color } from "../../../lib/theme/props"
 import { Theme } from "../../../lib/theme/types"
@@ -20,6 +20,8 @@ interface AvatarBaseProps {
 
   /** Size of the avatar. Default is `md`. */
   size?: Size
+
+  ref?: React.Ref<HTMLImageElement> | undefined
 }
 
 interface AvatarImageProps extends ComponentPropsWithoutRef<"img"> {
@@ -41,60 +43,65 @@ interface AvatarInitialsProps extends ComponentPropsWithoutRef<"div"> {
 export type AvatarProps = AvatarBaseProps & (AvatarImageProps | AvatarInitialsProps)
 
 /** An avatar with an image or initials. */
-export const Avatar = forwardRef<HTMLImageElement, AvatarProps>(
-  ({ background = "primary", color = "primary", radius = "full", size = "md", ...props }, ref) => {
-    const [hasError, setHasError] = useState(false)
+export const Avatar = ({
+  ref,
+  background = "primary",
+  color = "primary",
+  radius = "full",
+  size = "md",
+  ...props
+}: AvatarProps): React.JSX.Element => {
+  const [hasError, setHasError] = useState(false)
 
-    if ("src" in props && typeof props.src === "string") {
-      const { name, src, ...rest } = props
+  if ("src" in props && typeof props.src === "string") {
+    const { name, src, ...rest } = props
 
-      if (hasError) {
-        return (
-          <Image
-            as="div"
-            {...rest}
-            background={background}
-            radius={radius}
-            size={size}
-            textColor={color}
-            ref={ref}
-          >
-            {getInitials(name)}
-          </Image>
-        )
-      }
-
+    if (hasError) {
       return (
         <Image
+          as="div"
           {...rest}
           background={background}
-          onError={() => setHasError(true)}
           radius={radius}
           size={size}
-          src={src}
           textColor={color}
           ref={ref}
-        />
+        >
+          {getInitials(name)}
+        </Image>
       )
     }
 
-    const { name, ...rest } = props
     return (
       <Image
-        as="div"
-        inverted
         {...rest}
         background={background}
+        onError={() => setHasError(true)}
         radius={radius}
         size={size}
+        src={src}
         textColor={color}
         ref={ref}
-      >
-        {getInitials(name)}
-      </Image>
+      />
     )
-  },
-)
+  }
+
+  const { name, ...rest } = props
+  return (
+    <Image
+      as="div"
+      inverted
+      {...rest}
+      background={background}
+      radius={radius}
+      size={size}
+      textColor={color}
+      ref={ref}
+    >
+      {getInitials(name)}
+    </Image>
+  )
+}
 
 type Size = "sm" | "md"
 

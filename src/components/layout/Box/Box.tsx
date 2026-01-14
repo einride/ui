@@ -1,6 +1,6 @@
 import isPropValid from "@emotion/is-prop-valid"
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, forwardRef } from "react"
+import { ComponentPropsWithoutRef } from "react"
 import {
   getBackground,
   getBorderRadius,
@@ -191,12 +191,14 @@ export interface BoxProps extends Omit<ComponentPropsWithoutRef<"div">, "color">
 
   /** Width of the box. */
   width?: Width
+
+  ref?: React.Ref<HTMLDivElement> | undefined
 }
 
 /** The most primitive component that allows adding inline styles based on theme. */
-export const Box = forwardRef<HTMLDivElement, BoxProps>(({ color, ...props }, forwardedRef) => {
-  return <Wrapper textColor={color} {...props} ref={forwardedRef} />
-})
+export const Box = ({ ref, color, ...props }: BoxProps): React.JSX.Element => {
+  return <Wrapper textColor={color} {...props} ref={ref} />
+}
 
 interface WrapperProps {
   alignItems?: AlignItems

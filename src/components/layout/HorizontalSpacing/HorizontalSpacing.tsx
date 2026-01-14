@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ElementType, HTMLAttributes, forwardRef } from "react"
+import { ElementType, HTMLAttributes } from "react"
 import { Theme } from "../../../lib/theme/types"
 
 export interface HorizontalSpacingProps extends HTMLAttributes<HTMLDivElement> {
@@ -8,13 +8,17 @@ export interface HorizontalSpacingProps extends HTMLAttributes<HTMLDivElement> {
 
   /** Size of spacing. Default is `sm`. */
   size?: Size
+
+  ref?: React.Ref<HTMLDivElement> | undefined
 }
 
-export const HorizontalSpacing = forwardRef<HTMLDivElement, HorizontalSpacingProps>(
-  ({ size = "sm", ...props }, ref) => {
-    return <StyledDiv size={size} {...props} ref={ref} />
-  },
-)
+export const HorizontalSpacing = ({
+  ref,
+  size = "sm",
+  ...props
+}: HorizontalSpacingProps): React.JSX.Element => {
+  return <StyledDiv size={size} {...props} ref={ref} />
+}
 
 type Size = "sm" | "lg"
 

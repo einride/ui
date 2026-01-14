@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef } from "react"
+import { ComponentPropsWithoutRef, ElementType, ReactNode } from "react"
 import { BaseButton } from "../BaseButton/BaseButton"
 import { BaseButtonIcon } from "../BaseButton/BaseButtonIcon"
 
@@ -21,27 +21,34 @@ export interface PrimaryButtonProps extends ComponentPropsWithoutRef<"button"> {
 
   /** Adds an icon to the right side of the button. */
   rightIcon?: ReactNode
+
+  ref?: React.Ref<HTMLButtonElement> | undefined
 }
 
 /** Button for primary actions. */
-export const PrimaryButton = forwardRef<HTMLButtonElement, PrimaryButtonProps>(
-  ({ children, isLoading = false, rightIcon, isFullWidth = false, ...props }, ref) => {
-    const hasIcon = !!rightIcon || isLoading
-    return (
-      <StyledBaseButton hasIcon={hasIcon} isFullWidth={isFullWidth} {...props} ref={ref}>
-        <span data-content>{children}</span>
-        {(rightIcon || isLoading) && (
-          <BaseButtonIcon
-            data-icon
-            icon={rightIcon}
-            innerWrapperProps={{ color: "positiveInverted" }}
-            isLoading={isLoading}
-          />
-        )}
-      </StyledBaseButton>
-    )
-  },
-)
+export const PrimaryButton = ({
+  ref,
+  children,
+  isLoading = false,
+  rightIcon,
+  isFullWidth = false,
+  ...props
+}: PrimaryButtonProps): React.JSX.Element => {
+  const hasIcon = !!rightIcon || isLoading
+  return (
+    <StyledBaseButton hasIcon={hasIcon} isFullWidth={isFullWidth} {...props} ref={ref}>
+      <span data-content>{children}</span>
+      {(rightIcon || isLoading) && (
+        <BaseButtonIcon
+          data-icon
+          icon={rightIcon}
+          innerWrapperProps={{ color: "positiveInverted" }}
+          isLoading={isLoading}
+        />
+      )}
+    </StyledBaseButton>
+  )
+}
 
 interface StyledBaseButtonProps {
   isFullWidth: boolean

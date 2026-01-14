@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, forwardRef } from "react"
+import { ComponentPropsWithoutRef } from "react"
 import { getColor } from "../../../lib/theme/prop-system"
 import { Color } from "../../../lib/theme/props"
 import { Box } from "../../layout/Box/Box"
@@ -16,33 +16,39 @@ export interface StepVerticalProgressProps extends Omit<ComponentPropsWithoutRef
 
   /** Number of steps. Default is `5`. */
   steps?: number
+
+  ref?: React.Ref<HTMLDivElement> | undefined
 }
 
 /** A progress bar that can be used for conveying progress. */
-export const StepVerticalProgress = forwardRef<HTMLDivElement, StepVerticalProgressProps>(
-  ({ color = "positive", completedSteps, steps = DEFAULT_STEPS, ...props }, ref) => {
-    return (
-      <Box
-        display="flex"
-        flexDirection="column-reverse"
-        gap="xs"
-        inlineSize="sm"
-        role="progressbar"
-        aria-valuemax={steps}
-        aria-valuemin={0}
-        aria-valuenow={completedSteps}
-        aria-valuetext={`${completedSteps} of ${steps} steps completed`}
-        {...props}
-        ref={ref}
-      >
-        {Array.from(Array(steps)).map((_, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <Step key={index} completed={index < completedSteps} textColor={color} />
-        ))}
-      </Box>
-    )
-  },
-)
+export const StepVerticalProgress = ({
+  ref,
+  color = "positive",
+  completedSteps,
+  steps = DEFAULT_STEPS,
+  ...props
+}: StepVerticalProgressProps): React.JSX.Element => {
+  return (
+    <Box
+      display="flex"
+      flexDirection="column-reverse"
+      gap="xs"
+      inlineSize="sm"
+      role="progressbar"
+      aria-valuemax={steps}
+      aria-valuemin={0}
+      aria-valuenow={completedSteps}
+      aria-valuetext={`${completedSteps} of ${steps} steps completed`}
+      {...props}
+      ref={ref}
+    >
+      {Array.from(Array(steps)).map((_, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <Step key={index} completed={index < completedSteps} textColor={color} />
+      ))}
+    </Box>
+  )
+}
 
 export const DEFAULT_STEPS = 5
 

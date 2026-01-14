@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef } from "react"
+import { ComponentPropsWithoutRef, ElementType, ReactNode } from "react"
 import { ColorScheme, useColorScheme } from "../../../contexts/ColorSchemeProvider"
 import { getBackground, getColor } from "../../../lib/theme/prop-system"
 import { Background, Color } from "../../../lib/theme/props"
@@ -20,25 +20,31 @@ export interface LabelProps extends Omit<ComponentPropsWithoutRef<"span">, "colo
 
   /** Variant of the label. Default is `secondary`. */
   variant?: Variant
+
+  ref?: React.Ref<HTMLSpanElement> | undefined
 }
 
 /** Small pill-like label. */
-export const Label = forwardRef<HTMLSpanElement, LabelProps>(
-  ({ children, color, variant = "secondary", ...props }, ref) => {
-    const colorScheme = useColorScheme()
-    return (
-      <StyledSpan
-        colorScheme={colorScheme.colorScheme}
-        variant={variant}
-        textColor={color}
-        {...props}
-        ref={ref}
-      >
-        {children}
-      </StyledSpan>
-    )
-  },
-)
+export const Label = ({
+  ref,
+  children,
+  color,
+  variant = "secondary",
+  ...props
+}: LabelProps): React.JSX.Element => {
+  const colorScheme = useColorScheme()
+  return (
+    <StyledSpan
+      colorScheme={colorScheme.colorScheme}
+      variant={variant}
+      textColor={color}
+      {...props}
+      ref={ref}
+    >
+      {children}
+    </StyledSpan>
+  )
+}
 
 export type Variant = Extract<
   Background,

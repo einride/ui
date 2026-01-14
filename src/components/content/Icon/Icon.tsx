@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef } from "react"
+import { ComponentPropsWithoutRef, ElementType, ReactNode } from "react"
 import { getColor } from "../../../lib/theme/prop-system"
 import { ContentColor } from "../../../lib/theme/types"
 
@@ -12,18 +12,20 @@ export interface IconProps extends ComponentPropsWithoutRef<"span"> {
 
   /** Icon to show. */
   name: IconName
+
+  ref?: React.Ref<HTMLSpanElement> | undefined
 }
 
 // use for example https://mothereff.in/html-entities to convert figma icons to html entities
 
 /** Render icons as text. */
-export const Icon = forwardRef<HTMLSpanElement, IconProps>(({ name, color, ...props }, ref) => {
+export const Icon = ({ ref, name, color, ...props }: IconProps): React.JSX.Element => {
   return (
     <StyledSpan aria-hidden="true" textColor={color} {...props} ref={ref}>
       {getEncodedEntity(name)}
     </StyledSpan>
   )
-})
+}
 
 interface StyledSpanProps {
   textColor: ContentColor | undefined

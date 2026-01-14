@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, forwardRef, useId } from "react"
+import { ComponentPropsWithoutRef, useId } from "react"
 import { Icon } from "../../../content/Icon/Icon"
 import { Box, BoxProps } from "../../../layout/Box/Box"
 
@@ -21,55 +21,53 @@ export interface CheckboxProps extends Omit<ComponentPropsWithoutRef<"input">, "
 
   /** Props passed to the root element.. */
   wrapperProps?: BoxProps
+
+  ref?: React.Ref<HTMLInputElement> | undefined
 }
 
 /** Checkbox control. */
-export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  (
-    {
-      children,
-      indeterminate,
-      innerWrapperProps,
-      labelProps,
-      onCheckedChange,
-      wrapperProps,
-      ...props
-    },
-    ref,
-  ) => {
-    const id = useId()
-    return (
-      <Wrapper
-        display="flex"
-        alignItems="center"
-        paddingBlock={1.5}
-        paddingInline={2}
-        {...wrapperProps}
-      >
-        <InnerWrapper display="flex" position="relative" {...innerWrapperProps}>
-          <StyledInput
-            id={id}
-            data-indeterminate={indeterminate}
-            type="checkbox"
-            {...props}
-            onChange={(e) => onCheckedChange?.(e.target.checked)}
-            ref={ref}
-          />
-          {indeterminate ? (
-            <MinusSpan>—</MinusSpan>
-          ) : (
-            <StyledIcon color="primaryInverted" name="checkmark" />
-          )}
-        </InnerWrapper>
-        {children ? (
-          <StyledLabel htmlFor={id} {...labelProps}>
-            {children}
-          </StyledLabel>
-        ) : null}
-      </Wrapper>
-    )
-  },
-)
+export const Checkbox = ({
+  ref,
+  children,
+  indeterminate,
+  innerWrapperProps,
+  labelProps,
+  onCheckedChange,
+  wrapperProps,
+  ...props
+}: CheckboxProps): React.JSX.Element => {
+  const id = useId()
+  return (
+    <Wrapper
+      display="flex"
+      alignItems="center"
+      paddingBlock={1.5}
+      paddingInline={2}
+      {...wrapperProps}
+    >
+      <InnerWrapper display="flex" position="relative" {...innerWrapperProps}>
+        <StyledInput
+          id={id}
+          data-indeterminate={indeterminate}
+          type="checkbox"
+          {...props}
+          onChange={(e) => onCheckedChange?.(e.target.checked)}
+          ref={ref}
+        />
+        {indeterminate ? (
+          <MinusSpan>—</MinusSpan>
+        ) : (
+          <StyledIcon color="primaryInverted" name="checkmark" />
+        )}
+      </InnerWrapper>
+      {children ? (
+        <StyledLabel htmlFor={id} {...labelProps}>
+          {children}
+        </StyledLabel>
+      ) : null}
+    </Wrapper>
+  )
+}
 
 const Wrapper = styled(Box)`
   &:has(input[type="checkbox"]:focus-visible) label {

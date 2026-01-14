@@ -5,7 +5,6 @@ import {
   ComponentPropsWithoutRef,
   ElementType,
   ReactNode,
-  forwardRef,
   useRef,
 } from "react"
 import { Icon } from "../../../content/Icon/Icon"
@@ -36,6 +35,8 @@ interface SearchInputBaseProps extends ComponentPropsWithoutRef<"input"> {
 
   /** Props passed to root element. */
   wrapperProps?: BoxProps
+
+  ref?: React.Ref<HTMLInputElement> | undefined
 }
 interface SearchInputWithLabelProps {
   /** Input label, displayed before input. */
@@ -53,47 +54,53 @@ interface SearchInputWithoutLabelProps {
 export type SearchInputProps = SearchInputBaseProps &
   (SearchInputWithLabelProps | SearchInputWithoutLabelProps)
 
-export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
-  ({ value, defaultValue, onInputChange, clearButtonProps, suffix, ...props }, ref) => {
-    const innerRef = useRef<HTMLInputElement>(null)
-    const combinedRef = useMergedRef(ref, innerRef)
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    const [_value = "", handleChange] = useUncontrolled({
-      value,
-      defaultValue,
-      onChange: onInputChange,
-    })
+export const SearchInput = ({
+  ref,
+  value,
+  defaultValue,
+  onInputChange,
+  clearButtonProps,
+  suffix,
+  ...props
+}: SearchInputProps): React.JSX.Element => {
+  const innerRef = useRef<HTMLInputElement>(null)
+  const combinedRef = useMergedRef(ref, innerRef)
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
+  const [_value = "", handleChange] = useUncontrolled({
+    value,
+    defaultValue,
+    onChange: onInputChange,
+  })
 
-    const onClearInput = (): void => {
-      handleChange("")
-      innerRef.current?.focus()
-    }
+  const onClearInput = (): void => {
+    handleChange("")
+    innerRef.current?.focus()
+  }
 
-    return (
-      <BaseInput
-        {...props}
-        leftIcon={<Icon name="loupe" />}
-        onChange={(e) => handleChange?.(e.target.value)}
-        rightIcon={
-          _value?.toString()?.length ? (
-            <ClearButton
-              type="button"
-              onClick={onClearInput}
-              {...clearButtonProps}
-              aria-label="Clear input"
-            >
-              <Icon name="xMark" />
-            </ClearButton>
-          ) : null
-        }
-        suffix={suffix}
-        value={_value}
-        ref={combinedRef}
-      />
-    )
-  },
-)
+  return (
+    <BaseInput
+      {...props}
+      leftIcon={<Icon name="loupe" />}
+      onChange={(e) => handleChange?.(e.target.value)}
+      rightIcon={
+        _value?.toString()?.length ? (
+          <ClearButton
+            type="button"
+            onClick={onClearInput}
+            {...clearButtonProps}
+            aria-label="Clear input"
+          >
+            <Icon name="xMark" />
+          </ClearButton>
+        ) : null
+      }
+      suffix={suffix}
+      value={_value}
+      ref={combinedRef}
+    />
+  )
+}
 
 const ClearButton = styled.button`
   inline-size: 100%;

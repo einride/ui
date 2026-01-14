@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, forwardRef } from "react"
+import { ComponentPropsWithoutRef } from "react"
 import { getColor, getFont } from "../../../../lib/theme/prop-system"
 import { Color, FontFamily } from "../../../../lib/theme/props"
 
@@ -9,17 +9,17 @@ export interface TheadProps extends Omit<ComponentPropsWithoutRef<"thead">, "col
 
   /** Font set on the table head. */
   font?: FontFamily
+
+  ref?: React.Ref<HTMLTableSectionElement> | undefined
 }
 
-export const Thead = forwardRef<HTMLTableSectionElement, TheadProps>(
-  ({ children, color, ...props }, ref) => {
-    return (
-      <StyledThead textColor={color} {...props} ref={ref}>
-        {children}
-      </StyledThead>
-    )
-  },
-)
+export const Thead = ({ ref, children, color, ...props }: TheadProps): React.JSX.Element => {
+  return (
+    <StyledThead textColor={color} {...props} ref={ref}>
+      {children}
+    </StyledThead>
+  )
+}
 
 interface StyledTheadProps {
   font?: FontFamily

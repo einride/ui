@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef } from "react"
+import { ComponentPropsWithoutRef, ElementType, ReactNode } from "react"
 import { Icon } from "../../../content/Icon/Icon"
 import { BoxProps } from "../../../layout/Box/Box"
 import { BaseInput, MessageProps, Status } from "../BaseInput/BaseInput"
@@ -27,6 +27,8 @@ interface TextInputBaseProps extends ComponentPropsWithoutRef<"input"> {
 
   /** Props passed to root element. */
   wrapperProps?: BoxProps
+
+  ref?: React.Ref<HTMLInputElement> | undefined
 }
 
 interface TextInputWithLabelProps {
@@ -46,20 +48,24 @@ export type TextInputProps = TextInputBaseProps &
   (TextInputWithLabelProps | TextInputWithoutLabelProps)
 
 /** Capture string input from user. */
-export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
-  ({ message, suffix, status, ...props }, ref) => {
-    return (
-      <BaseInput
-        {...props}
-        message={message}
-        rightIcon={getStatusIcon(status)}
-        status={status}
-        suffix={suffix}
-        ref={ref}
-      />
-    )
-  },
-)
+export const TextInput = ({
+  ref,
+  message,
+  suffix,
+  status,
+  ...props
+}: TextInputProps): React.JSX.Element => {
+  return (
+    <BaseInput
+      {...props}
+      message={message}
+      rightIcon={getStatusIcon(status)}
+      status={status}
+      suffix={suffix}
+      ref={ref}
+    />
+  )
+}
 
 const getStatusIcon = (status?: Status): React.JSX.Element | null => {
   switch (status) {

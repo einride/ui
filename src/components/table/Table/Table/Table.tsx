@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ComponentPropsWithoutRef, forwardRef } from "react"
+import { ComponentPropsWithoutRef } from "react"
 import { getColor, getFont } from "../../../../lib/theme/prop-system"
 import { Color, FontFamily } from "../../../../lib/theme/props"
 
@@ -9,18 +9,18 @@ export interface TableProps extends Omit<ComponentPropsWithoutRef<"table">, "col
 
   /** Font set on the table. */
   font?: FontFamily
+
+  ref?: React.Ref<HTMLTableElement> | undefined
 }
 
 /** Represent tabular data. */
-export const Table = forwardRef<HTMLTableElement, TableProps>(
-  ({ children, color, ...props }, ref) => {
-    return (
-      <StyledTable textColor={color} {...props} ref={ref}>
-        {children}
-      </StyledTable>
-    )
-  },
-)
+export const Table = ({ ref, children, color, ...props }: TableProps): React.JSX.Element => {
+  return (
+    <StyledTable textColor={color} {...props} ref={ref}>
+      {children}
+    </StyledTable>
+  )
+}
 
 interface StyledTableProps {
   font?: FontFamily
