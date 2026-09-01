@@ -81,7 +81,7 @@
     "vite": "6.4.3",
     "vite-plugin-turbosnap": "1.0.3",
     "vite-tsconfig-paths": "4.3.2",
-    "vitest": "3.2.6"
+    "vitest": "4.1.10"
   },
   "peerDependencies": {
     "@emotion/react": "^11.11.0",
