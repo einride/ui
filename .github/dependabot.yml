@@ -21,14 +21,26 @@ updates:
       commitlint:
         patterns:
           - "@commitlint/*"
+        update-types:
+          - "minor"
+          - "patch"
       mantine:
         patterns:
           - "@mantine*"
+        update-types:
+          - "minor"
+          - "patch"
       storybook:
         patterns:
           - "*storybook*"
+        update-types:
+          - "minor"
+          - "patch"
       dev-dependencies: # all other dev dependencies
         dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
     cooldown:
       default-days: 7
       semver-major-days: 30
