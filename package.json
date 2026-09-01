@@ -65,7 +65,7 @@
     "@types/react-dom": "18.2.24",
     "@vitejs/plugin-react": "4.2.1",
     "chromatic": "11.3.0",
-    "concurrently": "8.2.2",
+    "concurrently": "10.0.4",
     "eslint": "8.57.0",
     "eslint-plugin-storybook": "0.12.0",
     "framer-motion": "11.0.24",
