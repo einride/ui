@@ -814,7 +814,7 @@ __metadata:
     "@rollup/plugin-image": 3.0.3
     "@rollup/plugin-typescript": 11.1.2
     "@storybook/addon-a11y": 8.6.12
-    "@storybook/addon-actions": 8.6.12
+    "@storybook/addon-actions": 9.0.8
     "@storybook/addon-coverage": 1.0.5
     "@storybook/addon-essentials": 8.6.12
     "@storybook/addon-interactions": 8.6.12
@@ -5296,6 +5296,13 @@ __metadata:
   peerDependencies:
     storybook: ^8.6.12
   checksum: fe8233b9cf5164c3ed37acd4ed83e865a2ac69b33fbe08eff95db1f8a3827a107fe8334a986038986c8ab48bb6ff2cb7ce7bc5f7eb9c16132a387f035b312e19
+  languageName: node
+  linkType: hard
+
+"@storybook/addon-actions@npm:9.0.8":
+  version: 9.0.8
+  resolution: "@storybook/addon-actions@npm:9.0.8"
+  checksum: 3c5ad1ea7cfe80064aa55ff332c6f2849269520a84ce28b0ca36263ac45710ed9a0983d6f244d562425bc8d8d33400715f61f10303b5fd5e6a6b8183066deb0d
   languageName: node
   linkType: hard
 
