@@ -818,7 +818,7 @@ __metadata:
     "@storybook/addon-coverage": 1.0.5
     "@storybook/addon-essentials": 8.6.12
     "@storybook/addon-interactions": 8.6.12
-    "@storybook/addon-links": 8.6.12
+    "@storybook/addon-links": 10.5.5
     "@storybook/addon-styling": 1.3.7
     "@storybook/node-logger": 8.6.12
     "@storybook/react": 8.6.12
@@ -5216,19 +5216,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-links@npm:8.6.12":
-  version: 8.6.12
-  resolution: "@storybook/addon-links@npm:8.6.12"
+"@storybook/addon-links@npm:10.5.5":
+  version: 10.5.5
+  resolution: "@storybook/addon-links@npm:10.5.5"
   dependencies:
     "@storybook/global": ^5.0.0
-    ts-dedent: ^2.0.0
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
-    storybook: ^8.6.12
+    "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    storybook: ^10.5.5
   peerDependenciesMeta:
+    "@types/react":
+      optional: true
     react:
       optional: true
-  checksum: 85ce71b11ba105516f229259b1ba58985f4f59c38f992d7d9060b1c0fd67953073d4075c5e2fd3a3b8ad6890168ca240b5bedfffc2d48e3ccdd58dad75c8e32f
+  checksum: afcb547c690c13624487bce0edeb32d24ab266d603ed8133db172659dae49a48821ae73ad1ae0054bae591409e6e114d01c4e9a167e09f802f7625af38396984
   languageName: node
   linkType: hard
 
