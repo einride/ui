@@ -5,11 +5,11 @@ metadata:
   title: Einride UI
   description: Core components that adhere to Einride's design system.
   annotations:
-    backstage.io/source-location: url:https://github.com/einride/einride-ui/tree/master
+    backstage.io/source-location: url:https://github.com/einride/ui/tree/master/
     github.com/project-slug: einride/ui
-    github.com/team-slug: einride/platform-engineering
+    github.com/team-slug: einride/freight-control
 spec:
   type: library
   system: frontend-sdk
-  owner: platform-engineering
+  owner: freight-control
   lifecycle: production
