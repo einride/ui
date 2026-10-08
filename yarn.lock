@@ -851,7 +851,7 @@ __metadata:
     typescript: 5.4.4
     vite: 6.4.3
     vite-plugin-turbosnap: 1.0.3
-    vite-tsconfig-paths: 4.3.2
+    vite-tsconfig-paths: 6.1.1
     vitest: 3.2.6
   peerDependencies:
     "@emotion/react": ^11.11.0
@@ -16961,19 +16961,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-tsconfig-paths@npm:4.3.2":
-  version: 4.3.2
-  resolution: "vite-tsconfig-paths@npm:4.3.2"
+"vite-tsconfig-paths@npm:6.1.1":
+  version: 6.1.1
+  resolution: "vite-tsconfig-paths@npm:6.1.1"
   dependencies:
     debug: ^4.1.1
     globrex: ^0.1.2
     tsconfck: ^3.0.3
   peerDependencies:
     vite: "*"
-  peerDependenciesMeta:
-    vite:
-      optional: true
-  checksum: 7105ff641379f9f7055110f33067b236c8ee71b1390c0e6482412cdcc7a98c2e139c1c2a483d14fe9045d1977c14dc931e1ff302d6257ec919c70379db9d2419
+  checksum: 380566b99926df66e0a3e78b80cdd25e5be38bf546b22b157e4b3b263f31a049d221d8d6df48c3bcd9bb4eef02d4073645ae2b37fdb9e5bd3d8b30341b2db3de
   languageName: node
   linkType: hard
 
