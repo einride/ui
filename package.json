@@ -74,7 +74,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "rollup": "4.59.0",
-    "semantic-release": "23.0.7",
+    "semantic-release": "25.0.8",
     "storybook": "8.6.17",
     "tslib": "2.6.2",
     "typescript": "5.4.4",
